@@ -1,0 +1,10 @@
+* text=auto
+*.md text eol=lf
+*.json text eol=lf
+*.mjs text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.py text eol=lf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+# The parity fixture hashes engine.mjs bytes; keep its checkout stable.

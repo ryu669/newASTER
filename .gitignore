@@ -1,0 +1,36 @@
+# Local reference frames; original media remains outside the repository.
+.reference-analysis/
+dist/
+# Private preservation copies, account state and recordings.
+.local-archive/
+
+# Dependencies, local settings and temporary output.
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.vs/
+.idea/
+
+# Future Unity project: source assets and ProjectSettings remain versioned.
+game/[Ll]ibrary/
+game/[Tt]emp/
+game/[Oo]bj/
+game/[Bb]uild/
+game/[Bb]uilds/
+game/[Ll]ogs/
+game/[Uu]ser[Ss]ettings/
+game/[Mm]emoryCaptures/
+game/[Rr]ecordings/
+
+# Local-only preservation records, inventory and utilities.
+docs/angelica-preservation.md
+docs/reference-inventory.json
+tools/preserve-angelica.py
+tools/preserve-angelica.ps1
+tools/preserve-angelica-public.py

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101c29"><title>newASTER — 星骸の誓い</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar"><a href="./" class="brand">new<span>ASTER</span><small>星骸の誓い</small></a><div class="edition">COMBAT STUDY <b>02</b></div><div class="resources"><span>星片 <strong id="materials">0</strong></span><span>強化 <strong id="level">0 / 3</strong></span><button id="helpButton" class="quiet">遊び方</button><button id="memoryButton" class="quiet">記憶帳</button></div></header>
+  <main>
+    <section class="mission-heading"><div><p class="eyebrow">THE SILENT ARK / 浮遊遺構 01</p><h1>鐘を失くした方舟</h1><p class="subtitle">空に残された祈りを、もう一度。</p></div><div class="mission-label">討伐試作 <span>A / 自動戦闘＋連携指示</span></div></section>
+    <section class="progress-strip" aria-label="試作の目標"><span id="progressTitle"></span><span id="progressHint"></span></section>
+    <div class="game-layout">
+      <section class="arena" aria-label="戦闘画面">
+        <canvas id="scene" aria-label="空を飛ぶ3人の少女と巨大な方舟"></canvas>
+        <div class="boss-hud"><div class="boss-caption"><span>浮遊遺構・方舟</span><span id="bossValue">1,250 / 1,250</span></div><div class="bar boss-bar"><i id="bossFill"></i></div><div class="wing-line"><span>左翼</span><div class="bar"><i id="wingFill"></i></div><span id="wingValue">280 / 280</span></div></div>
+        <div class="arena-status"><span id="phaseLabel">出撃準備</span><span id="timer">00:00</span></div>
+        <div id="squadHud" class="squad-hud" aria-label="味方の現在HP"></div>
+        <div id="warning" class="warning" hidden></div>
+        <div class="scene-caption"><span>ALT. 8,400</span><span>THE SEA ABOVE THE CLOUDS</span></div>
+        <div id="chainBanner" class="chain-banner" hidden></div>
+        <div id="result" class="result" hidden><p class="eyebrow" id="resultEnglish"></p><h2 id="resultTitle"></h2><p id="resultText"></p><p id="resultStats"></p><button id="returnButton" class="primary">編成へ戻る</button></div>
+      </section>
+      <aside class="command-panel">
+        <div class="panel-heading"><span class="eyebrow">TACTICAL ORDER</span><span id="stateDot" class="dot"></span></div>
+        <h2 id="commandTitle">翼を折り、道を開く。</h2><p id="commandHint" class="hint">3人の順番が、連携の順番になります。防御・支援・攻撃をつないで、方舟を討伐しましょう。</p>
+        <div class="target-section"><span class="label">攻撃対象</span><div class="target-buttons"><button id="targetWing" aria-pressed="true">◇ 左翼 <small>大技を弱体化</small></button><button id="targetBody" aria-pressed="false">◈ 本体 <small>HPを削り討伐</small></button></div><p id="targetNote" class="micro">対象は出撃前と指示待ちの間に変更できます。</p></div>
+        <div class="sequence-box"><span class="label">発動する連携</span><div id="sequence" class="sequence"></div><ol id="relicForecast" class="relic-forecast" aria-label="連携順による遺物の効果"></ol><p id="forecast" class="micro"></p></div>
+        <div class="oath-box"><div class="oath-heading"><span>誓い</span><strong id="oathValue">0 / 3</strong></div><p id="oathHint" class="micro"></p><label><input type="checkbox" id="releaseOath" disabled>誓いをすべて解放して発動</label><p id="oathForecast" class="micro"></p></div>
+        <div class="command-actions"><button id="deploy" class="primary">出撃する <span>→</span></button><button id="fire" class="primary" hidden>発動する</button><button id="entrust" class="secondary" hidden>仲間へ託す <span>＋2秒</span></button></div>
+        <div class="options"><label><input type="checkbox" id="auto"> 指示をおまかせ</label><button id="pause" class="quiet" disabled>一時停止</button></div>
+        <button id="retreat" class="quiet retreat" hidden>撤退して編成へ</button>
+        <p class="micro auto-note">通常攻撃は常に自動。おまかせONでは指示時に即発動し、誓いを温存します。</p>
+        <div class="upgrade-section"><div><span class="label">部隊強化</span><p id="upgradeHint" class="micro">HP・攻撃力を10%強化</p></div><button id="upgrade" class="secondary">星片 4 で強化</button></div>
+      </aside>
+    </div>
+    <section class="squad-section"><div class="section-heading"><h2>誓いをつなぐ者たち</h2><span>FORMATION <b id="formationLabel">出撃前に順番を変更できます</b></span></div><div id="heroes" class="heroes"></div></section>
+    <section class="lower-grid"><div class="battle-log"><div class="section-heading"><h2>戦闘記録</h2><span>LIVE LOG</span></div><ol id="log" aria-label="最近の戦闘記録"></ol></div><div class="field-guide"><p class="eyebrow">FIELD GUIDE</p><h3>今、守る。あとで、つなぐ。</h3><p>「託す」で連携する仲間が増えます。ただし技はまだ発動せず、2秒間は敵の攻撃が続きます。危険が迫るときは、途中でも発動を。</p><p class="micro">勝利で星片3個、翼破壊でさらに1個。初回討伐で記憶が開きます。</p></div></section>
+    <footer><span>newASTER / PLAYABLE PROTOTYPE 0.2</span><span id="saveStatus" role="status">進行状況はこのブラウザに保存されます</span></footer>
+  </main>
+  <dialog id="memoryDialog"><button id="closeMemory" class="quiet close">閉じる ×</button><p class="eyebrow">FRAGMENT 01</p><h2>鐘を失くした方舟</h2><div id="memoryText"></div></dialog>
+  <dialog id="helpDialog" aria-labelledby="helpTitle"><button id="closeHelp" class="quiet close">閉じる ×</button><p class="eyebrow">FLIGHT GUIDE</p><h2 id="helpTitle">最初の討伐へ</h2><ol class="help-steps"><li><strong>編成して出撃</strong><p>初期の「セラ → リネ → アシュ」がおすすめ。防壁、回復、攻撃の順につながります。初戦は左翼を狙いましょう。</p></li><li><strong>12秒後、時間が止まったら指示</strong><p>「発動」で今の仲間が技を使います。「託す」で次の仲間を追加。ただし2秒間は敵も動きます。予告とHPを見て判断しましょう。</p></li><li><strong>誓いを温存するか解放するか</strong><p>託すたびに誓い＋1、最大3。2以上で通常攻撃＋10%。解放にチェックして発動すると、誓いをすべて使ってその連携の技を強化します。</p></li><li><strong>翼を壊して本体を討伐</strong><p>翼破壊で次の全体攻撃を中断。勝利で星片3、翼破壊でさらに1。星片4で部隊を強化し、初勝利で記憶帳が開きます。</p></li></ol><p class="micro">おまかせは毎回即発動、誓いは温存。リネは生存中に一度だけ瀕死の仲間を自動救援します。画面を離れたら一時停止。「再開する」で戻れます。</p><p class="micro">進行はこのブラウザに保存。戦闘途中は保存されません。撤退は素材を減らさず編成へ戻れます。</p><button id="helpDone" class="primary">準備できた</button></dialog>
+  <dialog id="retreatDialog" aria-labelledby="retreatTitle"><h2 id="retreatTitle">編成へ戻りますか？</h2><p>今回の戦闘を終了します。報酬は獲得できませんが、星片や強化は失いません。</p><div class="dialog-actions"><button id="cancelRetreat">戦闘に戻る</button><button id="confirmRetreat" class="primary">撤退する</button></div></dialog>
+  <script type="module" src="src/main.mjs"></script>
+</body>
+</html>
