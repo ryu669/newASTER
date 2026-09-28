@@ -13,6 +13,7 @@
 | [制作ギャップ分析・確定順序 v0.2](production-gap-analysis-v0.2.md) | 実装を止める不足項目、制作ゲート、検討の優先順位 |
 | [縦切り詳細仕様 v0.2](vertical-slice-spec-v0.2.md) | 最初の1体・5人・詩・箱庭・成長を一周完成させる範囲と受入条件 |
 | [正式版着手パッケージ v0.2](formal-production-start-v0.2.md) | 開始判定、技術構成、最初の10作業、初回ビルドの完了条件 |
+| [正式版実装ロードマップ v0.2](implementation-roadmap-v0.2.md) | 現在地、実装順、各段階の完了条件 |
 | [3Dアセット制作方針 v0.2](asset-production-policy-v0.2.md) | 独自モデルの制作範囲、参考作品との区別、最初のモデル制作順 |
 | [旧・要件定義](requirements.md) | 旧方針の統合記録。現行仕様と矛盾する場合はv0.2を優先 |
 | [継承ヒロイン](inherited-heroines.md) | 指定7人、主人公、時系列、原作との関係 |

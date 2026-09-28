@@ -73,11 +73,14 @@ namespace NewAster.Core
         public bool UltimateUnlocked => SelectedLevel >= UltimateUnlockLevel;
         public int BossGauge { get; private set; }
         public int BossGaugeMax { get; }
+        public int BossHitPoints { get; private set; }
+        public int BossMaxHitPoints { get; }
+        public bool IsVictory => BossHitPoints == 0;
         public IReadOnlyList<BattleHero> Heroes { get; }
         public IReadOnlyList<BattlePart> Parts { get; }
         public IReadOnlyList<ChainModifier> TurnChainModifiers { get; private set; }
 
-        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossGaugeMax)
+        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossHitPoints, int bossGaugeMax)
         {
             if (selectedLevel < MinimumLevel || selectedLevel > MaximumLevel) throw new ArgumentOutOfRangeException(nameof(selectedLevel));
             Heroes = heroes?.ToArray() ?? throw new ArgumentNullException(nameof(heroes));
@@ -87,6 +90,8 @@ namespace NewAster.Core
             if (Parts.Count != VerticalSlicePartCount || Parts.Select(part => part.Id).Distinct().Count() != VerticalSlicePartCount)
                 throw new ArgumentException("Vertical slice requires exactly four unique parts.", nameof(parts));
             SelectedLevel = selectedLevel;
+            BossMaxHitPoints = Math.Max(1, bossHitPoints);
+            BossHitPoints = BossMaxHitPoints;
             BossGaugeMax = Math.Max(1, bossGaugeMax);
             TurnChainModifiers = Array.Empty<ChainModifier>();
         }
@@ -107,6 +112,13 @@ namespace NewAster.Core
             var brokenNow = part.ApplyDamage(damage);
             if (brokenNow && part.BreakEffectId == "gauge-down") BossGauge = Math.Max(0, BossGauge - 1);
             return brokenNow;
+        }
+
+        public int ApplyBossDamage(int damage)
+        {
+            var applied = Math.Min(BossHitPoints, Math.Max(0, damage));
+            BossHitPoints -= applied;
+            return applied;
         }
 
         public void AdvanceBossGauge(int amount) => BossGauge = Math.Min(BossGaugeMax, BossGauge + Math.Max(0, amount));
