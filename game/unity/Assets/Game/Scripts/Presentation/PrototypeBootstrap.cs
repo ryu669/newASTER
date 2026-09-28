@@ -10,6 +10,7 @@ namespace NewAster.Presentation
     {
         private BookNavigationState book;
         private ColossusUnlockState colossusUnlocks;
+        private TerraformingState terraforming;
         private string status;
         private BattleState battle;
         private string battleTarget = "body";
@@ -22,6 +23,7 @@ namespace NewAster.Presentation
         {
             book = new BookNavigationState(WorldCatalog.BookSubjects);
             colossusUnlocks = new ColossusUnlockState(WorldCatalog.ColossusIds);
+            terraforming = new TerraformingState();
             status = "万物の書：巨神獣のしおり";
             CreatePresentationPlane("World Root", Vector3.zero, new Vector3(20f, 0.2f, 12f), new Color(0.025f, 0.04f, 0.08f));
             CreatePresentationPlane("Book Cover", new Vector3(0f, 0.35f, 0f), new Vector3(6f, 0.3f, 4f), new Color(0.16f, 0.09f, 0.06f));
@@ -48,6 +50,7 @@ namespace NewAster.Presentation
             GUI.Label(new Rect(28, 56, 900, 28), status, GUI.skin.label);
             GUI.Label(new Rect(28, 84, 900, 28), $"しおり: {book.Bookmark} / 対象: {book.SubjectId} / 面: {book.Face}", GUI.skin.label);
             GUI.Label(new Rect(28, 112, 900, 28), "1〜4: しおり（大分類）　←→: ページをめくる（対象変更）　Space: ページを裏返す（情報変更）", GUI.skin.label);
+            GUI.Label(new Rect(28, 320, 900, 28), $"新天地に定着した環境：{(terraforming.EnvironmentTags.Count == 0 ? "まだありません" : string.Join("・", terraforming.EnvironmentTags))}", GUI.skin.label);
             if (book.Bookmark == BookBookmark.Colossi)
             {
                 var colossus = WorldCatalog.Colossi.First(item => item.Id == book.SubjectId);
@@ -123,7 +126,13 @@ namespace NewAster.Presentation
             if (result.Victory)
             {
                 var firstClear = colossusUnlocks.RecordFirstClear(activeColossusId);
-                status += firstClear ? "　初回討伐：次の巨神獣ページを解放" : "　討伐成功：再召喚報酬を獲得";
+                if (firstClear)
+                {
+                    var colossus = WorldCatalog.Colossi.First(item => item.Id == activeColossusId);
+                    var environments = terraforming.ApplyFirstClear(activeColossusId, colossus.EnvironmentTags);
+                    status += $"　初回討伐：次ページ解放／環境定着 {string.Join("・", environments)}";
+                }
+                else status += "　討伐成功：再召喚報酬を獲得";
             }
         }
 
