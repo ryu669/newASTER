@@ -1,6 +1,7 @@
 using NewAster.Core;
 using NewAster.Data;
 using UnityEngine;
+using System.Linq;
 
 namespace NewAster.Presentation
 {
@@ -24,6 +25,10 @@ namespace NewAster.Presentation
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { book.ChangeBookmark(BookBookmark.Colossi); status = "しおり：巨神獣"; }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) { book.ChangeBookmark(BookBookmark.Heroines); status = "しおり：ヒロイン"; }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) { book.ChangeBookmark(BookBookmark.Gardens); status = "しおり：箱庭"; }
+            if (Input.GetKeyDown(KeyCode.Alpha4)) { book.ChangeBookmark(BookBookmark.Stories); status = "しおり：物語"; }
             if (Input.GetKeyDown(KeyCode.RightArrow)) { book.TurnPage(1); status = $"対象：{book.SubjectId}"; }
             if (Input.GetKeyDown(KeyCode.LeftArrow)) { book.TurnPage(-1); status = $"対象：{book.SubjectId}"; }
             if (Input.GetKeyDown(KeyCode.Space)) { book.FlipPage(); status = $"情報面：{book.Face}"; }
@@ -34,7 +39,17 @@ namespace NewAster.Presentation
             GUI.Label(new Rect(28, 28, 900, 28), "巨神と誓女2 / newASTER — 縦切り基盤", GUI.skin.label);
             GUI.Label(new Rect(28, 56, 900, 28), status, GUI.skin.label);
             GUI.Label(new Rect(28, 84, 900, 28), $"しおり: {book.Bookmark} / 対象: {book.SubjectId} / 面: {book.Face}", GUI.skin.label);
-            GUI.Label(new Rect(28, 112, 900, 28), "←→: ページをめくる（対象変更）　Space: ページを裏返す（情報変更）", GUI.skin.label);
+            GUI.Label(new Rect(28, 112, 900, 28), "1〜4: しおり（大分類）　←→: ページをめくる（対象変更）　Space: ページを裏返す（情報変更）", GUI.skin.label);
+            if (book.Bookmark == BookBookmark.Colossi)
+            {
+                var colossus = WorldCatalog.Colossi.First(item => item.Id == book.SubjectId);
+                var detail = book.Face == BookFace.Overview
+                    ? $"{colossus.DisplayName}  /  記憶元: {colossus.WorldLineId}"
+                    : $"新天地へ定着: {string.Join("・", colossus.EnvironmentTags)}";
+                GUI.Label(new Rect(28, 148, 900, 28), detail, GUI.skin.label);
+                if (colossus.IsIntegrationBoss)
+                    GUI.Label(new Rect(28, 176, 900, 28), "No.15：14体の初回討伐後に解放。過去ではなく新天地の統合記憶。", GUI.skin.label);
+            }
         }
 
         private static void CreatePresentationPlane(string name, Vector3 position, Vector3 scale, Color color)
