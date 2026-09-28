@@ -9,9 +9,11 @@ namespace NewAster.Presentation
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
         private BookNavigationState book;
+        private ColossusUnlockState colossusUnlocks;
         private string status;
         private BattleState battle;
         private string battleTarget = "body";
+        private string activeColossusId;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -19,6 +21,7 @@ namespace NewAster.Presentation
         private void Awake()
         {
             book = new BookNavigationState(WorldCatalog.BookSubjects);
+            colossusUnlocks = new ColossusUnlockState(WorldCatalog.ColossusIds);
             status = "万物の書：巨神獣のしおり";
             CreatePresentationPlane("World Root", Vector3.zero, new Vector3(20f, 0.2f, 12f), new Color(0.025f, 0.04f, 0.08f));
             CreatePresentationPlane("Book Cover", new Vector3(0f, 0.35f, 0f), new Vector3(6f, 0.3f, 4f), new Color(0.16f, 0.09f, 0.06f));
@@ -52,8 +55,9 @@ namespace NewAster.Presentation
                     ? $"{colossus.DisplayName}  /  記憶元: {colossus.WorldLineId}"
                     : $"新天地へ定着: {string.Join("・", colossus.EnvironmentTags)}";
                 GUI.Label(new Rect(28, 148, 900, 28), detail, GUI.skin.label);
+                GUI.Label(new Rect(28, 176, 900, 28), colossusUnlocks.IsUnlocked(colossus.Id) ? "ページ状態：解放済み・再召喚可能" : "ページ状態：未解放（前の巨神獣を初回討伐）", GUI.skin.label);
                 if (colossus.IsIntegrationBoss)
-                    GUI.Label(new Rect(28, 176, 900, 28), "No.15：14体の初回討伐後に解放。過去ではなく新天地の統合記憶。", GUI.skin.label);
+                    GUI.Label(new Rect(28, 204, 900, 28), "No.15：14体の初回討伐後に解放。過去ではなく新天地の統合記憶。", GUI.skin.label);
             }
             if (battle == null)
                 GUI.Label(new Rect(28, 222, 900, 28), "B: 選択中の巨神獣へLv1で出撃", GUI.skin.label);
@@ -72,7 +76,13 @@ namespace NewAster.Presentation
                 status = "巨神獣のしおりで対象を選んでください";
                 return;
             }
+            if (!colossusUnlocks.IsUnlocked(book.SubjectId))
+            {
+                status = "このページは未解放です。前の巨神獣を初回討伐してください";
+                return;
+            }
 
+            activeColossusId = book.SubjectId;
             battle = new BattleState(
                 selectedLevel: 1,
                 heroes: new[]
@@ -110,7 +120,11 @@ namespace NewAster.Presentation
             }
             var result = BattleActionResolver.Resolve(battle, "hero-01", new BattleSkill("prototype-strike", 1.0m, 0), battleTarget);
             status = result.Accepted ? $"スキル実行：{result.Damage}ダメージ" : $"スキル未実行：{result.Reason}";
-            if (result.Victory) status += "　討伐成功（報酬画面の接続は次段階）";
+            if (result.Victory)
+            {
+                var firstClear = colossusUnlocks.RecordFirstClear(activeColossusId);
+                status += firstClear ? "　初回討伐：次の巨神獣ページを解放" : "　討伐成功：再召喚報酬を獲得";
+            }
         }
 
         private static void CreatePresentationPlane(string name, Vector3 position, Vector3 scale, Color color)
