@@ -10,6 +10,8 @@ namespace NewAster.Presentation
     {
         private BookNavigationState book;
         private string status;
+        private BattleState battle;
+        private string battleTarget = "body";
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -32,6 +34,9 @@ namespace NewAster.Presentation
             if (Input.GetKeyDown(KeyCode.RightArrow)) { book.TurnPage(1); status = $"対象：{book.SubjectId}"; }
             if (Input.GetKeyDown(KeyCode.LeftArrow)) { book.TurnPage(-1); status = $"対象：{book.SubjectId}"; }
             if (Input.GetKeyDown(KeyCode.Space)) { book.FlipPage(); status = $"情報面：{book.Face}"; }
+            if (Input.GetKeyDown(KeyCode.B)) StartPrototypeBattle();
+            if (Input.GetKeyDown(KeyCode.T)) ToggleBattleTarget();
+            if (Input.GetKeyDown(KeyCode.A)) ResolvePrototypeAttack();
         }
 
         private void OnGUI()
@@ -50,6 +55,62 @@ namespace NewAster.Presentation
                 if (colossus.IsIntegrationBoss)
                     GUI.Label(new Rect(28, 176, 900, 28), "No.15：14体の初回討伐後に解放。過去ではなく新天地の統合記憶。", GUI.skin.label);
             }
+            if (battle == null)
+                GUI.Label(new Rect(28, 222, 900, 28), "B: 選択中の巨神獣へLv1で出撃", GUI.skin.label);
+            else
+            {
+                GUI.Label(new Rect(28, 222, 900, 28), $"戦闘試作：本体HP {battle.BossHitPoints}/{battle.BossMaxHitPoints}　対象: {battleTarget}", GUI.skin.label);
+                GUI.Label(new Rect(28, 250, 900, 28), "T: 本体／部位を切替　A: 先頭ヒロインの固有スキルを実行", GUI.skin.label);
+                GUI.Label(new Rect(28, 278, 900, 28), $"部位：{string.Join(" / ", battle.Parts.Select(part => $"{part.Id}:{part.HitPoints}"))}", GUI.skin.label);
+            }
+        }
+
+        private void StartPrototypeBattle()
+        {
+            if (book.Bookmark != BookBookmark.Colossi)
+            {
+                status = "巨神獣のしおりで対象を選んでください";
+                return;
+            }
+
+            battle = new BattleState(
+                selectedLevel: 1,
+                heroes: new[]
+                {
+                    new BattleHero("hero-01", 100, 20, 10), new BattleHero("hero-02", 100, 18, 10),
+                    new BattleHero("hero-03", 100, 16, 10), new BattleHero("hero-04", 100, 14, 10),
+                    new BattleHero("hero-05", 100, 12, 10)
+                },
+                parts: new[]
+                {
+                    new BattlePart("part-01", 25, "gauge-down"), new BattlePart("part-02", 25, ""),
+                    new BattlePart("part-03", 25, ""), new BattlePart("part-04", 25, "")
+                },
+                bossHitPoints: 100,
+                bossGaugeMax: 3);
+            battle.BeginTurn(seed: 1, turnBonusChance: 0.25m);
+            battleTarget = "body";
+            status = $"{WorldCatalog.Colossi.First(item => item.Id == book.SubjectId).DisplayName}へ出撃しました";
+        }
+
+        private void ToggleBattleTarget()
+        {
+            if (battle == null) return;
+            var availablePart = battle.Parts.FirstOrDefault(part => !part.IsBroken);
+            battleTarget = battleTarget == "body" && availablePart != null ? availablePart.Id : "body";
+            status = $"対象を{battleTarget}に変更しました";
+        }
+
+        private void ResolvePrototypeAttack()
+        {
+            if (battle == null)
+            {
+                status = "先にBで出撃してください";
+                return;
+            }
+            var result = BattleActionResolver.Resolve(battle, "hero-01", new BattleSkill("prototype-strike", 1.0m, 0), battleTarget);
+            status = result.Accepted ? $"スキル実行：{result.Damage}ダメージ" : $"スキル未実行：{result.Reason}";
+            if (result.Victory) status += "　討伐成功（報酬画面の接続は次段階）";
         }
 
         private static void CreatePresentationPlane(string name, Vector3 position, Vector3 scale, Color color)
