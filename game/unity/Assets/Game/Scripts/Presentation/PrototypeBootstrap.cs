@@ -9,13 +9,12 @@ namespace NewAster.Presentation
     public sealed class PrototypeBootstrap : MonoBehaviour
     {
         private BookNavigationState book;
-        private ColossusUnlockState colossusUnlocks;
-        private TerraformingState terraforming;
-        private GardenUnlockState gardens;
+        private CampaignState campaign;
         private string status;
         private BattleState battle;
         private string battleTarget = "body";
         private string activeColossusId;
+        private int battleSequence;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -23,9 +22,7 @@ namespace NewAster.Presentation
         private void Awake()
         {
             book = new BookNavigationState(WorldCatalog.BookSubjects);
-            colossusUnlocks = new ColossusUnlockState(WorldCatalog.ColossusIds);
-            terraforming = new TerraformingState();
-            gardens = new GardenUnlockState();
+            campaign = new CampaignState(WorldCatalog.ColossusIds);
             status = "万物の書：巨神獣のしおり";
             CreatePresentationPlane("World Root", Vector3.zero, new Vector3(20f, 0.2f, 12f), new Color(0.025f, 0.04f, 0.08f));
             CreatePresentationPlane("Book Cover", new Vector3(0f, 0.35f, 0f), new Vector3(6f, 0.3f, 4f), new Color(0.16f, 0.09f, 0.06f));
@@ -52,8 +49,8 @@ namespace NewAster.Presentation
             GUI.Label(new Rect(28, 56, 900, 28), status, GUI.skin.label);
             GUI.Label(new Rect(28, 84, 900, 28), $"しおり: {book.Bookmark} / 対象: {book.SubjectId} / 面: {book.Face}", GUI.skin.label);
             GUI.Label(new Rect(28, 112, 900, 28), "1〜4: しおり（大分類）　←→: ページをめくる（対象変更）　Space: ページを裏返す（情報変更）", GUI.skin.label);
-            GUI.Label(new Rect(28, 320, 900, 28), $"新天地に定着した環境：{(terraforming.EnvironmentTags.Count == 0 ? "まだありません" : string.Join("・", terraforming.EnvironmentTags))}", GUI.skin.label);
-            GUI.Label(new Rect(28, 348, 900, 28), $"解放済み箱庭区画：{(gardens.UnlockedGardenIds.Count == 0 ? "まだありません" : string.Join("・", gardens.UnlockedGardenIds))}", GUI.skin.label);
+            GUI.Label(new Rect(28, 320, 900, 28), $"新天地に定着した環境：{(campaign.Terraforming.EnvironmentTags.Count == 0 ? "まだありません" : string.Join("・", campaign.Terraforming.EnvironmentTags))}", GUI.skin.label);
+            GUI.Label(new Rect(28, 348, 900, 28), $"解放済み箱庭区画：{(campaign.Gardens.UnlockedGardenIds.Count == 0 ? "まだありません" : string.Join("・", campaign.Gardens.UnlockedGardenIds))}", GUI.skin.label);
             if (book.Bookmark == BookBookmark.Colossi)
             {
                 var colossus = WorldCatalog.Colossi.First(item => item.Id == book.SubjectId);
@@ -61,7 +58,7 @@ namespace NewAster.Presentation
                     ? $"{colossus.DisplayName}  /  記憶元: {colossus.WorldLineId}"
                     : $"新天地へ定着: {string.Join("・", colossus.EnvironmentTags)}";
                 GUI.Label(new Rect(28, 148, 900, 28), detail, GUI.skin.label);
-                GUI.Label(new Rect(28, 176, 900, 28), colossusUnlocks.IsUnlocked(colossus.Id) ? "ページ状態：解放済み・再召喚可能" : "ページ状態：未解放（前の巨神獣を初回討伐）", GUI.skin.label);
+                GUI.Label(new Rect(28, 176, 900, 28), campaign.ColossusUnlocks.IsUnlocked(colossus.Id) ? "ページ状態：解放済み・再召喚可能" : "ページ状態：未解放（前の巨神獣を初回討伐）", GUI.skin.label);
                 if (colossus.IsIntegrationBoss)
                     GUI.Label(new Rect(28, 204, 900, 28), "No.15：14体の初回討伐後に解放。過去ではなく新天地の統合記憶。", GUI.skin.label);
             }
@@ -82,13 +79,14 @@ namespace NewAster.Presentation
                 status = "巨神獣のしおりで対象を選んでください";
                 return;
             }
-            if (!colossusUnlocks.IsUnlocked(book.SubjectId))
+            if (!campaign.ColossusUnlocks.IsUnlocked(book.SubjectId))
             {
                 status = "このページは未解放です。前の巨神獣を初回討伐してください";
                 return;
             }
 
             activeColossusId = book.SubjectId;
+            battleSequence++;
             battle = new BattleState(
                 selectedLevel: 1,
                 heroes: new[]
@@ -126,16 +124,20 @@ namespace NewAster.Presentation
             }
             var result = BattleActionResolver.Resolve(battle, "hero-01", new BattleSkill("prototype-strike", 1.0m, 0), battleTarget);
             status = result.Accepted ? $"スキル実行：{result.Damage}ダメージ" : $"スキル未実行：{result.Reason}";
-            if (result.Victory)
+            if (result.Victory && result.Accepted)
             {
-                var firstClear = colossusUnlocks.RecordFirstClear(activeColossusId);
-                if (firstClear)
+                var colossus = WorldCatalog.Colossi.First(item => item.Id == activeColossusId);
+                var resolution = campaign.ClaimColossusVictory(
+                    activeColossusId,
+                    colossus.EnvironmentTags,
+                    new VictoryReward($"prototype-{battleSequence}", 1, 1, 1, System.Array.Empty<string>()),
+                    System.Array.Empty<StoryRequirement>(),
+                    System.Array.Empty<TerraformingMilestone>(),
+                    GardenCatalog.Requirements);
+                if (resolution.FirstClear)
                 {
-                    var colossus = WorldCatalog.Colossi.First(item => item.Id == activeColossusId);
-                    var environments = terraforming.ApplyFirstClear(activeColossusId, colossus.EnvironmentTags);
-                    var newGardens = gardens.Refresh(terraforming, GardenCatalog.Requirements);
-                    status += $"　初回討伐：次ページ解放／環境定着 {string.Join("・", environments)}";
-                    if (newGardens.Count > 0) status += $"／箱庭解放 {string.Join("・", newGardens)}";
+                    status += $"　初回討伐：次ページ解放／環境定着 {string.Join("・", resolution.NewEnvironmentTags)}";
+                    if (resolution.NewGardenIds.Count > 0) status += $"／箱庭解放 {string.Join("・", resolution.NewGardenIds)}";
                 }
                 else status += "　討伐成功：再召喚報酬を獲得";
             }
