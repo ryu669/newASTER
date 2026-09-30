@@ -109,11 +109,7 @@ namespace NewAster.Presentation
                     new BattleHero("hero-03", 100, 16, 10), new BattleHero("hero-04", 100, 14, 10),
                     new BattleHero("hero-05", 100, 12, 10)
                 },
-                parts: new[]
-                {
-                    new BattlePart("part-01", 25, "gauge-down"), new BattlePart("part-02", 25, ""),
-                    new BattlePart("part-03", 25, ""), new BattlePart("part-04", 25, "")
-                },
+                parts: GreenReturnDragonVerticalSlice.Parts.Select(part => new BattlePart(part.Id, part.HitPoints, part.BreakEffectId)),
                 bossHitPoints: 100,
                 bossGaugeMax: 3);
             battle.BeginTurn(seed: 1, turnBonusChance: 0.25m);
