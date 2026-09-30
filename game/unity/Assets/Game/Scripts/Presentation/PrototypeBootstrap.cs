@@ -143,14 +143,24 @@ namespace NewAster.Presentation
         private void DrawHeroine()
         {
             int h=book.SubjectIndex; var p=campaign.Playable;
-            Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}",heading);
+            Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}/{p.LevelCap(h)}  覚醒{p.Awakenings[h]}",heading);
             Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
             if(book.Face==BookFace.Details) {
                 Label(32,398,900,125,"固有スキル：通常攻撃 / 資源3の強撃 / 資源3の支援\n砕き手は部位攻撃1.5倍。歌い手の支援は全体回復。",text);
                 Label(32,545,925,150,"毎回5人で出撃します。行動順は自由です。\n強撃を温存し、後半のチェインで使うと威力が増えます。\n花の枝を育てると支援スキルが強化されます。",text); return;
             }
-            if(Btn(32,398,900,48,$"Lvを上げる  素材 {2+p.Levels[h]/5}  （上限50）",p.Levels[h]<50)) Mutate(p.Train(campaign.Progress,h),"誓女が成長しました。");
-            Label(32,464,900,45,"武器の樹  /  根から3つの枝へ",heading);
+            int[] steps={1,5,10};
+            for(int i=0;i<steps.Length;i++) {
+                int step=steps[i], gain=Math.Min(step,p.LevelCap(h)-p.Levels[h]), cost=p.TrainingCost(h,step);
+                string caption=gain==0?"Lv上限に到達":$"Lv ＋{gain}  素材 {cost}"+(campaign.Progress.Materials<cost?"（不足）":"");
+                if(Btn(32+i*308,398,294,48,caption,gain>0 && campaign.Progress.Materials>=cost)) Mutate(p.Train(campaign.Progress,h,step),"誓女が成長しました。");
+            }
+            int awakenCost=p.AwakeningCost(h);
+            bool atCap=p.Levels[h]==p.LevelCap(h);
+            string awakenLabel=awakenCost==0?"覚醒2達成 / 最終Lv上限120"
+                : $"覚醒{p.Awakenings[h]+1}  素材 {awakenCost}  /  "+(!atCap?$"Lv.{p.LevelCap(h)}到達が必要":campaign.Progress.Materials<awakenCost?"素材が不足":$"Lv上限を{(p.Awakenings[h]==0?80:120)}へ開放");
+            if(Btn(32,455,910,42,awakenLabel,awakenCost>0 && atCap && campaign.Progress.Materials>=awakenCost)) Mutate(p.Awaken(campaign.Progress,h),"覚醒し、Lv上限が開放されました。");
+            Label(32,501,900,25,"武器の樹  /  根から3つの枝へ",small);
             DrawWeaponTree(h);
             string[] branches={"剣の枝：攻撃","盾の枝：HP・防御","花の枝：支援"};
             for(int b=0;b<3;b++) {

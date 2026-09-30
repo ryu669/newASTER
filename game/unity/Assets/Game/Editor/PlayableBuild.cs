@@ -60,6 +60,9 @@ public static class PlayableBuild
         var restored=new CampaignState(WorldCatalog.ColossusIds,JsonUtility.FromJson<CampaignSaveV2>(JsonUtility.ToJson(c.CreateSave())));
         Check(restored.Playable.Levels[0]==2 && restored.Playable.Branches[0]==1 && restored.Playable.Affections[0]==5 && restored.Playable.Slots[1]==0 && restored.Playable.HighestLevel==50 && restored.Playable.KinderDrawCount==1 && restored.Playable.Duplicates[4]==1,"Save progression roundtrip");
         Check(restored.Progress.ReadStoryIds.Count==1 && restored.Progress.Materials==c.Progress.Materials,"Save wallet and read flag");
+        var awakenedSave=c.CreateSave(); awakenedSave.heroineLevels[0]=120; awakenedSave.heroineAwakenings[0]=2;
+        var awakenedRestored=new CampaignState(WorldCatalog.ColossusIds,JsonUtility.FromJson<CampaignSaveV2>(JsonUtility.ToJson(awakenedSave)));
+        Check(awakenedRestored.Playable.Levels[0]==120 && awakenedRestored.Playable.Awakenings[0]==2,"Unity JSON preserves awakening and level120");
         var legacy=new PlayableProgress(new CampaignSaveV2 { heroineLevels=null,weaponBranches=null,furnitureSlots=null });
         Check(legacy.Levels.All(l=>l==1) && legacy.Slots.All(l=>l==-1),"Legacy save defaults");
         var defeat=new PlayableBattle(45,new PlayableProgress()); for(int i=0;i<100 && !defeat.Ended;i++) defeat.EndTurn();
@@ -71,6 +74,7 @@ public static class PlayableBuild
     }
     private static void ValidateBattleDecisions()
     {
+        ValidateAwakeningProgress();
         var progress=new PlayableProgress();
         var battle=new PlayableBattle(1,progress,42);
         int preview=battle.PreviewDamage(0,1,"body"), before=battle.State.BossHitPoints;
@@ -129,5 +133,42 @@ public static class PlayableBuild
             }
         }
         Check(starter.State.IsVictory,"Starter party can still win using part strategy after probability fix");
+    }
+    private static void ValidateAwakeningProgress()
+    {
+        var wallet=new ProgressState(new CampaignSaveV2 { materials=4000 });
+        var p=new PlayableProgress();
+        int balance=wallet.Materials;
+        Check(p.LevelCap(0)==50 && !p.Awaken(wallet,0) && wallet.Materials==balance,"Early awakening does not spend materials");
+        Check(p.TrainingCost(0,5)==11 && p.Train(wallet,0,5) && p.Levels[0]==6 && balance-wallet.Materials==11,"Batch training sums per-level costs");
+        var poor=new ProgressState(new CampaignSaveV2 { materials=1 });
+        Check(!p.Train(poor,0,10) && p.Levels[0]==6 && poor.Materials==1,"Unaffordable batch training is atomic");
+        Check(!p.Train(wallet,-1,5) && !p.Train(wallet,0,0) && !p.Train(null,0,1) && !p.Awaken(wallet,5),"Invalid training and awakening inputs are rejected");
+        Check(p.Train(wallet,0,999) && p.Levels[0]==50,"Training clamps to base cap");
+        balance=wallet.Materials;
+        Check(!p.Train(wallet,0) && wallet.Materials==balance,"Training at cap consumes nothing");
+        Check(!p.Awaken(poor,0) && p.Awakenings[0]==0 && poor.Materials==1,"Awakening without materials is atomic");
+        Check(p.Awaken(wallet,0) && p.Awakenings[0]==1 && p.Levels[0]==50 && p.LevelCap(0)==80 && balance-wallet.Materials==PlayableProgress.FirstAwakeningCost,"First awakening opens cap80 without changing level");
+        balance=wallet.Materials;
+        Check(!p.Awaken(wallet,0) && wallet.Materials==balance,"Second awakening requires cap80");
+        Check(p.Train(wallet,0,29) && p.Levels[0]==79,"Train beyond level50 after awakening");
+        int lastCost=p.TrainingCost(0,10); balance=wallet.Materials;
+        Check(lastCost==p.TrainingCost(0,1) && p.Train(wallet,0,10) && p.Levels[0]==80 && balance-wallet.Materials==lastCost,"Batch at cap charges only actual growth");
+        Check(p.Awaken(wallet,0) && p.LevelCap(0)==120 && p.Levels[0]==80,"Second awakening opens cap120");
+        Check(p.Train(wallet,0,int.MaxValue) && p.Levels[0]==120,"Large request stops safely at final cap");
+        balance=wallet.Materials;
+        Check(!p.Awaken(wallet,0) && !p.Train(wallet,0) && wallet.Materials==balance,"Final cap cannot consume extra materials");
+        var save=new CampaignSaveV2(); p.CopyTo(save); wallet.CopyTo(save);
+        var restored=new PlayableProgress(save);
+        Check(restored.Levels[0]==120 && restored.Awakenings[0]==2 && restored.LevelCap(0)==120,"Save restores awakened levels above50");
+        save.heroineAwakenings[0]=0; save.heroineLevels[0]=1;
+        Check(p.Levels[0]==120 && restored.Awakenings[0]==2,"Save arrays do not alias live state");
+        var legacy=new PlayableProgress(new CampaignSaveV2 { heroineAwakenings=null, heroineLevels=new[] {50,35} });
+        Check(legacy.Levels[0]==50 && legacy.Levels[1]==35 && legacy.Levels[2]==1 && legacy.Awakenings.All(a=>a==0),"Older and partial saves keep levels and default awakening");
+        var malformed=new PlayableProgress(new CampaignSaveV2 { heroineAwakenings=new[] {-1,99,1},heroineLevels=new[] {999,999,-3} });
+        Check(malformed.Levels[0]==50 && malformed.Levels[1]==120 && malformed.Levels[2]==1,"Out-of-range save data is bounded by awakening cap");
+        var beforeBattle=new PlayableBattle(1,new PlayableProgress(),42);
+        var afterBattle=new PlayableBattle(1,p,42);
+        Check(afterBattle.State.Heroes[0].Attack>beforeBattle.State.Heroes[0].Attack && afterBattle.State.Heroes[0].MaxHitPoints>beforeBattle.State.Heroes[0].MaxHitPoints && afterBattle.ChainRate(0)==beforeBattle.ChainRate(0),"Awakened training improves stats without changing chain rate");
     }
 }

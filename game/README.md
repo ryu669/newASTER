@@ -8,4 +8,8 @@ Unityがライセンス接続で起動できない場合も、リポジトリの
 
 2026-09-30の戦闘判断UIと修正内容は[実装・検証記録](../docs/formal-battle-decisions-v0.1.md)を参照。
 
+育成画面には覚醒2段階（Lv上限50→80→120）と1・5・10Lvの一括育成を接続した。[覚醒・一括育成の仕様と検証](../docs/playable-awakening-v0.1.md)を参照。素材量は縦切り検証用で、正式バランスはTBD。
+
+Unity APIに対する全スクリプトのC#コンパイルは`./tools/compile-unity-scripts.ps1`で確認できる。Unity内の実行・保存検証とWindowsビルドは別途必要。
+
 実装順と完了条件は[正式版着手パッケージ](../docs/formal-production-start-v0.2.md)および[縦切り詳細仕様](../docs/vertical-slice-spec-v0.2.md)を参照する。

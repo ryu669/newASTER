@@ -6,6 +6,10 @@ namespace NewAster.Core
     public sealed class PlayableProgress
     {
         public int[] Levels { get; private set; }
+        public int[] Awakenings { get; private set; }
+        // Vertical-slice values; final material costs remain TBD.
+        public const int FirstAwakeningCost = 40;
+        public const int SecondAwakeningCost = 80;
         public int[] Branches { get; private set; }
         public int[] Affections { get; private set; }
         public bool[] Furniture { get; private set; }
@@ -19,7 +23,8 @@ namespace NewAster.Core
         private static int Clamp(int n, int min, int max) => Math.Max(min, Math.Min(max, n));
         public PlayableProgress(CampaignSaveV2 save = null)
         {
-            Levels = Enumerable.Range(0, 5).Select(i => Clamp(Read(save?.heroineLevels, i, 1), 1, 50)).ToArray();
+            Awakenings = Enumerable.Range(0, 5).Select(i => Clamp(Read(save?.heroineAwakenings, i, 0), 0, 2)).ToArray();
+            Levels = Enumerable.Range(0, 5).Select(i => Clamp(Read(save?.heroineLevels, i, 1), 1, LevelCap(i))).ToArray();
             Branches = Enumerable.Range(0, 15).Select(i => Clamp(Read(save?.weaponBranches, i, 0), 0, 3)).ToArray();
             Affections = Enumerable.Range(0, 5).Select(i => Clamp(Read(save?.affections, i, 0), 0, 100)).ToArray();
             Furniture = Enumerable.Range(0, 3).Select(i => save?.craftedFurniture != null && i < save.craftedFurniture.Length && save.craftedFurniture[i]).ToArray();
@@ -35,15 +40,43 @@ namespace NewAster.Core
         public void CopyTo(CampaignSaveV2 save)
         {
             save.heroineLevels = (int[])Levels.Clone(); save.weaponBranches = (int[])Branches.Clone();
+            save.heroineAwakenings = (int[])Awakenings.Clone();
             save.affections = (int[])Affections.Clone(); save.craftedFurniture = (bool[])Furniture.Clone();
             save.furnitureSlots = (int[])Slots.Clone(); save.highestBattleLevel = HighestLevel;
             save.kinderStones = KinderStones; save.kinderDrawCount = KinderDrawCount; save.kinderExchangeCount = KinderExchangeCount;
             save.heroineDuplicates = (int[])Duplicates.Clone();
         }
-        public bool Train(ProgressState wallet, int hero)
+        public int LevelCap(int hero)
         {
-            if (hero < 0 || hero >= 5 || Levels[hero] >= 50 || !wallet.TrySpendMaterials(2 + Levels[hero] / 5)) return false;
-            Levels[hero]++; return true;
+            if (hero < 0 || hero >= 5) return 0;
+            return Awakenings[hero] == 0 ? HeroineProgressState.BaseLevelCap
+                : Awakenings[hero] == 1 ? HeroineProgressState.FirstAwakeningLevelCap : HeroineProgressState.SecondAwakeningLevelCap;
+        }
+        public int TrainingCost(int hero, int requestedLevels = 1)
+        {
+            if (hero < 0 || hero >= 5 || requestedLevels <= 0) return 0;
+            int count = Math.Min(requestedLevels, LevelCap(hero) - Levels[hero]);
+            int cost = 0;
+            for (int step = 0; step < count; step++) cost += 2 + (Levels[hero] + step) / 5;
+            return cost;
+        }
+        public bool Train(ProgressState wallet, int hero, int requestedLevels = 1)
+        {
+            int cost = TrainingCost(hero, requestedLevels);
+            if (wallet == null || cost <= 0 || !wallet.TrySpendMaterials(cost)) return false;
+            Levels[hero] += Math.Min(requestedLevels, LevelCap(hero) - Levels[hero]);
+            return true;
+        }
+        public int AwakeningCost(int hero)
+        {
+            if (hero < 0 || hero >= 5 || Awakenings[hero] >= 2) return 0;
+            return Awakenings[hero] == 0 ? FirstAwakeningCost : SecondAwakeningCost;
+        }
+        public bool Awaken(ProgressState wallet, int hero)
+        {
+            int cost = AwakeningCost(hero);
+            if (wallet == null || cost <= 0 || Levels[hero] != LevelCap(hero) || !wallet.TrySpendMaterials(cost)) return false;
+            Awakenings[hero]++; return true;
         }
         public bool Grow(ProgressState wallet, int hero, int branch)
         {
