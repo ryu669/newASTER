@@ -15,6 +15,7 @@ namespace NewAster.Presentation
         private string battleTarget = "body";
         private string activeColossusId;
         private int battleSequence;
+        private string resultSummary;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -44,6 +45,7 @@ namespace NewAster.Presentation
             if (Input.GetKeyDown(KeyCode.T)) ToggleBattleTarget();
             if (Input.GetKeyDown(KeyCode.A)) ResolvePrototypeAttack();
             if (Input.GetKeyDown(KeyCode.S)) { CampaignSaveStore.Save(campaign); status = "進行を保存しました"; }
+            if (Input.GetKeyDown(KeyCode.Return) && resultSummary != null) { battle = null; resultSummary = null; status = "万物の書へ戻りました"; }
         }
 
         private void OnGUI()
@@ -72,6 +74,12 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(28, 222, 900, 28), $"戦闘試作：本体HP {battle.BossHitPoints}/{battle.BossMaxHitPoints}　対象: {battleTarget}", GUI.skin.label);
                 GUI.Label(new Rect(28, 250, 900, 28), "T: 本体／部位を切替　A: 先頭ヒロインの固有スキルを実行", GUI.skin.label);
                 GUI.Label(new Rect(28, 278, 900, 28), $"部位：{string.Join(" / ", battle.Parts.Select(part => $"{part.Id}:{part.HitPoints}"))}", GUI.skin.label);
+            }
+            if (resultSummary != null)
+            {
+                GUI.Label(new Rect(28, 384, 900, 28), "討伐結果", GUI.skin.label);
+                GUI.Label(new Rect(28, 412, 1100, 28), resultSummary, GUI.skin.label);
+                GUI.Label(new Rect(28, 440, 900, 28), "Enter: 万物の書へ戻る", GUI.skin.label);
             }
         }
 
@@ -143,6 +151,10 @@ namespace NewAster.Presentation
                     if (resolution.NewGardenIds.Count > 0) status += $"／箱庭解放 {string.Join("・", resolution.NewGardenIds)}";
                 }
                 else status += "　討伐成功：再召喚報酬を獲得";
+                resultSummary = $"素材 +{resolution.Reward.Materials} / テラフォーミング +{resolution.Reward.Terraforming}"
+                    + (resolution.NewEnvironmentTags.Count > 0 ? $" / 新環境: {string.Join("・", resolution.NewEnvironmentTags)}" : string.Empty)
+                    + (resolution.NewGardenIds.Count > 0 ? $" / 新箱庭: {string.Join("・", resolution.NewGardenIds)}" : string.Empty);
+                CampaignSaveStore.Save(campaign);
             }
         }
 
