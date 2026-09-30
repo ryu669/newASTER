@@ -18,6 +18,8 @@ namespace NewAster.Presentation
         private string resultSummary;
         private readonly PlaytestTelemetry telemetry = new PlaytestTelemetry();
         private PlaytestBattleRecord currentPlaytestRecord;
+        private SlayerCombatState slayer;
+        private GreenReturnDragonEncounterState greenDragon;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -46,6 +48,9 @@ namespace NewAster.Presentation
             if (Input.GetKeyDown(KeyCode.B)) StartPrototypeBattle();
             if (Input.GetKeyDown(KeyCode.T)) ToggleBattleTarget();
             if (Input.GetKeyDown(KeyCode.A)) ResolvePrototypeAttack();
+            if (Input.GetKeyDown(KeyCode.M) && slayer != null) { slayer.ToggleMode(); status = "スレイヤーの戦闘モードを切替"; }
+            if (Input.GetKeyDown(KeyCode.O) && slayer != null) { slayer.GainBoostOrbs(1); status = "ブースト球を獲得"; }
+            if (Input.GetKeyDown(KeyCode.L) && slayer != null) status = slayer.TryUseLastResort() ? "ラストリゾートを発動" : "ラストリゾートは未準備";
             if (Input.GetKeyDown(KeyCode.S)) { CampaignSaveStore.Save(campaign); status = "進行を保存しました"; }
             if (Input.GetKeyDown(KeyCode.Return) && resultSummary != null) { battle = null; resultSummary = null; status = "万物の書へ戻りました"; }
         }
@@ -76,6 +81,8 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(28, 222, 900, 28), $"戦闘試作：本体HP {battle.BossHitPoints}/{battle.BossMaxHitPoints}　対象: {battleTarget}", GUI.skin.label);
                 GUI.Label(new Rect(28, 250, 900, 28), "T: 本体／部位を切替　A: 先頭ヒロインの固有スキルを実行", GUI.skin.label);
                 GUI.Label(new Rect(28, 278, 900, 28), $"部位：{string.Join(" / ", battle.Parts.Select(part => $"{part.Id}:{part.HitPoints}"))}", GUI.skin.label);
+                GUI.Label(new Rect(28, 306, 900, 28), $"スレイヤー: {slayer.Mode} / 球 {slayer.BoostOrbs}/{slayer.BoostOrbCap} / LR {slayer.LastResortGauge}/{slayer.LastResortGaugeCap}", GUI.skin.label);
+                GUI.Label(new Rect(28, 334, 900, 28), "M: 通常／捨て身　O: ブースト球　L: ラストリゾート", GUI.skin.label);
             }
             if (resultSummary != null)
             {
@@ -101,6 +108,8 @@ namespace NewAster.Presentation
             activeColossusId = book.SubjectId;
             battleSequence++;
             currentPlaytestRecord = telemetry.StartBattle($"prototype-{battleSequence}");
+            slayer = new SlayerCombatState(5, 3);
+            greenDragon = new GreenReturnDragonEncounterState();
             battle = new BattleState(
                 selectedLevel: 1,
                 heroes: new[]
@@ -134,7 +143,11 @@ namespace NewAster.Presentation
             }
             var result = BattleActionResolver.Resolve(battle, "hero-01", new BattleSkill("prototype-strike", 1.0m, 0), battleTarget);
             currentPlaytestRecord?.RecordCommand(result.Accepted, result.PartBroken);
+            if (result.Accepted) { slayer.GainLastResort(1); battle.AdvanceBossGauge(1); greenDragon.TelegraphUltimate(battle); }
+            if (result.PartBroken) greenDragon.OnPartBroken(battleTarget);
             status = result.Accepted ? $"スキル実行：{result.Damage}ダメージ" : $"スキル未実行：{result.Reason}";
+            if (greenDragon.UltimateCancelled) status += "　角冠破壊で大技を中断";
+            else if (greenDragon.UltimateTelegraphed) status += "　緑還竜が大技を予告";
             if (result.Victory && result.Accepted)
             {
                 var colossus = WorldCatalog.Colossi.First(item => item.Id == activeColossusId);
