@@ -16,6 +16,8 @@ namespace NewAster.Presentation
         private string activeColossusId;
         private int battleSequence;
         private string resultSummary;
+        private readonly PlaytestTelemetry telemetry = new PlaytestTelemetry();
+        private PlaytestBattleRecord currentPlaytestRecord;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void Create() => new GameObject("newASTER Bootstrap").AddComponent<PrototypeBootstrap>();
@@ -98,6 +100,7 @@ namespace NewAster.Presentation
 
             activeColossusId = book.SubjectId;
             battleSequence++;
+            currentPlaytestRecord = telemetry.StartBattle($"prototype-{battleSequence}");
             battle = new BattleState(
                 selectedLevel: 1,
                 heroes: new[]
@@ -134,6 +137,7 @@ namespace NewAster.Presentation
                 return;
             }
             var result = BattleActionResolver.Resolve(battle, "hero-01", new BattleSkill("prototype-strike", 1.0m, 0), battleTarget);
+            currentPlaytestRecord?.RecordCommand(result.Accepted, result.PartBroken);
             status = result.Accepted ? $"スキル実行：{result.Damage}ダメージ" : $"スキル未実行：{result.Reason}";
             if (result.Victory && result.Accepted)
             {
@@ -155,6 +159,9 @@ namespace NewAster.Presentation
                     + (resolution.NewEnvironmentTags.Count > 0 ? $" / 新環境: {string.Join("・", resolution.NewEnvironmentTags)}" : string.Empty)
                     + (resolution.NewGardenIds.Count > 0 ? $" / 新箱庭: {string.Join("・", resolution.NewGardenIds)}" : string.Empty);
                 CampaignSaveStore.Save(campaign);
+                currentPlaytestRecord?.End(true, System.DateTime.UtcNow);
+                if (currentPlaytestRecord?.Duration is System.TimeSpan duration)
+                    resultSummary += $" / 計測: {duration.TotalSeconds:F1}秒・操作{currentPlaytestRecord.AcceptedCommandCount}・部位破壊{currentPlaytestRecord.PartBreakCount}";
             }
         }
 
