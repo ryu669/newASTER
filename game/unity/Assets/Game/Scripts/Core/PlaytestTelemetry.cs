@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NewAster.Core
 {
@@ -45,6 +46,28 @@ namespace NewAster.Core
             var record = new PlaytestBattleRecord(battleId, DateTime.UtcNow);
             _records.Add(record);
             return record;
+        }
+
+        public PlaytestSummary CreateSummary()
+        {
+            var finished = _records.Where(record => record.EndedAtUtc.HasValue).ToArray();
+            var victories = finished.Count(record => record.Victory == true);
+            var averageSeconds = finished.Length == 0 ? 0d : finished.Average(record => record.Duration.Value.TotalSeconds);
+            return new PlaytestSummary(finished.Length, victories, averageSeconds, finished.Sum(record => record.AcceptedCommandCount), finished.Sum(record => record.PartBreakCount));
+        }
+    }
+
+    public readonly struct PlaytestSummary
+    {
+        public int FinishedBattleCount { get; }
+        public int VictoryCount { get; }
+        public double AverageDurationSeconds { get; }
+        public int AcceptedCommandCount { get; }
+        public int PartBreakCount { get; }
+        public PlaytestSummary(int finishedBattleCount, int victoryCount, double averageDurationSeconds, int acceptedCommandCount, int partBreakCount)
+        {
+            FinishedBattleCount = finishedBattleCount; VictoryCount = victoryCount; AverageDurationSeconds = averageDurationSeconds;
+            AcceptedCommandCount = acceptedCommandCount; PartBreakCount = partBreakCount;
         }
     }
 }
