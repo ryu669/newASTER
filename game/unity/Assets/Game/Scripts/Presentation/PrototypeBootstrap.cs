@@ -57,6 +57,7 @@ namespace NewAster.Presentation
 
         private void OnGUI()
         {
+            DrawPlayableControls();
             GUI.Label(new Rect(28, 28, 900, 28), "巨神と誓女2 / newASTER — 縦切り基盤", GUI.skin.label);
             GUI.Label(new Rect(28, 56, 900, 28), status, GUI.skin.label);
             GUI.Label(new Rect(28, 84, 900, 28), $"しおり: {book.Bookmark} / 対象: {book.SubjectId} / 面: {book.Face}", GUI.skin.label);
@@ -90,6 +91,31 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(28, 412, 1100, 28), resultSummary, GUI.skin.label);
                 GUI.Label(new Rect(28, 440, 900, 28), "Enter: 万物の書へ戻る", GUI.skin.label);
             }
+        }
+
+        private void DrawPlayableControls()
+        {
+            GUI.Box(new Rect(18, 18, 370, 430), "万物の書 / 操作");
+            if (GUI.Button(new Rect(34, 54, 105, 32), "巨神獣")) { book.ChangeBookmark(BookBookmark.Colossi); status = "しおり：巨神獣"; }
+            if (GUI.Button(new Rect(146, 54, 105, 32), "ヒロイン")) { book.ChangeBookmark(BookBookmark.Heroines); status = "しおり：ヒロイン"; }
+            if (GUI.Button(new Rect(258, 54, 105, 32), "箱庭")) { book.ChangeBookmark(BookBookmark.Gardens); status = "しおり：箱庭"; }
+            if (GUI.Button(new Rect(34, 94, 105, 32), "前のページ")) { book.TurnPage(-1); status = $"対象：{book.SubjectId}"; }
+            if (GUI.Button(new Rect(146, 94, 105, 32), "次のページ")) { book.TurnPage(1); status = $"対象：{book.SubjectId}"; }
+            if (GUI.Button(new Rect(258, 94, 105, 32), "情報を裏返す")) { book.FlipPage(); status = $"情報面：{book.Face}"; }
+            if (battle == null)
+            {
+                if (GUI.Button(new Rect(34, 138, 329, 42), "選択中の巨神獣へ出撃")) StartPrototypeBattle();
+            }
+            else
+            {
+                if (GUI.Button(new Rect(34, 138, 158, 42), "本体／部位を切替")) ToggleBattleTarget();
+                if (GUI.Button(new Rect(205, 138, 158, 42), "スキルを実行")) ResolvePrototypeAttack();
+                if (GUI.Button(new Rect(34, 190, 158, 34), "通常／捨て身")) slayer?.ToggleMode();
+                if (GUI.Button(new Rect(205, 190, 158, 34), "ブースト球 +1")) slayer?.GainBoostOrbs(1);
+                if (GUI.Button(new Rect(34, 234, 329, 34), "ラストリゾート")) status = slayer != null && slayer.TryUseLastResort() ? "ラストリゾートを発動" : "ラストリゾートは未準備";
+            }
+            if (GUI.Button(new Rect(34, 282, 158, 34), "進行を保存")) { CampaignSaveStore.Save(campaign); status = "進行を保存しました"; }
+            if (resultSummary != null && GUI.Button(new Rect(205, 282, 158, 34), "結果を閉じる")) { battle = null; resultSummary = null; status = "万物の書へ戻りました"; }
         }
 
         private void StartPrototypeBattle()
