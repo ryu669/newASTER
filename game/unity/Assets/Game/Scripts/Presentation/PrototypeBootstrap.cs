@@ -22,7 +22,9 @@ namespace NewAster.Presentation
         private void Awake()
         {
             book = new BookNavigationState(WorldCatalog.BookSubjects);
-            campaign = new CampaignState(WorldCatalog.ColossusIds);
+            campaign = CampaignSaveStore.TryLoad(out var save)
+                ? new CampaignState(WorldCatalog.ColossusIds, save)
+                : new CampaignState(WorldCatalog.ColossusIds);
             status = "万物の書：巨神獣のしおり";
             CreatePresentationPlane("World Root", Vector3.zero, new Vector3(20f, 0.2f, 12f), new Color(0.025f, 0.04f, 0.08f));
             CreatePresentationPlane("Book Cover", new Vector3(0f, 0.35f, 0f), new Vector3(6f, 0.3f, 4f), new Color(0.16f, 0.09f, 0.06f));
@@ -41,6 +43,7 @@ namespace NewAster.Presentation
             if (Input.GetKeyDown(KeyCode.B)) StartPrototypeBattle();
             if (Input.GetKeyDown(KeyCode.T)) ToggleBattleTarget();
             if (Input.GetKeyDown(KeyCode.A)) ResolvePrototypeAttack();
+            if (Input.GetKeyDown(KeyCode.S)) { CampaignSaveStore.Save(campaign); status = "進行を保存しました"; }
         }
 
         private void OnGUI()
@@ -48,7 +51,7 @@ namespace NewAster.Presentation
             GUI.Label(new Rect(28, 28, 900, 28), "巨神と誓女2 / newASTER — 縦切り基盤", GUI.skin.label);
             GUI.Label(new Rect(28, 56, 900, 28), status, GUI.skin.label);
             GUI.Label(new Rect(28, 84, 900, 28), $"しおり: {book.Bookmark} / 対象: {book.SubjectId} / 面: {book.Face}", GUI.skin.label);
-            GUI.Label(new Rect(28, 112, 900, 28), "1〜4: しおり（大分類）　←→: ページをめくる（対象変更）　Space: ページを裏返す（情報変更）", GUI.skin.label);
+            GUI.Label(new Rect(28, 112, 900, 28), "1〜4: しおり　←→: 対象　Space: 情報面　S: 保存", GUI.skin.label);
             GUI.Label(new Rect(28, 320, 900, 28), $"新天地に定着した環境：{(campaign.Terraforming.EnvironmentTags.Count == 0 ? "まだありません" : string.Join("・", campaign.Terraforming.EnvironmentTags))}", GUI.skin.label);
             GUI.Label(new Rect(28, 348, 900, 28), $"解放済み箱庭区画：{(campaign.Gardens.UnlockedGardenIds.Count == 0 ? "まだありません" : string.Join("・", campaign.Gardens.UnlockedGardenIds))}", GUI.skin.label);
             if (book.Bookmark == BookBookmark.Colossi)
