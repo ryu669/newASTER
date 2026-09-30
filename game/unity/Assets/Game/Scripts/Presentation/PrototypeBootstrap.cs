@@ -63,7 +63,7 @@ namespace NewAster.Presentation
                 var colossus = WorldCatalog.Colossi.First(item => item.Id == book.SubjectId);
                 var detail = book.Face == BookFace.Overview
                     ? $"{colossus.DisplayName}  /  記憶元: {colossus.WorldLineId}"
-                    : $"新天地へ定着: {string.Join("・", colossus.EnvironmentTags)}";
+                    : GetColossusDetails(colossus.Id);
                 GUI.Label(new Rect(28, 148, 900, 28), detail, GUI.skin.label);
                 GUI.Label(new Rect(28, 176, 900, 28), campaign.ColossusUnlocks.IsUnlocked(colossus.Id) ? "ページ状態：解放済み・再召喚可能" : "ページ状態：未解放（前の巨神獣を初回討伐）", GUI.skin.label);
                 if (colossus.IsIntegrationBoss)
@@ -138,10 +138,13 @@ namespace NewAster.Presentation
             if (result.Victory && result.Accepted)
             {
                 var colossus = WorldCatalog.Colossi.First(item => item.Id == activeColossusId);
+                var newPoemId = activeColossusId == GreenReturnDragonVerticalSlice.ColossusId
+                    ? GreenReturnDragonVerticalSlice.PoemIds.FirstOrDefault(id => !campaign.Progress.CollectedPoemIds.Contains(id))
+                    : null;
                 var resolution = campaign.ClaimColossusVictory(
                     activeColossusId,
                     colossus.EnvironmentTags,
-                    new VictoryReward($"prototype-{battleSequence}", 1, 1, 1, System.Array.Empty<string>()),
+                    new VictoryReward($"prototype-{battleSequence}", 1, 1, 1, newPoemId == null ? System.Array.Empty<string>() : new[] { newPoemId }),
                     System.Array.Empty<StoryRequirement>(),
                     System.Array.Empty<TerraformingMilestone>(),
                     GardenCatalog.Requirements);
@@ -154,11 +157,20 @@ namespace NewAster.Presentation
                 resultSummary = $"素材 +{resolution.Reward.Materials} / テラフォーミング +{resolution.Reward.Terraforming}"
                     + (resolution.NewEnvironmentTags.Count > 0 ? $" / 新環境: {string.Join("・", resolution.NewEnvironmentTags)}" : string.Empty)
                     + (resolution.NewGardenIds.Count > 0 ? $" / 新箱庭: {string.Join("・", resolution.NewGardenIds)}" : string.Empty);
+                if (resolution.Reward.NewPoemIds.Count > 0) resultSummary += $" / 新しい歌: {resolution.Reward.NewPoemIds.Count}";
                 CampaignSaveStore.Save(campaign);
                 currentPlaytestRecord?.End(true, System.DateTime.UtcNow);
                 if (currentPlaytestRecord?.Duration is System.TimeSpan duration)
                     resultSummary += $" / 計測: {duration.TotalSeconds:F1}秒・操作{currentPlaytestRecord.AcceptedCommandCount}・部位破壊{currentPlaytestRecord.PartBreakCount}";
             }
+        }
+
+        private string GetColossusDetails(string colossusId)
+        {
+            if (colossusId != GreenReturnDragonVerticalSlice.ColossusId)
+                return $"新天地へ定着: {string.Join("・", WorldCatalog.Colossi.First(item => item.Id == colossusId).EnvironmentTags)}";
+            var poems = campaign.Progress.CollectedPoemIds.Count(id => GreenReturnDragonVerticalSlice.PoemIds.Contains(id));
+            return $"部位: 水晶角冠・左右翼根・蔦尾 / 歌: {poems}/24 / 章: {poems / 8}/3";
         }
 
         private static void CreatePresentationPlane(string name, Vector3 position, Vector3 scale, Color color)
