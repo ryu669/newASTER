@@ -222,8 +222,10 @@ namespace NewAster.Presentation
             if(Btn(28,213,180,48,(target=="body"?"◆ ":"")+"本体")) target="body";
             for(int i=0;i<4;i++) if(Btn(219+i*188,213,178,48,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i],!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
             for(int i=0;i<4;i++) Label(28+i*238,278,232,91,$"{PartNames[i]}：{(s.Parts[i].IsBroken?"破壊済":s.Parts[i].HitPoints.ToString())}\n{Effects[i]}",small);
+            var bonuses=string.Join("  /  ",s.TurnChainModifiers.Select((m,i)=>Names[i]+" "+(m.AdditiveRate>0?"+"+(m.AdditiveRate*100)+"%":"—")));
+            Label(28,357,948,27,"今ターンのCHAIN補正： "+bonuses,small);
             for(int i=0;i<5;i++) {
-                var h=s.Heroes[i]; float y=384+i*65; Label(28,y,265,58,$"{Names[i]}\nHP {h.HitPoints}/{h.MaxHitPoints}  資源 {h.JobResource}",small);
+                var h=s.Heroes[i]; float y=390+i*65; Label(28,y,265,58,$"{Names[i]}\nHP {h.HitPoints}/{h.MaxHitPoints}  資源 {h.JobResource}",small);
                 bool enabled=!paused && result==null && !encounter.Acted[i] && h.IsAlive;
                 if(Btn(304,y,202,54,encounter.Acted[i]?"行動済":"通常攻撃",enabled)) Act(i,0);
                 if(Btn(518,y,202,54,"強撃  資源3",enabled && h.JobResource>=3)) Act(i,1);
