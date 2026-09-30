@@ -151,5 +151,13 @@ namespace NewAster.Core
             if (!_unlockedStoryIds.Contains(storyId)) throw new InvalidOperationException("The story is not unlocked.");
             return _readStoryIds.Add(storyId);
         }
+
+        public bool TrySpendMaterials(int amount)
+        {
+            if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));
+            if (Materials < amount) return false;
+            Materials -= amount;
+            return true;
+        }
     }
 }

@@ -47,6 +47,7 @@ namespace NewAster.Core
             if (battle.IsVictory) return new BattleActionResult(false, 0, false, true, "battle-ended");
             var hero = battle.Heroes.SingleOrDefault(item => item.Id == heroId);
             if (hero == null) return new BattleActionResult(false, 0, false, false, "unknown-hero");
+            if (!hero.IsAlive) return new BattleActionResult(false, 0, false, false, "hero-defeated");
 
             var isBody = targetId == "body";
             var part = isBody ? null : battle.Parts.SingleOrDefault(item => item.Id == targetId);

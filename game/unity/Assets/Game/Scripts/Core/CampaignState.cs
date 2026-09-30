@@ -30,6 +30,7 @@ namespace NewAster.Core
         public ColossusUnlockState ColossusUnlocks { get; }
         public TerraformingState Terraforming { get; }
         public GardenUnlockState Gardens { get; }
+        public PlayableProgress Playable { get; }
 
         public CampaignState(IEnumerable<string> colossusIds, CampaignSaveV2 save = null)
         {
@@ -37,12 +38,14 @@ namespace NewAster.Core
             ColossusUnlocks = new ColossusUnlockState(colossusIds, save?.firstClearIds);
             Terraforming = new TerraformingState(save?.appliedColossusIds, save?.environmentTags);
             Gardens = new GardenUnlockState(save?.unlockedGardenIds);
+            Playable = new PlayableProgress(save);
         }
 
         public CampaignSaveV2 CreateSave()
         {
             var save = new CampaignSaveV2();
             Progress.CopyTo(save); ColossusUnlocks.CopyTo(save); Terraforming.CopyTo(save); Gardens.CopyTo(save);
+            Playable.CopyTo(save);
             return save;
         }
 

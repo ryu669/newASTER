@@ -24,16 +24,24 @@ namespace NewAster.Presentation
         public static bool TryLoad(out CampaignSaveV2 save)
         {
             save = null;
-            if (!File.Exists(SavePath)) return false;
+            if (TryRead(SavePath, out save)) return true;
+            return TryRead(SavePath + ".bak", out save);
+        }
+
+        private static bool TryRead(string path, out CampaignSaveV2 save)
+        {
+            save = null;
+            if (!File.Exists(path)) return false;
             try
             {
-                var parsed = JsonUtility.FromJson<CampaignSaveV2>(File.ReadAllText(SavePath));
-                if (parsed == null || parsed.version != CampaignSaveV2.Version) return false;
+                var parsed = JsonUtility.FromJson<CampaignSaveV2>(File.ReadAllText(path));
+                if (parsed == null || parsed.version != CampaignSaveV2.Version || parsed.materials < 0 || parsed.terraformingExperience < 0) return false;
                 save = parsed;
                 return true;
             }
             catch (IOException) { return false; }
             catch (ArgumentException) { return false; }
+            catch (UnauthorizedAccessException) { return false; }
         }
     }
 }

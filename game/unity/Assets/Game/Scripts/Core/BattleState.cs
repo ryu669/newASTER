@@ -29,6 +29,9 @@ namespace NewAster.Core
             JobResource -= amount;
             return true;
         }
+        public bool IsAlive => HitPoints > 0;
+        public void TakeDamage(int amount) => HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount));
+        public void Heal(int amount) { if (IsAlive) HitPoints = Math.Min(MaxHitPoints, HitPoints + Math.Max(0, amount)); }
     }
 
     public sealed class BattlePart
