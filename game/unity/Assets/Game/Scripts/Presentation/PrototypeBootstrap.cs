@@ -145,7 +145,7 @@ namespace NewAster.Presentation
                     activeColossusId,
                     colossus.EnvironmentTags,
                     new VictoryReward($"prototype-{battleSequence}", 1, 1, 1, newPoemId == null ? System.Array.Empty<string>() : new[] { newPoemId }),
-                    System.Array.Empty<StoryRequirement>(),
+                    activeColossusId == GreenReturnDragonVerticalSlice.ColossusId ? GreenReturnDragonVerticalSlice.StoryChapters : System.Array.Empty<StoryRequirement>(),
                     System.Array.Empty<TerraformingMilestone>(),
                     GardenCatalog.Requirements);
                 if (resolution.FirstClear)
@@ -158,6 +158,7 @@ namespace NewAster.Presentation
                     + (resolution.NewEnvironmentTags.Count > 0 ? $" / 新環境: {string.Join("・", resolution.NewEnvironmentTags)}" : string.Empty)
                     + (resolution.NewGardenIds.Count > 0 ? $" / 新箱庭: {string.Join("・", resolution.NewGardenIds)}" : string.Empty);
                 if (resolution.Reward.NewPoemIds.Count > 0) resultSummary += $" / 新しい歌: {resolution.Reward.NewPoemIds.Count}";
+                if (resolution.Reward.NewStoryIds.Count > 0) resultSummary += $" / 新章解放: {resolution.Reward.NewStoryIds.Count}";
                 CampaignSaveStore.Save(campaign);
                 currentPlaytestRecord?.End(true, System.DateTime.UtcNow);
                 if (currentPlaytestRecord?.Duration is System.TimeSpan duration)
@@ -170,7 +171,8 @@ namespace NewAster.Presentation
             if (colossusId != GreenReturnDragonVerticalSlice.ColossusId)
                 return $"新天地へ定着: {string.Join("・", WorldCatalog.Colossi.First(item => item.Id == colossusId).EnvironmentTags)}";
             var poems = campaign.Progress.CollectedPoemIds.Count(id => GreenReturnDragonVerticalSlice.PoemIds.Contains(id));
-            return $"部位: 水晶角冠・左右翼根・蔦尾 / 歌: {poems}/24 / 章: {poems / 8}/3";
+            var chapters = campaign.Progress.UnlockedStoryIds.Count(id => id.StartsWith("story.green-return-dragon.chapter-"));
+            return $"部位: 水晶角冠・左右翼根・蔦尾 / 歌: {poems}/24 / 章: {chapters}/3";
         }
 
         private static void CreatePresentationPlane(string name, Vector3 position, Vector3 scale, Color color)

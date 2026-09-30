@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NewAster.Core;
 
 namespace NewAster.Data
@@ -23,6 +24,13 @@ namespace NewAster.Data
             "green-return-dragon-c2-p5", "green-return-dragon-c2-p6", "green-return-dragon-c2-p7", "green-return-dragon-c2-p8",
             "green-return-dragon-c3-p1", "green-return-dragon-c3-p2", "green-return-dragon-c3-p3", "green-return-dragon-c3-p4",
             "green-return-dragon-c3-p5", "green-return-dragon-c3-p6", "green-return-dragon-c3-p7", "green-return-dragon-c3-p8",
+        };
+
+        public static readonly IReadOnlyList<StoryRequirement> StoryChapters = new[]
+        {
+            new StoryRequirement("story.green-return-dragon.chapter-1", PoemIds.Take(8)),
+            new StoryRequirement("story.green-return-dragon.chapter-2", PoemIds.Skip(8).Take(8)),
+            new StoryRequirement("story.green-return-dragon.chapter-3", PoemIds.Skip(16).Take(8)),
         };
     }
 }
