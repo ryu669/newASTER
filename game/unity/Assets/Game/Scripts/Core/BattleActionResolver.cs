@@ -60,8 +60,9 @@ namespace NewAster.Core
             if (isBody)
                 return new BattleActionResult(true, battle.ApplyBossDamage(damage), false, battle.IsVictory, "body");
 
+            var appliedDamage = Math.Min(part.HitPoints, damage);
             var broken = battle.BreakPart(targetId, damage);
-            return new BattleActionResult(true, damage, broken, battle.IsVictory, "part");
+            return new BattleActionResult(true, appliedDamage, broken, battle.IsVictory, "part");
         }
     }
 }

@@ -214,25 +214,30 @@ namespace NewAster.Presentation
         }
         private void StartBattle(string colossus)
         {
-            activeColossus=colossus; battleId=Guid.NewGuid().ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable);
-            target="body"; paused=false; result=null; status="対象を選び、誓女のスキルで攻撃してください。";
+            var id=Guid.NewGuid();
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0));
+            Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
+            target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
         }
         private void DrawBattle()
         {
             var s=encounter.State;
             Label(28,98,950,53,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}  /  TURN {encounter.Turn}",heading);
             Label(28,159,910,36,$"本体 HP {s.BossHitPoints}/{s.BossMaxHitPoints}  /  大技 {s.BossGauge}/{s.BossGaugeMax}  /  {encounter.Chain} CHAIN",text);
+            Label(1050,340,510,125,encounter.NextAttackIsMajor
+                ? (s.UltimateUnlocked?"次の敵行動：極大技":"次の敵行動：大技")+"\n角冠破壊でゲージ上昇を止める"
+                : "次の敵行動：通常攻撃\n味方全体を攻撃",text,Color.white);
+            Label(1050,485,510,100,$"受けるダメージ（順に5人）\n{string.Join(" / ",Enumerable.Range(0,5).Select(i=>s.Heroes[i].IsAlive?encounter.PreviewEnemyDamage(i).ToString():"戦闘不能"))}",small,Color.white);
             if(Btn(28,213,180,48,(target=="body"?"◆ ":"")+"本体")) target="body";
             for(int i=0;i<4;i++) if(Btn(219+i*188,213,178,48,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i],!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
             for(int i=0;i<4;i++) Label(28+i*238,278,232,91,$"{PartNames[i]}：{(s.Parts[i].IsBroken?"破壊済":s.Parts[i].HitPoints.ToString())}\n{Effects[i]}",small);
-            var bonuses=string.Join("  /  ",s.TurnChainModifiers.Select((m,i)=>Names[i]+" "+(m.AdditiveRate>0?"+"+(m.AdditiveRate*100)+"%":"—")));
-            Label(28,357,948,27,"今ターンのCHAIN補正： "+bonuses,small);
+            Label(28,357,948,27,"接続率は基本65%＋ターン補正。成功すると次の攻撃が強化されます。",small);
             for(int i=0;i<5;i++) {
                 var h=s.Heroes[i]; float y=390+i*65; Label(28,y,265,58,$"{Names[i]}\nHP {h.HitPoints}/{h.MaxHitPoints}  資源 {h.JobResource}",small);
                 bool enabled=!paused && result==null && !encounter.Acted[i] && h.IsAlive;
-                if(Btn(304,y,202,54,encounter.Acted[i]?"行動済":"通常攻撃",enabled)) Act(i,0);
-                if(Btn(518,y,202,54,"強撃  資源3",enabled && h.JobResource>=3)) Act(i,1);
-                if(Btn(732,y,244,54,i==3?"癒しの歌  資源3":"護りの誓い  資源3",enabled && h.JobResource>=3)) Act(i,2);
+                if(Btn(304,y,202,54,encounter.Acted[i]?"行動済":$"通常 {encounter.PreviewDamage(i,0,target)}\n接続 {encounter.ChainRate(i):P0}",enabled)) Act(i,0);
+                if(Btn(518,y,202,54,$"強撃 {encounter.PreviewDamage(i,1,target)}\n資源3 / 接続 {encounter.ChainRate(i):P0}",enabled && h.JobResource>=3)) Act(i,1);
+                if(Btn(732,y,244,54,i==3?"癒しの歌  資源3\n全体回復 / 連鎖終了":"護りの誓い  資源3\n全体軽減 / 連鎖終了",enabled && h.JobResource>=3)) Act(i,2);
             }
             if(Btn(28,727,294,50,paused?"再開する":"一時停止")) paused=!paused;
             if(Btn(340,727,294,50,"ターンを終える",!paused && result==null)) { encounter.EndTurn(); FinishCheck(); }
@@ -250,7 +255,7 @@ namespace NewAster.Presentation
             var c=WorldCatalog.Colossi.First(x=>x.Id==activeColossus);
             var poems=activeColossus==GreenReturnDragonVerticalSlice.ColossusId?GreenReturnDragonVerticalSlice.PoemIds.Where(id=>!campaign.Progress.CollectedPoemIds.Contains(id)).Take(4).ToArray():Array.Empty<string>();
             var reward=campaign.ClaimColossusVictory(activeColossus,c.EnvironmentTags,new VictoryReward(battleId,selectedLevel,10,4,poems),GreenReturnDragonVerticalSlice.StoryChapters,Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
-            campaign.Playable.RecordVictory(selectedLevel);
+            if(reward.Reward.Claimed) campaign.Playable.RecordVictory(selectedLevel);
             result=$"討伐成功！\n\n素材 +{reward.Reward.Materials} / 世界復元 +{reward.Reward.Terraforming}\n新しい詩 {reward.Reward.NewPoemIds.Count} / 開いた章 {reward.Reward.NewStoryIds.Count}\n";
             if(reward.FirstClear) result+="\n初回討伐：次のページと環境が開放されました。";
             if(reward.NewGardenIds.Count>0) result+="\n庭が開放！庭のしおりから訪ねましょう。";
@@ -280,7 +285,7 @@ namespace NewAster.Presentation
         private void DrawHelp()
         {
             Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 対象を選び、誓女を好きな順に行動させる。\n3. ターンの後半ほどチェインで攻撃が強くなる。\n4. 部位破壊で敵の能力を弱める。\n5. 報酬で誓女と武器を育て、家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
+            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 対象を選び、誓女を好きな順に行動させる。\n3. 接続に成功すると次の攻撃が強化。支援で終了。\n4. 部位破壊で敵の能力を弱める。\n5. 報酬で誓女と武器を育て、家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
             if(Btn(340,656,890,62,"閉じる")) help=false;
         }
         private void DrawKinderGarden()

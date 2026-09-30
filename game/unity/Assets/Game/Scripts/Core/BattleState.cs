@@ -128,6 +128,12 @@ namespace NewAster.Core
         public bool TryConsumeUltimateGauge()
         {
             if (!UltimateUnlocked || BossGauge < BossGaugeMax) return false;
+            return TryConsumeMajorGauge();
+        }
+
+        public bool TryConsumeMajorGauge()
+        {
+            if (BossGauge < BossGaugeMax) return false;
             BossGauge = 0;
             return true;
         }

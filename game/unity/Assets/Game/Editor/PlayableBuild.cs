@@ -23,6 +23,8 @@ public static class PlayableBuild
     }
     public static void Validate()
     {
+        assertions=0;
+        ValidateBattleDecisions();
         var c=new CampaignState(WorldCatalog.ColossusIds);
         var first=WorldCatalog.Colossi[0];
         Check(!c.Playable.Train(c.Progress,0),"Training without funds must fail");
@@ -66,5 +68,66 @@ public static class PlayableBuild
         for(int i=1;i<WorldCatalog.Colossi.Count;i++) { var col=WorldCatalog.Colossi[i]; c.ClaimColossusVictory(col.Id,col.EnvironmentTags,new VictoryReward("world-"+i,1,10,4,null),null,null,GardenCatalog.Requirements); }
         Check(c.ColossusUnlocks.IsUnlocked(WorldCatalog.ColossusIds[14]),"Final world unlock");
         Debug.Log("PLAYABLE_VALIDATION_PASS "+assertions+" assertions");
+    }
+    private static void ValidateBattleDecisions()
+    {
+        var progress=new PlayableProgress();
+        var battle=new PlayableBattle(1,progress,42);
+        int preview=battle.PreviewDamage(0,1,"body"), before=battle.State.BossHitPoints;
+        Check(battle.Act(0,1,"body") && before-battle.State.BossHitPoints==preview,"Attack preview matches actual body damage");
+        int resource=battle.State.Heroes[1].JobResource;
+        Check(battle.PreviewDamage(1,1,"missing")==0 && !battle.Act(1,1,"missing") && battle.State.Heroes[1].JobResource==resource && !battle.Acted[1],"Invalid target consumes neither resource nor action");
+        Check(battle.Act(2,2,"body") && battle.Chain==0 && battle.Guarded,"Support breaks attack chain and guards party");
+        var expected=Enumerable.Range(0,5).Select(battle.PreviewEnemyDamage).ToArray();
+        var hp=battle.State.Heroes.Select(h=>h.HitPoints).ToArray();
+        battle.EndTurn();
+        Check(Enumerable.Range(0,5).All(i=>hp[i]-battle.State.Heroes[i].HitPoints==expected[i]),"Enemy preview matches guarded damage");
+
+        var major=new PlayableBattle(1,progress);
+        for(int i=0;i<3;i++) major.EndTurn();
+        Check(major.NextAttackIsMajor && major.State.BossGauge==3,"Low-level major attack is telegraphed");
+        before=major.State.Heroes[0].HitPoints;
+        preview=major.PreviewEnemyDamage(0); major.EndTurn();
+        Check(major.State.BossGauge==0 && before-major.State.Heroes[0].HitPoints==preview && major.Log.Contains("大技"),"Low-level major attack executes and consumes gauge");
+        var interrupt=new PlayableBattle(1,progress);
+        for(int i=0;i<3;i++) interrupt.EndTurn();
+        interrupt.State.BreakPart(interrupt.State.Parts[0].Id,999);
+        Check(!interrupt.NextAttackIsMajor,"Horn destruction cancels pending major attack");
+        var highProgress=new PlayableProgress();
+        for(int i=0;i<5;i++) highProgress.Levels[i]=50;
+        var ultimate=new PlayableBattle(45,highProgress);
+        for(int i=0;i<4;i++) ultimate.EndTurn();
+        Check(ultimate.Log.Contains("極大技") && ultimate.State.BossGauge==0,"Level45 enables stronger ultimate");
+
+        bool fullChain=false, stoppedChain=false, differentBonuses=false;
+        int baseline=new PlayableBattle(45,highProgress,1).PreviewDamage(0,0,"body");
+        for(int seed=1;seed<=100;seed++) {
+            var a=new PlayableBattle(45,highProgress,seed);
+            var b=new PlayableBattle(45,highProgress,seed);
+            differentBonuses|=a.ChainRate(0)!=new PlayableBattle(45,highProgress,1).ChainRate(0);
+            Check(a.PreviewDamage(0,0,"body")==baseline,"Chain-rate bonus does not directly increase damage");
+            for(int hero=0;hero<5;hero++) {
+                a.Act(hero,0,"body"); b.Act(hero,0,"body");
+                Check(a.Log==b.Log && a.State.BossHitPoints==b.State.BossHitPoints,"Seed reproduces chain rolls and damage");
+                fullChain|=a.Log.Contains("5 CHAIN"); stoppedChain|=a.Log.Contains("チェイン終了");
+            }
+        }
+        Check(fullChain && stoppedChain && differentBonuses,"Seed sample contains five-person chains, failures and varying turn bonuses");
+        var grown=new PlayableProgress(); for(int i=0;i<15;i++) grown.Branches[i]=3;
+        Check(new PlayableBattle(1,grown,42).ChainRate(0)==new PlayableBattle(1,progress,42).ChainRate(0),"Equipment growth does not change chain probability");
+        var overkill=new PlayableBattle(1,highProgress);
+        var part=overkill.State.Parts[0]; before=part.HitPoints;
+        var hit=BattleActionResolver.Resolve(overkill.State,"hero-0",new BattleSkill("overkill",10m,0),part.Id);
+        Check(hit.PartBroken && hit.Damage==before,"Part damage reports actual HP loss instead of overkill");
+        var starter=new PlayableBattle(1,progress);
+        for(int rounds=0;!starter.Ended && rounds<50;rounds++) {
+            int turn=starter.Turn;
+            for(int hero=0;hero<5 && !starter.Ended && starter.Turn==turn;hero++) {
+                if(starter.Acted[hero]) continue;
+                var nextPart=starter.State.Parts.FirstOrDefault(p=>!p.IsBroken);
+                starter.Act(hero,starter.State.Heroes[hero].JobResource>=3?1:0,nextPart?.Id??"body");
+            }
+        }
+        Check(starter.State.IsVictory,"Starter party can still win using part strategy after probability fix");
     }
 }
