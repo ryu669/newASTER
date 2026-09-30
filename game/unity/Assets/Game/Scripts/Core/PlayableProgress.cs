@@ -15,6 +15,12 @@ namespace NewAster.Core
         public bool[] Furniture { get; private set; }
         public int[] Slots { get; private set; }
         public int[] Duplicates { get; private set; }
+        public int[] TraitRanks { get; private set; }
+        public int OverflowEnhancementMaterials { get; private set; }
+        public const int MaximumTraitRank = 5;
+        public const int DuplicateHitPointGain = 10;
+        public const int DuplicateAttackGain = 2;
+        public static int KinderMaterialReward(int index) => index >= 0 && index < 4 ? 4 + index * 2 : 0;
         public int HighestLevel { get; private set; }
         public int KinderStones { get; private set; }
         public int KinderDrawCount { get; private set; }
@@ -30,11 +36,13 @@ namespace NewAster.Core
             Furniture = Enumerable.Range(0, 3).Select(i => save?.craftedFurniture != null && i < save.craftedFurniture.Length && save.craftedFurniture[i]).ToArray();
             Slots = Enumerable.Range(0, 3).Select(i => Clamp(Read(save?.furnitureSlots, i, -1), -1, 2)).ToArray();
             Duplicates = Enumerable.Range(0, 5).Select(i => Math.Max(0, Read(save?.heroineDuplicates, i, 0))).ToArray();
+            TraitRanks = Enumerable.Range(0, 5).Select(i => Clamp(Read(save?.heroineTraitRanks, i, 0), 0, MaximumTraitRank)).ToArray();
+            OverflowEnhancementMaterials = Math.Max(0, save?.overflowEnhancementMaterials ?? 0);
             for (int i = 0; i < Slots.Length; i++) if (Slots[i] >= 0 && !Furniture[Slots[i]]) Slots[i] = -1;
             HighestLevel = Clamp(save?.highestBattleLevel ?? 1, 1, 50);
             KinderStones = Math.Max(0, save == null ? 10 : save.kinderStones);
             KinderDrawCount = Math.Max(0, save?.kinderDrawCount ?? 0);
-            KinderExchangeCount = Math.Max(0, save?.kinderExchangeCount ?? 0);
+            KinderExchangeCount = Clamp(save?.kinderExchangeCount ?? 0, 0, KinderDrawCount / KinderGardenBanner.ExchangeThreshold);
         }
         private static int Read(int[] values, int i, int fallback) => values != null && i < values.Length ? values[i] : fallback;
         public void CopyTo(CampaignSaveV2 save)
@@ -45,6 +53,8 @@ namespace NewAster.Core
             save.furnitureSlots = (int[])Slots.Clone(); save.highestBattleLevel = HighestLevel;
             save.kinderStones = KinderStones; save.kinderDrawCount = KinderDrawCount; save.kinderExchangeCount = KinderExchangeCount;
             save.heroineDuplicates = (int[])Duplicates.Clone();
+            save.heroineTraitRanks = (int[])TraitRanks.Clone();
+            save.overflowEnhancementMaterials = OverflowEnhancementMaterials;
         }
         public int LevelCap(int hero)
         {
@@ -107,19 +117,49 @@ namespace NewAster.Core
             KinderStones += 2 + Math.Max(0, level - 1) / 10;
         }
         public bool TryKinderDraw(decimal heroineRoll, decimal targetRoll, out bool heroine, out int rewardIndex)
+            => TryKinderDraw(null, heroineRoll, targetRoll, out heroine, out rewardIndex);
+        public bool TryKinderDraw(ProgressState wallet, decimal heroineRoll, decimal targetRoll, out bool heroine, out int rewardIndex)
         {
             heroine = false; rewardIndex = -1;
-            if (heroineRoll < 0m || heroineRoll >= 1m || targetRoll < 0m || targetRoll >= 1m || KinderStones < 1) return false;
+            if (heroineRoll < 0m || heroineRoll >= 1m || targetRoll < 0m || targetRoll >= 1m || KinderStones < 1 || KinderDrawCount == int.MaxValue) return false;
+            bool isHeroine = heroineRoll < KinderGardenBanner.HeroineTotalRate;
+            int index = isHeroine ? (int)(targetRoll * 5m) : (int)(targetRoll * 4m);
+            if (isHeroine) { if (!ReceiveDuplicate(index)) return false; }
+            else if (wallet == null || !wallet.TryGrantMaterials(KinderMaterialReward(index))) return false;
             KinderStones--; KinderDrawCount++;
-            heroine = heroineRoll < KinderGardenBanner.HeroineTotalRate;
-            rewardIndex = heroine ? Math.Min(4, (int)(targetRoll * 5m)) : Math.Min(3, (int)(targetRoll * 4m));
-            if (heroine) Duplicates[rewardIndex]++;
+            heroine = isHeroine; rewardIndex = index;
             return true;
+        }
+        private bool ReceiveDuplicate(int hero)
+        {
+            if (TraitRanks[hero] >= MaximumTraitRank) {
+                if (OverflowEnhancementMaterials == int.MaxValue) return false;
+                OverflowEnhancementMaterials++;
+            } else {
+                if (Duplicates[hero] == int.MaxValue) return false;
+                Duplicates[hero]++;
+            }
+            return true;
+        }
+        public bool StrengthenDuplicate(int hero)
+        {
+            if (hero < 0 || hero >= 5 || Duplicates[hero] <= 0) return false;
+            if (TraitRanks[hero] >= MaximumTraitRank) {
+                if (OverflowEnhancementMaterials == int.MaxValue) return false;
+                OverflowEnhancementMaterials++;
+            } else TraitRanks[hero]++;
+            Duplicates[hero]--; return true;
+        }
+        public bool UseOverflowEnhancement(int hero)
+        {
+            if (hero < 0 || hero >= 5 || TraitRanks[hero] >= MaximumTraitRank || OverflowEnhancementMaterials <= 0) return false;
+            OverflowEnhancementMaterials--; TraitRanks[hero]++; return true;
         }
         public bool TryKinderExchange(int heroineIndex)
         {
             if (heroineIndex < 0 || heroineIndex >= 5 || AvailableKinderExchanges <= 0) return false;
-            KinderExchangeCount++; Duplicates[heroineIndex]++; return true;
+            if (!ReceiveDuplicate(heroineIndex)) return false;
+            KinderExchangeCount++; return true;
         }
     }
 }

@@ -27,8 +27,8 @@ namespace NewAster.Core
             support = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 2]).ToArray();
             State = new BattleState(level,
                 Enumerable.Range(0, 5).Select(i => new BattleHero("hero-" + i,
-                    130 + progress.Levels[i] * 12 + defense[i] * 25,
-                    20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8, 10)),
+                    130 + progress.Levels[i] * 12 + defense[i] * 25 + progress.TraitRanks[i] * PlayableProgress.DuplicateHitPointGain,
+                    20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8 + progress.TraitRanks[i] * PlayableProgress.DuplicateAttackGain, 10)),
                 new[] { "crystal-horn-crown", "left-wing-root", "right-wing-root", "vine-wrapped-tail" }
                     .Select((id,i) => new BattlePart(id, 45 + level * 3, i == 0 ? "gauge-down" : "")),
                 320 + level * 24, 4);

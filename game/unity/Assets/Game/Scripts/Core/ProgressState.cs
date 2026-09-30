@@ -152,6 +152,13 @@ namespace NewAster.Core
             return _readStoryIds.Add(storyId);
         }
 
+        public bool TryGrantMaterials(int amount)
+        {
+            if (amount < 0 || Materials > int.MaxValue - amount) return false;
+            Materials += amount;
+            return true;
+        }
+
         public bool TrySpendMaterials(int amount)
         {
             if (amount < 0) throw new ArgumentOutOfRangeException(nameof(amount));

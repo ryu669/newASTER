@@ -16,6 +16,7 @@ namespace NewAster.Presentation
         private string status = "しおりで選び、ページをめくって世界を訪ねましょう。";
         private bool title = true, paused, retreat, help, kinderGarden, drawingModal;
         private string result, storyText, storyId;
+        private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
         private int selectedLevel = 1, storyChapter;
         private GUIStyle text, heading, small, button;
         private Font font;
@@ -146,7 +147,7 @@ namespace NewAster.Presentation
             Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}/{p.LevelCap(h)}  覚醒{p.Awakenings[h]}",heading);
             Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
             if(book.Face==BookFace.Details) {
-                Label(32,398,900,125,"固有スキル：通常攻撃 / 資源3の強撃 / 資源3の支援\n砕き手は部位攻撃1.5倍。歌い手の支援は全体回復。",text);
+                Label(32,398,900,125,$"固有スキル：通常攻撃 / 資源3の強撃 / 資源3の支援\n砕き手は部位攻撃1.5倍。歌い手の支援は全体回復。\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
                 Label(32,545,925,150,"毎回5人で出撃します。行動順は自由です。\n強撃を温存し、後半のチェインで使うと威力が増えます。\n花の枝を育てると支援スキルが強化されます。",text); return;
             }
             int[] steps={1,5,10};
@@ -168,7 +169,12 @@ namespace NewAster.Presentation
                 Label(x,525,294,55,branches[b],text);
                 if(Btn(x,650,294,55,$"育てる  素材 {3+rank*3}",rank<3)) Mutate(p.Grow(campaign.Progress,h,b),"武器の枝に花が咲きました。");
             }
-            Label(32,743,900,44,"初期装備（根） → 開放した枝に花が咲きます。",small);
+            Label(32,707,900,28,"初期装備（根） → 開放した枝に花が咲きます。",small);
+            string duplicateLabel=p.TraitRanks[h]>=PlayableProgress.MaximumTraitRank
+                ? $"重複を汎用素材に変換 / 残り{p.Duplicates[h]}"
+                : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
+            if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
+            if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
         }
         private void DrawWeaponTree(int hero)
         {
@@ -302,25 +308,36 @@ namespace NewAster.Presentation
         {
             Modal(); var p=campaign.Playable;
             Label(340,182,880,65,"キンダーガーデン",heading);
-            Label(340,265,880,115,$"誓女出現率 ★6 3%  ／ 5人は均等確率\n所持 石 {p.KinderStones}  ／ 累計 {p.KinderDrawCount}回  ／ 任意交換 {p.AvailableKinderExchanges}回",text);
-            Label(340,385,860,50,"石は初回配布と巨神獣討伐で手に入ります。スタミナ消費はありません。",small);
-            if(Btn(340,455,420,66,"石1個で迎える",p.KinderStones>0)) {
-                if(p.TryKinderDraw((decimal)UnityEngine.Random.value,(decimal)UnityEngine.Random.value,out var heroine,out var index)) {
-                    var other=new[] { "鍛錬素材", "オーパーツ結晶", "家具素材", "世界の記憶" };
-                    status=heroine ? $"★6 {Names[index]} を迎えました。重複数 {p.Duplicates[index]}" : other[index]+" を受け取りました。";
-                    Save();
+            Label(340,250,880,65,"★6 3%（5人各0.6%） / 素材97%（4種各24.25%）\n素材の獲得量：4・6・8・10。100回ごとに好きな誓女を交換。",small);
+            Label(340,320,880,48,$"石 {p.KinderStones} / 素材 {campaign.Progress.Materials} / 累計 {p.KinderDrawCount}回 / 交換 {p.AvailableKinderExchanges}回",text);
+            Label(340,375,880,90,kinderResult,text);
+            if(Btn(340,475,420,55,"石1個で迎える",p.KinderStones>0)) {
+                // Random.value includes 1; integer sampling stays strictly below 1.
+                decimal heroineRoll=UnityEngine.Random.Range(0,1000000)/1000000m;
+                decimal targetRoll=UnityEngine.Random.Range(0,1000000)/1000000m;
+                if(p.TryKinderDraw(campaign.Progress,heroineRoll,targetRoll,out var heroine,out var index)) {
+                    kinderResult=heroine ? (p.TraitRanks[index]>=PlayableProgress.MaximumTraitRank
+                        ? $"★6 {Names[index]} → 汎用強化素材＋1"
+                        : $"★6 {Names[index]} → 重複強化用＋1（所持{p.Duplicates[index]}）")
+                        : $"育成・家具用素材 ＋{PlayableProgress.KinderMaterialReward(index)}（所持{campaign.Progress.Materials}）";
+                    Save(kinderResult); kinderResult=status;
+                } else {
+                    kinderResult="迎えられませんでした。石・所持上限を確認してください。";
                 }
             }
-            Label(790,466,410,46,"100回ごとに好きな誓女を交換",small);
-            for(int i=0;i<5;i++) if(Btn(340+(i%2)*440,540+(i/2)*52,420,42,$"{Names[i]} と交換",p.AvailableKinderExchanges>0)) {
-                if(p.TryKinderExchange(i)) { status=$"{Names[i]} を任意交換で迎えました。"; Save(); }
+            Label(790,475,410,55,"石は初回配布と討伐で獲得。\nスタミナ消費なし。",small);
+            for(int i=0;i<5;i++) if(Btn(340+(i%2)*440,545+(i/2)*48,420,42,$"{Names[i]} と交換",p.AvailableKinderExchanges>0)) {
+                if(p.TryKinderExchange(i)) {
+                    kinderResult=$"{Names[i]} と交換しました。"+(p.TraitRanks[i]>=PlayableProgress.MaximumTraitRank?"汎用強化素材＋1。":"重複強化用＋1。");
+                    Save(kinderResult); kinderResult=status;
+                } else kinderResult="交換できませんでした。交換回数・所持上限を確認してください。";
             }
             if(Btn(340,700,860,50,"万物の書へ戻る")) kinderGarden=false;
         }
-        private void Mutate(bool success,string message) { if(success) { Save(); status=message; } else status="素材が不足しているか、すでに最大まで開放されています。"; }
-        private void Save()
+        private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
+        private void Save(string successMessage="進行を保存しました。")
         {
-            try { CampaignSaveStore.Save(campaign); status="進行を保存しました。"; }
+            try { CampaignSaveStore.Save(campaign); status=successMessage; }
             catch(Exception e) when(e is System.IO.IOException || e is UnauthorizedAccessException) { status="保存できませんでした。保存先の空き容量と権限を確認してください。"; Debug.LogException(e); }
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }

@@ -63,6 +63,9 @@ public static class PlayableBuild
         var awakenedSave=c.CreateSave(); awakenedSave.heroineLevels[0]=120; awakenedSave.heroineAwakenings[0]=2;
         var awakenedRestored=new CampaignState(WorldCatalog.ColossusIds,JsonUtility.FromJson<CampaignSaveV2>(JsonUtility.ToJson(awakenedSave)));
         Check(awakenedRestored.Playable.Levels[0]==120 && awakenedRestored.Playable.Awakenings[0]==2,"Unity JSON preserves awakening and level120");
+        awakenedSave.heroineTraitRanks[0]=3; awakenedSave.overflowEnhancementMaterials=2;
+        var strengthenedRestored=new CampaignState(WorldCatalog.ColossusIds,JsonUtility.FromJson<CampaignSaveV2>(JsonUtility.ToJson(awakenedSave)));
+        Check(strengthenedRestored.Playable.TraitRanks[0]==3 && strengthenedRestored.Playable.OverflowEnhancementMaterials==2,"Unity JSON preserves duplicate strength and generic material");
         var legacy=new PlayableProgress(new CampaignSaveV2 { heroineLevels=null,weaponBranches=null,furnitureSlots=null });
         Check(legacy.Levels.All(l=>l==1) && legacy.Slots.All(l=>l==-1),"Legacy save defaults");
         var defeat=new PlayableBattle(45,new PlayableProgress()); for(int i=0;i<100 && !defeat.Ended;i++) defeat.EndTurn();
@@ -75,6 +78,7 @@ public static class PlayableBuild
     private static void ValidateBattleDecisions()
     {
         ValidateAwakeningProgress();
+        ValidateKinderRewards();
         var progress=new PlayableProgress();
         var battle=new PlayableBattle(1,progress,42);
         int preview=battle.PreviewDamage(0,1,"body"), before=battle.State.BossHitPoints;
@@ -170,5 +174,47 @@ public static class PlayableBuild
         var beforeBattle=new PlayableBattle(1,new PlayableProgress(),42);
         var afterBattle=new PlayableBattle(1,p,42);
         Check(afterBattle.State.Heroes[0].Attack>beforeBattle.State.Heroes[0].Attack && afterBattle.State.Heroes[0].MaxHitPoints>beforeBattle.State.Heroes[0].MaxHitPoints && afterBattle.ChainRate(0)==beforeBattle.ChainRate(0),"Awakened training improves stats without changing chain rate");
+    }
+    private static void ValidateKinderRewards()
+    {
+        var wallet=new ProgressState(); var p=new PlayableProgress();
+        int stones=p.KinderStones;
+        Check(!p.TryKinderDraw(wallet,1m,0m,out _,out _) && !p.TryKinderDraw(wallet,0m,-.1m,out _,out _) && p.KinderStones==stones && p.KinderDrawCount==0,"Invalid rolls consume no currency");
+        Check(!p.TryKinderDraw(.5m,.5m,out _,out _) && p.KinderStones==stones,"Material rewards require wallet instead of silent non-grant");
+        for(int i=0;i<4;i++) {
+            int balance=wallet.Materials;
+            Check(p.TryKinderDraw(wallet,.03m,i/4m,out var heroine,out var index) && !heroine && index==i && wallet.Materials-balance==PlayableProgress.KinderMaterialReward(i),"Each material pool actually grants advertised quantity");
+        }
+        Check(p.KinderStones==stones-4 && p.KinderDrawCount==4,"Currency and draw count change once per reward");
+        Check(p.TryKinderDraw(wallet,.029999m,.999999m,out var rare,out var target) && rare && target==4 && p.Duplicates[4]==1,"Heroine boundary and final target selection");
+        Check(p.StrengthenDuplicate(4) && p.TraitRanks[4]==1 && p.Duplicates[4]==0,"Duplicate converts to permanent strength exactly once");
+        Check(!p.StrengthenDuplicate(4) && !p.UseOverflowEnhancement(4) && !p.StrengthenDuplicate(-1),"Absent materials and invalid heroine do not strengthen");
+        var rich=new PlayableProgress(new CampaignSaveV2 { kinderStones=10, heroineDuplicates=new[] {7,0,0,0,0} });
+        for(int i=0;i<5;i++) Check(rich.StrengthenDuplicate(0),"Use duplicates up to rank cap");
+        Check(rich.TraitRanks[0]==5 && rich.Duplicates[0]==2 && rich.StrengthenDuplicate(0) && rich.OverflowEnhancementMaterials==1,"Previously held excess duplicates convert to generic material");
+        Check(rich.TryKinderDraw(wallet,0m,0m,out _,out _) && rich.OverflowEnhancementMaterials==2 && rich.Duplicates[0]==1,"New capped duplicate converts automatically");
+        Check(rich.UseOverflowEnhancement(1) && rich.TraitRanks[1]==1 && rich.OverflowEnhancementMaterials==1,"Generic material strengthens another heroine");
+        Check(!rich.UseOverflowEnhancement(0) && rich.OverflowEnhancementMaterials==1,"Rank cap cannot consume generic materials");
+        var baseBattle=new PlayableBattle(1,new PlayableProgress(),72); var strongBattle=new PlayableBattle(1,rich,72);
+        Check(strongBattle.State.Heroes[0].Attack-baseBattle.State.Heroes[0].Attack==5*PlayableProgress.DuplicateAttackGain && strongBattle.State.Heroes[0].MaxHitPoints-baseBattle.State.Heroes[0].MaxHitPoints==5*PlayableProgress.DuplicateHitPointGain && strongBattle.ChainRate(0)==baseBattle.ChainRate(0),"Duplicate strength affects HP and attack but never chain chance");
+        var save=new CampaignSaveV2(); rich.CopyTo(save); var restored=new PlayableProgress(save);
+        Check(restored.TraitRanks[0]==5 && restored.TraitRanks[1]==1 && restored.OverflowEnhancementMaterials==1 && restored.Duplicates[0]==1,"Strength and conversion survive save restoration");
+        var legacy=new PlayableProgress(new CampaignSaveV2 { heroineTraitRanks=null, heroineDuplicates=new[] {3} });
+        Check(legacy.TraitRanks.All(r=>r==0) && legacy.Duplicates[0]==3,"Legacy saves preserve pending duplicates without automatic spending");
+        var saturated=new ProgressState(new CampaignSaveV2 {materials=int.MaxValue});
+        stones=p.KinderStones; int draws=p.KinderDrawCount;
+        Check(!p.TryKinderDraw(saturated,.8m,.8m,out _,out _) && p.KinderStones==stones && p.KinderDrawCount==draws,"Material overflow rejects entire draw before charging");
+        var capped=new PlayableProgress(new CampaignSaveV2 { kinderStones=1,heroineTraitRanks=new[] {5,0,0,0,0},overflowEnhancementMaterials=int.MaxValue,kinderDrawCount=100 });
+        Check(!capped.TryKinderDraw(wallet,0m,0m,out _,out _) && capped.KinderStones==1 && !capped.TryKinderExchange(0) && capped.AvailableKinderExchanges==1,"Conversion overflow preserves stone and exchange ticket");
+        Check(capped.TryKinderExchange(1) && capped.Duplicates[1]==1 && capped.AvailableKinderExchanges==0 && !capped.TryKinderExchange(1),"Exchange grants once and consumes exactly one entitlement");
+        Check(new PlayableProgress(new CampaignSaveV2 {kinderDrawCount=100,kinderExchangeCount=999}).AvailableKinderExchanges==0,"Invalid saved exchange count cannot yield negative tickets");
+        var sample=new PlayableProgress(new CampaignSaveV2 {kinderStones=20000});
+        var sampleWallet=new ProgressState(); var heroes=new int[5]; var materials=new int[4];
+        for(int roll=0;roll<1000;roll++) for(int choice=0;choice<20;choice++) {
+            if(!sample.TryKinderDraw(sampleWallet,roll/1000m,choice/20m,out var heroine,out var index)) throw new Exception("Sample draw rejected");
+            if(heroine) heroes[index]++; else materials[index]++;
+        }
+        Check(heroes.All(n=>n==120) && materials.All(n=>n==4850),"Exhaustive roll grid matches 3%, equal heroines and equal material probabilities");
+        Check(sample.KinderDrawCount==20000 && sample.KinderStones==0 && sampleWallet.Materials==4850*(4+6+8+10),"Sample currency and awarded materials reconcile");
     }
 }

@@ -21,6 +21,8 @@ namespace NewAster.Core
         public int kinderDrawCount;
         public int kinderExchangeCount;
         public int[] heroineDuplicates = new int[5];
+        public int[] heroineTraitRanks = new int[5];
+        public int overflowEnhancementMaterials;
         public string[] claimedBattleIds = Array.Empty<string>();
         public string[] poemIds = Array.Empty<string>();
         public string[] unlockedStoryIds = Array.Empty<string>();
