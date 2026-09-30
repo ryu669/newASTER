@@ -15,6 +15,12 @@ namespace NewAster.Core
 
         public IReadOnlyCollection<string> EnvironmentTags => _environmentTags;
 
+        public TerraformingState(IEnumerable<string> appliedColossusIds = null, IEnumerable<string> environmentTags = null)
+        {
+            _appliedColossusIds.UnionWith(appliedColossusIds ?? Enumerable.Empty<string>());
+            _environmentTags.UnionWith(environmentTags ?? Enumerable.Empty<string>());
+        }
+
         /// <returns>今回初めて定着した環境タグ。再召喚の報酬では空。</returns>
         public IReadOnlyCollection<string> ApplyFirstClear(string colossusId, IEnumerable<string> environmentTags)
         {
@@ -26,5 +32,6 @@ namespace NewAster.Core
         }
 
         public bool HasEnvironment(string environmentTag) => _environmentTags.Contains(environmentTag);
+        public void CopyTo(CampaignSaveV2 save) { save.appliedColossusIds = _appliedColossusIds.ToArray(); save.environmentTags = _environmentTags.ToArray(); }
     }
 }

@@ -94,6 +94,29 @@ namespace NewAster.Core
         public IReadOnlyCollection<string> ReadStoryIds => _readStoryIds;
         public IReadOnlyCollection<string> UnlockedMilestoneIds => _unlockedMilestoneIds;
 
+        public ProgressState(CampaignSaveV2 save = null)
+        {
+            if (save == null) return;
+            if (save.version != CampaignSaveV2.Version || save.materials < 0 || save.terraformingExperience < 0)
+                throw new ArgumentException("Unsupported or invalid campaign save.", nameof(save));
+            Materials = save.materials;
+            TerraformingExperience = save.terraformingExperience;
+            _claimedBattleIds.UnionWith(save.claimedBattleIds ?? Array.Empty<string>());
+            _poemIds.UnionWith(save.poemIds ?? Array.Empty<string>());
+            _unlockedStoryIds.UnionWith(save.unlockedStoryIds ?? Array.Empty<string>());
+            _readStoryIds.UnionWith(save.readStoryIds ?? Array.Empty<string>());
+            _unlockedMilestoneIds.UnionWith(save.unlockedMilestoneIds ?? Array.Empty<string>());
+        }
+
+        public void CopyTo(CampaignSaveV2 save)
+        {
+            if (save == null) throw new ArgumentNullException(nameof(save));
+            save.materials = Materials; save.terraformingExperience = TerraformingExperience;
+            save.claimedBattleIds = _claimedBattleIds.ToArray(); save.poemIds = _poemIds.ToArray();
+            save.unlockedStoryIds = _unlockedStoryIds.ToArray(); save.readStoryIds = _readStoryIds.ToArray();
+            save.unlockedMilestoneIds = _unlockedMilestoneIds.ToArray();
+        }
+
         public VictoryClaimResult ClaimVictory(
             VictoryReward reward,
             IEnumerable<StoryRequirement> stories,

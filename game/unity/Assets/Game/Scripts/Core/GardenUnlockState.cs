@@ -24,6 +24,7 @@ namespace NewAster.Core
     {
         private readonly HashSet<string> _unlockedGardenIds = new HashSet<string>();
         public IReadOnlyCollection<string> UnlockedGardenIds => _unlockedGardenIds;
+        public GardenUnlockState(IEnumerable<string> unlockedGardenIds = null) => _unlockedGardenIds.UnionWith(unlockedGardenIds ?? Enumerable.Empty<string>());
 
         public IReadOnlyCollection<string> Refresh(TerraformingState terraforming, IEnumerable<GardenRequirement> requirements)
         {
@@ -37,5 +38,6 @@ namespace NewAster.Core
         }
 
         public bool IsUnlocked(string gardenId) => _unlockedGardenIds.Contains(gardenId);
+        public void CopyTo(CampaignSaveV2 save) => save.unlockedGardenIds = _unlockedGardenIds.ToArray();
     }
 }

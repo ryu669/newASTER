@@ -14,11 +14,13 @@ namespace NewAster.Core
         private readonly IReadOnlyList<string> _orderedIds;
         private readonly HashSet<string> _clearedIds = new HashSet<string>();
 
-        public ColossusUnlockState(IEnumerable<string> orderedIds)
+        public ColossusUnlockState(IEnumerable<string> orderedIds, IEnumerable<string> firstClearIds = null)
         {
             _orderedIds = (orderedIds ?? throw new ArgumentNullException(nameof(orderedIds))).ToArray();
             if (_orderedIds.Count != 15 || _orderedIds.Any(string.IsNullOrWhiteSpace) || _orderedIds.Distinct().Count() != 15)
                 throw new ArgumentException("The initial catalogue must contain exactly 15 unique ids.", nameof(orderedIds));
+            var saved = new HashSet<string>(firstClearIds ?? Enumerable.Empty<string>());
+            foreach (var id in _orderedIds.Where(saved.Contains)) RecordFirstClear(id);
         }
 
         public IReadOnlyCollection<string> FirstClearIds => _clearedIds;
@@ -40,5 +42,7 @@ namespace NewAster.Core
             if (!IsUnlocked(colossusId)) throw new InvalidOperationException("Cannot clear a locked colossus page.");
             return _clearedIds.Add(colossusId);
         }
+
+        public void CopyTo(CampaignSaveV2 save) => save.firstClearIds = _clearedIds.ToArray();
     }
 }

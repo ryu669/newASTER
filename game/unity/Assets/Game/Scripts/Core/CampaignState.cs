@@ -31,12 +31,19 @@ namespace NewAster.Core
         public TerraformingState Terraforming { get; }
         public GardenUnlockState Gardens { get; }
 
-        public CampaignState(IEnumerable<string> colossusIds)
+        public CampaignState(IEnumerable<string> colossusIds, CampaignSaveV2 save = null)
         {
-            Progress = new ProgressState();
-            ColossusUnlocks = new ColossusUnlockState(colossusIds);
-            Terraforming = new TerraformingState();
-            Gardens = new GardenUnlockState();
+            Progress = new ProgressState(save);
+            ColossusUnlocks = new ColossusUnlockState(colossusIds, save?.firstClearIds);
+            Terraforming = new TerraformingState(save?.appliedColossusIds, save?.environmentTags);
+            Gardens = new GardenUnlockState(save?.unlockedGardenIds);
+        }
+
+        public CampaignSaveV2 CreateSave()
+        {
+            var save = new CampaignSaveV2();
+            Progress.CopyTo(save); ColossusUnlocks.CopyTo(save); Terraforming.CopyTo(save); Gardens.CopyTo(save);
+            return save;
         }
 
         public CampaignVictoryResult ClaimColossusVictory(
