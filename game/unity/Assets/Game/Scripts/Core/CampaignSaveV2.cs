@@ -16,6 +16,10 @@ namespace NewAster.Core
         public bool[] craftedFurniture = new bool[3];
         public int[] furnitureSlots = { -1, -1, -1 };
         public int highestBattleLevel = 1;
+        public int kinderStones = 10;
+        public int kinderDrawCount;
+        public int kinderExchangeCount;
+        public int[] heroineDuplicates = new int[5];
         public string[] claimedBattleIds = Array.Empty<string>();
         public string[] poemIds = Array.Empty<string>();
         public string[] unlockedStoryIds = Array.Empty<string>();

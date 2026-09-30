@@ -14,7 +14,7 @@ namespace NewAster.Presentation
         private PlayableBattle encounter;
         private string battleId, activeColossus, target = "body";
         private string status = "しおりで選び、ページをめくって世界を訪ねましょう。";
-        private bool title = true, paused, retreat, help, drawingModal;
+        private bool title = true, paused, retreat, help, kinderGarden, drawingModal;
         private string result, storyText, storyId;
         private int selectedLevel = 1, storyChapter;
         private GUIStyle text, heading, small, button;
@@ -69,6 +69,7 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 if(storyText!=null) CloseStory();
                 else if(help) help=false;
+                else if(kinderGarden) kinderGarden=false;
                 else if(retreat) { retreat=false; paused=false; }
                 else if(encounter!=null && result==null) paused=!paused;
                 else if(result==null) help=true;
@@ -94,7 +95,7 @@ namespace NewAster.Presentation
             if(encounter==null) DrawBook(); else DrawBattle();
             Panel(0,812,1024,88,dark); Label(28,826,970,60,status,small,Color.white);
             drawingModal=true;
-            if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
+            if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(kinderGarden) DrawKinderGarden(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
         }
         private void DrawTitle()
         {
@@ -110,8 +111,8 @@ namespace NewAster.Presentation
             if(Btn(28,160,180,42,"‹ 前のページ")) book.TurnPage(-1);
             if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
-            if(Btn(600,160,170,42,"保存")) Save(); if(Btn(780,160,200,42,"遊び方")) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
+            if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
+            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  石 {campaign.Playable.KinderStones}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
@@ -130,9 +131,11 @@ namespace NewAster.Presentation
             } else {
                 Label(32,363,925,110,"巨神獣の体に残った呪歌は、失われた世界の記憶。\n討伐して環境を取り戻し、詩を集めると物語の章が開きます。",text);
                 Label(32,485,900,45,$"挑戦 Lv.{selectedLevel}  /  選択可能 1〜{campaign.Playable.HighestLevel}",heading);
-                if(Btn(32,548,140,42,"− 5")) selectedLevel=Math.Max(1,selectedLevel-5);
-                if(Btn(186,548,140,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
-                if(Btn(340,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
+                if(Btn(32,548,90,42,"− 1")) selectedLevel=Math.Max(1,selectedLevel-1);
+                if(Btn(132,548,90,42,"＋ 1")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+1);
+                if(Btn(232,548,90,42,"− 5")) selectedLevel=Math.Max(1,selectedLevel-5);
+                if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
+                if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
                 Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
                 if(Btn(32,692,910,70,"5人の誓女と出撃する")) StartBattle(c.Id);
             }
@@ -280,6 +283,25 @@ namespace NewAster.Presentation
             Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 対象を選び、誓女を好きな順に行動させる。\n3. ターンの後半ほどチェインで攻撃が強くなる。\n4. 部位破壊で敵の能力を弱める。\n5. 報酬で誓女と武器を育て、家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
             if(Btn(340,656,890,62,"閉じる")) help=false;
         }
+        private void DrawKinderGarden()
+        {
+            Modal(); var p=campaign.Playable;
+            Label(340,182,880,65,"キンダーガーデン",heading);
+            Label(340,265,880,115,$"誓女出現率 ★6 3%  ／ 5人は均等確率\n所持 石 {p.KinderStones}  ／ 累計 {p.KinderDrawCount}回  ／ 任意交換 {p.AvailableKinderExchanges}回",text);
+            Label(340,385,860,50,"石は初回配布と巨神獣討伐で手に入ります。スタミナ消費はありません。",small);
+            if(Btn(340,455,420,66,"石1個で迎える",p.KinderStones>0)) {
+                if(p.TryKinderDraw((decimal)UnityEngine.Random.value,(decimal)UnityEngine.Random.value,out var heroine,out var index)) {
+                    var other=new[] { "鍛錬素材", "オーパーツ結晶", "家具素材", "世界の記憶" };
+                    status=heroine ? $"★6 {Names[index]} を迎えました。重複数 {p.Duplicates[index]}" : other[index]+" を受け取りました。";
+                    Save();
+                }
+            }
+            Label(790,466,410,46,"100回ごとに好きな誓女を交換",small);
+            for(int i=0;i<5;i++) if(Btn(340+(i%2)*440,540+(i/2)*52,420,42,$"{Names[i]} と交換",p.AvailableKinderExchanges>0)) {
+                if(p.TryKinderExchange(i)) { status=$"{Names[i]} を任意交換で迎えました。"; Save(); }
+            }
+            if(Btn(340,700,860,50,"万物の書へ戻る")) kinderGarden=false;
+        }
         private void Mutate(bool success,string message) { if(success) { Save(); status=message; } else status="素材が不足しているか、すでに最大まで開放されています。"; }
         private void Save()
         {
@@ -291,7 +313,7 @@ namespace NewAster.Presentation
         private void Label(float x,float y,float w,float h,string value,GUIStyle style,Color? color=null) { var old=style.normal.textColor; if(color.HasValue) style.normal.textColor=color.Value; GUI.Label(new Rect(x,y,w,h),value,style); style.normal.textColor=old; }
         private bool Btn(float x,float y,float w,float h,string value,bool enabled=true)
         {
-            bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || retreat || result!=null));
+            bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
             bool clicked=GUI.Button(new Rect(x,y,w,h),value,button); GUI.enabled=old; return clicked;
         }
         private void OnApplicationQuit() { if(campaign!=null) Save(); }
