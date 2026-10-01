@@ -15,6 +15,7 @@
 | [正式版着手パッケージ v0.2](formal-production-start-v0.2.md) | 開始判定、技術構成、最初の10作業、初回ビルドの完了条件 |
 | [正式版実装ロードマップ v0.2](implementation-roadmap-v0.2.md) | 現在地、実装順、各段階の完了条件 |
 | [正式版制作：戦闘更新 v0.3](production-combat-update-v0.3.md) | 覚醒・重複強化の継承、5人の個別支援、巨神獣の段階変化・行動予告、正式データのTBD |
+| [動画を参考にした戦闘UI改良](battle-video-ui-update.md) | 3D中心・右側3スキル・下部5人カード・部位選択の画面構成 |
 | [3Dアセット制作方針 v0.2](asset-production-policy-v0.2.md) | 独自モデルの制作範囲、参考作品との区別、最初のモデル制作順 |
 | [旧・要件定義](requirements.md) | 旧方針の統合記録。現行仕様と矛盾する場合はv0.2を優先 |
 | [継承ヒロイン](inherited-heroines.md) | 指定7人、主人公、時系列、原作との関係 |

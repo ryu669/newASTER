@@ -17,7 +17,7 @@ namespace NewAster.Presentation
         private bool title = true, paused, retreat, help, kinderGarden, drawingModal;
         private string result, storyText, storyId;
         private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
-        private int selectedLevel = 1, storyChapter, storyPage;
+        private int selectedLevel = 1, storyChapter, storyPage, selectedHero;
         private GUIStyle text, heading, small, button;
         private Font font;
         private Texture2D paper, dark, teal;
@@ -79,10 +79,13 @@ namespace NewAster.Presentation
                 else if(encounter!=null && result==null) paused=!paused;
                 else if(result==null) help=true;
             }
-            viewCamera.rect=new Rect(.64f,.27f,.36f,.51f); viewCamera.aspect=Screen.width*.36f/(Screen.height*.51f);
+            bool battleView=encounter!=null;
+            viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
+            viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
+            viewCamera.fieldOfView=battleView?35f:60f;
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
-            viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):new Vector3(-1,7,-15);
-            viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,1.8f,1.2f));
+            viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
+            viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null);
             if(capturePath!=null) {
@@ -94,6 +97,11 @@ namespace NewAster.Presentation
         private void OnGUI()
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            if(!title && encounter!=null) {
+                DrawBattle(); drawingModal=true;
+                if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
+                return;
+            }
             Panel(0,0,1024,900,paper); Panel(0,0,1600,80,dark);
             Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
             if(title) { DrawTitle(); return; }
@@ -242,38 +250,53 @@ namespace NewAster.Presentation
             activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
+            selectedHero=0;
         }
         private void DrawBattle()
         {
             var s=encounter.State;
-            Label(28,98,950,53,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}  /  TURN {encounter.Turn}",heading);
-            Label(28,159,910,36,$"本体 HP {s.BossHitPoints}/{s.BossMaxHitPoints}  /  大技 {s.BossGauge}/{s.BossGaugeMax}  /  {encounter.Chain} CHAIN",text);
-            Meter(28,197,600,8,s.BossHitPoints,s.BossMaxHitPoints,new Color(.15f,.55f,.35f));
-            Meter(650,197,326,8,s.BossGauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
-            Label(1050,675,510,115,"次の敵行動："+encounter.NextEnemyAction+"\n"+(encounter.IsEnraged?"HP半分以下：攻撃力上昇\n":"")+(encounter.NextAttackIsMajor?"角冠破壊・封印で大技を遅らせる":"味方全体を攻撃"),text,Color.white);
-            Label(1050,801,510,85,$"受けるダメージ（順に5人）\n{string.Join(" / ",Enumerable.Range(0,5).Select(i=>s.Heroes[i].IsAlive?encounter.PreviewEnemyDamage(i).ToString():"戦闘不能"))}",small,Color.white);
-            if(Btn(28,213,180,48,(target=="body"?"◆ ":"")+"本体")) target="body";
-            for(int i=0;i<4;i++) if(Btn(219+i*188,213,178,48,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i],!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
-            for(int i=0;i<4;i++) Label(28+i*238,278,232,91,$"{PartNames[i]}：{(s.Parts[i].IsBroken?"破壊済":s.Parts[i].HitPoints.ToString())}\n{Effects[i]}",small);
-            Label(28,357,948,27,"接続率は基本65%＋ターン補正。成功すると次の攻撃が強化されます。",small);
+            Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
+            Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
+            Label(28,72,850,30,$"HP {s.BossHitPoints}/{s.BossMaxHitPoints}　 大技 {s.BossGauge}/{s.BossGaugeMax}　 TURN {encounter.Turn}",small,Color.white);
+            Meter(28,112,650,10,s.BossHitPoints,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
+            Meter(698,112,370,10,s.BossGauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
+            if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
+            if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
+            Label(1180,88,390,42,$"{encounter.Chain} CHAIN",heading,new Color(1f,.82f,.4f));
+            if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体")) target="body";
+            for(int i=0;i<4;i++) if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(s.Parts[i].IsBroken?"破壊済":"HP "+s.Parts[i].HitPoints),!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
+            var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
+            int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
+            Label(28,240,1050,45,targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex],small,Color.white);
+            int actor=selectedHero; var hero=s.Heroes[actor];
+            Label(1180,175,390,50,Names[actor],heading,Color.white);
+            Label(1180,231,390,66,$"{Jobs[actor]}　資源 {hero.JobResource}/10\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
+            bool enabled=!paused && result==null && !encounter.Acted[actor] && hero.IsAlive;
+            if(Btn(1180,310,390,76,$"通常攻撃\n予測 {encounter.PreviewDamage(actor,0,target)} / 資源0",enabled)) Act(actor,0);
+            if(Btn(1180,400,390,76,$"強撃\n予測 {encounter.PreviewDamage(actor,1,target)} / 資源3",enabled && hero.JobResource>=3)) Act(actor,1);
+            if(Btn(1180,490,390,88,PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor),enabled && hero.JobResource>=3)) Act(actor,2);
+            Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
+            Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
+            Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n支援は攻撃チェインを終了",small,Color.white);
+            if(Btn(1180,807,390,58,"残りの行動を終えて敵の番へ",!paused && result==null)) { bool major=encounter.NextAttackIsMajor; encounter.EndTurn(); if(stage!=null) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
             for(int i=0;i<5;i++) {
-                var h=s.Heroes[i]; float y=390+i*65; Label(28,y,265,58,$"{Names[i]}\nHP {h.HitPoints}/{h.MaxHitPoints}  資源 {h.JobResource}",small);
-                Meter(28,y+56,255,5,h.HitPoints,h.MaxHitPoints,h.HitPoints*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
-                bool enabled=!paused && result==null && !encounter.Acted[i] && h.IsAlive;
-                if(Btn(304,y,202,54,encounter.Acted[i]?"行動済":$"通常 {encounter.PreviewDamage(i,0,target)}\n接続 {encounter.ChainRate(i):P0}",enabled)) Act(i,0);
-                if(Btn(518,y,202,54,$"強撃 {encounter.PreviewDamage(i,1,target)}\n資源3 / 接続 {encounter.ChainRate(i):P0}",enabled && h.JobResource>=3)) Act(i,1);
-                if(Btn(732,y,244,54,PlayableBattle.SupportName(i)+" 資源3\n"+encounter.SupportDescription(i),enabled && h.JobResource>=3)) Act(i,2);
+                float x=18+i*225; var h=s.Heroes[i];
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.Acted[i]?"行動済":"行動可能"),h.IsAlive)) selectedHero=i;
+                Label(x,782,215,32,$"HP {h.HitPoints}/{h.MaxHitPoints}　資源 {h.JobResource}",small,Color.white);
+                Meter(x,817,215,6,h.HitPoints,h.MaxHitPoints,h.HitPoints*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
-            if(Btn(28,727,294,50,paused?"再開する":"一時停止")) paused=!paused;
-            if(Btn(340,727,294,50,"ターンを終える",!paused && result==null)) { bool major=encounter.NextAttackIsMajor; encounter.EndTurn(); if(stage!=null) stage.PlayEnemyAction(major); FinishCheck(); }
-            if(Btn(652,727,324,50,"撤退して本へ")) { retreat=true; paused=true; }
             status=paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
+            Label(24,841,1090,55,status,small,Color.white);
+        }
+        private void SelectNextHero()
+        {
+            for(int step=1;step<=5;step++) { int next=(selectedHero+step)%5; if(encounter.State.Heroes[next].IsAlive && !encounter.Acted[next]) { selectedHero=next; return; } }
         }
         private void Act(int hero,int skill)
         {
             string actionTarget=target;
             int turn=encounter.Turn; bool major=encounter.NextAttackIsMajor;
-            if(encounter.Act(hero,skill,target)) { if(stage!=null) { stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); } if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body"; FinishCheck(); }
+            if(encounter.Act(hero,skill,target)) { if(stage!=null) { stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); } if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body"; SelectNextHero(); FinishCheck(); }
         }
         private void FinishCheck()
         {
@@ -318,7 +341,7 @@ namespace NewAster.Presentation
         private void DrawHelp()
         {
             Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 対象を選び、誓女を好きな順に行動させる。\n3. 接続に成功すると次の攻撃が強化。支援で終了。\n4. 部位破壊で敵の能力を弱める。\n5. 報酬で誓女と武器を育て、家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
+            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 上の部位ボタンで対象を選ぶ。\n3. 下の誓女カードを選び、右の3スキルで行動。\n4. 接続成功で次の攻撃が強化。支援で終了。\n5. 部位破壊で敵を弱め、報酬で育成・家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
             if(Btn(340,656,890,62,"閉じる")) help=false;
         }
         private void DrawKinderGarden()

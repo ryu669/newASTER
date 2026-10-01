@@ -9,6 +9,7 @@ namespace NewAster.Presentation
     {
         private Transform dragon;
         private Transform garden;
+        private GameObject ground;
         private readonly List<Transform> party = new List<Transform>();
         private readonly List<GameObject> placedFurniture = new List<GameObject>();
         private float clock;
@@ -36,6 +37,7 @@ namespace NewAster.Presentation
         public void Synchronize(bool gardenView, bool gardenUnlocked, PlayableProgress progress, PlayableBattle battle, string target, bool pause)
         {
             frozen=pause;
+            if(ground!=null) ground.SetActive(battle==null);
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);
             foreach(var member in party) member.gameObject.SetActive(!gardenView || gardenUnlocked);
@@ -158,9 +160,14 @@ namespace NewAster.Presentation
             return root.transform;
         }
 
-        private static void CreateSky()
+        private void CreateSky()
         {
-            Primitive("New Star Ground", PrimitiveType.Plane, new Vector3(0f, 0f, 1.5f), new Vector3(2f, 1f, 2f), new Color(.15f, .30f, .22f));
+            ground=Primitive("New Star Ground", PrimitiveType.Plane, new Vector3(0f, 0f, 1.5f), new Vector3(2f, 1f, 2f), new Color(.15f, .30f, .22f));
+            var random=new System.Random(42);
+            for(int i=0;i<50;i++) {
+                var star=Primitive("Memory Star",PrimitiveType.Sphere,new Vector3((float)random.NextDouble()*30-15,(float)random.NextDouble()*12-2,12+(float)random.NextDouble()*5),Vector3.one*.035f,new Color(.65f,.8f,.95f));
+                star.GetComponent<Renderer>().material.SetColor("_EmissionColor",new Color(.6f,.8f,1f));
+            }
             var moon = Primitive("New Star Moon", PrimitiveType.Sphere, new Vector3(6f, 6f, 7f), new Vector3(1.6f, 1.6f, 1.6f), new Color(.55f, .86f, .78f));
             var light = moon.AddComponent<Light>(); light.type = LightType.Point; light.range = 12f; light.intensity = 3f; light.color = new Color(.38f, .9f, .65f);
         }
