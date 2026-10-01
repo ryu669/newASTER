@@ -4,6 +4,7 @@ import sys
 import math
 from pathlib import Path
 from mathutils import Vector
+from mathutils.kdtree import KDTree
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
@@ -19,6 +20,20 @@ for d in (OUT,SOURCE,REVIEW): d.mkdir(parents=True,exist_ok=True)
 def dist(p,a,b):
     v=b-a; t=max(0,min(1,(p-a).dot(v)/v.length_squared)); return (p-a-v*t).length
 
+def body_candidates(point,segments):
+    x,y,z=point; side='.R' if x>=0 else '.L'; lateral=abs(x)
+    torso=('Hips','Spine','Chest','Neck','Head')
+    arm=lateral>.19 and z>.76 or lateral>.15 and z>1.16
+    if arm:
+        names=[n for n in segments if n.endswith(side) and n.startswith(('UpperArm','Forearm','Hand','Finger','Thumb'))]
+        if z>1.16: names+=['Chest','Spine']
+    elif z<.98:
+        names=['Hips']+[n for n in segments if n.endswith(side) and n.startswith(('Thigh','Shin','Foot'))]
+        if z>.88: names+=['Spine']
+    else:
+        names=list(torso)
+    return {n:segments[n] for n in names}
+
 if not PREVIEW:
     data=bpy.data.armatures.new('Slayer_Common_Skeleton')
     rig=bpy.data.objects.new('Slayer_Rig',data); bpy.context.collection.objects.link(rig)
@@ -28,8 +43,12 @@ if not PREVIEW:
         if parent: bone.parent=data.edit_bones[parent]
     bpy.ops.object.mode_set(mode='OBJECT')
     segments={n:(Vector(a),Vector(b)) for n,(a,b,p) in bones.items() if n!='Root' and not n.startswith('Wing')}
-    for obj in meshes:
+    skin_weights={}; skin_tree=KDTree(len(body.data.vertices))
+    for obj in sorted(meshes,key=lambda o:0 if o==body else 1):
         fixed=bindings.get(obj.name)
+        if obj.name.startswith('Outfit_Rose_Embroidery'): fixed=None
+        if obj.name.startswith(('Hair_','Eye_','Brow','Ear','Mouth','Lower_Lip','Head_')):
+            assert fixed=='Head', 'Facial/hair part lost its explicit head binding: '+obj.name
         modifier=obj.modifiers.new('Common Skeleton','ARMATURE'); modifier.object=rig; obj.parent=rig
         if fixed:
             group=obj.vertex_groups.new(name=fixed); group.add(list(range(len(obj.data.vertices))),1,'REPLACE')
@@ -38,11 +57,40 @@ if not PREVIEW:
             for vertex in obj.data.vertices:
                 point=vertex.co
                 # Garments around the hips follow the torso rather than stretching to the hands.
-                torso_garment=obj.name.startswith(('Outfit_Rose_Dress','Outfit_Rose_Seam','Outfit_Rose_Diagonal','Outfit_Rose_Belt','Outfit_Rose_Hem','Outfit_Training_Tunic'))
-                candidates=segments if not torso_garment else {n:v for n,v in segments.items() if n in ('Hips','Spine','Chest','Neck')}
+                torso_garment=obj.name.startswith(('Outfit_Rose_Dress','Outfit_Rose_Seam','Outfit_Rose_Diagonal','Outfit_Rose_Belt','Outfit_Rose_Hem','Outfit_Rose_Embroidery','Outfit_Training_Tunic'))
+                if torso_garment and point.z<1.0:
+                    amount=max(0,min(1,(1.0-point.z)/.20)); amount=amount*amount*(3-2*amount)
+                    right=max(0,min(1,(point.x+.055)/.11)); right=right*right*(3-2*right)
+                    for name,weight in [('Hips',1-amount),('Thigh.R',amount*right),('Thigh.L',amount*(1-right))]:
+                        if weight>0: groups[name].add([vertex.index],weight,'REPLACE')
+                    continue
+                if obj.name.startswith('Outfit_') and not torso_garment:
+                    _,index,_=skin_tree.find(point)
+                    for name,weight in skin_weights[index]: groups[name].add([vertex.index],weight,'REPLACE')
+                    continue
+                if obj==body and point.z>1.16 and .10<abs(point.x)<.215:
+                    # Blend the shoulder over a surface band, not a hard region
+                    # boundary that leaves folded flaps when the arm is raised.
+                    amount=max(0,min(1,(abs(point.x)-.10)/.105)); amount=amount*amount*(3-2*amount)
+                    side='.R' if point.x>0 else '.L'
+                    mixed=[]
+                    for candidates_names,share in [(('Chest','Spine'),1-amount),(('UpperArm'+side,'Forearm'+side),amount)]:
+                        distances=[(dist(point,*segments[n]),n) for n in candidates_names]
+                        raw=[1/(d+.015)**4 for d,n in distances]; total=sum(raw)
+                        mixed.extend((n,share*w/total) for (d,n),w in zip(distances,raw))
+                    for n,w in mixed:
+                        if w>0: groups[n].add([vertex.index],w,'REPLACE')
+                    continue
+                candidates=body_candidates(point,segments) if not torso_garment else {n:v for n,v in segments.items() if n in ('Hips','Spine','Chest','Neck')}
                 nearest=sorted((dist(point,a,b),n) for n,(a,b) in candidates.items())[:4]
                 weights=[1/(d+.015)**4 for d,n in nearest]; total=sum(weights)
                 for (d,n),weight in zip(nearest,weights): groups[n].add([vertex.index],weight/total,'REPLACE')
+        if obj==body:
+            names={g.index:g.name for g in obj.vertex_groups}
+            for v in obj.data.vertices:
+                skin_weights[v.index]=[(names[g.group],g.weight) for g in v.groups if g.weight>0]
+                skin_tree.insert(v.co,v.index)
+            skin_tree.balance()
         # Proper UVs are preserved alongside vertex colours for future texture painting.
         bpy.ops.object.select_all(action='DESELECT'); obj.select_set(True); bpy.context.view_layer.objects.active=obj
         if not obj.data.uv_layers:

@@ -312,6 +312,15 @@ public static class PlayableBuild
         Check(body.bones.Any(b=>b.name=="Hand.R") && body.bones.Any(b=>b.name=="Head") && body.bones.Any(b=>b.name=="Finger3.L"),"Hand head and finger bones survive export");
         Check(meshes.Any(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Blink deformation survives FBX import");
         Check(Resources.Load<Shader>("HeroineBeauty")!=null,"Character close-up shader is packaged with the player");
+        foreach(var part in new[]{"Hair_Styled","WingWing.L","WingWing.R"}) {
+            var renderer=meshes.Single(r=>r.name==part);
+            string expected=part=="Hair_Styled"?"Head":part.Substring(4);
+            Check(renderer.sharedMesh.boneWeights.All(w=>
+                (w.weight0==0 || renderer.bones[w.boneIndex0].name==expected) &&
+                (w.weight1==0 || renderer.bones[w.boneIndex1].name==expected) &&
+                (w.weight2==0 || renderer.bones[w.boneIndex2].name==expected) &&
+                (w.weight3==0 || renderer.bones[w.boneIndex3].name==expected)),"Repeated mesh parts retain intended bone binding: "+part);
+        }
         foreach(var prefix in new[]{"Eye_White","Eye_Iris","Eye_Lid"}) {
             var parts=meshes.Where(r=>r.name.StartsWith(prefix)).ToArray();
             Check(parts.Length==(prefix=="Eye_Lid"?4:2) && parts.All(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Both eyes have coordinated blink geometry: "+prefix);

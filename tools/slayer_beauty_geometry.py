@@ -45,7 +45,7 @@ def mesh(name,verts,faces,material,bone=None,colors=None):
     tint=data.color_attributes.new(name='Tint',type='FLOAT_COLOR',domain='POINT')
     for i,c in enumerate(tint.data): c.color=colors[i] if colors else (1,1,1,1)
     objects.append(obj)
-    if bone: bindings[name]=bone
+    if bone: bindings[obj.name]=bone
     return obj
 
 def sphere(name,pos,scale,material,bone=None,seg=32,rings=20,body=False):
