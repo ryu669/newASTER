@@ -10,6 +10,7 @@ bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=Fal
 import slayer_beauty_geometry as geo
 meshes,bindings,bones,body=geo.build()
 PREVIEW='--preview-only' in sys.argv
+NO_RENDERS='--no-renders' in sys.argv
 OUT=ROOT/'game/unity/Assets/Game/Resources/Characters/Slayer'
 SOURCE=ROOT/'game/art-source/slayer'
 REVIEW=ROOT/'game/Builds/playable'
@@ -76,6 +77,26 @@ if not PREVIEW:
     for obj in meshes: obj.select_set(True)
     bpy.context.view_layer.objects.active=rig
     bpy.ops.export_scene.fbx(filepath=str(OUT/'slayer-beauty-v2.fbx'),use_selection=True,object_types={'ARMATURE','MESH'},add_leaf_bones=False,axis_forward='-Z',axis_up='Y',bake_anim=True,bake_anim_use_all_actions=True,bake_anim_use_nla_strips=False,bake_anim_simplify_factor=0,use_mesh_modifiers=True)
+    # Clothing is fitted over this complete, independently editable base. Never
+    # derive a body by deleting clothes from a purchased character model.
+    base_meshes=[o for o in meshes if o.name=='Body_Common' or o.name.startswith(('Head_','Ear','Eye_','Brow','Mouth','Lower_Lip'))]
+    assert body in base_meshes and any(o.name=='Head_Face' for o in base_meshes)
+    assert not any(o.name.startswith(('Outfit_','Hair_','Wing','Weapon_')) for o in base_meshes)
+    body['authoring_role']='Complete adult base body; do not remove skin under clothing'
+    body['outfit_independent']=True
+    base_signature=[tuple(v.co) for v in body.data.vertices]
+    bpy.ops.object.select_all(action='DESELECT'); rig.select_set(True)
+    for obj in base_meshes: obj.select_set(True)
+    bpy.context.view_layer.objects.active=rig
+    bpy.ops.export_scene.fbx(filepath=str(SOURCE/'slayer-base-body-v2.fbx'),use_selection=True,object_types={'ARMATURE','MESH'},add_leaf_bones=False,axis_forward='-Z',axis_up='Y',bake_anim=False,use_mesh_modifiers=True)
+    base_scene=bpy.data.scenes.new('Slayer Base Body - Authoring')
+    base_scene.collection.objects.link(rig)
+    for obj in base_meshes: base_scene.collection.objects.link(obj)
+    base_scene['purpose']='Clothing-independent adult mannequin for garment fitting; not a final anatomy or deformation approval'
+    bpy.data.libraries.write(str(SOURCE/'slayer-base-body-v2.blend'),{base_scene},fake_user=True,compress=True)
+    bpy.data.scenes.remove(base_scene)
+    assert base_signature==[tuple(v.co) for v in body.data.vertices], 'Base export must not alter body geometry'
+    print('SLAYER_BASE_BODY_OUTPUT',len(base_meshes),'meshes',len(body.data.vertices),'body vertices; clothing, hair, wings and weapon excluded',flush=True)
 
 for obj in meshes:
     if obj.name.startswith('Outfit_Training'): obj.hide_render=True
@@ -96,9 +117,10 @@ def render(name,pos,target,scale,width,height):
     cam.location=pos; cam.rotation_euler=(Vector(target)-cam.location).to_track_quat('-Z','Y').to_euler(); data.ortho_scale=scale
     scene.render.resolution_x=width; scene.render.resolution_y=height; scene.render.filepath=str(REVIEW/name)
     bpy.ops.render.render(write_still=True)
-render('slayer-v2-face-front.png',(0,-4,1.61),(0,0,1.61),.43,1200,1200)
-render('slayer-v2-face-threequarter.png',(2.1,-4,1.63),(0,0,1.61),.43,1200,1200)
-if not PREVIEW:
+if not NO_RENDERS:
+    render('slayer-v2-face-front.png',(0,-4,1.61),(0,0,1.61),.43,1200,1200)
+    render('slayer-v2-face-threequarter.png',(2.1,-4,1.63),(0,0,1.61),.43,1200,1200)
+if not PREVIEW and not NO_RENDERS:
     render('slayer-v2-full.png',(1.2,-4,1.40),(0,0,.92),2.02,1440,1920)
     render('slayer-v2-profile.png',(4,-.02,1.61),(0,0,1.61),.43,1200,1200)
 print('SLAYER_BEAUTY_OUTPUT',len(meshes),'meshes',sum(len(o.data.vertices) for o in meshes),'vertices',len(bones),'bones',flush=True)
