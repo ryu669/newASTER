@@ -1,0 +1,22 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>スレイヤー・瞬きと会話の試作</title>
+<style>body{margin:0;background:#222833;color:#eee;font:16px system-ui}header,footer{padding:16px 24px}h1{font-size:22px;margin:0 0 8px}button,a{display:inline-block;margin:5px;padding:10px 16px;background:#365266;color:white;border:1px solid #89a3b7;border-radius:5px}main{max-width:1500px;margin:auto}canvas{display:block;width:100%;height:auto}p{line-height:1.6}#status{color:#eac995}</style>
+<header><h1>瞬き・会話の2D動作試作</h1><p>目と口だけを切り替えます。音声同期・髪揺れ・3D変形ではありません。</p>
+<button id="play" disabled>再生</button><button id="talk" aria-pressed="false" disabled>会話 OFF</button><button id="blink" disabled>閉眼を確認</button><button id="mouth" disabled>口開きを確認</button><button id="reset" disabled>通常へ戻す</button><a href="slayer-2d-review.html">静止画比較</a><span id="status" role="status">画像読込中</span></header>
+<main><canvas id="view" width="1672" height="941" aria-label="スレイヤーの瞬きと口の動き"></canvas></main>
+<footer>固定した通常画像に、差分の目・口の領域を重ねる限定試作です。中間の瞼、口形の補間、境界の色合わせは未完成。背景・衣装を動かして髪揺れに見せる処理は入れていません。</footer>
+<script src="slayer-2d-motion.js"></script><script>
+const canvas=document.getElementById('view'),ctx=canvas.getContext('2d');
+const status=document.getElementById('status'),play=document.getElementById('play'),talk=document.getElementById('talk');
+let running=false,talking=false,time=0,last=0,manual=null,images;
+function load(src){return new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(new Error(src));i.src=src})}
+function patch(image,x,y,rx,ry,angle){ctx.save();ctx.beginPath();ctx.ellipse(x,y,rx,ry,angle,0,Math.PI*2);ctx.clip();ctx.drawImage(image,0,0,canvas.width,canvas.height);ctx.restore()}
+function draw(){const f=manual||SlayerMotion.frameAt(time,talking);ctx.drawImage(images[0],0,0);if(f.blink){patch(images[1],720,298,85,39,.28);patch(images[1],900,347,76,38,.28)}if(f.talk)patch(images[2],786,434,52,28,.22);status.textContent=running?'再生中（無音）':manual?'静止状態の確認':'停止中'}
+function tick(now){if(running&&!document.hidden)time+=Math.min((now-last)/1000,.05);last=now;if(images)draw();requestAnimationFrame(tick)}
+function stop(){running=false;play.textContent='再生'}
+play.onclick=()=>{manual=null;running=!running;play.textContent=running?'一時停止':'再生'};
+talk.onclick=()=>{talking=!talking;manual=null;talk.textContent='会話 '+(talking?'ON':'OFF');talk.setAttribute('aria-pressed',String(talking))};
+document.getElementById('blink').onclick=()=>{stop();manual={blink:true,talk:false}};
+document.getElementById('mouth').onclick=()=>{stop();manual={blink:false,talk:true}};
+document.getElementById('reset').onclick=()=>{stop();manual=null;time=0;talking=false;talk.textContent='会話 OFF';talk.setAttribute('aria-pressed','false')};
+Promise.all(['slayer-2d-direction-study-v1.png','slayer-2d-blink-v1.png','slayer-2d-talk-v1.png'].map(load)).then(result=>{if(result.some(i=>i.width!==1672||i.height!==941))throw Error('画像寸法が一致しません');images=result;document.querySelectorAll('button').forEach(b=>b.disabled=false);draw();requestAnimationFrame(tick)}).catch(e=>status.textContent='読込エラー：'+e.message);
+</script></html>
