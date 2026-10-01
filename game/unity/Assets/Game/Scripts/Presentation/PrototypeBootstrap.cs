@@ -253,7 +253,7 @@ namespace NewAster.Presentation
                 bool enabled=!paused && result==null && !encounter.Acted[i] && h.IsAlive;
                 if(Btn(304,y,202,54,encounter.Acted[i]?"行動済":$"通常 {encounter.PreviewDamage(i,0,target)}\n接続 {encounter.ChainRate(i):P0}",enabled)) Act(i,0);
                 if(Btn(518,y,202,54,$"強撃 {encounter.PreviewDamage(i,1,target)}\n資源3 / 接続 {encounter.ChainRate(i):P0}",enabled && h.JobResource>=3)) Act(i,1);
-                if(Btn(732,y,244,54,i==3?"癒しの歌  資源3\n全体回復 / 連鎖終了":"護りの誓い  資源3\n全体軽減 / 連鎖終了",enabled && h.JobResource>=3)) Act(i,2);
+                if(Btn(732,y,244,54,PlayableBattle.SupportName(i)+" 資源3\n"+encounter.SupportDescription(i),enabled && h.JobResource>=3)) Act(i,2);
             }
             if(Btn(28,727,294,50,paused?"再開する":"一時停止")) paused=!paused;
             if(Btn(340,727,294,50,"ターンを終える",!paused && result==null)) { encounter.EndTurn(); FinishCheck(); }

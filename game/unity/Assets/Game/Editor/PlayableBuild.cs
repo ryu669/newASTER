@@ -24,6 +24,7 @@ public static class PlayableBuild
     public static void Validate()
     {
         assertions=0;
+        ValidateDistinctSupport();
         ValidateBattleDecisions();
         var c=new CampaignState(WorldCatalog.ColossusIds);
         var first=WorldCatalog.Colossi[0];
@@ -174,6 +175,20 @@ public static class PlayableBuild
         var beforeBattle=new PlayableBattle(1,new PlayableProgress(),42);
         var afterBattle=new PlayableBattle(1,p,42);
         Check(afterBattle.State.Heroes[0].Attack>beforeBattle.State.Heroes[0].Attack && afterBattle.State.Heroes[0].MaxHitPoints>beforeBattle.State.Heroes[0].MaxHitPoints && afterBattle.ChainRate(0)==beforeBattle.ChainRate(0),"Awakened training improves stats without changing chain rate");
+    }
+    private static void ValidateDistinctSupport()
+    {
+        var p=new PlayableProgress();
+        var self=new PlayableBattle(1,p); self.State.Heroes[0].TakeDamage(80); self.State.Heroes[1].TakeDamage(80);
+        int other=self.State.Heroes[1].HitPoints;
+        Check(self.Act(0,2,"body") && self.State.Heroes[0].HitPoints>62 && self.State.Heroes[1].HitPoints==other && !self.Guarded,"Self healing affects only caster");
+        var seal=new PlayableBattle(1,p); seal.State.AdvanceBossGauge(3);
+        Check(seal.NextAttackIsMajor && seal.Act(1,2,"body") && seal.State.BossGauge==2 && !seal.NextAttackIsMajor,"Seal delays telegraphed major attack");
+        var heal=new PlayableBattle(1,p); foreach(var h in heal.State.Heroes) h.TakeDamage(80); heal.State.Heroes[0].TakeDamage(999);
+        Check(heal.Act(3,2,"body") && heal.State.Heroes[0].HitPoints==0 && heal.State.Heroes.Skip(1).All(h=>h.HitPoints>62),"Group healing does not resurrect defeated allies");
+        var supply=new PlayableBattle(1,p);
+        Check(supply.Act(4,2,"body") && supply.State.Heroes[4].JobResource==0 && supply.State.Heroes.Take(4).All(h=>h.JobResource==5),"Supply charges caster and replenishes allies");
+        Check(!supply.Act(4,2,"body") && supply.State.Heroes[0].JobResource==5,"Supply cannot be repeated in same turn");
     }
     private static void ValidateKinderRewards()
     {

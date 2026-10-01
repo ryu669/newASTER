@@ -125,6 +125,7 @@ namespace NewAster.Core
         }
 
         public void AdvanceBossGauge(int amount) => BossGauge = Math.Min(BossGaugeMax, BossGauge + Math.Max(0, amount));
+        public void ReduceBossGauge(int amount) => BossGauge = Math.Max(0, BossGauge - Math.Max(0, amount));
         public bool TryConsumeUltimateGauge()
         {
             if (!UltimateUnlocked || BossGauge < BossGaugeMax) return false;

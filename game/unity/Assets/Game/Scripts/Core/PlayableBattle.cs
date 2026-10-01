@@ -18,6 +18,22 @@ namespace NewAster.Core
         private readonly int[] support;
         private readonly Random random;
         private bool chainPending;
+        public static string SupportName(int heroIndex)
+        {
+            var names = new[] { "再起の誓い", "結晶の封印", "護りの誓い", "癒しの歌", "星の補給" };
+            return heroIndex >= 0 && heroIndex < names.Length ? names[heroIndex] : "";
+        }
+        public string SupportDescription(int heroIndex)
+        {
+            switch (heroIndex) {
+                case 0: return "自身を回復 " + (35 + State.Heroes[0].Attack + support[0] * 15);
+                case 1: return "大技ゲージ −" + (1 + support[1] / 2);
+                case 2: return "このターン全体ダメージ軽減";
+                case 3: return "全体回復 " + (35 + State.Heroes[3].Attack + support[3] * 15);
+                case 4: return "生存する他の仲間に資源 ＋" + (2 + support[4]);
+                default: return "";
+            }
+        }
         public PlayableBattle(int level, PlayableProgress progress, int seed = 1)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
@@ -65,7 +81,7 @@ namespace NewAster.Core
             if (heroIndex < 0 || heroIndex >= 5) return 0;
             int damage = 12 + State.SelectedLevel * 2 + (NextAttackIsMajor ? (State.UltimateUnlocked ? 45 : 20) : 0);
             if (State.Parts[1].IsBroken) damage = damage * 3 / 4;
-            if (Guarded) damage = damage * Math.Max(20, 50 - support.Max() * 8) / 100;
+            if (Guarded) damage = damage * Math.Max(20, 50 - support[2] * 8) / 100;
             return Math.Max(1, damage - defense[heroIndex] * 3);
         }
         public bool Act(int heroIndex, int skill, string target)
@@ -75,8 +91,14 @@ namespace NewAster.Core
             if (skill == 2)
             {
                 if (!hero.SpendResource(3)) { Log = "資源が不足しています。"; return false; }
-                if (heroIndex == 3) { foreach (var h in State.Heroes) h.Heal(35 + hero.Attack + support[heroIndex] * 15); Log = "癒しの歌：生存している仲間を回復。"; }
-                else { Guarded = true; Log = "護りの誓い：このターンの敵の攻撃を半減。"; }
+                switch (heroIndex) {
+                    case 0: hero.Heal(35 + hero.Attack + support[0] * 15); break;
+                    case 1: State.ReduceBossGauge(1 + support[1] / 2); break;
+                    case 2: Guarded = true; break;
+                    case 3: foreach (var h in State.Heroes) h.Heal(35 + hero.Attack + support[3] * 15); break;
+                    case 4: foreach (var h in State.Heroes.Where(h => h.Id != hero.Id && h.IsAlive)) h.GainResource(2 + support[4]); break;
+                }
+                Log = SupportName(heroIndex) + "：" + SupportDescription(heroIndex) + "。";
                 Chain = 0; chainPending = false;
             }
             else
