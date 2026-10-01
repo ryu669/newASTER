@@ -17,13 +17,13 @@ namespace NewAster.Presentation
         private bool title = true, paused, retreat, help, kinderGarden, drawingModal;
         private string result, storyText, storyId;
         private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
-        private int selectedLevel = 1, storyChapter;
+        private int selectedLevel = 1, storyChapter, storyPage;
         private GUIStyle text, heading, small, button;
         private Font font;
         private Texture2D paper, dark, teal;
         private Camera viewCamera;
         private Vector2 scroll;
-        private GameObject dragon;
+        private VerticalSliceBlockout stage;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "術師" };
         private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
@@ -79,11 +79,8 @@ namespace NewAster.Presentation
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):new Vector3(2,6,-10);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(2.5f,2,1.2f));
-            if(dragon==null) dragon=GameObject.Find("Green Return Dragon Blockout");
-            if(dragon!=null) foreach(Transform part in dragon.transform) {
-                int i=part.name.Contains("Horn")?0:part.name.Contains("Left")?1:part.name.Contains("Right")?2:part.name.Contains("Tail")?3:-1;
-                if(i>=0) part.GetComponent<Renderer>().enabled=encounter==null || !encounter.State.Parts[i].IsBroken;
-            }
+            if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
+            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null);
         }
         private void OnGUI()
         {
@@ -100,7 +97,7 @@ namespace NewAster.Presentation
         }
         private void DrawTitle()
         {
-            Label(75,160,860,70,"無限の書をひらく",heading);
+            Label(75,160,860,70,"万物の書をひらく",heading);
             Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
             Label(75,570,850,150,"進行は自動保存されます。戦闘中の状態は保存せず、再開時は本に戻ります。\n人物が確定するまで5人は役割名で表示します。",small);
@@ -261,7 +258,8 @@ namespace NewAster.Presentation
         }
         private void Act(int hero,int skill)
         {
-            if(encounter.Act(hero,skill,target)) { if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body"; FinishCheck(); }
+            string actionTarget=target;
+            if(encounter.Act(hero,skill,target)) { if(stage!=null) stage.PlayAction(hero,skill==2,actionTarget); if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body"; FinishCheck(); }
         }
         private void FinishCheck()
         {
@@ -293,10 +291,16 @@ namespace NewAster.Presentation
         private void DrawStory()
         {
             Modal(); Label(340,182,880,65,storyId==null?"庭でのひととき":$"第{storyChapter+1}章  {Chapters[storyChapter]}",heading);
-            scroll=GUI.BeginScrollView(new Rect(340,270,890,335),scroll,new Rect(0,0,855,650)); GUI.Label(new Rect(0,0,840,650),storyText,text); GUI.EndScrollView();
-            if(Btn(340,656,890,62,storyId==null?"庭へ戻る":"読み終えて本に戻る")) CloseStory();
+            var pages=storyText.Split(new[] { "\n\n" },StringSplitOptions.RemoveEmptyEntries);
+            storyPage=Math.Min(storyPage,pages.Length-1);
+            Label(340,270,870,300,pages[storyPage],text);
+            Label(690,580,170,35,$"{storyPage+1} / {pages.Length}",small);
+            if(Btn(340,575,280,48,"‹ 前のページ",storyPage>0)) storyPage--;
+            if(Btn(930,575,280,48,"次のページ ›",storyPage<pages.Length-1)) storyPage++;
+            if(Btn(340,656,420,62,"本を閉じる")) CloseStory();
+            if(Btn(790,656,420,62,"読了して戻る",storyPage==pages.Length-1)) CloseStory(true);
         }
-        private void CloseStory() { if(storyId!=null) campaign.Progress.MarkStoryRead(storyId); storyText=null; storyId=null; Save(); }
+        private void CloseStory(bool completed=false) { if(completed && storyId!=null) campaign.Progress.MarkStoryRead(storyId); storyText=null; storyId=null; storyPage=0; Save(); }
         private void DrawHelp()
         {
             Modal(); Label(340,185,880,64,"遊び方",heading);
