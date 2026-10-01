@@ -53,7 +53,7 @@ namespace NewAster.Core
         private void Next()
         {
             Current=pending.Count>0?pending.Dequeue():null;
-            remaining=Current==null?0:Current.Kind==BattlePresentationKind.CastStart?.7f:Current.Major?1.1f:.8f;
+            remaining=Current==null?0:BattleVisualCue.Duration(Current.Kind,Current.Major);
         }
         public void Tick(float seconds,bool paused)
         {

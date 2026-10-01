@@ -14,6 +14,19 @@ namespace NewAster.Presentation
         private readonly List<GameObject> placedFurniture = new List<GameObject>();
         private float clock;
         private bool frozen;
+        private BattleStageEffects effects;
+        private SlayerModelView slayer;
+        public bool SetSlayerOutfit(string id) => slayer!=null && slayer.TryEquip(id);
+        public string SlayerOutfitId => slayer==null?"":slayer.OutfitId;
+        public void BeginPresentation(BattlePresentationEvent e)
+        {
+            Vector3 destination=dragon.position;
+            foreach(Transform part in dragon) {
+                if(e.Target.Contains("horn") && part.name.Contains("Horn") || e.Target.Contains("left") && part.name.Contains("Left") || e.Target.Contains("right") && part.name.Contains("Right") || e.Target.Contains("tail") && part.name.Contains("Tail")) destination=part.position;
+            }
+            effects.Begin(e,e.Actor>=0?party[e.Actor].position:dragon.position,destination);
+            if(slayer!=null) slayer.PlayEvent(e);
+        }
         private LineRenderer attackTrail;
         private float trailUntil;
         private readonly List<LineRenderer> enemyTrails = new List<LineRenderer>();
@@ -52,6 +65,7 @@ namespace NewAster.Presentation
         }
         public void ClearActionEffects()
         {
+            if(effects!=null) effects.Clear();
             if(attackTrail!=null) attackTrail.enabled=false;
             foreach(var line in enemyTrails) line.enabled=false;
             foreach(var line in healingTrails) line.enabled=false;
@@ -59,11 +73,13 @@ namespace NewAster.Presentation
         public void Synchronize(bool gardenView, bool gardenUnlocked, PlayableProgress progress, PlayableBattle battle, string target, bool pause,BattlePresentationEvent visual=null)
         {
             frozen=pause;
+            if(effects!=null) effects.Synchronize(party,battle,visual,pause);
+            if(slayer!=null) slayer.Synchronize(pause,battle!=null && (visual?.Casting[0]??battle.IsCasting(0)));
             if(ground!=null) ground.SetActive(battle==null);
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);
             foreach(var member in party) member.gameObject.SetActive(!gardenView || gardenUnlocked);
-            for(int i=0;i<party.Count;i++) foreach(var renderer in party[i].GetComponentsInChildren<Renderer>()) renderer.material.SetColor("_EmissionColor",battle!=null && (visual?.Casting[i]??battle.IsCasting(i))?new Color(.35f,.12f,.55f):Color.black);
+            for(int i=0;i<party.Count;i++) foreach(var renderer in party[i].GetComponentsInChildren<Renderer>()) foreach(var material in renderer.sharedMaterials) material.SetColor("_EmissionColor",battle!=null && (visual?.Casting[i]??battle.IsCasting(i))?new Color(.35f,.12f,.55f):Color.black);
             for(int slot=0;slot<placedFurniture.Count;slot++) {
                 var furniture=placedFurniture[slot]; int type=progress.Slots[slot];
                 furniture.SetActive(gardenView && gardenUnlocked && type>=0);
@@ -107,6 +123,8 @@ namespace NewAster.Presentation
             dragon = CreateGreenReturnDragon();
             garden = CreateGrasslandForestGarden();
             CreateSky();
+            effects=new GameObject("Battle Stage Effects").AddComponent<BattleStageEffects>();
+            effects.Initialize(party.Count);
             for(int slot=0;slot<3;slot++) placedFurniture.Add(Primitive("Placed Furniture "+slot,PrimitiveType.Cube,new Vector3(-5f+slot*1.4f,.45f,1.5f),Vector3.one,new Color(.4f,.25f,.15f)));
         }
 
@@ -141,6 +159,7 @@ namespace NewAster.Presentation
                 heroine.transform.position=new Vector3(-4.8f + index * .7f,1.05f,-1.5f+index*.08f);
                 heroine.transform.SetParent(root.transform);
                 party.Add(heroine.transform);
+                if(index==0) { slayer=SlayerModelView.Create(heroine.transform); if(slayer!=null) continue; }
                 Piece(heroine.transform,"Dress",PrimitiveType.Capsule,new Vector3(0f,0f,0f),new Vector3(.32f,.3f,.24f),colors[index]);
                 Piece(heroine.transform,"Head",PrimitiveType.Sphere,new Vector3(0f,.48f,0f),new Vector3(.23f,.26f,.23f),new Color(.96f,.82f,.73f));
                 Piece(heroine.transform,"Hair",PrimitiveType.Sphere,new Vector3(0f,.54f,.04f),new Vector3(.25f,.2f,.24f),new Color(.28f+.08f*index,.2f,.16f));

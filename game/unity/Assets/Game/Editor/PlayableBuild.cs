@@ -26,6 +26,8 @@ public static class PlayableBuild
     {
         assertions=0;
         ValidatePlayback();
+        ValidateVisualCues();
+        ValidateSlayerModel();
         ValidateTimeline();
         ValidateDistinctSupport();
         ValidateEncounterPhase();
@@ -289,6 +291,36 @@ public static class PlayableBuild
             }
             Check(run.State.IsVictory,"Scheduled starter party can defeat first colossus with part strategy");
         }
+    }
+    private static void ValidateVisualCues()
+    {
+        Check(BattleVisualCue.Progress(-1,BattlePresentationKind.Attack,false)==0 && BattleVisualCue.Progress(10,BattlePresentationKind.Attack,false)==1,"Visual progress clamps without changing combat time");
+        Check(BattleVisualCue.Travel(0)==0 && BattleVisualCue.Travel(.56f)==1,"Projectile reaches selected target at hit phase");
+        Check(BattleVisualCue.Impact(.55f)==0 && BattleVisualCue.Impact(.56f)==1 && BattleVisualCue.Impact(1)==0,"Impact starts after travel and fades to zero");
+        Check(BattleVisualCue.Duration(BattlePresentationKind.CastStart,false)==.7f && BattleVisualCue.Duration(BattlePresentationKind.Enemy,true)==1.1f,"Playback and effects share provisional duration definitions");
+    }
+    private static void ValidateSlayerModel()
+    {
+        const string path="Assets/Game/Resources/Characters/Slayer/slayer-production-v1.fbx";
+        AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);
+        var asset=AssetDatabase.LoadAssetAtPath<GameObject>(path);
+        Check(asset!=null,"Slayer FBX is available to runtime Resources");
+        var meshes=asset.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        var body=meshes.Single(r=>r.name=="Body_Common");
+        Check(body.sharedMesh.vertexCount>10000 && body.bones.Length>15,"Full body mesh has a deforming common skeleton");
+        Check(meshes.Any(r=>r.name.StartsWith("Outfit_Rose")) && meshes.Any(r=>r.name.StartsWith("Outfit_Training")),"Two distinct garment sets exist without replacing the body");
+        Check(body.bones.Any(b=>b.name=="Hand.R") && body.bones.Any(b=>b.name=="Head") && body.bones.Any(b=>b.name=="Finger3.L"),"Hand head and finger bones survive export");
+        var clips=AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
+        Debug.Log("SLAYER_IMPORTED_CLIPS "+string.Join(",",clips.Select(c=>c.name)));
+        foreach(var name in new[]{"Idle","Attack","Cast","Hit","Victory"}) Check(clips.Any(c=>c.name==name && c.length>0 && c.legacy),"Slayer motion imported: "+name);
+        var copy=UnityEngine.Object.Instantiate(asset);
+        try {
+            foreach(var clip in clips) {
+                clip.SampleAnimation(copy,clip.length*.5f);
+                var head=copy.GetComponentsInChildren<Transform>().First(t=>t.name=="Head");
+                Check(!float.IsNaN(head.position.x) && !float.IsInfinity(head.position.y),"Sampled model pose remains finite: "+clip.name);
+            }
+        } finally { UnityEngine.Object.DestroyImmediate(copy); }
     }
     private static void ValidatePlayback()
     {

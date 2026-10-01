@@ -33,6 +33,7 @@ namespace NewAster.Presentation
         private VerticalSliceBlockout stage;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
+        private bool slayerReview;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
@@ -63,6 +64,7 @@ namespace NewAster.Presentation
             var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
             var args=Environment.GetCommandLineArgs();
+            slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
                 while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
@@ -115,6 +117,10 @@ namespace NewAster.Presentation
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
+            if(slayerReview) {
+                viewCamera.transform.position=new Vector3(-2.5f,1.6f,-4f);
+                viewCamera.transform.LookAt(new Vector3(-4.8f,1.0f,-1.5f)); viewCamera.fieldOfView=27f;
+            }
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
@@ -136,8 +142,8 @@ namespace NewAster.Presentation
                 shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
                 if(stage!=null) {
                     stage.ClearActionEffects();
+                    stage.BeginPresentation(e);
                     switch(e.Kind) {
-                        case BattlePresentationKind.Attack: case BattlePresentationKind.CastRelease: stage.PlayAction(e.Actor,false,e.Target); break;
                         case BattlePresentationKind.Healing: stage.PlayHealing(e.Actor,e.HealingTargets); break;
                         case BattlePresentationKind.Support: stage.PlayAction(e.Actor,true,e.Target); break;
                         case BattlePresentationKind.Enemy: stage.PlayEnemyAction(e.Major); break;
@@ -228,7 +234,13 @@ namespace NewAster.Presentation
                 var previewBattle=new PlayableBattle(1,p);
                 var recovery=previewBattle.HealingSkill(h,1);
                 Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
-                Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text); return;
+                Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text);
+                if(h==0 && stage!=null) {
+                    Label(32,708,920,28,"スレイヤー3D制作初版：衣装確認（能力は変わりません・保存対象外）",small);
+                    if(Btn(32,746,445,44,"ローズ衣装")) stage.SetSlayerOutfit("rose");
+                    if(Btn(492,746,445,44,"訓練衣装")) stage.SetSlayerOutfit("training");
+                }
+                return;
             }
             int[] steps={1,5,10};
             for(int i=0;i<steps.Length;i++) {
