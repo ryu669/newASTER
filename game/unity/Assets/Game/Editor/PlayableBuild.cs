@@ -25,6 +25,7 @@ public static class PlayableBuild
     {
         assertions=0;
         ValidateDistinctSupport();
+        ValidateEncounterPhase();
         ValidateBattleDecisions();
         var c=new CampaignState(WorldCatalog.ColossusIds);
         var first=WorldCatalog.Colossi[0];
@@ -175,6 +176,23 @@ public static class PlayableBuild
         var beforeBattle=new PlayableBattle(1,new PlayableProgress(),42);
         var afterBattle=new PlayableBattle(1,p,42);
         Check(afterBattle.State.Heroes[0].Attack>beforeBattle.State.Heroes[0].Attack && afterBattle.State.Heroes[0].MaxHitPoints>beforeBattle.State.Heroes[0].MaxHitPoints && afterBattle.ChainRate(0)==beforeBattle.ChainRate(0),"Awakened training improves stats without changing chain rate");
+    }
+    private static void ValidateEncounterPhase()
+    {
+        var battle=new PlayableBattle(1,new PlayableProgress());
+        int normal=battle.PreviewEnemyDamage(0);
+        battle.State.ApplyBossDamage(battle.State.BossMaxHitPoints/2-1);
+        Check(!battle.IsEnraged && battle.PreviewEnemyDamage(0)==normal,"Enrage does not start above half HP");
+        battle.State.ApplyBossDamage(1);
+        Check(battle.IsEnraged && battle.PreviewEnemyDamage(0)>normal && battle.NextEnemyAction.Contains("怒り"),"Half HP activates visible stronger attack");
+        battle.State.AdvanceBossGauge(3);
+        Check(battle.NextEnemyAction.Contains("大技"),"Gauge major action takes precedence over phase attack name");
+        int preview=battle.PreviewEnemyDamage(0), hp=battle.State.Heroes[0].HitPoints;
+        battle.EndTurn();
+        Check(hp-battle.State.Heroes[0].HitPoints==preview,"Enraged major damage matches UI forecast");
+        battle.State.ApplyBossDamage(int.MaxValue);
+        hp=battle.State.Heroes[0].HitPoints; battle.EndTurn();
+        Check(!battle.IsEnraged && battle.State.Heroes[0].HitPoints==hp,"Victory ends phase and enemy actions");
     }
     private static void ValidateDistinctSupport()
     {

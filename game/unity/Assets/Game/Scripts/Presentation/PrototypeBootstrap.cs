@@ -147,7 +147,8 @@ namespace NewAster.Presentation
             Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}/{p.LevelCap(h)}  覚醒{p.Awakenings[h]}",heading);
             Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
             if(book.Face==BookFace.Details) {
-                Label(32,398,900,125,$"固有スキル：通常攻撃 / 資源3の強撃 / 資源3の支援\n砕き手は部位攻撃1.5倍。歌い手の支援は全体回復。\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
+                var previewBattle=new PlayableBattle(1,p);
+                Label(32,398,900,125,$"スキル：通常攻撃 / 資源3の強撃 / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
                 Label(32,545,925,150,"毎回5人で出撃します。行動順は自由です。\n強撃を温存し、後半のチェインで使うと威力が増えます。\n花の枝を育てると支援スキルが強化されます。",text); return;
             }
             int[] steps={1,5,10};
@@ -240,9 +241,7 @@ namespace NewAster.Presentation
             var s=encounter.State;
             Label(28,98,950,53,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}  /  TURN {encounter.Turn}",heading);
             Label(28,159,910,36,$"本体 HP {s.BossHitPoints}/{s.BossMaxHitPoints}  /  大技 {s.BossGauge}/{s.BossGaugeMax}  /  {encounter.Chain} CHAIN",text);
-            Label(1050,340,510,125,encounter.NextAttackIsMajor
-                ? (s.UltimateUnlocked?"次の敵行動：極大技":"次の敵行動：大技")+"\n角冠破壊でゲージ上昇を止める"
-                : "次の敵行動：通常攻撃\n味方全体を攻撃",text,Color.white);
+            Label(1050,340,510,125,"次の敵行動："+encounter.NextEnemyAction+"\n"+(encounter.IsEnraged?"HP半分以下：攻撃力上昇\n":"")+(encounter.NextAttackIsMajor?"角冠破壊・封印で大技を遅らせる":"味方全体を攻撃"),text,Color.white);
             Label(1050,485,510,100,$"受けるダメージ（順に5人）\n{string.Join(" / ",Enumerable.Range(0,5).Select(i=>s.Heroes[i].IsAlive?encounter.PreviewEnemyDamage(i).ToString():"戦闘不能"))}",small,Color.white);
             if(Btn(28,213,180,48,(target=="body"?"◆ ":"")+"本体")) target="body";
             for(int i=0;i<4;i++) if(Btn(219+i*188,213,178,48,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i],!s.Parts[i].IsBroken)) target=s.Parts[i].Id;

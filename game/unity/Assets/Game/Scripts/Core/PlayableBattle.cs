@@ -12,6 +12,11 @@ namespace NewAster.Core
         public const decimal BaseChainRate = .65m;
         public int Seed { get; }
         public bool NextAttackIsMajor => !State.Parts[0].IsBroken && State.BossGauge + 1 >= State.BossGaugeMax;
+        // Temporary encounter tuning; final per-colossus action tables remain TBD.
+        public bool IsEnraged => !State.IsVictory && (long)State.BossHitPoints * 2 <= State.BossMaxHitPoints;
+        public string NextEnemyAction => NextAttackIsMajor
+            ? (State.UltimateUnlocked ? "極大技：星還の奔流" : "大技：緑晶の嵐")
+            : (IsEnraged ? "怒りの翼撃" : "翼撃");
         public bool Ended => State.IsVictory || !State.Heroes.Any(h => h.IsAlive);
         public string Log { get; private set; } = "対象を選び、5人の行動をつないでください。";
         private readonly int[] defense;
@@ -80,6 +85,7 @@ namespace NewAster.Core
         {
             if (heroIndex < 0 || heroIndex >= 5) return 0;
             int damage = 12 + State.SelectedLevel * 2 + (NextAttackIsMajor ? (State.UltimateUnlocked ? 45 : 20) : 0);
+            if (IsEnraged) damage = damage * 5 / 4;
             if (State.Parts[1].IsBroken) damage = damage * 3 / 4;
             if (Guarded) damage = damage * Math.Max(20, 50 - support[2] * 8) / 100;
             return Math.Max(1, damage - defense[heroIndex] * 3);
@@ -111,8 +117,7 @@ namespace NewAster.Core
                 decimal roll = (decimal)random.NextDouble();
                 chainPending = roll < ChainRate(heroIndex);
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
-                    + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了")
-                    + $" [抽選 {roll:F3} / 確率 {ChainRate(heroIndex):P0}]";
+                    + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
             }
             Acted[heroIndex] = true;
             if (!Ended && Enumerable.Range(0, 5).All(i => Acted[i] || !State.Heroes[i].IsAlive)) EndTurn();
@@ -122,11 +127,12 @@ namespace NewAster.Core
         {
             if (Ended) return;
             bool major = NextAttackIsMajor;
+            string action = NextEnemyAction;
             for (int i = 0; i < 5; i++) State.Heroes[i].TakeDamage(PreviewEnemyDamage(i));
             State.AdvanceBossGauge(State.Parts[0].IsBroken ? 0 : 1);
             if (major) State.TryConsumeMajorGauge();
             if (!State.Parts[3].IsBroken) foreach (var hero in State.Heroes) hero.SpendResource(Math.Min(1, hero.JobResource));
-            Log += major ? (State.UltimateUnlocked ? "\n巨神獣の極大技！" : "\n巨神獣の大技！") : "\n巨神獣の反撃。";
+            Log += "\n巨神獣の" + action + "！";
             if (!State.Heroes.Any(h => h.IsAlive)) { Log += " 育成して再挑戦できます。"; return; }
             Turn++; BeginTurn();
         }
