@@ -47,18 +47,19 @@ for suffix in ('blend','fbx'):
         positions=[v.co.copy() for v in mesh.vertices]; evaluated.to_mesh_clear()
         return positions
     rest=evaluated_positions()
-    for joint,angle,axis in [('UpperArm.R',70,2),('Forearm.R',90,0),('Thigh.R',65,0),('Shin.R',90,0)]:
+    for joint,angle,axis in [(part+side,angle,axis) for side in ('.R','.L') for part,angle,axis in [('UpperArm',70,2),('Forearm',90,0),('Thigh',65,0),('Shin',90,0)]]:
         rig.pose.bones[joint].rotation_euler[axis]=math.radians(angle)
         bpy.context.view_layer.update(); moved=evaluated_positions()
         assert all(all(math.isfinite(c) for c in p) for p in moved)
         assert max((a-b).length for a,b in zip(rest,moved))>.01, 'Pose did not deform the skin'
-        safe=[i for i,v in enumerate(body.data.vertices) if v.co.x<-.04 and v.co.z<.80]
-        assert max((rest[i]-moved[i]).length for i in safe)<.00001, 'Right-side pose displaced left leg'
+        opposite=-1 if joint.endswith('.R') else 1
+        safe=[i for i,v in enumerate(body.data.vertices) if v.co.x*opposite>.04 and v.co.z<.80]
+        assert max((rest[i]-moved[i]).length for i in safe)<.00001, 'Joint pose displaced opposite leg'
         if joint.startswith(('UpperArm','Forearm')):
             safe=[i for i,v in enumerate(body.data.vertices) if abs(v.co.x)<.10 and 1.04<v.co.z<1.25]
             assert max((rest[i]-moved[i]).length for i in safe)<.00001, 'Arm pose displaced torso centre'
         rig.pose.bones[joint].rotation_euler=(0,0,0); bpy.context.view_layer.update()
-    print('SLAYER_POSE_VALIDATION_PASS',suffix,'4 isolated joint poses',flush=True)
+    print('SLAYER_POSE_VALIDATION_PASS',suffix,'8 isolated joint poses',flush=True)
     for prefix,expected in [('Eye_White',2),('Eye_Iris',2),('Eye_Lid',4)]:
         parts=[o for o in meshes if o.name.startswith(prefix)]
         assert len(parts)==expected

@@ -20,6 +20,12 @@ for d in (OUT,SOURCE,REVIEW): d.mkdir(parents=True,exist_ok=True)
 def dist(p,a,b):
     v=b-a; t=max(0,min(1,(p-a).dot(v)/v.length_squared)); return (p-a-v*t).length
 
+def hip_weights(point):
+    amount=max(0,min(1,(1.08-point.z)/.26)); amount=amount*amount*(3-2*amount)
+    right=max(0,min(1,(point.x+.055)/.11)); right=right*right*(3-2*right)
+    spine=max(0,min(1,(point.z-.98)/.10)); spine=spine*spine*(3-2*spine)
+    return {'Hips':(1-amount)*(1-spine),'Spine':(1-amount)*spine,'Thigh.R':amount*right,'Thigh.L':amount*(1-right)}
+
 def body_candidates(point,segments):
     x,y,z=point; side='.R' if x>=0 else '.L'; lateral=abs(x)
     torso=('Hips','Spine','Chest','Neck','Head')
@@ -58,10 +64,10 @@ if not PREVIEW:
                 point=vertex.co
                 # Garments around the hips follow the torso rather than stretching to the hands.
                 torso_garment=obj.name.startswith(('Outfit_Rose_Dress','Outfit_Rose_Seam','Outfit_Rose_Diagonal','Outfit_Rose_Belt','Outfit_Rose_Hem','Outfit_Rose_Embroidery','Outfit_Training_Tunic'))
-                if torso_garment and point.z<1.0:
-                    amount=max(0,min(1,(1.0-point.z)/.20)); amount=amount*amount*(3-2*amount)
-                    right=max(0,min(1,(point.x+.055)/.11)); right=right*right*(3-2*right)
-                    for name,weight in [('Hips',1-amount),('Thigh.R',amount*right),('Thigh.L',amount*(1-right))]:
+                if (torso_garment and point.z<1.08) or (obj==body and abs(point.x)<.20 and .82<point.z<1.08):
+                    # One continuous hip deformation field for skin AND fabric.
+                    # Independent thresholds create a visible fold at the waist.
+                    for name,weight in hip_weights(point).items():
                         if weight>0: groups[name].add([vertex.index],weight,'REPLACE')
                     continue
                 if obj.name.startswith('Outfit_') and not torso_garment:

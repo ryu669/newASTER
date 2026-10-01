@@ -137,6 +137,15 @@ def create_body():
     remesh=body.modifiers.new('Continuous skin','REMESH'); remesh.mode='VOXEL'; remesh.voxel_size=.0038
     bpy.ops.object.modifier_apply(modifier=remesh.name)
     sm=body.modifiers.new('Anatomical surface relax','SMOOTH'); sm.factor=.35; sm.iterations=3; bpy.ops.object.modifier_apply(modifier=sm.name)
+    shoulders=body.vertex_groups.new(name='ShoulderSurfaceRelax')
+    for v in body.data.vertices:
+        x,y,z=v.co
+        weight=exp(-((abs(x)-.166)/.052)**2-((z-1.339)/.056)**2)
+        if weight>.001: shoulders.add([v.index],weight,'REPLACE')
+    sm=body.modifiers.new('Shoulder transition relax','SMOOTH'); sm.vertex_group=shoulders.name; sm.factor=.65; sm.iterations=12
+    bpy.ops.object.modifier_apply(modifier=sm.name)
+    group=body.vertex_groups.get('ShoulderSurfaceRelax')
+    if group: body.vertex_groups.remove(group)
     dec=body.modifiers.new('Surface density','DECIMATE'); dec.ratio=.52; bpy.ops.object.modifier_apply(modifier=dec.name)
     for p in body.data.polygons: p.use_smooth=True
     # Remesh reconstructs attributes: explicitly restore a neutral tint.
@@ -422,6 +431,9 @@ def build():
         if obj==body or obj.name.startswith(('Outfit_','Weapon_')):
             for v in obj.data.vertices:
                 x,y,z=v.co
+                if obj.name.startswith('Outfit_') and .78<z<1.05 and abs(x)<.23:
+                    ease=exp(-((z-.94)/.085)**2)
+                    v.co.x*=1+.04*ease; v.co.y*=1+.06*ease
                 if z>.78:
                     q=max(0,min(1,(abs(x)-.14)/.055)); q=q*q*(3-2*q)
                     v.co.x-=math.copysign(.018*q,x)

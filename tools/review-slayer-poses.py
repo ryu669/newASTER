@@ -20,8 +20,13 @@ poses={
     'raised-arms':{'UpperArm.R':(0,-65,0),'UpperArm.L':(0,65,0)},
     'bent-elbows':{'Forearm.R':(-90,0,0),'Forearm.L':(-90,0,0)},
     'raised-knee':{'Thigh.R':(-60,0,0),'Shin.R':(85,0,0)},
+    'raised-left-knee':{'Thigh.L':(-60,0,0),'Shin.L':(85,0,0)},
+    'raised-knee-side':{'Thigh.R':(-60,0,0),'Shin.R':(85,0,0)},
+    'deep-knee':{'Thigh.R':(-90,0,0),'Shin.R':(100,0,0)},
 }
 for name,pose in poses.items():
+    cam.location=(5,-.5,1.6) if name.endswith('-side') else (2.6,-5,2)
+    cam.rotation_euler=(Vector((0,0,.98))-cam.location).to_track_quat('-Z','Y').to_euler()
     for bone in rig.pose.bones:
         bone.rotation_mode='XYZ'; bone.rotation_euler=(0,0,0); bone.location=(0,0,0)
     for bone,angles in pose.items():
