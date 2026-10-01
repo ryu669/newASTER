@@ -33,9 +33,9 @@ namespace NewAster.Core
             switch (heroIndex) {
                 case 0: return "自身を回復 " + (35 + State.Heroes[0].Attack + support[0] * 15);
                 case 1: return "大技ゲージ −" + (1 + support[1] / 2);
-                case 2: return "このターン全体ダメージ軽減";
+                case 2: return "全体軽減・このターン";
                 case 3: return "全体回復 " + (35 + State.Heroes[3].Attack + support[3] * 15);
-                case 4: return "生存する他の仲間に資源 ＋" + (2 + support[4]);
+                case 4: return "他の生存者に資源 ＋" + (2 + support[4]);
                 default: return "";
             }
         }

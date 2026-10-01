@@ -15,6 +15,24 @@ namespace NewAster.Presentation
         private bool frozen;
         private LineRenderer attackTrail;
         private float trailUntil;
+        private readonly List<LineRenderer> enemyTrails = new List<LineRenderer>();
+        private float enemyTrailUntil;
+        public void PlayEnemyAction(bool major)
+        {
+            if(enemyTrails.Count==0) foreach(var member in party) {
+                var line=new GameObject("Enemy strike").AddComponent<LineRenderer>();
+                line.material=new Material(Resources.Load<Shader>("StageSurface")); line.positionCount=2;
+                enemyTrails.Add(line);
+            }
+            for(int i=0;i<enemyTrails.Count;i++) {
+                var line=enemyTrails[i]; line.SetPosition(0,dragon.position+Vector3.up);
+                line.SetPosition(1,party[i].position);
+                line.startWidth=major?.2f:.08f; line.endWidth=.03f;
+                line.startColor=line.endColor=major?new Color(1f,.35f,.12f):new Color(.95f,.5f,.35f);
+                line.enabled=true;
+            }
+            enemyTrailUntil=clock+(major?.8f:.4f);
+        }
         public void Synchronize(bool gardenView, bool gardenUnlocked, PlayableProgress progress, PlayableBattle battle, string target, bool pause)
         {
             frozen=pause;
@@ -43,7 +61,7 @@ namespace NewAster.Presentation
             if(hero<0 || hero>=party.Count) return;
             if(attackTrail==null) {
                 attackTrail=new GameObject("Action trail").AddComponent<LineRenderer>();
-                attackTrail.material=new Material(Shader.Find("Sprites/Default"));
+                attackTrail.material=new Material(Resources.Load<Shader>("StageSurface"));
                 attackTrail.positionCount=2; attackTrail.startWidth=.12f; attackTrail.endWidth=.03f;
             }
             Vector3 destination=dragon.position;
@@ -72,6 +90,7 @@ namespace NewAster.Presentation
             if(!frozen) clock+=Time.deltaTime;
             var time = clock;
             if(attackTrail!=null && time>=trailUntil) attackTrail.enabled=false;
+            if(time>=enemyTrailUntil) foreach(var line in enemyTrails) line.enabled=false;
             if (dragon != null)
             {
                 dragon.position = new Vector3(2.5f, 1.4f + Mathf.Sin(time * .8f) * .22f, 1.2f);
@@ -159,7 +178,7 @@ namespace NewAster.Presentation
             item.name = name;
             item.transform.position = position;
             item.transform.localScale = scale;
-            item.GetComponent<Renderer>().material.color = color;
+            item.GetComponent<Renderer>().material = new Material(Resources.Load<Shader>("StageSurface")) { color=color };
             return item;
         }
         private static GameObject Piece(Transform parent,string name,PrimitiveType type,Vector3 position,Vector3 scale,Color color)
