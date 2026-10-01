@@ -1,0 +1,14 @@
+Status: comparison-only 2D direction study; not a 3D render, runtime screenshot,
+layered animation asset, or approved replacement for the game's art direction.
+Created with the built-in image_gen tool. No CLI/API fallback.
+Reference: user-provided screenshot Image #5, codex-clipboard-2703ebf8-f14a-4fc4-9a25-2b5928d1ce58.png.
+The reference screenshot itself is not included in this repository.
+
+Final prompt:
+Use case: stylized-concept. Asset type: comparison-only 2D RPG heroine portrait, NOT a 3D render or gameplay screenshot. Input image 1 is character identity and costume reference only; disregard every UI element. Create a new exquisitely polished hand-painted anime illustration of this adult angel swordswoman, waist-up, nearly front facing with a subtle three-quarter turn, calm reserved expression and direct eye contact. Preserve champagne blonde layered bob with asymmetric swept pointed bangs, longer nape braid, delicate turquoise eyes with dark thick upper eyelashes and nuanced irises, pink lily hair ornaments with small white hanging flowers and green leaves, pink sleeveless high-neck cable-knit dress with ribbon and two silver heart clasps, pink detached sleeves. White feathered wings frame the shoulders without obscuring the face. Elegant facial proportions and carefully shaded nose lips cheek transitions; crisp fine line art, warm creamy skin, cool reflected shadows, layered hair shadow and ribbon-like highlight. Simple pale warm-gray background. No lettering, no UI, no logos, no watermark, no extra character, no 3D/plastic look. This is an alternative 2D visual-direction study, not a texture to project onto a mesh.
+
+Review: face, eyes, hair and knit detail are visible and useful for comparison.
+This is a cropped bust rather than a full waist-up standing asset; wing edges and
+top hair are cropped. It cannot be used as a complete game cutout as-is.
+Expression consistency, full-body design, layers, transparency and animation
+remain unverified. No decision to replace 3D or the battle system was made.
