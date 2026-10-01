@@ -10,11 +10,14 @@ namespace NewAster.Core
         public int HitPoints { get; private set; }
         public int MaxHitPoints { get; }
         public int Attack { get; }
+        public int Speed { get; }
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
 
-        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax)
+        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100)
         {
+            if(speed<=0) throw new ArgumentOutOfRangeException(nameof(speed));
+            Speed=speed;
             Id = id ?? throw new ArgumentNullException(nameof(id));
             MaxHitPoints = hitPoints;
             HitPoints = hitPoints;

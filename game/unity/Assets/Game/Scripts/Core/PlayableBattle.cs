@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 namespace NewAster.Core
 {
-    public sealed class PlayableBattle
+    public sealed partial class PlayableBattle
     {
         public BattleState State { get; }
         public bool[] Acted { get; } = new bool[5];
@@ -21,7 +21,7 @@ namespace NewAster.Core
             ? (State.UltimateUnlocked ? "極大技：星還の奔流" : "大技：緑晶の嵐")
             : (IsEnraged ? "怒りの翼撃" : "翼撃");
         public bool Ended => State.IsVictory || !State.Heroes.Any(h => h.IsAlive);
-        public string Log { get; private set; } = "対象を選び、5人の行動をつないでください。";
+        public string Log { get; private set; } = "行動者のスキルを選択。速度・待機・詠唱で行動順が変わります。";
         private readonly int[] defense;
         private readonly int[] support;
         private readonly Random random;
@@ -50,28 +50,33 @@ namespace NewAster.Core
             if(HealingSkill(heroIndex,2)!=null) return HealingDescription(heroIndex,2);
             switch (heroIndex) {
                 case 1: return "大技ゲージ −" + (1 + support[1] / 2);
-                case 2: return "全体軽減・このターン";
+                case 2: return "全体軽減・次の敵行動まで";
                 case 4: return "他の生存者に資源 ＋" + (2 + support[4]);
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
             if(healingSkills.Any(d=>d==null) || healingSkills.GroupBy(d=>new {d.Actor,d.Slot}).Any(g=>g.Count()>1)) throw new ArgumentException("Duplicate or null healing definition.");
             Seed = seed;
+            UsesTimeline=useTimeline;
+            timings=skillTimings==null?DefaultTimings():(SkillTimingDefinition[,])skillTimings.Clone();
+            if(timings.GetLength(0)!=5 || timings.GetLength(1)!=3 || timings.Cast<SkillTimingDefinition>().Any(t=>t==null)) throw new ArgumentException("Timing requires five heroes and three skills each.");
+            if(healingSkills.Any(d=>timings[d.Actor,d.Slot].CastPercent>0) || Enumerable.Range(0,5).Any(i=>timings[i,2].CastPercent>0)) throw new ArgumentException("Deferred support effects are not implemented.");
             random = new Random(seed);
             defense = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 1]).ToArray();
             support = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 2]).ToArray();
             State = new BattleState(level,
                 Enumerable.Range(0, 5).Select(i => new BattleHero("hero-" + i,
                     130 + progress.Levels[i] * 12 + defense[i] * 25 + progress.TraitRanks[i] * PlayableProgress.DuplicateHitPointGain,
-                    20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8 + progress.TraitRanks[i] * PlayableProgress.DuplicateAttackGain, 10)),
+                    20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8 + progress.TraitRanks[i] * PlayableProgress.DuplicateAttackGain, 10, new[]{110,95,80,105,100}[i])),
                 new[] { "crystal-horn-crown", "left-wing-root", "right-wing-root", "vine-wrapped-tail" }
                     .Select((id,i) => new BattlePart(id, 45 + level * 3, i == 0 ? "gauge-down" : "")),
                 320 + level * 24, 4);
             BeginTurn();
+            if(UsesTimeline) InitializeTimeline();
         }
         private void BeginTurn()
         {
@@ -96,7 +101,8 @@ namespace NewAster.Core
             if (Ended || heroIndex < 0 || heroIndex >= 5 || skill < 0 || skill > 1 || HealingSkill(heroIndex,skill)!=null || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return 0;
             if (target != "body" && !State.Parts.Any(p => p.Id == target && !p.IsBroken)) return 0;
             if (State.Heroes[heroIndex].JobResource < (skill == 1 ? 3 : 0)) return 0;
-            int damage = Math.Max(1, (int)Math.Floor(State.Heroes[heroIndex].Attack * AttackPower(heroIndex, skill, target, chainPending ? Chain + 1 : 1)));
+            int previewChain=UsesTimeline && CastDelay(heroIndex,skill)>0?1:NextChain(heroIndex);
+            int damage = Math.Max(1, (int)Math.Floor(State.Heroes[heroIndex].Attack * AttackPower(heroIndex, skill, target, previewChain)));
             return Math.Min(damage, target == "body" ? State.BossHitPoints : State.Parts.First(p => p.Id == target).HitPoints);
         }
         public int PreviewEnemyDamage(int heroIndex)
@@ -137,6 +143,8 @@ namespace NewAster.Core
             if (Ended || heroIndex < 0 || heroIndex > 4 || skill < 0 || skill > 2 || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return false;
             var hero = State.Heroes[heroIndex];
             var healing=HealingSkill(heroIndex,skill);
+            LastActionWasCastStart=false; LastCastResolvedActor=-1;
+            if(UsesTimeline && CastDelay(heroIndex,skill)>0) return StartCasting(heroIndex,skill,target);
             if(healing!=null)
             {
                 var targets=HealingTargets(heroIndex,skill,selectedAllies);
@@ -147,6 +155,7 @@ namespace NewAster.Core
                 LastHealingTargets=Array.AsReadOnly(targets);
                 Log=healing.Name+"："+string.Join(" / ",targets.Select((t,i)=>"味方"+(t+1)+" HP ＋"+amounts[i]));
                 Chain=0; chainPending=false; LastActionChain=0;
+                chainMembers.Clear();
             }
             else if (skill == 2)
             {
@@ -160,14 +169,17 @@ namespace NewAster.Core
                 Log = SupportName(heroIndex) + "：" + SupportDescription(heroIndex) + "。";
                 Chain = 0; chainPending = false;
                 LastActionChain = 0;
+                chainMembers.Clear();
             }
             else
             {
-                int nextChain = chainPending ? Chain + 1 : 1;
+                int nextChain = NextChain(heroIndex);
                 decimal power = AttackPower(heroIndex, skill, target, nextChain);
                 var result = BattleActionResolver.Resolve(State, hero.Id, new BattleSkill("skill-" + skill, power, skill == 1 ? 3 : 0), target);
                 if (!result.Accepted) { Log = "対象または資源を確認してください。"; return false; }
                 Chain = nextChain;
+                if(nextChain==1) chainMembers.Clear();
+                chainMembers.Add(heroIndex);
                 LastActionChain = Chain;
                 decimal roll = (decimal)random.NextDouble();
                 chainPending = roll < ChainRate(heroIndex);
@@ -176,12 +188,20 @@ namespace NewAster.Core
             }
             Acted[heroIndex] = true;
             if(healing==null) LastHealingTargets=Array.Empty<int>();
-            if (!Ended && Enumerable.Range(0, 5).All(i => Acted[i] || !State.Heroes[i].IsAlive)) EndTurn();
+            if(UsesTimeline) { readyAt[heroIndex]=Clock+RecoveryDelay(heroIndex,skill); AvailableHero=-1; AdvanceTimeline(); }
+            else if (!Ended && Enumerable.Range(0, 5).All(i => Acted[i] || !State.Heroes[i].IsAlive)) EndTurn();
             return true;
         }
         public void EndTurn()
         {
             if (Ended) return;
+            if(UsesTimeline) { Pass(); return; }
+            ResolveEnemyAction();
+            if (!State.Heroes.Any(h => h.IsAlive)) return;
+            Turn++; BeginTurn();
+        }
+        private void ResolveEnemyAction()
+        {
             bool major = NextAttackIsMajor;
             string action = NextEnemyAction;
             for (int i = 0; i < 5; i++) State.Heroes[i].TakeDamage(PreviewEnemyDamage(i));
@@ -190,7 +210,6 @@ namespace NewAster.Core
             if (!State.Parts[3].IsBroken) foreach (var hero in State.Heroes) hero.SpendResource(Math.Min(1, hero.JobResource));
             Log += "\n巨神獣の" + action + "！";
             if (!State.Heroes.Any(h => h.IsAlive)) { Log += " 育成して再挑戦できます。"; return; }
-            Turn++; BeginTurn();
         }
     }
 }

@@ -1,0 +1,136 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+namespace NewAster.Core
+{
+    public sealed class SkillTimingDefinition
+    {
+        public int RecoveryPercent { get; }
+        public int CastPercent { get; }
+        public SkillTimingDefinition(int recoveryPercent, int castPercent=0)
+        {
+            if(recoveryPercent<=0 || castPercent<0) throw new ArgumentOutOfRangeException();
+            RecoveryPercent=recoveryPercent; CastPercent=castPercent;
+        }
+        // Simulation ticks, not video seconds. Final tuning/formula is TBD.
+        public static long Delay(int speed,int percent)
+        {
+            if(speed<=0 || percent<0) throw new ArgumentOutOfRangeException();
+            return percent==0?0:Math.Max(1,((long)10000*percent+speed*100L-1)/(speed*100L));
+        }
+    }
+    public readonly struct BattleOrderEntry
+    {
+        public int Actor { get; }
+        public long At { get; }
+        public bool IsCast { get; }
+        public BattleOrderEntry(int actor,long at,bool isCast) { Actor=actor; At=at; IsCast=isCast; }
+    }
+    public sealed partial class PlayableBattle
+    {
+        public bool UsesTimeline { get; }
+        public long Clock { get; private set; }
+        public int AvailableHero { get; private set; }=-1;
+        public int LastCastResolvedActor { get; private set; }=-1;
+        public bool LastActionWasCastStart { get; private set; }
+        public int EnemyActionCount { get; private set; }
+        private readonly long[] readyAt=new long[5];
+        private readonly bool[] hadCommand=new bool[5];
+        private readonly HashSet<int> chainMembers=new HashSet<int>();
+        private readonly PendingCast[] casting=new PendingCast[5];
+        private long bossAt;
+        private int commandCount;
+        private readonly SkillTimingDefinition[,] timings;
+        private sealed class PendingCast { public int Slot; public string Target; public decimal Power; }
+        public SkillTimingDefinition Timing(int actor,int slot)
+        {
+            // Vertical-slice profiles only; each skill has independent casting/recovery fields.
+            if(actor<0 || actor>=5 || slot<0 || slot>=3) throw new ArgumentOutOfRangeException();
+            return timings[actor,slot];
+        }
+        public static SkillTimingDefinition[,] DefaultTimings()
+        {
+            var result=new SkillTimingDefinition[5,3];
+            for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) result[i,slot]=new SkillTimingDefinition(slot==0?100:slot==1?125:150,i==4 && slot==1?150:0);
+            return result;
+        }
+        public long RecoveryDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
+        public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).CastPercent);
+        public bool IsCasting(int actor) => actor>=0 && actor<5 && casting[actor]!=null;
+        public long NextAt(int actor) => readyAt[actor];
+        public string TimingDescription(int actor,int slot)
+        {
+            var d=Timing(actor,slot);
+            return (d.CastPercent>0?"詠唱："+(d.CastPercent>=150?"長い":d.CastPercent>=100?"普通":"短い")+" "+CastDelay(actor,slot)+" / ":"")+"待機："+(d.RecoveryPercent>=150?"長い":d.RecoveryPercent>=125?"やや長い":d.RecoveryPercent<100?"短い":"標準")+" "+RecoveryDelay(actor,slot);
+        }
+        private int NextChain(int actor) => chainPending && Chain<5 && (!UsesTimeline || !chainMembers.Contains(actor))?Chain+1:1;
+        private void InitializeTimeline()
+        {
+            for(int i=0;i<5;i++) readyAt[i]=SkillTimingDefinition.Delay(State.Heroes[i].Speed,100);
+            bossAt=SkillTimingDefinition.Delay(90,100);
+            AdvanceTimeline();
+        }
+        public IReadOnlyList<BattleOrderEntry> UpcomingOrder()
+        {
+            // Exact currently committed events, not guesses about future unselected skills.
+            return Enumerable.Range(0,5).Where(i=>State.Heroes[i].IsAlive)
+                .Select(i=>new BattleOrderEntry(i,readyAt[i],casting[i]!=null))
+                .Concat(Ended?Array.Empty<BattleOrderEntry>():new[]{new BattleOrderEntry(-1,bossAt,false)})
+                .OrderBy(e=>e.At).ThenBy(e=>e.IsCast?0:e.Actor<0?1:2).ThenBy(e=>e.Actor).ToArray();
+        }
+        public void Pass()
+        {
+            if(!UsesTimeline || Ended || AvailableHero<0) return;
+            LastActionWasCastStart=false; LastCastResolvedActor=-1;
+            int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
+            Chain=0; chainPending=false; chainMembers.Clear(); LastHealingTargets=Array.Empty<int>();
+            Log="味方"+(actor+1)+"はパス。次回まで待機。"; AvailableHero=-1; AdvanceTimeline();
+        }
+        private bool StartCasting(int actor,int slot,string target)
+        {
+            if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
+            int cost=slot==1?3:0;
+            if(!State.Heroes[actor].SpendResource(cost)) return false;
+            casting[actor]=new PendingCast { Slot=slot,Target=target,Power=AttackPower(actor,slot,target,1) };
+            readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
+            Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
+            LastHealingTargets=Array.Empty<int>(); LastActionWasCastStart=true; LastCastResolvedActor=-1;
+            Log="味方"+(actor+1)+"：詠唱開始（発動予定 "+readyAt[actor]+"）。";
+            AdvanceTimeline(); return true;
+        }
+        private void AdvanceTimeline()
+        {
+            while(!Ended) {
+                for(int i=0;i<5;i++) if(!State.Heroes[i].IsAlive) casting[i]=null;
+                var next=UpcomingOrder().First(); Clock=next.At;
+                if(next.Actor<0) {
+                    bool wasMajor=NextAttackIsMajor;
+                    ResolveEnemyAction(); EnemyActionCount++; Turn++;
+                    Guarded=false; Chain=0; chainPending=false; chainMembers.Clear();
+                    bossAt=Clock+SkillTimingDefinition.Delay(90,wasMajor?150:100);
+                    continue;
+                }
+                int actor=next.Actor;
+                var pending=casting[actor];
+                if(pending!=null) {
+                    casting[actor]=null;
+                    // An already broken target cancels this spell; no silent retarget/refund.
+                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,new BattleSkill("cast-"+pending.Slot,pending.Power,0),pending.Target);
+                    Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
+                    LastCastResolvedActor=outcome.Accepted?actor:-1;
+                    readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
+                    Chain=0; chainPending=false; chainMembers.Clear();
+                    continue;
+                }
+                AvailableHero=actor;
+                for(int i=0;i<5;i++) Acted[i]=i!=actor;
+                if(hadCommand[actor]) State.Heroes[actor].GainResource(3);
+                hadCommand[actor]=true;
+                State.BeginTurn(unchecked(Seed+(++commandCount)*97+State.SelectedLevel),.25m);
+                return;
+            }
+            AvailableHero=-1;
+            for(int i=0;i<5;i++) { Acted[i]=true; casting[i]=null; }
+        }
+    }
+}

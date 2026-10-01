@@ -57,6 +57,7 @@ namespace NewAster.Presentation
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);
             foreach(var member in party) member.gameObject.SetActive(!gardenView || gardenUnlocked);
+            for(int i=0;i<party.Count;i++) foreach(var renderer in party[i].GetComponentsInChildren<Renderer>()) renderer.material.SetColor("_EmissionColor",battle!=null && battle.IsCasting(i)?new Color(.35f,.12f,.55f):Color.black);
             for(int slot=0;slot<placedFurniture.Count;slot++) {
                 var furniture=placedFurniture[slot]; int type=progress.Slots[slot];
                 furniture.SetActive(gardenView && gardenUnlocked && type>=0);

@@ -23,7 +23,7 @@ namespace NewAster.Presentation
         private int healingActor, healingSlot;
         private string breakNotice = "";
         private float breakNoticeUntil;
-        private GUIStyle text, heading, small, button;
+        private GUIStyle text, heading, small, button, skillButton;
         private Font font;
         private Texture2D paper, dark, teal;
         private Camera viewCamera;
@@ -32,7 +32,7 @@ namespace NewAster.Presentation
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
-        private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "術師" };
+        private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
         private static readonly string[] Effects = { "大技ゲージ上昇を止める", "敵の攻撃を弱める", "本体の軽減を解除", "資源妨害を止める" };
         private static readonly string[] Furniture = { "根のベンチ", "苔のランタン", "花のテーブル" };
@@ -63,8 +63,17 @@ namespace NewAster.Presentation
             var args=Environment.GetCommandLineArgs();
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
                 encounter.State.Heroes[0].TakeDamage(70); encounter.State.Heroes[1].TakeDamage(99999);
                 selectedHero=3; healingActor=3; healingSlot=args.Contains("-captureAllHealing")?2:1; selectingAlly=true; selectedAllies.Add(0);
+            }
+            if(capturePath!=null && args.Contains("-captureCasting")) {
+                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
+                encounter.Act(4,1,"body"); SelectNextHero();
+            }
+            if(capturePath!=null && args.Contains("-captureCasterCommand")) {
+                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
+                SelectNextHero();
             }
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
@@ -77,6 +86,7 @@ namespace NewAster.Presentation
             button=new GUIStyle(GUI.skin.button) { font=font, fontSize=19, wordWrap=true, padding=new RectOffset(10,10,6,6) };
             button.normal.background=teal; button.normal.textColor=new Color(.97f,.94f,.83f);
             button.hover.background=teal; button.hover.textColor=Color.white; button.active.background=dark; button.active.textColor=Color.white;
+            skillButton=new GUIStyle(button) { fontSize=16,padding=new RectOffset(6,6,4,4) };
         }
         private void Update()
         {
@@ -175,7 +185,7 @@ namespace NewAster.Presentation
                 var previewBattle=new PlayableBattle(1,p);
                 var recovery=previewBattle.HealingSkill(h,1);
                 Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
-                Label(32,545,925,150,"毎回5人で出撃します。行動順は自由です。\n強撃を温存し、後半のチェインで使うと威力が増えます。\n花の枝を育てると支援スキルが強化されます。",text); return;
+                Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text); return;
             }
             int[] steps={1,5,10};
             for(int i=0;i<steps.Length;i++) {
@@ -261,7 +271,7 @@ namespace NewAster.Presentation
             activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
-            selectedHero=0;
+            selectedHero=encounter.AvailableHero;
             selectingAlly=false; selectedAllies.Clear(); breakNotice="";
         }
         private void DrawBattle()
@@ -269,7 +279,7 @@ namespace NewAster.Presentation
             var s=encounter.State;
             Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
             Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
-            Label(28,72,850,30,$"HP {s.BossHitPoints}/{s.BossMaxHitPoints}　 大技 {s.BossGauge}/{s.BossGaugeMax}　 TURN {encounter.Turn}",small,Color.white);
+            Label(28,72,850,30,$"HP {s.BossHitPoints}/{s.BossMaxHitPoints}　大技 {s.BossGauge}/{s.BossGaugeMax}　TIME {encounter.Clock}",small,Color.white);
             Meter(28,112,650,10,s.BossHitPoints,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
             Meter(698,112,370,10,s.BossGauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
             if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
@@ -280,17 +290,19 @@ namespace NewAster.Presentation
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
             int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
             Label(28,240,1050,45,targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex],small,Color.white);
-            Label(28,286,1050,32,$"味方の残り行動 {encounter.RemainingActions}人 → 巨神獣　（味方の順番は自由）",small,Color.white);
+            var order=encounter.UpcomingOrder();
+            for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
             if(Time.unscaledTime<breakNoticeUntil) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
-            Label(1180,231,390,66,$"{Jobs[actor]}　資源 {hero.JobResource}/10\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
+            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {hero.JobResource}\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
             bool enabled=!paused && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
                 string caption=healSkill!=null?healSkill.Name+" / 資源"+healSkill.ResourceCost+"\n"+encounter.HealingDescription(actor,slot):slot<2?(slot==0?"通常攻撃":"強撃")+$"\n予測 {encounter.PreviewDamage(actor,slot,target)} / 資源{(slot==0?0:3)}":PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor);
                 int cost=healSkill!=null?healSkill.ResourceCost:slot==0?0:3;
-                if(Btn(1180,310+slot*90,390,slot==2?88:76,caption,enabled && hero.JobResource>=cost)) {
+                caption+="\n"+encounter.TimingDescription(actor,slot);
+                if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost,skillButton)) {
                     if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
                     else Act(actor,slot);
                 }
@@ -298,10 +310,11 @@ namespace NewAster.Presentation
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
             Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n支援は攻撃チェインを終了",small,Color.white);
-            if(Btn(1180,807,390,58,"残りの行動を終えて敵の番へ",!paused && result==null && !selectingAlly)) { bool major=encounter.NextAttackIsMajor; encounter.EndTurn(); if(stage!=null) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
+            if(Btn(1180,807,390,58,"行動者に戻る",!paused && result==null && !selectingAlly && actor!=encounter.AvailableHero)) SelectNextHero();
+            else if(actor==encounter.AvailableHero && Btn(1180,807,390,58,"パス（この誓女は標準待機）",!paused && result==null && !selectingAlly)) { int before=encounter.EnemyActionCount; bool major=encounter.NextAttackIsMajor; encounter.Pass(); if(stage!=null && encounter.EnemyActionCount>before) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
             for(int i=0;i<5;i++) {
                 float x=18+i*225; var h=s.Heroes[i];
-                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.Acted[i]?"行動済":"行動可能"),h.IsAlive && !selectingAlly && !paused)) selectedHero=i;
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.IsCasting(i)?"詠唱中 → T "+encounter.NextAt(i):encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused)) selectedHero=i;
                 Label(x,782,215,32,$"HP {h.HitPoints}/{h.MaxHitPoints}　資源 {h.JobResource}",small,Color.white);
                 Meter(x,817,215,6,h.HitPoints,h.MaxHitPoints,h.HitPoints*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
@@ -329,6 +342,7 @@ namespace NewAster.Presentation
         }
         private void SelectNextHero()
         {
+            if(encounter.UsesTimeline) { if(encounter.AvailableHero>=0) selectedHero=encounter.AvailableHero; return; }
             for(int step=1;step<=5;step++) { int next=(selectedHero+step)%5; if(encounter.State.Heroes[next].IsAlive && !encounter.Acted[next]) { selectedHero=next; return; } }
         }
         private void Act(int hero,int skill,int[] allies=null)
@@ -337,7 +351,7 @@ namespace NewAster.Presentation
             int turn=encounter.Turn; bool major=encounter.NextAttackIsMajor;
             bool healing=encounter.HealingSkill(hero,skill)!=null;
             if(encounter.ActWithAllies(hero,skill,target,allies)) {
-                if(stage!=null) { if(healing) stage.PlayHealing(hero,encounter.LastHealingTargets); else stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
+                if(stage!=null) { if(healing) stage.PlayHealing(hero,encounter.LastHealingTargets); else if(!encounter.LastActionWasCastStart) stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
                 if(!healing && skill!=2 && target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) {
                     int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==target);
                     breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeUntil=Time.unscaledTime+6f; target="body";
@@ -435,10 +449,10 @@ namespace NewAster.Presentation
             GUI.color=fill; GUI.DrawTexture(new Rect(x,y,width*Mathf.Clamp01(maximum>0?(float)current/maximum:0f),height),Texture2D.whiteTexture); GUI.color=old;
         }
         private void Label(float x,float y,float w,float h,string value,GUIStyle style,Color? color=null) { var old=style.normal.textColor; if(color.HasValue) style.normal.textColor=color.Value; GUI.Label(new Rect(x,y,w,h),value,style); style.normal.textColor=old; }
-        private bool Btn(float x,float y,float w,float h,string value,bool enabled=true)
+        private bool Btn(float x,float y,float w,float h,string value,bool enabled=true,GUIStyle style=null)
         {
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
-            bool clicked=GUI.Button(new Rect(x,y,w,h),value,button); GUI.enabled=old; return clicked;
+            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
         }
         private void OnApplicationQuit() { if(campaign!=null && capturePath==null) Save(); }
     }

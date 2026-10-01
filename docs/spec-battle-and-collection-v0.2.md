@@ -2,6 +2,8 @@
 
 親仕様は[ゲーム要求仕様 v0.2](game-requirements-v2.md)。本書はそのうち戦闘、詩、ヒロイン進行を実装可能な単位へ分解する。未定の数値は`TBD`で保持し、仮の数値をゲームデータへ混入させない。
 
+行動順・スキル使用後待機・ブラスター詠唱の最新版は[速度とスキル待機と詠唱](battle-speed-casting.md)。味方全員1回の固定ラウンドや自由順ではなく、速度とスキル時間で決まる。以下の旧ターン表現と衝突する場合、この追補を優先する。仮の時間係数は試遊データに限り、正式値はTBD。
+
 ## 1. 戦闘開始から確定まで
 
 ### 1.1 出撃前
@@ -16,7 +18,7 @@
 
 ### 1.2 戦闘状態
 
-`Preparing → PlayerCommand → Resolving → EnemyAction → ResultPending → Victory | Defeat | Retreat`
+`Preparing → ScheduledEvent → PlayerCommand | CastingResolve | EnemyAction → ScheduledEvent → ResultPending → Victory | Defeat | Retreat`
 
 - `Preparing`：対象、部位、各戦闘者の初期HP・リソース・パッシブを生成する。
 - `PlayerCommand`：行動可能なヒロイン、選べる3スキル、対象、コスト、予測値、チェイン補正を表示する。未確認のジョブ固有操作をこの状態の外で自動処理にしない。
@@ -60,7 +62,7 @@ PartDef {
 HeroineDef { id, name, jobId, baseRarity: 6, skills[3], traitId, weaponTreeId,
              poemChapters[3], affinityEventIds[3], loverEventIds[2] }
 SkillDef { id, ownerId, targetRuleId, costRuleId, powerRuleId, waitRuleId,
-           attributeId?, statusEffects[], partModifierId?, chainEligible }
+           castRuleId, attributeId?, statusEffects[], partModifierId?, chainEligible }
 JobDef { id, resourceType, resourceInitRuleId, resourceGainRules[], resourceSpendRules[], commandRules[] }
 ```
 

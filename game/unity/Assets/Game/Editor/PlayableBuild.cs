@@ -8,6 +8,7 @@ using UnityEngine;
 
 public static class PlayableBuild
 {
+    private static PlayableBattle LegacyBattle(int level,PlayableProgress progress,int seed=1,System.Collections.Generic.IEnumerable<HealingSkillDefinition> definitions=null) => new PlayableBattle(level,progress,seed,definitions,false);
     private static int assertions;
     private static void Check(bool condition,string message) { assertions++; if(!condition) throw new Exception(message); }
     public static void ValidateAndBuild()
@@ -24,13 +25,14 @@ public static class PlayableBuild
     public static void Validate()
     {
         assertions=0;
+        ValidateTimeline();
         ValidateDistinctSupport();
         ValidateEncounterPhase();
         ValidateBattleDecisions();
         var c=new CampaignState(WorldCatalog.ColossusIds);
         var first=WorldCatalog.Colossi[0];
         Check(!c.Playable.Train(c.Progress,0),"Training without funds must fail");
-        var b=new PlayableBattle(1,c.Playable);
+        var b=LegacyBattle(1,c.Playable);
         Check(b.Act(0,0,"body"),"First action"); Check(!b.Act(0,0,"body"),"Double action blocked");
         for(int rounds=0;!b.Ended && rounds<50;rounds++) {
             int turn=b.Turn;
@@ -71,7 +73,7 @@ public static class PlayableBuild
         Check(strengthenedRestored.Playable.TraitRanks[0]==3 && strengthenedRestored.Playable.OverflowEnhancementMaterials==2,"Unity JSON preserves duplicate strength and generic material");
         var legacy=new PlayableProgress(new CampaignSaveV2 { heroineLevels=null,weaponBranches=null,furnitureSlots=null });
         Check(legacy.Levels.All(l=>l==1) && legacy.Slots.All(l=>l==-1),"Legacy save defaults");
-        var defeat=new PlayableBattle(45,new PlayableProgress()); for(int i=0;i<100 && !defeat.Ended;i++) defeat.EndTurn();
+        var defeat=LegacyBattle(45,new PlayableProgress()); for(int i=0;i<100 && !defeat.Ended;i++) defeat.EndTurn();
         Check(defeat.Ended && !defeat.State.IsVictory,"Defeat ends battle");
         Check(!defeat.Act(0,0,"body"),"Ended battle blocks actions");
         for(int i=1;i<WorldCatalog.Colossi.Count;i++) { var col=WorldCatalog.Colossi[i]; c.ClaimColossusVictory(col.Id,col.EnvironmentTags,new VictoryReward("world-"+i,1,10,4,null),null,null,GardenCatalog.Requirements); }
@@ -83,7 +85,7 @@ public static class PlayableBuild
         ValidateAwakeningProgress();
         ValidateKinderRewards();
         var progress=new PlayableProgress();
-        var battle=new PlayableBattle(1,progress,42);
+        var battle=LegacyBattle(1,progress,42);
         int preview=battle.PreviewDamage(0,1,"body"), before=battle.State.BossHitPoints;
         Check(battle.Act(0,1,"body") && before-battle.State.BossHitPoints==preview,"Attack preview matches actual body damage");
         int resource=battle.State.Heroes[1].JobResource;
@@ -94,28 +96,28 @@ public static class PlayableBuild
         battle.EndTurn();
         Check(Enumerable.Range(0,5).All(i=>hp[i]-battle.State.Heroes[i].HitPoints==expected[i]),"Enemy preview matches guarded damage");
 
-        var major=new PlayableBattle(1,progress);
+        var major=LegacyBattle(1,progress);
         for(int i=0;i<3;i++) major.EndTurn();
         Check(major.NextAttackIsMajor && major.State.BossGauge==3,"Low-level major attack is telegraphed");
         before=major.State.Heroes[0].HitPoints;
         preview=major.PreviewEnemyDamage(0); major.EndTurn();
         Check(major.State.BossGauge==0 && before-major.State.Heroes[0].HitPoints==preview && major.Log.Contains("大技"),"Low-level major attack executes and consumes gauge");
-        var interrupt=new PlayableBattle(1,progress);
+        var interrupt=LegacyBattle(1,progress);
         for(int i=0;i<3;i++) interrupt.EndTurn();
         interrupt.State.BreakPart(interrupt.State.Parts[0].Id,999);
         Check(!interrupt.NextAttackIsMajor,"Horn destruction cancels pending major attack");
         var highProgress=new PlayableProgress();
         for(int i=0;i<5;i++) highProgress.Levels[i]=50;
-        var ultimate=new PlayableBattle(45,highProgress);
+        var ultimate=LegacyBattle(45,highProgress);
         for(int i=0;i<4;i++) ultimate.EndTurn();
         Check(ultimate.Log.Contains("極大技") && ultimate.State.BossGauge==0,"Level45 enables stronger ultimate");
 
         bool fullChain=false, stoppedChain=false, differentBonuses=false;
-        int baseline=new PlayableBattle(45,highProgress,1).PreviewDamage(0,0,"body");
+        int baseline=LegacyBattle(45,highProgress,1).PreviewDamage(0,0,"body");
         for(int seed=1;seed<=100;seed++) {
-            var a=new PlayableBattle(45,highProgress,seed);
-            var b=new PlayableBattle(45,highProgress,seed);
-            differentBonuses|=a.ChainRate(0)!=new PlayableBattle(45,highProgress,1).ChainRate(0);
+            var a=LegacyBattle(45,highProgress,seed);
+            var b=LegacyBattle(45,highProgress,seed);
+            differentBonuses|=a.ChainRate(0)!=LegacyBattle(45,highProgress,1).ChainRate(0);
             Check(a.PreviewDamage(0,0,"body")==baseline,"Chain-rate bonus does not directly increase damage");
             for(int hero=0;hero<5;hero++) {
                 a.Act(hero,0,"body"); b.Act(hero,0,"body");
@@ -125,12 +127,12 @@ public static class PlayableBuild
         }
         Check(fullChain && stoppedChain && differentBonuses,"Seed sample contains five-person chains, failures and varying turn bonuses");
         var grown=new PlayableProgress(); for(int i=0;i<15;i++) grown.Branches[i]=3;
-        Check(new PlayableBattle(1,grown,42).ChainRate(0)==new PlayableBattle(1,progress,42).ChainRate(0),"Equipment growth does not change chain probability");
-        var overkill=new PlayableBattle(1,highProgress);
+        Check(LegacyBattle(1,grown,42).ChainRate(0)==LegacyBattle(1,progress,42).ChainRate(0),"Equipment growth does not change chain probability");
+        var overkill=LegacyBattle(1,highProgress);
         var part=overkill.State.Parts[0]; before=part.HitPoints;
         var hit=BattleActionResolver.Resolve(overkill.State,"hero-0",new BattleSkill("overkill",10m,0),part.Id);
         Check(hit.PartBroken && hit.Damage==before,"Part damage reports actual HP loss instead of overkill");
-        var starter=new PlayableBattle(1,progress);
+        var starter=LegacyBattle(1,progress);
         for(int rounds=0;!starter.Ended && rounds<50;rounds++) {
             int turn=starter.Turn;
             for(int hero=0;hero<5 && !starter.Ended && starter.Turn==turn;hero++) {
@@ -175,13 +177,13 @@ public static class PlayableBuild
         Check(legacy.Levels[0]==50 && legacy.Levels[1]==35 && legacy.Levels[2]==1 && legacy.Awakenings.All(a=>a==0),"Older and partial saves keep levels and default awakening");
         var malformed=new PlayableProgress(new CampaignSaveV2 { heroineAwakenings=new[] {-1,99,1},heroineLevels=new[] {999,999,-3} });
         Check(malformed.Levels[0]==50 && malformed.Levels[1]==120 && malformed.Levels[2]==1,"Out-of-range save data is bounded by awakening cap");
-        var beforeBattle=new PlayableBattle(1,new PlayableProgress(),42);
-        var afterBattle=new PlayableBattle(1,p,42);
+        var beforeBattle=LegacyBattle(1,new PlayableProgress(),42);
+        var afterBattle=LegacyBattle(1,p,42);
         Check(afterBattle.State.Heroes[0].Attack>beforeBattle.State.Heroes[0].Attack && afterBattle.State.Heroes[0].MaxHitPoints>beforeBattle.State.Heroes[0].MaxHitPoints && afterBattle.ChainRate(0)==beforeBattle.ChainRate(0),"Awakened training improves stats without changing chain rate");
     }
     private static void ValidateEncounterPhase()
     {
-        var battle=new PlayableBattle(1,new PlayableProgress());
+        var battle=LegacyBattle(1,new PlayableProgress());
         int normal=battle.PreviewEnemyDamage(0);
         battle.State.ApplyBossDamage(battle.State.BossMaxHitPoints/2-1);
         Check(!battle.IsEnraged && battle.PreviewEnemyDamage(0)==normal,"Enrage does not start above half HP");
@@ -199,49 +201,93 @@ public static class PlayableBuild
     private static void ValidateDistinctSupport()
     {
         var p=new PlayableProgress();
-        var self=new PlayableBattle(1,p); self.State.Heroes[0].TakeDamage(80); self.State.Heroes[1].TakeDamage(80);
+        var self=LegacyBattle(1,p); self.State.Heroes[0].TakeDamage(80); self.State.Heroes[1].TakeDamage(80);
         int other=self.State.Heroes[1].HitPoints;
         Check(self.Act(0,2,"body") && self.State.Heroes[0].HitPoints>62 && self.State.Heroes[1].HitPoints==other && !self.Guarded,"Self healing affects only caster");
-        var seal=new PlayableBattle(1,p); seal.State.AdvanceBossGauge(3);
+        var seal=LegacyBattle(1,p); seal.State.AdvanceBossGauge(3);
         Check(seal.NextAttackIsMajor && seal.Act(1,2,"body") && seal.State.BossGauge==2 && !seal.NextAttackIsMajor,"Seal delays telegraphed major attack");
-        var heal=new PlayableBattle(1,p); foreach(var h in heal.State.Heroes) h.TakeDamage(80); heal.State.Heroes[0].TakeDamage(999);
+        var heal=LegacyBattle(1,p); foreach(var h in heal.State.Heroes) h.TakeDamage(80); heal.State.Heroes[0].TakeDamage(999);
         Check(!heal.Act(3,1,"body") && !heal.Act(3,1,"body",0) && !heal.Act(3,1,"body",5) && heal.State.Heroes[3].JobResource==3 && !heal.Acted[3],"Missing, dead or invalid ally consumes neither resource nor action");
         int preview=heal.PreviewHealing(3,1); int before=heal.State.Heroes[1].HitPoints;
         Check(preview>0 && heal.Act(3,1,"body",1) && heal.State.Heroes[1].HitPoints==before+preview && heal.State.Heroes[2].HitPoints==62 && heal.State.Heroes[0].HitPoints==0,"Target healing matches preview and does not heal others or resurrect");
         Check(heal.State.Heroes[3].JobResource==0 && heal.Acted[3] && !heal.Act(3,1,"body",2),"Target support costs three resources and one action exactly once");
-        var full=new PlayableBattle(1,p);
+        var full=LegacyBattle(1,p);
         Check(!full.CanHeal(1) && !full.Act(3,1,"body",1) && !full.Act(3,2,"body") && full.RemainingActions==5,"Full HP target and group do not waste action");
         full.State.Heroes[3].TakeDamage(1);
         Check(full.PreviewHealing(3,3)==1 && full.Act(3,1,"body",3) && full.State.Heroes[3].HitPoints==full.State.Heroes[3].MaxHitPoints,"Self selection and overheal clamp are supported");
-        var acted=new PlayableBattle(1,p); acted.State.Heroes[0].TakeDamage(40); acted.Act(0,0,"body");
+        var acted=LegacyBattle(1,p); acted.State.Heroes[0].TakeDamage(40); acted.Act(0,0,"body");
         Check(acted.CanHeal(0) && acted.Act(3,1,"body",0) && acted.Acted[0] && acted.RemainingActions==3,"Already acted ally may be healed but never gets an implicit extra action");
-        var group=new PlayableBattle(1,p); foreach(var h in group.State.Heroes) h.TakeDamage(80); group.State.Heroes[0].TakeDamage(999);
+        var group=LegacyBattle(1,p); foreach(var h in group.State.Heroes) h.TakeDamage(80); group.State.Heroes[0].TakeDamage(999);
         int[] expected=Enumerable.Range(0,5).Select(i=>group.State.Heroes[i].HitPoints+group.PreviewHealing(3,i,2)).ToArray();
         Check(group.Act(3,2,"body") && Enumerable.Range(0,5).All(i=>group.State.Heroes[i].HitPoints==expected[i]) && group.LastHealingTargets.SequenceEqual(new[]{1,2,3,4}),"All healing uses its own lower power and heals every living ally without resurrection");
         Check(group.State.Heroes[3].JobResource==0 && group.RemainingActions==3,"All healing costs once rather than per target");
-        Check(new PlayableBattle(1,p).PreviewDamage(3,1,"body")==0,"Healing slot never advertises attack damage");
+        Check(LegacyBattle(1,p).PreviewDamage(3,1,"body")==0,"Healing slot never advertises attack damage");
         var definitions=PlayableBattle.DefaultHealingSkills().Where(d=>!(d.Actor==3 && d.Slot==1)).Concat(new[]{new HealingSkillDefinition(3,1,"二人回復検証",HealingTargetRule.SelectedAllies,2,3,35,1m)});
-        var pair=new PlayableBattle(1,p,1,definitions); foreach(var h in pair.State.Heroes) h.TakeDamage(80);
+        var pair=LegacyBattle(1,p,1,definitions); foreach(var h in pair.State.Heroes) h.TakeDamage(80);
         Check(!pair.ActWithAllies(3,1,"body",new[]{0}) && !pair.ActWithAllies(3,1,"body",new[]{0,0}) && !pair.ActWithAllies(3,1,"body",new[]{0,1,2}) && !pair.ActWithAllies(3,1,"body",new[]{0,9}) && pair.State.Heroes[3].JobResource==3 && pair.RemainingActions==5,"Selected count, duplicates and invalid candidates reject atomically");
         Check(pair.ActWithAllies(3,1,"body",new[]{0,2}) && pair.State.Heroes[0].HitPoints==120 && pair.State.Heroes[2].HitPoints==120 && pair.State.Heroes[1].HitPoints==62 && pair.LastHealingTargets.SequenceEqual(new[]{0,2}) && pair.State.Heroes[3].JobResource==0,"Two-target definition heals exactly selected two at one action cost");
-        var low=new PlayableBattle(1,p); low.State.Heroes[0].TakeDamage(20); low.State.Heroes[3].SpendResource(1);
+        var low=LegacyBattle(1,p); low.State.Heroes[0].TakeDamage(20); low.State.Heroes[3].SpendResource(1);
         Check(!low.Act(3,2,"body") && !low.Act(3,1,"body",0) && low.State.Heroes[0].HitPoints==122 && !low.Acted[3],"Insufficient resource leaves all targets and action untouched");
-        var finish=new PlayableBattle(1,p); finish.State.Heroes[0].TakeDamage(80); foreach(int i in new[]{0,1,2,4}) finish.Act(i,0,"body");
+        var finish=LegacyBattle(1,p); finish.State.Heroes[0].TakeDamage(80); foreach(int i in new[]{0,1,2,4}) finish.Act(i,0,"body");
         int finalPreview=finish.PreviewHealing(3,0,2);
         Check(finish.Act(3,2,"body") && finish.Turn==2 && finish.State.Heroes[0].HitPoints==62+finalPreview-14 && finish.LastHealingTargets.Count==5,"Last actor healing resolves before enemy damage and retains effect targets for presentation");
         bool invalidDefinition=false, duplicateDefinition=false;
         try { new HealingSkillDefinition(3,1,"Invalid",HealingTargetRule.Self,2,3,35,1m); } catch(ArgumentException) { invalidDefinition=true; }
         var duplicate=PlayableBattle.DefaultHealingSkills().Concat(new[]{PlayableBattle.DefaultHealingSkills()[0]});
-        try { new PlayableBattle(1,p,1,duplicate); } catch(ArgumentException) { duplicateDefinition=true; }
+        try { LegacyBattle(1,p,1,duplicate); } catch(ArgumentException) { duplicateDefinition=true; }
         Check(invalidDefinition && duplicateDefinition,"Invalid target cardinality and duplicate skill slots reject configuration");
-        var missing=new PlayableBattle(1,p,1,Array.Empty<HealingSkillDefinition>());
+        var missing=LegacyBattle(1,p,1,Array.Empty<HealingSkillDefinition>());
         Check(!missing.Act(3,2,"body") && missing.State.Heroes[3].JobResource==3 && !missing.Acted[3],"Missing support definition cannot silently consume resource");
-        var last=new PlayableBattle(1,p);
+        var last=LegacyBattle(1,p);
         for(int i=0;i<5;i++) last.Act(i,0,"body");
         Check(last.Turn==2 && last.Chain==0 && last.LastActionChain>=1 && last.LastActionChain<=5 && last.RemainingActions==5,"Enemy turn preserves last resolved chain while resetting new turn actions");
-        var supply=new PlayableBattle(1,p);
+        var supply=LegacyBattle(1,p);
         Check(supply.Act(4,2,"body") && supply.State.Heroes[4].JobResource==0 && supply.State.Heroes.Take(4).All(h=>h.JobResource==5),"Supply charges caster and replenishes allies");
         Check(!supply.Act(4,2,"body") && supply.State.Heroes[0].JobResource==5,"Supply cannot be repeated in same turn");
+    }
+    private static void ValidateTimeline()
+    {
+        var p=new PlayableProgress(); var a=new PlayableBattle(1,p,42);
+        Check(a.UsesTimeline && a.AvailableHero==0 && a.Clock==91 && a.UpcomingOrder().Select(e=>e.Actor).SequenceEqual(new[]{0,3,4,1,-1,2}),"Initial order follows speed including enemy instead of party rounds");
+        int hp=a.State.BossHitPoints, resource=a.State.Heroes[1].JobResource;
+        Check(!a.Act(1,0,"body") && a.Clock==91 && a.State.BossHitPoints==hp && a.State.Heroes[1].JobResource==resource,"Out-of-order actor cannot consume or advance time");
+        long start=a.Clock; a.Act(0,0,"body");
+        Check(a.NextAt(0)==start+a.RecoveryDelay(0,0) && a.AvailableHero==3 && a.Clock==96,"Normal attack schedules only its user and advances to next actor");
+        var heavy=new PlayableBattle(1,p,42); heavy.Act(0,1,"body");
+        Check(heavy.NextAt(0)>a.NextAt(0) && heavy.RecoveryDelay(0,2)>heavy.RecoveryDelay(0,1),"Slightly long and long recovery delay next command independently");
+        Check(SkillTimingDefinition.Delay(200,150)<SkillTimingDefinition.Delay(100,150) && SkillTimingDefinition.Delay(100,50)<SkillTimingDefinition.Delay(100,150),"Speed and timing length affect simulated delay monotonically");
+        var cast=new PlayableBattle(1,p,7); while(cast.AvailableHero!=4) cast.Pass();
+        hp=cast.State.BossHitPoints; start=cast.Clock;
+        Check(cast.Act(4,1,"body") && cast.IsCasting(4) && cast.State.BossHitPoints==hp && cast.NextAt(4)==start+cast.CastDelay(4,1) && cast.State.Heroes[4].JobResource==0,"Cast reserves cost but deals no damage until its completion event");
+        Check(cast.AvailableHero==1 && cast.UpcomingOrder().Any(e=>e.Actor==4 && e.IsCast) && !cast.Act(4,1,"body"),"Other heroes act while caster is blocked and cast event appears in queue");
+        for(int i=0;i<20 && cast.IsCasting(4);i++) cast.Pass();
+        Check(!cast.IsCasting(4) && cast.State.BossHitPoints<hp && cast.NextAt(4)==start+cast.CastDelay(4,1)+cast.RecoveryDelay(4,1) && cast.EnemyActionCount>0 && cast.Log.Contains("詠唱発動"),"Spell resolves after intervening enemy actions then adds separate recovery time");
+        var canceled=new PlayableBattle(1,p); while(canceled.AvailableHero!=4) canceled.Pass();
+        string target=canceled.State.Parts[0].Id; hp=canceled.State.BossHitPoints;
+        canceled.Act(4,1,target); canceled.State.BreakPart(target,999);
+        for(int i=0;i<20 && canceled.IsCasting(4);i++) canceled.Pass();
+        Check(canceled.State.BossHitPoints==hp && !canceled.IsCasting(4) && canceled.Log.Contains("詠唱不発"),"Destroyed cast target fizzles without unannounced retargeting");
+        var dead=new PlayableBattle(1,p); while(dead.AvailableHero!=4) dead.Pass(); dead.Act(4,1,"body"); dead.State.Heroes[4].TakeDamage(9999); hp=dead.State.BossHitPoints; dead.Pass();
+        Check(!dead.IsCasting(4) && dead.State.BossHitPoints==hp && dead.UpcomingOrder().All(e=>e.Actor!=4),"Defeated caster loses pending spell and leaves action queue");
+        var invalid=new PlayableBattle(1,p); while(invalid.AvailableHero!=4) invalid.Pass(); start=invalid.Clock; resource=invalid.State.Heroes[4].JobResource;
+        Check(!invalid.Act(4,1,"missing") && !invalid.IsCasting(4) && invalid.Clock==start && invalid.State.Heroes[4].JobResource==resource,"Invalid cast target consumes no cost or timeline event");
+        var timings=PlayableBattle.DefaultTimings(); timings[4,1]=new SkillTimingDefinition(150,50);
+        var shortCast=new PlayableBattle(1,p,1,null,true,timings); while(shortCast.AvailableHero!=4) shortCast.Pass();
+        Check(shortCast.CastDelay(4,1)<shortCast.RecoveryDelay(4,1) && shortCast.TimingDescription(4,1).Contains("詠唱：短い"),"Casting and recovery are independently configured per skill");
+        var chainCast=new PlayableBattle(1,p,42); chainCast.Act(0,0,"body"); chainCast.Act(3,0,"body");
+        Check(chainCast.AvailableHero==4 && chainCast.PreviewDamage(4,1,"body")==28,"Delayed spell preview excludes the immediate attack chain that casting will end");
+        var tieTimings=PlayableBattle.DefaultTimings(); tieTimings[4,1]=new SkillTimingDefinition(100,82);
+        var tie=new PlayableBattle(1,p,1,null,true,tieTimings); while(tie.AvailableHero!=4) tie.Pass(); hp=tie.State.BossHitPoints;
+        tie.Act(4,1,"body"); while(tie.IsCasting(4)) tie.Pass();
+        Check(tie.Clock==182 && tie.AvailableHero==0 && tie.State.BossHitPoints==hp-28 && tie.LastCastResolvedActor==4,"Equal-time spell resolves before hero command with deterministic tie priority");
+        for(int seed=1;seed<=10;seed++) {
+            var run=new PlayableBattle(1,p,seed); long clock=run.Clock;
+            for(int step=0;step<150 && !run.Ended;step++) {
+                int actor=run.AvailableHero; var part=run.State.Parts.FirstOrDefault(x=>!x.IsBroken);
+                Check(run.Act(actor,0,part?.Id??"body") && run.Clock>=clock && run.LastActionChain<=5,"Timeline actions preserve monotonic clock and five-unique-hero chain cap"); clock=run.Clock;
+            }
+            Check(run.State.IsVictory,"Scheduled starter party can defeat first colossus with part strategy");
+        }
     }
     private static void ValidateKinderRewards()
     {
@@ -263,7 +309,7 @@ public static class PlayableBuild
         Check(rich.TryKinderDraw(wallet,0m,0m,out _,out _) && rich.OverflowEnhancementMaterials==2 && rich.Duplicates[0]==1,"New capped duplicate converts automatically");
         Check(rich.UseOverflowEnhancement(1) && rich.TraitRanks[1]==1 && rich.OverflowEnhancementMaterials==1,"Generic material strengthens another heroine");
         Check(!rich.UseOverflowEnhancement(0) && rich.OverflowEnhancementMaterials==1,"Rank cap cannot consume generic materials");
-        var baseBattle=new PlayableBattle(1,new PlayableProgress(),72); var strongBattle=new PlayableBattle(1,rich,72);
+        var baseBattle=LegacyBattle(1,new PlayableProgress(),72); var strongBattle=LegacyBattle(1,rich,72);
         Check(strongBattle.State.Heroes[0].Attack-baseBattle.State.Heroes[0].Attack==5*PlayableProgress.DuplicateAttackGain && strongBattle.State.Heroes[0].MaxHitPoints-baseBattle.State.Heroes[0].MaxHitPoints==5*PlayableProgress.DuplicateHitPointGain && strongBattle.ChainRate(0)==baseBattle.ChainRate(0),"Duplicate strength affects HP and attack but never chain chance");
         var save=new CampaignSaveV2(); rich.CopyTo(save); var restored=new PlayableProgress(save);
         Check(restored.TraitRanks[0]==5 && restored.TraitRanks[1]==1 && restored.OverflowEnhancementMaterials==1 && restored.Duplicates[0]==1,"Strength and conversion survive save restoration");
