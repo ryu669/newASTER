@@ -18,6 +18,22 @@ namespace NewAster.Presentation
         private float trailUntil;
         private readonly List<LineRenderer> enemyTrails = new List<LineRenderer>();
         private float enemyTrailUntil;
+        private readonly List<LineRenderer> healingTrails = new List<LineRenderer>();
+        private float healingTrailUntil;
+        public void PlayHealing(int actor,IReadOnlyList<int> targets)
+        {
+            while(healingTrails.Count<targets.Count) {
+                var line=new GameObject("Healing trail").AddComponent<LineRenderer>();
+                line.material=new Material(Resources.Load<Shader>("StageSurface")); line.positionCount=2;
+                line.startWidth=.1f; line.endWidth=.05f; line.startColor=line.endColor=new Color(.3f,1f,.65f);
+                healingTrails.Add(line);
+            }
+            for(int i=0;i<healingTrails.Count;i++) {
+                var line=healingTrails[i]; line.enabled=i<targets.Count;
+                if(i<targets.Count) { line.SetPosition(0,party[actor].position+Vector3.up); line.SetPosition(1,party[targets[i]].position+Vector3.up*(targets[i]==actor?2:1)); }
+            }
+            healingTrailUntil=clock+.65f;
+        }
         public void PlayEnemyAction(bool major)
         {
             if(enemyTrails.Count==0) foreach(var member in party) {
@@ -89,6 +105,7 @@ namespace NewAster.Presentation
 
         private void Update()
         {
+            if(clock>healingTrailUntil) foreach(var line in healingTrails) line.enabled=false;
             if(!frozen) clock+=Time.deltaTime;
             var time = clock;
             if(attackTrail!=null && time>=trailUntil) attackTrail.enabled=false;

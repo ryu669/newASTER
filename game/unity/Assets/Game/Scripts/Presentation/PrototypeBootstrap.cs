@@ -19,7 +19,8 @@ namespace NewAster.Presentation
         private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
         private int selectedLevel = 1, storyChapter, storyPage, selectedHero;
         private bool selectingAlly;
-        private int selectedAlly = -1;
+        private readonly HashSet<int> selectedAllies = new HashSet<int>();
+        private int healingActor, healingSlot;
         private string breakNotice = "";
         private float breakNoticeUntil;
         private GUIStyle text, heading, small, button;
@@ -63,7 +64,7 @@ namespace NewAster.Presentation
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
                 encounter.State.Heroes[0].TakeDamage(70); encounter.State.Heroes[1].TakeDamage(99999);
-                selectedHero=3; selectingAlly=true; selectedAlly=0;
+                selectedHero=3; healingActor=3; healingSlot=args.Contains("-captureAllHealing")?2:1; selectingAlly=true; selectedAllies.Add(0);
             }
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
@@ -80,7 +81,7 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(selectingAlly) { selectingAlly=false; selectedAlly=-1; }
+                if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
                 else if(storyText!=null) CloseStory();
                 else if(help) help=false;
                 else if(kinderGarden) kinderGarden=false;
@@ -172,7 +173,8 @@ namespace NewAster.Presentation
             Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
             if(book.Face==BookFace.Details) {
                 var previewBattle=new PlayableBattle(1,p);
-                Label(32,398,900,125,$"スキル：通常攻撃 / 資源3の強撃 / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
+                var recovery=previewBattle.HealingSkill(h,1);
+                Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
                 Label(32,545,925,150,"毎回5人で出撃します。行動順は自由です。\n強撃を温存し、後半のチェインで使うと威力が増えます。\n花の枝を育てると支援スキルが強化されます。",text); return;
             }
             int[] steps={1,5,10};
@@ -260,7 +262,7 @@ namespace NewAster.Presentation
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=0;
-            selectingAlly=false; selectedAlly=-1; breakNotice="";
+            selectingAlly=false; selectedAllies.Clear(); breakNotice="";
         }
         private void DrawBattle()
         {
@@ -284,10 +286,14 @@ namespace NewAster.Presentation
             Label(1180,175,390,50,Names[actor],heading,Color.white);
             Label(1180,231,390,66,$"{Jobs[actor]}　資源 {hero.JobResource}/10\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
             bool enabled=!paused && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
-            if(Btn(1180,310,390,76,$"通常攻撃\n予測 {encounter.PreviewDamage(actor,0,target)} / 資源0",enabled)) Act(actor,0);
-            if(Btn(1180,400,390,76,$"強撃\n予測 {encounter.PreviewDamage(actor,1,target)} / 資源3",enabled && hero.JobResource>=3)) Act(actor,1);
-            if(Btn(1180,490,390,88,PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor),enabled && hero.JobResource>=3)) {
-                if(actor==3) { selectingAlly=true; selectedAlly=-1; } else Act(actor,2);
+            for(int slot=0;slot<3;slot++) {
+                var healSkill=encounter.HealingSkill(actor,slot);
+                string caption=healSkill!=null?healSkill.Name+" / 資源"+healSkill.ResourceCost+"\n"+encounter.HealingDescription(actor,slot):slot<2?(slot==0?"通常攻撃":"強撃")+$"\n予測 {encounter.PreviewDamage(actor,slot,target)} / 資源{(slot==0?0:3)}":PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor);
+                int cost=healSkill!=null?healSkill.ResourceCost:slot==0?0:3;
+                if(Btn(1180,310+slot*90,390,slot==2?88:76,caption,enabled && hero.JobResource>=cost)) {
+                    if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
+                    else Act(actor,slot);
+                }
             }
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
@@ -305,28 +311,34 @@ namespace NewAster.Presentation
         }
         private void DrawAllySelection()
         {
-            Modal(); Label(340,175,900,58,"癒しの歌：回復する味方を選択",heading);
+            var d=encounter.HealingSkill(healingActor,healingSlot);
+            var affected=encounter.HealingTargets(healingActor,healingSlot,selectedAllies.OrderBy(i=>i));
+            bool selectable=d.TargetRule==HealingTargetRule.SelectedAllies;
+            Modal(); Label(340,165,900,50,d.Name+"："+(selectable?$"味方{d.TargetCount}人を選択":"対象を確認"),heading);
+            Label(340,218,900,28,selectable?$"選択 {selectedAllies.Count}/{d.TargetCount}人・同じ人は重複不可":encounter.HealingDescription(healingActor,healingSlot),small);
             for(int i=0;i<5;i++) {
-                var h=encounter.State.Heroes[i]; int gain=encounter.PreviewHealing(3,i);
-                string info=gain>0?$"HP {h.HitPoints} → {h.HitPoints+gain}/{h.MaxHitPoints}（＋{gain}）":$"HP {h.HitPoints}/{h.MaxHitPoints}　"+(!h.IsAlive?"戦闘不能（蘇生不可）":"回復不要／使用不可");
-                string caption=(selectedAlly==i?"◆ ":"")+Names[i]+"　"+info;
-                if(gain>0) { if(Btn(340,250+i*68,900,58,caption,!paused)) selectedAlly=i; }
+                var h=encounter.State.Heroes[i]; int gain=encounter.PreviewHealing(healingActor,i,healingSlot);
+                string info=gain>0?$"HP {h.HitPoints} → {h.HitPoints+gain}/{h.MaxHitPoints}（＋{gain}）":$"HP {h.HitPoints}/{h.MaxHitPoints}　"+(!h.IsAlive?"戦闘不能（蘇生不可）":d.TargetRule==HealingTargetRule.Self && i!=healingActor?"対象外":h.HitPoints==h.MaxHitPoints?"HP満タン・回復0":"使用不可");
+                string caption=(affected.Contains(i)?"◆ ":"")+Names[i]+"　"+info;
+                if(gain>0 && selectable) { if(Btn(340,250+i*68,900,58,caption,!paused && (selectedAllies.Contains(i)||selectedAllies.Count<d.TargetCount))) { if(!selectedAllies.Remove(i)) selectedAllies.Add(i); } }
+                else if(gain>0) { Panel(340,250+i*68,900,58,teal); Label(358,264+i*68,864,36,caption,small,Color.white); }
                 else { Panel(340,250+i*68,900,58,dark); Label(358,264+i*68,864,36,caption,small,Color.white); }
             }
-            if(Btn(340,650,420,62,"取消（消費なし）")) { selectingAlly=false; selectedAlly=-1; }
-            if(Btn(820,650,420,62,"この味方に回復を実行",!paused && encounter.CanHeal(selectedAlly))) { selectingAlly=false; Act(3,2,selectedAlly); selectedAlly=-1; }
+            if(Btn(340,650,420,62,"取消（消費なし）")) { selectingAlly=false; selectedAllies.Clear(); }
+            if(Btn(820,650,420,62,"回復を実行",!paused && encounter.CanHealTargets(healingActor,healingSlot,selectedAllies))) { selectingAlly=false; Act(healingActor,healingSlot,selectedAllies.OrderBy(i=>i).ToArray()); selectedAllies.Clear(); }
         }
         private void SelectNextHero()
         {
             for(int step=1;step<=5;step++) { int next=(selectedHero+step)%5; if(encounter.State.Heroes[next].IsAlive && !encounter.Acted[next]) { selectedHero=next; return; } }
         }
-        private void Act(int hero,int skill,int ally=-1)
+        private void Act(int hero,int skill,int[] allies=null)
         {
             string actionTarget=target;
             int turn=encounter.Turn; bool major=encounter.NextAttackIsMajor;
-            if(encounter.Act(hero,skill,target,ally)) {
-                if(stage!=null) { stage.PlayAction(hero,skill==2,actionTarget,ally); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
-                if(skill!=2 && target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) {
+            bool healing=encounter.HealingSkill(hero,skill)!=null;
+            if(encounter.ActWithAllies(hero,skill,target,allies)) {
+                if(stage!=null) { if(healing) stage.PlayHealing(hero,encounter.LastHealingTargets); else stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
+                if(!healing && skill!=2 && target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) {
                     int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==target);
                     breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeUntil=Time.unscaledTime+6f; target="body";
                 }

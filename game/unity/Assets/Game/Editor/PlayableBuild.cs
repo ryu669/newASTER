@@ -37,7 +37,8 @@ public static class PlayableBuild
             for(int h=0;h<5 && !b.Ended && turn==b.Turn;h++) {
                 if(b.Acted[h]) continue;
                 var part=b.State.Parts.FirstOrDefault(p=>!p.IsBroken);
-                b.Act(h,b.State.Heroes[h].JobResource>=3?1:0,part?.Id??"body");
+                int slot=b.State.Heroes[h].JobResource>=3 && b.HealingSkill(h,1)==null?1:0;
+                Check(b.Act(h,slot,part?.Id??"body"),"Full progression strategy executes a valid skill");
             }
         }
         Check(b.State.IsVictory,"Starter party must win Lv1 with part strategy");
@@ -135,7 +136,8 @@ public static class PlayableBuild
             for(int hero=0;hero<5 && !starter.Ended && starter.Turn==turn;hero++) {
                 if(starter.Acted[hero]) continue;
                 var nextPart=starter.State.Parts.FirstOrDefault(p=>!p.IsBroken);
-                starter.Act(hero,starter.State.Heroes[hero].JobResource>=3?1:0,nextPart?.Id??"body");
+                int slot=starter.State.Heroes[hero].JobResource>=3 && starter.HealingSkill(hero,1)==null?1:0;
+                Check(starter.Act(hero,slot,nextPart?.Id??"body"),"Starter strategy always executes a valid attack slot");
             }
         }
         Check(starter.State.IsVictory,"Starter party can still win using part strategy after probability fix");
@@ -203,16 +205,37 @@ public static class PlayableBuild
         var seal=new PlayableBattle(1,p); seal.State.AdvanceBossGauge(3);
         Check(seal.NextAttackIsMajor && seal.Act(1,2,"body") && seal.State.BossGauge==2 && !seal.NextAttackIsMajor,"Seal delays telegraphed major attack");
         var heal=new PlayableBattle(1,p); foreach(var h in heal.State.Heroes) h.TakeDamage(80); heal.State.Heroes[0].TakeDamage(999);
-        Check(!heal.Act(3,2,"body") && !heal.Act(3,2,"body",0) && !heal.Act(3,2,"body",5) && heal.State.Heroes[3].JobResource==3 && !heal.Acted[3],"Missing, dead or invalid ally consumes neither resource nor action");
+        Check(!heal.Act(3,1,"body") && !heal.Act(3,1,"body",0) && !heal.Act(3,1,"body",5) && heal.State.Heroes[3].JobResource==3 && !heal.Acted[3],"Missing, dead or invalid ally consumes neither resource nor action");
         int preview=heal.PreviewHealing(3,1); int before=heal.State.Heroes[1].HitPoints;
-        Check(preview>0 && heal.Act(3,2,"body",1) && heal.State.Heroes[1].HitPoints==before+preview && heal.State.Heroes[2].HitPoints==62 && heal.State.Heroes[0].HitPoints==0,"Target healing matches preview and does not heal others or resurrect");
-        Check(heal.State.Heroes[3].JobResource==0 && heal.Acted[3] && !heal.Act(3,2,"body",2),"Target support costs three resources and one action exactly once");
+        Check(preview>0 && heal.Act(3,1,"body",1) && heal.State.Heroes[1].HitPoints==before+preview && heal.State.Heroes[2].HitPoints==62 && heal.State.Heroes[0].HitPoints==0,"Target healing matches preview and does not heal others or resurrect");
+        Check(heal.State.Heroes[3].JobResource==0 && heal.Acted[3] && !heal.Act(3,1,"body",2),"Target support costs three resources and one action exactly once");
         var full=new PlayableBattle(1,p);
-        Check(!full.CanHeal(1) && !full.Act(3,2,"body",1) && full.RemainingActions==5,"Full HP target does not waste action");
+        Check(!full.CanHeal(1) && !full.Act(3,1,"body",1) && !full.Act(3,2,"body") && full.RemainingActions==5,"Full HP target and group do not waste action");
         full.State.Heroes[3].TakeDamage(1);
-        Check(full.PreviewHealing(3,3)==1 && full.Act(3,2,"body",3) && full.State.Heroes[3].HitPoints==full.State.Heroes[3].MaxHitPoints,"Self selection and overheal clamp are supported");
+        Check(full.PreviewHealing(3,3)==1 && full.Act(3,1,"body",3) && full.State.Heroes[3].HitPoints==full.State.Heroes[3].MaxHitPoints,"Self selection and overheal clamp are supported");
         var acted=new PlayableBattle(1,p); acted.State.Heroes[0].TakeDamage(40); acted.Act(0,0,"body");
-        Check(acted.CanHeal(0) && acted.Act(3,2,"body",0) && acted.Acted[0] && acted.RemainingActions==3,"Already acted ally may be healed but never gets an implicit extra action");
+        Check(acted.CanHeal(0) && acted.Act(3,1,"body",0) && acted.Acted[0] && acted.RemainingActions==3,"Already acted ally may be healed but never gets an implicit extra action");
+        var group=new PlayableBattle(1,p); foreach(var h in group.State.Heroes) h.TakeDamage(80); group.State.Heroes[0].TakeDamage(999);
+        int[] expected=Enumerable.Range(0,5).Select(i=>group.State.Heroes[i].HitPoints+group.PreviewHealing(3,i,2)).ToArray();
+        Check(group.Act(3,2,"body") && Enumerable.Range(0,5).All(i=>group.State.Heroes[i].HitPoints==expected[i]) && group.LastHealingTargets.SequenceEqual(new[]{1,2,3,4}),"All healing uses its own lower power and heals every living ally without resurrection");
+        Check(group.State.Heroes[3].JobResource==0 && group.RemainingActions==3,"All healing costs once rather than per target");
+        Check(new PlayableBattle(1,p).PreviewDamage(3,1,"body")==0,"Healing slot never advertises attack damage");
+        var definitions=PlayableBattle.DefaultHealingSkills().Where(d=>!(d.Actor==3 && d.Slot==1)).Concat(new[]{new HealingSkillDefinition(3,1,"二人回復検証",HealingTargetRule.SelectedAllies,2,3,35,1m)});
+        var pair=new PlayableBattle(1,p,1,definitions); foreach(var h in pair.State.Heroes) h.TakeDamage(80);
+        Check(!pair.ActWithAllies(3,1,"body",new[]{0}) && !pair.ActWithAllies(3,1,"body",new[]{0,0}) && !pair.ActWithAllies(3,1,"body",new[]{0,1,2}) && !pair.ActWithAllies(3,1,"body",new[]{0,9}) && pair.State.Heroes[3].JobResource==3 && pair.RemainingActions==5,"Selected count, duplicates and invalid candidates reject atomically");
+        Check(pair.ActWithAllies(3,1,"body",new[]{0,2}) && pair.State.Heroes[0].HitPoints==120 && pair.State.Heroes[2].HitPoints==120 && pair.State.Heroes[1].HitPoints==62 && pair.LastHealingTargets.SequenceEqual(new[]{0,2}) && pair.State.Heroes[3].JobResource==0,"Two-target definition heals exactly selected two at one action cost");
+        var low=new PlayableBattle(1,p); low.State.Heroes[0].TakeDamage(20); low.State.Heroes[3].SpendResource(1);
+        Check(!low.Act(3,2,"body") && !low.Act(3,1,"body",0) && low.State.Heroes[0].HitPoints==122 && !low.Acted[3],"Insufficient resource leaves all targets and action untouched");
+        var finish=new PlayableBattle(1,p); finish.State.Heroes[0].TakeDamage(80); foreach(int i in new[]{0,1,2,4}) finish.Act(i,0,"body");
+        int finalPreview=finish.PreviewHealing(3,0,2);
+        Check(finish.Act(3,2,"body") && finish.Turn==2 && finish.State.Heroes[0].HitPoints==62+finalPreview-14 && finish.LastHealingTargets.Count==5,"Last actor healing resolves before enemy damage and retains effect targets for presentation");
+        bool invalidDefinition=false, duplicateDefinition=false;
+        try { new HealingSkillDefinition(3,1,"Invalid",HealingTargetRule.Self,2,3,35,1m); } catch(ArgumentException) { invalidDefinition=true; }
+        var duplicate=PlayableBattle.DefaultHealingSkills().Concat(new[]{PlayableBattle.DefaultHealingSkills()[0]});
+        try { new PlayableBattle(1,p,1,duplicate); } catch(ArgumentException) { duplicateDefinition=true; }
+        Check(invalidDefinition && duplicateDefinition,"Invalid target cardinality and duplicate skill slots reject configuration");
+        var missing=new PlayableBattle(1,p,1,Array.Empty<HealingSkillDefinition>());
+        Check(!missing.Act(3,2,"body") && missing.State.Heroes[3].JobResource==3 && !missing.Acted[3],"Missing support definition cannot silently consume resource");
         var last=new PlayableBattle(1,p);
         for(int i=0;i<5;i++) last.Act(i,0,"body");
         Check(last.Turn==2 && last.Chain==0 && last.LastActionChain>=1 && last.LastActionChain<=5 && last.RemainingActions==5,"Enemy turn preserves last resolved chain while resetting new turn actions");

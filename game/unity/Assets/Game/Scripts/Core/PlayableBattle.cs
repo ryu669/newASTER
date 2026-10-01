@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
 namespace NewAster.Core
 {
     public sealed class PlayableBattle
@@ -25,6 +26,20 @@ namespace NewAster.Core
         private readonly int[] support;
         private readonly Random random;
         private bool chainPending;
+        private readonly HealingSkillDefinition[] healingSkills;
+        public IReadOnlyList<int> LastHealingTargets { get; private set; } = Array.Empty<int>();
+        public HealingSkillDefinition HealingSkill(int actor,int slot) => healingSkills.FirstOrDefault(x=>x.Actor==actor && x.Slot==slot);
+        public static HealingSkillDefinition[] DefaultHealingSkills() => new[] {
+            new HealingSkillDefinition(0,2,"再起の誓い",HealingTargetRule.Self,1,3,35,1m),
+            new HealingSkillDefinition(3,1,"癒しのひと節",HealingTargetRule.SelectedAllies,1,3,35,1m),
+            new HealingSkillDefinition(3,2,"癒しの歌",HealingTargetRule.AllLivingAllies,5,3,20,.6m)
+        };
+        public string HealingDescription(int actor,int slot)
+        {
+            var d=HealingSkill(actor,slot); if(d==null) return "";
+            return (d.TargetRule==HealingTargetRule.Self?"自身":d.TargetRule==HealingTargetRule.AllLivingAllies?"生存する味方全員":"味方"+d.TargetCount+"人を選択")+" / 回復 "+HealingPower(d)+"ずつ";
+        }
+        private int HealingPower(HealingSkillDefinition d) => d.BaseHealing+(int)Math.Floor(State.Heroes[d.Actor].Attack*d.AttackScale)+support[d.Actor]*15;
         public static string SupportName(int heroIndex)
         {
             var names = new[] { "再起の誓い", "結晶の封印", "護りの誓い", "癒しの歌", "星の補給" };
@@ -32,18 +47,19 @@ namespace NewAster.Core
         }
         public string SupportDescription(int heroIndex)
         {
+            if(HealingSkill(heroIndex,2)!=null) return HealingDescription(heroIndex,2);
             switch (heroIndex) {
-                case 0: return "自身を回復 " + (35 + State.Heroes[0].Attack + support[0] * 15);
                 case 1: return "大技ゲージ −" + (1 + support[1] / 2);
                 case 2: return "全体軽減・このターン";
-                case 3: return "味方1人を選んで回復（戦闘不能は対象外）";
                 case 4: return "他の生存者に資源 ＋" + (2 + support[4]);
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
+            healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
+            if(healingSkills.Any(d=>d==null) || healingSkills.GroupBy(d=>new {d.Actor,d.Slot}).Any(g=>g.Count()>1)) throw new ArgumentException("Duplicate or null healing definition.");
             Seed = seed;
             random = new Random(seed);
             defense = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 1]).ToArray();
@@ -77,7 +93,7 @@ namespace NewAster.Core
         }
         public int PreviewDamage(int heroIndex, int skill, string target)
         {
-            if (Ended || heroIndex < 0 || heroIndex >= 5 || skill < 0 || skill > 1 || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return 0;
+            if (Ended || heroIndex < 0 || heroIndex >= 5 || skill < 0 || skill > 1 || HealingSkill(heroIndex,skill)!=null || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return 0;
             if (target != "body" && !State.Parts.Any(p => p.Id == target && !p.IsBroken)) return 0;
             if (State.Heroes[heroIndex].JobResource < (skill == 1 ? 3 : 0)) return 0;
             int damage = Math.Max(1, (int)Math.Floor(State.Heroes[heroIndex].Attack * AttackPower(heroIndex, skill, target, chainPending ? Chain + 1 : 1)));
@@ -92,31 +108,56 @@ namespace NewAster.Core
             if (Guarded) damage = damage * Math.Max(20, 50 - support[2] * 8) / 100;
             return Math.Max(1, damage - defense[heroIndex] * 3);
         }
-        public int PreviewHealing(int actor, int ally)
+        public int PreviewHealing(int actor, int ally, int slot = 1)
         {
-            if (Ended || actor != 3 || ally < 0 || ally >= 5 || Acted[actor] || !State.Heroes[actor].IsAlive || !State.Heroes[ally].IsAlive || State.Heroes[actor].JobResource < 3) return 0;
-            return Math.Min(State.Heroes[ally].MaxHitPoints - State.Heroes[ally].HitPoints, 35 + State.Heroes[actor].Attack + support[actor] * 15);
+            var d=HealingSkill(actor,slot);
+            if (d==null || Ended || ally<0 || ally>=5 || Acted[actor] || !State.Heroes[actor].IsAlive || !State.Heroes[ally].IsAlive || State.Heroes[actor].JobResource<d.ResourceCost || d.TargetRule==HealingTargetRule.Self && ally!=actor) return 0;
+            return Math.Min(State.Heroes[ally].MaxHitPoints-State.Heroes[ally].HitPoints,HealingPower(d));
         }
         public bool CanHeal(int ally) => PreviewHealing(3, ally) > 0;
+        public int[] HealingTargets(int actor,int slot,IEnumerable<int> selected)
+        {
+            var d=HealingSkill(actor,slot); if(d==null) return Array.Empty<int>();
+            if(d.TargetRule==HealingTargetRule.Self) return new[]{actor};
+            if(d.TargetRule==HealingTargetRule.AllLivingAllies) return Enumerable.Range(0,5).Where(i=>State.Heroes[i].IsAlive).ToArray();
+            return (selected??Array.Empty<int>()).ToArray();
+        }
+        public bool CanHealTargets(int actor,int slot,IEnumerable<int> selected)
+        {
+            var d=HealingSkill(actor,slot); if(d==null) return false;
+            var targets=HealingTargets(actor,slot,selected);
+            if(targets.Length==0 || targets.Distinct().Count()!=targets.Length || targets.Any(i=>i<0 || i>=5 || !State.Heroes[i].IsAlive)) return false;
+            if(d.TargetRule==HealingTargetRule.SelectedAllies && (targets.Length!=d.TargetCount || targets.Any(i=>PreviewHealing(actor,i,slot)==0))) return false;
+            return targets.Any(i=>PreviewHealing(actor,i,slot)>0);
+        }
         public bool Act(int heroIndex, int skill, string target, int allyTarget = -1)
+            => ActWithAllies(heroIndex,skill,target,allyTarget<0?Array.Empty<int>():new[]{allyTarget});
+        public bool ActWithAllies(int heroIndex,int skill,string target,IEnumerable<int> selectedAllies)
         {
             if (Ended || heroIndex < 0 || heroIndex > 4 || skill < 0 || skill > 2 || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return false;
             var hero = State.Heroes[heroIndex];
-            if (skill == 2)
+            var healing=HealingSkill(heroIndex,skill);
+            if(healing!=null)
             {
-                // Validate ally before spending. Cancellation/invalid targeting never costs an action.
-                if (heroIndex == 3 && !CanHeal(allyTarget)) { Log = "回復が必要な生存者を選んでください。"; return false; }
+                var targets=HealingTargets(heroIndex,skill,selectedAllies);
+                if(!CanHealTargets(heroIndex,skill,targets)) { Log="スキルに必要な回復対象を確認してください。"; return false; }
+                var amounts=targets.Select(i=>PreviewHealing(heroIndex,i,skill)).ToArray();
+                if(!hero.SpendResource(healing.ResourceCost)) return false;
+                for(int i=0;i<targets.Length;i++) State.Heroes[targets[i]].Heal(amounts[i]);
+                LastHealingTargets=Array.AsReadOnly(targets);
+                Log=healing.Name+"："+string.Join(" / ",targets.Select((t,i)=>"味方"+(t+1)+" HP ＋"+amounts[i]));
+                Chain=0; chainPending=false; LastActionChain=0;
+            }
+            else if (skill == 2)
+            {
+                if(heroIndex==0 || heroIndex==3) { Log="支援スキルの定義がありません。"; return false; }
                 if (!hero.SpendResource(3)) { Log = "資源が不足しています。"; return false; }
-                int healing = heroIndex == 3 ? Math.Min(State.Heroes[allyTarget].MaxHitPoints - State.Heroes[allyTarget].HitPoints, 35 + hero.Attack + support[3] * 15) : 0;
                 switch (heroIndex) {
-                    case 0: hero.Heal(35 + hero.Attack + support[0] * 15); break;
                     case 1: State.ReduceBossGauge(1 + support[1] / 2); break;
                     case 2: Guarded = true; break;
-                    case 3: State.Heroes[allyTarget].Heal(healing); break;
                     case 4: foreach (var h in State.Heroes.Where(h => h.Id != hero.Id && h.IsAlive)) h.GainResource(2 + support[4]); break;
                 }
                 Log = SupportName(heroIndex) + "：" + SupportDescription(heroIndex) + "。";
-                if (heroIndex == 3) Log = "癒しの歌：味方 " + (allyTarget + 1) + " のHP ＋" + healing + "。";
                 Chain = 0; chainPending = false;
                 LastActionChain = 0;
             }
@@ -134,6 +175,7 @@ namespace NewAster.Core
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
             }
             Acted[heroIndex] = true;
+            if(healing==null) LastHealingTargets=Array.Empty<int>();
             if (!Ended && Enumerable.Range(0, 5).All(i => Acted[i] || !State.Heroes[i].IsAlive)) EndTurn();
             return true;
         }
