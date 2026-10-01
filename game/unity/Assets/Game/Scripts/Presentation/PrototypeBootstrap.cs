@@ -18,6 +18,10 @@ namespace NewAster.Presentation
         private string result, storyText, storyId;
         private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
         private int selectedLevel = 1, storyChapter, storyPage, selectedHero;
+        private bool selectingAlly;
+        private int selectedAlly = -1;
+        private string breakNotice = "";
+        private float breakNoticeUntil;
         private GUIStyle text, heading, small, button;
         private Font font;
         private Texture2D paper, dark, teal;
@@ -57,6 +61,10 @@ namespace NewAster.Presentation
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
             var args=Environment.GetCommandLineArgs();
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
+            if(capturePath!=null && args.Contains("-captureAllySelection")) {
+                encounter.State.Heroes[0].TakeDamage(70); encounter.State.Heroes[1].TakeDamage(99999);
+                selectedHero=3; selectingAlly=true; selectedAlly=0;
+            }
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -72,7 +80,8 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(storyText!=null) CloseStory();
+                if(selectingAlly) { selectingAlly=false; selectedAlly=-1; }
+                else if(storyText!=null) CloseStory();
                 else if(help) help=false;
                 else if(kinderGarden) kinderGarden=false;
                 else if(retreat) { retreat=false; paused=false; }
@@ -251,6 +260,7 @@ namespace NewAster.Presentation
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=0;
+            selectingAlly=false; selectedAlly=-1; breakNotice="";
         }
         private void DrawBattle()
         {
@@ -262,41 +272,66 @@ namespace NewAster.Presentation
             Meter(698,112,370,10,s.BossGauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
             if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
             if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
-            Label(1180,88,390,42,$"{encounter.Chain} CHAIN",heading,new Color(1f,.82f,.4f));
+            Label(1180,88,390,42,$"直前 {encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
             if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体")) target="body";
             for(int i=0;i<4;i++) if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(s.Parts[i].IsBroken?"破壊済":"HP "+s.Parts[i].HitPoints),!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
             int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
             Label(28,240,1050,45,targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex],small,Color.white);
+            Label(28,286,1050,32,$"味方の残り行動 {encounter.RemainingActions}人 → 巨神獣　（味方の順番は自由）",small,Color.white);
+            if(Time.unscaledTime<breakNoticeUntil) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
             Label(1180,231,390,66,$"{Jobs[actor]}　資源 {hero.JobResource}/10\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
-            bool enabled=!paused && result==null && !encounter.Acted[actor] && hero.IsAlive;
+            bool enabled=!paused && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             if(Btn(1180,310,390,76,$"通常攻撃\n予測 {encounter.PreviewDamage(actor,0,target)} / 資源0",enabled)) Act(actor,0);
             if(Btn(1180,400,390,76,$"強撃\n予測 {encounter.PreviewDamage(actor,1,target)} / 資源3",enabled && hero.JobResource>=3)) Act(actor,1);
-            if(Btn(1180,490,390,88,PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor),enabled && hero.JobResource>=3)) Act(actor,2);
+            if(Btn(1180,490,390,88,PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor),enabled && hero.JobResource>=3)) {
+                if(actor==3) { selectingAlly=true; selectedAlly=-1; } else Act(actor,2);
+            }
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
             Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n支援は攻撃チェインを終了",small,Color.white);
-            if(Btn(1180,807,390,58,"残りの行動を終えて敵の番へ",!paused && result==null)) { bool major=encounter.NextAttackIsMajor; encounter.EndTurn(); if(stage!=null) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
+            if(Btn(1180,807,390,58,"残りの行動を終えて敵の番へ",!paused && result==null && !selectingAlly)) { bool major=encounter.NextAttackIsMajor; encounter.EndTurn(); if(stage!=null) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
             for(int i=0;i<5;i++) {
                 float x=18+i*225; var h=s.Heroes[i];
-                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.Acted[i]?"行動済":"行動可能"),h.IsAlive)) selectedHero=i;
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.Acted[i]?"行動済":"行動可能"),h.IsAlive && !selectingAlly && !paused)) selectedHero=i;
                 Label(x,782,215,32,$"HP {h.HitPoints}/{h.MaxHitPoints}　資源 {h.JobResource}",small,Color.white);
                 Meter(x,817,215,6,h.HitPoints,h.MaxHitPoints,h.HitPoints*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
             status=paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
+            if(selectingAlly) DrawAllySelection();
+        }
+        private void DrawAllySelection()
+        {
+            Modal(); Label(340,175,900,58,"癒しの歌：回復する味方を選択",heading);
+            for(int i=0;i<5;i++) {
+                var h=encounter.State.Heroes[i]; int gain=encounter.PreviewHealing(3,i);
+                string info=gain>0?$"HP {h.HitPoints} → {h.HitPoints+gain}/{h.MaxHitPoints}（＋{gain}）":$"HP {h.HitPoints}/{h.MaxHitPoints}　"+(!h.IsAlive?"戦闘不能（蘇生不可）":"回復不要／使用不可");
+                string caption=(selectedAlly==i?"◆ ":"")+Names[i]+"　"+info;
+                if(gain>0) { if(Btn(340,250+i*68,900,58,caption,!paused)) selectedAlly=i; }
+                else { Panel(340,250+i*68,900,58,dark); Label(358,264+i*68,864,36,caption,small,Color.white); }
+            }
+            if(Btn(340,650,420,62,"取消（消費なし）")) { selectingAlly=false; selectedAlly=-1; }
+            if(Btn(820,650,420,62,"この味方に回復を実行",!paused && encounter.CanHeal(selectedAlly))) { selectingAlly=false; Act(3,2,selectedAlly); selectedAlly=-1; }
         }
         private void SelectNextHero()
         {
             for(int step=1;step<=5;step++) { int next=(selectedHero+step)%5; if(encounter.State.Heroes[next].IsAlive && !encounter.Acted[next]) { selectedHero=next; return; } }
         }
-        private void Act(int hero,int skill)
+        private void Act(int hero,int skill,int ally=-1)
         {
             string actionTarget=target;
             int turn=encounter.Turn; bool major=encounter.NextAttackIsMajor;
-            if(encounter.Act(hero,skill,target)) { if(stage!=null) { stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); } if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body"; SelectNextHero(); FinishCheck(); }
+            if(encounter.Act(hero,skill,target,ally)) {
+                if(stage!=null) { stage.PlayAction(hero,skill==2,actionTarget,ally); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
+                if(skill!=2 && target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) {
+                    int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==target);
+                    breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeUntil=Time.unscaledTime+6f; target="body";
+                }
+                SelectNextHero(); FinishCheck();
+            }
         }
         private void FinishCheck()
         {

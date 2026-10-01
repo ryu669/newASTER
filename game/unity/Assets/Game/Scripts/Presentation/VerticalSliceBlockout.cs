@@ -58,7 +58,7 @@ namespace NewAster.Presentation
                 if(selected) renderer.material.EnableKeyword("_EMISSION"); else renderer.material.DisableKeyword("_EMISSION");
             }
         }
-        public void PlayAction(int hero, bool supportAction, string target)
+        public void PlayAction(int hero, bool supportAction, string target, int allyTarget = -1)
         {
             if(hero<0 || hero>=party.Count) return;
             if(attackTrail==null) {
@@ -71,7 +71,7 @@ namespace NewAster.Presentation
                 if(target.Contains("horn") && part.name.Contains("Horn") || target.Contains("left") && part.name.Contains("Left") || target.Contains("right") && part.name.Contains("Right") || target.Contains("tail") && part.name.Contains("Tail")) destination=part.position;
             }
             attackTrail.SetPosition(0,party[hero].position);
-            attackTrail.SetPosition(1,supportAction?party[hero].position+Vector3.up*2f:destination);
+            attackTrail.SetPosition(1,supportAction?(allyTarget>=0 && allyTarget<party.Count?party[allyTarget].position+Vector3.up:party[hero].position+Vector3.up*2f):destination);
             attackTrail.startColor=attackTrail.endColor=supportAction?new Color(.3f,1f,.65f):new Color(1f,.8f,.3f);
             trailUntil=clock+.45f; attackTrail.enabled=true;
         }

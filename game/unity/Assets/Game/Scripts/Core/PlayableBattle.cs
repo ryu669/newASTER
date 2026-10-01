@@ -8,6 +8,8 @@ namespace NewAster.Core
         public bool[] Acted { get; } = new bool[5];
         public int Turn { get; private set; } = 1;
         public int Chain { get; private set; }
+        public int LastActionChain { get; private set; }
+        public int RemainingActions => Enumerable.Range(0, 5).Count(i => State.Heroes[i].IsAlive && !Acted[i]);
         public bool Guarded { get; private set; }
         public const decimal BaseChainRate = .65m;
         public int Seed { get; }
@@ -34,7 +36,7 @@ namespace NewAster.Core
                 case 0: return "自身を回復 " + (35 + State.Heroes[0].Attack + support[0] * 15);
                 case 1: return "大技ゲージ −" + (1 + support[1] / 2);
                 case 2: return "全体軽減・このターン";
-                case 3: return "全体回復 " + (35 + State.Heroes[3].Attack + support[3] * 15);
+                case 3: return "味方1人を選んで回復（戦闘不能は対象外）";
                 case 4: return "他の生存者に資源 ＋" + (2 + support[4]);
                 default: return "";
             }
@@ -90,22 +92,33 @@ namespace NewAster.Core
             if (Guarded) damage = damage * Math.Max(20, 50 - support[2] * 8) / 100;
             return Math.Max(1, damage - defense[heroIndex] * 3);
         }
-        public bool Act(int heroIndex, int skill, string target)
+        public int PreviewHealing(int actor, int ally)
+        {
+            if (Ended || actor != 3 || ally < 0 || ally >= 5 || Acted[actor] || !State.Heroes[actor].IsAlive || !State.Heroes[ally].IsAlive || State.Heroes[actor].JobResource < 3) return 0;
+            return Math.Min(State.Heroes[ally].MaxHitPoints - State.Heroes[ally].HitPoints, 35 + State.Heroes[actor].Attack + support[actor] * 15);
+        }
+        public bool CanHeal(int ally) => PreviewHealing(3, ally) > 0;
+        public bool Act(int heroIndex, int skill, string target, int allyTarget = -1)
         {
             if (Ended || heroIndex < 0 || heroIndex > 4 || skill < 0 || skill > 2 || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return false;
             var hero = State.Heroes[heroIndex];
             if (skill == 2)
             {
+                // Validate ally before spending. Cancellation/invalid targeting never costs an action.
+                if (heroIndex == 3 && !CanHeal(allyTarget)) { Log = "回復が必要な生存者を選んでください。"; return false; }
                 if (!hero.SpendResource(3)) { Log = "資源が不足しています。"; return false; }
+                int healing = heroIndex == 3 ? Math.Min(State.Heroes[allyTarget].MaxHitPoints - State.Heroes[allyTarget].HitPoints, 35 + hero.Attack + support[3] * 15) : 0;
                 switch (heroIndex) {
                     case 0: hero.Heal(35 + hero.Attack + support[0] * 15); break;
                     case 1: State.ReduceBossGauge(1 + support[1] / 2); break;
                     case 2: Guarded = true; break;
-                    case 3: foreach (var h in State.Heroes) h.Heal(35 + hero.Attack + support[3] * 15); break;
+                    case 3: State.Heroes[allyTarget].Heal(healing); break;
                     case 4: foreach (var h in State.Heroes.Where(h => h.Id != hero.Id && h.IsAlive)) h.GainResource(2 + support[4]); break;
                 }
                 Log = SupportName(heroIndex) + "：" + SupportDescription(heroIndex) + "。";
+                if (heroIndex == 3) Log = "癒しの歌：味方 " + (allyTarget + 1) + " のHP ＋" + healing + "。";
                 Chain = 0; chainPending = false;
+                LastActionChain = 0;
             }
             else
             {
@@ -114,6 +127,7 @@ namespace NewAster.Core
                 var result = BattleActionResolver.Resolve(State, hero.Id, new BattleSkill("skill-" + skill, power, skill == 1 ? 3 : 0), target);
                 if (!result.Accepted) { Log = "対象または資源を確認してください。"; return false; }
                 Chain = nextChain;
+                LastActionChain = Chain;
                 decimal roll = (decimal)random.NextDouble();
                 chainPending = roll < ChainRate(heroIndex);
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
