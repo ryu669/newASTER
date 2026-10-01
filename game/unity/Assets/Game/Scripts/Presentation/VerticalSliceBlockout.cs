@@ -28,6 +28,7 @@ namespace NewAster.Presentation
         }
         public bool SetSlayerOutfit(string id) => slayer!=null && slayer.TryEquip(id);
         public string SlayerOutfitId => slayer==null?"":slayer.OutfitId;
+        public bool SetSlayerExpression(string id) => slayer!=null && slayer.SetExpression(id);
         public void BeginPresentation(BattlePresentationEvent e)
         {
             Vector3 destination=dragon.position;

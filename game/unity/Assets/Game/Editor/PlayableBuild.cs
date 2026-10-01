@@ -326,6 +326,8 @@ public static class PlayableBuild
             Check(parts.Length==(prefix=="Eye_Lid"?4:2) && parts.All(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Both eyes have coordinated blink geometry: "+prefix);
         }
         Check(meshes.Any(r=>r.name=="Mouth" && Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Smile"))),"Smile deformation survives FBX import");
+        foreach(var expression in new[]{"Talk","Sad","Angry","Surprise"})
+            Check(meshes.Any(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith(expression))),"Portrait expression survives FBX import: "+expression);
         var clips=AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
         Debug.Log("SLAYER_IMPORTED_CLIPS "+string.Join(",",clips.Select(c=>c.name)));
         foreach(var name in new[]{"Idle","Attack","Cast","Hit","Victory"}) Check(clips.Any(c=>c.name==name && c.length>0 && c.legacy),"Slayer motion imported: "+name);

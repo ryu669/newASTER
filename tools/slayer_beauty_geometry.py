@@ -32,6 +32,7 @@ white=mat('Beauty_EyeWhite',(.98,.945,.915),rough=.3)
 iris=mat('Beauty_Iris',(1,1,1),rough=.2)
 ink=mat('Beauty_Lash',(.105,.032,.035),rough=.7)
 lip=mat('Beauty_Lip',(.65,.245,.265),rough=.5)
+mouth_dark=mat('Beauty_Mouth',(.12,.022,.038),rough=.8)
 gold=mat('Beauty_Gold',(.82,.57,.245),.68,.29)
 ivory=mat('Beauty_Feather',(.95,.925,.865),rough=.7)
 steel=mat('Beauty_Silver',(.65,.79,.87),.75,.22)
@@ -182,7 +183,7 @@ def eye_bounds(x,side):
     if u<-.000001 or u>1.000001: return None
     u=max(0,min(1,u))
     center=1.605+.004*u
-    return center+.0145*sin(pi*u)**.73,center-.0105*sin(pi*u)**.8,center,u
+    return center+.021*sin(pi*u)**.73,center-.015*sin(pi*u)**.8,center,u
 
 def eye_y(x,z):
     return face_y(x,z)-.0018-.0025*exp(-((abs(x)-.049)/.030)**2-((z-1.607)/.025)**2)
@@ -193,10 +194,15 @@ def add_blink(obj,side,kind):
         x,y,z=v.co; bounds=eye_bounds(x,side)
         if not bounds: continue
         top,bottom,center,u=bounds
-        if kind=='eye': k.co.z=center+(z-center)*.005
-        elif kind=='upper': k.co.z=z-(top-center)
+        # Eyelids occlude the intact iris: scaling it vertically makes partial
+        # blinks look like flattened stickers. Keep a tiny depth delta for FBX.
+        if kind=='eye':
+            k.co.y+=.00001
+            continue
+        center+=.003*sin(pi*u)
+        if kind=='upper': k.co.z=z-(top-center)
         elif kind=='lower': k.co.z=z+(center-bottom)
-        k.co.y=eye_y(x,k.co.z)-.001
+        k.co.y=eye_y(x,k.co.z)-.0048
 
 def create_face():
     verts=[]; faces=[]; colors=[]; rows=100; sides=128
@@ -232,13 +238,13 @@ def create_face():
         for j in range(nr+1):
             r=j/nr
             for i in range(seg):
-                a=2*pi*i/seg; x=s*.0505+.015*r*cos(a); z=1.607+.0155*r*sin(a)
+                a=2*pi*i/seg; x=s*.0505+.0155*r*cos(a); z=1.607+.023*r*sin(a)
                 bound=eye_bounds(x,s); z=max(bound[1]+.0003,min(bound[0]-.0003,z))
                 iv.append((x,eye_y(x,z)-.0012,z))
-                fiber=(.5+.5*sin(a*37+r*18))*.14
+                fiber=(.5+.5*sin(a*37+r*18))*.055
                 rim=max(0,(r-.80)/.20); lower=.5-.5*sin(a)
                 c=(.055+.18*lower+fiber*.3,.26+.39*lower+fiber,.30+.35*lower+fiber)
-                if r<.40: c=(.018,.045,.06)
+                if r<.34: c=(.018,.045,.06)
                 else: c=tuple(v*(1-.74*rim) for v in c)
                 ic.append((*c,1))
         for j in range(nr):
@@ -263,7 +269,8 @@ def create_face():
                     x=s*(.020+.061*i/64); top,bottom,center,u=eye_bounds(x,s); boundary=top+.002 if upper else bottom-.002
                     z=boundary+(.0006*t if upper else -.0006*t)
                     lv.append((x,eye_y(x,z)-.0004,z)); nz=boundary+(center-boundary)*t
-                    closed.append((x,eye_y(x,nz)-.0007,nz))
+                    nz=boundary+(center+.003*sin(pi*u)-boundary)*t
+                    closed.append((x,eye_y(x,nz)-.004,nz))
             for j in range(6):
                 for i in range(64): lf.append((j*65+i,j*65+i+1,(j+1)*65+i+1,(j+1)*65+i))
             lid=mesh('Eye_Lid'+str(s)+str(upper),lv,lf,skin,'Head'); lid.shape_key_add(name='Basis'); key=lid.shape_key_add(name='Blink')
@@ -283,11 +290,53 @@ def create_face():
     mouth=tube('Mouth',pts,[.00012,.00055,.0006,.00012],lip,'Head',steps=40,sides=8,flatten=.5)
     mouth.shape_key_add(name='Basis'); smile=mouth.shape_key_add(name='Smile')
     for v,k in zip(mouth.data.vertices,smile.data): k.co.z+=.004*(abs(v.co.x)/.016)**1.6
-    tube('Lower_Lip',[(-.009,face_y(-.009,1.534)-.0006,1.534),(0,face_y(0,1.533)-.0008,1.533),(.009,face_y(.009,1.534)-.0006,1.534)],[.0001,.0003,.0001],skin,'Head',steps=24,sides=6)
+    lower=tube('Lower_Lip',[(-.009,face_y(-.009,1.534)-.0006,1.534),(0,face_y(0,1.533)-.0008,1.533),(.009,face_y(.009,1.534)-.0006,1.534)],[.0001,.0003,.0001],skin,'Head',steps=24,sides=6)
+    # Closed at rest; opening is a shallow anime mouth cavity, not a pasted image.
+    mv=[(0,face_y(0,1.536)-.0014,1.536)]; mf=[]
+    for i in range(64):
+        a=2*pi*i/64; x=.012*cos(a); z=1.536+.00005*sin(a)
+        mv.append((x,face_y(x,z)-.0014,z))
+    for i in range(64): mf.append((0,i+1,(i+1)%64+1))
+    inner=mesh('Mouth_Interior',mv,mf,mouth_dark,'Head'); inner.shape_key_add(name='Basis'); key=inner.shape_key_add(name='Talk')
+    for i,k in enumerate(key.data):
+        if i:
+            a=2*pi*(i-1)/64; k.co.z=1.536+.007*sin(a); k.co.y=face_y(k.co.x,k.co.z)-.0014
+    for obj,direction in ((mouth,1),(lower,-1)):
+        if not obj.data.shape_keys: obj.shape_key_add(name='Basis')
+        key=obj.shape_key_add(name='Talk')
+        for v,k in zip(obj.data.vertices,key.data):
+            k.co.z+=direction*.006*max(0,1-(v.co.x/.016)**2)
+            k.co.y=face_y(k.co.x,k.co.z)-.002
+    for obj in list(objects):
+        if obj.name.startswith('Brow') or obj==mouth:
+            if not obj.data.shape_keys: obj.shape_key_add(name='Basis')
+            for emotion in ('Sad','Angry','Surprise'):
+                key=obj.shape_key_add(name=emotion)
+                for v,k in zip(obj.data.vertices,key.data):
+                    if obj.name.startswith('Brow'):
+                        inner_weight=max(0,min(1,(.079-abs(v.co.x))/.06))
+                        k.co.z+=(.009*inner_weight if emotion=='Sad' else -.009*inner_weight if emotion=='Angry' else .009)
+                    elif emotion=='Sad': k.co.z-=.005*(abs(v.co.x)/.016)**1.5
+                    elif emotion=='Angry': k.co.z-=.002*(abs(v.co.x)/.016)**1.5
+                    k.co.y=face_y(k.co.x,k.co.z)-.002
     return head
 
 def hair_lock(name,points,width,material,depth=.18):
-    return tube(name,points,[width*.35,width*.85,width*.78,width*.58,width*.25,.0001],material,'Head',steps=64,sides=14,flatten=depth,axis=(0,1,0))
+    obj=tube(name,points,[width*.35,width*.85,width*.78,width*.58,width*.25,.0001],material,'Head',steps=64,sides=14,flatten=depth,axis=(0,1,0))
+    # Authored flow coordinates and strand colour survive FBX. The highlight
+    # follows each curved lock instead of treating hair like a shiny cylinder.
+    uv=obj.data.uv_layers.new(name='HairFlow')
+    for loop in obj.data.loops:
+        index=loop.vertex_index; uv.data[loop.index].uv=((index%14)/13,(index//14)/64)
+    colors=obj.data.color_attributes['Tint']
+    for vertex in obj.data.vertices:
+        t=(vertex.index//14)/64; u=(vertex.index%14)/14
+        band=exp(-((vertex.co.z-1.697-.002*sin(u*12*pi))/.013)**2)
+        root=.09*exp(-(t/.14)**2); tip=.11*t**3
+        strands=.022*(.5+.5*sin(u*28*pi+t*9))
+        shade=.87-root-tip-strands+.13*band
+        colors.data[vertex.index].color=(min(1,shade+.04*band),min(1,shade+.025*band),shade,1)
+    return obj
 
 def create_hair():
     # Under-cap smoothly covers the cranium and the nape; the fringe hides its front edge.
@@ -318,15 +367,15 @@ def create_hair():
     solid=bob.modifiers.new('Bob shell thickness','SOLIDIFY'); solid.thickness=.003
     bpy.context.view_layer.objects.active=bob; bpy.ops.object.modifier_apply(modifier=solid.name)
     # Curved panels sweep from the parting to curled tips; multiple layers keep volume.
-    for i in range(23):
-        a=-.25+3.64*i/22; sx=cos(a); sy=sin(a)
-        points=[(.014*sx,.012,1.752),(.083*sx,.011+.082*sy,1.717),(.124*sx,.013+.115*sy,1.64),(.138*sx,.012+.126*sy,1.55),(.128*sx,-.003+.105*sy,1.48),(.102*sx,-.017+.091*sy,1.47+.012*sin(i*2.3))]
-        hair_lock('Hair_BackLock',points,.017+(i%3)*.003,hair_hi if i%4==0 else hair)
+    for i in range(15):
+        a=-.25+3.64*i/14; sx=cos(a); sy=sin(a)
+        points=[(.014*sx,.012,1.752),(.083*sx,.011+.082*sy,1.717),(.124*sx,.013+.115*sy,1.64),(.137*sx,.012+.124*sy,1.55),(.128*sx,-.003+.108*sy,1.493),(.114*sx,-.010+.098*sy,1.469+.009*sin(i*2.3))]
+        hair_lock('Hair_BackLock',points,.025+(i%3)*.002,hair_hi if i%4==0 else hair)
     for s in (-1,1):
-        for i in range(5):
-            y=-.079+i*.018
+        for i in range(3):
+            y=-.078+i*.030
             points=[(s*.025,-.001,1.750),(s*.081,y*.55,1.714),(s*.116,y,1.65),(s*(.131+i*.002),y-.004,1.565),(s*.122,y-.027,1.497),(s*(.088+i*.006),y-.030,1.484)]
-            hair_lock('Hair_SideLock',points,.012+i*.0018,hair_hi if i%3==0 else hair,depth=.23)
+            hair_lock('Hair_SideLock',points,.020+i*.002,hair_hi if i==0 else hair,depth=.16)
     fringe=[(-.089,1.585),(-.067,1.616),(-.043,1.629),(-.019,1.642),(.004,1.649),(.029,1.645),(.053,1.634),(.083,1.603)]
     for i,(x,z) in enumerate(fringe):
         points=[(.022+x*.19,-.003,1.752),(.020+x*.52,-.077,1.726),(.010+x*.85,-.106,1.687),(x+.008,-.115,(1.665+z)*.5),(x,-.113,z)]

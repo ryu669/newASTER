@@ -17,13 +17,25 @@ for suffix in ('blend','fbx'):
         bpy.ops.import_scene.fbx(filepath=str(path))
     objects=list(bpy.context.scene.objects)
     meshes=[o for o in objects if o.type=='MESH']
-    assert len(meshes)==30, 'Unexpected base mesh inventory'
+    assert len(meshes)==31, 'Unexpected base mesh inventory'
     assert not any(o.name.startswith(('Outfit_','Hair_','Wing','Weapon_')) for o in meshes), 'Garment or accessory leaked into base'
     body=next(o for o in meshes if o.name=='Body_Common')
     rig=next(o for o in objects if o.type=='ARMATURE')
     assert len(rig.data.bones)==30
     assert all(any(m.type=='ARMATURE' and m.object==rig for m in o.modifiers) for o in meshes)
     assert all(o.data.uv_layers for o in meshes), 'Base must retain UV coordinates'
+    for expression in ('Smile','Talk','Sad','Angry','Surprise'):
+        assert any(o.data.shape_keys and any(k.name.endswith(expression) for k in o.data.shape_keys.key_blocks) for o in meshes), 'Missing expression: '+expression
+        deltas=[(v.co-o.data.shape_keys.key_blocks[0].data[i].co).length
+                for o in meshes if o.data.shape_keys
+                for key in o.data.shape_keys.key_blocks if key.name.endswith(expression)
+                for i,v in enumerate(key.data)]
+        assert all(math.isfinite(d) for d in deltas) and max(deltas)>.001, 'Expression must actually deform: '+expression
+    for eye in [o for o in meshes if o.name.startswith('Eye_Iris')]:
+        keys=eye.data.shape_keys.key_blocks
+        blink=next(k for k in keys if k.name.endswith('Blink'))
+        assert max(abs(a.co.z-b.co.z) for a,b in zip(keys[0].data,blink.data))<.000001, 'Blink must occlude, not squash, the iris'
+    print('SLAYER_EXPRESSION_VALIDATION_PASS',suffix,'5 nonzero expressions; iris retains shape during blink',flush=True)
     groups={g.index:g.name for g in body.vertex_groups}
     for vertex in body.data.vertices:
         weights=[g for g in vertex.groups if g.weight>0]

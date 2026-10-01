@@ -13,6 +13,13 @@ namespace NewAster.Presentation
         private readonly List<SkinnedMeshRenderer> expressions=new List<SkinnedMeshRenderer>();
         private float expressionClock;
         private bool forceBlink;
+        private string expression="Smile";
+        public string Expression => expression;
+        public bool SetExpression(string value)
+        {
+            if(value!="Neutral" && value!="Smile" && value!="Joy" && value!="Sad" && value!="Angry" && value!="Surprise" && value!="Talk") return false;
+            expression=value; return true;
+        }
         public string OutfitId => outfit.EquippedOutfitId;
         public static SlayerModelView Create(Transform parent)
         {
@@ -30,6 +37,8 @@ namespace NewAster.Presentation
             motion=GetComponent<Animation>(); if(motion==null) motion=GetComponentInChildren<Animation>();
             var shader=Resources.Load<Shader>("HeroineBeauty");
             forceBlink=System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-captureSlayerBlink")>=0;
+            var args=System.Environment.GetCommandLineArgs();
+            for(int i=0;i<args.Length-1;i++) if(args[i]=="-captureExpression") SetExpression(args[i+1]);
             foreach(var renderer in GetComponentsInChildren<Renderer>()) {
                 var original=renderer.sharedMaterials; var materials=new Material[original.Length];
                 for(int i=0;i<materials.Length;i++) {
@@ -38,10 +47,11 @@ namespace NewAster.Presentation
                     if(QualitySettings.activeColorSpace==ColorSpace.Gamma) color=color.gamma;
                     materials[i]=new Material(shader) { color=color };
                     string name=source!=null?source.name:"";
-                    bool face=name.Contains("Skin") || name.Contains("Eye") || name.Contains("Iris") || name.Contains("Lip") || name.Contains("Lash");
+                    bool face=name.Contains("Skin") || name.Contains("Eye") || name.Contains("Iris") || name.Contains("Lip") || name.Contains("Lash") || name.Contains("Mouth");
                     materials[i].SetFloat("_Face",face?1:0);
                     materials[i].SetFloat("_Gloss",name.Contains("Hair")?.07f:name.Contains("Gold") || name.Contains("Silver")?.32f:0);
                     materials[i].SetFloat("_Outline",face?0:.00025f);
+                    materials[i].SetFloat("_Fabric",name.Contains("Fabric")?1:0);
                 }
                 renderer.sharedMaterials=materials;
                 if(renderer.name.StartsWith("Outfit_Rose")) rose.Add(renderer);
@@ -89,10 +99,16 @@ namespace NewAster.Presentation
             // after the body animation pass so Idle cannot reset every blink.
             float phase=expressionClock%3.7f;
             float blink=forceBlink?100:phase<.16f?Mathf.Sin(phase/.16f*Mathf.PI)*100:0;
+            if(expression=="Joy") blink=100;
             foreach(var r in expressions) for(int i=0;i<r.sharedMesh.blendShapeCount;i++) {
                 string shape=r.sharedMesh.GetBlendShapeName(i);
+                r.SetBlendShapeWeight(i,0);
                 if(shape.EndsWith("Blink")) r.SetBlendShapeWeight(i,blink);
-                if(shape.EndsWith("Smile")) r.SetBlendShapeWeight(i,35);
+                if(shape.EndsWith("Smile")) r.SetBlendShapeWeight(i,expression=="Joy"?100:expression=="Smile"?65:0);
+                if(shape.EndsWith("Sad")) r.SetBlendShapeWeight(i,expression=="Sad"?100:0);
+                if(shape.EndsWith("Angry")) r.SetBlendShapeWeight(i,expression=="Angry"?100:0);
+                if(shape.EndsWith("Surprise")) r.SetBlendShapeWeight(i,expression=="Surprise"?100:0);
+                if(shape.EndsWith("Talk")) r.SetBlendShapeWeight(i,expression=="Surprise"?90:expression=="Talk"?(35+65*Mathf.Abs(Mathf.Sin(expressionClock*7))):0);
             }
         }
         private void OnDestroy() { foreach(var r in GetComponentsInChildren<Renderer>()) foreach(var m in r.sharedMaterials) if(m!=null) Destroy(m); }

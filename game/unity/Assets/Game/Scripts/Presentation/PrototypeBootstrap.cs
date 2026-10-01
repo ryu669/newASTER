@@ -129,7 +129,7 @@ namespace NewAster.Presentation
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
             if(modelViewer) {
-                if(Input.GetMouseButton(0) && Input.mousePosition.y>95 && Input.mousePosition.y<Screen.height-70) portraitYaw+=Input.GetAxis("Mouse X")*4;
+                if(Input.GetMouseButton(0) && Input.mousePosition.y>Screen.height*(95f/900) && Input.mousePosition.y<Screen.height*(1-125f/900)) portraitYaw+=Input.GetAxis("Mouse X")*4;
                 portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
                 viewCamera.rect=new Rect(0,0,1,1); viewCamera.aspect=Screen.width/(float)Screen.height;
                 var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
@@ -290,6 +290,9 @@ namespace NewAster.Presentation
         {
             Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
             if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
+            string[] expressions={"Neutral","Smile","Joy","Sad","Angry","Surprise","Talk"};
+            string[] labels={"通常","微笑み","喜び","悲しみ","怒り","驚き","口の動き"};
+            for(int i=0;i<expressions.Length;i++) if(Btn(32+i*117,82,108,36,labels[i]) && stage!=null) stage.SetSlayerExpression(expressions[i]);
             Panel(20,815,1560,66,dark);
             if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }
             if(Btn(187,827,145,42,"顔")) { portraitFace=true; portraitZoom=1; }
