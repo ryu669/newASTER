@@ -84,7 +84,9 @@ namespace NewAster.Core
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
             int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
             Chain=0; chainPending=false; chainMembers.Clear(); LastHealingTargets=Array.Empty<int>();
-            Log="味方"+(actor+1)+"はパス。次回まで待機。"; AvailableHero=-1; AdvanceTimeline();
+            Log="味方"+(actor+1)+"はパス。次回まで待機。";
+            RecordPresentation(BattlePresentationKind.Pass,actor,"body",Log);
+            AvailableHero=-1; AdvanceTimeline();
         }
         private bool StartCasting(int actor,int slot,string target)
         {
@@ -96,12 +98,15 @@ namespace NewAster.Core
             Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
             LastHealingTargets=Array.Empty<int>(); LastActionWasCastStart=true; LastCastResolvedActor=-1;
             Log="味方"+(actor+1)+"：詠唱開始（発動予定 "+readyAt[actor]+"）。";
+            RecordPresentation(BattlePresentationKind.CastStart,actor,target,Log);
             AdvanceTimeline(); return true;
         }
         private void AdvanceTimeline()
         {
             while(!Ended) {
-                for(int i=0;i<5;i++) if(!State.Heroes[i].IsAlive) casting[i]=null;
+                for(int i=0;i<5;i++) if(!State.Heroes[i].IsAlive && casting[i]!=null) {
+                    casting[i]=null; RecordPresentation(BattlePresentationKind.CastCanceled,i,"body","戦闘不能により詠唱中断。");
+                }
                 var next=UpcomingOrder().First(); Clock=next.At;
                 if(next.Actor<0) {
                     bool wasMajor=NextAttackIsMajor;
@@ -118,6 +123,7 @@ namespace NewAster.Core
                     var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,new BattleSkill("cast-"+pending.Slot,pending.Power,0),pending.Target);
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
+                    RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ":"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
                     readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
                     Chain=0; chainPending=false; chainMembers.Clear();
                     continue;

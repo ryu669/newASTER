@@ -156,6 +156,7 @@ namespace NewAster.Core
                 Log=healing.Name+"："+string.Join(" / ",targets.Select((t,i)=>"味方"+(t+1)+" HP ＋"+amounts[i]));
                 Chain=0; chainPending=false; LastActionChain=0;
                 chainMembers.Clear();
+                RecordPresentation(BattlePresentationKind.Healing,heroIndex,"body",Log,healingTargets:targets);
             }
             else if (skill == 2)
             {
@@ -170,6 +171,7 @@ namespace NewAster.Core
                 Chain = 0; chainPending = false;
                 LastActionChain = 0;
                 chainMembers.Clear();
+                RecordPresentation(BattlePresentationKind.Support,heroIndex,"body",Log);
             }
             else
             {
@@ -185,6 +187,7 @@ namespace NewAster.Core
                 chainPending = roll < ChainRate(heroIndex);
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
+                RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage);
             }
             Acted[heroIndex] = true;
             if(healing==null) LastHealingTargets=Array.Empty<int>();
@@ -209,6 +212,7 @@ namespace NewAster.Core
             if (major) State.TryConsumeMajorGauge();
             if (!State.Parts[3].IsBroken) foreach (var hero in State.Heroes) hero.SpendResource(Math.Min(1, hero.JobResource));
             Log += "\n巨神獣の" + action + "！";
+            RecordPresentation(BattlePresentationKind.Enemy,-1,"body","巨神獣の"+action+"！",major:major);
             if (!State.Heroes.Any(h => h.IsAlive)) { Log += " 育成して再挑戦できます。"; return; }
         }
     }

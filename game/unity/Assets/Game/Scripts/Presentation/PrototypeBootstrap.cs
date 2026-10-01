@@ -22,7 +22,7 @@ namespace NewAster.Presentation
         private readonly HashSet<int> selectedAllies = new HashSet<int>();
         private int healingActor, healingSlot;
         private string breakNotice = "";
-        private float breakNoticeUntil;
+        private float breakNoticeRemaining;
         private GUIStyle text, heading, small, button, skillButton;
         private Font font;
         private Texture2D paper, dark, teal;
@@ -31,6 +31,8 @@ namespace NewAster.Presentation
         private int captureFrame;
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
+        private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
+        private long shownEvent;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
@@ -75,6 +77,13 @@ namespace NewAster.Presentation
                 while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
                 SelectNextHero();
             }
+            if(capturePath!=null) encounter.DrainPresentationEvents();
+            if(capturePath!=null && args.Contains("-capturePlayback")) {
+                while(encounter.AvailableHero!=4) encounter.Pass();
+                encounter.DrainPresentationEvents(); encounter.Act(4,1,"body");
+                playback.Enqueue(encounter.DrainPresentationEvents());
+                paused=true;
+            }
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -107,12 +116,46 @@ namespace NewAster.Presentation
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
-            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null);
+            UpdatePlayback();
+            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(capturePath!=null) {
                 captureFrame++;
                 if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath);
                 if(captureFrame==150) Application.Quit();
             }
+        }
+        private void UpdatePlayback()
+        {
+            if(encounter==null) { playback.Reset(); shownEvent=0; return; }
+            bool stopped=paused || retreat || help;
+            if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
+            // Show a newly queued event at least once before its duration starts ticking.
+            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime,stopped);
+            var e=playback.Current;
+            if(e!=null && e.Sequence!=shownEvent) {
+                shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
+                if(stage!=null) {
+                    stage.ClearActionEffects();
+                    switch(e.Kind) {
+                        case BattlePresentationKind.Attack: case BattlePresentationKind.CastRelease: stage.PlayAction(e.Actor,false,e.Target); break;
+                        case BattlePresentationKind.Healing: stage.PlayHealing(e.Actor,e.HealingTargets); break;
+                        case BattlePresentationKind.Support: stage.PlayAction(e.Actor,true,e.Target); break;
+                        case BattlePresentationKind.Enemy: stage.PlayEnemyAction(e.Major); break;
+                    }
+                }
+                if(e.PartBroken) {
+                    int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==e.Target);
+                    if(index>=0) { breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeRemaining=6f; }
+                }
+            }
+            if(!playback.Busy && shownEvent!=0) {
+                shownEvent=0; if(stage!=null) stage.ClearActionEffects(); SelectNextHero(); FinishCheck();
+            }
+        }
+        private void QueueBattleEvents()
+        {
+            playback.Enqueue(encounter.DrainPresentationEvents());
+            if(!playback.Busy) { SelectNextHero(); FinishCheck(); }
         }
         private void OnGUI()
         {
@@ -272,31 +315,34 @@ namespace NewAster.Presentation
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
-            selectingAlly=false; selectedAllies.Clear(); breakNotice="";
+            playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
+            selectingAlly=false; selectedAllies.Clear(); breakNotice=""; breakNoticeRemaining=0;
         }
         private void DrawBattle()
         {
             var s=encounter.State;
+            var visual=playback.Current;
+            int bossHp=visual?.BossHp??s.BossHitPoints, gauge=visual?.BossGauge??s.BossGauge;
             Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
             Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
-            Label(28,72,850,30,$"HP {s.BossHitPoints}/{s.BossMaxHitPoints}　大技 {s.BossGauge}/{s.BossGaugeMax}　TIME {encounter.Clock}",small,Color.white);
-            Meter(28,112,650,10,s.BossHitPoints,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
-            Meter(698,112,370,10,s.BossGauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
+            Label(28,72,850,30,$"HP {bossHp}/{s.BossMaxHitPoints}　大技 {gauge}/{s.BossGaugeMax}　TIME {visual?.Clock??encounter.Clock}",small,Color.white);
+            Meter(28,112,650,10,bossHp,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
+            Meter(698,112,370,10,gauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
             if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
             if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
-            Label(1180,88,390,42,$"直前 {encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
-            if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体")) target="body";
-            for(int i=0;i<4;i++) if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(s.Parts[i].IsBroken?"破壊済":"HP "+s.Parts[i].HitPoints),!s.Parts[i].IsBroken)) target=s.Parts[i].Id;
+            Label(1180,88,390,42,$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
+            if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体",!playback.Busy && !paused)) target="body";
+            for(int i=0;i<4;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),!s.Parts[i].IsBroken && !playback.Busy && !paused)) target=s.Parts[i].Id; }
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
             int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
             Label(28,240,1050,45,targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex],small,Color.white);
             var order=encounter.UpcomingOrder();
             for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
-            if(Time.unscaledTime<breakNoticeUntil) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
+            if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
-            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {hero.JobResource}\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
-            bool enabled=!paused && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
+            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {visual?.Resources[actor]??hero.JobResource}\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
+            bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
                 string caption=healSkill!=null?healSkill.Name+" / 資源"+healSkill.ResourceCost+"\n"+encounter.HealingDescription(actor,slot):slot<2?(slot==0?"通常攻撃":"強撃")+$"\n予測 {encounter.PreviewDamage(actor,slot,target)} / 資源{(slot==0?0:3)}":PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor);
@@ -310,16 +356,22 @@ namespace NewAster.Presentation
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
             Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n支援は攻撃チェインを終了",small,Color.white);
-            if(Btn(1180,807,390,58,"行動者に戻る",!paused && result==null && !selectingAlly && actor!=encounter.AvailableHero)) SelectNextHero();
-            else if(actor==encounter.AvailableHero && Btn(1180,807,390,58,"パス（この誓女は標準待機）",!paused && result==null && !selectingAlly)) { int before=encounter.EnemyActionCount; bool major=encounter.NextAttackIsMajor; encounter.Pass(); if(stage!=null && encounter.EnemyActionCount>before) stage.PlayEnemyAction(major); SelectNextHero(); FinishCheck(); }
+            if(playback.Busy) {
+                if(Btn(1180,807,390,58,"演出をスキップ（結果は同じ）",!paused && !retreat && !help)) { playback.Skip(); if(stage!=null) stage.ClearActionEffects(); shownEvent=0; SelectNextHero(); FinishCheck(); }
+            }
+            else if(Btn(1180,807,390,58,"行動者に戻る",!paused && result==null && !selectingAlly && actor!=encounter.AvailableHero)) SelectNextHero();
+            else if(actor==encounter.AvailableHero && Btn(1180,807,390,58,"パス（この誓女は標準待機）",!paused && result==null && !selectingAlly)) { encounter.Pass(); QueueBattleEvents(); }
             for(int i=0;i<5;i++) {
                 float x=18+i*225; var h=s.Heroes[i];
-                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(!h.IsAlive?"戦闘不能":encounter.IsCasting(i)?"詠唱中 → T "+encounter.NextAt(i):encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused)) selectedHero=i;
-                Label(x,782,215,32,$"HP {h.HitPoints}/{h.MaxHitPoints}　資源 {h.JobResource}",small,Color.white);
-                Meter(x,817,215,6,h.HitPoints,h.MaxHitPoints,h.HitPoints*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
+                int hp=visual?.HeroHp[i]??h.HitPoints, resource=visual?.Resources[i]??h.JobResource;
+                bool casting=visual?.Casting[i]??encounter.IsCasting(i);
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
+                Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　資源 {resource}",small,Color.white);
+                Meter(x,817,215,6,hp,h.MaxHitPoints,hp*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
-            status=paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
+            status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
+            if(visual!=null) { Panel(28,420,1050,68,dark); Label(44,432,1020,52,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,text,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }
         private void DrawAllySelection()
@@ -347,21 +399,15 @@ namespace NewAster.Presentation
         }
         private void Act(int hero,int skill,int[] allies=null)
         {
-            string actionTarget=target;
-            int turn=encounter.Turn; bool major=encounter.NextAttackIsMajor;
-            bool healing=encounter.HealingSkill(hero,skill)!=null;
+            if(playback.Busy || paused || retreat || help) return;
             if(encounter.ActWithAllies(hero,skill,target,allies)) {
-                if(stage!=null) { if(healing) stage.PlayHealing(hero,encounter.LastHealingTargets); else if(!encounter.LastActionWasCastStart) stage.PlayAction(hero,skill==2,actionTarget); if(encounter.Turn!=turn || encounter.Ended && !encounter.State.IsVictory) stage.PlayEnemyAction(major); }
-                if(!healing && skill!=2 && target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) {
-                    int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==target);
-                    breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeUntil=Time.unscaledTime+6f; target="body";
-                }
-                SelectNextHero(); FinishCheck();
+                if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body";
+                QueueBattleEvents();
             }
         }
         private void FinishCheck()
         {
-            if(!encounter.Ended || result!=null) return;
+            if(playback.Busy || !encounter.Ended || result!=null) return;
             if(!encounter.State.IsVictory) { result="敗北\n\n報酬はありません。育成や部位破壊を試して再挑戦しましょう。"; return; }
             var c=WorldCatalog.Colossi.First(x=>x.Id==activeColossus);
             var poems=activeColossus==GreenReturnDragonVerticalSlice.ColossusId?GreenReturnDragonVerticalSlice.PoemIds.Where(id=>!campaign.Progress.CollectedPoemIds.Contains(id)).Take(4).ToArray():Array.Empty<string>();
@@ -384,7 +430,7 @@ namespace NewAster.Presentation
         {
             Modal(); Label(340,245,880,90,"撤退しますか？",heading); Label(340,365,870,125,"この戦闘の報酬は得られません。これまでの育成や獲得した記憶は保持されます。",text);
             if(Btn(340,605,420,64,"戦闘へ戻る")) { retreat=false; paused=false; }
-            if(Btn(780,605,420,64,"撤退する")) { retreat=false; encounter=null; result=null; Save(); }
+            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects(); retreat=false; encounter=null; result=null; Save(); }
         }
         private void DrawStory()
         {

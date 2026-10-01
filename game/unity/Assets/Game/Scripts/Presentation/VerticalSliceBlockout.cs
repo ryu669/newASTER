@@ -50,14 +50,20 @@ namespace NewAster.Presentation
             }
             enemyTrailUntil=clock+(major?.8f:.4f);
         }
-        public void Synchronize(bool gardenView, bool gardenUnlocked, PlayableProgress progress, PlayableBattle battle, string target, bool pause)
+        public void ClearActionEffects()
+        {
+            if(attackTrail!=null) attackTrail.enabled=false;
+            foreach(var line in enemyTrails) line.enabled=false;
+            foreach(var line in healingTrails) line.enabled=false;
+        }
+        public void Synchronize(bool gardenView, bool gardenUnlocked, PlayableProgress progress, PlayableBattle battle, string target, bool pause,BattlePresentationEvent visual=null)
         {
             frozen=pause;
             if(ground!=null) ground.SetActive(battle==null);
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);
             foreach(var member in party) member.gameObject.SetActive(!gardenView || gardenUnlocked);
-            for(int i=0;i<party.Count;i++) foreach(var renderer in party[i].GetComponentsInChildren<Renderer>()) renderer.material.SetColor("_EmissionColor",battle!=null && battle.IsCasting(i)?new Color(.35f,.12f,.55f):Color.black);
+            for(int i=0;i<party.Count;i++) foreach(var renderer in party[i].GetComponentsInChildren<Renderer>()) renderer.material.SetColor("_EmissionColor",battle!=null && (visual?.Casting[i]??battle.IsCasting(i))?new Color(.35f,.12f,.55f):Color.black);
             for(int slot=0;slot<placedFurniture.Count;slot++) {
                 var furniture=placedFurniture[slot]; int type=progress.Slots[slot];
                 furniture.SetActive(gardenView && gardenUnlocked && type>=0);
@@ -69,7 +75,7 @@ namespace NewAster.Presentation
             foreach(Transform part in dragon) {
                 int index=part.name.Contains("Horn")?0:part.name.Contains("Left")?1:part.name.Contains("Right")?2:part.name.Contains("Tail")?3:-1;
                 var renderer=part.GetComponent<Renderer>(); if(renderer==null) continue;
-                renderer.enabled=battle==null || index<0 || !battle.State.Parts[index].IsBroken;
+                renderer.enabled=battle==null || index<0 || (visual!=null?visual.PartHp[index]>0:!battle.State.Parts[index].IsBroken);
                 bool selected=battle!=null && (index<0?target=="body":target==battle.State.Parts[index].Id);
                 renderer.material.SetColor("_EmissionColor",selected?new Color(.2f,.8f,.45f):Color.black);
                 if(selected) renderer.material.EnableKeyword("_EMISSION"); else renderer.material.DisableKeyword("_EMISSION");

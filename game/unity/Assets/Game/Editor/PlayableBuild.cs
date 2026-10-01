@@ -25,6 +25,7 @@ public static class PlayableBuild
     public static void Validate()
     {
         assertions=0;
+        ValidatePlayback();
         ValidateTimeline();
         ValidateDistinctSupport();
         ValidateEncounterPhase();
@@ -288,6 +289,40 @@ public static class PlayableBuild
             }
             Check(run.State.IsVictory,"Scheduled starter party can defeat first colossus with part strategy");
         }
+    }
+    private static void ValidatePlayback()
+    {
+        var p=new PlayableProgress(); var battle=new PlayableBattle(1,p);
+        Check(battle.DrainPresentationEvents().Count==0,"Battle creation has no phantom animation");
+        int hp=battle.State.BossHitPoints; battle.Act(0,0,"body");
+        var first=battle.DrainPresentationEvents().Single();
+        Check(first.Kind==BattlePresentationKind.Attack && first.Actor==0 && first.Clock==91 && first.BossHp==hp-first.Damage && first.HeroHp.Count==5 && first.PartHp.Count==4,"Attack captures exact result and battle time");
+        battle.State.Heroes[0].TakeDamage(70); battle.Act(3,2,"body");
+        var healing=battle.DrainPresentationEvents().Single();
+        Check(healing.Kind==BattlePresentationKind.Healing && healing.HealingTargets.Count==5 && healing.HeroHp[0]>72 && first.HeroHp[0]==142,"Healing snapshot and target list do not mutate prior event");
+        battle.Act(4,1,"body"); var start=battle.DrainPresentationEvents().Single();
+        Check(start.Kind==BattlePresentationKind.CastStart && start.Casting[4] && start.Resources[4]==0 && start.Damage==0,"Cast start is its own zero-damage presentation event");
+        var collected=new System.Collections.Generic.List<BattlePresentationEvent>();
+        while(battle.IsCasting(4)) { battle.Pass(); collected.AddRange(battle.DrainPresentationEvents()); }
+        var release=collected.Single(e=>e.Kind==BattlePresentationKind.CastRelease);
+        Check(collected.Any(e=>e.Kind==BattlePresentationKind.Enemy) && release.Actor==4 && release.Target=="body" && release.Damage>0 && release.Clock==250 && !release.Casting[4],"Cast release retains real caster target damage and committed time");
+        Check(collected.Zip(collected.Skip(1),(a,b)=>a.Sequence<b.Sequence && a.Clock<=b.Clock).All(x=>x) && battle.DrainPresentationEvents().Count==0,"Events drain once in chronological order");
+        var batch=collected.Take(3).ToArray(); var queue=new BattlePlaybackQueue(); queue.Enqueue(batch);
+        var current=queue.Current; queue.Tick(10,true);
+        Check(queue.Busy && queue.Count==3 && queue.Current==current,"Pause retains playback event and blocks progress");
+        queue.Tick(.4f,false); Check(queue.Current==current,"Partial playback does not skip event");
+        queue.Tick(10,false); Check(queue.Current==batch[1] && queue.Count==2,"Large frame advances at most one event for visibility");
+        bool duplicate=false; try { queue.Enqueue(batch); } catch(ArgumentException) { duplicate=true; }
+        Check(duplicate && queue.Count==2,"Duplicate replay batch rejects atomically");
+        hp=battle.State.BossHitPoints; long clock=battle.Clock; int cost=battle.State.Heroes[4].JobResource;
+        queue.Skip(); Check(!queue.Busy && queue.Count==0 && battle.State.BossHitPoints==hp && battle.Clock==clock && battle.State.Heroes[4].JobResource==cost,"Skipping animation never executes combat or spends resources again");
+        queue.Reset(); queue.Enqueue(new[]{first}); Check(queue.Current==first,"Fresh battle reset accepts new sequence starting at one");
+        queue.Tick(1,false); Check(!queue.Busy,"Queue finishes without requiring new player input");
+        var invalid=new PlayableBattle(1,p); invalid.Act(0,1,"missing");
+        Check(invalid.DrainPresentationEvents().Count==0,"Rejected input cannot create an animation or false damage");
+        var killed=new PlayableBattle(1,p); killed.State.ApplyBossDamage(killed.State.BossHitPoints-1); killed.Act(0,0,"body");
+        var last=killed.DrainPresentationEvents();
+        Check(killed.State.IsVictory && last.Count==1 && last[0].BossHp==0 && last[0].Kind==BattlePresentationKind.Attack,"Finishing blow has a terminal visual snapshot without a phantom enemy attack");
     }
     private static void ValidateKinderRewards()
     {
