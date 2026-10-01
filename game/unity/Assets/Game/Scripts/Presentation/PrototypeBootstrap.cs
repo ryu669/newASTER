@@ -34,6 +34,8 @@ namespace NewAster.Presentation
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
         private bool slayerReview;
+        private bool modelViewer, portraitFace=true;
+        private float portraitYaw=-20, portraitZoom=1;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
@@ -61,6 +63,7 @@ namespace NewAster.Presentation
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
             viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
             viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
+            viewCamera.allowMSAA=true; QualitySettings.antiAliasing=4;
             var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
             var args=Environment.GetCommandLineArgs();
@@ -86,6 +89,11 @@ namespace NewAster.Presentation
                 playback.Enqueue(encounter.DrainPresentationEvents());
                 paused=true;
             }
+            if(slayerReview) {
+                modelViewer=true; encounter=null;
+                portraitFace=!args.Contains("-captureSlayerFull");
+                portraitYaw=args.Contains("-captureSlayerProfile")?90:args.Contains("-captureSlayerFront")?0:-20;
+            }
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -102,7 +110,8 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
+                if(modelViewer) modelViewer=false;
+                else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
                 else if(storyText!=null) CloseStory();
                 else if(help) help=false;
                 else if(kinderGarden) kinderGarden=false;
@@ -111,22 +120,30 @@ namespace NewAster.Presentation
                 else if(result==null) help=true;
             }
             bool battleView=encounter!=null;
+            viewCamera.orthographic=modelViewer;
+            viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
             viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
             viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
             viewCamera.fieldOfView=battleView?35f:60f;
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
-            if(slayerReview) {
-                viewCamera.transform.position=new Vector3(-2.5f,1.6f,-4f);
-                viewCamera.transform.LookAt(new Vector3(-4.8f,1.0f,-1.5f)); viewCamera.fieldOfView=27f;
+            if(modelViewer) {
+                if(Input.GetMouseButton(0) && Input.mousePosition.y>95 && Input.mousePosition.y<Screen.height-70) portraitYaw+=Input.GetAxis("Mouse X")*4;
+                portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
+                viewCamera.rect=new Rect(0,0,1,1); viewCamera.aspect=Screen.width/(float)Screen.height;
+                var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
+                float angle=portraitYaw*Mathf.Deg2Rad;
+                viewCamera.transform.position=focus+new Vector3(Mathf.Cos(angle)*3,.025f,Mathf.Sin(angle)*3);
+                viewCamera.transform.LookAt(focus); viewCamera.orthographicSize=(portraitFace?.19f:.73f)*portraitZoom;
             }
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
+            if(stage!=null) stage.SetPortraitView(modelViewer);
             if(capturePath!=null) {
                 captureFrame++;
-                if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath);
+                if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
                 if(captureFrame==150) Application.Quit();
             }
         }
@@ -166,6 +183,7 @@ namespace NewAster.Presentation
         private void OnGUI()
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            if(modelViewer) { DrawModelViewer(); return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
@@ -236,7 +254,7 @@ namespace NewAster.Presentation
                 Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
                 Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text);
                 if(h==0 && stage!=null) {
-                    Label(32,708,920,28,"スレイヤー3D制作初版：衣装確認（能力は変わりません・保存対象外）",small);
+                    if(Btn(32,700,905,40,"スレイヤーを全画面で見る")) { modelViewer=true; portraitFace=true; portraitYaw=-20; portraitZoom=1; }
                     if(Btn(32,746,445,44,"ローズ衣装")) stage.SetSlayerOutfit("rose");
                     if(Btn(492,746,445,44,"訓練衣装")) stage.SetSlayerOutfit("training");
                 }
@@ -267,6 +285,19 @@ namespace NewAster.Presentation
                 : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
             if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
             if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
+        }
+        private void DrawModelViewer()
+        {
+            Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
+            if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
+            Panel(20,815,1560,66,dark);
+            if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }
+            if(Btn(187,827,145,42,"顔")) { portraitFace=true; portraitZoom=1; }
+            if(Btn(342,827,145,42,"正面")) portraitYaw=0;
+            if(Btn(497,827,145,42,"斜め")) portraitYaw=-25;
+            if(Btn(652,827,145,42,"横顔")) portraitYaw=90;
+            if(Btn(807,827,210,42,"衣装を替える") && stage!=null) stage.SetSlayerOutfit(stage.SlayerOutfitId=="rose"?"training":"rose");
+            Label(1040,835,500,32,"ドラッグで回転・ホイールで拡大",small,Color.white);
         }
         private void DrawWeaponTree(int hero)
         {

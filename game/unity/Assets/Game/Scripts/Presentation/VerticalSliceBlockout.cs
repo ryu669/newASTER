@@ -16,6 +16,16 @@ namespace NewAster.Presentation
         private bool frozen;
         private BattleStageEffects effects;
         private SlayerModelView slayer;
+        private bool portrait;
+        public void SetPortraitView(bool value)
+        {
+            portrait=value;
+            if(!value) return;
+            dragon.gameObject.SetActive(false); garden.gameObject.SetActive(false); ground.SetActive(false);
+            for(int i=0;i<party.Count;i++) party[i].gameObject.SetActive(i==0);
+            foreach(var item in placedFurniture) item.SetActive(false);
+            effects.Clear();
+        }
         public bool SetSlayerOutfit(string id) => slayer!=null && slayer.TryEquip(id);
         public string SlayerOutfitId => slayer==null?"":slayer.OutfitId;
         public void BeginPresentation(BattlePresentationEvent e)
@@ -144,7 +154,7 @@ namespace NewAster.Presentation
             {
                 var member = party[index];
                 if (member == null) continue;
-                member.localPosition = new Vector3(member.localPosition.x, 1.05f + Mathf.Sin(time * 1.4f + index) * .08f, member.localPosition.z);
+                member.localPosition = new Vector3(member.localPosition.x, 1.05f + (portrait?0:Mathf.Sin(time * 1.4f + index) * .08f), member.localPosition.z);
             }
             if (garden != null) garden.localRotation = Quaternion.Euler(0f, Mathf.Sin(time * .18f) * 2f, 0f);
         }

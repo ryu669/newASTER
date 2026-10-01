@@ -301,7 +301,7 @@ public static class PlayableBuild
     }
     private static void ValidateSlayerModel()
     {
-        const string path="Assets/Game/Resources/Characters/Slayer/slayer-production-v1.fbx";
+        const string path="Assets/Game/Resources/Characters/Slayer/slayer-beauty-v2.fbx";
         AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);
         var asset=AssetDatabase.LoadAssetAtPath<GameObject>(path);
         Check(asset!=null,"Slayer FBX is available to runtime Resources");
@@ -310,6 +310,13 @@ public static class PlayableBuild
         Check(body.sharedMesh.vertexCount>10000 && body.bones.Length>15,"Full body mesh has a deforming common skeleton");
         Check(meshes.Any(r=>r.name.StartsWith("Outfit_Rose")) && meshes.Any(r=>r.name.StartsWith("Outfit_Training")),"Two distinct garment sets exist without replacing the body");
         Check(body.bones.Any(b=>b.name=="Hand.R") && body.bones.Any(b=>b.name=="Head") && body.bones.Any(b=>b.name=="Finger3.L"),"Hand head and finger bones survive export");
+        Check(meshes.Any(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Blink deformation survives FBX import");
+        Check(Resources.Load<Shader>("HeroineBeauty")!=null,"Character close-up shader is packaged with the player");
+        foreach(var prefix in new[]{"Eye_White","Eye_Iris","Eye_Lid"}) {
+            var parts=meshes.Where(r=>r.name.StartsWith(prefix)).ToArray();
+            Check(parts.Length==(prefix=="Eye_Lid"?4:2) && parts.All(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Both eyes have coordinated blink geometry: "+prefix);
+        }
+        Check(meshes.Any(r=>r.name=="Mouth" && Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Smile"))),"Smile deformation survives FBX import");
         var clips=AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
         Debug.Log("SLAYER_IMPORTED_CLIPS "+string.Join(",",clips.Select(c=>c.name)));
         foreach(var name in new[]{"Idle","Attack","Cast","Hit","Victory"}) Check(clips.Any(c=>c.name==name && c.length>0 && c.legacy),"Slayer motion imported: "+name);

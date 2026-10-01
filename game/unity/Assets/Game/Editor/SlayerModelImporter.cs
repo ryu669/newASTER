@@ -3,10 +3,10 @@ using UnityEngine;
 
 public sealed class SlayerModelImporter : AssetPostprocessor
 {
-    public override uint GetVersion() => 2;
+    public override uint GetVersion() => 3;
     private void OnPreprocessModel()
     {
-        if(!assetPath.EndsWith("/slayer-production-v1.fbx")) return;
+        if(!assetPath.EndsWith("/slayer-production-v1.fbx") && !assetPath.EndsWith("/slayer-beauty-v2.fbx")) return;
         var importer=(ModelImporter)assetImporter;
         importer.animationType=ModelImporterAnimationType.Legacy;
         importer.importAnimation=true; importer.importCameras=false; importer.importLights=false;
