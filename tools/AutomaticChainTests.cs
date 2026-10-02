@@ -53,7 +53,7 @@ public static class AutomaticChainTests
             oldBattle.Act(actor,0,"body");dataBattle.Act(actor,0,"body");
             Check(oldBattle.State.BossHitPoints==dataBattle.State.BossHitPoints && oldBattle.Clock==dataBattle.Clock && oldBattle.Log==dataBattle.Log,"Actual JSON preserves trial resolution and RNG");
         }
-        catalog=fresh();catalog.schemaVersion=2;ExpectCombatFailure(catalog,"Unknown version rejected");
+        catalog=fresh();catalog.schemaVersion=3;ExpectCombatFailure(catalog,"Unknown version rejected");
         catalog=fresh();catalog.heroines[0].skills[0]="skill.missing";ExpectCombatFailure(catalog,"Missing skill reference rejected");
         catalog=fresh();catalog.skills[0].ownerId="hero-1";ExpectCombatFailure(catalog,"Cross-hero skill rejected");
         catalog=fresh();catalog.chainActions[0].heroineId="hero-1";ExpectCombatFailure(catalog,"Cross-hero chain rejected");
@@ -93,6 +93,7 @@ public static class AutomaticChainTests
         ValidateFixedEffects(fresh);
         ValidateAttackFollowUps(fresh);
         ValidateTimedSelfEffects(fresh);
+        ValidateExtendedCombat(fresh,freshReference());
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -182,6 +183,87 @@ public static class AutomaticChainTests
         return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
             Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
     }
+    private static void ValidateExtendedCombat(Func<CombatDefinitionCatalog> fresh,HeroineReferenceCatalog reference)
+    {
+        var state=EffectState();int draws=0;var hero=state.Heroes[0];hero.GainResource(3);
+        var critical=new BattleSkill("critical",1,3,criticalChanceBp:1500,criticalMultiplierPercent:210);
+        var outcome=BattleActionResolver.Resolve(state,hero.Id,critical,"body",max=>{draws++;return 1499;});
+        Check(outcome.Critical && outcome.CriticalRoll==1499 && outcome.Damage==42 && draws==1,"Critical threshold and multiplier use one explicit draw");
+        hero.GainResource(3);outcome=BattleActionResolver.Resolve(state,hero.Id,critical,"body",max=>{draws++;return 1500;});
+        Check(!outcome.Critical && outcome.Damage==20 && draws==2,"Roll equal to threshold is noncritical");
+        outcome=BattleActionResolver.Resolve(state,hero.Id,critical,"body",max=>{draws++;return 0;});
+        Check(!outcome.Accepted && draws==2,"Resource failure does not draw critical RNG");
+        hero.GainResource(3);outcome=BattleActionResolver.Resolve(state,hero.Id,critical,"missing",max=>{draws++;return 0;});
+        Check(!outcome.Accepted && draws==2 && hero.JobResource==3,"Invalid target does not draw or spend");
+        bool rejected=false;try{BattleActionResolver.Resolve(state,hero.Id,critical,"body");}catch(ArgumentException){rejected=true;}
+        Check(rejected && hero.JobResource==3,"Missing critical RNG is rejected before mutation");
+        rejected=false;int bossHp=state.BossHitPoints;try{BattleActionResolver.Resolve(state,hero.Id,critical,"body",max=>10000);}catch(ArgumentException){rejected=true;}
+        Check(rejected && hero.JobResource==3 && state.BossHitPoints==bossHp,"Invalid critical draw is rejected before mutation");
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("guaranteed",1,0,criticalChanceBp:10000,damageCap:25),"body",max=>{draws++;return 9999;});
+        Check(outcome.Critical && outcome.Damage==25 && outcome.CriticalRoll==-1 && draws==2,"Guaranteed critical needs no RNG and damage cap applies after multiplier");
+        hero.ApplySelfEffects(new[]{Timed("critical",20,3),Timed("critical-damage",60,3)});
+        Check(hero.CriticalChanceBp==2000 && hero.CriticalMultiplierPercent==210,"Critical buffs expose separate chance and damage parameters");
+        hero.ApplySelfEffects(new[]{Timed("critical",100,3)});Check(hero.CriticalChanceBp==10000,"Critical chance caps at 100%");
+        state.Heroes[2].ApplySelfEffects(new[]{Timed("forced-target",1,4)});
+        Check(EnemyTargetSelector.Resolve(state,false,0).SequenceEqual(new[]{2}),"Forced target overrides single enemy attack selection");
+        Check(EnemyTargetSelector.Resolve(state,true,0).Length==5,"Forced target does not cancel an all-party attack");
+        state.Heroes[1].ApplySelfEffects(new[]{Timed("forced-target",1,4)});
+        Check(EnemyTargetSelector.Resolve(state,false,0).SequenceEqual(new[]{1}),"Multiple forced targets choose stable formation order");
+        state.Heroes[1].TakeDamage(1000);state.Heroes[2].TakeDamage(1000);
+        Check(EnemyTargetSelector.Resolve(state,false,0).SequenceEqual(new[]{0}),"Dead forced targets are excluded");
+        var conditions=new[]{new SkillConditionDef {kind="hp-at-most-percent",threshold=50},new SkillConditionDef {kind="broken-parts-at-least",threshold=1},new SkillConditionDef {kind="resource-at-least",threshold=3}};
+        state=EffectState();hero=state.Heroes[0];hero.GainResource(3);hero.TakeDamage(50);
+        Check(!SkillConditionDef.AllSatisfied(state,0,conditions),"Compound conditions require all predicates");
+        state.BreakPart("part-0",1000);Check(SkillConditionDef.AllSatisfied(state,0,conditions),"HP threshold is inclusive and broken-part predicate resolves");
+        hero.Heal(1);Check(!SkillConditionDef.AllSatisfied(state,0,conditions),"HP threshold does not round down into eligibility");
+        var catalog=fresh();catalog.Skill("hero-0",0).conditions=new[]{new SkillConditionDef {kind="hp-at-most-percent",threshold=50}};
+        var battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);long clock=battle.Clock;int wallet=battle.State.Heroes[0].JobResource;
+        Check(!battle.ConditionsSatisfied(0,0) && battle.PreviewDamage(0,0,"body")==0 && !battle.Act(0,0,"body") && battle.Clock==clock && battle.State.Heroes[0].JobResource==wallet,"Failed command condition is shared by preview and execution without time or resource effects");
+        catalog.Skill("hero-0",0).conditions[0].threshold=100;
+        Check(!battle.ConditionsSatisfied(0,0),"Nested condition definitions are cloned against external edits");
+        battle.State.Heroes[0].TakeDamage(80);Check(battle.ConditionsSatisfied(0,0) && battle.PreviewDamage(0,0,"body")>0,"Condition changes follow current battle state");
+        catalog=fresh();catalog.Skill("hero-0",0).conditions=new[]{new SkillConditionDef {kind="arbitrary-code",threshold=0}};ExpectCombatFailure(catalog,"Unknown conditions rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).conditions=new[]{new SkillConditionDef {kind="resource-at-least",threshold=11}};ExpectCombatFailure(catalog,"Out-of-range resource condition rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).conditions=new[]{new SkillConditionDef {kind="hp-at-most-percent",threshold=50},new SkillConditionDef {kind="hp-at-most-percent",threshold=30}};ExpectCombatFailure(catalog,"Duplicate condition kind rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).criticalBonusBp=10001;ExpectCombatFailure(catalog,"Out-of-range critical probability rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).damageCap=-1;ExpectCombatFailure(catalog,"Negative damage cap rejected");
+        catalog=fresh();catalog.Skill("hero-0",2).criticalBonusBp=1500;ExpectCombatFailure(catalog,"Heal-only critical attack bonus rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("critical",20,3),Timed("critical-damage",60,3),Timed("attack",15,3));
+        battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);battle.Act(0,1,"body");
+        Check(battle.State.Heroes[0].Attack==26 && battle.PreviewCriticalChanceBp(0,0)==2000 && battle.State.Heroes[0].CriticalMultiplierPercent==210,"Observed Slayer self-buff components can be resolved together");
+        catalog=fresh();var third=catalog.Skill("hero-4",2);third.effectRuleId="effect.damage";third.targetRuleId="target.selected-enemy";third.powerScale=2.4f;third.castPercent=125;third.chainEligible=false;
+        battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();
+        Check(battle.PreviewDamage(4,2,"body")>0 && battle.Act(4,2,"body") && battle.IsCasting(4),"Third slot supports independent attack and casting timing");
+        var events=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());while(battle.IsCasting(4) && !battle.Ended){battle.Pass();events.AddRange(battle.DrainPresentationEvents());}
+        Check(events.Any(e=>e.Kind==BattlePresentationKind.CastRelease && e.Actor==4),"Third-slot spell releases instead of using index-based support");
+        catalog=fresh();catalog.Skill("hero-0",0).selfEffects=new[]{Timed("attack",20,3)};catalog.Skill("hero-0",0).chainEligible=false;
+        battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);battle.Act(0,0,"body");
+        Check(battle.State.Heroes[0].Attack==27 && battle.State.Heroes[0].TimedEffects[0].RemainingCommands==3,"Attack can grant three future commands of self buff without immediate expiration");
+        catalog=fresh();catalog.Skill("hero-4",1).selfEffects=new[]{Timed("attack",20,3)};catalog.Skill("hero-4",1).chainEligible=false;
+        battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();battle.Act(4,1,"body");
+        Check(battle.State.Heroes[4].TimedEffects.Count==0,"Attack-plus-buff is not granted at cast reservation");
+        while(battle.IsCasting(4) && !battle.Ended) battle.Pass();
+        Check(battle.State.Heroes[4].TimedEffects.Single().RemainingCommands==3,"Cast release grants a full future duration without double completion");
+        catalog=fresh();catalog.schemaVersion=2;catalog.status="integration-trial";catalog.formation=(string[])reference.formation.Clone();
+        for(int i=0;i<5;i++) {
+            string old="hero-"+i;var h=catalog.Hero(old);h.id=catalog.formation[i];h.name=reference.Hero(h.id).name;h.jobId=reference.Hero(h.id).jobId;
+            foreach(var skill in catalog.skills.Where(s=>s.ownerId==old)) skill.ownerId=h.id;
+            foreach(var action in catalog.chainActions.Where(a=>a.heroineId==old)) action.heroineId=h.id;
+        }
+        catalog.Validate();catalog.heroines=catalog.heroines.Reverse().ToArray();catalog.skills=catalog.skills.Reverse().ToArray();catalog.chainActions=catalog.chainActions.Reverse().ToArray();catalog.Validate();
+        battle=new PlayableBattle(1,new PlayableProgress(),8,combatDefinitions:catalog);
+        Check(battle.State.Heroes.Select(h=>h.Id).SequenceEqual(reference.formation) && catalog.Chain().Select(a=>a.HeroId).SequenceEqual(reference.formation),"Formal IDs resolve command and fixed action ownership independently of JSON array order");
+        catalog.formation[0]="heroine.missing";ExpectCombatFailure(catalog,"Missing formation reference rejected");
+        catalog.formation=(string[])reference.formation.Clone();catalog.formation[0]=catalog.formation[1];ExpectCombatFailure(catalog,"Duplicate formation reference rejected");
+        catalog.formation=(string[])reference.formation.Clone();catalog.status="formal";ExpectCombatFailure(catalog,"Integration trial cannot declare unverified full formal status");
+        catalog=fresh();catalog.formation=Array.Empty<string>();catalog.Validate();Check(catalog.HeroIdAt(0)=="hero-0","Legacy empty formation from Unity JSON roundtrip remains compatible");
+        for(int seed=1;seed<=50;seed++) {
+            var a=fresh();a.Skill("hero-0",0).criticalBonusBp=1500;
+            var first=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:a);var second=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:a);
+            first.Act(0,0,"body");second.Act(0,0,"body");
+            Check(first.Log==second.Log && first.Clock==second.Clock && first.State.BossHitPoints==second.State.BossHitPoints,"Critical and chain streams are reproducible seed="+seed);
+        }
+    }
     private static CombatDefinitionCatalog SelfBuffCatalog(Func<CombatDefinitionCatalog> fresh,params TimedSelfEffectDef[] effects)
     {
         var catalog=fresh();var skill=catalog.Skill("hero-0",1);
@@ -252,14 +334,14 @@ public static class AutomaticChainTests
         battle.DrainPresentationEvents();battle.Act(4,1,"body");collected=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
         while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();collected.AddRange(battle.DrainPresentationEvents());}
         Check(hero.TimedEffects.All(e=>e.RemainingCommands==2) && !collected.Any(e=>e.Message.StartsWith("再生") && e.Actor==4),"Cast release is not another owner command or regeneration opportunity");
-        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("critical",20,3)};ExpectCombatFailure(catalog,"Unsupported critical buff rejected, not silently ignored");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("speed",20,3)};ExpectCombatFailure(catalog,"Unsupported speed buff rejected, not silently ignored");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("attack",15,3),Timed("attack",20,3)};ExpectCombatFailure(catalog,"Duplicate effect kinds rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].turns=0;ExpectCombatFailure(catalog,"Zero duration rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].percent=0;ExpectCombatFailure(catalog,"Zero effect rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).targetRuleId="target.all-living-allies";ExpectCombatFailure(catalog,"Unsupported party buff rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).castPercent=100;ExpectCombatFailure(catalog,"Unsupported casted self-buff rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).chainEligible=true;ExpectCombatFailure(catalog,"Undecided buff-started chain rejected");
-        catalog=fresh();catalog.Skill("hero-0",0).selfEffects=new[]{Timed("attack",15,3)};ExpectCombatFailure(catalog,"Unsupported attack-plus-buff rejected");
+        catalog=fresh();catalog.Skill("hero-0",2).selfEffects=new[]{Timed("attack",15,3)};ExpectCombatFailure(catalog,"Unsupported heal-plus-buff rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));rejected=false;try{new PlayableBattle(1,new PlayableProgress(),useTimeline:false,combatDefinitions:catalog);}catch(ArgumentException){rejected=true;}
         Check(rejected,"Legacy non-timeline mode cannot silently change duration semantics");
         for(int seed=1;seed<=50;seed++) {

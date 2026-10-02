@@ -9,7 +9,7 @@ namespace NewAster.Core
         public int percent,turns;
         public void Validate()
         {
-            if((kind!="attack" && kind!="physical-protection" && kind!="regen") || percent<=0 || percent>(kind=="physical-protection"?100:1000) || turns<1 || turns>10)
+            if((kind!="attack" && kind!="physical-protection" && kind!="regen" && kind!="critical" && kind!="critical-damage" && kind!="forced-target") || percent<=0 || percent>(kind=="forced-target"?1:kind=="critical" || kind=="physical-protection"?100:1000) || turns<1 || turns>10)
                 throw new ArgumentException("Unsupported timed self effect or range.");
         }
         public static void ValidateAll(IEnumerable<TimedSelfEffectDef> effects)
@@ -20,6 +20,7 @@ namespace NewAster.Core
             foreach(var item in items) item.Validate();
         }
         public TimedSelfEffectDef Copy() => new TimedSelfEffectDef {kind=kind,percent=percent,turns=turns};
+        public static string Label(string kind) => kind=="attack"?"攻撃＋":kind=="regen"?"再生 ":kind=="physical-protection"?"物理防護 ":kind=="critical"?"会心率＋":kind=="critical-damage"?"会心威力＋":"強制標的 ";
     }
     // Immutable copies are safe to place in delayed presentation events.
     public sealed class TimedSelfEffectSnapshot
@@ -35,6 +36,9 @@ namespace NewAster.Core
         private readonly List<TimedSelfEffectSnapshot> timedEffects=new List<TimedSelfEffectSnapshot>();
         public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.ToArray());
         private int EffectPercent(string kind) => timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0;
+        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp+EffectPercent("critical")*100);
+        public int CriticalMultiplierPercent => 150+EffectPercent("critical-damage");
+        public bool ForcedTarget => IsAlive && EffectPercent("forced-target")>0;
         public bool ApplySelfEffects(IEnumerable<TimedSelfEffectDef> definitions)
         {
             var items=(definitions??Array.Empty<TimedSelfEffectDef>()).ToArray();TimedSelfEffectDef.ValidateAll(items);

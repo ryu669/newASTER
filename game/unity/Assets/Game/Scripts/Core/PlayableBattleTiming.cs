@@ -41,7 +41,7 @@ namespace NewAster.Core
         private long bossAt;
         private int commandCount;
         private readonly SkillTimingDefinition[,] timings;
-        private sealed class PendingCast { public int Slot,Attack; public string Target; public decimal Power; public int ChainBonus; public bool[] ChainActors; }
+        private sealed class PendingCast { public int Slot; public string Target; public BattleSkill Skill; public int ChainBonus; public bool[] ChainActors; }
         public SkillTimingDefinition Timing(int actor,int slot)
         {
             // Vertical-slice profiles only; each skill has independent casting/recovery fields.
@@ -95,7 +95,7 @@ namespace NewAster.Core
             if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
             int cost=SkillResourceCost(actor,slot);
             if(!State.Heroes[actor].SpendResource(cost)) return false;
-            casting[actor]=new PendingCast { Slot=slot,Attack=State.Heroes[actor].Attack,Target=target,Power=AttackPower(actor,slot,target,1),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
+            casting[actor]=new PendingCast { Slot=slot,Target=target,Skill=AttackDefinition(actor,slot,AttackPower(actor,slot,target,1),0,State.Heroes[actor].Attack),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
             State.Heroes[actor].CompleteOwnerCommand();
             readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
             Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
@@ -123,12 +123,13 @@ namespace NewAster.Core
                 if(pending!=null) {
                     casting[actor]=null;
                     // An already broken target cancels this spell; no silent retarget/refund.
-                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,AttackDefinition(actor,pending.Slot,pending.Power,0,pending.Attack),pending.Target);
+                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,pending.Skill,pending.Target,max=>random.Next(max));
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
                     LastFullChain=false;LastChainActionCount=0;LastActionChain=outcome.Accepted?1:0;LastChainChecks=Array.Empty<ChainConnection>();
-                    RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ":"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
+                    RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.Critical?" / CRITICAL":"")+(outcome.CriticalRoll>=0?"（会心判定 "+outcome.CriticalRoll+"）":""):"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
                     if(outcome.Accepted) RecordAttackFollowUps(actor,outcome);
+                    if(outcome.Accepted) ApplyAttackTimedEffects(actor,pending.Slot,false);
                     if(outcome.Accepted && ChainEligible(actor,pending.Slot)) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
                     readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
                     Chain=0; chainPending=false; chainMembers.Clear();

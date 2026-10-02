@@ -14,6 +14,8 @@ namespace NewAster.Core
         public string id,ownerId,name,effectRuleId,targetRuleId;
         public int resourceCost,recoveryPercent,castPercent,targetCount,baseHealing;
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
+        public int criticalBonusBp,damageCap;
+        public SkillConditionDef[] conditions;
         public float powerScale,partScale;
         public bool chainEligible;
         public TimedSelfEffectDef[] selfEffects;
@@ -29,6 +31,7 @@ namespace NewAster.Core
     {
         public int schemaVersion;
         public string status;
+        public string[] formation;
         public HeroineCombatDef[] heroines;
         public SkillCombatDef[] skills;
         public ChainCombatDef[] chainActions;
@@ -36,9 +39,11 @@ namespace NewAster.Core
         private static bool Scale(float value,bool positive=false) => !float.IsNaN(value) && !float.IsInfinity(value) && (positive?value>0:value>=0) && value<=100;
         public HeroineCombatDef Hero(string id) => heroines.Single(h=>h.id==id);
         public SkillCombatDef Skill(string heroId,int slot) => skills.Single(s=>s.id==Hero(heroId).skills[slot]);
+        public string[] FormationIds => schemaVersion==1?Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray():(string[])formation.Clone();
+        public string HeroIdAt(int index) => FormationIds[index];
         public void Validate()
         {
-            if(schemaVersion!=1 || status!="placeholder") throw new ArgumentException("Combat slice requires version 1 and explicit placeholder status.");
+            if(!((schemaVersion==1 && status=="placeholder" && (formation==null || formation.Length==0)) || (schemaVersion==2 && status=="integration-trial" && formation!=null && formation.Length==5 && formation.All(Id) && formation.Distinct().Count()==5))) throw new ArgumentException("Combat slice requires legacy placeholder v1 or explicit integration-trial v2 formation.");
             if(heroines==null || heroines.Length!=5 || skills==null || skills.Length!=15 || chainActions==null || chainActions.Length!=5)
                 throw new ArgumentException("Combat slice requires 5 heroines, 15 skills and 5 chain actions.");
             if(heroines.Any(h=>h==null || !Id(h.id) || !Id(h.jobId) || string.IsNullOrWhiteSpace(h.name) || h.baseRarity!=6 || h.skills==null || h.skills.Length!=3 || h.skills.Any(s=>!Id(s)) || h.skills.Distinct().Count()!=3 || !Id(h.chainActionId)) || heroines.Select(h=>h.id).Distinct().Count()!=5)
@@ -48,19 +53,21 @@ namespace NewAster.Core
             if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
+                SkillConditionDef.ValidateAll(skill.conditions);
+                if(skill.criticalBonusBp<0 || skill.criticalBonusBp>10000 || skill.damageCap<0 || (skill.effectRuleId!="effect.damage" && (skill.criticalBonusBp!=0 || skill.damageCap!=0))) throw new ArgumentException("Critical bonus and damage cap require an attack.");
                 TimedSelfEffectDef.ValidateAll(skill.selfEffects);
                 if(skill.effectRuleId=="effect.self-buff") {
                     if(skill.selfEffects==null || skill.selfEffects.Length==0 || skill.targetRuleId!="target.self" || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
                         throw new ArgumentException("Self-buff requires nonempty supported effects and self target without casting or chain.");
-                } else if(skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects currently require a dedicated self-buff command.");
+                } else if(skill.effectRuleId!="effect.damage" && skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects require a self-buff or attack command.");
             }
             if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
                 throw new ArgumentException("Unsupported or invalid chain definition.");
             foreach(var action in chainActions) MakeChain(action);
             for(int actor=0;actor<5;actor++) {
-                string heroId="hero-"+actor;
+                string heroId=HeroIdAt(actor);
                 var h=heroines.SingleOrDefault(x=>x.id==heroId);
-                if(h==null) throw new ArgumentException("Combat formation IDs must be hero-0 through hero-4.");
+                if(h==null) throw new ArgumentException("Combat formation references a missing heroine.");
                 var a=chainActions.SingleOrDefault(x=>x.id==h.chainActionId);
                 if(a==null || a.heroineId!=heroId) throw new ArgumentException("Chain ownership mismatch.");
                 for(int slot=0;slot<3;slot++) {
@@ -70,7 +77,7 @@ namespace NewAster.Core
                         // Validated above; unlike legacy support, any heroine slot may own it.
                     } else if(s.effectRuleId=="effect.heal") {
                         if(s.castPercent!=0 || s.chainEligible || s.targetCount<1 || s.targetCount>5 || (s.targetRuleId!="target.self" && s.targetRuleId!="target.selected-allies" && s.targetRuleId!="target.all-living-allies") || (s.targetRuleId=="target.self" && s.targetCount!=1) || (s.targetRuleId=="target.all-living-allies" && s.targetCount!=5)) throw new ArgumentException("Unsupported healing definition.");
-                    } else if(slot<2) {
+                    } else if(slot<2 || s.effectRuleId=="effect.damage") {
                         if(s.effectRuleId!="effect.damage" || s.targetRuleId!="target.selected-enemy" || !Scale(s.powerScale,true)) throw new ArgumentException("Unsupported attack definition.");
                     } else {
                         // These three effects still use the existing trial resolver. Reject
@@ -85,19 +92,19 @@ namespace NewAster.Core
         public SkillTimingDefinition[,] Timings()
         {
             Validate();var result=new SkillTimingDefinition[5,3];
-            for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {var s=Skill("hero-"+i,slot);result[i,slot]=new SkillTimingDefinition(s.recoveryPercent,s.castPercent);}
+            for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {var s=Skill(HeroIdAt(i),slot);result[i,slot]=new SkillTimingDefinition(s.recoveryPercent,s.castPercent);}
             return result;
         }
         public HealingSkillDefinition[] Healing()
         {
-            Validate();return Enumerable.Range(0,5).SelectMany(i=>Enumerable.Range(0,3).Select(slot=>new {actor=i,slot,skill=Skill("hero-"+i,slot)}))
+            Validate();return Enumerable.Range(0,5).SelectMany(i=>Enumerable.Range(0,3).Select(slot=>new {actor=i,slot,skill=Skill(HeroIdAt(i),slot)}))
                 .Where(x=>x.skill.effectRuleId=="effect.heal").Select(x=>new HealingSkillDefinition(x.actor,x.slot,x.skill.name,
                     x.skill.targetRuleId=="target.self"?HealingTargetRule.Self:x.skill.targetRuleId=="target.selected-allies"?HealingTargetRule.SelectedAllies:HealingTargetRule.AllLivingAllies,
                     x.skill.targetCount,x.skill.resourceCost,x.skill.baseHealing,(decimal)x.skill.powerScale)).ToArray();
         }
         public HeroineChainAction[] Chain()
         {
-            Validate();return Enumerable.Range(0,5).Select(i=>{var h=Hero("hero-"+i);return MakeChain(chainActions.Single(x=>x.id==h.chainActionId));}).ToArray();
+            Validate();return Enumerable.Range(0,5).Select(i=>{var h=Hero(HeroIdAt(i));return MakeChain(chainActions.Single(x=>x.id==h.chainActionId));}).ToArray();
         }
         private static HeroineChainAction MakeChain(ChainCombatDef a)
         {

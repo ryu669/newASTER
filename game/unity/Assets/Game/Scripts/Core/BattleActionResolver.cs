@@ -11,19 +11,24 @@ namespace NewAster.Core
         public int SelfHealingBaseAttackPercent { get; }
         public int SelfDamageMaxHpPercent { get; }
         public int? AttackSnapshot { get; }
+        public int CriticalChanceBp { get; }
+        public int CriticalMultiplierPercent { get; }
+        public int DamageCap { get; }
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0)
         {
             if (power <= 0m) throw new ArgumentOutOfRangeException(nameof(power));
             if (resourceCost < 0) throw new ArgumentOutOfRangeException(nameof(resourceCost));
             if(selfHealingBaseAttackPercent<0 || selfHealingBaseAttackPercent>1000 || selfDamageMaxHpPercent<0 || selfDamageMaxHpPercent>100) throw new ArgumentOutOfRangeException("Attack follow-up percentage");
             if(attackSnapshot.HasValue && attackSnapshot.Value<=0) throw new ArgumentOutOfRangeException(nameof(attackSnapshot));
+            if(criticalChanceBp<0 || criticalChanceBp>10000 || criticalMultiplierPercent<100 || criticalMultiplierPercent>2000 || damageCap<0) throw new ArgumentOutOfRangeException("Invalid critical profile.");
             Id = id ?? throw new ArgumentNullException(nameof(id));
             Power = power;
             ResourceCost = resourceCost;
             SelfHealingBaseAttackPercent=selfHealingBaseAttackPercent;
             SelfDamageMaxHpPercent=selfDamageMaxHpPercent;
             AttackSnapshot=attackSnapshot;
+            CriticalChanceBp=criticalChanceBp;CriticalMultiplierPercent=criticalMultiplierPercent;DamageCap=damageCap;
         }
     }
 
@@ -36,8 +41,10 @@ namespace NewAster.Core
         public string Reason { get; }
         public int SelfHealing { get; }
         public int SelfDamage { get; }
+        public bool Critical { get; }
+        public int CriticalRoll { get; }
 
-        public BattleActionResult(bool accepted, int damage, bool partBroken, bool victory, string reason,int selfHealing=0,int selfDamage=0)
+        public BattleActionResult(bool accepted, int damage, bool partBroken, bool victory, string reason,int selfHealing=0,int selfDamage=0,bool critical=false,int criticalRoll=-1)
         {
             Accepted = accepted;
             Damage = damage;
@@ -45,13 +52,14 @@ namespace NewAster.Core
             Victory = victory;
             Reason = reason;
             SelfHealing=selfHealing; SelfDamage=selfDamage;
+            Critical=critical;CriticalRoll=criticalRoll;
         }
     }
 
     /// <summary>スキルのコスト、対象、ダメージ、部位破壊、勝利を一度だけ解決する。</summary>
     public static class BattleActionResolver
     {
-        public static BattleActionResult Resolve(BattleState battle, string heroId, BattleSkill skill, string targetId)
+        public static BattleActionResult Resolve(BattleState battle, string heroId, BattleSkill skill, string targetId,Func<int,int> draw=null)
         {
             if (battle == null) throw new ArgumentNullException(nameof(battle));
             if (skill == null) throw new ArgumentNullException(nameof(skill));
@@ -65,9 +73,14 @@ namespace NewAster.Core
             if (!isBody && (part == null || part.IsBroken))
                 return new BattleActionResult(false, 0, false, false, "invalid-part");
 
-            if (!hero.SpendResource(skill.ResourceCost)) return new BattleActionResult(false, 0, false, false, "insufficient-resource");
-
-            var damage = (int)Math.Max(1m,Math.Min(int.MaxValue,Math.Floor((skill.AttackSnapshot??hero.Attack) * skill.Power)));
+            if(hero.JobResource<skill.ResourceCost) return new BattleActionResult(false,0,false,false,"insufficient-resource");
+            if(skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000 && draw==null) throw new ArgumentException("Probabilistic critical requires an explicit RNG.");
+            int roll=skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000?draw(10000):-1;
+            if(roll<-1 || roll>=10000 || (skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000 && roll<0)) throw new ArgumentException("Invalid critical RNG result.");
+            bool critical=skill.CriticalChanceBp==10000 || roll>=0 && roll<skill.CriticalChanceBp;
+            hero.SpendResource(skill.ResourceCost);
+            decimal raw=(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m);
+            int damage=(int)Math.Max(1m,Math.Min(skill.DamageCap>0?skill.DamageCap:int.MaxValue,Math.Floor(raw)));
             int appliedDamage=isBody?battle.ApplyBossDamage(damage):Math.Min(part.HitPoints,damage);
             bool broken=!isBody && battle.BreakPart(targetId,damage);
             // One accepted command: enemy damage, self healing, then self recoil.
@@ -78,7 +91,7 @@ namespace NewAster.Core
             int healed=hero.HitPoints-hp;hp=hero.HitPoints;
             hero.TakeDamage((int)((long)hero.MaxHitPoints*skill.SelfDamageMaxHpPercent/100));
             int recoil=hp-hero.HitPoints;
-            return new BattleActionResult(true,appliedDamage,broken,battle.IsVictory,isBody?"body":"part",healed,recoil);
+            return new BattleActionResult(true,appliedDamage,broken,battle.IsVictory,isBody?"body":"part",healed,recoil,critical,roll);
         }
     }
 }
