@@ -330,3 +330,21 @@ MaterialDef { id:Id,displayName:string,kind:"colossus",colossusId:Id }
 WeaponNode.materialCostsは所属WeaponTreeDef.heroineIdのノード専用定義。各resourceIdはMaterialDef.idを参照し、対応巨神獣が存在すること。初期取得ノードは空費用を明示してよいが、素材消費で解放するノードは1件以上・amount>0を必須とする。既定費用の暗黙継承、未知素材、負量、別人物のノード流用を拒否する。費用の合算・不足・原子的保存は共通CostEntry契約に従う。
 
 専用チケットと専用ガチャのtargetHeroineIdは一致を必須とし、別対象への使用を拒否する。石ガチャ抽選の3%テーブルは専用100%ガチャへ適用しない。
+
+## Lv育成・ジョブ基準・キャラ補正
+
+```text
+LevelGrowthDef { id:Id,nectarResourceId:"resource.nectar",costBase:10,costPerCurrentLevel:2,
+                 statGrowthBasePct:100,statGrowthPerLevelPct:3,speedGrowsWithLevel:false }
+JobBaseStats { jobId:Id,hp:positiveInt,attack:positiveInt,defense:positiveInt,speed:positiveInt }
+CharacterStatModifiers { hpBp:9000..11000,attackBp:9000..11000,defenseBp:9000..11000,
+                         speedBp:9500..10500 }
+HeroineDef additions { growthDefId:Id,statModifiers:CharacterStatModifiers }
+JobDef additions { baseStats:JobBaseStats }
+HeroineLevelState { heroineId:Id,level:1..120,awakeningStage:0..2 }
+LevelUpRequest { transactionId:Id,heroineId:Id,targetLevel:1..120,baseRevision:nonnegativeInt }
+```
+
+resource.nectarはLv育成専用の単一数量資源として定義し、MaterialDef.kind=colossusへ混ぜない。ネクタルの大小・品質別IDは作らない。JobBaseStats.jobIdは格納先JobDef.idと一致。キャラのHP／攻撃／防御bp合計30000、全参照と上限Lvを検証する。速度補正はチェイン接続へ適用しない。
+
+費用・成長算式はsystems/progression.mdを唯一の定義元とする。計算は広い整数で行い、UIと保存結果は同じ算式を使う。基礎ステータスはLv・ジョブ・キャラ補正とcontentVersionから導出し、セーブの重複正値を定義元にしない。内容版を変更するときの既存キャラ再計算は版移行規則に明示する。
