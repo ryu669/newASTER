@@ -134,7 +134,7 @@ PartDef {
 ```
 ```text
 HeroineDef { id, name, jobId, baseRarity: 6, skills[3], traitId, weaponTreeId, chainActionId,
-             poemChapters[3], affinityEventIds[3], loverEventIds[2] }
+             poemChapters[3], poemLinks:HeroinePoemLink[], affinityEventIds[3], loverEventIds[2] }
 SkillDef { id, ownerId, targetRuleId, costRuleId, powerRuleId, waitRuleId,
            castRuleId, attributeId?, statusEffects[], partModifierId?, chainEligible }
 JobDef { id, resourceType, resourceInitRuleId, resourceGainRules[], resourceSpendRules[], commandRules[] }
@@ -250,7 +250,8 @@ ConditionExpr =
  {kind:"atLeast",domain:"affection"|"terraformingXp"|"highestClearedLevel",ownerId?:Id,value:nonnegativeInt} |
  {kind:"always"}
 CostEntry { resourceId:Id, amount:nonnegativeInt }
-PoemLink { colossusPoemId:Id, heroineId:Id, heroinePoemId:Id }
+HeroinePoemLink { colossusPoemId:Id, heroinePoemIds:unique Id[1..] }
+BattlePoemState { heardColossusPoemIds:unique Id[],pendingColossusPoemIds:unique Id[] }
 TransactionRecord { transactionId:Id, kind:"battle"|"event"|"upgrade"|"craft"|"gacha"|"exchange"|"advRead"|"garden",
                     targetIds:Id[],contentVersion:string,baseRevision:nonnegativeInt,
                     status:"pending"|"committed",costs:CostEntry[],result:TransactionResult }
@@ -266,7 +267,7 @@ BookSubject { bookmarkId:Id,subjectId:Id,pageOrder:nonnegativeInt,unlockConditio
 
 ConditionExprは副作用なし、現在の同一進行snapshotを評価する。all／any空配列、未知kind、未知domain、負値、欠落参照を拒否する。affectionとhighestClearedLevelはownerId必須、terraformingXpは省略。loverのidはheroineId。alwaysは解放条件なしを意図した正式指定のみ許可し、欠落条件の補完には使わない。notや所持消費を含む条件は初回対象外とし、解放を逆戻りさせない。
 
-EventDefへunlockCondition、StoryChapterDefへrequiredPoemIds、正式個体へPoemLinkの参照を持たせる。従来EventDef.prerequisiteIdsとaffectionRequirementを併記する場合はunlockConditionと同値を必須とし、移行後は条件式を定義元にする。ResourceGrantは数量資源だけで、人物や詩の追加はaddedIds、Lv等の変化はchangedEntitiesで型別検証する。EntityChange.afterはentityTypeごとの完全な変更後状態であり、任意コード・任意パスの実行命令ではない。
+EventDefへunlockCondition、StoryChapterDefへrequiredPoemIds、各HeroineDefへpoemLinksを持たせる。従来EventDef.prerequisiteIdsとaffectionRequirementを併記する場合はunlockConditionと同値を必須とし、移行後は条件式を定義元にする。ResourceGrantは数量資源だけで、人物や詩の追加はaddedIds、Lv等の変化はchangedEntitiesで型別検証する。EntityChange.afterはentityTypeごとの完全な変更後状態であり、任意コード・任意パスの実行命令ではない。
 
 TransactionRecordは交換／ログ上の論理形式。pendingは初回セッション内のみ、committedのIDは永続化する。進行revisionは成功した保存ごとに1増加し、再試行・再描画では増えない。整数は安全整数範囲を共通に適用、乗算・合算はオーバーフローを検証する。
 
@@ -305,3 +306,9 @@ BattleSnapshot.chain additions { fullChainTriggered:bool,bonusActionIndex:0..5,a
 length／participantIdsは通常周回の異なる参加者数・集合として最大5を維持し、実行回数と分離する。actionCountは起点コマンドと実行済み固有行動の合計。追加一周の人物はbonusExecutedIdsで別管理し各人一回まで。追加一周で通常周回未参加の人物が復帰した場合もparticipantIdsへ混ぜない。
 
 起点へのchainCheckはchainPhase=returnCheck、成功後のchainActionはchainPhase=fullChain。全員行動可能な例では戻り判定のchainStep=6、追加行動A=6/B=7/C=8/D=9/E=10。chainStepを人数として使わない。通常chainActionはchainPhase=normal。fullChainTriggeredは戻り判定成功でのみtrue。追加一周でchainCheckを発行する、同じchainIdで二度fullChainTriggeredを立てる、追加Aを重複実行することを拒否する。chainEndedは通常終了または追加一周完了／途中勝敗で一度だけ発行する。
+
+## ヒロイン所有の詩対応と終了条件
+
+HeroinePoemLinkは格納先HeroineDef.idが所有者。colossusPoemIdはownerType=colossusの詩、heroinePoemIdsは全件ownerType=heroineかつownerIdが格納先ヒロインと一致すること。同ヒロイン内でcolossusPoemId重複を拒否する。複数の巨神獣詩が同じヒロイン詩を指すことは許可し、取得は集合の和集合とする。実際の対応数・対応先は人物別データで指定する。
+
+heardColossusPoemIdsは取得済み詩の再歌唱も含む。pendingColossusPoemIdsは未所持の新規取得だけ。両集合は歌唱完了時に更新し、歌唱回数を所持数へ変換しない。battle結果の詩付与条件はvictory|defeat|retreat、取得上限フィールドは持たない。上限なしは所持定義数を越えた重複所持を意味しない。
