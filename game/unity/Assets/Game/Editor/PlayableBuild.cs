@@ -38,12 +38,34 @@ public static class PlayableBuild
         var grown=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog,formalGrowth:persisted);
         Check(grown.State.Heroes[0].Attack>baseline.State.Heroes[0].Attack && grown.State.Heroes[0].Speed==baseline.State.Heroes[0].Speed,"Unity growth changes battle power not speed");
     }
+    private static void ValidateFormalKinder()
+    {
+        var banner=JsonUtility.FromJson<FormalKinderBanner>(Resources.Load<TextAsset>("Economy/kinder-trial").text);banner.Validate(banner.heroineIds);
+        var save=new FormalGrowthSave {saveId="unity.kinder",stones=3000,kinderPoints=200,heroines=banner.heroineIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
+        var state=new FormalProgression(save,banner.heroineIds);FormalGrowthSave disk=null;
+        Func<FormalGrowthSave,bool> writer=s=>{disk=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(s));disk.Validate();return true;};
+        var request=new KinderRequest("unity.draw",0,KinderOperation.StoneDraw,10);
+        Check(state.CommitKinder(request,banner,max=>0,s=>false)==GrowthCommitResult.SaveFailed,"Unity kinder failure atomic");
+        Check(state.Snapshot.stones==3000 && state.Snapshot.totalKinderDraws==0,"Unity failure no partial debit");
+        Check(state.CommitKinder(request,banner,max=>throw new Exception("reroll"),writer)==GrowthCommitResult.Committed,"Unity retry no reroll");
+        Check(disk.stones==0 && disk.kinderPoints==210 && disk.heroines[0].fragments==1000 && disk.receipts[0].kinderOutcomes.Length==10,"Unity JSON ten rewards and charges");
+        var restored=new FormalProgression(disk,banner.heroineIds);
+        Check(restored.CommitKinder(request,null,null,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity kinder replay after load");
+        restored.CommitKinder(new KinderRequest("unity.exchange",1,KinderOperation.Exchange,heroineId:banner.heroineIds[1]),banner,null,writer);
+        Check(disk.kinderPoints==110 && disk.tickets[0].count==1 && disk.heroines[1].fragments==0,"Unity exchange only ticket");
+        restored.CommitKinder(new KinderRequest("unity.ticket",2,KinderOperation.TicketDraw,heroineId:banner.heroineIds[1]),banner,null,writer);
+        Check(disk.tickets[0].count==0 && disk.heroines[1].fragments==100 && disk.kinderPoints==110,"Unity ticket no extra points");
+        var old=new FormalGrowthSave {version=1,saveId="unity.old-formal",heroines=save.heroines};
+        old=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(old));old.UpgradeFormalV1();old.Validate();
+        Check(old.version==2 && old.heroines.Length==5 && old.stones==0,"Unity formal V1 upgrade preserves ownership");
+    }
     public static void Validate()
     {
         assertions=0;
         ValidateCombatDefinitions();
         ValidateFormalCombat();
         ValidateFormalGrowth();
+        ValidateFormalKinder();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

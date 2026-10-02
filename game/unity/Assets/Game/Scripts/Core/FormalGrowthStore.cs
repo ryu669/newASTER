@@ -19,6 +19,7 @@ namespace NewAster.Core
         {
             var state=decode(File.ReadAllText(file));
             if(state==null) throw new ArgumentException("Empty save payload.");
+            state.UpgradeFormalV1();
             state.Validate();
             if(state.saveId!=saveId) throw new ArgumentException("Save identity mismatch.");
             return state;
@@ -32,7 +33,7 @@ namespace NewAster.Core
             }
             try {
                 var parsed=decode(File.ReadAllText(path));
-                if(parsed!=null && (parsed.version!=1 || parsed.contentVersion!=FormalGrowthSave.ContentVersion || parsed.saveId!=saveId)) return FormalLoadResult.Blocked;
+                if(parsed!=null && (parsed.version!=1 && parsed.version!=2 || parsed.contentVersion!=FormalGrowthSave.ContentVersion || parsed.saveId!=saveId)) return FormalLoadResult.Blocked;
                 state=Read(path);return FormalLoadResult.Loaded;
             } catch(Exception e) when(IsReadFailure(e)) {
                 try {state=Read(path+".bak");return FormalLoadResult.RecoveredBackup;}
@@ -47,6 +48,7 @@ namespace NewAster.Core
             // Validate the primary before touching it. Never roll a future or damaged file back implicitly.
             if(File.Exists(path)) {
                 var previous=Read(path);
+                if(next.revision==previous.revision && encode(next)==encode(previous))return true;
                 if(next.revision!=previous.revision+1 || next.receipts.Length!=previous.receipts.Length+1 || previous.receipts.AnyMissingFrom(next)) throw new ArgumentException("Invalid durable revision transition.");
             } else if(File.Exists(path+".bak")) throw new InvalidOperationException("Orphan backup requires explicit recovery.");
             var directory=Path.GetDirectoryName(path);Directory.CreateDirectory(directory);

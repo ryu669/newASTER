@@ -13,31 +13,45 @@ namespace NewAster.Core
     [Serializable] public sealed class GrowthReceipt
     {
         public string transactionId, signature;
-        public GrowthReceipt Copy() => (GrowthReceipt)MemberwiseClone();
+        public KinderOutcome[] kinderOutcomes=Array.Empty<KinderOutcome>();
+        public GrowthReceipt Copy() => new GrowthReceipt {transactionId=transactionId,signature=signature,kinderOutcomes=(kinderOutcomes??Array.Empty<KinderOutcome>()).Select(x=>x.Copy()).ToArray()};
     }
     /// <summary>Independent formal payload. Legacy index-based saves are not interpreted as this format.</summary>
     [Serializable] public sealed class FormalGrowthSave
     {
         public const string ContentVersion = "growth-2026-10-02";
-        public int version = 1;
+        public int version = 2;
         public string saveId, contentVersion = ContentVersion;
         public long revision;
         public int nectar, awakeningCrystals, overflow;
+        public int stones, kinderPoints, totalKinderDraws;
+        public HeroineTicket[] tickets=Array.Empty<HeroineTicket>();
         public FormalHeroineGrowth[] heroines = Array.Empty<FormalHeroineGrowth>();
         public GrowthReceipt[] receipts = Array.Empty<GrowthReceipt>();
         public FormalGrowthSave Copy() => new FormalGrowthSave {
             version=version, saveId=saveId, contentVersion=contentVersion, revision=revision,
-            nectar=nectar, awakeningCrystals=awakeningCrystals, overflow=overflow,
+            nectar=nectar, awakeningCrystals=awakeningCrystals, overflow=overflow,stones=stones,kinderPoints=kinderPoints,totalKinderDraws=totalKinderDraws,tickets=tickets.Select(t=>t.Copy()).ToArray(),
             heroines=heroines.Select(h=>h.Copy()).ToArray(), receipts=receipts.Select(r=>r.Copy()).ToArray()
         };
         public void Validate()
         {
-            if(version!=1 || contentVersion!=ContentVersion || string.IsNullOrWhiteSpace(saveId) || revision<0 || nectar<0 || awakeningCrystals<0 || overflow<0)
+            if(version!=2 || contentVersion!=ContentVersion || string.IsNullOrWhiteSpace(saveId) || revision<0 || nectar<0 || awakeningCrystals<0 || overflow<0 || stones<0 || kinderPoints<0 || totalKinderDraws<0)
                 throw new ArgumentException("Unsupported or invalid formal growth save.");
+            if(tickets==null || tickets.Any(t=>t==null || string.IsNullOrWhiteSpace(t.heroineId) || t.count<0) || tickets.Select(t=>t.heroineId).Distinct().Count()!=tickets.Length) throw new ArgumentException("Invalid tickets.");
             if(heroines==null || heroines.Any(h=>h==null || string.IsNullOrWhiteSpace(h.heroineId) || h.awakeningStage<0 || h.awakeningStage>2 || h.level<1 || h.level>h.LevelCap || h.duplicateRank<0 || h.duplicateRank>5 || h.fragments<0 || h.duplicateRank==5 && h.fragments!=0) || heroines.Select(h=>h.heroineId).Distinct().Count()!=heroines.Length)
                 throw new ArgumentException("Invalid formal heroine growth.");
             if(receipts==null || receipts.Any(r=>r==null || string.IsNullOrWhiteSpace(r.transactionId) || string.IsNullOrEmpty(r.signature)) || receipts.Select(r=>r.transactionId).Distinct().Count()!=receipts.Length)
                 throw new ArgumentException("Invalid growth receipts.");
+            foreach(var receipt in receipts) foreach(var reward in receipt.kinderOutcomes??Array.Empty<KinderOutcome>()) {
+                if(reward==null)throw new ArgumentException("Missing reward.");reward.Validate();
+                if(reward.kind=="heroine" && reward.grantKind==null || reward.kind!="heroine" && reward.grantKind!=null)throw new ArgumentException("Missing or invalid conversion result.");
+            }
+        }
+        public void UpgradeFormalV1()
+        {
+            if(version!=1)return;
+            if(stones!=0 || kinderPoints!=0 || totalKinderDraws!=0 || tickets!=null && tickets.Length!=0) throw new ArgumentException("V1 cannot contain economy balances.");
+            tickets=Array.Empty<HeroineTicket>();version=2;
         }
     }
     public enum GrowthOperation { Level, Awaken, Strengthen, ReceiveHeroine }
@@ -67,10 +81,11 @@ namespace NewAster.Core
     }
     public enum GrowthCommitResult { Committed, AlreadyCommitted, SaveFailed }
     /// <summary>Single-writer growth transactions: detached preview, durable callback, exact retry, idempotent receipts.</summary>
-    public sealed class FormalProgression
+    public sealed partial class FormalProgression
     {
         private FormalGrowthSave current, pending;
         private GrowthRequest pendingRequest;
+        private string pendingEconomyId,pendingEconomySignature;
         private bool saving;
         private readonly string[] knownIds;
         public FormalGrowthSave Snapshot => current.Copy();
@@ -139,7 +154,7 @@ namespace NewAster.Core
                 return GrowthCommitResult.AlreadyCommitted;
             }
             if(pending!=null) {
-                if(request.TransactionId!=pendingRequest.TransactionId || request.Signature!=pendingRequest.Signature) throw new InvalidOperationException("Retry the pending operation first.");
+                if(pendingRequest==null || request.TransactionId!=pendingRequest.TransactionId || request.Signature!=pendingRequest.Signature) throw new InvalidOperationException("Retry the pending operation first.");
             } else { Prepare(request,out var candidate);pending=candidate;pendingRequest=request; }
             bool saved=false;saving=true;
             try { saved=durableSave(pending.Copy()); }

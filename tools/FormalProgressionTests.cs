@@ -86,7 +86,7 @@ public static class FormalProgressionTests
         rejects(()=>unknownState.Preview(new GrowthRequest("growth.unknown", "heroine.unknown",0,GrowthOperation.Level,21)),"Unknown owned ID cannot act");
         unknownState.Commit(new GrowthRequest("growth.known",ids[0],0,GrowthOperation.Level,2),s=>true);
         check(unknownState.Snapshot.heroines.Single(h=>h.heroineId=="heroine.unknown").level==20,"Unknown owned ID preserved across write");
-        var future=fresh();future.version=2;rejects(()=>new FormalProgression(future,ids),"Future save version rejected");
+        var future=fresh();future.version=3;rejects(()=>new FormalProgression(future,ids),"Future save version rejected");
         future=fresh();future.contentVersion="future";rejects(()=>new FormalProgression(future,ids),"Future content version rejected");
         var empty=fresh();empty.nectar=11;var poor=new FormalProgression(empty,ids);
         rejects(()=>poor.Preview(new GrowthRequest("growth.poor",ids[0],0,GrowthOperation.Level,2)),"Insufficient nectar rejected");
@@ -122,12 +122,12 @@ public static class FormalProgressionTests
             check(store.Load(out var diskSave)==FormalLoadResult.Loaded && diskSave.revision==1 && diskSave.nectar==19988,"Real file load returns committed payload");
             check(File.Exists(path+".bak") && decode(File.ReadAllText(path+".bak")).revision==0,"Previous normal file backed up");
             check(!File.Exists(path+".tmp"),"Temporary is consumed by replace");
-            rejects(()=>store.Save(diskSave),"Repeated durable revision rejected");
+            check(store.Save(diskSave),"Exact durable retry acknowledges prior commit without replacement");
             string normal=File.ReadAllText(path);
-            var futureFile=diskSave.Copy();futureFile.version=2;File.WriteAllText(path,encode(futureFile));
+            var futureFile=diskSave.Copy();futureFile.version=3;File.WriteAllText(path,encode(futureFile));
             check(store.Load(out _)==FormalLoadResult.Blocked,"Future primary not silently rolled back to backup");
             rejects(()=>store.Save(diskSave),"Future primary cannot be overwritten");
-            check(decode(File.ReadAllText(path)).version==2,"Future file preserved");
+            check(decode(File.ReadAllText(path)).version==3,"Future file preserved");
             File.WriteAllText(path,"broken");
             check(store.Load(out var recovered)==FormalLoadResult.RecoveredBackup && recovered.revision==0,"Corrupt primary recovers matching backup read-only");
             rejects(()=>store.Save(diskSave),"Corrupt primary requires explicit recovery before write");
@@ -136,6 +136,14 @@ public static class FormalProgressionTests
             check(store.Load(out _)==FormalLoadResult.Blocked,"Wrong-identity backup rejected");
             File.WriteAllText(path,normal);File.WriteAllText(path+".tmp",encode(futureFile));
             check(store.Load(out var primary)==FormalLoadResult.Loaded && primary.revision==1,"Uncommitted temporary ignored");
+            var formalV1=fresh();formalV1.version=1;formalV1.heroines[0].level=30;
+            string originalV1=encode(formalV1);File.WriteAllText(path,originalV1);
+            check(store.Load(out var upgraded)==FormalLoadResult.Loaded && upgraded.version==2 && upgraded.heroines[0].level==30 && upgraded.stones==0,"Existing formal V1 file upgrades preserving level without trial import");
+            check(File.ReadAllText(path)==originalV1,"Read-only upgrade leaves source file unchanged");
+            var upgradeState=new FormalProgression(upgraded,ids);
+            upgradeState.Commit(new GrowthRequest("growth.upgrade",ids[0],0,GrowthOperation.Level,31),store.Save);
+            check(store.Load(out var upgradedDisk)==FormalLoadResult.Loaded && upgradedDisk.version==2 && upgradedDisk.heroines[0].level==31,"First upgrade transaction persists V2 atomically");
+            check(decode(File.ReadAllText(path+".bak")).version==1,"Original formal V1 remains in backup");
             File.Delete(path);
             check(store.Load(out _)==FormalLoadResult.Blocked,"Orphan backup prevents silent new game");
         } finally {

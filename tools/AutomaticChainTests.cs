@@ -13,6 +13,7 @@ public static class AutomaticChainTests
     {
         FormalProgressionTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};
+        FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
         Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
         FormalProgressionTests.Battle(Check,formal());

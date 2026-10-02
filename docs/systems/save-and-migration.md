@@ -6,13 +6,17 @@
 
 2026-10-02追記：ユーザー確定「旧試遊版との互換は不要」。正式版の新保存へ旧CampaignSaveV2を移行しない。旧のキャラ番号・所持・素材・石・詩などを引き継がず、新規開始する。旧ファイルは削除せず残す。この決定は下記の旧試遊変換計画を置換するが、正式保存内の未知版保護・backup・原子性・将来の内容版移行の必要性は維持する。
 
-先行実装は`FormalGrowthSave`（version=1、contentVersion=`growth-2026-10-02`）。saveId・revision・nectar・awakeningCrystals・overflow、人物IDごとのlevel／awakeningStage／duplicateRank／fragments、確定操作のtransactionId／signatureを保持する。取得していない人物の育成は禁止。未知人物IDは保持するが操作対象にしない。旧の1〜4番というindexから人物を決めない。
+現行実装は`FormalGrowthSave`（version=2、contentVersion=`growth-2026-10-02`）。saveId・revision・nectar・awakeningCrystals・overflow・stones・kinderPoints・totalKinderDraws・人物別tickets、人物IDごとのlevel／awakeningStage／duplicateRank／fragments、確定操作のtransactionId／signature／kinderOutcomesを保持する。取得していない人物の育成は禁止。未知人物IDは保持するが操作対象にしない。旧の1〜4番というindexから人物を決めない。
 
 `FormalProgression`は無消費プレビューと確定を分離する。I/O側の成功通知を受けた時だけcurrentを入れ替え、失敗または例外時は元状態とpendingを保持する。異なる操作・再入保存を拒否。同じ確定済みID／同内容は再保存も再消費も行わず、別内容へのID再利用は拒否する。I/O成功通知を返す責任は`FormalGrowthStore`の全書込み・flush・再読込照合・置換にある。
 
 通常ゲームの育成は`formal-growth-v1.json`へ接続済み。saveId=`newaster.formal-growth`。検証用新規状態は正式5人Lv1、ネクタル2940、結晶20、欠片／汎用0で、初回のみに保存する。再起動で再配布しない。Blocked／RecoveredBackupは上書き停止とファイル保全を表示し、明示復旧画面は後続とする。
 
-世界進行は暫定的に`campaign-formal-world-v1.json`へ別保存し、旧ファイル`campaign-v2.json`は読み書きしない。既存の内部世界payload型を再利用するが、旧試遊データの互換取込みではない。ガチャ・討伐育成資源を追加する前に世界／育成の一括保存と失敗復帰を接続する必要がある。現在の世界保存入口の失敗復帰は正式育成の原子性合格に含めない。
+世界進行は暫定的に`campaign-formal-world-v1.json`へ別保存し、旧ファイル`campaign-v2.json`は読み書きしない。既存の内部世界payload型を再利用するが、旧試遊データの互換取込みではない。ガチャの全費用・排出・交換・チケットは正式育成payloadだけで一括保存する。討伐育成資源や世界由来の石配布を追加する前に世界／育成の一括保存と失敗復帰を接続する必要がある。現在の世界保存入口の失敗復帰は正式育成の原子性合格に含めない。
+
+ファイル名`formal-growth-v1.json`は既存正式保存の発見用に維持し、中身のversionは2。正式v1のみ読込時に人物・Lv・覚醒・欠片・receiptを保全してv2へ拡張し、新経済の残高を0、ticketsを空にする。読込だけではファイルを書き換えず、次の確定操作でv2を保存する。旧試遊保存の取込みではない。将来版・別saveId・未承認内容版を拒否する。
+
+石抽選の結果列と重複変換種別をreceiptに保持し、保存失敗中は同じ候補payloadで再試行する。育成と抽選のpendingは相互排他。置換は成功したが通知だけ失敗した場合、次回保存に渡されたpayloadと現行ファイルが完全一致すれば成功として応答し、二重減算・再抽選・二重配布を防ぐ。プロセス終了前に保存されなかったpendingは残高にも報酬にも反映しない。
 
 既存CampaignSaveV2へ追加するか別版へ移すかはローカルの現在形式確認後に確定する。新しい自由座標・ADV既読を使う場合は次の論理項目を版管理する。
 

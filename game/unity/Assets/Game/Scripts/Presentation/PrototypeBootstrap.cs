@@ -82,6 +82,7 @@ namespace NewAster.Presentation
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
                 InitializeFormalGrowth();
+                InitializeKinder();
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
@@ -106,6 +107,7 @@ namespace NewAster.Presentation
                 if(args.Contains("-captureGrowthDuplicate")) GrowthSelect(GrowthScreen.Duplicate,formalProgression.Snapshot.heroines[0]);
                 if(args.Contains("-captureGrowthConfirm")) {growthScreen=GrowthScreen.Level;GrowthConfirm(GrowthOperation.Level,combatDefinitions.FormationIds[0],formalProgression.Snapshot,11);}
             }
+            if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -144,7 +146,8 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
+                if(kinderGarden && formalProgression!=null) KinderBack();
+                else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
                 else if(modelViewer) modelViewer=false;
                 else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
                 else if(storyText!=null) CloseStory();
@@ -226,6 +229,7 @@ namespace NewAster.Presentation
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"戦闘定義を読み込めません。旧値への自動補完は行いません。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
+            if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
@@ -258,7 +262,7 @@ namespace NewAster.Presentation
             if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
             if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  正式ガチャ未接続  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
+            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
@@ -558,9 +562,7 @@ namespace NewAster.Presentation
         private void DrawKinderGarden()
         {
             if(formalProgression!=null) {
-                Modal();Label(340,215,850,65,"キンダーガーデン：正式経済を接続中",heading);
-                Label(340,320,850,180,"300石ガチャと100ポイント交換は次の実装です。\n旧1石ガチャは使用しません。人物の無償付与・重複強化は行いません。",text);
-                if(Btn(340,700,860,50,"万物の書へ戻る")) kinderGarden=false;
+                DrawKinderExperience();
                 return;
             }
             Modal(); var p=campaign.Playable;
