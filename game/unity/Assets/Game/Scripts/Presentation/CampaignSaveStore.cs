@@ -8,7 +8,8 @@ namespace NewAster.Presentation
     /// <summary>端末セーブの入出力。書込み途中で既存セーブを破壊しないよう一時ファイルを経由する。</summary>
     public static class CampaignSaveStore
     {
-        private const string FileName = "campaign-v2.json";
+        // New-game world slot: never read or overwrite the legacy trial file.
+        private const string FileName = "campaign-formal-world-v1.json";
         public static string SavePath => Path.Combine(Application.persistentDataPath, FileName);
 
         public static void Save(CampaignState campaign)

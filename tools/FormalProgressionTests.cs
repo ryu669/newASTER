@@ -6,6 +6,26 @@ using NewAster.Core;
 
 public static class FormalProgressionTests
 {
+    public static void Battle(Action<bool,string> check,CombatDefinitionCatalog catalog)
+    {
+        catalog.Validate();
+        var save=new FormalGrowthSave {saveId="growth.battle",heroines=catalog.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id,level=50,duplicateRank=5}).ToArray()};
+        var legacy=new PlayableProgress();
+        var battle=new PlayableBattle(1,legacy,combatDefinitions:catalog,formalGrowth:save);
+        for(int i=0;i<5;i++) {
+            var h=catalog.Hero(catalog.FormationIds[i]);var j=catalog.Job(h.jobId);var actor=battle.State.Heroes[i];
+            int trait=h.traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(h.traitAttackPercent*100,5);
+            check(actor.Attack==(int)((long)FormalGrowthMath.Stat(j.attack,h.attackBp,50,5)*(10000+trait)/10000),"Growth and explicit trait rank affect actual battle attack");
+            check(actor.PhysicalDefense==FormalGrowthMath.Stat(j.defense,h.defenseBp,50,5),"Growth and rank affect battle defense");
+            check(actor.Speed==FormalGrowthMath.Speed(j.speed,h.speedBp),"Growth does not increase speed");
+        }
+        int attack=battle.State.Heroes[0].Attack;save.heroines[0].level=1;save.heroines[0].duplicateRank=0;
+        check(battle.State.Heroes[0].Attack==attack,"Departure snapshots growth; later changes cannot affect battle");
+        check(legacy.Levels.All(level=>level==1),"Formal growth never changes legacy progression");
+        bool rejected=false;save.heroines=save.heroines.Skip(1).ToArray();
+        try{new PlayableBattle(1,legacy,combatDefinitions:catalog,formalGrowth:save);}catch(ArgumentException){rejected=true;}
+        check(rejected,"Unowned formation rejected");
+    }
     public static void Run(Action<bool,string> check)
     {
         var ids=new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan"};

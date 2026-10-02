@@ -15,6 +15,7 @@ public static class AutomaticChainTests
         var options=new JsonSerializerOptions {IncludeFields=true};
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
         Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
+        FormalProgressionTests.Battle(Check,formal());
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);
         var reference=freshReference();reference.Validate();

@@ -73,7 +73,7 @@ namespace NewAster.Core
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
             formationIds=Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray();
@@ -105,8 +105,13 @@ namespace NewAster.Core
             if(chainActions.Length!=5 || chainActions.Any(a=>a==null) || chainActions.Select(a=>a.Id).Distinct().Count()!=5 || Enumerable.Range(0,5).Any(i=>chainActions[i].HeroId!=formationIds[i])) throw new ArgumentException("Explicit chain definitions must match formation heroes.");
             defense = Enumerable.Range(0, 5).Select(i => IsFormal?0:progress.Branches[i * 3 + 1]).ToArray();
             support = Enumerable.Range(0, 5).Select(i => IsFormal?0:progress.Branches[i * 3 + 2]).ToArray();
+            if(formalGrowth!=null) {
+                formalGrowth.Validate();
+                if(!IsFormal || formationIds.Any(id=>!formalGrowth.heroines.Any(h=>h.heroineId==id))) throw new ArgumentException("Formal formation must be owned.");
+                formalGrowth=formalGrowth.Copy();
+            }
             State = new BattleState(level,
-                Enumerable.Range(0, 5).Select(i => IsFormal?CreateFormalHero(i,combatDefinitions):new BattleHero(formationIds[i],
+                Enumerable.Range(0, 5).Select(i => IsFormal?CreateFormalHero(i,combatDefinitions,formalGrowth):new BattleHero(formationIds[i],
                     130 + progress.Levels[i] * 12 + defense[i] * 25 + progress.TraitRanks[i] * PlayableProgress.DuplicateHitPointGain,
                     20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8 + progress.TraitRanks[i] * PlayableProgress.DuplicateAttackGain, 10, new[]{110,95,80,105,100}[i])),
                 new[] { "crystal-horn-crown", "left-wing-root", "right-wing-root", "vine-wrapped-tail" }
@@ -115,10 +120,18 @@ namespace NewAster.Core
             BeginTurn();
             if(UsesTimeline) InitializeTimeline();
         }
-        private BattleHero CreateFormalHero(int actor,CombatDefinitionCatalog catalog)
+        private BattleHero CreateFormalHero(int actor,CombatDefinitionCatalog catalog,FormalGrowthSave growth)
         {
             var h=catalog.Hero(formationIds[actor]);var j=jobProfiles[actor];
-            // Lv1 formal formation is separate from the legacy index-based save. Plan4 owns migration.
+            if(growth!=null) {
+                var g=growth.heroines.Single(x=>x.heroineId==h.id);
+                int hp=FormalGrowthMath.Stat(j.hp,h.hpBp,g.level,g.duplicateRank);
+                int attack=FormalGrowthMath.Stat(j.attack,h.attackBp,g.level,g.duplicateRank);
+                int hpTrait=h.traitHpPercent==0?0:FormalGrowthMath.TraitAmount(h.traitHpPercent*100,g.duplicateRank);
+                int attackTrait=h.traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(h.traitAttackPercent*100,g.duplicateRank);
+                return new BattleHero(h.id,(int)((long)hp*(10000+hpTrait)/10000),(int)((long)attack*(10000+attackTrait)/10000),j.resourceMax,FormalGrowthMath.Speed(j.speed,h.speedBp),j.criticalBp,j.defense==0?0:FormalGrowthMath.Stat(j.defense,h.defenseBp,g.level,g.duplicateRank),j.magicDefense==0?0:FormalGrowthMath.Stat(j.magicDefense,h.defenseBp,g.level,g.duplicateRank),h.traitId);
+            }
+            // Lv1 without growth is reserved for definition regression tests.
             return new BattleHero(h.id,(int)((long)j.hp*h.hpBp*(100+h.traitHpPercent)/1000000),(int)((long)j.attack*h.attackBp*(100+h.traitAttackPercent)/1000000),j.resourceMax,(int)((long)j.speed*h.speedBp/10000),j.criticalBp,(int)((long)j.defense*h.defenseBp/10000),j.magicDefense,h.traitId);
         }
         private void BeginTurn()

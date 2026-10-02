@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NewAster.Presentation
 {
-    public sealed class PrototypeBootstrap : MonoBehaviour
+    public sealed partial class PrototypeBootstrap : MonoBehaviour
     {
         private CampaignState campaign;
         private BookNavigationState book;
@@ -81,6 +81,7 @@ namespace NewAster.Presentation
                 if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
+                InitializeFormalGrowth();
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
@@ -97,6 +98,10 @@ namespace NewAster.Presentation
                 SelectNextHero();
             }
             if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
+            if(capturePath!=null && args.Contains("-captureGrowth")) {
+                encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
+                if(args.Contains("-captureGrowthConfirm")) growthRequest=new GrowthRequest("capture.growth",combatDefinitions.FormationIds[0],formalProgression.Snapshot.revision,GrowthOperation.Level,11);
+            }
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -145,7 +150,8 @@ namespace NewAster.Presentation
                 else if(result==null) help=true;
             }
             bool battleView=encounter!=null;
-            viewCamera.cullingMask=battleView?0:~0;
+            bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
+            viewCamera.cullingMask=battleView || formalHeroView?0:~0;
             viewCamera.orthographic=modelViewer;
             viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
             viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
@@ -167,7 +173,7 @@ namespace NewAster.Presentation
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
-            if(stage!=null) stage.gameObject.SetActive(!battleView);
+            if(stage!=null) stage.gameObject.SetActive(!battleView && !formalHeroView);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
@@ -236,7 +242,7 @@ namespace NewAster.Presentation
             Label(75,160,860,70,"万物の書をひらく",heading);
             Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
-            Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n動画の15スキル＋本作独自ルールで出撃。現在はLv1の独立した戦闘編成です。旧育成・ガチャ所持は移行せず保護しています（計画4で接続）。\n進行は自動保存。戦闘中は保存せず、再開時は本に戻ります。",small);
+            Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
         }
         private void DrawBook()
         {
@@ -246,7 +252,7 @@ namespace NewAster.Presentation
             if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
             if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  石 {campaign.Playable.KinderStones}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
+            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  正式ガチャ未接続  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
@@ -276,6 +282,7 @@ namespace NewAster.Presentation
         }
         private void DrawHeroine()
         {
+            if(formalProgression!=null) { DrawFormalGrowth();return; }
             int h=book.SubjectIndex; var p=campaign.Playable;
             Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}/{p.LevelCap(h)}  覚醒{p.Awakenings[h]}",heading);
             Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
@@ -388,7 +395,7 @@ namespace NewAster.Presentation
         private void StartBattle(string colossus)
         {
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions);
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot);
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
@@ -544,6 +551,12 @@ namespace NewAster.Presentation
         }
         private void DrawKinderGarden()
         {
+            if(formalProgression!=null) {
+                Modal();Label(340,215,850,65,"キンダーガーデン：正式経済を接続中",heading);
+                Label(340,320,850,180,"300石ガチャと100ポイント交換は次の実装です。\n旧1石ガチャは使用しません。人物の無償付与・重複強化は行いません。",text);
+                if(Btn(340,700,860,50,"万物の書へ戻る")) kinderGarden=false;
+                return;
+            }
             Modal(); var p=campaign.Playable;
             Label(340,182,880,65,"キンダーガーデン",heading);
             Label(340,250,880,65,"★6 3%（5人各0.6%） / 素材97%（4種各24.25%）\n素材の獲得量：4・6・8・10。100回ごとに好きな誓女を交換。",small);

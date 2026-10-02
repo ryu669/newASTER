@@ -22,11 +22,28 @@ public static class PlayableBuild
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception("Build failed: "+report.summary.result);
         Debug.Log("PLAYABLE_BUILD_PASS "+assertions+" assertions / "+report.summary.totalSize+" bytes");
     }
+    private static void ValidateFormalGrowth()
+    {
+        var catalog=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>("Combat/battle-formal").text);
+        var save=new FormalGrowthSave {saveId="unity.growth",nectar=20000,awakeningCrystals=80,
+            heroines=catalog.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
+        var progression=new FormalProgression(save,catalog.FormationIds);
+        FormalGrowthSave persisted=null;
+        var request=new GrowthRequest("unity.growth.level",catalog.FormationIds[0],0,GrowthOperation.Level,50);
+        Check(progression.Commit(request,s=>{persisted=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(s));persisted.Validate();return true;})==GrowthCommitResult.Committed,"Unity growth JSON commit");
+        Check(persisted.nectar==17060 && persisted.heroines[0].level==50,"Unity growth costs persist");
+        var restored=new FormalProgression(persisted,catalog.FormationIds);
+        Check(restored.Commit(request,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity receipt roundtrip prevents duplicate consumption");
+        var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog);
+        var grown=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog,formalGrowth:persisted);
+        Check(grown.State.Heroes[0].Attack>baseline.State.Heroes[0].Attack && grown.State.Heroes[0].Speed==baseline.State.Heroes[0].Speed,"Unity growth changes battle power not speed");
+    }
     public static void Validate()
     {
         assertions=0;
         ValidateCombatDefinitions();
         ValidateFormalCombat();
+        ValidateFormalGrowth();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
