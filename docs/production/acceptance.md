@@ -79,7 +79,7 @@
 
 ### チェインイベントの検証追補
 
-chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、chainActionはchainActionIdも必須。chainCheckは接続確率・候補・判定を参照するログIDを持つ。失敗後のchainAction、未定義固定行動、同一人物の二重参加、通常tickによる候補選出を拒否する。chainActionの解決をユーザー入力待ちにしない。通常予定列への影響は定義したtimelineImpactRuleIdと一致すること。補正率や資源条件の正式数値はこの追補で確定しない。
+chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、chainActionはchainActionIdも必須。chainCheckは接続確率・候補・判定を参照するログIDを持つ。失敗後のchainAction、未定義固定行動、同一人物の二重参加、通常tickによる候補選出を拒否する。chainActionの解決をユーザー入力待ちにしない。通常予定列・詠唱予約・資源がチェイン前後で不変であること。補正率や資源条件の正式数値はこの追補で確定しない。
 
 ## 品質ゲートと確認記録
 
@@ -125,3 +125,16 @@ chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、cha
 | D-13 | 未知ID含むセーブを保存・復帰後、定義を復元 | 退避IDを失わず再検証後に利用可能 |
 
 これらは仕様上の期待値であり、実装試験の実施結果ではない。
+
+## 編成順・完全独立チェインの受入れ
+
+| ID | 条件 | 期待結果 |
+| --- | --- | --- |
+| CH-01 | 編成A/B/C/D/E、Cのコマンド発動、通常次予定A | D→E→A→Bの順に候補、C再参加なし |
+| CH-02 | C起点、D行動不能、E行動可能 | Dを飛ばしEで接続判定、D用抽選なし |
+| CH-03 | 次候補への接続失敗 | そこで終了、さらに次候補へ判定を続けない |
+| CH-04 | 詠唱開始→発動／中断／不発 | 発動時だけ一度判定、中断・不発は判定なし |
+| CH-05 | 参加者が詠唱中、資源0、通常待機中 | 行動不能でなければ参加、固定行動後も予約・資源・次tick不変 |
+| CH-06 | 固定チェイン行動を実行 | コマンド資源・モード・使用履歴・待機・クールダウンに変化なし、共通HPと勝敗は反映 |
+| CH-07 | A詠唱中にBの別コマンド補正を生成 | A発動はAの保存済みchainContextを使う |
+
