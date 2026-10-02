@@ -2,12 +2,24 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using NewAster.Core;
+using NewAster.Data;
 public static class AutomaticChainTests
 {
     private static int checks;
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main()
     {
+        var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
+            heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
+            parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
+        manifest.Validate();Check(manifest.HeroIndex("hero-0")==4 && manifest.HeroIndex("missing")==-1,"Image bindings use heroine IDs, not file order");
+        manifest.heroes[0].heroineId="hero-0";
+        ExpectManifestFailure(manifest,"Duplicate heroine ID rejected");manifest.heroes[0].heroineId="hero-4";
+        manifest.parts[0].x=float.NaN;ExpectManifestFailure(manifest,"NaN rectangle rejected");manifest.parts[0].x=.9f;
+        ExpectManifestFailure(manifest,"Out-of-range rectangle rejected");manifest.parts[0].x=.1f;
+        manifest.placeholder=false;ExpectManifestFailure(manifest,"Final manifest cannot hide placeholders");manifest.placeholder=true;
+        manifest.heroes[0].placeholder=false;ExpectManifestFailure(manifest,"Final heroine requires a resource path");manifest.heroes[0].placeholder=true;
+        manifest.parts[0]=null;ExpectManifestFailure(manifest,"Missing part binding rejected");
         var actions=new List<int>();
         var result=AutomaticChain.Resolve(0,5,0,new bool[5],i=>true,()=>false,max=>0,(i,bonus,step)=>actions.Add(i));
         Check(actions.SequenceEqual(new[]{1,2,3,4,0,1,2,3,4}),"Formation order and exactly one bonus lap");
@@ -72,5 +84,9 @@ public static class AutomaticChainTests
         result=AutomaticChain.Resolve(0,5,0,new bool[5],i=>true,()=>false,max=>++n==5?5000:4999,(i,b,s)=>actions.Add(i));
         Check(actions.SequenceEqual(new[]{1,2,3,4})&&!result.FullChain,"4999 succeeds but failed return cannot trigger bonus lap");
         Console.WriteLine("AUTOMATIC_CHAIN_PASS "+checks+" assertions");
+    }
+    private static void ExpectManifestFailure(BattleIllustrationManifest manifest,string message)
+    {
+        bool rejected=false;try {manifest.Validate();}catch(ArgumentException){rejected=true;}Check(rejected,message);
     }
 }

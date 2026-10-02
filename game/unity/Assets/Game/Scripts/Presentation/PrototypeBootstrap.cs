@@ -31,6 +31,8 @@ namespace NewAster.Presentation
         private int captureFrame;
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
+        private BattleIllustrationView illustrationView;
+        private float illustrationElapsed;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
         private bool slayerReview;
@@ -60,6 +62,7 @@ namespace NewAster.Presentation
             });
             font = Font.CreateDynamicFontFromOSFont(new[] { "Yu Gothic", "Meiryo", "Arial" }, 20);
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
+            illustrationView=new BattleIllustrationView();
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
             viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
             viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
@@ -82,7 +85,18 @@ namespace NewAster.Presentation
                 while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
                 SelectNextHero();
             }
-            if(capturePath!=null) encounter.DrainPresentationEvents();
+            if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
+            if(capturePath!=null && args.Contains("-capture2DActor0")) {
+                while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
+                encounter.DrainPresentationEvents(); SelectNextHero();
+            }
+            if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
+                encounter.DrainPresentationEvents();
+                foreach(var h in encounter.State.Heroes) h.TakeDamage(20);
+                encounter.State.Heroes[3].GainResource(3);
+                encounter.Act(3,2,"body");playback.Enqueue(encounter.DrainPresentationEvents());paused=true;
+            }
             if(capturePath!=null && args.Contains("-capturePlayback")) {
                 while(encounter.AvailableHero!=4) encounter.Pass();
                 encounter.DrainPresentationEvents(); encounter.Act(4,1,"body");
@@ -120,6 +134,7 @@ namespace NewAster.Presentation
                 else if(result==null) help=true;
             }
             bool battleView=encounter!=null;
+            viewCamera.cullingMask=battleView?0:~0;
             viewCamera.orthographic=modelViewer;
             viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
             viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
@@ -141,7 +156,10 @@ namespace NewAster.Presentation
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
-            if(capturePath!=null) {
+            if(stage!=null) stage.gameObject.SetActive(!battleView);
+            // Wait for the player splash to finish before capturing. Fast machines
+            // can otherwise reach 150 frames and exit before any game UI is visible.
+            if(capturePath!=null && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
                 if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
                 if(captureFrame==150) Application.Quit();
@@ -151,12 +169,13 @@ namespace NewAster.Presentation
         {
             if(encounter==null) { playback.Reset(); shownEvent=0; return; }
             bool stopped=paused || retreat || help;
+            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime;
             if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
             // Show a newly queued event at least once before its duration starts ticking.
             if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime,stopped);
             var e=playback.Current;
             if(e!=null && e.Sequence!=shownEvent) {
-                shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
+                illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
                 if(stage!=null) {
                     stage.ClearActionEffects();
                     stage.BeginPresentation(e);
@@ -368,6 +387,9 @@ namespace NewAster.Presentation
         {
             var s=encounter.State;
             var visual=playback.Current;
+            var stageStyle=new GUIStyle(text);stageStyle.normal.textColor=Color.white;
+            var stageSmall=new GUIStyle(small);stageSmall.normal.textColor=new Color(.85f,.9f,.9f);
+            target=illustrationView.Draw(encounter,visual,illustrationElapsed,target,!playback.Busy && !paused && result==null && !selectingAlly && !retreat && !help,stageStyle,stageSmall,Names,PartNames);
             int bossHp=visual?.BossHp??s.BossHitPoints, gauge=visual?.BossGauge??s.BossGauge;
             Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
             Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
@@ -412,13 +434,15 @@ namespace NewAster.Presentation
                 float x=18+i*225; var h=s.Heroes[i];
                 int hp=visual?.HeroHp[i]??h.HitPoints, resource=visual?.Resources[i]??h.JobResource;
                 bool casting=visual?.Casting[i]??encounter.IsCasting(i);
-                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
+                bool healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
+                if(healed) { var savedColor=GUI.color;GUI.color=new Color(.18f,.65f,.43f);GUI.DrawTexture(new Rect(x-2,712,219,122),Texture2D.whiteTexture);GUI.color=savedColor; }
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(healed?"回復対象":hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
                 Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　資源 {resource}",small,Color.white);
                 Meter(x,817,215,6,hp,h.MaxHitPoints,hp*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
-            if(visual!=null) { Panel(28,420,1050,68,dark); Label(44,432,1020,52,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,text,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
+            if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }
         private void DrawAllySelection()
