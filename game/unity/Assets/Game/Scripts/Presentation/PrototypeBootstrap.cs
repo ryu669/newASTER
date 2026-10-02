@@ -431,6 +431,7 @@ namespace NewAster.Presentation
                 int cost=encounter.SkillResourceCost(actor,slot);
                 string caption=encounter.SkillName(actor,slot)+" / 資源"+cost+"\n"+(healSkill!=null?encounter.HealingDescription(actor,slot):slot<2?"予測 "+encounter.PreviewDamage(actor,slot,target):encounter.SupportDescription(actor));
                 caption+="\n"+encounter.TimingDescription(actor,slot);
+                caption+=encounter.AttackFollowUpDescription(actor,slot);
                 if(slot<2 && healSkill==null && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
                 if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost,skillButton)) {
                     if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }

@@ -38,6 +38,7 @@ namespace NewAster.Core
         private void ResolveAutomaticChain(int origin,int skillBonus,bool[] marked)
         {
             LastFullChain=false; LastChainActionCount=1;
+            if(!State.Heroes[origin].IsAlive) {LastChainChecks=Array.Empty<ChainConnection>();return;}
             int participants=1;
             var outcome=AutomaticChain.Resolve(origin,5,skillBonus,marked,i=>State.Heroes[i].IsAlive,()=>Ended,
                 max=>random.Next(max),(actor,bonus,step)=> {

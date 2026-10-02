@@ -121,11 +121,12 @@ namespace NewAster.Core
                 if(pending!=null) {
                     casting[actor]=null;
                     // An already broken target cancels this spell; no silent retarget/refund.
-                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,new BattleSkill("cast-"+pending.Slot,pending.Power,0),pending.Target);
+                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,AttackDefinition(actor,pending.Slot,pending.Power,0),pending.Target);
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
                     LastFullChain=false;LastChainActionCount=0;LastActionChain=outcome.Accepted?1:0;LastChainChecks=Array.Empty<ChainConnection>();
                     RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ":"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
+                    if(outcome.Accepted) RecordAttackFollowUps(actor,outcome);
                     if(outcome.Accepted && ChainEligible(actor,pending.Slot)) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
                     readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
                     Chain=0; chainPending=false; chainMembers.Clear();

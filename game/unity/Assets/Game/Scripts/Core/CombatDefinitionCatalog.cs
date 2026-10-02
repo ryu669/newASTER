@@ -13,6 +13,7 @@ namespace NewAster.Core
     {
         public string id,ownerId,name,effectRuleId,targetRuleId;
         public int resourceCost,recoveryPercent,castPercent,targetCount,baseHealing;
+        public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
         public float powerScale,partScale;
         public bool chainEligible;
     }
@@ -43,6 +44,8 @@ namespace NewAster.Core
                 throw new ArgumentException("Invalid heroine combat definition.");
             if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=15)
                 throw new ArgumentException("Invalid skill definition.");
+            if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
+                throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
                 throw new ArgumentException("Unsupported or invalid chain definition.");
             foreach(var action in chainActions) MakeChain(action);

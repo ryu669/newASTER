@@ -10,6 +10,9 @@ namespace NewAster.Core
         public int HitPoints { get; private set; }
         public int MaxHitPoints { get; }
         public int Attack { get; }
+        // Current trial has no attack buffs. Preserve an explicit immutable basis
+        // for base-attack healing when effective attack is introduced later.
+        public int BaseAttack => Attack;
         public int Speed { get; }
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
@@ -34,7 +37,7 @@ namespace NewAster.Core
         }
         public bool IsAlive => HitPoints > 0;
         public void TakeDamage(int amount) => HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount));
-        public void Heal(int amount) { if (IsAlive) HitPoints = Math.Min(MaxHitPoints, HitPoints + Math.Max(0, amount)); }
+        public void Heal(int amount) { if (IsAlive) HitPoints = (int)Math.Min(MaxHitPoints, (long)HitPoints + Math.Max(0, amount)); }
     }
 
     public sealed class BattlePart

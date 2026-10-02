@@ -91,6 +91,7 @@ public static class AutomaticChainTests
         while(custom.IsCasting(4) && !custom.Ended) {custom.Pass();castingEvents.AddRange(custom.DrainPresentationEvents());}
         Check(castingEvents.Any(e=>e.Kind==BattlePresentationKind.CastRelease) && !castingEvents.Any(e=>e.Message.StartsWith("自動チェイン")),"Deferred cast obeys defined chain eligibility");
         ValidateFixedEffects(fresh);
+        ValidateAttackFollowUps(fresh);
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -179,6 +180,81 @@ public static class AutomaticChainTests
     {
         return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
             Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
+    }
+    private static void ValidateAttackFollowUps(Func<CombatDefinitionCatalog> fresh)
+    {
+        var state=EffectState();var hero=state.Heroes[0];hero.TakeDamage(40);hero.GainResource(3);
+        var skill=new BattleSkill("test.follow-up",1,3,70,10);
+        var outcome=BattleActionResolver.Resolve(state,hero.Id,skill,"body");
+        Check(outcome.Accepted && outcome.Damage==20 && outcome.SelfHealing==14 && outcome.SelfDamage==10 && hero.HitPoints==64,"Attack heals from base attack then recoils from maximum HP");
+        Check(hero.JobResource==0 && state.BossHitPoints==980,"Compound attack pays once and attacks once");
+        outcome=BattleActionResolver.Resolve(state,hero.Id,skill,"body");
+        Check(!outcome.Accepted && outcome.SelfHealing==0 && outcome.SelfDamage==0 && hero.HitPoints==64 && state.BossHitPoints==980,"Resource failure has no follow-ups");
+        hero.GainResource(3);int hp=hero.HitPoints;
+        outcome=BattleActionResolver.Resolve(state,hero.Id,skill,"missing");
+        Check(!outcome.Accepted && hero.HitPoints==hp && hero.JobResource==3,"Invalid target has no cost or follow-ups");
+        state.BreakPart("part-0",1000);outcome=BattleActionResolver.Resolve(state,hero.Id,skill,"part-0");
+        Check(!outcome.Accepted && hero.HitPoints==hp && hero.JobResource==3,"Broken target has no follow-ups");
+        state=EffectState();hero=state.Heroes[0];hero.TakeDamage(3);
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("test.clamp",1,0,70),"part-0");
+        Check(outcome.PartBroken && outcome.SelfHealing==3 && hero.HitPoints==100,"Self healing clamps and still applies after part break");
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("test.full",1,0,70),"body");
+        Check(outcome.Accepted && outcome.SelfHealing==0,"Full HP does not invalidate an attack or claim healing");
+        state=EffectState();hero=state.Heroes[0];hero.TakeDamage(95);state.ApplyBossDamage(999);
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("test.last-hit",1,0,0,10),"body");
+        Check(outcome.Victory && outcome.Damage==1 && outcome.SelfDamage==5 && !hero.IsAlive,"Killing blow finishes recoil; report actual HP loss, not nominal damage");
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("test.ended",1,0,70),"body");
+        Check(!outcome.Accepted && hero.HitPoints==0 && outcome.SelfHealing==0,"No resurrection or follow-ups after battle ends");
+        state=EffectState();hero=state.Heroes[0];hero.TakeDamage(100);
+        outcome=BattleActionResolver.Resolve(state,hero.Id,new BattleSkill("test.dead",1,0,70),"body");
+        Check(!outcome.Accepted && hero.HitPoints==0 && state.BossHitPoints==1000,"Dead actor cannot attack or heal itself");
+        hero=new BattleHero("large",int.MaxValue,int.MaxValue,10);hero.TakeDamage(100);hero.Heal(int.MaxValue);
+        Check(hero.HitPoints==int.MaxValue,"Healing addition cannot wrap to negative HP");
+        var catalog=fresh();catalog.Skill("hero-0",0).selfHealingBaseAttackPercent=-1;ExpectCombatFailure(catalog,"Negative self healing rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).selfDamageMaxHpPercent=101;ExpectCombatFailure(catalog,"Over-maximum recoil rejected");
+        catalog=fresh();catalog.Skill("hero-0",2).selfDamageMaxHpPercent=10;ExpectCombatFailure(catalog,"Heal-only skill cannot carry attack follow-ups");
+        catalog=fresh();catalog.Skill("hero-0",0).selfHealingBaseAttackPercent=70;catalog.Skill("hero-0",0).chainEligible=false;
+        var battle=new PlayableBattle(1,new PlayableProgress(),7,combatDefinitions:catalog);int actor=battle.AvailableHero;
+        battle.State.Heroes[actor].TakeDamage(30);battle.DrainPresentationEvents();
+        int expectedHeal=battle.State.Heroes[actor].BaseAttack*70/100;
+        catalog.Skill("hero-0",0).selfHealingBaseAttackPercent=1000;
+        Check(battle.Act(actor,0,"body"),"JSON follow-up attack executes");
+        var events=battle.DrainPresentationEvents();
+        Check(events[0].Kind==BattlePresentationKind.Attack && events[1].Kind==BattlePresentationKind.Healing && events[1].HealingTargets.SequenceEqual(new[]{actor}) && events[1].Message.EndsWith(expectedHeal.ToString()),"Snapshot fields and actual self-healing targets reach ordered events");
+        Check(events[0].Clock==events[1].Clock && battle.LastHealingTargets.SequenceEqual(new[]{actor}),"Attack follow-up is one timeline command");
+        catalog=fresh();catalog.Skill("hero-0",0).selfDamageMaxHpPercent=10;
+        battle=new PlayableBattle(1,new PlayableProgress(),7,combatDefinitions:catalog);actor=battle.AvailableHero;
+        battle.State.Heroes[actor].TakeDamage(battle.State.Heroes[actor].HitPoints-1);battle.DrainPresentationEvents();
+        Check(battle.Act(actor,0,"body") && !battle.State.Heroes[actor].IsAlive && battle.LastChainChecks.Count==0,"Lethal recoil stops chain initiation without RNG draws");
+        events=battle.DrainPresentationEvents();
+        Check(events.Any(e=>e.Kind==BattlePresentationKind.Support && e.TargetIds.SequenceEqual(new[]{"hero-0"})) && !events.Any(e=>e.Message.StartsWith("自動チェイン")),"Recoil event identifies affected actor without inventing another attack");
+        catalog=fresh();catalog.Skill("hero-4",1).selfHealingBaseAttackPercent=70;catalog.Skill("hero-4",1).chainEligible=false;
+        battle=new PlayableBattle(1,new PlayableProgress(),7,combatDefinitions:catalog);
+        while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();
+        battle.State.Heroes[4].TakeDamage(30);battle.DrainPresentationEvents();hp=battle.State.Heroes[4].HitPoints;
+        int resource=battle.State.Heroes[4].JobResource;
+        Check(battle.Act(4,1,"body") && battle.IsCasting(4) && battle.State.Heroes[4].HitPoints==hp,"Casting start does not heal early");
+        Check(battle.State.Heroes[4].JobResource==resource-3,"Casting reserves cost only once");
+        var allEvents=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+        while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();allEvents.AddRange(battle.DrainPresentationEvents());}
+        int release=allEvents.FindIndex(e=>e.Kind==BattlePresentationKind.CastRelease);
+        Check(release>=0 && allEvents[release+1].Kind==BattlePresentationKind.Healing && allEvents[release+1].Actor==4 && allEvents[release].Clock==allEvents[release+1].Clock,"Deferred healing follows cast release at the same logical time");
+        battle=new PlayableBattle(1,new PlayableProgress(),7,combatDefinitions:catalog);
+        while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();
+        battle.State.Heroes[4].TakeDamage(30);battle.DrainPresentationEvents();string partId=battle.State.Parts[3].Id;
+        Check(battle.Act(4,1,partId),"Deferred self-healing reserves a valid part target");
+        battle.State.BreakPart(partId,10000);allEvents=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+        while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();allEvents.AddRange(battle.DrainPresentationEvents());}
+        Check(allEvents.Any(e=>e.Kind==BattlePresentationKind.CastCanceled) && !allEvents.Any(e=>e.Kind==BattlePresentationKind.Healing && e.Actor==4),"Canceled spell has no self-healing follow-up");
+        for(int seed=1;seed<=100;seed++) {
+            var unchanged=fresh();var changed=fresh();changed.Skill("hero-0",0).selfHealingBaseAttackPercent=70;
+            var a=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:unchanged);
+            var b=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:changed);
+            a.State.Heroes[0].TakeDamage(30);b.State.Heroes[0].TakeDamage(30);
+            a.Act(0,0,"body");b.Act(0,0,"body");
+            Check(a.Clock==b.Clock && a.State.Heroes.Select(h=>h.JobResource).SequenceEqual(b.State.Heroes.Select(h=>h.JobResource)),"Self healing does not add waits or costs seed="+seed);
+            Check(a.LastChainChecks.Select(c=>(c.Candidate,c.Roll,c.ProbabilityBp)).SequenceEqual(b.LastChainChecks.Select(c=>(c.Candidate,c.Roll,c.ProbabilityBp))),"Nonlethal self healing adds no RNG draw seed="+seed);
+        }
     }
     private static void ValidateFixedEffects(Func<CombatDefinitionCatalog> fresh)
     {

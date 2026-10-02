@@ -68,7 +68,7 @@ namespace NewAster.Core
                 commandDefinitions=new SkillCombatDef[5,3];
                 for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {
                     var s=combatDefinitions.Skill("hero-"+i,slot);
-                    commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible};
+                    commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent};
                 }
             }
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
@@ -112,6 +112,29 @@ namespace NewAster.Core
             if(target!="body") power*=commandDefinitions!=null?(decimal)commandDefinitions[heroIndex,skill].partScale:heroIndex==1?1.5m:1m;
             if (target == "body" && !State.Parts[2].IsBroken) power *= .7m;
             return power;
+        }
+        private BattleSkill AttackDefinition(int actor,int slot,decimal power,int cost)
+        {
+            var d=commandDefinitions?[actor,slot];
+            return new BattleSkill(d?.id??"skill-"+slot,power,cost,d?.selfHealingBaseAttackPercent??0,d?.selfDamageMaxHpPercent??0);
+        }
+        public string AttackFollowUpDescription(int actor,int slot)
+        {
+            var d=commandDefinitions?[actor,slot];if(d==null) return "";
+            return (d.selfHealingBaseAttackPercent>0?" / 攻撃後に自己回復（基礎攻撃の"+d.selfHealingBaseAttackPercent+"%）":"")+
+                (d.selfDamageMaxHpPercent>0?" / 行動後反動（最大HPの"+d.selfDamageMaxHpPercent+"%）":"");
+        }
+        private void RecordAttackFollowUps(int actor,BattleActionResult outcome)
+        {
+            LastHealingTargets=outcome.SelfHealing>0?Array.AsReadOnly(new[]{actor}):Array.Empty<int>();
+            if(outcome.SelfHealing>0) {
+                string message="攻撃後の自己回復 / HP ＋"+outcome.SelfHealing;Log+="\n"+message;
+                RecordPresentation(BattlePresentationKind.Healing,actor,"body",message,healingTargets:new[]{actor});
+            }
+            if(outcome.SelfDamage>0) {
+                string message="行動後の反動 / HP −"+outcome.SelfDamage;Log+="\n"+message;
+                RecordPresentation(BattlePresentationKind.Support,actor,"body",message,targetIds:new[]{State.Heroes[actor].Id});
+            }
         }
         public int PreviewDamage(int heroIndex, int skill, string target)
         {
@@ -190,12 +213,13 @@ namespace NewAster.Core
                 LastActionChain = 0;
                 chainMembers.Clear();
                 RecordPresentation(BattlePresentationKind.Support,heroIndex,"body",Log);
+                LastHealingTargets=Array.Empty<int>();
             }
             else
             {
                 int nextChain = NextChain(heroIndex);
                 decimal power = AttackPower(heroIndex, skill, target, nextChain);
-                var result = BattleActionResolver.Resolve(State, hero.Id, new BattleSkill(commandDefinitions!=null?commandDefinitions[heroIndex,skill].id:"skill-" + skill, power, SkillResourceCost(heroIndex,skill)), target);
+                var result = BattleActionResolver.Resolve(State, hero.Id, AttackDefinition(heroIndex,skill,power,SkillResourceCost(heroIndex,skill)), target);
                 if (!result.Accepted) { Log = "対象または資源を確認してください。"; return false; }
                 Chain = nextChain;
                 if(nextChain==1) chainMembers.Clear();
@@ -206,10 +230,10 @@ namespace NewAster.Core
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
                 RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage);
+                RecordAttackFollowUps(heroIndex,result);
                 if(UsesTimeline && ChainEligible(heroIndex,skill)) ResolveAutomaticChain(heroIndex,skillChainBonuses[skill],(bool[])cumulativeChainActors.Clone());
             }
             Acted[heroIndex] = true;
-            if(healing==null) LastHealingTargets=Array.Empty<int>();
             if(UsesTimeline) { readyAt[heroIndex]=Clock+RecoveryDelay(heroIndex,skill); AvailableHero=-1; AdvanceTimeline(); }
             else if (!Ended && Enumerable.Range(0, 5).All(i => Acted[i] || !State.Heroes[i].IsAlive)) EndTurn();
             return true;
