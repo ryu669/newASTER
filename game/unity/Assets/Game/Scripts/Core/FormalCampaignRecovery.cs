@@ -17,7 +17,7 @@ namespace NewAster.Core
         public string SavePath=>path;
         private static string Digest(byte[] bytes){using(var hash=SHA256.Create())return Convert.ToBase64String(hash.ComputeHash(bytes));}
         private string DecodeBytes(byte[] bytes){using(var stream=new MemoryStream(bytes))using(var reader=new StreamReader(stream,System.Text.Encoding.UTF8,true))return reader.ReadToEnd();}
-        private bool Unsupported(FormalCampaignSave s)=>s!=null && (s.version!=1 || s.saveId!=FormalCampaignSave.Identity || s.growth!=null && (s.growth.version!=2 || s.growth.contentVersion!=FormalGrowthSave.ContentVersion || s.growth.saveId!="newaster.formal-growth") || s.world!=null && s.world.version!=2);
+        private bool Unsupported(FormalCampaignSave s)=>s!=null && (s.version!=1 || s.saveId!=FormalCampaignSave.Identity || s.growth!=null && (s.growth.version!=2 || s.growth.contentVersion!=FormalGrowthSave.ContentVersion || s.growth.saveId!="newaster.formal-growth") || s.world!=null && s.world.version!=2 || s.engagement!=null && s.engagement.version!=1);
         public FormalRecoveryOffer InspectRecovery()
         {
             try{

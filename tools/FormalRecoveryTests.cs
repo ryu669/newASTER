@@ -16,6 +16,7 @@ public static class FormalRecoveryTests
         string dir=Path.Combine(Path.GetTempPath(),"newaster-recovery-test-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);string path=Path.Combine(dir,"formal.json");
         Func<string,FormalCampaignHeader> header=t=>{try{return JsonSerializer.Deserialize<FormalCampaignHeader>(t,options);}catch(JsonException e){throw new ArgumentException("Header JSON",e);}};
         var store=new FormalCampaignStore(path,encode,decode,header);byte[] damaged={255,0,1,33};
+        RunSplit(check,options,encode,decode,header,seed);
         try{
             check(store.InspectRecovery().Status==FormalRecoveryStatus.Missing,"Empty slot has no recovery action");
             store.Save(seed);check(store.InspectRecovery().Status==FormalRecoveryStatus.Healthy,"Healthy current never offers rollback");
@@ -61,6 +62,35 @@ public static class FormalRecoveryTests
                 check(File.ReadAllBytes(path).SequenceEqual(damaged) && File.ReadAllText(path+".bak")==backup,"Failed replacement keeps both input files");
                 store.RestoreConfirmed(offer,out retained);check(store.Load(out loaded)==FormalLoadResult.Loaded,"Replacement failure retry completes safely");
             }
+        }finally{foreach(var file in Directory.GetFiles(dir))File.Delete(file);Directory.Delete(dir);}
+    }
+    private static void RunSplit(Action<bool,string> check,JsonSerializerOptions options,Func<FormalCampaignSave,string> encode,Func<string,FormalCampaignSave> decode,Func<string,FormalCampaignHeader> header,FormalCampaignSave seed)
+    {
+        string dir=Path.Combine(Path.GetTempPath(),"newaster-split-test-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);
+        string path=Path.Combine(dir,"unified.json"),growth=Path.Combine(dir,"growth.json"),world=Path.Combine(dir,"world.json");
+        var store=new FormalCampaignStore(path,encode,decode,header);
+        Func<string,T> codec<T>()=>t=>{try{return JsonSerializer.Deserialize<T>(t,options);}catch(JsonException e){throw new ArgumentException("JSON",e);}};
+        Func<FormalRecoveryOffer> inspect=()=>store.InspectSplitRecovery(growth,world,codec<FormalGrowthHeader>(),codec<FormalGrowthSave>(),codec<FormalWorldHeader>(),codec<CampaignSaveV2>(),seed.growth,seed.world);
+        Action<Action,string> reject=(action,name)=>{bool threw=false;try{action();}catch(Exception e)when(e is ArgumentException || e is InvalidOperationException || e is IOException){threw=true;}check(threw,name);};
+        try {
+            File.WriteAllText(growth,"damaged");string g=JsonSerializer.Serialize(seed.growth,options),w=JsonSerializer.Serialize(seed.world,options);File.WriteAllText(growth+".bak",g);File.WriteAllText(world,w);
+            var offer=inspect();check(offer.CanRestore,"Damaged split growth offers backup with healthy world");
+            var preview=store.RecoveryPreview(offer);check(preview.growth.stones==888 && preview.growth.heroines[0].level==40,"Split preview preserves existing state");preview.growth.stones=0;
+            check(!File.Exists(path) && File.ReadAllText(growth)=="damaged","Split inspection and preview are read-only");
+            File.WriteAllText(world,w+" ");reject(()=>store.RestoreSplitConfirmed(offer,growth,world),"Changed healthy source invalidates split offer");check(!File.Exists(path),"Stale split offer creates no unified file");File.WriteAllText(world,w);
+            offer=inspect();var restored=store.RestoreSplitConfirmed(offer,growth,world);check(encode(restored)==encode(seed),"Confirmed split recovery preserves both complete payloads");
+            check(File.ReadAllText(growth)=="damaged" && File.ReadAllText(growth+".bak")==g && File.ReadAllText(world)==w,"Every split source retained byte-for-byte");
+            check(encode(store.RestoreSplitConfirmed(offer,growth,world))==encode(seed),"Repeated split confirmation adds no grants");
+            var journal=new FormalCampaignJournal(restored,encode,decode);var next=journal.Snapshot.world;next.materials++;journal.CommitWorld(next,store.Save);reject(()=>store.RestoreSplitConfirmed(offer,growth,world),"Old split offer never rolls back new unified progress");
+            File.Delete(path);File.Delete(path+".bak");
+            File.WriteAllText(growth,"{\"version\":3,\"saveId\":\"newaster.formal-growth\",\"contentVersion\":\"growth-2026-10-02\",\"heroines\":\"future-type\"}");check(inspect().Status==FormalRecoveryStatus.Unsupported,"Future split header protects incompatible payload");
+            File.WriteAllText(growth,"damaged");File.WriteAllText(world,"{\"version\":3,\"materials\":\"future-type\"}");File.WriteAllText(world+".bak",w);check(inspect().Status==FormalRecoveryStatus.Unsupported,"Future world does not fall back to old backup");
+            File.Delete(world);File.Delete(growth);offer=inspect();check(offer.CanRestore,"Missing split primaries offer explicit orphan backups");
+            restored=store.RestoreSplitConfirmed(offer,growth,world);check(encode(restored)==encode(seed),"Orphan split backup restores without new grants");File.Delete(path);
+            File.WriteAllText(growth+".bak","broken");check(inspect().Status==FormalRecoveryStatus.NoValidBackup,"Invalid split backup refuses initialization");
+            File.WriteAllText(growth+".bak",g);offer=inspect();File.WriteAllText(path+".bak",encode(seed));reject(()=>store.RestoreSplitConfirmed(offer,growth,world),"Appearing unified orphan backup prevents split initialization");File.Delete(path+".bak");
+            offer=inspect();using(var lease=new FileStream(path+".write.lock",FileMode.Open,FileAccess.ReadWrite,FileShare.None))reject(()=>store.RestoreSplitConfirmed(offer,growth,world),"Split recovery shares exclusive writer lease");
+            File.Delete(growth+".bak");File.Delete(world+".bak");check(inspect().Status==FormalRecoveryStatus.Healthy,"Truly empty split sources have no recovery action");
         }finally{foreach(var file in Directory.GetFiles(dir))File.Delete(file);Directory.Delete(dir);}
     }
 }

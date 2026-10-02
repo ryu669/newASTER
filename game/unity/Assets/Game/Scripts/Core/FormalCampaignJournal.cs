@@ -19,7 +19,7 @@ namespace NewAster.Core
         }
     }
     /// <summary>Build rewards on detached world+growth. Publish only after a single durable write.</summary>
-    public sealed class FormalCampaignJournal
+    public sealed partial class FormalCampaignJournal
     {
         private FormalCampaignSave current,pending;
         private FormalVictoryRequest pendingVictory;
@@ -49,7 +49,7 @@ namespace NewAster.Core
             if(request==null||save==null)throw new ArgumentNullException();if(writing)throw new InvalidOperationException("Reentrant campaign write.");
             var receipt=current.growth.receipts.SingleOrDefault(r=>r.transactionId==request.BattleId);
             if(receipt!=null){if(receipt.signature!=request.Signature)throw new ArgumentException("Battle ID reused.");return GrowthCommitResult.AlreadyCommitted;}
-            if(HasPending){if(request.BattleId!=pendingVictory.BattleId||request.Signature!=pendingVictory.Signature||request.Revision!=pendingVictory.Revision)throw new InvalidOperationException("Retry the same victory.");}
+            if(HasPending){if(pendingVictory==null || request.BattleId!=pendingVictory.BattleId||request.Signature!=pendingVictory.Signature||request.Revision!=pendingVictory.Revision)throw new InvalidOperationException("Retry the same victory.");}
             else{
                 if(request.Revision!=current.revision || current.world.claimedBattleIds.Contains(request.BattleId) || rewardWorld==null)throw new ArgumentException("Stale or already-claimed world victory.");
                 var next=Snapshot;writing=true;try{next.world=rewardWorld(next.world);}finally{writing=false;}

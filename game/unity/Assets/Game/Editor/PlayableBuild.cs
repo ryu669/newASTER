@@ -23,6 +23,40 @@ public static class PlayableBuild
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception("Build failed: "+report.summary.result);
         Debug.Log("PLAYABLE_BUILD_PASS "+assertions+" assertions / "+report.summary.totalSize+" bytes");
     }
+    private static void ValidateFormalSplitRecovery()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-split-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
+        string path=Path.Combine(directory,"formal.json"),growth=Path.Combine(directory,"growth.json"),world=Path.Combine(directory,"world.json");
+        try {
+            var initial=new FormalGrowthSave {saveId="newaster.formal-growth",stones=999,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=25}}};var w=new CampaignState(WorldCatalog.ColossusIds).CreateSave();
+            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));
+            File.WriteAllText(growth,"broken");File.WriteAllText(growth+".bak",JsonUtility.ToJson(initial));File.WriteAllText(world,JsonUtility.ToJson(w));
+            var offer=store.InspectSplitRecovery(growth,world,t=>JsonUtility.FromJson<FormalGrowthHeader>(t),t=>JsonUtility.FromJson<FormalGrowthSave>(t),t=>JsonUtility.FromJson<FormalWorldHeader>(t),t=>JsonUtility.FromJson<CampaignSaveV2>(t),initial,w);
+            Check(offer.CanRestore && !File.Exists(path),"Unity split JSON inspect is read-only");
+            var preview=store.RecoveryPreview(offer);Check(preview.growth.stones==999 && preview.growth.heroines[0].level==25,"Unity split preview retains complete heroine");
+            var restored=store.RestoreSplitConfirmed(offer,growth,world);Check(restored.growth.stones==999 && restored.growth.receipts.Length==0,"Unity split confirmation adds no gifts");
+            Check(File.ReadAllText(growth)=="broken" && File.Exists(growth+".bak") && File.Exists(world),"Unity split source files retained");
+            Check(store.Load(out var loaded)==FormalLoadResult.Loaded && encode(restored)==encode(loaded),"Unity split recovered file readable normally");
+        }finally{foreach(var file in Directory.GetFiles(directory))File.Delete(file);Directory.Delete(directory);}
+    }
+    private static void ValidateFormalEngagement()
+    {
+        var rules=JsonUtility.FromJson<FormalEngagementRules>(Resources.Load<TextAsset>("Economy/engagement-trial").text);rules.Validate();
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer"}}}};
+        var journal=new FormalCampaignJournal(decode(encode(original)),encode,decode);var utc=new DateTime(2026,10,2,15,0,0,DateTimeKind.Utc);
+        Check(journal.Snapshot.engagement==null || journal.Snapshot.engagement.activeSeconds==0,"Earlier formal save has no awarded playtime");
+        journal.CommitActiveSeconds(1800,s=>{decode(encode(s)).Validate();return true;});
+        var request=new FormalEngagementRequest(false,0,1,journal.Snapshot.revision);string before=encode(journal.Snapshot);
+        Check(journal.CommitEngagement(request,rules,utc,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==before,"Unity time reward failure atomic");
+        Check(journal.CommitEngagement(request,rules,utc,s=>{decode(encode(s)).Validate();return true;})==GrowthCommitResult.Committed,"Unity time reward retry and JSON ledger");
+        var loaded=new FormalCampaignJournal(decode(encode(journal.Snapshot)),encode,decode);
+        Check(loaded.Snapshot.growth.stones==100 && loaded.Snapshot.engagement.claimedPeriods==1,"Unity time receipt and stone retained");
+        Check(loaded.CommitEngagement(request,rules,utc,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity reload prevents replay reward");
+        var daily=new FormalEngagementRequest(true,20261003,0,loaded.Snapshot.revision);loaded.CommitEngagement(daily,rules,utc,s=>true);
+        Check(loaded.Snapshot.growth.stones==400 && FormalEngagementRules.Day(utc.AddSeconds(-1))==20261002,"Unity daily grant Japanese midnight");
+    }
     private static void ValidateFormalGrowth()
     {
         var catalog=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>("Combat/battle-formal").text);
@@ -111,6 +145,8 @@ public static class PlayableBuild
         ValidateFormalKinder();
         ValidateFormalCampaign();
         ValidateFormalRecovery();
+        ValidateFormalEngagement();
+        ValidateFormalSplitRecovery();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

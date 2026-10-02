@@ -14,12 +14,15 @@ namespace NewAster.Core
         public long revision;
         public CampaignSaveV2 world;
         public FormalGrowthSave growth;
+        // Optional additive field: earlier formal envelopes retain all existing state.
+        public FormalEngagementState engagement;
         public void Validate()
         {
             if(version!=1 || saveId!=Identity || revision<0 || world==null || growth==null)throw new ArgumentException("Unsupported formal campaign.");
             growth.Validate();
             if(growth.saveId!="newaster.formal-growth")throw new ArgumentException("Growth identity mismatch.");
             ValidateWorld(world);
+            engagement?.Validate();
             foreach(var receipt in growth.receipts.Where(r=>r.signature.StartsWith("victory|",StringComparison.Ordinal)))
                 if(!world.claimedBattleIds.Contains(receipt.transactionId))throw new ArgumentException("Victory receipt without world reward.");
         }
@@ -52,7 +55,7 @@ namespace NewAster.Core
                 if(envelope!=null && (envelope.version!=1 || envelope.saveId!=FormalCampaignSave.Identity))return FormalLoadResult.Blocked;
                 var header=decode(source);
                 // Never hide future/foreign content behind an older backup.
-                if(header!=null && (header.version!=1 || header.saveId!=FormalCampaignSave.Identity || header.growth!=null && (header.growth.version!=2 || header.growth.contentVersion!=FormalGrowthSave.ContentVersion || header.growth.saveId!="newaster.formal-growth") || header.world!=null && header.world.version!=2))return FormalLoadResult.Blocked;
+                if(Unsupported(header))return FormalLoadResult.Blocked;
                 save=Read(path);return FormalLoadResult.Loaded;
             }catch(Exception e)when(ReadFailure(e)){
                 try{save=Read(path+".bak");return FormalLoadResult.RecoveredBackup;}
