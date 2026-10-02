@@ -1,85 +1,55 @@
-# 資料一覧
+# newASTER 仕様体系
 
-正式版の入口は[ゲーム要求仕様](game-requirements-v2.md)。古い企画・調査記録は根拠と検討履歴として残している。仕様書が存在することと、実装済みであることは別。
+更新：2026-10-02。現行ブランチ：`docs/kyoshin-requirements-v2`。このページを実装の入口とします。文書名の版番号を廃止し、変更版はGitコミットで管理します。実装・素材・セーブは今回変更しません。
 
-## 現行2D詳細仕様
+## 読む順序と唯一の定義元
 
-横断する状態遷移と具体型は[実装契約](spec-implementation-contracts.md)を優先します。チェイン方式・結果再生・座標・箱庭・ADV・保存の初回方式を統一し、暫定判断と正式値TBDを区別しています。
-
-現行要求は[ゲーム要求仕様 v0.3](game-requirements-v2.md)。以下は2D版の詳細仕様で、旧3D制作・旧ブラウザ試作の記述より優先します。実装修正はローカルで後日実施し、今回の更新は文書のみです。
-
-| 文書 | 役割 |
-| --- | --- |
-| [2D表示要件](2d-illustration-spec.md) | 維持／2D化／廃止／TBDと全体方針 |
-| [2D戦闘表示](spec-2d-battle-presentation.md) | レイヤー、部位選択、差分、イベントと演出時計 |
-| [2D箱庭・交流・ADV](spec-2d-garden-and-adv.md) | 自由配置、家具利用、人物・CG、回想、保存 |
-| [2D素材契約・受入れ](spec-2d-assets-and-acceptance.md) | 台帳、納品、差分整合性、欠落、品質ゲート |
-| [戦闘・収集詳細](spec-battle-and-collection-v0.2.md) | 既存ルールを維持した2D表示接続 |
-| [成長・経済・書UI詳細](spec-progression-ui-v0.2.md) | 育成・抽選・配置・ページ演出と保存 |
-
-## 正式版
-
-旧文書の3D制作・旧ブラウザ照合の記述は現行条件ではありません。現行の着手順は[2D版着手パッケージ](formal-production-start-v0.2.md)。
-
-[速度とスキル待機と詠唱による行動順](battle-speed-casting.md)：最新の戦闘時間仕様。エキドナ動画とユーザー確認に基づき、自由順の固定ラウンドを置き換える。
-
-[5人戦闘の動画検討と修正仕様](five-hero-battle-review.md)：ザクロ花嫁の参照動画、スキル別の自己・単体・複数・全体回復、行動人数、部位破壊通知。試遊版の最新支援仕様はこの文書を参照。
-
-| 文書 | 役割 |
-| --- | --- |
-| [ゲーム要求仕様 v0.2](game-requirements-v2.md) | **最新・優先**。世界再生、巨神獣15体、詩、5人戦闘、育成、ガチャ、箱庭、万物の書UI、受入条件、TBD |
-| [世界記憶・15巨神獣詳細仕様 v0.2](world-memory-colossi-v0.2.md) | 呪歌、万物の書、世界記述、過去7世界、初期15巨神獣、環境・箱庭の接続 |
-| [戦闘・詩・ヒロイン詳細仕様 v0.2](spec-battle-and-collection-v0.2.md) | 巨神獣・部位・大技、5人戦闘、チェイン、13ジョブ、詩、好感度、データと試験 |
-| [進行・経済・万物の書UI詳細仕様 v0.2](spec-progression-ui-v0.2.md) | テラフォーミング、箱庭、育成、装備の樹、オーパーツ、ガチャ、UI遷移、保存と試験 |
-| [制作ギャップ分析・確定順序 v0.2](production-gap-analysis-v0.2.md) | 実装を止める不足項目、制作ゲート、検討の優先順位 |
-| [縦切り詳細仕様 v0.2](vertical-slice-spec-v0.2.md) | 最初の1体・5人・詩・箱庭・成長を一周完成させる範囲と受入条件 |
-| [正式版着手パッケージ v0.2](formal-production-start-v0.2.md) | 開始判定、技術構成、最初の10作業、初回ビルドの完了条件 |
-| [正式版実装ロードマップ v0.2](implementation-roadmap-v0.2.md) | 現在地、実装順、各段階の完了条件 |
-| [正式版制作：戦闘更新 v0.3](production-combat-update-v0.3.md) | 覚醒・重複強化の継承、5人の個別支援、巨神獣の段階変化・行動予告、正式データのTBD |
-| [動画を参考にした戦闘UI改良](battle-video-ui-update.md) | 3D中心・右側3スキル・下部5人カード・部位選択の画面構成 |
-| [3Dアセット制作方針 v0.2](asset-production-policy-v0.2.md) | 独自モデルの制作範囲、参考作品との区別、最初のモデル制作順 |
-| [旧・要件定義](requirements.md) | 旧方針の統合記録。現行仕様と矛盾する場合はv0.2を優先 |
-| [継承ヒロイン](inherited-heroines.md) | 指定7人、主人公、時系列、原作との関係 |
-| [導入・加入構成案](continuity-opening.md) | 初期3人・加入順の提案、プレイヤー名 |
-| [歌・好感度・シーン](songs-affection-scenes.md) | 収集、交流、回想、進行と保存 |
-| [本制作着手仕様](production-ready-spec.md) | 戦闘時計、保存復旧、移植基準。旧人物案を含む |
-| [2D素材仕様](production-assets.md) | 現行の2D詳細仕様への入口 |
-| [本制作検討書](production-plan.md) | 方式・制作段階の検討履歴。旧6人案を含む |
-
-## 旧ブラウザ試作の記録（廃棄対象）
-
-以下は旧記録への参照であり、現行仕様・比較・移植基準には使いません。ファイル撤去は今回の文書更新に含めません。
-
-- [起動・遊び方](../README.md)
-- [v0.2完成記録](prototype-release.md)、[検証記録](prototype-validation.md)
-- [戦闘仕様](battle-spec.md)、[誓いと救援](oath-rescue-prototype.md)
-- [移植照合データ](../tests/fixtures/battle-parity-v1.json)
-
-## 人物と参考作品の調査
-
-- [7人の人物調査](heroine-research.md)、[巨神EDの観察](kyoshin-ending-observations.md)
-- [戦闘録画の観察](battle-observations.md)
-- [ANGELICA本体の分析](angelica-client-analysis.md)、[ジョブ演習](angelica-job-observations.md)、[ヘルプ追加確認](angelica-rules-followup.md)
-- [参考資料と出典](references.md)
-- 個人保全台帳・録画一覧・保全用ツールは手元専用としてGit管理外に保持。公開文書には個人の保存先を記載しない。
-
-## 初期の検討履歴
-
-- [初期企画](concept.md)、[方式比較・提案](proposal.md)、[ANGELICA要素の検討](angelica-elements.md)
-
-## フォルダの役割
-
-| 場所 | 内容 | Git管理 |
+| 層 | 文書 | 定義するもの |
 | --- | --- | --- |
-| ルート・`src/` | ブラウザ試作と起動・梱包 | 対象 |
-| `tests/` | 試作の回帰試験と移植基準 | 対象 |
-| `docs/` | 要件・詳細設計・調査履歴 | 対象 |
-| `tools/` | 移植照合。個人保全用ツールは手元のみ | 移植照合のみ対象 |
-| `game/` | 将来の正式版3Dプロジェクト。現在は未作成 | ソースを対象、キャッシュは除外 |
-| `dist/` | 試作の生成ZIP | 除外 |
-| `.reference-analysis/` | 参考録画の確認画像 | 除外 |
-| `.local-archive/` | 原作クライアント・プロフィール・録画等の個人保全 | 除外 |
+| 要求 | [ゲーム要求](requirements/game.md) | 体験・対象範囲・数量・禁止事項・ユーザー確定方針 |
+| 要求 | [2D表現要求](requirements/presentation.md) | 2D化の範囲・維持／廃止・必要な体験 |
+| 世界 | [世界記憶](world/world-memory.md) | 世界法則・7世界・15巨神獣・解放順・環境 |
+| システム | [戦闘](systems/battle.md) | 部位・ジョブ境界・独立自動チェイン・結果確定 |
+| システム | [速度・詠唱](systems/battle-timing.md) | 通常予定列・待機・詠唱・予約対象 |
+| システム | [詩・好感度](systems/collection-and-affection.md) | 収集・章・イベント条件・恋人進行 |
+| システム | [育成・経済](systems/progression.md) | Lv・覚醒・装備・オーパーツ・キンダーガーデン |
+| システム | [万物の書](systems/book-navigation.md) | しおり・対象・情報面・遷移・入力 |
+| システム | [箱庭](systems/garden.md) | 配置・衝突・確定／取消・家具利用 |
+| システム | [ADV](systems/adv.md) | 命令実行・行既読・読了・中断・回想 |
+| システム | [保存](systems/save-and-migration.md) | 原子性・失敗・復旧・版移行 |
+| データ | [共通データ契約](data/contracts.md) | 型・ID・座標・JSON・イベント・参照検証・乱数ログ |
+| 表示 | [2D戦闘](presentation/battle.md) | 画面領域・レイヤー・部位差分・カットイン |
+| 表示 | [箱庭・ADV表示](presentation/garden-and-adv.md) | 背景・人物・家具絵・CG・欠落時表示 |
+| 素材 | [素材契約](presentation/assets.md) | 制作・書き出し・差分・採用・権利確認 |
+| 制作 | [実装計画](production/implementation-plan.md) | 着手順・完了条件 |
+| 制作 | [縦切り](production/vertical-slice.md) | 最初の完成範囲・測る内容 |
+| 検証 | [受入試験](production/acceptance.md) | 試験ID・品質ゲート・性能記録 |
+| 検証 | [プレイテスト](production/playtest.md) | 操作観察と計測手順 |
 
-起動・梱包・資料リンクを保つため、試作コードと既存資料のパスは維持する。正式版実装は将来`game/`へ分離し、試作は移植基準として保持する。過去資料に旧仕様が残る場合は、[ゲーム要求仕様 v0.2](game-requirements-v2.md)を優先する。
+要求が詳細に優先します。領域内の動作はsystems、データ形はdata、見せ方はpresentationを定義元とし、他文書は参照にします。世界の解放・記憶元はworldを参照します。受入期待値が動作と矛盾する場合は定義元を確認し、実装者が独自の別規則を採用しません。
 
+## 文書変更の規則
 
+- 動作変更は担当systemsを変更し、影響するデータ型・表示・受入ケースを同じコミットで確認する。別文書に同じアルゴリズムをコピーしない。
+- 要求の確定数量はrequirementsを定義元とする。詳細に数量を表示する場合は参照用であり、独立して変更しない。
+- 暫定契約は担当文書に区分を明記する。ユーザー確定と暫定判断を混同しない。
+- TBDには決める時点・影響する文書・検証項目を対応づける。未指定値を0や既存試作値へ黙って補完しない。
+- JSON等の例は構造例と完成データを区別する。schemaVersionとcontentVersionを混同しない。
+- 旧パスは移動案内として維持し、現行本文を二重保管しない。旧資料はreferences／archiveに区分する。
+
+## TBDの管理
+
+| 未確定項目 | 定義元 | 決める時点 |
+| --- | --- | --- |
+| チェイン候補順・率・補正・固定行動・資源・通常待機影響 | systems/battle.md | チェイン本実装前 |
+| 正式速度式・スキル時間・状態効果 | systems/battle-timing.md | 個別戦闘データ作成前 |
+| ジョブ資源・正式人物・固有スキル | systems/battle.md | 5人の完成見本前 |
+| 詩対応・取得・イベント条件と本文 | systems/collection-and-affection.md | 収集・ADV接続前 |
+| 家具・人物方式・専用差分の量 | systems/garden.md、presentation/garden-and-adv.md | 箱庭完成見本前 |
+| 素材量・抽選・オーパーツ各係数 | systems/progression.md | 経済検証前 |
+| 現行保存形式・変換表・乱数実装の版 | systems/save-and-migration.md、data/contracts.md | ローカル変更前 |
+| 画像解像度・圧縮・読込・メモリ予算・演出尺 | presentation | 実機品質・性能検証時 |
+
+## 現行ではない資料
+
+[参考資料一覧](references/README.md)は原作観察・調査、[旧資料一覧](archive/README.md)は旧仕様・3D制作・旧試作・過去実装記録です。どちらも現行の必須規則ではありません。旧ブラウザゲームは廃棄対象で、比較・移植基準として採用しません。今回は文書の整理だけを行います。
