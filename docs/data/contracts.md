@@ -168,6 +168,14 @@ SkillCombatDefはid／ownerId／name／effectRuleId／targetRuleIdに加え、�
 
 未知版、欠落、ID重複、所有者違い、不正数値、未対応効果、複数定義ソースの混在を拒否する。Unityの読込失敗は画面にエラーを表示し出撃を止め、旧ハードコードへ補完しない。定義未指定コンストラクタは回帰試験用に残すが、通常出撃は必ずJSONを使用する。正式値・正式人物内容の採用とは区別する。
 
+固定行動の追加対応：effect.damageはtarget.boss-body／target.lowest-hp-part、effect.healはtarget.self／target.lowest-hp-ally／target.all-living-alliesを許可する。回復量はbaseHealing＋floor(行動者攻撃×powerScale)。敵攻撃はpowerScale>0とbaseHealing=0、回復は非負で少なくとも一方が正。所有者・対象・効果の不整合、状態異常等の未対応効果は拒否する。
+
+低HP味方は負傷している生存者のHP／最大HP比率で選び、同率は編成順。部位は未破壊部位の現在HPで選び、同値は部位定義順。いずれも追加乱数は使わない。全体回復は生存者だけを対象とし、HP上限を超えず戦闘不能を復活させない。イベントのTargetIdsは選択されたID、HealingTargetsは実際にHPが増えた人物indexを保持する。固定行動にはChainActionId／PresentationIdも付ける。これらは現行BattlePresentationEventの追補で、完全VisualEvent移行は未完了。
+
+対象なし・回復対象が全快ではHPを変更しない。部位全破壊時に本体へ自動切替しない。対象なしも一回の固定行動として数え、チェインの次判定へ進む。この不発方針は試作実装値で、正式人物制作時に受入れ確認する。通常資源・時刻・待機／詠唱予約は変更せず、部位破壊の既存効果は適用する。
+
+実行用JSONの仮人物は、暁＝本体攻撃0.6、翼＝低HP部位攻撃0.6、守護＝自己回復10＋攻撃×0.3、森＝低HP割合味方回復10＋攻撃×0.4、星＝本体攻撃0.6へ分けた。これは効果検証用のplaceholderで、ジョブから固有行動を自動決定する規則でも正式人物内容でもない。人物別chainActionIdの参照を編集して決める。
+
 ## 収集・育成・経済の定義型
 
 ```text

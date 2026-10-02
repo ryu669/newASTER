@@ -306,7 +306,7 @@
       "id": "chain.preview-1",
       "heroineId": "hero-1",
       "effectRuleId": "effect.damage",
-      "targetRuleId": "target.boss-body",
+      "targetRuleId": "target.lowest-hp-part",
       "resourcePolicy": "none",
       "timelinePolicy": "preserve",
       "commandInteractionPolicy": "none",
@@ -316,24 +316,26 @@
     {
       "id": "chain.preview-2",
       "heroineId": "hero-2",
-      "effectRuleId": "effect.damage",
-      "targetRuleId": "target.boss-body",
+      "effectRuleId": "effect.heal",
+      "targetRuleId": "target.self",
       "resourcePolicy": "none",
       "timelinePolicy": "preserve",
       "commandInteractionPolicy": "none",
       "presentationId": "presentation.chain-preview-2",
-      "powerScale": 0.6
+      "powerScale": 0.3,
+      "baseHealing": 10
     },
     {
       "id": "chain.preview-3",
       "heroineId": "hero-3",
-      "effectRuleId": "effect.damage",
-      "targetRuleId": "target.boss-body",
+      "effectRuleId": "effect.heal",
+      "targetRuleId": "target.lowest-hp-ally",
       "resourcePolicy": "none",
       "timelinePolicy": "preserve",
       "commandInteractionPolicy": "none",
       "presentationId": "presentation.chain-preview-3",
-      "powerScale": 0.6
+      "powerScale": 0.4,
+      "baseHealing": 10
     },
     {
       "id": "chain.preview-4",

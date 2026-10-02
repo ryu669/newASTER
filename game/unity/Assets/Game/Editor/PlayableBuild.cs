@@ -90,6 +90,8 @@ public static class PlayableBuild
         Check(source!=null,"Combat JSON must exist before a player can be built");
         var definitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);definitions.Validate();
         Check(definitions.heroines.Length==5 && definitions.skills.Length==15 && definitions.chainActions.Length==5,"Unity deserializes the complete combat slice");
+        var fixedActions=definitions.Chain();
+        Check(fixedActions[1].Target==ChainTarget.LowestHpPart && fixedActions[2].Effect==ChainEffect.Heal && fixedActions[3].Target==ChainTarget.LowestHpAlly,"Unity deserializes distinct placeholder fixed-action targets and effects");
         var battle=new PlayableBattle(1,new PlayableProgress(),21,combatDefinitions:definitions);
         Check(battle.SkillName(4,1)==definitions.Skill("hero-4",1).name && battle.Timing(4,1).CastPercent==150,"Unity loaded names and cast timing reach the battle");
         int actor=battle.AvailableHero;battle.Act(actor,0,"body");

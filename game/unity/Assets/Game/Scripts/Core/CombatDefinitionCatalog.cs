@@ -20,6 +20,7 @@ namespace NewAster.Core
     {
         public string id,heroineId,effectRuleId,targetRuleId,resourcePolicy,timelinePolicy,commandInteractionPolicy,presentationId;
         public float powerScale;
+        public int baseHealing;
     }
     // A versioned combat-only slice, not the complete story/trait/weapon HeroineDef.
     [Serializable] public sealed class CombatDefinitionCatalog
@@ -42,8 +43,9 @@ namespace NewAster.Core
                 throw new ArgumentException("Invalid heroine combat definition.");
             if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=15)
                 throw new ArgumentException("Invalid skill definition.");
-            if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.effectRuleId!="effect.damage" || a.targetRuleId!="target.boss-body" || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale,true)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
+            if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
                 throw new ArgumentException("Unsupported or invalid chain definition.");
+            foreach(var action in chainActions) MakeChain(action);
             for(int actor=0;actor<5;actor++) {
                 string heroId="hero-"+actor;
                 var h=heroines.SingleOrDefault(x=>x.id==heroId);
@@ -82,7 +84,24 @@ namespace NewAster.Core
         }
         public HeroineChainAction[] Chain()
         {
-            Validate();return Enumerable.Range(0,5).Select(i=>{var h=Hero("hero-"+i);var a=chainActions.Single(x=>x.id==h.chainActionId);return new HeroineChainAction(h.id,a.id,(decimal)a.powerScale);}).ToArray();
+            Validate();return Enumerable.Range(0,5).Select(i=>{var h=Hero("hero-"+i);return MakeChain(chainActions.Single(x=>x.id==h.chainActionId));}).ToArray();
+        }
+        private static HeroineChainAction MakeChain(ChainCombatDef a)
+        {
+            ChainEffect effect;
+            if(a.effectRuleId=="effect.damage") effect=ChainEffect.Damage;
+            else if(a.effectRuleId=="effect.heal") effect=ChainEffect.Heal;
+            else throw new ArgumentException("Unsupported fixed chain effect.");
+            ChainTarget target;
+            switch(a.targetRuleId) {
+                case "target.boss-body": target=ChainTarget.BossBody;break;
+                case "target.lowest-hp-part": target=ChainTarget.LowestHpPart;break;
+                case "target.self": target=ChainTarget.Self;break;
+                case "target.lowest-hp-ally": target=ChainTarget.LowestHpAlly;break;
+                case "target.all-living-allies": target=ChainTarget.AllLivingAllies;break;
+                default: throw new ArgumentException("Unsupported fixed chain target.");
+            }
+            return new HeroineChainAction(a.heroineId,a.id,(decimal)a.powerScale,effect,target,a.baseHealing,a.presentationId);
         }
     }
 }

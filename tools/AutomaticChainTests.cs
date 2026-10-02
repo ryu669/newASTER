@@ -18,6 +18,9 @@ public static class AutomaticChainTests
         Check(catalog.Healing().Length==3 && catalog.Chain().Length==5,"Actual JSON creates healing and chain definitions");
         catalog.heroines=catalog.heroines.Reverse().ToArray();catalog.skills=catalog.skills.Reverse().ToArray();catalog.chainActions=catalog.chainActions.Reverse().ToArray();catalog.Validate();
         Check(catalog.Skill("hero-4",1).castPercent==150 && catalog.Chain()[0].HeroId=="hero-0","JSON order does not change formation ownership");
+        // Compare a legacy-equivalent fixed-action profile; the actual placeholder
+        // JSON now intentionally has distinct part damage and healing actions.
+        foreach(var a in catalog.chainActions) {a.effectRuleId="effect.damage";a.targetRuleId="target.boss-body";a.powerScale=.6f;a.baseHealing=0;}
         for(int seed=1;seed<=40;seed++) {
             var oldBattle=new PlayableBattle(10,new PlayableProgress(),seed);
             var dataBattle=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:catalog);
@@ -31,7 +34,7 @@ public static class AutomaticChainTests
         catalog=fresh();catalog.skills[0].ownerId="hero-1";ExpectCombatFailure(catalog,"Cross-hero skill rejected");
         catalog=fresh();catalog.chainActions[0].heroineId="hero-1";ExpectCombatFailure(catalog,"Cross-hero chain rejected");
         catalog=fresh();catalog.chainActions[0].resourcePolicy="spend";ExpectCombatFailure(catalog,"Resource-spending chain rejected");
-        catalog=fresh();catalog.chainActions[0].effectRuleId="effect.heal";ExpectCombatFailure(catalog,"Not-yet-supported chain effects rejected");
+        catalog=fresh();catalog.chainActions[0].effectRuleId="effect.unknown";ExpectCombatFailure(catalog,"Unknown chain effects rejected");
         catalog=fresh();catalog.skills[0].powerScale=float.NaN;ExpectCombatFailure(catalog,"Nonfinite skill scale rejected");
         catalog=fresh();catalog.Skill("hero-3",2).targetCount=2;ExpectCombatFailure(catalog,"All-allies target count must be five");
         catalog=fresh();catalog.Skill("hero-3",1).castPercent=100;ExpectCombatFailure(catalog,"Unsupported deferred heal rejected");
@@ -63,6 +66,7 @@ public static class AutomaticChainTests
         Check(castingEvents.First().Kind==BattlePresentationKind.CastStart && castingEvents.First().Resources[4]==beforeResource-1,"Cast start snapshot uses defined cost");
         while(custom.IsCasting(4) && !custom.Ended) {custom.Pass();castingEvents.AddRange(custom.DrainPresentationEvents());}
         Check(castingEvents.Any(e=>e.Kind==BattlePresentationKind.CastRelease) && !castingEvents.Any(e=>e.Message.StartsWith("自動チェイン")),"Deferred cast obeys defined chain eligibility");
+        ValidateFixedEffects(fresh);
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -146,5 +150,64 @@ public static class AutomaticChainTests
     private static void ExpectCombatFailure(CombatDefinitionCatalog catalog,string message)
     {
         bool rejected=false;try {catalog.Validate();}catch(ArgumentException){rejected=true;}Check(rejected,message);
+    }
+    private static BattleState EffectState()
+    {
+        return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
+            Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
+    }
+    private static void ValidateFixedEffects(Func<CombatDefinitionCatalog> fresh)
+    {
+        var state=EffectState();state.Heroes[0].TakeDamage(40);state.Heroes[1].TakeDamage(100);state.Heroes[3].TakeDamage(100);
+        foreach(var h in state.Heroes) h.GainResource(3);
+        var weakest=new HeroineChainAction("hero-4","chain.test",0,ChainEffect.Heal,ChainTarget.LowestHpAlly,15);
+        var effect=ChainActionResolver.Resolve(state,4,weakest);
+        Check(effect.TargetIds.SequenceEqual(new[]{"hero-1"}) && effect.HealingTargets.SequenceEqual(new[]{1}) && effect.Amount==15,"Lowest HP ratio, not absolute HP, chooses target");
+        Check(state.Heroes[3].HitPoints==0 && state.Heroes.All(h=>h.JobResource==3),"Fixed healing cannot resurrect or change resources");
+        state=EffectState();state.Heroes[0].TakeDamage(50);state.Heroes[1].TakeDamage(100);
+        effect=ChainActionResolver.Resolve(state,4,weakest);Check(effect.TargetIds.Single()=="hero-0","Equal ratios use formation order without RNG");
+        state.Heroes[2].TakeDamage(10);state.Heroes[3].TakeDamage(100);
+        effect=ChainActionResolver.Resolve(state,4,new HeroineChainAction("hero-4","chain.all",0,ChainEffect.Heal,ChainTarget.AllLivingAllies,500));
+        Check(effect.TargetIds.Count==4 && effect.HealingTargets.SequenceEqual(new[]{0,1,2}) && effect.Amount==145,"All-living heal caps HP and tracks actual healed targets");
+        effect=ChainActionResolver.Resolve(state,4,weakest);Check(effect.TargetIds.Count==0 && effect.Amount==0,"No wounded target is an explicit no-effect result");
+        state.Heroes[4].TakeDamage(10);
+        effect=ChainActionResolver.Resolve(state,4,new HeroineChainAction("hero-4","chain.self",0,ChainEffect.Heal,ChainTarget.Self,30));
+        Check(effect.TargetIds.Single()=="hero-4" && effect.Amount==10,"Self heal is clamped");
+        state=EffectState();state.AdvanceBossGauge(2);
+        var partAttack=new HeroineChainAction("hero-4","chain.part",2,ChainEffect.Damage,ChainTarget.LowestHpPart);
+        effect=ChainActionResolver.Resolve(state,4,partAttack);
+        Check(effect.Target=="part-0" && effect.Amount==20 && effect.PartBroken && state.BossGauge==1 && state.BossHitPoints==1000,"Part damage honors tie order, cap and break effect");
+        foreach(var p in state.Parts) state.BreakPart(p.Id,1000);
+        effect=ChainActionResolver.Resolve(state,4,partAttack);Check(effect.TargetIds.Count==0 && state.BossHitPoints==1000,"No surviving parts cannot silently retarget body");
+        state.ApplyBossDamage(1000);state.Heroes[0].TakeDamage(10);
+        effect=ChainActionResolver.Resolve(state,4,weakest);Check(effect.TargetIds.Count==0 && state.Heroes[0].HitPoints==90,"Battle victory stops even a healing fixed action");
+        state=EffectState();state.Heroes[4].TakeDamage(100);
+        effect=ChainActionResolver.Resolve(state,4,weakest);Check(effect.TargetIds.Count==0,"Dead actor cannot perform a fixed action");
+        bool rejected=false;try{ChainActionResolver.Resolve(state,0,partAttack);}catch(ArgumentException){rejected=true;}Check(rejected,"Resolver rejects action owned by another heroine");
+        var catalog=fresh();catalog.chainActions[0].targetRuleId="target.self";ExpectCombatFailure(catalog,"Damage cannot target an ally");
+        catalog=fresh();catalog.chainActions[2].targetRuleId="target.boss-body";ExpectCombatFailure(catalog,"Heal cannot target enemy");
+        catalog=fresh();catalog.chainActions[2].powerScale=0;catalog.chainActions[2].baseHealing=0;ExpectCombatFailure(catalog,"Zero-strength healing is rejected");
+        bool sawPart=false,sawHeal=false,sawFullHeal=false,sawCastingHeal=false;
+        for(int seed=1;seed<=100;seed++) {
+            catalog=fresh();
+            catalog.chainActions[2].targetRuleId="target.all-living-allies";
+            var a=new PlayableBattle(50,new PlayableProgress(),seed,combatDefinitions:catalog);
+            var b=new PlayableBattle(50,new PlayableProgress(),seed,combatDefinitions:catalog);
+            for(int i=0;i<5;i++){a.State.Heroes[i].TakeDamage(20);b.State.Heroes[i].TakeDamage(20);}
+            a.DrainPresentationEvents();b.DrainPresentationEvents();int actor=a.AvailableHero;long tick=a.Clock;
+            a.Act(actor,0,"body");b.Act(actor,0,"body");
+            var events=a.DrainPresentationEvents();var fixedEvents=events.Where(e=>e.ChainActionId!=null).ToArray();var origin=events.First();
+            Check(a.Log==b.Log && a.State.BossHitPoints==b.State.BossHitPoints && a.State.Heroes.Select(h=>h.HitPoints).SequenceEqual(b.State.Heroes.Select(h=>h.HitPoints)),"Mixed fixed effects reproduce with same seed");
+            Check(fixedEvents.All(e=>e.Clock==tick && e.Resources.SequenceEqual(origin.Resources) && !string.IsNullOrEmpty(e.PresentationId)),"Fixed effects preserve logical time/resources and include presentation IDs");
+            Check(fixedEvents.Where(e=>e.Kind==BattlePresentationKind.Healing).All(e=>e.Damage==0 && e.HealingTargets.All(i=>e.TargetIds.Contains("hero-"+i))),"Heal events identify actor separately from affected heroes");
+            sawPart|=fixedEvents.Any(e=>e.Actor==1 && e.Target!="body");sawHeal|=fixedEvents.Any(e=>e.Kind==BattlePresentationKind.Healing);sawFullHeal|=fixedEvents.Any(e=>e.Kind==BattlePresentationKind.Healing && e.FullChain);
+            var pending=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:catalog);
+            while(pending.AvailableHero!=4 && !pending.Ended) pending.Pass();pending.Act(4,1,"body");pending.DrainPresentationEvents();
+            if(pending.AvailableHero<0) continue;pending.State.Heroes[4].TakeDamage(40);long castAt=pending.NextAt(4);pending.Act(pending.AvailableHero,0,"body");
+            var healed=pending.DrainPresentationEvents().FirstOrDefault(e=>e.Kind==BattlePresentationKind.Healing && e.ChainActionId!=null && e.HealingTargets.Contains(4));
+            if(healed!=null && healed.Casting[4]) {sawCastingHeal=true;Check(pending.IsCasting(4) && pending.NextAt(4)==castAt,"Fixed healing preserves the exact cast reservation time");}
+        }
+        Check(sawPart && sawHeal && sawFullHeal,"Seed sample executes part attacks and healing in normal and bonus laps");
+        Check(sawCastingHeal,"Fixed healing can affect a casting heroine without canceling its reservation");
     }
 }

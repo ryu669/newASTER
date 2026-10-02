@@ -25,7 +25,10 @@ namespace NewAster.Core
         public IReadOnlyList<int> PartHp { get; }
         public IReadOnlyList<int> HealingTargets { get; }
         public IReadOnlyList<bool> Casting { get; }
-        public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting,bool fullChain=false,int chainActionCount=0)
+        public string ChainActionId { get; }
+        public string PresentationId { get; }
+        public IReadOnlyList<string> TargetIds { get; }
+        public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting,bool fullChain=false,int chainActionCount=0,string chainActionId=null,string presentationId=null,IEnumerable<string> targetIds=null)
         {
             Sequence=sequence; Clock=clock; Kind=kind; Actor=actor; Target=target??"body"; Message=message??"";
             FullChain=fullChain; ChainActionCount=chainActionCount;
@@ -35,6 +38,8 @@ namespace NewAster.Core
             PartHp=Array.AsReadOnly(state.Parts.Select(p=>p.HitPoints).ToArray());
             HealingTargets=Array.AsReadOnly((healingTargets??Array.Empty<int>()).ToArray());
             Casting=Array.AsReadOnly(casting.ToArray());
+            ChainActionId=chainActionId;PresentationId=presentationId;
+            TargetIds=Array.AsReadOnly((targetIds??(kind==BattlePresentationKind.Healing?HealingTargets.Select(i=>state.Heroes[i].Id):new[]{Target})).ToArray());
         }
     }
     public sealed class BattlePlaybackQueue
@@ -76,9 +81,9 @@ namespace NewAster.Core
         {
             var result=presentationEvents.ToArray(); presentationEvents.Clear(); return result;
         }
-        private void RecordPresentation(BattlePresentationKind kind,int actor,string target,string message,bool major=false,bool broken=false,int damage=0,IEnumerable<int> healingTargets=null)
+        private void RecordPresentation(BattlePresentationKind kind,int actor,string target,string message,bool major=false,bool broken=false,int damage=0,IEnumerable<int> healingTargets=null,string chainActionId=null,string presentationId=null,IEnumerable<string> targetIds=null)
         {
-            presentationEvents.Add(new BattlePresentationEvent(++presentationSequence,Clock,kind,actor,target,message,major,broken,damage,LastActionChain,State,healingTargets,Enumerable.Range(0,5).Select(IsCasting),LastFullChain,LastChainActionCount));
+            presentationEvents.Add(new BattlePresentationEvent(++presentationSequence,Clock,kind,actor,target,message,major,broken,damage,LastActionChain,State,healingTargets,Enumerable.Range(0,5).Select(IsCasting),LastFullChain,LastChainActionCount,chainActionId,presentationId,targetIds));
         }
     }
 }

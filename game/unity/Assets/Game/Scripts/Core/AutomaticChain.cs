@@ -59,13 +59,24 @@ namespace NewAster.Core
             return result;
         }
     }
-    // Explicit placeholder heroine definitions; never inferred from job or command skill.
+    public enum ChainEffect { Damage, Heal }
+    public enum ChainTarget { BossBody, LowestHpPart, Self, LowestHpAlly, AllLivingAllies }
+    // Immutable fixed action; never inferred from job or command skill.
     public sealed class HeroineChainAction
     {
         public string HeroId { get; }
         public string Id { get; }
         public decimal Power { get; }
-        public HeroineChainAction(string heroId,string id,decimal power)
-        { if(string.IsNullOrWhiteSpace(heroId)||string.IsNullOrWhiteSpace(id)||power<=0) throw new ArgumentException(); HeroId=heroId; Id=id; Power=power; }
+        public ChainEffect Effect { get; }
+        public ChainTarget Target { get; }
+        public int BaseHealing { get; }
+        public string PresentationId { get; }
+        public HeroineChainAction(string heroId,string id,decimal power,ChainEffect effect=ChainEffect.Damage,ChainTarget target=ChainTarget.BossBody,int baseHealing=0,string presentationId=null)
+        {
+            if(string.IsNullOrWhiteSpace(heroId)||string.IsNullOrWhiteSpace(id)||!Enum.IsDefined(typeof(ChainEffect),effect)||!Enum.IsDefined(typeof(ChainTarget),target)||power<0||power>100||baseHealing<0||baseHealing>1000000||
+                (effect==ChainEffect.Damage && (power<=0 || baseHealing!=0 || (target!=ChainTarget.BossBody && target!=ChainTarget.LowestHpPart))) ||
+                (effect==ChainEffect.Heal && ((power==0 && baseHealing==0) || (target!=ChainTarget.Self && target!=ChainTarget.LowestHpAlly && target!=ChainTarget.AllLivingAllies)))) throw new ArgumentException("Invalid fixed chain effect/target.");
+            HeroId=heroId;Id=id;Power=power;Effect=effect;Target=target;BaseHealing=baseHealing;PresentationId=presentationId;
+        }
     }
 }
