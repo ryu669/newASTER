@@ -92,6 +92,7 @@ public static class AutomaticChainTests
         Check(castingEvents.Any(e=>e.Kind==BattlePresentationKind.CastRelease) && !castingEvents.Any(e=>e.Message.StartsWith("自動チェイン")),"Deferred cast obeys defined chain eligibility");
         ValidateFixedEffects(fresh);
         ValidateAttackFollowUps(fresh);
+        ValidateTimedSelfEffects(fresh);
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -180,6 +181,95 @@ public static class AutomaticChainTests
     {
         return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
             Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
+    }
+    private static CombatDefinitionCatalog SelfBuffCatalog(Func<CombatDefinitionCatalog> fresh,params TimedSelfEffectDef[] effects)
+    {
+        var catalog=fresh();var skill=catalog.Skill("hero-0",1);
+        skill.effectRuleId="effect.self-buff";skill.targetRuleId="target.self";skill.powerScale=0;skill.castPercent=0;skill.chainEligible=false;skill.selfEffects=effects;
+        catalog.Skill("hero-0",0).chainEligible=false;catalog.Validate();return catalog;
+    }
+    private static TimedSelfEffectDef Timed(string kind,int percent,int turns) => new TimedSelfEffectDef {kind=kind,percent=percent,turns=turns};
+    private static void ValidateTimedSelfEffects(Func<CombatDefinitionCatalog> fresh)
+    {
+        var hero=new BattleHero("test",100,20,10);
+        hero.ApplySelfEffects(new[]{Timed("attack",15,3),Timed("physical-protection",40,4),Timed("regen",140,4)});
+        Check(hero.BaseAttack==20 && hero.Attack==23 && hero.ProtectPhysicalDamage(19)==11,"Effective attack and physical protection floor while base attack stays immutable");
+        hero.TakeDamage(60);Check(hero.RegenerateAtOwnerReady()==32 && hero.HitPoints==72,"Regen uses current attack and heals only at explicit owner readiness");
+        Check(hero.RegenerateAtOwnerReady()==28 && hero.HitPoints==100,"Regen caps to missing HP");
+        var saved=hero.TimedEffects;hero.CompleteOwnerCommand();
+        Check(saved.Single(e=>e.Kind=="attack").RemainingCommands==3 && hero.TimedEffects.Single(e=>e.Kind=="attack").RemainingCommands==2,"Effect snapshots cannot change after later command completion");
+        hero.CompleteOwnerCommand();Check(hero.Attack==23,"Last remaining command keeps attack bonus");
+        hero.CompleteOwnerCommand();Check(hero.Attack==20 && !hero.TimedEffects.Any(e=>e.Kind=="attack") && hero.TimedEffects.Single(e=>e.Kind=="regen").RemainingCommands==1,"Three-command buff expires independently of four-command effects");
+        hero.CompleteOwnerCommand();Check(hero.TimedEffects.Count==0 && hero.ProtectPhysicalDamage(19)==19,"Final completion expires all effects");
+        hero.ApplySelfEffects(new[]{Timed("attack",50,2)});hero.ApplySelfEffects(new[]{Timed("attack",15,3)});
+        Check(hero.Attack==23 && hero.TimedEffects.Count==1 && hero.TimedEffects[0].RemainingCommands==3,"Reapplication replaces same kind without stacking");
+        bool rejected=false;try{hero.ApplySelfEffects(new[]{Timed("regen",140,4),Timed("unknown",50,2)});}catch(ArgumentException){rejected=true;}
+        Check(rejected && hero.TimedEffects.Count==1 && hero.TimedEffects[0].Kind=="attack","Effect batch validation is atomic");
+        hero.TakeDamage(1000);Check(hero.TimedEffects.Count==0 && !hero.ApplySelfEffects(new[]{Timed("attack",15,3)}) && hero.RegenerateAtOwnerReady()==0,"Death clears effects and regeneration cannot revive");
+        hero=new BattleHero("large",int.MaxValue,int.MaxValue,10);hero.ApplySelfEffects(new[]{Timed("attack",1000,10),Timed("physical-protection",100,1)});
+        Check(hero.Attack==int.MaxValue && hero.ProtectPhysicalDamage(int.MaxValue)==0,"Large buffs saturate and 100% physical protection gives zero damage");
+        var state=EffectState();state.Heroes[0].ApplySelfEffects(new[]{Timed("attack",50,3)});state.Heroes[0].TakeDamage(40);
+        var outcome=BattleActionResolver.Resolve(state,"hero-0",new BattleSkill("buffed.attack",1,0,70),"body");
+        Check(outcome.Damage==30 && outcome.SelfHealing==14,"Damage uses effective attack but follow-up healing uses base attack");
+        ChainActionResolver.Resolve(state,0,new HeroineChainAction("hero-0","fixed",1));
+        Check(state.Heroes[0].TimedEffects[0].RemainingCommands==3,"Independent fixed action does not consume buff duration");
+        var catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));
+        var battle=new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:catalog);int actor=battle.AvailableHero;
+        Check(battle.IsSelfBuff(actor,1) && battle.PreviewDamage(actor,1,"body")==0 && battle.SelfBuffDescription(actor,1).Contains("15%"),"UI recognizes self-buff command rather than fake damage or healing");
+        int resource=battle.State.Heroes[actor].JobResource;battle.DrainPresentationEvents();
+        catalog.Skill("hero-0",1).selfEffects[0].percent=1000;
+        Check(battle.Act(actor,1,"missing") && battle.State.Heroes[actor].Attack==26 && battle.State.Heroes[actor].TimedEffects[0].RemainingCommands==3,"Self target ignores stale enemy selection and clones nested definitions");
+        var events=battle.DrainPresentationEvents();
+        Check(events[0].Kind==BattlePresentationKind.Support && events[0].TargetIds.SequenceEqual(new[]{"hero-0"}) && events[0].HeroEffects[0][0].RemainingCommands==3,"Buff activation event contains immutable duration snapshot and target ID");
+        Check(battle.State.Heroes[actor].JobResource==resource-3 && battle.LastChainChecks.Count==0,"Self-buff consumes defined resource once without chain checks");
+        while(battle.AvailableHero!=0 && !battle.Ended) battle.Pass();
+        Check(battle.State.Heroes[0].TimedEffects[0].RemainingCommands==3,"Other actors and enemies do not consume owner's buff");
+        battle.DrainPresentationEvents();battle.Act(0,0,"body");
+        Check(battle.State.Heroes[0].TimedEffects[0].RemainingCommands==2 && events[0].HeroEffects[0][0].RemainingCommands==3,"Owner success consumes one duration while older presentation remains unchanged");
+        events=battle.DrainPresentationEvents();Check(events.Any(e=>e.Kind==BattlePresentationKind.Support && e.HeroEffects[0][0].RemainingCommands==2),"Expiration update has a final-state presentation cue");
+        catalog=SelfBuffCatalog(fresh,Timed("regen",140,4),Timed("physical-protection",40,4));
+        battle=new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:catalog);battle.State.Heroes[0].TakeDamage(60);battle.DrainPresentationEvents();
+        battle.Act(0,1,"body");var collected=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+        Check(!collected.Any(e=>e.Message.StartsWith("再生")),"Regen does not fire on grant command");
+        Check(battle.PreviewEnemyDamage(0)==8,"Enemy physical preview applies 40% protection after existing modifiers");
+        while(battle.AvailableHero!=0 && !battle.Ended) {battle.Pass();collected.AddRange(battle.DrainPresentationEvents());}
+        var regen=collected.Single(e=>e.Message.StartsWith("再生"));
+        Check(regen.HealingTargets.SequenceEqual(new[]{0}) && regen.TargetIds.SequenceEqual(new[]{"hero-0"}) && regen.Chain==0 && !regen.FullChain,"Owner-ready regeneration has correct target and standalone chain metadata");
+        Check(battle.State.Heroes[0].TimedEffects.All(e=>e.RemainingCommands==4),"Regen tick does not consume command duration");
+        battle.Pass();Check(battle.State.Heroes[0].TimedEffects.All(e=>e.RemainingCommands==3),"Pass consumes duration once");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));
+        battle=new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:catalog);battle.State.Heroes[0].SpendResource(3);battle.DrainPresentationEvents();
+        Check(!battle.Act(0,1,"body") && battle.State.Heroes[0].TimedEffects.Count==0 && battle.DrainPresentationEvents().Count==0,"Failed self-buff does not mutate duration or emit effects");
+        catalog=fresh();battle=new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:catalog);
+        while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();
+        hero=battle.State.Heroes[4];hero.ApplySelfEffects(new[]{Timed("attack",50,1)});int forecast=battle.PreviewDamage(4,1,"body");battle.DrainPresentationEvents();
+        Check(battle.Act(4,1,"body") && hero.TimedEffects.Count==0,"Cast reservation consumes owner duration, not release");
+        collected=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+        while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();collected.AddRange(battle.DrainPresentationEvents());}
+        Check(collected.First(e=>e.Kind==BattlePresentationKind.CastRelease).Damage==forecast,"Reserved cast retains buffed attack despite effect expiring at reservation");
+        catalog=fresh();battle=new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:catalog);
+        while(battle.AvailableHero!=4 && !battle.Ended) battle.Pass();hero=battle.State.Heroes[4];hero.ApplySelfEffects(new[]{Timed("attack",50,3),Timed("regen",140,3)});
+        battle.DrainPresentationEvents();battle.Act(4,1,"body");collected=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+        while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();collected.AddRange(battle.DrainPresentationEvents());}
+        Check(hero.TimedEffects.All(e=>e.RemainingCommands==2) && !collected.Any(e=>e.Message.StartsWith("再生") && e.Actor==4),"Cast release is not another owner command or regeneration opportunity");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("critical",20,3)};ExpectCombatFailure(catalog,"Unsupported critical buff rejected, not silently ignored");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("attack",15,3),Timed("attack",20,3)};ExpectCombatFailure(catalog,"Duplicate effect kinds rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].turns=0;ExpectCombatFailure(catalog,"Zero duration rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].percent=0;ExpectCombatFailure(catalog,"Zero effect rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).targetRuleId="target.all-living-allies";ExpectCombatFailure(catalog,"Unsupported party buff rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).castPercent=100;ExpectCombatFailure(catalog,"Unsupported casted self-buff rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).chainEligible=true;ExpectCombatFailure(catalog,"Undecided buff-started chain rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).selfEffects=new[]{Timed("attack",15,3)};ExpectCombatFailure(catalog,"Unsupported attack-plus-buff rejected");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));rejected=false;try{new PlayableBattle(1,new PlayableProgress(),useTimeline:false,combatDefinitions:catalog);}catch(ArgumentException){rejected=true;}
+        Check(rejected,"Legacy non-timeline mode cannot silently change duration semantics");
+        for(int seed=1;seed<=50;seed++) {
+            var a=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:SelfBuffCatalog(fresh,Timed("attack",15,3)));
+            var b=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:SelfBuffCatalog(fresh,Timed("attack",30,3)));
+            a.Act(0,1,"body");b.Act(0,1,"body");
+            Check(a.Clock==b.Clock && a.State.Heroes.Select(h=>h.JobResource).SequenceEqual(b.State.Heroes.Select(h=>h.JobResource)),"Buff amount does not change time or cost seed="+seed);
+            while(a.AvailableHero!=0 && !a.Ended) a.Pass();while(b.AvailableHero!=0 && !b.Ended) b.Pass();
+            Check(a.SkillChainBonusBp(0)==b.SkillChainBonusBp(0) && Enumerable.Range(0,5).All(i=>a.HasCumulativeChainBonus(i)==b.HasCumulativeChainBonus(i)),"Buff application adds no random draw seed="+seed);
+        }
     }
     private static void ValidateAttackFollowUps(Func<CombatDefinitionCatalog> fresh)
     {

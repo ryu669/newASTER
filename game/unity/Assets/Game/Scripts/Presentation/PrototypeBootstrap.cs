@@ -429,10 +429,10 @@ namespace NewAster.Presentation
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
                 int cost=encounter.SkillResourceCost(actor,slot);
-                string caption=encounter.SkillName(actor,slot)+" / 資源"+cost+"\n"+(healSkill!=null?encounter.HealingDescription(actor,slot):slot<2?"予測 "+encounter.PreviewDamage(actor,slot,target):encounter.SupportDescription(actor));
+                string caption=encounter.SkillName(actor,slot)+" / 資源"+cost+"\n"+(encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healSkill!=null?encounter.HealingDescription(actor,slot):slot<2?"予測 "+encounter.PreviewDamage(actor,slot,target):encounter.SupportDescription(actor));
                 caption+="\n"+encounter.TimingDescription(actor,slot);
                 caption+=encounter.AttackFollowUpDescription(actor,slot);
-                if(slot<2 && healSkill==null && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
+                if(slot<2 && healSkill==null && !encounter.IsSelfBuff(actor,slot) && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
                 if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost,skillButton)) {
                     if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
                     else Act(actor,slot);
@@ -441,6 +441,8 @@ namespace NewAster.Presentation
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
             Label(1180,716,390,85,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString()))+"\n固定："+encounter.ChainActionDescription(actor)+"（仮）",small,Color.white);
+            var activeEffects=visual?.HeroEffects[actor]??hero.TimedEffects;
+            if(activeEffects.Count>0) Label(28,664,1090,38,Names[actor]+"："+string.Join(" / ",activeEffects.Select(e=>(e.Kind=="attack"?"攻撃＋":e.Kind=="regen"?"再生 ":"物理防護 ")+e.Percent+"%（残り"+e.RemainingCommands+"行動）")),small,Color.white);
             if(playback.Busy) {
                 if(Btn(1180,807,390,58,"演出をスキップ（結果は同じ）",!paused && !retreat && !help)) { playback.Skip(); if(stage!=null) stage.ClearActionEffects(); shownEvent=0; SelectNextHero(); FinishCheck(); }
             }

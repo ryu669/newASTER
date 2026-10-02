@@ -41,7 +41,7 @@ namespace NewAster.Core
         private long bossAt;
         private int commandCount;
         private readonly SkillTimingDefinition[,] timings;
-        private sealed class PendingCast { public int Slot; public string Target; public decimal Power; public int ChainBonus; public bool[] ChainActors; }
+        private sealed class PendingCast { public int Slot,Attack; public string Target; public decimal Power; public int ChainBonus; public bool[] ChainActors; }
         public SkillTimingDefinition Timing(int actor,int slot)
         {
             // Vertical-slice profiles only; each skill has independent casting/recovery fields.
@@ -84,6 +84,7 @@ namespace NewAster.Core
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
             LastFullChain=false; LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();
             int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
+            State.Heroes[actor].CompleteOwnerCommand();
             Chain=0; chainPending=false; chainMembers.Clear(); LastHealingTargets=Array.Empty<int>();
             Log="味方"+(actor+1)+"はパス。次回まで待機。";
             RecordPresentation(BattlePresentationKind.Pass,actor,"body",Log);
@@ -94,7 +95,8 @@ namespace NewAster.Core
             if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
             int cost=SkillResourceCost(actor,slot);
             if(!State.Heroes[actor].SpendResource(cost)) return false;
-            casting[actor]=new PendingCast { Slot=slot,Target=target,Power=AttackPower(actor,slot,target,1),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
+            casting[actor]=new PendingCast { Slot=slot,Attack=State.Heroes[actor].Attack,Target=target,Power=AttackPower(actor,slot,target,1),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
+            State.Heroes[actor].CompleteOwnerCommand();
             readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
             Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
             LastHealingTargets=Array.Empty<int>(); LastActionWasCastStart=true; LastCastResolvedActor=-1;
@@ -121,7 +123,7 @@ namespace NewAster.Core
                 if(pending!=null) {
                     casting[actor]=null;
                     // An already broken target cancels this spell; no silent retarget/refund.
-                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,AttackDefinition(actor,pending.Slot,pending.Power,0),pending.Target);
+                    var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,AttackDefinition(actor,pending.Slot,pending.Power,0,pending.Attack),pending.Target);
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
                     LastFullChain=false;LastChainActionCount=0;LastActionChain=outcome.Accepted?1:0;LastChainChecks=Array.Empty<ChainConnection>();
@@ -134,6 +136,8 @@ namespace NewAster.Core
                 }
                 AvailableHero=actor;
                 for(int i=0;i<5;i++) Acted[i]=i!=actor;
+                int regeneration=State.Heroes[actor].RegenerateAtOwnerReady();
+                if(regeneration>0) RecordPresentation(BattlePresentationKind.Healing,actor,"body","再生 / HP ＋"+regeneration,healingTargets:new[]{actor},standalone:true);
                 if(hadCommand[actor]) State.Heroes[actor].GainResource(3);
                 hadCommand[actor]=true;
                 State.BeginTurn(unchecked(Seed+(++commandCount)*97+State.SelectedLevel),.25m);

@@ -10,17 +10,20 @@ namespace NewAster.Core
         public int ResourceCost { get; }
         public int SelfHealingBaseAttackPercent { get; }
         public int SelfDamageMaxHpPercent { get; }
+        public int? AttackSnapshot { get; }
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null)
         {
             if (power <= 0m) throw new ArgumentOutOfRangeException(nameof(power));
             if (resourceCost < 0) throw new ArgumentOutOfRangeException(nameof(resourceCost));
             if(selfHealingBaseAttackPercent<0 || selfHealingBaseAttackPercent>1000 || selfDamageMaxHpPercent<0 || selfDamageMaxHpPercent>100) throw new ArgumentOutOfRangeException("Attack follow-up percentage");
+            if(attackSnapshot.HasValue && attackSnapshot.Value<=0) throw new ArgumentOutOfRangeException(nameof(attackSnapshot));
             Id = id ?? throw new ArgumentNullException(nameof(id));
             Power = power;
             ResourceCost = resourceCost;
             SelfHealingBaseAttackPercent=selfHealingBaseAttackPercent;
             SelfDamageMaxHpPercent=selfDamageMaxHpPercent;
+            AttackSnapshot=attackSnapshot;
         }
     }
 
@@ -64,7 +67,7 @@ namespace NewAster.Core
 
             if (!hero.SpendResource(skill.ResourceCost)) return new BattleActionResult(false, 0, false, false, "insufficient-resource");
 
-            var damage = Math.Max(1, (int)Math.Floor(hero.Attack * skill.Power));
+            var damage = (int)Math.Max(1m,Math.Min(int.MaxValue,Math.Floor((skill.AttackSnapshot??hero.Attack) * skill.Power)));
             int appliedDamage=isBody?battle.ApplyBossDamage(damage):Math.Min(part.HitPoints,damage);
             bool broken=!isBody && battle.BreakPart(targetId,damage);
             // One accepted command: enemy damage, self healing, then self recoil.

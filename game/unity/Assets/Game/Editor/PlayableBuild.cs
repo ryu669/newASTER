@@ -116,6 +116,18 @@ public static class PlayableBuild
         var compoundEvents=compoundBattle.DrainPresentationEvents();
         Check(compoundEvents.Take(3).Select(e=>e.Kind).SequenceEqual(new[]{BattlePresentationKind.Attack,BattlePresentationKind.Healing,BattlePresentationKind.Support}),"Compound attack emits attack, healing and recoil cues in order");
         Check(compoundEvents[2].HeroHp[actor]==hpBefore+compoundBattle.State.Heroes[actor].BaseAttack*70/100-compoundBattle.State.Heroes[actor].MaxHitPoints*10/100,"Compound cue reports final command HP snapshot");
+        var buffCatalog=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);
+        var buff=buffCatalog.Skill("hero-0",1);buff.effectRuleId="effect.self-buff";buff.targetRuleId="target.self";buff.powerScale=0;buff.castPercent=0;buff.chainEligible=false;
+        buff.selfEffects=new[]{new TimedSelfEffectDef {kind="attack",percent=15,turns=3},new TimedSelfEffectDef {kind="physical-protection",percent=40,turns=4},new TimedSelfEffectDef {kind="regen",percent=140,turns=4}};
+        buffCatalog=JsonUtility.FromJson<CombatDefinitionCatalog>(JsonUtility.ToJson(buffCatalog));buffCatalog.Validate();
+        Check(buffCatalog.Skill("hero-0",1).selfEffects.Length==3,"Unity roundtrips nested timed effect definitions");
+        var buffBattle=new PlayableBattle(1,new PlayableProgress(),21,combatDefinitions:buffCatalog);buffBattle.State.Heroes[0].TakeDamage(60);buffBattle.DrainPresentationEvents();
+        Check(buffBattle.Act(0,1,"body") && buffBattle.State.Heroes[0].Attack==26 && buffBattle.State.Heroes[0].BaseAttack==23,"Unity loaded self-buff distinguishes effective and base attack");
+        var buffEvent=buffBattle.DrainPresentationEvents().First();
+        Check(buffEvent.HeroEffects[0].Count==3 && buffEvent.HeroEffects[0].Single(e=>e.Kind=="attack").RemainingCommands==3,"Buff event contains timed effect snapshots");
+        while(buffBattle.AvailableHero!=0 && !buffBattle.Ended) buffBattle.Pass();
+        var regeneration=buffBattle.DrainPresentationEvents().Single(e=>e.Message.StartsWith("再生"));
+        Check(regeneration.HealingTargets.SequenceEqual(new[]{0}) && regeneration.Chain==0,"Unity owner readiness emits standalone regeneration");
         var artSource=Resources.Load<TextAsset>("Illustrations/battle-preview");
         Check(artSource!=null,"Illustration manifest must exist");
         var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();

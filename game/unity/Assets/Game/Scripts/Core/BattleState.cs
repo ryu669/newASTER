@@ -4,15 +4,13 @@ using System.Linq;
 
 namespace NewAster.Core
 {
-    public sealed class BattleHero
+    public sealed partial class BattleHero
     {
         public string Id { get; }
         public int HitPoints { get; private set; }
         public int MaxHitPoints { get; }
-        public int Attack { get; }
-        // Current trial has no attack buffs. Preserve an explicit immutable basis
-        // for base-attack healing when effective attack is introduced later.
-        public int BaseAttack => Attack;
+        public int BaseAttack { get; }
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100);
         public int Speed { get; }
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
@@ -24,7 +22,7 @@ namespace NewAster.Core
             Id = id ?? throw new ArgumentNullException(nameof(id));
             MaxHitPoints = hitPoints;
             HitPoints = hitPoints;
-            Attack = attack;
+            BaseAttack = attack;
             JobResourceMax = jobResourceMax;
         }
 
@@ -36,7 +34,7 @@ namespace NewAster.Core
             return true;
         }
         public bool IsAlive => HitPoints > 0;
-        public void TakeDamage(int amount) => HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount));
+        public void TakeDamage(int amount) { HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount)); if(!IsAlive) timedEffects.Clear(); }
         public void Heal(int amount) { if (IsAlive) HitPoints = (int)Math.Min(MaxHitPoints, (long)HitPoints + Math.Max(0, amount)); }
     }
 

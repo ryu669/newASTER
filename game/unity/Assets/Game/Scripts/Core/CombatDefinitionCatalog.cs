@@ -16,6 +16,7 @@ namespace NewAster.Core
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
         public float powerScale,partScale;
         public bool chainEligible;
+        public TimedSelfEffectDef[] selfEffects;
     }
     [Serializable] public sealed class ChainCombatDef
     {
@@ -46,6 +47,13 @@ namespace NewAster.Core
                 throw new ArgumentException("Invalid skill definition.");
             if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
+            foreach(var skill in skills) {
+                TimedSelfEffectDef.ValidateAll(skill.selfEffects);
+                if(skill.effectRuleId=="effect.self-buff") {
+                    if(skill.selfEffects==null || skill.selfEffects.Length==0 || skill.targetRuleId!="target.self" || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
+                        throw new ArgumentException("Self-buff requires nonempty supported effects and self target without casting or chain.");
+                } else if(skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects currently require a dedicated self-buff command.");
+            }
             if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
                 throw new ArgumentException("Unsupported or invalid chain definition.");
             foreach(var action in chainActions) MakeChain(action);
@@ -58,7 +66,9 @@ namespace NewAster.Core
                 for(int slot=0;slot<3;slot++) {
                     var s=skills.SingleOrDefault(x=>x.id==h.skills[slot]);
                     if(s==null || s.ownerId!=heroId) throw new ArgumentException("Skill ownership mismatch.");
-                    if(s.effectRuleId=="effect.heal") {
+                    if(s.effectRuleId=="effect.self-buff") {
+                        // Validated above; unlike legacy support, any heroine slot may own it.
+                    } else if(s.effectRuleId=="effect.heal") {
                         if(s.castPercent!=0 || s.chainEligible || s.targetCount<1 || s.targetCount>5 || (s.targetRuleId!="target.self" && s.targetRuleId!="target.selected-allies" && s.targetRuleId!="target.all-living-allies") || (s.targetRuleId=="target.self" && s.targetCount!=1) || (s.targetRuleId=="target.all-living-allies" && s.targetCount!=5)) throw new ArgumentException("Unsupported healing definition.");
                     } else if(slot<2) {
                         if(s.effectRuleId!="effect.damage" || s.targetRuleId!="target.selected-enemy" || !Scale(s.powerScale,true)) throw new ArgumentException("Unsupported attack definition.");
