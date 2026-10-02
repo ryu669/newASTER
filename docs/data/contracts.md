@@ -237,3 +237,45 @@ chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、cha
 ## 所有権と版管理
 
 本書は項目・型・座標・参照・検証の唯一の詳細定義元。行動規則はsystems、見せ方はpresentation、受入ケースはproduction/acceptanceへ参照する。SaveV2は既存論理項目、SaveEnvelopeは将来の交換・版管理案であり、現行実装の型名と一致するとは限らない。ローカルの現在版確認前に保存形式を変更しない。
+
+## 条件・費用・操作の具体形式
+
+以下は現行実装型名ではなく交換契約。数値・本文が未定の定義はstatus=placeholderで区別する。
+
+```text
+ConditionExpr =
+ {kind:"all",items:ConditionExpr[1..]} |
+ {kind:"any",items:ConditionExpr[1..]} |
+ {kind:"flag",domain:"poemOwned"|"storyUnlocked"|"storyRead"|"eventRead"|"heroineOwned"|"lover",id:Id} |
+ {kind:"atLeast",domain:"affection"|"terraformingXp"|"highestClearedLevel",ownerId?:Id,value:nonnegativeInt} |
+ {kind:"always"}
+CostEntry { resourceId:Id, amount:nonnegativeInt }
+PoemLink { colossusPoemId:Id, heroineId:Id, heroinePoemId:Id }
+TransactionRecord { transactionId:Id, kind:"battle"|"event"|"upgrade"|"craft"|"gacha"|"exchange"|"advRead"|"garden",
+                    targetIds:Id[],contentVersion:string,baseRevision:nonnegativeInt,
+                    status:"pending"|"committed",costs:CostEntry[],result:TransactionResult }
+TransactionResult { grants:ResourceGrant[],addedIds:Id[],changedEntities:EntityChange[],
+                    rngDecisionIds:Id[] }
+ResourceGrant { resourceId:Id,amount:nonnegativeInt }
+EntityChange { entityType:Id,entityId:Id,after:object }
+GachaCategoryTable { heroineBp:300,otherBp:9700,heroineIds:unique Id[1..],
+                     otherEntries:[{rewardId:Id,weight:positiveInt}] }
+RandomStatDef { statId:Id,unitScale:positiveInt,maxValue:positiveInt }
+BookSubject { bookmarkId:Id,subjectId:Id,pageOrder:nonnegativeInt,unlockCondition:ConditionExpr }
+```
+
+ConditionExprは副作用なし、現在の同一進行snapshotを評価する。all／any空配列、未知kind、未知domain、負値、欠落参照を拒否する。affectionとhighestClearedLevelはownerId必須、terraformingXpは省略。loverのidはheroineId。alwaysは解放条件なしを意図した正式指定のみ許可し、欠落条件の補完には使わない。notや所持消費を含む条件は初回対象外とし、解放を逆戻りさせない。
+
+EventDefへunlockCondition、StoryChapterDefへrequiredPoemIds、正式個体へPoemLinkの参照を持たせる。従来EventDef.prerequisiteIdsとaffectionRequirementを併記する場合はunlockConditionと同値を必須とし、移行後は条件式を定義元にする。ResourceGrantは数量資源だけで、人物や詩の追加はaddedIds、Lv等の変化はchangedEntitiesで型別検証する。EntityChange.afterはentityTypeごとの完全な変更後状態であり、任意コード・任意パスの実行命令ではない。
+
+TransactionRecordは交換／ログ上の論理形式。pendingは初回セッション内のみ、committedのIDは永続化する。進行revisionは成功した保存ごとに1増加し、再試行・再描画では増えない。整数は安全整数範囲を共通に適用、乗算・合算はオーバーフローを検証する。
+
+## チェイン表示の不足項目の補完
+
+chainCheckは `decisionId:Id` を必須とし、抽選ログに `probabilityBp:ProbabilityBp` と `success:bool` を追加する。chainStepは予定参加人数を表す（最初の接続判定は2）。失敗終了のchainEndedは判定したstep、候補なし／上限／勝敗終了は現在lengthを持つ。chainAction後だけlengthとparticipantIdsを増やす。chainEnded時のlengthは実行済み参加人数で、失敗候補を参加者に含めない。chainCheck／chainEndedにactorIdがある場合は起点人物、chainActionは実行人物を指す。資源・通常予定列に変更がある場合はpostSnapshotに反映し、具体規則のTBDを0で埋めない。
+
+## 定義パックの受入れと診断
+
+定義パックはcontentVersion単位で全参照検証後に採用する。一部ファイルだけ新しい版へ切り替えない。schemaVersionは各交換形式、contentVersionは意味とID対応の版である。正式データでplaceholder参照、未定ruleId、欠落費用、依存循環があれば受入れ不可。検証用パックはplaceholderを明示し、正式進行セーブと混用しない。
+
+診断は `severity / code / documentId / jsonPointer / referencedId? / message` を持ち、エラー位置と理由を日本語で表示する。最低限のcodeはUNKNOWN_SCHEMA、DUPLICATE_ID、MISSING_REFERENCE、INVALID_RANGE、DEPENDENCY_CYCLE、UNRESOLVED_RULE、PLACEHOLDER_IN_RELEASE。warningだけでは正式必須参照の欠落を許可しない。
