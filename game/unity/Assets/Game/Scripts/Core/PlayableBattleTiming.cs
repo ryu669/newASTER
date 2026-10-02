@@ -82,6 +82,7 @@ namespace NewAster.Core
         {
             if(!UsesTimeline || Ended || AvailableHero<0) return;
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
+            LastFullChain=false; LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();
             int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
             Chain=0; chainPending=false; chainMembers.Clear(); LastHealingTargets=Array.Empty<int>();
             Log="味方"+(actor+1)+"はパス。次回まで待機。";
@@ -91,7 +92,7 @@ namespace NewAster.Core
         private bool StartCasting(int actor,int slot,string target)
         {
             if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
-            int cost=slot==1?3:0;
+            int cost=SkillResourceCost(actor,slot);
             if(!State.Heroes[actor].SpendResource(cost)) return false;
             casting[actor]=new PendingCast { Slot=slot,Target=target,Power=AttackPower(actor,slot,target,1),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
             readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
@@ -123,8 +124,9 @@ namespace NewAster.Core
                     var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,new BattleSkill("cast-"+pending.Slot,pending.Power,0),pending.Target);
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
+                    LastFullChain=false;LastChainActionCount=0;LastActionChain=outcome.Accepted?1:0;LastChainChecks=Array.Empty<ChainConnection>();
                     RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ":"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
-                    if(outcome.Accepted) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
+                    if(outcome.Accepted && ChainEligible(actor,pending.Slot)) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
                     readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
                     Chain=0; chainPending=false; chainMembers.Clear();
                     continue;

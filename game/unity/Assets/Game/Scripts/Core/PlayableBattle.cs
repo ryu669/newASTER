@@ -27,6 +27,10 @@ namespace NewAster.Core
         private readonly Random random;
         private bool chainPending;
         private readonly HealingSkillDefinition[] healingSkills;
+        private readonly SkillCombatDef[,] commandDefinitions;
+        public int SkillResourceCost(int actor,int slot) => commandDefinitions!=null?commandDefinitions[actor,slot].resourceCost:HealingSkill(actor,slot)?.ResourceCost??(slot==0?0:3);
+        public string SkillName(int actor,int slot) => commandDefinitions!=null?commandDefinitions[actor,slot].name:HealingSkill(actor,slot)?.Name??(slot==0?"通常攻撃":slot==1?"強撃":SupportName(actor));
+        private bool ChainEligible(int actor,int slot) => commandDefinitions==null || commandDefinitions[actor,slot].chainEligible;
         public IReadOnlyList<int> LastHealingTargets { get; private set; } = Array.Empty<int>();
         public HealingSkillDefinition HealingSkill(int actor,int slot) => healingSkills.FirstOrDefault(x=>x.Actor==actor && x.Slot==slot);
         public static HealingSkillDefinition[] DefaultHealingSkills() => new[] {
@@ -55,9 +59,18 @@ namespace NewAster.Core
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
+            if(combatDefinitions!=null) {
+                if(healingDefinitions!=null || skillTimings!=null || heroineChainActions!=null) throw new ArgumentException("Use one combat definition source, not mixed overrides.");
+                combatDefinitions.Validate();healingDefinitions=combatDefinitions.Healing();skillTimings=combatDefinitions.Timings();heroineChainActions=combatDefinitions.Chain();
+                commandDefinitions=new SkillCombatDef[5,3];
+                for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {
+                    var s=combatDefinitions.Skill("hero-"+i,slot);
+                    commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible};
+                }
+            }
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
             if(healingSkills.Any(d=>d==null) || healingSkills.GroupBy(d=>new {d.Actor,d.Slot}).Any(g=>g.Count()>1)) throw new ArgumentException("Duplicate or null healing definition.");
             Seed = seed;
@@ -95,8 +108,8 @@ namespace NewAster.Core
         }
         private decimal AttackPower(int heroIndex, int skill, string target, int chain)
         {
-            decimal power = (skill == 1 ? 1.8m : 1m) * (1m + Math.Max(0, chain - 1) * .15m);
-            if (heroIndex == 1 && target != "body") power *= 1.5m;
+            decimal power = (commandDefinitions!=null?(decimal)commandDefinitions[heroIndex,skill].powerScale:skill == 1 ? 1.8m : 1m) * (1m + Math.Max(0, chain - 1) * .15m);
+            if(target!="body") power*=commandDefinitions!=null?(decimal)commandDefinitions[heroIndex,skill].partScale:heroIndex==1?1.5m:1m;
             if (target == "body" && !State.Parts[2].IsBroken) power *= .7m;
             return power;
         }
@@ -104,7 +117,7 @@ namespace NewAster.Core
         {
             if (Ended || heroIndex < 0 || heroIndex >= 5 || skill < 0 || skill > 1 || HealingSkill(heroIndex,skill)!=null || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return 0;
             if (target != "body" && !State.Parts.Any(p => p.Id == target && !p.IsBroken)) return 0;
-            if (State.Heroes[heroIndex].JobResource < (skill == 1 ? 3 : 0)) return 0;
+            if (State.Heroes[heroIndex].JobResource < SkillResourceCost(heroIndex,skill)) return 0;
             int previewChain=UsesTimeline && CastDelay(heroIndex,skill)>0?1:NextChain(heroIndex);
             int damage = Math.Max(1, (int)Math.Floor(State.Heroes[heroIndex].Attack * AttackPower(heroIndex, skill, target, previewChain)));
             return Math.Min(damage, target == "body" ? State.BossHitPoints : State.Parts.First(p => p.Id == target).HitPoints);
@@ -166,13 +179,13 @@ namespace NewAster.Core
             else if (skill == 2)
             {
                 if(heroIndex==0 || heroIndex==3) { Log="支援スキルの定義がありません。"; return false; }
-                if (!hero.SpendResource(3)) { Log = "資源が不足しています。"; return false; }
+                if (!hero.SpendResource(SkillResourceCost(heroIndex,skill))) { Log = "資源が不足しています。"; return false; }
                 switch (heroIndex) {
                     case 1: State.ReduceBossGauge(1 + support[1] / 2); break;
                     case 2: Guarded = true; break;
                     case 4: foreach (var h in State.Heroes.Where(h => h.Id != hero.Id && h.IsAlive)) h.GainResource(2 + support[4]); break;
                 }
-                Log = SupportName(heroIndex) + "：" + SupportDescription(heroIndex) + "。";
+                Log = SkillName(heroIndex,skill) + "：" + SupportDescription(heroIndex) + "。";
                 Chain = 0; chainPending = false;
                 LastActionChain = 0;
                 chainMembers.Clear();
@@ -182,7 +195,7 @@ namespace NewAster.Core
             {
                 int nextChain = NextChain(heroIndex);
                 decimal power = AttackPower(heroIndex, skill, target, nextChain);
-                var result = BattleActionResolver.Resolve(State, hero.Id, new BattleSkill("skill-" + skill, power, skill == 1 ? 3 : 0), target);
+                var result = BattleActionResolver.Resolve(State, hero.Id, new BattleSkill(commandDefinitions!=null?commandDefinitions[heroIndex,skill].id:"skill-" + skill, power, SkillResourceCost(heroIndex,skill)), target);
                 if (!result.Accepted) { Log = "対象または資源を確認してください。"; return false; }
                 Chain = nextChain;
                 if(nextChain==1) chainMembers.Clear();
@@ -193,7 +206,7 @@ namespace NewAster.Core
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
                 RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage);
-                if(UsesTimeline) ResolveAutomaticChain(heroIndex,skillChainBonuses[skill],(bool[])cumulativeChainActors.Clone());
+                if(UsesTimeline && ChainEligible(heroIndex,skill)) ResolveAutomaticChain(heroIndex,skillChainBonuses[skill],(bool[])cumulativeChainActors.Clone());
             }
             Acted[heroIndex] = true;
             if(healing==null) LastHealingTargets=Array.Empty<int>();
@@ -211,6 +224,7 @@ namespace NewAster.Core
         }
         private void ResolveEnemyAction()
         {
+            if(UsesTimeline) {LastFullChain=false;LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();}
             bool major = NextAttackIsMajor;
             string action = NextEnemyAction;
             for (int i = 0; i < 5; i++) State.Heroes[i].TakeDamage(PreviewEnemyDamage(i));

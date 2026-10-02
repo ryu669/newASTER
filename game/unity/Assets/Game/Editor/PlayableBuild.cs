@@ -25,6 +25,7 @@ public static class PlayableBuild
     public static void Validate()
     {
         assertions=0;
+        ValidateCombatDefinitions();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
@@ -82,6 +83,25 @@ public static class PlayableBuild
         for(int i=1;i<WorldCatalog.Colossi.Count;i++) { var col=WorldCatalog.Colossi[i]; c.ClaimColossusVictory(col.Id,col.EnvironmentTags,new VictoryReward("world-"+i,1,10,4,null),null,null,GardenCatalog.Requirements); }
         Check(c.ColossusUnlocks.IsUnlocked(WorldCatalog.ColossusIds[14]),"Final world unlock");
         Debug.Log("PLAYABLE_VALIDATION_PASS "+assertions+" assertions");
+    }
+    private static void ValidateCombatDefinitions()
+    {
+        var source=Resources.Load<TextAsset>("Combat/battle-preview");
+        Check(source!=null,"Combat JSON must exist before a player can be built");
+        var definitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);definitions.Validate();
+        Check(definitions.heroines.Length==5 && definitions.skills.Length==15 && definitions.chainActions.Length==5,"Unity deserializes the complete combat slice");
+        var battle=new PlayableBattle(1,new PlayableProgress(),21,combatDefinitions:definitions);
+        Check(battle.SkillName(4,1)==definitions.Skill("hero-4",1).name && battle.Timing(4,1).CastPercent==150,"Unity loaded names and cast timing reach the battle");
+        int actor=battle.AvailableHero;battle.Act(actor,0,"body");
+        var first=battle.DrainPresentationEvents().First(e=>e.Kind==BattlePresentationKind.Attack);
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(battle.AvailableHero,first)==actor,"Presentation actor overrides the next available heroine");
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(3,null)==3,"Idle display uses the available actor");
+        var artSource=Resources.Load<TextAsset>("Illustrations/battle-preview");
+        Check(artSource!=null,"Illustration manifest must exist");
+        var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
+        Check(battle.State.Heroes.All(h=>art.HeroIndex(h.Id)>=0) && battle.State.Parts.All(p=>art.parts.Any(a=>a.partId==p.Id)),"Art bindings match combat heroine and part IDs");
+        var texture=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+        Check(texture!=null && texture.width==1672 && texture.height==941,"UI illustration keeps native aspect and dimensions");
     }
     private static void ValidateBattleDecisions()
     {

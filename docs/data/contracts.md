@@ -156,6 +156,18 @@ ChainActionDef {
 
 チェインの進行は戦闘仕様が定義する。chainActionIdはHeroineDefの必須参照で、人物ごとの固定行動を指す。値未定のルールを0へ自動補完しない。
 
+### ローカル実装の戦闘用JSON境界（2026-10-02）
+
+`game/unity/Assets/Game/Resources/Combat/battle-preview.json`をUnityのJsonUtilityで読み込む。CombatDefinitionCatalogは描画APIに依存しないCore型。schemaVersion=1、status=placeholder、heroines=5、skills=15、chainActions=5を必須にする。HeroineDef全体の完成形ではなく、戦闘部分の先行実装である。物語・特性・装備の樹・ジョブの正式資源ルールは未統合。
+
+人物はid／name／jobId／baseRarity=6／skills[3]／chainActionIdを持つ。skillsの順番がコマンド枠を決め、JSON配列全体の並び順は意味を持たない。IDは共通Id規則を検査し、スキルとチェイン行動の所有者を人物参照と照合する。現行試作の編成IDはhero-0〜hero-4。任意編成や正式人物IDへの移行は別作業である。
+
+SkillCombatDefはid／ownerId／name／effectRuleId／targetRuleIdに加え、試作ルール値resourceCost、powerScale、partScale、recoveryPercent、castPercent、targetCount、baseHealing、chainEligibleを持つ。waitRuleId／castRuleId等の共通ルール台帳は未実装で、ここでは値を直接格納する。消費・威力・部位倍率・回復人数・待機／詠唱時間とUI説明を同じ定義から解決する。戦闘開始時に値を複製し、元データの後からの変更を進行中の戦闘へ適用しない。
+
+初回対応はeffect.damage＋target.selected-enemy、effect.heal＋target.self／target.selected-allies／target.all-living-allies。回復の詠唱と回復／支援からのチェインは未対応として拒否する。既存のゲージ減少・全体防御・他者資源補給は試作の特定人物・第3枠に限定して読み込み、効果量の汎用化は未完了。チェインは人物のchainActionIdで解決し、初回はeffect.damage＋target.boss-body＋powerScale、resourcePolicy=none／timelinePolicy=preserve／commandInteractionPolicy=noneを必須とする。任意の回復・状態効果・対象ルールへ自動変換しない。
+
+未知版、欠落、ID重複、所有者違い、不正数値、未対応効果、複数定義ソースの混在を拒否する。Unityの読込失敗は画面にエラーを表示し出撃を止め、旧ハードコードへ補完しない。定義未指定コンストラクタは回帰試験用に残すが、通常出撃は必ずJSONを使用する。正式値・正式人物内容の採用とは区別する。
+
 ## 収集・育成・経済の定義型
 
 ```text

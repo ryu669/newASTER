@@ -32,6 +32,8 @@ namespace NewAster.Presentation
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
+        private CombatDefinitionCatalog combatDefinitions;
+        private string combatDefinitionError;
         private float illustrationElapsed;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
@@ -69,6 +71,13 @@ namespace NewAster.Presentation
             viewCamera.allowMSAA=true; QualitySettings.antiAliasing=4;
             var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
+            try {
+                var source=Resources.Load<TextAsset>("Combat/battle-preview");
+                if(source==null) throw new ArgumentException("Combat/battle-preview missing");
+                combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
+                for(int i=0;i<5;i++) Names[i]=combatDefinitions.Hero("hero-"+i).name;
+                Debug.Log("COMBAT_DEFINITIONS_PASS version=1 status=placeholder heroes=5 skills=15 chains=5");
+            } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
@@ -202,6 +211,7 @@ namespace NewAster.Presentation
         private void OnGUI()
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"戦闘定義を読み込めません。旧値への自動補完は行いません。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
@@ -376,7 +386,7 @@ namespace NewAster.Presentation
         private void StartBattle(string colossus)
         {
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0));
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions);
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
@@ -413,8 +423,8 @@ namespace NewAster.Presentation
             bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
-                string caption=healSkill!=null?healSkill.Name+" / 資源"+healSkill.ResourceCost+"\n"+encounter.HealingDescription(actor,slot):slot<2?(slot==0?"通常攻撃":"強撃")+$"\n予測 {encounter.PreviewDamage(actor,slot,target)} / 資源{(slot==0?0:3)}":PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor);
-                int cost=healSkill!=null?healSkill.ResourceCost:slot==0?0:3;
+                int cost=encounter.SkillResourceCost(actor,slot);
+                string caption=encounter.SkillName(actor,slot)+" / 資源"+cost+"\n"+(healSkill!=null?encounter.HealingDescription(actor,slot):slot<2?"予測 "+encounter.PreviewDamage(actor,slot,target):encounter.SupportDescription(actor));
                 caption+="\n"+encounter.TimingDescription(actor,slot);
                 if(slot<2 && healSkill==null && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
                 if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost,skillButton)) {
@@ -571,6 +581,6 @@ namespace NewAster.Presentation
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
             bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
         }
-        private void OnApplicationQuit() { if(campaign!=null && capturePath==null) Save(); }
+        private void OnApplicationQuit() { if(campaign!=null && capturePath==null && combatDefinitionError==null) Save(); }
     }
 }

@@ -1,14 +1,68 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using NewAster.Core;
 using NewAster.Data;
 public static class AutomaticChainTests
 {
     private static int checks;
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
-    public static void Main()
+    public static void Main(string[] args)
     {
+        var options=new JsonSerializerOptions {IncludeFields=true};
+        string json=File.ReadAllText(args[0]);
+        Func<CombatDefinitionCatalog> fresh=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(json,options);
+        var catalog=fresh();catalog.Validate();
+        Check(catalog.Healing().Length==3 && catalog.Chain().Length==5,"Actual JSON creates healing and chain definitions");
+        catalog.heroines=catalog.heroines.Reverse().ToArray();catalog.skills=catalog.skills.Reverse().ToArray();catalog.chainActions=catalog.chainActions.Reverse().ToArray();catalog.Validate();
+        Check(catalog.Skill("hero-4",1).castPercent==150 && catalog.Chain()[0].HeroId=="hero-0","JSON order does not change formation ownership");
+        for(int seed=1;seed<=40;seed++) {
+            var oldBattle=new PlayableBattle(10,new PlayableProgress(),seed);
+            var dataBattle=new PlayableBattle(10,new PlayableProgress(),seed,combatDefinitions:catalog);
+            int actor=oldBattle.AvailableHero;
+            Check(oldBattle.PreviewDamage(actor,0,"body")==dataBattle.PreviewDamage(actor,0,"body"),"Trial JSON preserves attack preview");
+            oldBattle.Act(actor,0,"body");dataBattle.Act(actor,0,"body");
+            Check(oldBattle.State.BossHitPoints==dataBattle.State.BossHitPoints && oldBattle.Clock==dataBattle.Clock && oldBattle.Log==dataBattle.Log,"Actual JSON preserves trial resolution and RNG");
+        }
+        catalog=fresh();catalog.schemaVersion=2;ExpectCombatFailure(catalog,"Unknown version rejected");
+        catalog=fresh();catalog.heroines[0].skills[0]="skill.missing";ExpectCombatFailure(catalog,"Missing skill reference rejected");
+        catalog=fresh();catalog.skills[0].ownerId="hero-1";ExpectCombatFailure(catalog,"Cross-hero skill rejected");
+        catalog=fresh();catalog.chainActions[0].heroineId="hero-1";ExpectCombatFailure(catalog,"Cross-hero chain rejected");
+        catalog=fresh();catalog.chainActions[0].resourcePolicy="spend";ExpectCombatFailure(catalog,"Resource-spending chain rejected");
+        catalog=fresh();catalog.chainActions[0].effectRuleId="effect.heal";ExpectCombatFailure(catalog,"Not-yet-supported chain effects rejected");
+        catalog=fresh();catalog.skills[0].powerScale=float.NaN;ExpectCombatFailure(catalog,"Nonfinite skill scale rejected");
+        catalog=fresh();catalog.Skill("hero-3",2).targetCount=2;ExpectCombatFailure(catalog,"All-allies target count must be five");
+        catalog=fresh();catalog.Skill("hero-3",1).castPercent=100;ExpectCombatFailure(catalog,"Unsupported deferred heal rejected");
+        catalog=fresh();catalog.Skill("hero-2",2).effectRuleId="effect.unknown";ExpectCombatFailure(catalog,"Unknown support effect rejected");
+        catalog=fresh();catalog.Skill("hero-0",0).resourceCost=4;catalog.Skill("hero-0",0).name="データ側の技名";
+        var custom=new PlayableBattle(10,new PlayableProgress(),22,combatDefinitions:catalog);
+        Check(custom.SkillResourceCost(0,0)==4 && custom.SkillName(0,0)=="データ側の技名","UI values come from definitions");
+        catalog.Skill("hero-0",0).resourceCost=0;catalog.Skill("hero-0",0).powerScale=99;
+        Check(custom.SkillResourceCost(0,0)==4,"Runtime snapshots definitions against external mutation");
+        catalog=fresh();foreach(var s in catalog.skills.Where(s=>s.effectRuleId=="effect.damage")) s.chainEligible=false;
+        custom=new PlayableBattle(10,new PlayableProgress(),22,combatDefinitions:catalog);custom.DrainPresentationEvents();custom.Act(custom.AvailableHero,0,"body");
+        Check(!custom.DrainPresentationEvents().Any(e=>e.Message.StartsWith("自動チェイン")) && custom.LastChainChecks.Count==0,"Definition controls attack chain eligibility");
+        bool mixedRejected=false;try {new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog,skillTimings:PlayableBattle.DefaultTimings());}catch(ArgumentException){mixedRejected=true;}
+        Check(mixedRejected,"Mixed definition sources rejected");
+        catalog=fresh();catalog.Skill("hero-3",1).targetCount=2;
+        custom=new PlayableBattle(10,new PlayableProgress(),9,combatDefinitions:catalog);
+        while(custom.AvailableHero!=3 && !custom.Ended) custom.Pass();custom.DrainPresentationEvents();
+        custom.State.Heroes[0].TakeDamage(30);custom.State.Heroes[2].TakeDamage(30);custom.State.Heroes[3].GainResource(3);
+        int beforeResource=custom.State.Heroes[3].JobResource;
+        Check(custom.ActWithAllies(3,1,"body",new[]{0,2}),"JSON selected-target count can be two");
+        var healingEvent=custom.DrainPresentationEvents().First(e=>e.Kind==BattlePresentationKind.Healing);
+        Check(healingEvent.HealingTargets.SequenceEqual(new[]{0,2}) && healingEvent.Resources[3]==beforeResource-3,"Defined heal targets and cost reach event snapshots");
+        catalog=fresh();catalog.Skill("hero-4",1).resourceCost=1;catalog.Skill("hero-4",1).chainEligible=false;
+        custom=new PlayableBattle(10,new PlayableProgress(),9,combatDefinitions:catalog);
+        while(custom.AvailableHero!=4 && !custom.Ended) custom.Pass();custom.DrainPresentationEvents();
+        beforeResource=custom.State.Heroes[4].JobResource;
+        Check(custom.Act(4,1,"body"),"JSON casting cost is used at reservation");
+        var castingEvents=new List<BattlePresentationEvent>(custom.DrainPresentationEvents());
+        Check(castingEvents.First().Kind==BattlePresentationKind.CastStart && castingEvents.First().Resources[4]==beforeResource-1,"Cast start snapshot uses defined cost");
+        while(custom.IsCasting(4) && !custom.Ended) {custom.Pass();castingEvents.AddRange(custom.DrainPresentationEvents());}
+        Check(castingEvents.Any(e=>e.Kind==BattlePresentationKind.CastRelease) && !castingEvents.Any(e=>e.Message.StartsWith("自動チェイン")),"Deferred cast obeys defined chain eligibility");
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -88,5 +142,9 @@ public static class AutomaticChainTests
     private static void ExpectManifestFailure(BattleIllustrationManifest manifest,string message)
     {
         bool rejected=false;try {manifest.Validate();}catch(ArgumentException){rejected=true;}Check(rejected,message);
+    }
+    private static void ExpectCombatFailure(CombatDefinitionCatalog catalog,string message)
+    {
+        bool rejected=false;try {catalog.Validate();}catch(ArgumentException){rejected=true;}Check(rejected,message);
     }
 }

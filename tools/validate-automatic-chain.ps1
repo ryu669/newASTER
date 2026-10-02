@@ -18,5 +18,5 @@ $response=Join-Path $output 'compile.rsp'
 & $DotNet (Join-Path $sdk.FullName 'Roslyn/bincore/csc.dll') ('@'+$response)
 if($LASTEXITCODE -ne 0){throw 'Automatic chain compile failed'}
 [IO.File]::WriteAllText((Join-Path $output 'AutomaticChainTests.runtimeconfig.json'),'{"runtimeOptions":{"tfm":"net8.0","framework":{"name":"Microsoft.NETCore.App","version":"8.0.0"}}}')
-& $DotNet $assembly
+& $DotNet $assembly (Join-Path $repo 'game/unity/Assets/Game/Resources/Combat/battle-preview.json')
 if($LASTEXITCODE -ne 0){throw 'Automatic chain tests failed'}

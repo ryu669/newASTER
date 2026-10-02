@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "status": "placeholder",
+  "heroines": [
+    {
+      "id": "hero-0",
+      "name": "暁の剣士",
+      "jobId": "job.slayer",
+      "baseRarity": 6,
+      "skills": [
+        "skill.preview-0-0",
+        "skill.preview-0-1",
+        "skill.preview-0-2"
+      ],
+      "chainActionId": "chain.preview-0"
+    },
+    {
+      "id": "hero-1",
+      "name": "翼の砕き手",
+      "jobId": "job.slayer",
+      "baseRarity": 6,
+      "skills": [
+        "skill.preview-1-0",
+        "skill.preview-1-1",
+        "skill.preview-1-2"
+      ],
+      "chainActionId": "chain.preview-1"
+    },
+    {
+      "id": "hero-2",
+      "name": "誓いの守護者",
+      "jobId": "job.defender",
+      "baseRarity": 6,
+      "skills": [
+        "skill.preview-2-0",
+        "skill.preview-2-1",
+        "skill.preview-2-2"
+      ],
+      "chainActionId": "chain.preview-2"
+    },
+    {
+      "id": "hero-3",
+      "name": "森の歌い手",
+      "jobId": "job.healer",
+      "baseRarity": 6,
+      "skills": [
+        "skill.preview-3-0",
+        "skill.preview-3-1",
+        "skill.preview-3-2"
+      ],
+      "chainActionId": "chain.preview-3"
+    },
+    {
+      "id": "hero-4",
+      "name": "星の術師",
+      "jobId": "job.blaster",
+      "baseRarity": 6,
+      "skills": [
+        "skill.preview-4-0",
+        "skill.preview-4-1",
+        "skill.preview-4-2"
+      ],
+      "chainActionId": "chain.preview-4"
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill.preview-0-0",
+      "ownerId": "hero-0",
+      "name": "通常攻撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-0-1",
+      "ownerId": "hero-0",
+      "name": "強撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1.8,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-0-2",
+      "ownerId": "hero-0",
+      "name": "再起の誓い",
+      "effectRuleId": "effect.heal",
+      "targetRuleId": "target.self",
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 35,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": false
+    },
+    {
+      "id": "skill.preview-1-0",
+      "ownerId": "hero-1",
+      "name": "通常攻撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1.5,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-1-1",
+      "ownerId": "hero-1",
+      "name": "強撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1.8,
+      "partScale": 1.5,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-1-2",
+      "ownerId": "hero-1",
+      "name": "結晶の封印",
+      "effectRuleId": "effect.gauge-down",
+      "targetRuleId": "target.boss-body",
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1.5,
+      "chainEligible": false
+    },
+    {
+      "id": "skill.preview-2-0",
+      "ownerId": "hero-2",
+      "name": "通常攻撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-2-1",
+      "ownerId": "hero-2",
+      "name": "強撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1.8,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-2-2",
+      "ownerId": "hero-2",
+      "name": "護りの誓い",
+      "effectRuleId": "effect.guard",
+      "targetRuleId": "target.all-living-allies",
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": false
+    },
+    {
+      "id": "skill.preview-3-0",
+      "ownerId": "hero-3",
+      "name": "通常攻撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-3-1",
+      "ownerId": "hero-3",
+      "name": "癒しのひと節",
+      "effectRuleId": "effect.heal",
+      "targetRuleId": "target.selected-allies",
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 35,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": false
+    },
+    {
+      "id": "skill.preview-3-2",
+      "ownerId": "hero-3",
+      "name": "癒しの歌",
+      "effectRuleId": "effect.heal",
+      "targetRuleId": "target.all-living-allies",
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 5,
+      "baseHealing": 20,
+      "powerScale": 0.6,
+      "partScale": 1,
+      "chainEligible": false
+    },
+    {
+      "id": "skill.preview-4-0",
+      "ownerId": "hero-4",
+      "name": "通常攻撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-4-1",
+      "ownerId": "hero-4",
+      "name": "強撃",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 150,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1.8,
+      "partScale": 1,
+      "chainEligible": true
+    },
+    {
+      "id": "skill.preview-4-2",
+      "ownerId": "hero-4",
+      "name": "星の補給",
+      "effectRuleId": "effect.resource-to-others",
+      "targetRuleId": "target.other-living-allies",
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 1,
+      "baseHealing": 0,
+      "powerScale": 1,
+      "partScale": 1,
+      "chainEligible": false
+    }
+  ],
+  "chainActions": [
+    {
+      "id": "chain.preview-0",
+      "heroineId": "hero-0",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "presentation.chain-preview-0",
+      "powerScale": 0.6
+    },
+    {
+      "id": "chain.preview-1",
+      "heroineId": "hero-1",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "presentation.chain-preview-1",
+      "powerScale": 0.6
+    },
+    {
+      "id": "chain.preview-2",
+      "heroineId": "hero-2",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "presentation.chain-preview-2",
+      "powerScale": 0.6
+    },
+    {
+      "id": "chain.preview-3",
+      "heroineId": "hero-3",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "presentation.chain-preview-3",
+      "powerScale": 0.6
+    },
+    {
+      "id": "chain.preview-4",
+      "heroineId": "hero-4",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "presentation.chain-preview-4",
+      "powerScale": 0.6
+    }
+  ]
+}
