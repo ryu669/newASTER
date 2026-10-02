@@ -13,6 +13,7 @@ public static class AutomaticChainTests
     {
         FormalProgressionTests.Run(Check);
         FormalCampaignTests.Run(Check);
+        FormalRecoveryTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};
         FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));

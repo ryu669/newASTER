@@ -83,6 +83,7 @@ namespace NewAster.Presentation
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
                 InitializeFormalGrowth();
                 InitializeKinder();
+                if(recoveryActive)return;
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
@@ -109,6 +110,7 @@ namespace NewAster.Presentation
             }
             if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
             if(capturePath!=null && args.Contains("-captureVictory")) PrepareVictoryCapture(args);
+            if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -147,7 +149,8 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(kinderGarden && formalProgression!=null) KinderBack();
+                if(recoveryActive)recoveryConfirm=false;
+                else if(kinderGarden && formalProgression!=null) KinderBack();
                 else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
                 else if(modelViewer) modelViewer=false;
                 else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
@@ -160,7 +163,7 @@ namespace NewAster.Presentation
             }
             bool battleView=encounter!=null;
             bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
-            viewCamera.cullingMask=battleView || formalHeroView?0:~0;
+            viewCamera.cullingMask=recoveryActive || battleView || formalHeroView?0:~0;
             viewCamera.orthographic=modelViewer;
             viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
             viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
@@ -182,7 +185,7 @@ namespace NewAster.Presentation
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
-            if(stage!=null) stage.gameObject.SetActive(!battleView && !formalHeroView);
+            if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
@@ -228,6 +231,7 @@ namespace NewAster.Presentation
         private void OnGUI()
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            if(recoveryActive){DrawSaveRecovery();return;}
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
@@ -609,6 +613,6 @@ namespace NewAster.Presentation
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
             bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
         }
-        private void OnApplicationQuit() { if(campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending) Save(); }
+        private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending) Save(); }
     }
 }

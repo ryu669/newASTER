@@ -11,6 +11,7 @@ public static class FormalCampaignTests
         var options=new JsonSerializerOptions {IncludeFields=true};
         Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);
         Func<string,FormalCampaignSave> decode=t=>{try{return JsonSerializer.Deserialize<FormalCampaignSave>(t,options);}catch(JsonException e){throw new ArgumentException("JSON",e);}};
+        Func<string,FormalCampaignHeader> header=t=>{try{return JsonSerializer.Deserialize<FormalCampaignHeader>(t,options);}catch(JsonException e){throw new ArgumentException("Header JSON",e);}};
         Func<FormalCampaignSave> fresh=()=>new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",nectar=100,stones=300}};
         Action<Action,string> reject=(action,name)=>{bool threw=false;try{action();}catch(Exception e)when(e is ArgumentException||e is InvalidOperationException||e is OverflowException){threw=true;}check(threw,name);};
         Func<CampaignSaveV2,string,int,CampaignSaveV2> worldReward=(world,battle,level)=>{
@@ -83,7 +84,7 @@ public static class FormalCampaignTests
         invalid=fresh();invalid.world.poemIds=new[]{"p","p"};reject(()=>invalid.Validate(),"Duplicate world IDs rejected");
         string dir=Path.Combine(Path.GetTempPath(),"newaster-campaign-test-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(dir);string path=Path.Combine(dir,"formal.json");
         try{
-            var store=new FormalCampaignStore(path,encode,decode);check(store.Load(out _)==FormalLoadResult.Missing,"Empty unified slot missing");
+            var store=new FormalCampaignStore(path,encode,decode,header);check(store.Load(out _)==FormalLoadResult.Missing,"Empty unified slot missing");
             store.Save(fresh());var durable=new FormalCampaignJournal(fresh(),encode,decode);durable.CommitVictory(request,build,store.Save);
             check(store.Load(out var loaded)==FormalLoadResult.Loaded && loaded.growth.stones==350 && loaded.world.claimedBattleIds.Contains(request.BattleId),"Real file contains both sides of victory");
             check(store.Save(loaded),"Exact durable candidate retry acknowledged");
@@ -95,6 +96,6 @@ public static class FormalCampaignTests
             check(File.ReadAllText(path)=="corrupt","Corrupt primary retained");
             File.WriteAllText(path,normal);File.WriteAllText(path+".tmp","uncommitted");check(store.Load(out loaded)==FormalLoadResult.Loaded && loaded.revision==1,"Uncommitted tmp ignored");
             File.Delete(path);check(store.Load(out _)==FormalLoadResult.Blocked,"Orphan backup not treated as new game");
-        }finally{foreach(var file in new[]{path,path+".bak",path+".tmp"})if(File.Exists(file))File.Delete(file);Directory.Delete(dir);}
+        }finally{foreach(var file in new[]{path,path+".bak",path+".tmp",path+".write.lock"})if(File.Exists(file))File.Delete(file);Directory.Delete(dir);}
     }
 }

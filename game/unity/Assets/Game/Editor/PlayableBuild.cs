@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.IO;
 using NewAster.Core;
 using NewAster.Data;
 using UnityEditor;
@@ -59,6 +60,27 @@ public static class PlayableBuild
         old=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(old));old.UpgradeFormalV1();old.Validate();
         Check(old.version==2 && old.heroines.Length==5 && old.stones==0,"Unity formal V1 upgrade preserves ownership");
     }
+    private static void ValidateFormalRecovery()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-recovery-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
+        string path=Path.Combine(directory,"formal.json");
+        try{
+            var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",stones=123,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=20}}}};
+            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));store.Save(original);var next=decode(encode(original));next.revision=1;store.Save(next);
+            string backup=File.ReadAllText(path+".bak");File.WriteAllText(path,"broken");var offer=store.InspectRecovery();
+            Check(offer.CanRestore,"Unity valid backup can be confirmed");
+            Check(store.RecoveryPreview(offer).growth.heroines[0].level==20 && File.ReadAllText(path)=="broken","Unity preview read-only and level preserved");
+            var restored=store.RestoreConfirmed(offer,out var retained);
+            Check(File.ReadAllText(retained)=="broken" && File.ReadAllText(path+".bak")==backup,"Unity corrupt primary and backup preserved");
+            Check(encode(restored)==encode(original) && store.Load(out var loaded)==FormalLoadResult.Loaded,"Unity recovery roundtrip all data");
+            store.RestoreConfirmed(offer,out var duplicate);Check(duplicate==null && store.RecoveryPreview(offer).growth.stones==123,"Unity recovery repeat no new grants");
+            next=decode(encode(restored));next.revision=1;store.Save(next);Check(store.Load(out var loadedAfter)==FormalLoadResult.Loaded && loadedAfter.revision==1,"Unity normal save after recovery");
+            next.version=2;File.WriteAllText(path,encode(next));Check(store.InspectRecovery().Status==FormalRecoveryStatus.Unsupported,"Unity future primary rollback blocked");
+            bool rejected=false;try{store.RestoreConfirmed(offer,out _);}catch(InvalidOperationException){rejected=true;}Check(rejected,"Unity stale recovery offer rejects future current");
+        }finally{foreach(var file in Directory.GetFiles(directory))File.Delete(file);Directory.Delete(directory);}
+    }
     private static void ValidateFormalCampaign()
     {
         Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
@@ -88,6 +110,7 @@ public static class PlayableBuild
         ValidateFormalGrowth();
         ValidateFormalKinder();
         ValidateFormalCampaign();
+        ValidateFormalRecovery();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

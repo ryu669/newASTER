@@ -4,6 +4,8 @@ using System.IO;
 
 namespace NewAster.Core
 {
+    // Read the stable envelope header without interpreting future payload fields.
+    [Serializable] public sealed class FormalCampaignHeader {public int version;public string saveId;}
     [Serializable] public sealed class FormalCampaignSave
     {
         public const string Identity="newaster.formal-campaign";
@@ -32,20 +34,23 @@ namespace NewAster.Core
         private static void CheckArray(int[] values,int count,int min,int max){if(values==null || values.Length!=count || values.Any(v=>v<min || v>max))throw new ArgumentException("Invalid world array.");}
     }
     /// <summary>One durable envelope. Split formal files are import sources only, never dual-written.</summary>
-    public sealed class FormalCampaignStore
+    public sealed partial class FormalCampaignStore
     {
         private readonly string path;
         private readonly Func<FormalCampaignSave,string> encode;
         private readonly Func<string,FormalCampaignSave> decode;
-        public FormalCampaignStore(string path,Func<FormalCampaignSave,string> encode,Func<string,FormalCampaignSave> decode)
-        {this.path=Path.GetFullPath(path);this.encode=encode??throw new ArgumentNullException(nameof(encode));this.decode=decode??throw new ArgumentNullException(nameof(decode));}
+        private readonly Func<string,FormalCampaignHeader> decodeHeader;
+        public FormalCampaignStore(string path,Func<FormalCampaignSave,string> encode,Func<string,FormalCampaignSave> decode,Func<string,FormalCampaignHeader> decodeHeader)
+        {this.path=Path.GetFullPath(path);this.encode=encode??throw new ArgumentNullException(nameof(encode));this.decode=decode??throw new ArgumentNullException(nameof(decode));this.decodeHeader=decodeHeader??throw new ArgumentNullException(nameof(decodeHeader));}
         private FormalCampaignSave Read(string file){var s=decode(File.ReadAllText(file));if(s==null)throw new ArgumentException("Empty campaign.");s.Validate();return s;}
         public FormalLoadResult Load(out FormalCampaignSave save)
         {
             save=null;
             if(!File.Exists(path))return File.Exists(path+".bak")?FormalLoadResult.Blocked:FormalLoadResult.Missing;
             try{
-                var header=decode(File.ReadAllText(path));
+                string source=File.ReadAllText(path);var envelope=decodeHeader(source);
+                if(envelope!=null && (envelope.version!=1 || envelope.saveId!=FormalCampaignSave.Identity))return FormalLoadResult.Blocked;
+                var header=decode(source);
                 // Never hide future/foreign content behind an older backup.
                 if(header!=null && (header.version!=1 || header.saveId!=FormalCampaignSave.Identity || header.growth!=null && (header.growth.version!=2 || header.growth.contentVersion!=FormalGrowthSave.ContentVersion || header.growth.saveId!="newaster.formal-growth") || header.world!=null && header.world.version!=2))return FormalLoadResult.Blocked;
                 save=Read(path);return FormalLoadResult.Loaded;
@@ -56,6 +61,14 @@ namespace NewAster.Core
         }
         private static bool ReadFailure(Exception e)=>e is IOException || e is UnauthorizedAccessException || e is ArgumentException || e is InvalidOperationException || e is FormatException;
         public bool Save(FormalCampaignSave next)
+        {
+            next.Validate();using(AcquireWriteLock())return SaveLocked(next);
+        }
+        private FileStream AcquireWriteLock()
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(path));return new FileStream(path+".write.lock",FileMode.OpenOrCreate,FileAccess.ReadWrite,FileShare.None);
+        }
+        private bool SaveLocked(FormalCampaignSave next)
         {
             next.Validate();string payload=encode(next);
             if(File.Exists(path)){

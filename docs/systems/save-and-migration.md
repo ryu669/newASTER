@@ -10,7 +10,19 @@
 
 `FormalProgression`は無消費プレビューと確定を分離する。I/O側の成功通知を受けた時だけcurrentを入れ替え、失敗または例外時は元状態とpendingを保持する。異なる操作・再入保存を拒否。同じ確定済みID／同内容は再保存も再消費も行わず、別内容へのID再利用は拒否する。I/O成功通知を返す責任は`FormalGrowthStore`の全書込み・flush・再読込照合・置換にある。
 
-通常ゲームは`formal-campaign-v1.json`を唯一の保存先にする。envelopeのsaveId=`newaster.formal-campaign`、version=1、非負long revision、world=CampaignSaveV2、growth=FormalGrowthSave v2。育成と世界は同じ原子的置換で保存する。検証用新規状態は正式5人Lv1、ネクタル2940、結晶20、欠片／汎用0で、初回のみに保存する。再起動で再配布しない。Blocked／RecoveredBackupは上書き停止とファイル保全を表示し、明示復旧画面は後続とする。
+通常ゲームは`formal-campaign-v1.json`を唯一の保存先にする。envelopeのsaveId=`newaster.formal-campaign`、version=1、非負long revision、world=CampaignSaveV2、growth=FormalGrowthSave v2。育成と世界は同じ原子的置換で保存する。検証用新規状態は正式5人Lv1、ネクタル2940、結晶20、欠片／汎用0で、初回のみに保存する。再起動で再配布しない。Blocked／RecoveredBackupは専用の保全・復旧画面に接続済み。読み取り確認だけで上書きしない。
+
+### 統合保存の明示復旧（実装済み）
+
+正常現行ではバックアップへの巻戻しを提供しない。破損現行または現行なしで正常な同一ID・対応版の`.bak`があれば、バックアップの保存番号、人物数、人物Lv／覚醒／重複強化、討伐・詩、素材・石・ポイント・チケットを閲覧できる。人物と所持品概要は表示を切り替える。実行前に、バックアップ以降の進行をこの復旧で引き継げないことを明示し、独立した確認・取消を要求する。
+
+`InspectRecovery`はHealthy／Missing／Ready／NoValidBackup／Unsupported／Unavailableを区別する。安定した最上位version／saveIdは将来payloadを解釈する前に専用headerで検査する。将来版・別ID・未対応内容版は正常な古いbackupがあっても復旧禁止。正常backupなし・読取不能・未対応版では元ファイルを保持し、保存せず終了・保存場所表示・再確認を提供する。新規保存で問題を覆い隠さない。
+
+`RestoreConfirmed`は確認時の現行raw bytes／backup bytesのSHA-256指紋を再検証する。変更された候補は停止し、再確認を要求する。正常backupから全payloadを専用の一時ファイルへ書込・flush・再読込検証し、現行があればraw bytesを`.preserved-UTC時刻-UUID`へ上書きなしで保全してから原子的置換する。`.bak`へ破損データを移さず正常backupを維持する。現行なしの場合は復旧候補を新規配置する。保全失敗・置換失敗は復旧完了扱いにせず、入力を残して再試行する。復旧一時ファイルは自動復旧元にしない。
+
+通常保存・復旧は同じ`.write.lock`の排他ハンドルを使用し、同じゲームによる同時書込を拒否する。ファイルが残っているだけでロック中とは扱わない。復旧後の同一確認再送は現行payload完全一致なら書換えなしで成功、後の正常進行があれば古い確認で巻き戻さない。人物・報酬・抽選結果・操作receiptをそのまま復元し、再配布・再抽選をしない。復旧画面中の終了時保存は禁止する。正常状態を読み直せた場合は復旧とは区別して案内する。
+
+対象は統合済み正式保存。統合前の正式世界／育成個別ファイルの破損は上書き停止と案内に留め、個別ファイル復旧は後続。旧試遊保存の互換復旧は行わない。
 
 統合ファイルがない場合に限り、直前の正式ファイル`campaign-formal-world-v1.json`と`formal-growth-v1.json`を読取専用の統合元にする。両方を検証し、存在する状態を保全して一つのenvelopeを作る。欠けた側だけ初期化し、破損・孤立backup・未対応版がある場合は統合を停止する。正常な統合ファイルがあれば統合元を再読込・再配布・再書込しない。元ファイルは削除しない。旧試遊`campaign-v2.json`は引き続き読み書きしない。
 

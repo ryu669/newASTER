@@ -462,6 +462,8 @@ resource.nectarはLv育成専用の単一数量資源として定義し、Materi
 
 現行通常ゲームは`FormalCampaignSave {version:1,saveId:"newaster.formal-campaign",revision:nonnegativeLong,world:CampaignSaveV2,growth:FormalGrowthSave}`へ統合済み。育成payloadの契約は下記を維持し、独立ファイルは正常な直前正式保存の読取専用統合元だけとする。`FormalCampaignJournal`は世界・育成・討伐の確定を一つの書込callbackへ渡す。worldの各配列長・数量・ID集合を検証し、unknown IDを推測で削除しない。
 
+保存codecはpayloadとは独立した`FormalCampaignHeader {version,saveId}`の読込を提供する。将来版でpayloadの型が変わっても、読込不能な「破損」と誤判定して古いbackupへ戻さない。`FormalRecoveryOffer`はstatusと、確認した保存場所・raw bytes指紋・候補payloadを不変保持する。`RecoveryPreview`は独立したコピー、`RestoreConfirmed`は同じ場所・指紋・候補の再検証を必須にする。確認前のoffer取得・previewは状態やファイルを変更しない。
+
 `FormalVictoryRequest`はbattleId・colossusId・召喚Lv・基準envelope revisionを不変保持し、receipt.signatureに検証用報酬版・colossusId・Lvを記録する。receipt IDはworld.claimedBattleIdsの同じbattleIdと対になる。初回組立だけ世界callbackを実行し、失敗後は候補全体を再利用する。確定済みID再送はcallback・書込・付与を再実行しない。世界と育成のrevisionは別で、世界のみの操作ではgrowth revisionを増やさない。
 
 2026-10-02ユーザー確定により旧試遊互換は不要。`FormalGrowthSave`はCampaignSaveV2を入力として受け入れず、正式人物IDで別管理する。現行`version=2`、`contentVersion=growth-2026-10-02`、`saveId`、非負long `revision`、非負int `nectar/awakeningCrystals/overflow/stones/kinderPoints/totalKinderDraws`、`heroines[]`、`tickets[{heroineId,count}]`、`receipts[]`を必須とする。人物状態は`heroineId/level/awakeningStage/duplicateRank/fragments`、receiptは`transactionId/signature/kinderOutcomes[]`。outcomeはkind・heroineId・amount・grantKind（owned/fragments/overflow）を持ち、育成receiptの結果列は空。配列と要素は深く複製し、負数・重複チケットID・不正結果種別を拒否する。既存正式v1だけ新経済を0で補完する。件数上限・将来の保存サイズ制限は配布受入れで追加する。
