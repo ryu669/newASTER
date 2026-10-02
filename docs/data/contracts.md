@@ -457,3 +457,13 @@ LevelUpRequest { transactionId:Id,heroineId:Id,targetLevel:1..120,baseRevision:n
 resource.nectarはLv育成専用の単一数量資源として定義し、MaterialDef.kind=colossusへ混ぜない。ネクタルの大小・品質別IDは作らない。JobBaseStats.jobIdは格納先JobDef.idと一致。キャラのHP／攻撃／防御bp合計30000、全参照と上限Lvを検証する。速度補正はチェイン接続へ適用しない。
 
 費用・成長算式はsystems/progression.mdを唯一の定義元とする。計算は広い整数で行い、UIと保存結果は同じ算式を使う。基礎ステータスはLv・ジョブ・キャラ補正とcontentVersionから導出し、セーブの重複正値を定義元にしない。内容版を変更するときの既存キャラ再計算は版移行規則に明示する。
+
+## 計画4・独立育成保存の先行実装
+
+2026-10-02ユーザー確定により旧試遊互換は不要。`FormalGrowthSave`はCampaignSaveV2を入力として受け入れず、正式人物IDで別管理する。`version=1`、`contentVersion=growth-2026-10-02`、`saveId`、非負long `revision`、非負int `nectar/awakeningCrystals/overflow`、`heroines[]`、`receipts[]`を必須とする。人物状態は`heroineId/level/awakeningStage/duplicateRank/fragments`、receiptは`transactionId/signature`。件数上限・将来の保存サイズ制限は配布受入れで追加する。
+
+`GrowthRequest`は不変で、内容版・人物ID・操作種別・目標Lv・基準revisionを署名に含める。Level以外のtargetLevelは0。入力／出力／I/Oへ渡すpayloadは深いコピー。確定済みIDの別内容再使用、未知人物への操作、不足、上限超過、オーバーフローを状態変更前に拒否する。未知人物の既存状態は保存往復で保持する。
+
+`GrowthPreview`はネクタル・結晶・専用欠片・汎用の消費内訳、最大時の汎用化量、対象人物の変更後状態を返す。汎用化と強化を同一payloadで確定する。`ReceiveHeroine`は排出／報酬の内部付与入口で、画面から無償付与する操作ではない。ガチャの石／ポイント／チケットを伴う確定は後続でこのpayloadへ拡張する必要があり、人物付与だけ別保存してはならない。
+
+`FormalGrowthMath`はジョブ基準を引数に取る純粋算式。Lvの基礎値は最後に一度切捨て、重複の+2%／段階を別に切捨てる。特性量は明示単位の基準量に対して算出する。bp特性を整数percentへ先に丸めない。正式人物・戦闘への接続と特性成長対象の定義は未完了。

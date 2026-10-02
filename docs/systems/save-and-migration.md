@@ -4,6 +4,14 @@
 
 ## 保存と移行契約
 
+2026-10-02追記：ユーザー確定「旧試遊版との互換は不要」。正式版の新保存へ旧CampaignSaveV2を移行しない。旧のキャラ番号・所持・素材・石・詩などを引き継がず、新規開始する。旧ファイルは削除せず残す。この決定は下記の旧試遊変換計画を置換するが、正式保存内の未知版保護・backup・原子性・将来の内容版移行の必要性は維持する。
+
+先行実装は`FormalGrowthSave`（version=1、contentVersion=`growth-2026-10-02`）。saveId・revision・nectar・awakeningCrystals・overflow、人物IDごとのlevel／awakeningStage／duplicateRank／fragments、確定操作のtransactionId／signatureを保持する。取得していない人物の育成は禁止。未知人物IDは保持するが操作対象にしない。旧の1〜4番というindexから人物を決めない。
+
+`FormalProgression`は無消費プレビューと確定を分離する。I/O側の成功通知を受けた時だけcurrentを入れ替え、失敗または例外時は元状態とpendingを保持する。異なる操作・再入保存を拒否。同じ確定済みID／同内容は再保存も再消費も行わず、別内容へのID再利用は拒否する。I/O成功通知を返す責任は`FormalGrowthStore`の全書込み・flush・再読込照合・置換にある。
+
+この基盤は通常ゲームの保存入口へ未接続。正式保存ファイル名／初期配布量／ガチャpayload／明示復旧画面は接続時に追加する。旧TryLoadの失敗を新規開始扱いする実装へこの基盤を直接継ぎ足さない。復旧結果Blockedは新規ファイルで上書きせず通知する。RecoveredBackupの再保存は正常現行の復旧を明示した後にだけ許可する。
+
 既存CampaignSaveV2へ追加するか別版へ移すかはローカルの現在形式確認後に確定する。新しい自由座標・ADV既読を使う場合は次の論理項目を版管理する。
 
 既読はsceneId＋scriptVersion＋lineIdの複合キー。本文差替時の既読維持はID対応表で判断し、indexだけで移行しない。報酬IDはbattle／event／gachaの種別付き安定IDで保存する。

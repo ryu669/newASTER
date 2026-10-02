@@ -11,6 +11,7 @@ public static class AutomaticChainTests
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main(string[] args)
     {
+        FormalProgressionTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
         Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
