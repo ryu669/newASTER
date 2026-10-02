@@ -71,8 +71,12 @@ namespace NewAster.Core
         public ChainTarget Target { get; }
         public int BaseHealing { get; }
         public string PresentationId { get; }
-        public HeroineChainAction(string heroId,string id,decimal power,ChainEffect effect=ChainEffect.Damage,ChainTarget target=ChainTarget.BossBody,int baseHealing=0,string presentationId=null)
+        public string DamageType { get; }
+        public int IgnoreDefenseBp { get; }
+        public HeroineChainAction(string heroId,string id,decimal power,ChainEffect effect=ChainEffect.Damage,ChainTarget target=ChainTarget.BossBody,int baseHealing=0,string presentationId=null,string damageType="physical",int ignoreDefenseBp=0)
         {
+            if((damageType!="physical" && damageType!="magic") || ignoreDefenseBp<0 || ignoreDefenseBp>10000 || (effect==ChainEffect.Heal && (damageType!="physical" || ignoreDefenseBp!=0))) throw new ArgumentException("Invalid fixed-action defense profile.");
+            DamageType=damageType;IgnoreDefenseBp=ignoreDefenseBp;
             if(string.IsNullOrWhiteSpace(heroId)||string.IsNullOrWhiteSpace(id)||!Enum.IsDefined(typeof(ChainEffect),effect)||!Enum.IsDefined(typeof(ChainTarget),target)||power<0||power>100||baseHealing<0||baseHealing>1000000||
                 (effect==ChainEffect.Damage && (power<=0 || baseHealing!=0 || (target!=ChainTarget.BossBody && target!=ChainTarget.LowestHpPart))) ||
                 (effect==ChainEffect.Heal && ((power==0 && baseHealing==0) || (target!=ChainTarget.Self && target!=ChainTarget.LowestHpAlly && target!=ChainTarget.AllLivingAllies)))) throw new ArgumentException("Invalid fixed chain effect/target.");

@@ -15,6 +15,8 @@ namespace NewAster.Core
         public int resourceCost,recoveryPercent,castPercent,targetCount,baseHealing;
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
         public int criticalBonusBp,damageCap;
+        public string damageType;
+        public int ignoreDefenseBp;
         public SkillConditionDef[] conditions;
         public float powerScale,partScale;
         public bool chainEligible;
@@ -25,12 +27,15 @@ namespace NewAster.Core
         public string id,heroineId,effectRuleId,targetRuleId,resourcePolicy,timelinePolicy,commandInteractionPolicy,presentationId;
         public float powerScale;
         public int baseHealing;
+        public string damageType;
+        public int ignoreDefenseBp;
     }
     // A versioned combat-only slice, not the complete story/trait/weapon HeroineDef.
     [Serializable] public sealed class CombatDefinitionCatalog
     {
         public int schemaVersion;
         public string status;
+        public int enemyPhysicalDefense,enemyMagicDefense;
         public string[] formation;
         public HeroineCombatDef[] heroines;
         public SkillCombatDef[] skills;
@@ -43,6 +48,7 @@ namespace NewAster.Core
         public string HeroIdAt(int index) => FormationIds[index];
         public void Validate()
         {
+            if(enemyPhysicalDefense<0 || enemyMagicDefense<0) throw new ArgumentException("Enemy defense cannot be negative.");
             if(!((schemaVersion==1 && status=="placeholder" && (formation==null || formation.Length==0)) || (schemaVersion==2 && status=="integration-trial" && formation!=null && formation.Length==5 && formation.All(Id) && formation.Distinct().Count()==5))) throw new ArgumentException("Combat slice requires legacy placeholder v1 or explicit integration-trial v2 formation.");
             if(heroines==null || heroines.Length!=5 || skills==null || skills.Length!=15 || chainActions==null || chainActions.Length!=5)
                 throw new ArgumentException("Combat slice requires 5 heroines, 15 skills and 5 chain actions.");
@@ -53,6 +59,7 @@ namespace NewAster.Core
             if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
+                if((!string.IsNullOrEmpty(skill.damageType) && skill.damageType!="physical" && skill.damageType!="magic") || skill.ignoreDefenseBp<0 || skill.ignoreDefenseBp>10000 || (skill.effectRuleId!="effect.damage" && (!string.IsNullOrEmpty(skill.damageType) || skill.ignoreDefenseBp!=0))) throw new ArgumentException("Invalid attack defense profile.");
                 SkillConditionDef.ValidateAll(skill.conditions);
                 if(skill.criticalBonusBp<0 || skill.criticalBonusBp>10000 || skill.damageCap<0 || (skill.effectRuleId!="effect.damage" && (skill.criticalBonusBp!=0 || skill.damageCap!=0))) throw new ArgumentException("Critical bonus and damage cap require an attack.");
                 TimedSelfEffectDef.ValidateAll(skill.selfEffects);
@@ -108,6 +115,7 @@ namespace NewAster.Core
         }
         private static HeroineChainAction MakeChain(ChainCombatDef a)
         {
+            if(a.effectRuleId!="effect.damage" && (!string.IsNullOrEmpty(a.damageType) || a.ignoreDefenseBp!=0)) throw new ArgumentException("Healing fixed action cannot carry an attack defense profile.");
             ChainEffect effect;
             if(a.effectRuleId=="effect.damage") effect=ChainEffect.Damage;
             else if(a.effectRuleId=="effect.heal") effect=ChainEffect.Heal;
@@ -121,7 +129,7 @@ namespace NewAster.Core
                 case "target.all-living-allies": target=ChainTarget.AllLivingAllies;break;
                 default: throw new ArgumentException("Unsupported fixed chain target.");
             }
-            return new HeroineChainAction(a.heroineId,a.id,(decimal)a.powerScale,effect,target,a.baseHealing,a.presentationId);
+            return new HeroineChainAction(a.heroineId,a.id,(decimal)a.powerScale,effect,target,a.baseHealing,a.presentationId,string.IsNullOrEmpty(a.damageType)?"physical":a.damageType,a.ignoreDefenseBp);
         }
     }
 }

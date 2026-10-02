@@ -14,9 +14,14 @@ namespace NewAster.Core
         public int CriticalChanceBp { get; }
         public int CriticalMultiplierPercent { get; }
         public int DamageCap { get; }
+        public string DamageType { get; }
+        public int IgnoreDefenseBp { get; }
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0)
         {
+            if(damageType!="physical" && damageType!="magic") throw new ArgumentException("Unknown damage type.");
+            if(ignoreDefenseBp<0 || ignoreDefenseBp>10000) throw new ArgumentOutOfRangeException(nameof(ignoreDefenseBp));
+            DamageType=damageType;IgnoreDefenseBp=ignoreDefenseBp;
             if (power <= 0m) throw new ArgumentOutOfRangeException(nameof(power));
             if (resourceCost < 0) throw new ArgumentOutOfRangeException(nameof(resourceCost));
             if(selfHealingBaseAttackPercent<0 || selfHealingBaseAttackPercent>1000 || selfDamageMaxHpPercent<0 || selfDamageMaxHpPercent>100) throw new ArgumentOutOfRangeException("Attack follow-up percentage");
@@ -59,6 +64,18 @@ namespace NewAster.Core
     /// <summary>スキルのコスト、対象、ダメージ、部位破壊、勝利を一度だけ解決する。</summary>
     public static class BattleActionResolver
     {
+        // Shared by preview and resolution. This is a newASTER rule, not a source-game formula.
+        public static int CalculateDamage(BattleState battle,BattleHero hero,BattleSkill skill,string targetId,bool critical=false)
+        {
+            if(battle==null || hero==null || skill==null) throw new ArgumentNullException("Damage inputs");
+            var part=targetId=="body"?null:battle.Parts.SingleOrDefault(p=>p.Id==targetId);
+            if(targetId!="body" && (part==null || part.IsBroken)) throw new ArgumentException("Invalid damage target.");
+            int defense=skill.DamageType=="magic"?(part?.MagicDefense??battle.BossMagicDefense):(part?.PhysicalDefense??battle.BossPhysicalDefense);
+            decimal effectiveDefense=(decimal)defense*(10000-skill.IgnoreDefenseBp)/10000m;
+            decimal raw=(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
+            return (int)Math.Max(1m,Math.Min(skill.DamageCap>0?skill.DamageCap:int.MaxValue,Math.Floor(raw)));
+        }
+
         public static BattleActionResult Resolve(BattleState battle, string heroId, BattleSkill skill, string targetId,Func<int,int> draw=null)
         {
             if (battle == null) throw new ArgumentNullException(nameof(battle));
@@ -79,8 +96,7 @@ namespace NewAster.Core
             if(roll<-1 || roll>=10000 || (skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000 && roll<0)) throw new ArgumentException("Invalid critical RNG result.");
             bool critical=skill.CriticalChanceBp==10000 || roll>=0 && roll<skill.CriticalChanceBp;
             hero.SpendResource(skill.ResourceCost);
-            decimal raw=(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m);
-            int damage=(int)Math.Max(1m,Math.Min(skill.DamageCap>0?skill.DamageCap:int.MaxValue,Math.Floor(raw)));
+            int damage=CalculateDamage(battle,hero,skill,targetId,critical);
             int appliedDamage=isBody?battle.ApplyBossDamage(damage):Math.Min(part.HitPoints,damage);
             bool broken=!isBody && battle.BreakPart(targetId,damage);
             // One accepted command: enemy damage, self healing, then self recoil.

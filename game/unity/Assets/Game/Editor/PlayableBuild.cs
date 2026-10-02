@@ -94,6 +94,16 @@ public static class PlayableBuild
         var source=Resources.Load<TextAsset>("Combat/battle-preview");
         Check(source!=null,"Combat JSON must exist before a player can be built");
         var definitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);definitions.Validate();
+        var defenseDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);
+        defenseDefinitions.enemyPhysicalDefense=1000;defenseDefinitions.enemyMagicDefense=3000;
+        defenseDefinitions.Skill("hero-0",0).damageType="magic";
+        defenseDefinitions.Skill("hero-0",0).ignoreDefenseBp=5000;
+        defenseDefinitions.Skill("hero-0",0).chainEligible=false;
+        defenseDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(JsonUtility.ToJson(defenseDefinitions));defenseDefinitions.Validate();
+        Check(defenseDefinitions.Skill("hero-0",0).damageType=="magic" && defenseDefinitions.Skill("hero-0",0).ignoreDefenseBp==5000,"Unity preserves damage type and defense ignore");
+        var defenseBattle=new PlayableBattle(1,new PlayableProgress(),29,combatDefinitions:defenseDefinitions);
+        int predicted=defenseBattle.PreviewDamage(0,0,"body"),beforeHp=defenseBattle.State.BossHitPoints;
+        Check(defenseBattle.Act(0,0,"body") && beforeHp-defenseBattle.State.BossHitPoints==predicted,"Unity magic defense preview matches resolution");
         Check(definitions.heroines.Length==5 && definitions.skills.Length==15 && definitions.chainActions.Length==5,"Unity deserializes the complete combat slice");
         var fixedActions=definitions.Chain();
         Check(fixedActions[1].Target==ChainTarget.LowestHpPart && fixedActions[2].Effect==ChainEffect.Heal && fixedActions[3].Target==ChainTarget.LowestHpAlly,"Unity deserializes distinct placeholder fixed-action targets and effects");

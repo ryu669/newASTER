@@ -76,7 +76,7 @@ namespace NewAster.Core
                 commandDefinitions=new SkillCombatDef[5,3];
                 for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {
                     var s=combatDefinitions.Skill(formationIds[i],slot);
-                    commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,effectRuleId=s.effectRuleId,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,selfEffects=s.selfEffects?.Select(e=>e.Copy()).ToArray(),criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,conditions=s.conditions?.Select(c=>c.Copy()).ToArray()};
+                    commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,effectRuleId=s.effectRuleId,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,selfEffects=s.selfEffects?.Select(e=>e.Copy()).ToArray(),criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,conditions=s.conditions?.Select(c=>c.Copy()).ToArray(),damageType=s.damageType,ignoreDefenseBp=s.ignoreDefenseBp};
                 }
             }
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
@@ -97,8 +97,8 @@ namespace NewAster.Core
                     130 + progress.Levels[i] * 12 + defense[i] * 25 + progress.TraitRanks[i] * PlayableProgress.DuplicateHitPointGain,
                     20 + progress.Levels[i] * 3 + progress.Branches[i * 3] * 8 + progress.TraitRanks[i] * PlayableProgress.DuplicateAttackGain, 10, new[]{110,95,80,105,100}[i])),
                 new[] { "crystal-horn-crown", "left-wing-root", "right-wing-root", "vine-wrapped-tail" }
-                    .Select((id,i) => new BattlePart(id, 45 + level * 3, i == 0 ? "gauge-down" : "")),
-                320 + level * 24, 4);
+                    .Select((id,i) => new BattlePart(id, 45 + level * 3, i == 0 ? "gauge-down" : "",combatDefinitions?.enemyPhysicalDefense??0,combatDefinitions?.enemyMagicDefense??0)),
+                320 + level * 24, 4,combatDefinitions?.enemyPhysicalDefense??0,combatDefinitions?.enemyMagicDefense??0);
             BeginTurn();
             if(UsesTimeline) InitializeTimeline();
         }
@@ -125,7 +125,7 @@ namespace NewAster.Core
         private BattleSkill AttackDefinition(int actor,int slot,decimal power,int cost,int? attackSnapshot=null)
         {
             var d=commandDefinitions?[actor,slot];
-            return new BattleSkill(d?.id??"skill-"+slot,power,cost,d?.selfHealingBaseAttackPercent??0,d?.selfDamageMaxHpPercent??0,attackSnapshot,PreviewCriticalChanceBp(actor,slot),State.Heroes[actor].CriticalMultiplierPercent,d?.damageCap??0);
+            return new BattleSkill(d?.id??"skill-"+slot,power,cost,d?.selfHealingBaseAttackPercent??0,d?.selfDamageMaxHpPercent??0,attackSnapshot,PreviewCriticalChanceBp(actor,slot),State.Heroes[actor].CriticalMultiplierPercent,d?.damageCap??0,string.IsNullOrEmpty(d?.damageType)?"physical":d.damageType,d?.ignoreDefenseBp??0);
         }
         public string AttackFollowUpDescription(int actor,int slot)
         {
@@ -160,8 +160,7 @@ namespace NewAster.Core
             if (target != "body" && !State.Parts.Any(p => p.Id == target && !p.IsBroken)) return 0;
             if (State.Heroes[heroIndex].JobResource < SkillResourceCost(heroIndex,skill)) return 0;
             int previewChain=UsesTimeline && CastDelay(heroIndex,skill)>0?1:NextChain(heroIndex);
-            int damage = (int)Math.Max(1m,Math.Min(int.MaxValue,Math.Floor(State.Heroes[heroIndex].Attack * AttackPower(heroIndex, skill, target, previewChain))));
-            int cap=commandDefinitions?[heroIndex,skill].damageCap??0;if(cap>0) damage=Math.Min(damage,cap);
+            int damage=BattleActionResolver.CalculateDamage(State,State.Heroes[heroIndex],AttackDefinition(heroIndex,skill,AttackPower(heroIndex,skill,target,previewChain),0),target);
             return Math.Min(damage, target == "body" ? State.BossHitPoints : State.Parts.First(p => p.Id == target).HitPoints);
         }
         public int PreviewEnemyDamage(int heroIndex)

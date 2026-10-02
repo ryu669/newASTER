@@ -47,9 +47,13 @@ namespace NewAster.Core
         public int HitPoints { get; private set; }
         public bool IsBroken => HitPoints == 0;
         public string BreakEffectId { get; }
+        public int PhysicalDefense { get; }
+        public int MagicDefense { get; }
 
-        public BattlePart(string id, int hitPoints, string breakEffectId)
+        public BattlePart(string id, int hitPoints, string breakEffectId,int physicalDefense=0,int magicDefense=0)
         {
+            if(physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Defense cannot be negative.");
+            PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
             Id = id ?? throw new ArgumentNullException(nameof(id));
             HitPoints = Math.Max(1, hitPoints);
             BreakEffectId = breakEffectId ?? string.Empty;
@@ -85,13 +89,17 @@ namespace NewAster.Core
         public int BossGaugeMax { get; }
         public int BossHitPoints { get; private set; }
         public int BossMaxHitPoints { get; }
+        public int BossPhysicalDefense { get; }
+        public int BossMagicDefense { get; }
         public bool IsVictory => BossHitPoints == 0;
         public IReadOnlyList<BattleHero> Heroes { get; }
         public IReadOnlyList<BattlePart> Parts { get; }
         public IReadOnlyList<ChainModifier> TurnChainModifiers { get; private set; }
 
-        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossHitPoints, int bossGaugeMax)
+        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossHitPoints, int bossGaugeMax,int bossPhysicalDefense=0,int bossMagicDefense=0)
         {
+            if(bossPhysicalDefense<0 || bossMagicDefense<0) throw new ArgumentOutOfRangeException("Defense cannot be negative.");
+            BossPhysicalDefense=bossPhysicalDefense;BossMagicDefense=bossMagicDefense;
             if (selectedLevel < MinimumLevel || selectedLevel > MaximumLevel) throw new ArgumentOutOfRangeException(nameof(selectedLevel));
             Heroes = heroes?.ToArray() ?? throw new ArgumentNullException(nameof(heroes));
             Parts = parts?.ToArray() ?? throw new ArgumentNullException(nameof(parts));

@@ -22,10 +22,11 @@ namespace NewAster.Core
             var hero=state.Heroes[actor];
             if(!hero.IsAlive || state.IsVictory) return Empty();
             if(action.Effect==ChainEffect.Damage) {
-                int damage=Math.Max(1,(int)Math.Floor(hero.Attack*action.Power));
-                if(action.Target==ChainTarget.BossBody) return new ChainActionResult("body",new[]{"body"},Array.Empty<int>(),state.ApplyBossDamage(damage));
+                var skill=new BattleSkill(action.Id,action.Power,0,damageType:action.DamageType,ignoreDefenseBp:action.IgnoreDefenseBp);
+                if(action.Target==ChainTarget.BossBody) return new ChainActionResult("body",new[]{"body"},Array.Empty<int>(),state.ApplyBossDamage(BattleActionResolver.CalculateDamage(state,hero,skill,"body")));
                 var part=state.Parts.Where(p=>!p.IsBroken).OrderBy(p=>p.HitPoints).FirstOrDefault();
                 if(part==null) return Empty();
+                int damage=BattleActionResolver.CalculateDamage(state,hero,skill,part.Id);
                 int applied=Math.Min(damage,part.HitPoints);bool broken=state.BreakPart(part.Id,damage);
                 return new ChainActionResult(part.Id,new[]{part.Id},Array.Empty<int>(),applied,broken);
             }

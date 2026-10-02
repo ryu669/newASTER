@@ -94,6 +94,7 @@ public static class AutomaticChainTests
         ValidateAttackFollowUps(fresh);
         ValidateTimedSelfEffects(fresh);
         ValidateExtendedCombat(fresh,freshReference());
+        ValidateDamageDefense(fresh);
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -183,6 +184,52 @@ public static class AutomaticChainTests
         return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
             Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
     }
+    private static void ValidateDamageDefense(Func<CombatDefinitionCatalog> fresh)
+    {
+        var state=new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,1000,100,10)),Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,1000,"",3000,1000)),10000,4,1000,3000);
+        var hero=state.Heroes[0];
+        var physical=new BattleSkill("physical",2,0);
+        var magic=new BattleSkill("magic",2,0,damageType:"magic");
+        Check(BattleActionResolver.CalculateDamage(state,hero,physical,"body")==100,"Physical damage selects physical body defense");
+        Check(BattleActionResolver.CalculateDamage(state,hero,magic,"body")==50,"Magic damage selects magic body defense");
+        Check(BattleActionResolver.CalculateDamage(state,hero,physical,"part-0")==50,"Part has independent physical defense");
+        Check(BattleActionResolver.CalculateDamage(state,hero,magic,"part-0")==100,"Part has independent magic defense");
+        Check(BattleActionResolver.CalculateDamage(state,hero,new BattleSkill("ignore",2,0,ignoreDefenseBp:10000),"body")==200,"Full defense ignore preserves raw damage");
+        Check(BattleActionResolver.CalculateDamage(state,hero,new BattleSkill("partial",2,0,ignoreDefenseBp:5000),"body")==133,"Partial defense ignore rounds only final damage");
+        Check(BattleActionResolver.CalculateDamage(state,hero,new BattleSkill("critical.cap",2,0,damageCap:120),"body",true)==120,"Critical then defense then cap");
+        var result=BattleActionResolver.Resolve(state,hero.Id,physical,"body");
+        Check(result.Damage==100 && state.BossHitPoints==9900,"Resolve uses shared defense calculation");
+        hero.GainResource(3);int resourceBefore=hero.JobResource;
+        var fixedResult=ChainActionResolver.Resolve(state,0,new HeroineChainAction(hero.Id,"fixed.magic",2,damageType:"magic"));
+        Check(fixedResult.Amount==50 && hero.JobResource==resourceBefore,"Fixed magic action uses defense without cost or critical RNG");
+        fixedResult=ChainActionResolver.Resolve(state,0,new HeroineChainAction(hero.Id,"fixed.part",2,target:ChainTarget.LowestHpPart,ignoreDefenseBp:10000));
+        Check(fixedResult.Amount==200 && fixedResult.Target=="part-0","Fixed part action honors independent defense-ignore definition");
+        var cappedState=new BattleState(1,state.Heroes,Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,1000,"",int.MaxValue,int.MaxValue)),10000,4,int.MaxValue,int.MaxValue);
+        Check(BattleActionResolver.CalculateDamage(cappedState,hero,physical,"body")==1,"Extreme defense has no overflow and preserves one damage minimum");
+        bool rejected=false;try{new BattleSkill("bad",1,0,damageType:"true");}catch(ArgumentException){rejected=true;}Check(rejected,"Unknown damage type rejected");
+        rejected=false;try{new BattleSkill("bad",1,0,ignoreDefenseBp:10001);}catch(ArgumentException){rejected=true;}Check(rejected,"Defense ignore above 100 percent rejected");
+        rejected=false;try{new BattlePart("bad",10,"",-1);}catch(ArgumentException){rejected=true;}Check(rejected,"Negative part defense rejected");
+        var catalog=fresh();catalog.enemyPhysicalDefense=1000;catalog.enemyMagicDefense=3000;
+        var def=catalog.Skill("hero-0",0);def.damageType="magic";def.ignoreDefenseBp=5000;def.chainEligible=false;catalog.Validate();
+        var battle=new PlayableBattle(1,new PlayableProgress(),29,combatDefinitions:catalog);int preview=battle.PreviewDamage(0,0,"body");
+        catalog.enemyMagicDefense=0;def.damageType="physical";def.ignoreDefenseBp=10000;
+        int hp=battle.State.BossHitPoints;Check(battle.Act(0,0,"body"),"Defined magic attack accepted");
+        Check(hp-battle.State.BossHitPoints==preview && preview>0,"Preview matches copied definition and defense snapshot");
+        catalog=fresh();catalog.Skill("hero-0",0).damageType="unknown";ExpectCombatFailure(catalog,"Unknown damage profile rejected at loading");
+        catalog=fresh();catalog.enemyPhysicalDefense=-1;ExpectCombatFailure(catalog,"Negative enemy defense rejected at loading");
+        catalog=fresh();catalog.Skill("hero-0",2).ignoreDefenseBp=1;ExpectCombatFailure(catalog,"Support cannot silently gain defense-ignore attack behavior");
+        // Identical seeds remain deterministic; changing defense never consumes extra random numbers.
+        for(int seed=0;seed<50;seed++) {
+            var a=fresh();var b=fresh();b.enemyPhysicalDefense=1000;
+            a.Skill("hero-0",0).criticalBonusBp=b.Skill("hero-0",0).criticalBonusBp=2000;
+            a.Skill("hero-0",0).chainEligible=b.Skill("hero-0",0).chainEligible=false;
+            var first=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:a);
+            var second=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:b);
+            first.Act(0,0,"body");second.Act(0,0,"body");
+            Check(first.Clock==second.Clock && first.State.Heroes[0].JobResource==second.State.Heroes[0].JobResource,"Defense has no cost or timeline side effects seed "+seed);
+        }
+    }
+
     private static void ValidateExtendedCombat(Func<CombatDefinitionCatalog> fresh,HeroineReferenceCatalog reference)
     {
         var state=EffectState();int draws=0;var hero=state.Heroes[0];hero.GainResource(3);
