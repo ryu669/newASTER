@@ -100,7 +100,11 @@ namespace NewAster.Presentation
             if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
             if(capturePath!=null && args.Contains("-captureGrowth")) {
                 encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
-                if(args.Contains("-captureGrowthConfirm")) growthRequest=new GrowthRequest("capture.growth",combatDefinitions.FormationIds[0],formalProgression.Snapshot.revision,GrowthOperation.Level,11);
+                if(args.Contains("-captureGrowthNavigation")) ValidateGrowthScreenNavigation();
+                if(args.Contains("-captureGrowthLevel")) GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines[0]);
+                if(args.Contains("-captureGrowthAwakening")) GrowthSelect(GrowthScreen.Awakening,formalProgression.Snapshot.heroines[0]);
+                if(args.Contains("-captureGrowthDuplicate")) GrowthSelect(GrowthScreen.Duplicate,formalProgression.Snapshot.heroines[0]);
+                if(args.Contains("-captureGrowthConfirm")) {growthScreen=GrowthScreen.Level;GrowthConfirm(GrowthOperation.Level,combatDefinitions.FormationIds[0],formalProgression.Snapshot,11);}
             }
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
@@ -140,7 +144,8 @@ namespace NewAster.Presentation
         private void Update()
         {
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(modelViewer) modelViewer=false;
+                if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
+                else if(modelViewer) modelViewer=false;
                 else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
                 else if(storyText!=null) CloseStory();
                 else if(help) help=false;
@@ -221,6 +226,7 @@ namespace NewAster.Presentation
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"戦闘定義を読み込めません。旧値への自動補完は行いません。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
