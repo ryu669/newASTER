@@ -331,6 +331,29 @@ WeaponNode.materialCostsは所属WeaponTreeDef.heroineIdのノード専用定義
 
 専用チケットと専用ガチャのtargetHeroineIdは一致を必須とし、別対象への使用を拒否する。石ガチャ抽選の3%テーブルは専用100%ガチャへ適用しない。
 
+## 覚醒・重複・チェイン調整データ
+
+以下は新しい初期調整用データ契約。既存セーブへ無変換で追加せず、定義内容版と必要な保存移行を明示して実装する。数値の定義元はsystems/progression.mdとsystems/battle.md。
+
+```text
+AwakeningRule { id:Id, fromStage:0..1, requiredLevel:positiveInt, costs:ResourceCost[] }
+DuplicateGrowthRule { id:Id, maxRank:positiveInt, fragmentGrant:positiveInt,
+ rankCost:positiveInt, statStepBp:nonnegativeInt, overflowResourceId:Id }
+HeroineDef additions { duplicateTraitGrowth:{ targetEffectId:Id,
+ unit:integer|bp, baseValue:positiveInt, rankValues:positiveInt[6] } }
+HeroineGrowthState additions { duplicateRank:0..5, duplicateFragments:nonnegativeInt }
+ChainBalanceDef { id:Id, baseRateBp:ProbabilityBp, skillBonusChanceBp:ProbabilityBp,
+ skillBonusBp:ProbabilityBp, cumulativeGrantChanceBp:ProbabilityBp,
+ cumulativeBonusBp:ProbabilityBp, cumulativeMaxActors:0..2 }
+ChainModifierBatch { id:Id, skillBonuses:{skillId:Id,bonusBp:ProbabilityBp}[],
+ cumulativeActorIds:unique Id[] }
+ChainState additions { activatedBonusActorIds:unique Id[], accumulatedBonusBp:ProbabilityBp }
+```
+
+rankValuesは基準量と各ランクの値を明示し、普通の数値効果では共通成長式から生成して照合する。特殊特性の表は人物定義で承認し、未定義をゼロや別特性へ補完しない。特性強化からチェイン率・速度・行動数・ジョブ資源規則の変更を拒否する。専用欠片はheroineIdごと、汎用素材・覚醒結晶は共通資源残高として保存する。
+
+補正の対象は編成内ID、重複なし・上限2人。activatedBonusActorIdsは実行済み対象だけで、同一人物を戻り判定で二度追加しない。バッチは起点スキルと詠唱予約のcontextに紐付ける。人物定義に確率欄を追加せず、chainActionIdの欠落は正式データ検証エラーにする。
+
 ## Lv育成・ジョブ基準・キャラ補正
 
 ```text
