@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "status": "reference-only",
+  "statContext": "equipment-adjusted-snapshot",
+  "formation": ["heroine.slayer", "heroine.iconoclast", "heroine.undermine", "heroine.echidna", "heroine.excalipan"],
+  "heroines": [
+    {
+      "id": "heroine.slayer", "name": "スレイヤー", "jobId": "job.fighter", "sourceFile": "055戦闘_スレイヤー.mkv", "sourceSecond": 15,
+      "observedStats": {"level":120,"skillLevel":7,"affinity":100,"hp":8726,"attack":2711,"defense":1120,"magicDefense":556,"speed":148,"criticalPercent":58,"damageCap":394999},
+      "skills": [
+        {"id":"heroine.slayer.1","name":"スターテイル","target":"enemy.single","damageType":"physical","attackPercent":200,"recovery":"unspecified","casting":"none","tags":["斬撃"],"effects":[{"kind":"critical","target":"self","basis":"points","amount":15,"turns":0}]},
+        {"id":"heroine.slayer.2","name":"空に咲く奇蹟","target":"self","damageType":"none","attackPercent":0,"recovery":"unspecified","casting":"none","tags":[],"effects":[{"kind":"critical","target":"self","basis":"points","amount":20,"turns":3},{"kind":"critical-damage","target":"self","basis":"percent","amount":60,"turns":3},{"kind":"attack","target":"self","basis":"percent","amount":15,"turns":3}]},
+        {"id":"heroine.slayer.3","name":"比翼《聖伝》神獣殺し -輪-","target":"enemy.single","damageType":"physical","attackPercent":280,"recovery":"long","casting":"none","tags":["斬撃"],"effects":[{"kind":"critical","target":"self","basis":"points","amount":15,"turns":0},{"kind":"damage-cap","target":"self","basis":"points","amount":100000,"turns":0}]}
+      ],
+      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","資源消費・獲得","待機区分の数値化","通常衣装と撮影時のファッション効果の切り分け"]
+    },
+    {
+      "id":"heroine.iconoclast","name":"アイコノクラスト","jobId":"job.berserker","sourceFile":"005戦闘_アイコノクラスト.mkv","sourceSecond":15,
+      "observedStats":{"level":90,"skillLevel":7,"affinity":20,"hp":8721,"attack":3299,"defense":233,"magicDefense":185,"speed":140,"criticalPercent":22,"damageCap":286999},
+      "skills":[
+        {"id":"heroine.iconoclast.1","name":"旋風斬","target":"enemy.single","damageType":"physical","attackPercent":170,"recovery":"unspecified","casting":"none","tags":["斬撃"],"effects":[{"kind":"wt-add","target":"unresolved","basis":"points","amount":30,"turns":0},{"kind":"wt-reduce-percent","target":"self","basis":"percent","amount":50,"turns":0}]},
+        {"id":"heroine.iconoclast.2","name":"星の光のシルエット","target":"enemy.single","damageType":"magic","attackPercent":320,"recovery":"somewhat-long","casting":"none","tags":["斬撃","光"],"effects":[{"kind":"self-damage","target":"self","basis":"max-hp-percent","amount":10,"turns":0}]},
+        {"id":"heroine.iconoclast.3","name":"涙は捨てろスターストーム","target":"enemy.all","damageType":"physical","attackPercent":240,"recovery":"long","casting":"none","tags":["斬撃","光","火"],"effects":[{"kind":"stun","target":"enemy","basis":"points","amount":45,"turns":0}]}
+      ],
+      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","WTの単位・処理順・対象","資源消費・獲得","敵全体と本体・部位の対応"]
+    },
+    {
+      "id":"heroine.undermine","name":"アンダーマイン","jobId":"job.defender","sourceFile":"015戦闘_アンダーマイン.mkv","sourceSecond":15,
+      "observedStats":{"level":90,"skillLevel":7,"affinity":20,"hp":8288,"attack":1205,"defense":1393,"magicDefense":579,"speed":118,"criticalPercent":18,"damageCap":239999},
+      "skills":[
+        {"id":"heroine.undermine.1","name":"先輩コレもらってください！","target":"enemy.single","damageType":"physical","attackPercent":200,"recovery":"unspecified","casting":"none","tags":["打撃","火"],"effects":[{"kind":"burn","target":"enemy","basis":"points","amount":120,"turns":0},{"kind":"stun","target":"enemy","basis":"points","amount":40,"turns":0},{"kind":"self-damage","target":"self","basis":"max-hp-percent","amount":10,"turns":0}]},
+        {"id":"heroine.undermine.2","name":"自分好き好き大好き超愛してる","target":"self","damageType":"none","attackPercent":0,"recovery":"unspecified","casting":"none","tags":[],"effects":[{"kind":"regen","target":"self","basis":"attack-percent","amount":140,"turns":4},{"kind":"critical-damage","target":"self","basis":"percent","amount":50,"turns":4},{"kind":"physical-protection","target":"self","basis":"percent","amount":40,"turns":4},{"kind":"forced-target","target":"self","basis":"flag","amount":1,"turns":4}]},
+        {"id":"heroine.undermine.3","name":"Pernicious Deed","target":"enemy.single","damageType":"physical","attackPercent":280,"recovery":"unspecified","casting":"none","tags":["打撃"],"effects":[{"kind":"critical","target":"self","basis":"points","amount":60,"turns":0},{"kind":"damage-cap","target":"self","basis":"points","amount":40000,"turns":0},{"kind":"charge-consume-max","target":"self","basis":"count","amount":9,"turns":0}]}
+      ],
+      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","チャージ消費数に応じた加算倍率","チャージ獲得条件（画面上限15）","再生の発生時点・持続カウント"]
+    },
+    {
+      "id":"heroine.echidna","name":"エキドナ","jobId":"job.blaster","sourceFile":"023戦闘_エキドナ.mkv","sourceSecond":15,
+      "observedStats":{"level":90,"skillLevel":7,"affinity":20,"hp":6991,"attack":1559,"defense":329,"magicDefense":975,"speed":125,"criticalPercent":21,"damageCap":239999},
+      "skills":[
+        {"id":"heroine.echidna.1","name":"マイディストラクション","target":"enemy.range","damageType":"physical","attackPercent":240,"recovery":"short","casting":"somewhat-short","tags":["闇"],"effects":[{"kind":"ignore-defense","target":"enemy","basis":"flag","amount":1,"turns":0}]},
+        {"id":"heroine.echidna.2","name":"コンセクティブテンタクル","target":"enemy.range","damageType":"physical","attackPercent":300,"recovery":"short","casting":"normal","tags":["闇"],"effects":[{"kind":"bleed","target":"enemy","basis":"points","amount":75,"turns":0},{"kind":"poison","target":"enemy","basis":"points","amount":75,"turns":0}]},
+        {"id":"heroine.echidna.3","name":"―怪物、再臨―","target":"enemy.range","damageType":"physical","attackPercent":360,"recovery":"short","casting":"somewhat-long","tags":["闇"],"effects":[{"kind":"sickness","target":"enemy","basis":"points","amount":100,"turns":0},{"kind":"fracture","target":"enemy","basis":"points","amount":100,"turns":0}]}
+      ],
+      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","マジック消費・獲得","範囲形状と本体・部位の対応","詠唱区分の素の時間（装備短縮と分離）","状態値から発症する閾値・耐性"]
+    },
+    {
+      "id":"heroine.excalipan","name":"エクスカリパン","jobId":"job.gunner","sourceFile":"024戦闘_エクスカリパン.mkv","sourceSecond":15,
+      "observedStats":{"level":90,"skillLevel":7,"affinity":20,"hp":4837,"attack":1684,"defense":429,"magicDefense":331,"speed":161,"criticalPercent":67,"damageCap":-1},
+      "skills":[
+        {"id":"heroine.excalipan.1","name":"あなたの胃袋パンパカパン","target":"enemy.single","damageType":"physical","attackPercent":126,"recovery":"unspecified","casting":"none","tags":["銃弾"],"effects":[{"kind":"bleed","target":"enemy","basis":"points","amount":30,"turns":0}]},
+        {"id":"heroine.excalipan.2","name":"パン菓子の弾丸はジャムらない","target":"enemy.single","damageType":"physical","attackPercent":163,"recovery":"somewhat-long","casting":"none","tags":["銃弾"],"effects":[{"kind":"attack","target":"self","basis":"percent","amount":20,"turns":3},{"kind":"self-heal","target":"self","basis":"base-attack-percent","amount":70,"turns":0}]},
+        {"id":"heroine.excalipan.3","name":"追いバゲット・コマンドー撃ち","target":"enemy.all","damageType":"physical","attackPercent":240,"recovery":"long","casting":"none","tags":["銃弾","火"],"effects":[{"kind":"burn","target":"enemy","basis":"points","amount":80,"turns":0},{"kind":"special-weapon-damage","target":"self","basis":"percent","amount":200,"turns":0}]}
+      ],
+      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","弾丸消費・装填・特殊兵器の条件","特殊兵器倍率の合成順","基礎攻撃力の範囲","15秒のダメージ上限は表示遮蔽で未読"]
+    }
+  ]
+}

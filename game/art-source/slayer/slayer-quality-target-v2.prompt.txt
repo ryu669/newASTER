@@ -1,0 +1,10 @@
+Slayer v2 quality target / 2026-10-01
+Tool: built-in imagegen. One generated art-direction sheet.
+Reference: user-provided Slayer video, locally extracted frame slayer-00091.png.
+The source video/frame is not redistributed in this repository.
+Output: game/unity/Assets/Game/Art/Concepts/slayer-quality-target-v2.png
+This sheet is a target, NOT an actual game capture or a rendered 3D deliverable.
+The editable model is slayer-beauty-v2.blend and its FBX is independently constructed geometry.
+
+Generation prompt (verbatim):
+Use case: stylized-concept. Asset type: 3D character sculpting art direction sheet, not a game screenshot. Use the supplied Slayer screenshot as character design reference only: adult angel swordswoman with honey blonde bob, turquoise eyes, pink fitted elegant fantasy outfit, white feather wings, silver sword. Create a high-end beautiful Japanese anime game character modeling reference sheet on warm light gray: one full body front in relaxed A pose, one large front facial closeup, one clean exact side-profile head and one three-quarter face. SAME adult woman throughout, refined adult 7-head proportions, graceful silhouette, almond-shaped expressive eyes set into face (never protruding spheres), delicately tapered jaw, small sculpted nose and soft tiny smile, thin precise upper eyelashes and translucent turquoise iris depth, skin warm peach with soft cheek blush, subtle porcelain finish. Hair has many carefully sculpted flowing curved tapered locks, asymmetric swept bangs and airy inward-curving bob ends, no blocky tubes. Elegant rose pink high-neck sleeveless fitted dress with shaped waist, fine woven detail, gold filigree trim, petal embroidery, delicate detached sleeves, white fitted boots. Sophisticated white feather wings with layered thin feather vanes, not chunky cylinders. Original clean topology-friendly forms, premium polished cel-shaded 3D beauty like a finished anime RPG model filling a 4K screen. No UI, no logo, no text. This is a target art sheet for actual mesh reconstruction, prioritize consistent face geometry across angles.

@@ -3,6 +3,7 @@
 dist/
 # Private preservation copies, account state and recordings.
 .local-archive/
+tmp/
 
 # Dependencies, local settings and temporary output.
 node_modules/
@@ -12,6 +13,8 @@ node_modules/
 *.log
 __pycache__/
 *.py[cod]
+*.blend1
+*.blend2
 .DS_Store
 Thumbs.db
 .vs/
@@ -27,6 +30,15 @@ game/[Ll]ogs/
 game/[Uu]ser[Ss]ettings/
 game/[Mm]emoryCaptures/
 game/[Rr]ecordings/
+game/**/[Ll]ibrary/
+game/**/[Tt]emp/
+game/**/[Oo]bj/
+game/**/[Bb]uild/
+game/**/[Bb]uilds/
+game/**/[Ll]ogs/
+game/**/[Uu]ser[Ss]ettings/
+game/**/[Mm]emoryCaptures/
+game/**/[Rr]ecordings/
 
 # Local-only preservation records, inventory and utilities.
 docs/angelica-preservation.md

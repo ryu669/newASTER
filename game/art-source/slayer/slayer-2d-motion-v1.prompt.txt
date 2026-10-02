@@ -1,0 +1,11 @@
+Tool: built-in image_gen, imagegen skill. Anchor: slayer-2d-direction-study-v1.png.
+Status: blink and speaking still frames for a non-production browser motion prototype.
+
+BLINK
+Use case: identity-preserve. Image 1 is the edit target. Change ONLY both eyes to gently fully closed eyes during a natural blink, with delicate upper eyelash lines. Keep mouth and eyebrows neutral exactly as original. Preserve absolutely the same face position, head tilt, facial proportions, hair, ornaments, body, clothes, wings, background, lighting, colors and 1672x941 framing. No new expression, no smile, no movement, no zoom. Output a single full portrait, not a contact sheet. This is one blink frame for a 2D visual-novel animation consistency test.
+
+TALK
+Use case: identity-preserve. Image 1 is the edit target. Change ONLY her mouth to a small naturally open speaking mouth, a gentle short vowel with subtle dark inner mouth, not a smile or gasp. Keep both eyes open and eyebrows neutral exactly as original. Preserve absolutely the same face position, head tilt, facial proportions, hair, ornaments, body, clothes, wings, background, lighting, colors and 1672x941 framing. No new expression, no movement, no zoom. Output a single full portrait, not a contact sheet. This is one speaking frame for a 2D visual-novel animation consistency test.
+
+Runtime: retains neutral image and clips eye/mouth overlays. This is rendering logic, not a layered PSD or rig. No hair animation, audio sync, inbetween eyelids, or Unity integration. Independent raster source images are not guaranteed pixel-identical outside edited regions. No raster postprocessing used.
+

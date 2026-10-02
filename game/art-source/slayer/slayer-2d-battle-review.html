@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5人戦闘・2D表示比較</title>
+<link rel="stylesheet" href="slayer-2d-battle-review.css">
+<header><div><span class="eyebrow">newASTER · 表示比較</span><h1>5人の存在感と、行動の読みやすさ</h1><p>スレイヤーの絵を5枠へ仮配置。巨神獣の絵・戦闘モーションは制作前です。</p></div><a href="slayer-2d-review.html">人物の比較へ戻る</a></header>
+<nav class="toolbar" aria-label="比較設定"><div class="switch"><button id="portrait" aria-pressed="true">顔重視</button><button id="fullbody" aria-pressed="false">全身5人</button></div><label>回復対象 <select id="count"><option value="1">1人</option><option value="3">3人</option><option value="5">5人</option></select></label><button id="pause">一時停止</button><button id="reset">初期状態</button><span id="status" role="status">味方を選んで、攻撃・回復を確認できます</span></nav>
+<main id="battle" data-mode="portrait">
+<div class="order"><span>行動順の仮表示</span><div id="timeline"></div></div>
+<section class="stage" aria-label="戦闘の表示比較">
+<div class="scene-grid"></div><div class="focus"><img src="slayer-2d-direction-study-v1.png" alt="行動中のスレイヤー"><div class="focus-caption"><span id="focus-index">01</span><strong>スレイヤー</strong><small>選択中の味方</small></div></div>
+<div id="formation" class="formation"></div>
+<aside class="enemy"><div class="enemy-title"><span>万物の書 / 試作ページ</span><h2>巨神獣・仮配置</h2><div class="boss-hp"><i></i></div><small>本体 HP 8,000 / 8,000</small></div><div class="boss-placeholder" aria-label="巨神獣の配置枠"><span class="seal">✦</span><span>巨神獣の絵が入る領域</span></div><div class="parts" aria-label="攻撃対象"><button data-part="本体" aria-pressed="true">本体</button><button data-part="左翼" aria-pressed="false">左翼</button><button data-part="右翼" aria-pressed="false">右翼</button><button data-part="角冠" aria-pressed="false">角冠</button><button data-part="尾" aria-pressed="false">尾</button></div><div id="impact" aria-hidden="true"></div></aside>
+<div id="action-label" class="action-label" aria-live="polite"></div>
+</section>
+<section id="party" class="party" aria-label="5人の味方"></section>
+<section class="commands"><div><span class="eyebrow">選択した味方</span><strong id="actor-label">01 · スレイヤー</strong><small>表示確認用の仮数値</small></div><button id="attack">剣撃 <small>選択した本体・部位へ</small></button><button id="heal">回復 <small id="heal-label">選択中の1人へ</small></button><button id="enemy-hit">敵の全体攻撃 <small>5人への被弾表示</small></button></section>
+</main>
+<footer><p id="observation">顔重視：選択中の顔を大きく見せ、5人の状態を下段で読む構成です。</p><p>数値と行動順は表示確認用です。実ゲームの速度・待機時間・詠唱・チェイン計算には接続していません。動作は立ち絵の移動と光の表示で、剣を振る作画や髪・翼の変形は未制作です。</p></footer>
+<script src="slayer-2d-battle-review.js"></script></html>

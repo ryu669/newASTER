@@ -1,0 +1,596 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using NewAster.Core;
+using NewAster.Data;
+using UnityEngine;
+
+namespace NewAster.Presentation
+{
+    public sealed class PrototypeBootstrap : MonoBehaviour
+    {
+        private CampaignState campaign;
+        private BookNavigationState book;
+        private PlayableBattle encounter;
+        private string battleId, activeColossus, target = "body";
+        private string status = "しおりで選び、ページをめくって世界を訪ねましょう。";
+        private bool title = true, paused, retreat, help, kinderGarden, drawingModal;
+        private string result, storyText, storyId;
+        private string kinderResult = "素材で育成し、重複した誓女でステータスを強化できます。";
+        private int selectedLevel = 1, storyChapter, storyPage, selectedHero;
+        private bool selectingAlly;
+        private readonly HashSet<int> selectedAllies = new HashSet<int>();
+        private int healingActor, healingSlot;
+        private string breakNotice = "";
+        private float breakNoticeRemaining;
+        private GUIStyle text, heading, small, button, skillButton;
+        private Font font;
+        private Texture2D paper, dark, teal;
+        private Camera viewCamera;
+        private string capturePath;
+        private int captureFrame;
+        private Vector2 scroll;
+        private VerticalSliceBlockout stage;
+        private BattleIllustrationView illustrationView;
+        private CombatDefinitionCatalog combatDefinitions;
+        private HeroineReferenceCatalog heroineReferences;
+        private string combatDefinitionError;
+        private float illustrationElapsed;
+        private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
+        private long shownEvent;
+        private bool slayerReview;
+        private bool modelViewer, portraitFace=true;
+        private float portraitYaw=-20, portraitZoom=1;
+        private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
+        private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
+        private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
+        private static readonly string[] Effects = { "大技ゲージ上昇を止める", "敵の攻撃を弱める", "本体の軽減を解除", "資源妨害を止める" };
+        private static readonly string[] Furniture = { "根のベンチ", "苔のランタン", "花のテーブル" };
+        private static readonly string[] Chapters = { "最初の種", "忘れられた約束", "帰る場所" };
+        private static readonly string[] Stories = {
+            "空には、まだ地平線がなかった。\n\n竜が落とした結晶に触れると、歌がひとつ、指先に灯った。\n『土がなくても、種を忘れないで』\n森の歌い手が目を閉じる。失われた世界で、誰かが最後まで庭を守っていた。その記憶が、巨神獣の翼の下に眠っている。\n\nわたしたちはその歌を、本の最初のページに書き留めた。戦いのあとに残るものが、傷だけでないことを願いながら。",
+            "竜の角には、雨の降らない季節が刻まれていた。\n\n庭師は毎朝、枯れた泉まで歩いた。水を汲めなくても、そこに待つ子供へ会うために。\n『明日、もう一度来る』\nただそれだけの約束が、崩れゆく世界をつなぎ止めていた。\n\n翼の砕き手が結晶を握る。壊した翼は、かつて誰かを雨雲へ運ぶためのものだった。わたしたちは本を閉じ、芽吹き始めた庭へ戻った。",
+            "最後の歌は、竜の名を呼ばなかった。\n\n帰っておいで。木陰はまだ残っている。\n\n新しい星の土に、最初の根が伸びる。巨神獣から取り戻した森は、昔の世界と同じ形にはならない。それでも、根のベンチに腰を下ろした歌い手は笑った。\n『ここで、次の約束をしよう』\n\n本に記された過去が、いまの暮らしにつながる。わたしたちは新しいページをめくる。次の世界を救うために。そして、帰ってくるために。"
+        };
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
+        private void Awake()
+        {
+            campaign = CampaignSaveStore.TryLoad(out var save) ? new CampaignState(WorldCatalog.ColossusIds, save) : new CampaignState(WorldCatalog.ColossusIds);
+            book = new BookNavigationState(new Dictionary<BookBookmark, IReadOnlyList<string>> {
+                [BookBookmark.Colossi] = WorldCatalog.ColossusIds,
+                [BookBookmark.Heroines] = Enumerable.Range(0,5).Select(i => "hero-" + i).ToArray(),
+                [BookBookmark.Gardens] = new[] { "garden.grassland-forest" },
+                [BookBookmark.Stories] = new[] { "story.green-return-dragon" }
+            });
+            font = Font.CreateDynamicFontFromOSFont(new[] { "Yu Gothic", "Meiryo", "Arial" }, 20);
+            paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
+            illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
+            viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
+            viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
+            viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
+            viewCamera.allowMSAA=true; QualitySettings.antiAliasing=4;
+            var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
+            RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
+            try {
+                var referenceSource=Resources.Load<TextAsset>("Combat/heroine-reference");
+                if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
+                heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
+                Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
+                var source=Resources.Load<TextAsset>("Combat/battle-formal");
+                if(source==null) throw new ArgumentException("Combat/battle-formal missing");
+                combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
+                Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
+            } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
+            var args=Environment.GetCommandLineArgs();
+            slayerReview=args.Contains("-captureSlayerCloseup");
+            for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
+            if(capturePath!=null && args.Contains("-captureAllySelection")) {
+                Debug.LogWarning("Formal roster has no selected-allies healing skill; legacy capture option ignored.");
+            }
+            if(capturePath!=null && args.Contains("-captureCasting")) {
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
+                encounter.Act(3,1,"body"); SelectNextHero();
+            }
+            if(capturePath!=null && args.Contains("-captureCasterCommand")) {
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
+                SelectNextHero();
+            }
+            if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
+            if(capturePath!=null && args.Contains("-capture2DActor0")) {
+                while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
+                encounter.DrainPresentationEvents(); SelectNextHero();
+            }
+            if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
+                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
+                encounter.DrainPresentationEvents();
+                foreach(var h in encounter.State.Heroes) h.TakeDamage(20);
+                encounter.State.Heroes[4].GainResource(3);
+                encounter.Act(4,1,"body");playback.Enqueue(encounter.DrainPresentationEvents());paused=true;
+            }
+            if(capturePath!=null && args.Contains("-capturePlayback")) {
+                while(encounter.AvailableHero!=4) encounter.Pass();
+                encounter.DrainPresentationEvents(); encounter.Act(4,1,"body");
+                playback.Enqueue(encounter.DrainPresentationEvents());
+                paused=true;
+            }
+            if(slayerReview) {
+                modelViewer=true; encounter=null;
+                portraitFace=!args.Contains("-captureSlayerFull");
+                portraitYaw=args.Contains("-captureSlayerProfile")?90:args.Contains("-captureSlayerFront")?0:-20;
+            }
+        }
+        private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
+        private void Styles()
+        {
+            if(text!=null) return;
+            text=new GUIStyle(GUI.skin.label) { font=font, fontSize=21, wordWrap=true }; text.normal.textColor=new Color(.18f,.22f,.21f);
+            heading=new GUIStyle(text) { fontSize=31, fontStyle=FontStyle.Bold };
+            small=new GUIStyle(text) { fontSize=17 };
+            button=new GUIStyle(GUI.skin.button) { font=font, fontSize=19, wordWrap=true, padding=new RectOffset(10,10,6,6) };
+            button.normal.background=teal; button.normal.textColor=new Color(.97f,.94f,.83f);
+            button.hover.background=teal; button.hover.textColor=Color.white; button.active.background=dark; button.active.textColor=Color.white;
+            skillButton=new GUIStyle(button) { fontSize=16,padding=new RectOffset(6,6,4,4) };
+        }
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Escape)) {
+                if(modelViewer) modelViewer=false;
+                else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
+                else if(storyText!=null) CloseStory();
+                else if(help) help=false;
+                else if(kinderGarden) kinderGarden=false;
+                else if(retreat) { retreat=false; paused=false; }
+                else if(encounter!=null && result==null) paused=!paused;
+                else if(result==null) help=true;
+            }
+            bool battleView=encounter!=null;
+            viewCamera.cullingMask=battleView?0:~0;
+            viewCamera.orthographic=modelViewer;
+            viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
+            viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
+            viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
+            viewCamera.fieldOfView=battleView?35f:60f;
+            bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
+            viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
+            viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
+            if(modelViewer) {
+                if(Input.GetMouseButton(0) && Input.mousePosition.y>Screen.height*(95f/900) && Input.mousePosition.y<Screen.height*(1-125f/900)) portraitYaw+=Input.GetAxis("Mouse X")*4;
+                portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
+                viewCamera.rect=new Rect(0,0,1,1); viewCamera.aspect=Screen.width/(float)Screen.height;
+                var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
+                float angle=portraitYaw*Mathf.Deg2Rad;
+                viewCamera.transform.position=focus+new Vector3(Mathf.Cos(angle)*3,.025f,Mathf.Sin(angle)*3);
+                viewCamera.transform.LookAt(focus); viewCamera.orthographicSize=(portraitFace?.19f:.73f)*portraitZoom;
+            }
+            if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
+            UpdatePlayback();
+            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
+            if(stage!=null) stage.SetPortraitView(modelViewer);
+            if(stage!=null) stage.gameObject.SetActive(!battleView);
+            // Wait for the player splash to finish before capturing. Fast machines
+            // can otherwise reach 150 frames and exit before any game UI is visible.
+            if(capturePath!=null && Time.realtimeSinceStartup>=8) {
+                captureFrame++;
+                if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
+                if(captureFrame==150) Application.Quit();
+            }
+        }
+        private void UpdatePlayback()
+        {
+            if(encounter==null) { playback.Reset(); shownEvent=0; return; }
+            bool stopped=paused || retreat || help;
+            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime;
+            if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
+            // Show a newly queued event at least once before its duration starts ticking.
+            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime,stopped);
+            var e=playback.Current;
+            if(e!=null && e.Sequence!=shownEvent) {
+                illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
+                if(stage!=null) {
+                    stage.ClearActionEffects();
+                    stage.BeginPresentation(e);
+                    switch(e.Kind) {
+                        case BattlePresentationKind.Healing: stage.PlayHealing(e.Actor,e.HealingTargets); break;
+                        case BattlePresentationKind.Support: stage.PlayAction(e.Actor,true,e.Target); break;
+                        case BattlePresentationKind.Enemy: stage.PlayEnemyAction(e.Major); break;
+                    }
+                }
+                if(e.PartBroken) {
+                    var indices=Enumerable.Range(0,4).Where(i=>e.TargetIds.Contains(encounter.State.Parts[i].Id) && e.PartHp[i]==0).ToArray();
+                    if(indices.Length>0) {breakNotice=string.Join(" / ",indices.Select(i=>PartNames[i]+"：部位破壊！ "+Effects[i]));breakNoticeRemaining=6f;}
+                }
+            }
+            if(!playback.Busy && shownEvent!=0) {
+                shownEvent=0; if(stage!=null) stage.ClearActionEffects(); SelectNextHero(); FinishCheck();
+            }
+        }
+        private void QueueBattleEvents()
+        {
+            playback.Enqueue(encounter.DrainPresentationEvents());
+            if(!playback.Busy) { SelectNextHero(); FinishCheck(); }
+        }
+        private void OnGUI()
+        {
+            Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"戦闘定義を読み込めません。旧値への自動補完は行いません。\n"+combatDefinitionError,heading,Color.white);return; }
+            if(modelViewer) { DrawModelViewer(); return; }
+            if(!title && encounter!=null) {
+                DrawBattle(); drawingModal=true;
+                if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
+                return;
+            }
+            Panel(0,0,1024,900,paper); Panel(0,0,1600,80,dark);
+            Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
+            if(title) { DrawTitle(); return; }
+            Panel(1024,80,576,118,dark);
+            Label(1050,100,510,70,encounter==null?"記憶が、新しい世界を育てる。":"巨神獣との空中戦",heading,Color.white);
+            Panel(1024,657,576,243,dark);
+            if(encounter==null) DrawBook(); else DrawBattle();
+            Panel(0,812,1024,88,dark); Label(28,826,970,60,status,small,Color.white);
+            drawingModal=true;
+            if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(kinderGarden) DrawKinderGarden(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
+        }
+        private void DrawTitle()
+        {
+            Label(75,160,860,70,"万物の書をひらく",heading);
+            Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
+            if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
+            Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n動画の15スキル＋本作独自ルールで出撃。現在はLv1の独立した戦闘編成です。旧育成・ガチャ所持は移行せず保護しています（計画4で接続）。\n進行は自動保存。戦闘中は保存せず、再開時は本に戻ります。",small);
+        }
+        private void DrawBook()
+        {
+            string[] tabs={"巨神獣","誓女・育成","庭","物語"};
+            for(int i=0;i<4;i++) if(Btn(28+i*242,100,230,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i])) { book.ChangeBookmark((BookBookmark)i); scroll=Vector2.zero; }
+            if(Btn(28,160,180,42,"‹ 前のページ")) book.TurnPage(-1);
+            if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
+            if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
+            if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
+            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  石 {campaign.Playable.KinderStones}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
+            switch(book.Bookmark) {
+                case BookBookmark.Colossi: DrawColossus(); break;
+                case BookBookmark.Heroines: DrawHeroine(); break;
+                case BookBookmark.Gardens: DrawGarden(); break;
+                case BookBookmark.Stories: DrawStories(); break;
+            }
+        }
+        private void DrawColossus()
+        {
+            var c=WorldCatalog.Colossi[book.SubjectIndex]; bool unlocked=campaign.ColossusUnlocks.IsUnlocked(c.Id);
+            Label(32,278,930,65,$"{book.SubjectIndex+1:00}  {(unlocked?c.DisplayName:"？？？")}",heading);
+            if(!unlocked) { Label(32,365,920,120,"前の巨神獣を初めて討伐すると、このページが開きます。\n最後の巨神獣には、14体すべての初回討伐が必要です。",text); return; }
+            if(book.Face==BookFace.Details) {
+                Label(32,365,920,100,"初回討伐で世界へ定着する環境："+string.Join("・",c.EnvironmentTags),text);
+                Label(32,490,920,195,"角冠：大技ゲージ / 左翼：攻撃 / 右翼：装甲 / 尾：資源妨害\n部位を破壊してから本体を攻めると安全に戦えます。\n全15ページに共通の仮戦闘を使用しています。詩と物語は翠還竜に実装しています。",text);
+            } else {
+                Label(32,363,925,110,"巨神獣の体に残った呪歌は、失われた世界の記憶。\n討伐して環境を取り戻し、詩を集めると物語の章が開きます。",text);
+                Label(32,485,900,45,$"挑戦 Lv.{selectedLevel}  /  選択可能 1〜{campaign.Playable.HighestLevel}",heading);
+                if(Btn(32,548,90,42,"− 1")) selectedLevel=Math.Max(1,selectedLevel-1);
+                if(Btn(132,548,90,42,"＋ 1")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+1);
+                if(Btn(232,548,90,42,"− 5")) selectedLevel=Math.Max(1,selectedLevel-5);
+                if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
+                if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
+                Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
+                if(Btn(32,692,910,70,"5人の誓女と出撃する")) StartBattle(c.Id);
+            }
+        }
+        private void DrawHeroine()
+        {
+            int h=book.SubjectIndex; var p=campaign.Playable;
+            Label(32,275,930,55,$"{Names[h]}  /  {Jobs[h]}  /  Lv.{p.Levels[h]}/{p.LevelCap(h)}  覚醒{p.Awakenings[h]}",heading);
+            Label(32,338,930,45,$"好感度 {p.Affections[h]}/100  ・  育成や好感度でチェイン率は変化しません。",small);
+            if(book.Face==BookFace.Details) {
+                var previewBattle=new PlayableBattle(1,p);
+                var recovery=previewBattle.HealingSkill(h,1);
+                Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
+                Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text);
+                if(h==0 && stage!=null) {
+                    if(Btn(32,700,905,40,"スレイヤーを全画面で見る")) { modelViewer=true; portraitFace=true; portraitYaw=-20; portraitZoom=1; }
+                    if(Btn(32,746,445,44,"ローズ衣装")) stage.SetSlayerOutfit("rose");
+                    if(Btn(492,746,445,44,"訓練衣装")) stage.SetSlayerOutfit("training");
+                }
+                return;
+            }
+            int[] steps={1,5,10};
+            for(int i=0;i<steps.Length;i++) {
+                int step=steps[i], gain=Math.Min(step,p.LevelCap(h)-p.Levels[h]), cost=p.TrainingCost(h,step);
+                string caption=gain==0?"Lv上限に到達":$"Lv ＋{gain}  素材 {cost}"+(campaign.Progress.Materials<cost?"（不足）":"");
+                if(Btn(32+i*308,398,294,48,caption,gain>0 && campaign.Progress.Materials>=cost)) Mutate(p.Train(campaign.Progress,h,step),"誓女が成長しました。");
+            }
+            int awakenCost=p.AwakeningCost(h);
+            bool atCap=p.Levels[h]==p.LevelCap(h);
+            string awakenLabel=awakenCost==0?"覚醒2達成 / 最終Lv上限120"
+                : $"覚醒{p.Awakenings[h]+1}  素材 {awakenCost}  /  "+(!atCap?$"Lv.{p.LevelCap(h)}到達が必要":campaign.Progress.Materials<awakenCost?"素材が不足":$"Lv上限を{(p.Awakenings[h]==0?80:120)}へ開放");
+            if(Btn(32,455,910,42,awakenLabel,awakenCost>0 && atCap && campaign.Progress.Materials>=awakenCost)) Mutate(p.Awaken(campaign.Progress,h),"覚醒し、Lv上限が開放されました。");
+            Label(32,501,900,25,"武器の樹  /  根から3つの枝へ",small);
+            DrawWeaponTree(h);
+            string[] branches={"剣の枝：攻撃","盾の枝：HP・防御","花の枝：支援"};
+            for(int b=0;b<3;b++) {
+                int rank=p.Branches[h*3+b]; float x=32+b*308;
+                Label(x,525,294,55,branches[b],text);
+                if(Btn(x,650,294,55,$"育てる  素材 {3+rank*3}",rank<3)) Mutate(p.Grow(campaign.Progress,h,b),"武器の枝に花が咲きました。");
+            }
+            Label(32,707,900,28,"初期装備（根） → 開放した枝に花が咲きます。",small);
+            string duplicateLabel=p.TraitRanks[h]>=PlayableProgress.MaximumTraitRank
+                ? $"重複を汎用素材に変換 / 残り{p.Duplicates[h]}"
+                : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
+            if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
+            if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
+        }
+        private void DrawModelViewer()
+        {
+            Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
+            if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
+            string[] expressions={"Neutral","Smile","Joy","Sad","Angry","Surprise","Talk"};
+            string[] labels={"通常","微笑み","喜び","悲しみ","怒り","驚き","口の動き"};
+            for(int i=0;i<expressions.Length;i++) if(Btn(32+i*117,82,108,36,labels[i]) && stage!=null) stage.SetSlayerExpression(expressions[i]);
+            Panel(20,815,1560,66,dark);
+            if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }
+            if(Btn(187,827,145,42,"顔")) { portraitFace=true; portraitZoom=1; }
+            if(Btn(342,827,145,42,"正面")) portraitYaw=0;
+            if(Btn(497,827,145,42,"斜め")) portraitYaw=-25;
+            if(Btn(652,827,145,42,"横顔")) portraitYaw=90;
+            if(Btn(807,827,210,42,"衣装を替える") && stage!=null) stage.SetSlayerOutfit(stage.SlayerOutfitId=="rose"?"training":"rose");
+            Label(1040,835,500,32,"ドラッグで回転・ホイールで拡大",small,Color.white);
+        }
+        private void DrawWeaponTree(int hero)
+        {
+            Line(new Vector2(494,639),new Vector2(494,616),new Color(.33f,.23f,.13f),9);
+            for(int branch=0;branch<3;branch++) {
+                float x=179+branch*308;
+                Line(new Vector2(494,616),new Vector2(x,609),new Color(.33f,.23f,.13f),5);
+                Line(new Vector2(x,609),new Vector2(x,561),new Color(.33f,.23f,.13f),5);
+                int rank=campaign.Playable.Branches[hero*3+branch];
+                for(int node=0;node<3;node++) Label(x-18,602-node*19,38,28,node<rank?"✿":"○",text,node<rank?new Color(.64f,.24f,.4f):new Color(.4f,.4f,.34f));
+            }
+            Label(407,619,180,30,"根：初期装備",small);
+        }
+        private static void Line(Vector2 from,Vector2 to,Color color,float width)
+        {
+            var matrix=GUI.matrix; var old=GUI.color; GUI.color=color;
+            GUIUtility.RotateAroundPivot(Mathf.Atan2(to.y-from.y,to.x-from.x)*Mathf.Rad2Deg,from);
+            GUI.DrawTexture(new Rect(from.x,from.y-width/2,Vector2.Distance(from,to),width),Texture2D.whiteTexture);
+            GUI.matrix=matrix; GUI.color=old;
+        }
+        private void DrawGarden()
+        {
+            bool unlocked=campaign.Gardens.UnlockedGardenIds.Count>0;
+            Label(32,275,930,65,unlocked?"草原と森の庭":"まだ白い庭",heading);
+            if(!unlocked) { Label(32,365,920,130,"翠還竜の初回討伐で草原と森が戻り、庭が開放されます。\n家具を作り、仲間とここで過ごせるようになります。",text); return; }
+            if(book.Face==BookFace.Details) {
+                Label(32,360,920,60,"庭へ訪ねてきた誓女  /  素材1でお茶と会話",text);
+                for(int h=0;h<5;h++) if(Btn(32,440+h*61,910,51,$"{Names[h]}と話す  /  好感度 {campaign.Playable.Affections[h]}",campaign.Playable.Affections[h]<100)) {
+                    if(campaign.Playable.Visit(campaign.Progress,h)) {
+                        Save(); storyId=null; scroll=Vector2.zero;
+                        storyText=$"{Names[h]}\n\n『今日も帰ってきてくれて、ありがとう。』\n\n木漏れ日の下で、ふたりは温かな茶を分け合った。"+(campaign.Playable.Affections[h]>=20?"\n\n『この庭が、あなたの帰る場所になるといいな。次は、わたしから迎えに行くね。』":"\n\n風が新しい葉を揺らす。次の旅まで、少しだけここで休もう。");
+                    } else status="素材が不足しています。討伐で集めましょう。";
+                } return;
+            }
+            Label(32,355,925,65,"家具を作り、3つの場所へ配置できます。裏面から誓女との会話へ。",text);
+            for(int i=0;i<3;i++) {
+                Label(32,443+i*93,285,45,Furniture[i],heading);
+                if(!campaign.Playable.Furniture[i]) { if(Btn(330,439+i*93,610,55,$"作る  素材 {4+i*2}")) Mutate(campaign.Playable.Craft(campaign.Progress,i),"家具を作りました。"); }
+                else for(int slot=0;slot<3;slot++) if(Btn(330+slot*205,439+i*93,194,55,$"場所{slot+1}に置く")) Mutate(campaign.Playable.Place(i,slot),"家具を配置しました。");
+            }
+            Label(32,735,925,46,"配置："+string.Join(" / ",campaign.Playable.Slots.Select(i=>i<0?"空き":Furniture[i])),small);
+        }
+        private void DrawStories()
+        {
+            Label(32,275,930,65,"翠還竜の記憶",heading);
+            Label(32,353,920,65,"討伐ごとに未取得の詩を4つ獲得。8つ集めると1章を読めます。",text);
+            for(int i=0;i<3;i++) {
+                var chapter=GreenReturnDragonVerticalSlice.StoryChapters[i]; int n=chapter.RequiredPoemIds.Count(id=>campaign.Progress.CollectedPoemIds.Contains(id));
+                bool open=campaign.Progress.UnlockedStoryIds.Contains(chapter.StoryId);
+                if(Btn(32,457+i*92,910,74,$"第{i+1}章  {Chapters[i]}  /  詩 {n}/8  {(campaign.Progress.ReadStoryIds.Contains(chapter.StoryId)?"既読":open?"読めます":"未開放")}",open)) { storyText=Stories[i]; storyId=chapter.StoryId; storyChapter=i; scroll=Vector2.zero; }
+            }
+            Label(32,754,910,38,"物語は試遊用のオリジナル短編です。",small);
+        }
+        private void StartBattle(string colossus)
+        {
+            var id=Guid.NewGuid();
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions);
+            Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
+            target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
+            selectedHero=encounter.AvailableHero;
+            playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
+            selectingAlly=false; selectedAllies.Clear(); breakNotice=""; breakNoticeRemaining=0;
+        }
+        private void DrawBattle()
+        {
+            var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
+            var Jobs=new[]{"ファイター","バーサーカー","ディフェンダー","ブラスター","ガンナー"};
+            var s=encounter.State;
+            var visual=playback.Current;
+            var stageStyle=new GUIStyle(text);stageStyle.normal.textColor=Color.white;
+            var stageSmall=new GUIStyle(small);stageSmall.normal.textColor=new Color(.85f,.9f,.9f);
+            target=illustrationView.Draw(encounter,visual,illustrationElapsed,target,!playback.Busy && !paused && result==null && !selectingAlly && !retreat && !help,stageStyle,stageSmall,Names,PartNames);
+            int bossHp=visual?.BossHp??s.BossHitPoints, gauge=visual?.BossGauge??s.BossGauge;
+            Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
+            Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
+            Label(28,72,850,30,$"HP {bossHp}/{s.BossMaxHitPoints}　大技 {gauge}/{s.BossGaugeMax}　TIME {visual?.Clock??encounter.Clock}",small,Color.white);
+            Meter(28,112,650,10,bossHp,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
+            Meter(698,112,370,10,gauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
+            if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
+            if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
+            Label(1180,88,390,42,visual!=null && visual.FullChain?$"FULL CHAIN / 追加 {visual.ChainActionCount-visual.Chain}":$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
+            if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体",!playback.Busy && !paused)) target="body";
+            for(int i=0;i<4;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),!s.Parts[i].IsBroken && !playback.Busy && !paused)) target=s.Parts[i].Id; }
+            var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
+            int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
+            string enemyStatus=visual?.EnemyStatuses[targetIndex+1]??encounter.EnemyStatusDescription(target);
+            Label(28,240,1050,45,(targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex])+"\n"+enemyStatus,small,Color.white);
+            var order=encounter.UpcomingOrder();
+            for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
+            if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
+            int actor=selectedHero; var hero=s.Heroes[actor];
+            Label(1180,175,390,50,Names[actor],heading,Color.white);
+            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　{encounter.ResourceName(actor)} {visual?.Resources[actor]??hero.JobResource}/{hero.JobResourceMax}\nチェイン基本50% / 補正込み最大70%",text,Color.white);
+            bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
+            for(int slot=0;slot<3;slot++) {
+                var healSkill=encounter.HealingSkill(actor,slot);
+                int cost=encounter.SkillResourceCost(actor,slot);
+                string caption=encounter.SkillName(actor,slot)+" / "+encounter.ResourceName(actor)+cost+"\n"+(encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healSkill!=null?encounter.HealingDescription(actor,slot):encounter.IsAttackSkill(actor,slot)?encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target)+" / 会心 "+encounter.PreviewCriticalChanceBp(actor,slot)/100m+"%":encounter.SupportDescription(actor));
+                caption+="\n"+encounter.TimingDescription(actor,slot);
+                caption+=encounter.AttackFollowUpDescription(actor,slot);
+                if(encounter.IsAttackSkill(actor,slot) && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
+                var fittedSkillStyle=new GUIStyle(skillButton);
+                while(fittedSkillStyle.fontSize>11 && fittedSkillStyle.CalcHeight(new GUIContent(caption),378)>80) fittedSkillStyle.fontSize--;
+                if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost && encounter.ConditionsSatisfied(actor,slot),fittedSkillStyle)) {
+                    if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
+                    else Act(actor,slot);
+                }
+            }
+            Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
+            Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
+            Label(1180,716,390,85,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString()))+"\n固定："+encounter.ChainActionDescription(actor)+"（本作独自）",small,Color.white);
+            var activeEffects=visual?.HeroEffects[actor]??hero.TimedEffects;
+            if(activeEffects.Count>0) Label(28,664,1090,38,Names[actor]+"："+string.Join(" / ",activeEffects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+"行動）")),small,Color.white);
+            if(playback.Busy) {
+                if(Btn(1180,807,390,58,"演出をスキップ（結果は同じ）",!paused && !retreat && !help)) { playback.Skip(); if(stage!=null) stage.ClearActionEffects(); shownEvent=0; SelectNextHero(); FinishCheck(); }
+            }
+            else if(Btn(1180,807,390,58,"行動者に戻る",!paused && result==null && !selectingAlly && actor!=encounter.AvailableHero)) SelectNextHero();
+            else if(actor==encounter.AvailableHero && Btn(1180,807,390,58,"パス（この誓女は標準待機）",!paused && result==null && !selectingAlly)) { encounter.Pass(); QueueBattleEvents(); }
+            for(int i=0;i<5;i++) {
+                float x=18+i*225; var h=s.Heroes[i];
+                int hp=visual?.HeroHp[i]??h.HitPoints, resource=visual?.Resources[i]??h.JobResource;
+                bool casting=visual?.Casting[i]??encounter.IsCasting(i);
+                bool healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
+                if(healed) { var savedColor=GUI.color;GUI.color=new Color(.18f,.65f,.43f);GUI.DrawTexture(new Rect(x-2,712,219,122),Texture2D.whiteTexture);GUI.color=savedColor; }
+                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(healed?"回復対象":hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
+                Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　{encounter.ResourceName(i)} {resource}",small,Color.white);
+                Meter(x,817,215,6,hp,h.MaxHitPoints,hp*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
+            }
+            status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
+            Label(24,841,1090,55,status,small,Color.white);
+            if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
+            if(selectingAlly) DrawAllySelection();
+        }
+        private void DrawAllySelection()
+        {
+            var d=encounter.HealingSkill(healingActor,healingSlot);
+            var affected=encounter.HealingTargets(healingActor,healingSlot,selectedAllies.OrderBy(i=>i));
+            bool selectable=d.TargetRule==HealingTargetRule.SelectedAllies;
+            Modal(); Label(340,165,900,50,d.Name+"："+(selectable?$"味方{d.TargetCount}人を選択":"対象を確認"),heading);
+            Label(340,218,900,28,selectable?$"選択 {selectedAllies.Count}/{d.TargetCount}人・同じ人は重複不可":encounter.HealingDescription(healingActor,healingSlot),small);
+            for(int i=0;i<5;i++) {
+                var h=encounter.State.Heroes[i]; int gain=encounter.PreviewHealing(healingActor,i,healingSlot);
+                string info=gain>0?$"HP {h.HitPoints} → {h.HitPoints+gain}/{h.MaxHitPoints}（＋{gain}）":$"HP {h.HitPoints}/{h.MaxHitPoints}　"+(!h.IsAlive?"戦闘不能（蘇生不可）":d.TargetRule==HealingTargetRule.Self && i!=healingActor?"対象外":h.HitPoints==h.MaxHitPoints?"HP満タン・回復0":"使用不可");
+                string caption=(affected.Contains(i)?"◆ ":"")+Names[i]+"　"+info;
+                if(gain>0 && selectable) { if(Btn(340,250+i*68,900,58,caption,!paused && (selectedAllies.Contains(i)||selectedAllies.Count<d.TargetCount))) { if(!selectedAllies.Remove(i)) selectedAllies.Add(i); } }
+                else if(gain>0) { Panel(340,250+i*68,900,58,teal); Label(358,264+i*68,864,36,caption,small,Color.white); }
+                else { Panel(340,250+i*68,900,58,dark); Label(358,264+i*68,864,36,caption,small,Color.white); }
+            }
+            if(Btn(340,650,420,62,"取消（消費なし）")) { selectingAlly=false; selectedAllies.Clear(); }
+            if(Btn(820,650,420,62,"回復を実行",!paused && encounter.CanHealTargets(healingActor,healingSlot,selectedAllies))) { selectingAlly=false; Act(healingActor,healingSlot,selectedAllies.OrderBy(i=>i).ToArray()); selectedAllies.Clear(); }
+        }
+        private void SelectNextHero()
+        {
+            if(encounter.UsesTimeline) { if(encounter.AvailableHero>=0) selectedHero=encounter.AvailableHero; return; }
+            for(int step=1;step<=5;step++) { int next=(selectedHero+step)%5; if(encounter.State.Heroes[next].IsAlive && !encounter.Acted[next]) { selectedHero=next; return; } }
+        }
+        private void Act(int hero,int skill,int[] allies=null)
+        {
+            if(playback.Busy || paused || retreat || help) return;
+            if(encounter.ActWithAllies(hero,skill,target,allies)) {
+                if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body";
+                QueueBattleEvents();
+            }
+        }
+        private void FinishCheck()
+        {
+            if(playback.Busy || !encounter.Ended || result!=null) return;
+            if(!encounter.State.IsVictory) { result="敗北\n\n報酬はありません。育成や部位破壊を試して再挑戦しましょう。"; return; }
+            var c=WorldCatalog.Colossi.First(x=>x.Id==activeColossus);
+            var poems=activeColossus==GreenReturnDragonVerticalSlice.ColossusId?GreenReturnDragonVerticalSlice.PoemIds.Where(id=>!campaign.Progress.CollectedPoemIds.Contains(id)).Take(4).ToArray():Array.Empty<string>();
+            var reward=campaign.ClaimColossusVictory(activeColossus,c.EnvironmentTags,new VictoryReward(battleId,selectedLevel,10,4,poems),GreenReturnDragonVerticalSlice.StoryChapters,Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
+            if(reward.Reward.Claimed) campaign.Playable.RecordVictory(selectedLevel);
+            result=$"討伐成功！\n\n素材 +{reward.Reward.Materials} / 世界復元 +{reward.Reward.Terraforming}\n新しい詩 {reward.Reward.NewPoemIds.Count} / 開いた章 {reward.Reward.NewStoryIds.Count}\n";
+            if(reward.FirstClear) result+="\n初回討伐：次のページと環境が開放されました。";
+            if(reward.NewGardenIds.Count>0) result+="\n庭が開放！庭のしおりから訪ねましょう。";
+            if(c.IsIntegrationBoss) result+="\n\n世界統合達成。取り戻した世界に、新しい物語が始まります。";
+            Save();
+        }
+        private void DrawResult()
+        {
+            Modal(); Label(340,194,890,90,encounter.State.IsVictory?"記憶を取り戻した":"再び、誓いを",heading); Label(340,300,890,285,result,text);
+            if(!encounter.State.IsVictory && Btn(340,580,860,52,"同じ巨神獣・難度で再挑戦")) { StartBattle(activeColossus); return; }
+            if(Btn(340,650,420,62,"本へ戻る")) { result=null; encounter=null; status="報酬を使って育成・庭を進めましょう。"; }
+            if(Btn(780,650,420,62,"育成ページへ")) { result=null; encounter=null; book.ChangeBookmark(BookBookmark.Heroines); }
+        }
+        private void DrawRetreat()
+        {
+            Modal(); Label(340,245,880,90,"撤退しますか？",heading); Label(340,365,870,125,"この戦闘の報酬は得られません。これまでの育成や獲得した記憶は保持されます。",text);
+            if(Btn(340,605,420,64,"戦闘へ戻る")) { retreat=false; paused=false; }
+            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects(); retreat=false; encounter=null; result=null; Save(); }
+        }
+        private void DrawStory()
+        {
+            Modal(); Label(340,182,880,65,storyId==null?"庭でのひととき":$"第{storyChapter+1}章  {Chapters[storyChapter]}",heading);
+            var pages=storyText.Split(new[] { "\n\n" },StringSplitOptions.RemoveEmptyEntries);
+            storyPage=Math.Min(storyPage,pages.Length-1);
+            Label(340,270,870,300,pages[storyPage],text);
+            Label(690,580,170,35,$"{storyPage+1} / {pages.Length}",small);
+            if(Btn(340,575,280,48,"‹ 前のページ",storyPage>0)) storyPage--;
+            if(Btn(930,575,280,48,"次のページ ›",storyPage<pages.Length-1)) storyPage++;
+            if(Btn(340,656,420,62,"本を閉じる")) CloseStory();
+            if(Btn(790,656,420,62,"読了して戻る",storyPage==pages.Length-1)) CloseStory(true);
+        }
+        private void CloseStory(bool completed=false) { if(completed && storyId!=null) campaign.Progress.MarkStoryRead(storyId); storyText=null; storyId=null; storyPage=0; Save(); }
+        private void DrawHelp()
+        {
+            Modal(); Label(340,185,880,64,"遊び方",heading);
+            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 上の部位ボタンで対象を選ぶ。\n3. 下の誓女カードを選び、右の3スキルで行動。\n4. 接続成功で次の攻撃が強化。支援で終了。\n5. 部位破壊で敵を弱め、報酬で育成・家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
+            if(Btn(340,656,890,62,"閉じる")) help=false;
+        }
+        private void DrawKinderGarden()
+        {
+            Modal(); var p=campaign.Playable;
+            Label(340,182,880,65,"キンダーガーデン",heading);
+            Label(340,250,880,65,"★6 3%（5人各0.6%） / 素材97%（4種各24.25%）\n素材の獲得量：4・6・8・10。100回ごとに好きな誓女を交換。",small);
+            Label(340,320,880,48,$"石 {p.KinderStones} / 素材 {campaign.Progress.Materials} / 累計 {p.KinderDrawCount}回 / 交換 {p.AvailableKinderExchanges}回",text);
+            Label(340,375,880,90,kinderResult,text);
+            if(Btn(340,475,420,55,"石1個で迎える",p.KinderStones>0)) {
+                // Random.value includes 1; integer sampling stays strictly below 1.
+                decimal heroineRoll=UnityEngine.Random.Range(0,1000000)/1000000m;
+                decimal targetRoll=UnityEngine.Random.Range(0,1000000)/1000000m;
+                if(p.TryKinderDraw(campaign.Progress,heroineRoll,targetRoll,out var heroine,out var index)) {
+                    kinderResult=heroine ? (p.TraitRanks[index]>=PlayableProgress.MaximumTraitRank
+                        ? $"★6 {Names[index]} → 汎用強化素材＋1"
+                        : $"★6 {Names[index]} → 重複強化用＋1（所持{p.Duplicates[index]}）")
+                        : $"育成・家具用素材 ＋{PlayableProgress.KinderMaterialReward(index)}（所持{campaign.Progress.Materials}）";
+                    Save(kinderResult); kinderResult=status;
+                } else {
+                    kinderResult="迎えられませんでした。石・所持上限を確認してください。";
+                }
+            }
+            Label(790,475,410,55,"石は初回配布と討伐で獲得。\nスタミナ消費なし。",small);
+            for(int i=0;i<5;i++) if(Btn(340+(i%2)*440,545+(i/2)*48,420,42,$"{Names[i]} と交換",p.AvailableKinderExchanges>0)) {
+                if(p.TryKinderExchange(i)) {
+                    kinderResult=$"{Names[i]} と交換しました。"+(p.TraitRanks[i]>=PlayableProgress.MaximumTraitRank?"汎用強化素材＋1。":"重複強化用＋1。");
+                    Save(kinderResult); kinderResult=status;
+                } else kinderResult="交換できませんでした。交換回数・所持上限を確認してください。";
+            }
+            if(Btn(340,700,860,50,"万物の書へ戻る")) kinderGarden=false;
+        }
+        private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
+        private void Save(string successMessage="進行を保存しました。")
+        {
+            try { CampaignSaveStore.Save(campaign); status=successMessage; }
+            catch(Exception e) when(e is System.IO.IOException || e is UnauthorizedAccessException) { status="保存できませんでした。保存先の空き容量と権限を確認してください。"; Debug.LogException(e); }
+        }
+        private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }
+        private static void Panel(float x,float y,float w,float h,Texture2D t) => GUI.DrawTexture(new Rect(x,y,w,h),t);
+        private static void Meter(float x,float y,float width,float height,int current,int maximum,Color fill)
+        {
+            var old=GUI.color; GUI.color=new Color(.2f,.23f,.22f); GUI.DrawTexture(new Rect(x,y,width,height),Texture2D.whiteTexture);
+            GUI.color=fill; GUI.DrawTexture(new Rect(x,y,width*Mathf.Clamp01(maximum>0?(float)current/maximum:0f),height),Texture2D.whiteTexture); GUI.color=old;
+        }
+        private void Label(float x,float y,float w,float h,string value,GUIStyle style,Color? color=null) { var old=style.normal.textColor; if(color.HasValue) style.normal.textColor=color.Value; GUI.Label(new Rect(x,y,w,h),value,style); style.normal.textColor=old; }
+        private bool Btn(float x,float y,float w,float h,string value,bool enabled=true,GUIStyle style=null)
+        {
+            bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
+            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
+        }
+        private void OnApplicationQuit() { if(campaign!=null && capturePath==null && combatDefinitionError==null) Save(); }
+    }
+}

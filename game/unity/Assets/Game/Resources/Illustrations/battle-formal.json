@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "placeholder": true,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-bust-preview",
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "placeholder": true
+    }
+  ],
+  "parts": [
+    {
+      "partId": "crystal-horn-crown",
+      "x": 0.36,
+      "y": 0.04,
+      "width": 0.28,
+      "height": 0.18
+    },
+    {
+      "partId": "left-wing-root",
+      "x": 0.02,
+      "y": 0.32,
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "partId": "right-wing-root",
+      "x": 0.73,
+      "y": 0.32,
+      "width": 0.25,
+      "height": 0.25
+    },
+    {
+      "partId": "vine-wrapped-tail",
+      "x": 0.36,
+      "y": 0.77,
+      "width": 0.28,
+      "height": 0.18
+    }
+  ]
+}
