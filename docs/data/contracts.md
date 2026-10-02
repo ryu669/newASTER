@@ -143,10 +143,10 @@ JobDef { id, resourceType, resourceInitRuleId, resourceGainRules[], resourceSpen
 ChainState {
  chainId:Id, mode:"automatic-fixed-action-v1",
  originActorId:Id, originActionId:Id,
- phase:checking|executing|ended,
+ phase:checking|executing|fullChainExecuting|ended,
  length:1..5, participantIds:unique[],
  candidateId?:Id, fixedActionId?:Id, modifierBatchId:Id,
- endReason?:failedRoll|noCandidate|maxParticipants|battleEnded
+ endReason?:failedRoll|noCandidate|originIneligible|fullChainCompleted|battleEnded
 }
 ChainActionDef {
  id:Id, heroineId:Id, effectRuleId:Id, targetRuleId:Id,
@@ -232,7 +232,7 @@ SaveV2 {
 
 ## 表示イベントのチェイン拡張
 
-chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、chainActionはchainActionIdも必須。chainCheckは接続確率・候補・判定を参照するログIDを持つ。失敗後のchainAction、未定義固定行動、同一人物の二重参加、通常tickによる候補選出を拒否する。chainActionの解決をユーザー入力待ちにしない。通常予定列・詠唱予約・ジョブ資源が変化しないこと。補正率や資源条件の正式数値はこの追補で確定しない。
+chainCheck／chainAction／chainEndedはchainIdとchainStepを必須とし、chainActionはchainActionIdも必須。chainCheckは接続確率・候補・判定を参照するログIDを持つ。失敗後のchainAction、未定義固定行動、通常周回内の同一人物の二重参加、追加一周内の二重実行、通常tickによる候補選出を拒否する。chainActionの解決をユーザー入力待ちにしない。通常予定列・詠唱予約・ジョブ資源が変化しないこと。補正率や資源条件の正式数値はこの追補で確定しない。
 
 ## 所有権と版管理
 
@@ -272,7 +272,7 @@ TransactionRecordは交換／ログ上の論理形式。pendingは初回セッ�
 
 ## チェイン表示の不足項目の補完
 
-chainCheckは `decisionId:Id` を必須とし、抽選ログに `probabilityBp:ProbabilityBp` と `success:bool` を追加する。chainStepは予定参加人数を表す（最初の接続判定は2）。失敗終了のchainEndedは判定したstep、候補なし／上限／勝敗終了は現在lengthを持つ。chainAction後だけlengthとparticipantIdsを増やす。chainEnded時のlengthは実行済み参加人数で、失敗候補を参加者に含めない。chainCheck／chainEndedにactorIdがある場合は起点人物、chainActionは実行人物を指す。チェイン前後の資源・通常予定列・詠唱予約は不変。HP・部位・勝敗の変化はpostSnapshotへ反映する。
+chainCheckは `decisionId:Id` を必須とし、抽選ログに `probabilityBp:ProbabilityBp` と `success:bool` を追加する。chainStepは起点コマンドを1とした予定行動番号を表す（最初の接続判定は2）。失敗終了のchainEndedは判定したstep、候補なし／勝敗／追加一周完了では最終実行番号を持つ。通常周回の新規人物のchainAction後だけlengthとparticipantIdsを増やし、追加一周では重複追加しない。chainEnded時のlengthは実行済み参加人数で、失敗候補を参加者に含めない。chainCheck／chainEndedにactorIdがある場合は起点人物、chainActionは実行人物を指す。チェイン前後の資源・通常予定列・詠唱予約は不変。HP・部位・勝敗の変化はpostSnapshotへ反映する。
 
 ## 定義パックの受入れと診断
 
@@ -290,3 +290,18 @@ ChainState additions { formationIds:unique Id[],cursorIndex:nonnegativeInt,chain
 ```
 
 formationIdsは戦闘開始時の編成順を保持する。cursorIndexは直前参加者の編成indexで、候補決定は次indexからの循環走査。編成範囲外index・編成外人物・別起点contextを拒否する。modifierBatchIdは予約した起点のものを参照する。通常行動から参照する資源ルールID／待機変更ルールIDをChainActionDefへ持たせない。旧resourceRuleId／timelineImpactRuleIdは正式契約から削除し、none／preserve以外を検証エラーにする。固定行動にコマンド資源変更やコマンド固有ルール発火があれば受入れ拒否。
+
+## フルチェインの型とイベント識別
+
+```text
+ChainState additions {
+ fullChainTriggered:bool, bonusActionIndex:0..5,
+ actionCount:1..10, bonusExecutedIds:unique Id[]
+}
+VisualEvent additions { chainPhase?:"normal"|"returnCheck"|"fullChain",fullChainTriggered?:bool }
+BattleSnapshot.chain additions { fullChainTriggered:bool,bonusActionIndex:0..5,actionCount:0..10 }
+```
+
+length／participantIdsは通常周回の異なる参加者数・集合として最大5を維持し、実行回数と分離する。actionCountは起点コマンドと実行済み固有行動の合計。追加一周の人物はbonusExecutedIdsで別管理し各人一回まで。追加一周で通常周回未参加の人物が復帰した場合もparticipantIdsへ混ぜない。
+
+起点へのchainCheckはchainPhase=returnCheck、成功後のchainActionはchainPhase=fullChain。全員行動可能な例では戻り判定のchainStep=6、追加行動A=6/B=7/C=8/D=9/E=10。chainStepを人数として使わない。通常chainActionはchainPhase=normal。fullChainTriggeredは戻り判定成功でのみtrue。追加一周でchainCheckを発行する、同じchainIdで二度fullChainTriggeredを立てる、追加Aを重複実行することを拒否する。chainEndedは通常終了または追加一周完了／途中勝敗で一度だけ発行する。
