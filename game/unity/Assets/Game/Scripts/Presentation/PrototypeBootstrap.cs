@@ -65,7 +65,7 @@ namespace NewAster.Presentation
             });
             font = Font.CreateDynamicFontFromOSFont(new[] { "Yu Gothic", "Meiryo", "Arial" }, 20);
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
-            illustrationView=new BattleIllustrationView();
+            illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
             viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
             viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
@@ -77,26 +77,23 @@ namespace NewAster.Presentation
                 if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
                 heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
                 Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
-                var source=Resources.Load<TextAsset>("Combat/battle-preview");
-                if(source==null) throw new ArgumentException("Combat/battle-preview missing");
+                var source=Resources.Load<TextAsset>("Combat/battle-formal");
+                if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
-                for(int i=0;i<5;i++) Names[i]=combatDefinitions.Hero("hero-"+i).name;
-                Debug.Log("COMBAT_DEFINITIONS_PASS version=1 status=placeholder heroes=5 skills=15 chains=5");
+                Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
-                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
-                encounter.State.Heroes[0].TakeDamage(70); encounter.State.Heroes[1].TakeDamage(99999);
-                selectedHero=3; healingActor=3; healingSlot=args.Contains("-captureAllHealing")?2:1; selectingAlly=true; selectedAllies.Add(0);
+                Debug.LogWarning("Formal roster has no selected-allies healing skill; legacy capture option ignored.");
             }
             if(capturePath!=null && args.Contains("-captureCasting")) {
-                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
-                encounter.Act(4,1,"body"); SelectNextHero();
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
+                encounter.Act(3,1,"body"); SelectNextHero();
             }
             if(capturePath!=null && args.Contains("-captureCasterCommand")) {
-                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
+                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
                 SelectNextHero();
             }
             if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
@@ -105,11 +102,11 @@ namespace NewAster.Presentation
                 encounter.DrainPresentationEvents(); SelectNextHero();
             }
             if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
-                while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
+                while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents();
                 foreach(var h in encounter.State.Heroes) h.TakeDamage(20);
-                encounter.State.Heroes[3].GainResource(3);
-                encounter.Act(3,2,"body");playback.Enqueue(encounter.DrainPresentationEvents());paused=true;
+                encounter.State.Heroes[4].GainResource(3);
+                encounter.Act(4,1,"body");playback.Enqueue(encounter.DrainPresentationEvents());paused=true;
             }
             if(capturePath!=null && args.Contains("-capturePlayback")) {
                 while(encounter.AvailableHero!=4) encounter.Pass();
@@ -200,8 +197,8 @@ namespace NewAster.Presentation
                     }
                 }
                 if(e.PartBroken) {
-                    int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==e.Target);
-                    if(index>=0) { breakNotice=PartNames[index]+"：部位破壊！\n"+Effects[index]; breakNoticeRemaining=6f; }
+                    var indices=Enumerable.Range(0,4).Where(i=>e.TargetIds.Contains(encounter.State.Parts[i].Id) && e.PartHp[i]==0).ToArray();
+                    if(indices.Length>0) {breakNotice=string.Join(" / ",indices.Select(i=>PartNames[i]+"：部位破壊！ "+Effects[i]));breakNoticeRemaining=6f;}
                 }
             }
             if(!playback.Busy && shownEvent!=0) {
@@ -239,7 +236,7 @@ namespace NewAster.Presentation
             Label(75,160,860,70,"万物の書をひらく",heading);
             Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
-            Label(75,560,880,170,"正式編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n動画の15スキルを資料データに登録済み。現在遊べる戦闘は旧仮5人で、正式編成への切替は準備中です。\n進行は自動保存。戦闘中は保存せず、再開時は本に戻ります。",small);
+            Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n動画の15スキル＋本作独自ルールで出撃。現在はLv1の独立した戦闘編成です。旧育成・ガチャ所持は移行せず保護しています（計画4で接続）。\n進行は自動保存。戦闘中は保存せず、再開時は本に戻ります。",small);
         }
         private void DrawBook()
         {
@@ -400,6 +397,8 @@ namespace NewAster.Presentation
         }
         private void DrawBattle()
         {
+            var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
+            var Jobs=new[]{"ファイター","バーサーカー","ディフェンダー","ブラスター","ガンナー"};
             var s=encounter.State;
             var visual=playback.Current;
             var stageStyle=new GUIStyle(text);stageStyle.normal.textColor=Color.white;
@@ -418,29 +417,32 @@ namespace NewAster.Presentation
             for(int i=0;i<4;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),!s.Parts[i].IsBroken && !playback.Busy && !paused)) target=s.Parts[i].Id; }
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
             int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
-            Label(28,240,1050,45,targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex],small,Color.white);
+            string enemyStatus=visual?.EnemyStatuses[targetIndex+1]??encounter.EnemyStatusDescription(target);
+            Label(28,240,1050,45,(targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex])+"\n"+enemyStatus,small,Color.white);
             var order=encounter.UpcomingOrder();
             for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
             if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
-            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {visual?.Resources[actor]??hero.JobResource}\nチェイン基本50% / 補正込み最大70%",text,Color.white);
+            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　{encounter.ResourceName(actor)} {visual?.Resources[actor]??hero.JobResource}/{hero.JobResourceMax}\nチェイン基本50% / 補正込み最大70%",text,Color.white);
             bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
                 int cost=encounter.SkillResourceCost(actor,slot);
-                string caption=encounter.SkillName(actor,slot)+" / 資源"+cost+"\n"+(encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healSkill!=null?encounter.HealingDescription(actor,slot):encounter.IsAttackSkill(actor,slot)?"非会心予測 "+encounter.PreviewDamage(actor,slot,target)+" / 会心 "+encounter.PreviewCriticalChanceBp(actor,slot)/100m+"%":encounter.SupportDescription(actor));
+                string caption=encounter.SkillName(actor,slot)+" / "+encounter.ResourceName(actor)+cost+"\n"+(encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healSkill!=null?encounter.HealingDescription(actor,slot):encounter.IsAttackSkill(actor,slot)?encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target)+" / 会心 "+encounter.PreviewCriticalChanceBp(actor,slot)/100m+"%":encounter.SupportDescription(actor));
                 caption+="\n"+encounter.TimingDescription(actor,slot);
                 caption+=encounter.AttackFollowUpDescription(actor,slot);
                 if(encounter.IsAttackSkill(actor,slot) && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
-                if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost && encounter.ConditionsSatisfied(actor,slot),skillButton)) {
+                var fittedSkillStyle=new GUIStyle(skillButton);
+                while(fittedSkillStyle.fontSize>11 && fittedSkillStyle.CalcHeight(new GUIContent(caption),378)>80) fittedSkillStyle.fontSize--;
+                if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost && encounter.ConditionsSatisfied(actor,slot),fittedSkillStyle)) {
                     if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
                     else Act(actor,slot);
                 }
             }
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
-            Label(1180,716,390,85,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString()))+"\n固定："+encounter.ChainActionDescription(actor)+"（仮）",small,Color.white);
+            Label(1180,716,390,85,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString()))+"\n固定："+encounter.ChainActionDescription(actor)+"（本作独自）",small,Color.white);
             var activeEffects=visual?.HeroEffects[actor]??hero.TimedEffects;
             if(activeEffects.Count>0) Label(28,664,1090,38,Names[actor]+"："+string.Join(" / ",activeEffects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+"行動）")),small,Color.white);
             if(playback.Busy) {
@@ -455,7 +457,7 @@ namespace NewAster.Presentation
                 bool healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
                 if(healed) { var savedColor=GUI.color;GUI.color=new Color(.18f,.65f,.43f);GUI.DrawTexture(new Rect(x-2,712,219,122),Texture2D.whiteTexture);GUI.color=savedColor; }
                 if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(healed?"回復対象":hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
-                Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　資源 {resource}",small,Color.white);
+                Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　{encounter.ResourceName(i)} {resource}",small,Color.white);
                 Meter(x,817,215,6,hp,h.MaxHitPoints,hp*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;

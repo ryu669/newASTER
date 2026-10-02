@@ -29,6 +29,7 @@ namespace NewAster.Core
         public string ChainActionId { get; }
         public string PresentationId { get; }
         public IReadOnlyList<string> TargetIds { get; }
+        public IReadOnlyList<string> EnemyStatuses { get; }
         public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting,bool fullChain=false,int chainActionCount=0,string chainActionId=null,string presentationId=null,IEnumerable<string> targetIds=null)
         {
             Sequence=sequence; Clock=clock; Kind=kind; Actor=actor; Target=target??"body"; Message=message??"";
@@ -42,6 +43,7 @@ namespace NewAster.Core
             Casting=Array.AsReadOnly(casting.ToArray());
             ChainActionId=chainActionId;PresentationId=presentationId;
             TargetIds=Array.AsReadOnly((targetIds??(kind==BattlePresentationKind.Healing?HealingTargets.Select(i=>state.Heroes[i].Id):new[]{Target})).ToArray());
+            EnemyStatuses=Array.AsReadOnly(new[]{state.BossStatus.Description}.Concat(state.Parts.Select(p=>p.Status.Description)).ToArray());
         }
     }
     public sealed class BattlePlaybackQueue

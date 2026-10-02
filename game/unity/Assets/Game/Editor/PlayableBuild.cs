@@ -26,6 +26,7 @@ public static class PlayableBuild
     {
         assertions=0;
         ValidateCombatDefinitions();
+        ValidateFormalCombat();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
@@ -154,6 +155,44 @@ public static class PlayableBuild
         var texture=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
         Check(texture!=null && texture.width==1672 && texture.height==941,"UI illustration keeps native aspect and dimensions");
     }
+    private static void ValidateFormalCombat()
+    {
+        var source=Resources.Load<TextAsset>("Combat/battle-formal");Check(source!=null,"Executable formal roster exists");
+        Func<CombatDefinitionCatalog> fresh=()=>JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);
+        var definitions=fresh();definitions.Validate();
+        definitions=JsonUtility.FromJson<CombatDefinitionCatalog>(JsonUtility.ToJson(definitions));definitions.Validate();
+        Check(definitions.IsFormal && definitions.jobs.Length==5 && definitions.contentReferences.Length==140,"Unity roundtrips formal jobs and complete heroine references");
+        var artSource=Resources.Load<TextAsset>("Illustrations/battle-formal");Check(artSource!=null,"Formal illustration manifest exists independently from legacy art");
+        var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
+        Check(definitions.formation.All(id=>art.HeroIndex(id)>=0),"Formal illustration IDs match selected heroines");
+        for(int actor=0;actor<5;actor++) for(int slot=0;slot<3;slot++) {
+            var defs=fresh();foreach(var skill in defs.skills)skill.chainEligible=false;
+            var saved=new PlayableProgress();saved.Levels[0]=120;saved.Branches[0]=10;
+            var battle=new PlayableBattle(50,saved,100+actor*3+slot,combatDefinitions:defs);
+            Check(battle.State.Heroes[0].MaxHitPoints==350 && battle.State.Heroes[0].BaseAttack==47,"Formal battle protects legacy stats");
+            int limit=0;while(!battle.Ended && battle.AvailableHero!=actor && limit++<100)battle.Pass();
+            battle.State.Heroes[actor].GainResource(15);battle.DrainPresentationEvents();
+            Check(battle.Act(actor,slot,"body"),"Unity actual formal skill accepted "+actor+"/"+slot);
+            var events=new System.Collections.Generic.List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+            while(!battle.Ended && battle.IsCasting(actor) && limit++<200){battle.Pass();events.AddRange(battle.DrainPresentationEvents());}
+            var skillDef=defs.Skill(defs.formation[actor],slot);
+            if(skillDef.effectRuleId=="effect.damage") {
+                var attack=events.FirstOrDefault(e=>e.Actor==actor && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease));
+                Check(attack!=null && attack.Damage>0 && attack.TargetIds.Count==(actor==3?3:actor==1 && slot==2 || actor==4 && slot==2?5:1),"Unity actual attack/cast targets "+actor+"/"+slot);
+            } else Check(battle.State.Heroes[actor].TimedEffects.Count==skillDef.selfEffects.Length,"Unity actual self-buff components");
+            Check(saved.Levels[0]==120 && saved.Branches[0]==10,"Unity formal encounter preserves old save values");
+        }
+        for(int seed=0;seed<10;seed++) {
+            var battle=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:fresh());int commands=0;
+            while(!battle.Ended && commands<300) {
+                int actor=battle.AvailableHero;bool acted=false;
+                for(int slot=0;slot<3;slot++)if(battle.State.Heroes[actor].JobResource>=battle.SkillResourceCost(actor,slot)){acted=battle.Act(actor,slot,"body");if(acted)break;}
+                if(!acted)battle.Pass();commands++;
+            }
+            Check(battle.Ended && commands<300,"Unity formal encounter reaches a terminal result seed "+seed);
+        }
+    }
+
     private static void ValidateBattleDecisions()
     {
         ValidateAwakeningProgress();

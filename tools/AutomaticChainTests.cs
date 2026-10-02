@@ -12,6 +12,8 @@ public static class AutomaticChainTests
     public static void Main(string[] args)
     {
         var options=new JsonSerializerOptions {IncludeFields=true};
+        string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
+        Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);
         var reference=freshReference();reference.Validate();
@@ -95,6 +97,7 @@ public static class AutomaticChainTests
         ValidateTimedSelfEffects(fresh);
         ValidateExtendedCombat(fresh,freshReference());
         ValidateDamageDefense(fresh);
+        ValidateFormalCombat(formal,freshReference());
         var manifest=new BattleIllustrationManifest {schemaVersion=1,placeholder=true,
             heroes=Enumerable.Range(0,5).Select(i=>new HeroIllustrationBinding {heroineId="hero-"+i,placeholder=true}).Reverse().ToArray(),
             parts=Enumerable.Range(0,4).Select(i=>new PartIllustrationBinding {partId="part-"+i,x=.1f,y=.1f,width=.2f,height=.2f}).ToArray()};
@@ -184,6 +187,172 @@ public static class AutomaticChainTests
         return new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,i==1?200:100,20,10)),
             Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,new[]{20,30,20,50}[i],i==0?"gauge-down":"")),1000,4);
     }
+    private static void ValidateFormalCombat(Func<CombatDefinitionCatalog> fresh,HeroineReferenceCatalog evidence)
+    {
+        var catalog=fresh();catalog.Validate();
+        Check(catalog.IsFormal && catalog.Healing().Length==0 && catalog.Chain().Length==5,"Formal roster has no borrowed generic healer");
+        Check(catalog.formation.SequenceEqual(evidence.formation),"Executable formal roster matches all five selected identities");
+        Check(catalog.contentReferences.Count(r=>r.kind=="poem-link")==90 && catalog.contentReferences.Count(r=>r.kind=="affinity-event")==15 && catalog.contentReferences.Count(r=>r.kind=="lover-event")==10,"Complete heroine content references have exact required counts");
+        foreach(var id in catalog.formation) for(int slot=0;slot<3;slot++) {
+            var observed=evidence.Hero(id).skills[slot];var skill=catalog.Skill(id,slot);
+            Check(skill.name==observed.name && skill.sourceSkillId==observed.id && skill.powerScale==observed.attackPercent/100f,"Confirmed skill name and Lv7 multiplier retained "+observed.id);
+            Check(skill.castPercent>0==(observed.casting!="none"),"Confirmed casting category retained "+observed.id);
+            Check(skill.sourceFile==evidence.Hero(id).sourceFile && skill.sourceSecond==15 && (observed.attackPercent==0 || skill.damageType==observed.damageType),"Source file and physical/magic category retained "+observed.id);
+            foreach(var e in observed.effects.Where(e=>!EnemyStatusState.Kinds.Contains(e.kind))) {
+                bool present=e.turns>0?skill.selfEffects.Any(s=>s.kind==e.kind && s.percent==e.amount && s.turns==e.turns):
+                    e.kind=="critical"?skill.criticalBonusBp==e.amount*100:
+                    e.kind=="damage-cap"?skill.damageCap==10000+e.amount:
+                    e.kind=="self-damage"?skill.selfDamageMaxHpPercent==e.amount:
+                    e.kind=="self-heal"?skill.selfHealingBaseAttackPercent==e.amount:
+                    e.kind=="wt-add"?skill.enemyWaitAdd==e.amount:
+                    e.kind=="wt-reduce-percent"?skill.selfWaitReductionPercent==e.amount:
+                    e.kind=="charge-consume-max"?skill.chargeConsumeMax==e.amount:
+                    e.kind=="ignore-defense"?skill.ignoreDefenseBp==10000:
+                    e.kind=="special-weapon-damage"?skill.specialWeaponBonusPercent==e.amount:false;
+                Check(present,"Every observed component is implemented "+observed.id+" "+e.kind);
+            }
+            foreach(var e in observed.effects.Where(e=>EnemyStatusState.Kinds.Contains(e.kind))) Check(skill.statusEffects.Any(s=>s.kind==e.kind && s.amount==e.amount),"Observed accumulation retained "+observed.id+" "+e.kind);
+        }
+        catalog.heroines=catalog.heroines.Reverse().ToArray();catalog.skills=catalog.skills.Reverse().ToArray();catalog.jobs=catalog.jobs.Reverse().ToArray();catalog.contentReferences=catalog.contentReferences.Reverse().ToArray();catalog.Validate();
+        Check(catalog.HeroIdAt(3)=="heroine.echidna" && catalog.Skill(catalog.HeroIdAt(3),2).castPercent==125,"Formal references are independent of array order");
+        Action<Action<CombatDefinitionCatalog>,string> reject=(mutate,message)=>{var bad=fresh();mutate(bad);ExpectCombatFailure(bad,message);};
+        reject(c=>c.jobs=null,"Missing formal jobs rejected");
+        reject(c=>c.jobs[0].resourceMax=0,"Missing resource capacity rejected");
+        reject(c=>c.heroines[0].traitId=c.heroines[1].traitId,"Cross-person trait rejected");
+        reject(c=>c.heroines[0].weaponTreeId="missing","Missing weapon reference rejected");
+        reject(c=>c.heroines[0].poemChapters=new string[0],"Missing poem chapters rejected");
+        reject(c=>c.heroines[0].poemLinks[0]=c.heroines[1].poemLinks[0],"Cross-person poem link rejected");
+        reject(c=>c.heroines[0].affinityEventIds=new string[2],"Incomplete affinity event references rejected");
+        reject(c=>c.heroines[0].loverEventIds=null,"Missing lover event references rejected");
+        reject(c=>c.heroines[0].hpBp=9999,"Invalid job plus character stat budget rejected");
+        reject(c=>c.heroines[0].speedBp=10501,"Speed construction range enforced");
+        reject(c=>c.jobs[0].hp=int.MaxValue,"Overflowing formal job base rejected");
+        reject(c=>c.enemyStatusResistances=new[]{new EnemyStatusResistanceDef {kind="burn",resistanceBp=10001}},"Invalid status resistance rejected");
+        reject(c=>c.designOrigin="source-confirmed","Original rules cannot masquerade as source-confirmed");
+        reject(c=>c.skills[0].sourceSkillId=null,"Missing observation provenance rejected");
+        reject(c=>c.chainActions[0].ruleOrigin=null,"Missing original fixed-action provenance rejected");
+        reject(c=>c.skills[0].statusEffects=new[]{new EnemyStatusDef {kind="invented",amount=100}},"Unknown status rejected");
+        reject(c=>c.Skill("heroine.slayer",1).statusEffects=new[]{new EnemyStatusDef {kind="burn",amount=100}},"Self support cannot accumulate enemy status");
+        reject(c=>c.skills[0].conditions=new[]{new SkillConditionDef {kind="trait-equipped",threshold=1,referenceId="heroine.iconoclast.trait"}},"Cross-person condition rejected");
+        var status=new EnemyStatusState();status.Add(new EnemyStatusDef {kind="burn",amount=99});
+        Check(!status.Active("burn") && status.Meter("burn")==99,"Status value is accumulation, not probability");
+        status.Add(new EnemyStatusDef {kind="burn",amount=1});
+        Check(status.Active("burn") && status.Meter("burn")==0 && status.Dot(1000)==20,"Threshold 100 applies three-action burn");
+        status.Tick();status.Tick();Check(status.Active("burn") && status.Remaining("burn")==1,"Status duration lasts three enemy opportunities");
+        status.Tick();Check(!status.Active("burn"),"Status expires independently");
+        status.Add(new EnemyStatusDef {kind="poison",amount=175});Check(status.Meter("poison")==75 && status.Remaining("poison")==3,"Overflow is retained below threshold");
+        status.Add(new EnemyStatusDef {kind="bleed",amount=100});Check(status.Dot(1000)==50,"Independent poison and bleed damages add");
+        var resistant=new EnemyStatusState(new[]{new EnemyStatusResistanceDef {kind="burn",resistanceBp=5000},new EnemyStatusResistanceDef {kind="stun",resistanceBp=10000}});
+        resistant.Add(new EnemyStatusDef {kind="burn",amount=100});Check(resistant.Meter("burn")==50 && !resistant.Active("burn"),"Resistance reduces accumulation instead of adding a hidden random roll");
+        resistant.Add(new EnemyStatusDef {kind="burn",amount=100});Check(resistant.Active("burn"),"Resisted values still accumulate to threshold");
+        resistant.Add(new EnemyStatusDef {kind="stun",amount=1000});Check(!resistant.Active("stun") && resistant.Meter("stun")==0,"Full resistance is deterministic immunity");
+        var state=new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,1000,100,10)),Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,1000,"")),10000,4);
+        var actor=state.Heroes[0];actor.TakeDamage(100);actor.GainResource(10);int draws=0;
+        var effects=new[]{new EnemyStatusDef {kind="burn",amount=120}};
+        var all=new BattleSkill("all",1,3,70,10,criticalChanceBp:2000,targetRule:"target.all-enemies",statusEffects:effects);
+        effects[0].amount=1;
+        all.StatusEffects[0].amount=1;
+        var result=BattleActionResolver.Resolve(state,actor.Id,all,"body",max=>{draws++;return 9999;});
+        Check(result.Accepted && result.TargetIds.Count==5 && result.Damage==500,"All attack independently hits body and all four living parts");
+        Check(draws==1 && actor.JobResource==7 && result.SelfHealing==70 && result.SelfDamage==100 && actor.HitPoints==870,"Multi-target cost critical and self follow-ups occur only once");
+        Check(state.BossStatus.Meter("burn")==20 && state.Parts.All(p=>p.Status.Active("burn")),"Statuses are local per target and copied from definitions");
+        state.BreakPart("part-1",10000);
+        Check(EnemyAttackTargets.Resolve(state,"target.enemy-range","part-0").SequenceEqual(new[]{"part-0"}),"Range excludes broken adjacent parts rather than adding a substitute");
+        Check(EnemyAttackTargets.Resolve(state,"target.enemy-range","body").SequenceEqual(new[]{"body","part-0"}),"Body range has explicit stable adjacency");
+        Check(EnemyAttackTargets.Resolve(state,"target.selected-enemy","part-1").Length==0,"Broken single target is invalid");
+        int resourceBefore=actor.JobResource,hpBefore=state.BossHitPoints;
+        result=BattleActionResolver.Resolve(state,actor.Id,new BattleSkill("range",1,3,targetRule:"target.enemy-range"),"part-1");
+        Check(!result.Accepted && actor.JobResource==resourceBefore && state.BossHitPoints==hpBefore,"Invalid range anchor fails atomically");
+        bool invalidDraw=false;try{BattleActionResolver.Resolve(state,actor.Id,all,"body",max=>10000);}catch(ArgumentException){invalidDraw=true;}
+        Check(invalidDraw && actor.JobResource==resourceBefore && state.BossHitPoints==hpBefore,"Invalid group critical draw leaves all targets and cost unchanged");
+        var condition=new[]{new SkillConditionDef {kind="boss-status-active",threshold=1,referenceId="burn"}};
+        Check(SkillConditionDef.AllSatisfied(state,0,condition),"Active boss status can gate a skill");
+        Check(!SkillConditionDef.AllSatisfied(state,0,new[]{new SkillConditionDef {kind="trait-equipped",threshold=1,referenceId="absent.trait"}}),"Trait condition checks actual equipped definition");
+        // Execute each of the actual fifteen commands independently, including every Blaster slot.
+        for(int index=0;index<5;index++) for(int slot=0;slot<3;slot++) {
+            var defs=fresh();foreach(var s in defs.skills) s.chainEligible=false;
+            var legacy=new PlayableProgress();legacy.Levels[0]=120;legacy.Branches[0]=10;
+            var battle=new PlayableBattle(50,legacy,40+index*3+slot,combatDefinitions:defs);
+            Check(battle.IsFormal && battle.State.Heroes[index].Id==defs.formation[index],"Formal identity bound for skill "+index+"/"+slot);
+            Check(battle.State.Heroes[0].MaxHitPoints==350 && battle.State.Heroes[0].BaseAttack==47,"Legacy levels and equipment are not transferred into formal identity");
+            int attempts=0;while(battle.AvailableHero!=index && !battle.Ended && attempts++<100) battle.Pass();
+            battle.State.Heroes[index].GainResource(15);
+            battle.DrainPresentationEvents();int resource=battle.State.Heroes[index].JobResource;
+            int cost=battle.SkillResourceCost(index,slot),prediction=battle.PreviewDamage(index,slot,"body");
+            Check(battle.Act(index,slot,"body"),"Actual formal command executes "+defs.Skill(defs.formation[index],slot).id);
+            var events=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
+            while(battle.IsCasting(index) && !battle.Ended && attempts++<200) {battle.Pass();events.AddRange(battle.DrainPresentationEvents());}
+            var command=events.FirstOrDefault(e=>e.Actor==index && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease));
+            if(defs.Skill(defs.formation[index],slot).effectRuleId=="effect.damage") {
+                Check(command!=null && command.Damage>=prediction,"Attack or cast resolves real defined effects "+index+"/"+slot);
+                Check(command.TargetIds.Count==(index==3?3:index==1 && slot==2 || index==4 && slot==2?5:1),"Actual formal target count "+index+"/"+slot);
+            } else Check(battle.State.Heroes[index].TimedEffects.Count==defs.Skill(defs.formation[index],slot).selfEffects.Length,"Actual formal self-buff applies all components");
+            Check(legacy.Levels[0]==120 && legacy.Branches[0]==10,"Formal encounter does not mutate the legacy save");
+        }
+        // Resource rejection must leave cast/timeline/status untouched.
+        var emptyDefs=fresh();var empty=new PlayableBattle(1,new PlayableProgress(),2,combatDefinitions:emptyDefs);
+        while(empty.AvailableHero!=3 && !empty.Ended) empty.Pass();empty.State.Heroes[3].SpendResource(15); // Explicitly empty the available balance.
+        empty.State.Heroes[3].SpendResource(empty.State.Heroes[3].JobResource);
+        long clock=empty.Clock;hpBefore=empty.State.BossHitPoints;
+        Check(!empty.Act(3,2,"body") && empty.Clock==clock && !empty.IsCasting(3) && empty.State.BossHitPoints==hpBefore,"Insufficient magic rejects cast without mutation");
+        var cancelDefs=fresh();foreach(var s in cancelDefs.skills)s.chainEligible=false;
+        var cancel=new PlayableBattle(1,new PlayableProgress(),3,combatDefinitions:cancelDefs);
+        while(cancel.AvailableHero!=3 && !cancel.Ended) cancel.Pass();
+        string anchor=cancel.State.Parts[0].Id;cancel.State.Heroes[3].GainResource(10);
+        Check(cancel.Act(3,2,anchor),"Range cast reserves its selected anchor");
+        cancel.State.BreakPart(anchor,100000);var canceledEvents=new List<BattlePresentationEvent>(cancel.DrainPresentationEvents());
+        int guard=0;while(cancel.IsCasting(3) && !cancel.Ended && guard++<100){cancel.Pass();canceledEvents.AddRange(cancel.DrainPresentationEvents());}
+        Check(canceledEvents.Any(e=>e.Actor==3 && e.Kind==BattlePresentationKind.CastCanceled) && !cancel.State.Parts[1].Status.Active("fracture"),"Destroyed range anchor cancels release with no statuses or silent retarget");
+        var wtDefs=fresh();foreach(var s in wtDefs.skills)s.chainEligible=false;
+        var wt=new PlayableBattle(1,new PlayableProgress(),17,combatDefinitions:wtDefs);
+        while(wt.AvailableHero!=1 && !wt.Ended)wt.Pass();
+        long originalBoss=wt.UpcomingOrder().First(e=>e.Actor<0).At,commandClock=wt.Clock;
+        Check(wt.Act(1,0,"body") && wt.NextAt(1)==commandClock+wt.RecoveryDelay(1,0)/2,"Berserker self WT reduction changes only next normal action");
+        Check(wt.UpcomingOrder().First(e=>e.Actor<0).At==originalBoss+30 && wt.State.Heroes[1].JobResource==3,"Berserker WT adds boss ticks and gains declared anger");
+        var charge=new PlayableBattle(1,new PlayableProgress(),18,combatDefinitions:wtDefs);
+        while(charge.AvailableHero!=2 && !charge.Ended)charge.Pass();charge.State.Heroes[2].GainResource(15);
+        Check(charge.SkillResourceCost(2,2)==9 && charge.Act(2,2,"body") && charge.State.Heroes[2].JobResource==6,"Defender consumes at most nine of fifteen charges once");
+        var gunner=new PlayableBattle(1,new PlayableProgress(),19,combatDefinitions:wtDefs);gunner.State.Heroes[4].GainResource(2);
+        Check(gunner.AvailableHero==4 && gunner.PreviewDamage(4,2,"body")==809,"Special weapon plus-200 rule applies body protection only to body, not the four parts");
+        Check(gunner.Act(4,2,"body") && gunner.State.Heroes[4].JobResource==1,"Special weapon spends six bullets and gains one declared post-attack bullet");
+        var stun=new PlayableBattle(1,new PlayableProgress(),20,combatDefinitions:fresh());
+        stun.State.BossStatus.Add(new EnemyStatusDef {kind="stun",amount=100});int enemyCount=stun.EnemyActionCount;
+        var untouched=stun.State.Heroes.Select(h=>h.HitPoints).ToArray();
+        while(stun.EnemyActionCount==enemyCount && !stun.Ended)stun.Pass();
+        Check(untouched.SequenceEqual(stun.State.Heroes.Select(h=>h.HitPoints)) && !stun.State.BossStatus.Active("stun"),"Boss stun skips exactly one scheduled attack and expires");
+        var snapshot=stun.DrainPresentationEvents().Last();string priorStatus=snapshot.EnemyStatuses[0];
+        stun.State.BossStatus.Add(new EnemyStatusDef {kind="poison",amount=100});
+        Check(snapshot.EnemyStatuses[0]==priorStatus,"Presentation status strings are immutable snapshots");
+        var dotBreak=new PlayableBattle(1,new PlayableProgress(),21,combatDefinitions:fresh());
+        dotBreak.State.AdvanceBossGauge(3);dotBreak.State.Parts[0].ApplyDamage(dotBreak.State.Parts[0].HitPoints-1);
+        dotBreak.State.Parts[0].Status.Add(new EnemyStatusDef {kind="burn",amount=100});enemyCount=dotBreak.EnemyActionCount;
+        while(dotBreak.EnemyActionCount==enemyCount && !dotBreak.Ended)dotBreak.Pass();
+        Check(dotBreak.State.Parts[0].IsBroken && dotBreak.DrainPresentationEvents().Last(e=>e.Kind==BattlePresentationKind.Enemy).Major==false,"Part DoT destruction suppresses the pending major before target and damage selection");
+        // Fixed actions are individually owned and do not invoke normal resource/cast rules.
+        var fixedBattle=new PlayableBattle(50,new PlayableProgress(),5,combatDefinitions:fresh());
+        for(int i=0;i<5;i++) {
+            int resource=fixedBattle.State.Heroes[i].JobResource;long at=fixedBattle.NextAt(i);
+            var action=fresh().Chain()[i];result=null;
+            var fixedResult=ChainActionResolver.Resolve(fixedBattle.State,i,action);
+            Check(fixedResult.Amount>0 && fixedBattle.State.Heroes[i].JobResource==resource && fixedBattle.NextAt(i)==at,"Formal fixed action is independent "+i);
+        }
+        int victories=0;
+        Func<int,string> simulate=seed=>{
+            var battle=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:fresh());var trace=new List<string>();int steps=0;
+            while(!battle.Ended && steps<300) {
+                int who=battle.AvailableHero,slot=steps%3;bool used=false;
+                for(int k=0;k<3;k++) {int candidate=(slot+k)%3;if(battle.State.Heroes[who].JobResource>=battle.SkillResourceCost(who,candidate) && battle.ConditionsSatisfied(who,candidate)){used=battle.Act(who,candidate,"body");if(used)break;}}
+                if(!used)battle.Pass();steps++;
+                foreach(var e in battle.DrainPresentationEvents())trace.Add(e.Clock+":"+e.Actor+":"+e.Kind+":"+e.Damage+":"+e.BossHp+":"+string.Join(",",e.HeroHp)+":"+string.Join(",",e.Resources));
+            }
+            Check(battle.Ended && steps<300,"Formal full encounter terminates seed "+seed);
+            if(battle.State.IsVictory) victories++;
+            return string.Join(";",trace);
+        };
+        for(int seed=0;seed<50;seed++) Check(simulate(seed)==simulate(seed),"Formal five-person encounter deterministic replay seed "+seed);
+        Check(victories>0,"The actual formal Lv1 formation can defeat the preview colossus");
+    }
+
     private static void ValidateDamageDefense(Func<CombatDefinitionCatalog> fresh)
     {
         var state=new BattleState(1,Enumerable.Range(0,5).Select(i=>new BattleHero("hero-"+i,1000,100,10)),Enumerable.Range(0,4).Select(i=>new BattlePart("part-"+i,1000,"",3000,1000)),10000,4,1000,3000);

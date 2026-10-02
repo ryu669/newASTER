@@ -11,10 +11,10 @@ namespace NewAster.Presentation
         private BattleIllustrationManifest manifest;
         private Texture2D[] portraits;
         private string warning;
-        public BattleIllustrationView()
+        public BattleIllustrationView(string resource="Illustrations/battle-preview")
         {
             try {
-                var source=Resources.Load<TextAsset>("Illustrations/battle-preview");
+                var source=Resources.Load<TextAsset>(resource);
                 if(source==null) throw new ArgumentException("battle-preview manifest missing");
                 manifest=JsonUtility.FromJson<BattleIllustrationManifest>(source.text);manifest.Validate();
                 portraits=manifest.heroes.Select(h=>string.IsNullOrEmpty(h.resourcePath)?null:Resources.Load<Texture2D>(h.resourcePath)).ToArray();
@@ -56,7 +56,7 @@ namespace NewAster.Presentation
                 if(GUI.Button(rect,(target==p.partId?"◆ ":"")+partNames[index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.partId;
                 GUI.enabled=old;
             }
-            if(e!=null && e.Damage>0) GUI.Label(new Rect(855,579,260,45),"−"+e.Damage+" / "+e.Target,small);
+            if(e!=null && e.Damage>0) GUI.Label(new Rect(855,579,260,45),"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
             if(e!=null && e.Kind==BattlePresentationKind.CastStart) GUI.Label(new Rect(50,592,400,40),"詠唱開始（まだダメージなし）",small);
             GUI.Label(new Rect(16,683,1110,22),"2D表示基盤 / 背景・敵・残り4人は未制作。候補絵は正式採用前。",small);
             return target;

@@ -398,6 +398,22 @@ Attack=`floor(BaseAttack*(100+攻撃強化%)/100)`、int上限へ飽和。通常
 
 ## 戦闘読込v2・使用条件・会心（計画3の追加境界）
 
+### v3正式人物・本作独自ルールの読込
+
+現行ゲームの出撃は `Combat/battle-formal.json`、`schemaVersion=3` / `status=newaster-original`。`designOrigin=user-authorized-newaster-rules-2026-10-02` を必須とする。v1仮人物・v2統合検証は回帰互換のため残すが、起動時にv3が欠けたら旧仮値へ自動フォールバックしない。仕様の定義元は[戦闘仕様：初期5人の実行ルール](../systems/battle.md)。
+
+HeroineCombatDefは従来の3skills・chainActionIdに加え、traitId、weaponTreeId、poemChapters[3]、poemLinks[18]、affinityEventIds[3]、loverEventIds[2]、hpBp／attackBp／defenseBp／speedBp、traitHpPercent／traitAttackPercentを持つ。contentReferencesはid／ownerId／kind／statusを持ち、参照存在・件数・重複・所有者・種別を検証する。戦闘特性はimplemented必須。武器・詩・イベントはreservedを明示して本文／ノード制作を保留できるが、存在しないIDをTBD文字列で補完しない。全5人で140参照。予約コンテンツを遊べる実装と扱わない。
+
+jobs[5]はid、資源名／上限／開始量／行動可能時・攻撃後・被ダメージ後の獲得量、Lv1のHP／攻撃／物防／魔防／速度／会心率。人物のjobIdは実在するJobCombatDefへ参照する。HP・攻撃は1〜1000000、防御は0〜1000000、速度1〜10000、会心0〜10000bp、資源1〜15。HP／攻撃／防御補正9000〜11000bp、合計30000、速度9500〜10500bp。構築後のHP・攻撃が0になる定義も拒否する。現行はLv1だけに適用し、旧インデックス育成値を正式人物へ移し替えない。
+
+SkillCombatDefはdamageType、targetRuleId（単体／範囲／全体）、ignoreDefenseBp、statusEffects[{kind,amount}]、enemyWaitAdd、selfWaitReductionPercent、chargeConsumeMax、chargeBonusPercent、specialWeaponBonusPercentを持つ。未知状態／重複状態／範囲外数値／攻撃でない技への攻撃効果混在を拒否。状態・ジョブ固有追加効果はv3だけで受け入れ、未対応の旧モードへ読ませて黙って無視しない。形式上の式ではなく解決器へ接続された対応kindだけを許可する。
+
+各技はsourceSkillId・sourceFile・sourceSecond・observedSkillLevel=7・ruleOrigin=video-observation-plus-newaster-originalを持ち、出典欠落を拒否する。固有行動のruleOriginはnewaster-original。資料JSONの観測上限−1・unresolved・装備込み撮影値を実行用の空欄補完に使わない。技の元の確認値保持は全15技の資料対照テストでも検査する。
+
+条件は既存3種に加え、job-resource-at-least（0〜15）、trait-equipped（本人traitId・threshold=1）、boss-status-active（対応状態名・threshold=1）。AND評価であり、特性の別人物参照・上限を超える資源条件・未知状態条件は拒否。条件、持続効果、攻撃型、状態、資源、詠唱プロファイルは戦闘開始／予約で複製し、表示から書換えられない。
+
+状態耐性はenemyStatusResistances[{kind,resistanceBp}]、0〜10000、同kind重複禁止。本体・部位の状態値と寿命は別インスタンス。演出イベントは実際のTargetIdsとEnemyStatusesの不変スナップショットを持ち、複数部位の破壊・合計ダメージ・資源更新を反映する。将来の各巨神獣固有表・別部位耐性・味方の状態異常は後続で、初期5人の15技に必要な実行ルールと区別する。
+
 ### 物理／魔法防御と防御無視：newASTER独自仕様
 
 2026-10-02ユーザー承認により未確認算式を本作独自として設計する。資料用JSONの観測値やTBDを、本作の算式で確認済み扱いに置換しない。

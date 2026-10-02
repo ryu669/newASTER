@@ -11,13 +11,19 @@ namespace NewAster.Core
         public int MaxHitPoints { get; }
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
+        public int PhysicalDefense { get; }
+        public int MagicDefense { get; }
+        public string TraitId { get; }
         public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100);
         public int Speed { get; }
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
 
-        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0)
+        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null)
         {
+            TraitId=traitId;
+            if(hitPoints<=0 || attack<=0 || jobResourceMax<0 || physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Invalid heroine stats.");
+            PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
             if(speed<=0) throw new ArgumentOutOfRangeException(nameof(speed));
             if(criticalChanceBp<0 || criticalChanceBp>10000) throw new ArgumentOutOfRangeException(nameof(criticalChanceBp));
             BaseCriticalChanceBp=criticalChanceBp;
@@ -49,13 +55,17 @@ namespace NewAster.Core
         public string BreakEffectId { get; }
         public int PhysicalDefense { get; }
         public int MagicDefense { get; }
+        public int MaxHitPoints { get; }
+        public EnemyStatusState Status { get; }
 
-        public BattlePart(string id, int hitPoints, string breakEffectId,int physicalDefense=0,int magicDefense=0)
+        public BattlePart(string id, int hitPoints, string breakEffectId,int physicalDefense=0,int magicDefense=0,EnemyStatusResistanceDef[] resistances=null)
         {
+            Status=new EnemyStatusState(resistances);
             if(physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Defense cannot be negative.");
             PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
             Id = id ?? throw new ArgumentNullException(nameof(id));
             HitPoints = Math.Max(1, hitPoints);
+            MaxHitPoints=HitPoints;
             BreakEffectId = breakEffectId ?? string.Empty;
         }
 
@@ -91,13 +101,16 @@ namespace NewAster.Core
         public int BossMaxHitPoints { get; }
         public int BossPhysicalDefense { get; }
         public int BossMagicDefense { get; }
+        public EnemyStatusState BossStatus { get; }
+        public EnemyStatusState EnemyStatus(string target) => target=="body"?BossStatus:Parts.Single(p=>p.Id==target).Status;
         public bool IsVictory => BossHitPoints == 0;
         public IReadOnlyList<BattleHero> Heroes { get; }
         public IReadOnlyList<BattlePart> Parts { get; }
         public IReadOnlyList<ChainModifier> TurnChainModifiers { get; private set; }
 
-        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossHitPoints, int bossGaugeMax,int bossPhysicalDefense=0,int bossMagicDefense=0)
+        public BattleState(int selectedLevel, IEnumerable<BattleHero> heroes, IEnumerable<BattlePart> parts, int bossHitPoints, int bossGaugeMax,int bossPhysicalDefense=0,int bossMagicDefense=0,EnemyStatusResistanceDef[] bossResistances=null)
         {
+            BossStatus=new EnemyStatusState(bossResistances);
             if(bossPhysicalDefense<0 || bossMagicDefense<0) throw new ArgumentOutOfRangeException("Defense cannot be negative.");
             BossPhysicalDefense=bossPhysicalDefense;BossMagicDefense=bossMagicDefense;
             if (selectedLevel < MinimumLevel || selectedLevel > MaximumLevel) throw new ArgumentOutOfRangeException(nameof(selectedLevel));
