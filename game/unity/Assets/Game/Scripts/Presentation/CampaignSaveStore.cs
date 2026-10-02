@@ -12,6 +12,14 @@ namespace NewAster.Presentation
         private const string FileName = "campaign-formal-world-v1.json";
         public static string SavePath => Path.Combine(Application.persistentDataPath, FileName);
 
+        public static FormalLoadResult LoadFormalSplit(out CampaignSaveV2 save)
+        {
+            save=null;
+            if(!File.Exists(SavePath))return File.Exists(SavePath+".bak")?FormalLoadResult.Blocked:FormalLoadResult.Missing;
+            try {save=JsonUtility.FromJson<CampaignSaveV2>(File.ReadAllText(SavePath));FormalCampaignSave.ValidateWorld(save);return FormalLoadResult.Loaded;}
+            catch(Exception e)when(e is IOException || e is ArgumentException || e is UnauthorizedAccessException){save=null;return FormalLoadResult.Blocked;}
+        }
+
         public static void Save(CampaignState campaign)
         {
             if (campaign == null) throw new ArgumentNullException(nameof(campaign));

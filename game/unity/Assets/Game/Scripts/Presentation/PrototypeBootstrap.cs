@@ -56,7 +56,7 @@ namespace NewAster.Presentation
         private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
         private void Awake()
         {
-            campaign = CampaignSaveStore.TryLoad(out var save) ? new CampaignState(WorldCatalog.ColossusIds, save) : new CampaignState(WorldCatalog.ColossusIds);
+            campaign = new CampaignState(WorldCatalog.ColossusIds);
             book = new BookNavigationState(new Dictionary<BookBookmark, IReadOnlyList<string>> {
                 [BookBookmark.Colossi] = WorldCatalog.ColossusIds,
                 [BookBookmark.Heroines] = Enumerable.Range(0,5).Select(i => "hero-" + i).ToArray(),
@@ -108,6 +108,7 @@ namespace NewAster.Presentation
                 if(args.Contains("-captureGrowthConfirm")) {growthScreen=GrowthScreen.Level;GrowthConfirm(GrowthOperation.Level,combatDefinitions.FormationIds[0],formalProgression.Snapshot,11);}
             }
             if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
+            if(capturePath!=null && args.Contains("-captureVictory")) PrepareVictoryCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -227,7 +228,7 @@ namespace NewAster.Presentation
         private void OnGUI()
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
-            if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"戦闘定義を読み込めません。旧値への自動補完は行いません。\n"+combatDefinitionError,heading,Color.white);return; }
+            if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
@@ -517,18 +518,12 @@ namespace NewAster.Presentation
         {
             if(playback.Busy || !encounter.Ended || result!=null) return;
             if(!encounter.State.IsVictory) { result="敗北\n\n報酬はありません。育成や部位破壊を試して再挑戦しましょう。"; return; }
-            var c=WorldCatalog.Colossi.First(x=>x.Id==activeColossus);
-            var poems=activeColossus==GreenReturnDragonVerticalSlice.ColossusId?GreenReturnDragonVerticalSlice.PoemIds.Where(id=>!campaign.Progress.CollectedPoemIds.Contains(id)).Take(4).ToArray():Array.Empty<string>();
-            var reward=campaign.ClaimColossusVictory(activeColossus,c.EnvironmentTags,new VictoryReward(battleId,selectedLevel,10,4,poems),GreenReturnDragonVerticalSlice.StoryChapters,Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
-            if(reward.Reward.Claimed) campaign.Playable.RecordVictory(selectedLevel);
-            result=$"討伐成功！\n\n素材 +{reward.Reward.Materials} / 世界復元 +{reward.Reward.Terraforming}\n新しい詩 {reward.Reward.NewPoemIds.Count} / 開いた章 {reward.Reward.NewStoryIds.Count}\n";
-            if(reward.FirstClear) result+="\n初回討伐：次のページと環境が開放されました。";
-            if(reward.NewGardenIds.Count>0) result+="\n庭が開放！庭のしおりから訪ねましょう。";
-            if(c.IsIntegrationBoss) result+="\n\n世界統合達成。取り戻した世界に、新しい物語が始まります。";
-            Save();
+            PrepareFormalVictory();
         }
         private void DrawResult()
         {
+            if(formalVictoryRequest!=null) { DrawVictorySavePending();return; }
+            if(encounter.State.IsVictory) {DrawFormalVictoryComplete();return;}
             Modal(); Label(340,194,890,90,encounter.State.IsVictory?"記憶を取り戻した":"再び、誓いを",heading); Label(340,300,890,285,result,text);
             if(!encounter.State.IsVictory && Btn(340,580,860,52,"同じ巨神獣・難度で再挑戦")) { StartBattle(activeColossus); return; }
             if(Btn(340,650,420,62,"本へ戻る")) { result=null; encounter=null; status="報酬を使って育成・庭を進めましょう。"; }
@@ -596,8 +591,10 @@ namespace NewAster.Presentation
         private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
         private void Save(string successMessage="進行を保存しました。")
         {
-            try { CampaignSaveStore.Save(campaign); status=successMessage; }
-            catch(Exception e) when(e is System.IO.IOException || e is UnauthorizedAccessException) { status="保存できませんでした。保存先の空き容量と権限を確認してください。"; Debug.LogException(e); }
+            if(formalDiagnostic)return;
+            if(formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending){status="保存待ちの操作を先に完了してください。";return;}
+            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),formalCampaignStore.Save))throw new System.IO.IOException("Save rejected");status=successMessage; }
+            catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);}
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }
         private static void Panel(float x,float y,float w,float h,Texture2D t) => GUI.DrawTexture(new Rect(x,y,w,h),t);
@@ -612,6 +609,6 @@ namespace NewAster.Presentation
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
             bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
         }
-        private void OnApplicationQuit() { if(campaign!=null && capturePath==null && combatDefinitionError==null) Save(); }
+        private void OnApplicationQuit() { if(campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending) Save(); }
     }
 }

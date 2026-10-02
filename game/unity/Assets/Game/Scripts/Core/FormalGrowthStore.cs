@@ -69,10 +69,17 @@ namespace NewAster.Core
         {
             foreach(var receipt in previous) {
                 bool found=false;
-                foreach(var item in next.receipts) if(item.transactionId==receipt.transactionId && item.signature==receipt.signature) {found=true;break;}
+                foreach(var item in next.receipts) if(item.transactionId==receipt.transactionId && item.signature==receipt.signature && SameOutcomes(receipt,item)) {found=true;break;}
                 if(!found) return true;
             }
             return false;
+        }
+        private static bool SameOutcomes(GrowthReceipt a,GrowthReceipt b)
+        {
+            var left=a.kinderOutcomes??Array.Empty<KinderOutcome>();var right=b.kinderOutcomes??Array.Empty<KinderOutcome>();
+            if(left.Length!=right.Length)return false;
+            for(int i=0;i<left.Length;i++)if(left[i].kind!=right[i].kind || left[i].heroineId!=right[i].heroineId || left[i].amount!=right[i].amount || left[i].grantKind!=right[i].grantKind)return false;
+            return true;
         }
     }
 }

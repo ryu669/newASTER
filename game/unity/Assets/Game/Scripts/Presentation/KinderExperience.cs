@@ -82,7 +82,7 @@ namespace NewAster.Presentation
                 Label(605,605,885,86,kinderSaveError??"確定後に抽選し、費用と全報酬を一括保存します。\n保存失敗時は再抽選せず同じ結果を再保存します。",growthSmallStyle);
                 if(GrowthButton(605,719,570,62,formalProgression.HasPending?"同じ結果で保存を再試行":"この内容で確定する",true,true)){
                     try{
-                        if(formalProgression.CommitKinder(kinderRequest,kinderBanner,KinderRandom.NextBelow,formalGrowthStore.Save)!=GrowthCommitResult.SaveFailed){kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=kinderReceipt.kinderOutcomes.Length>0?KinderScreen.Revealing:KinderScreen.Result;kinderRevealStarted=Time.unscaledTime;kinderSaveError=null;}
+                        if(formalProgression.CommitKinder(kinderRequest,kinderBanner,KinderRandom.NextBelow,SaveFormalGrowth)!=GrowthCommitResult.SaveFailed){kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=kinderReceipt.kinderOutcomes.Length>0?KinderScreen.Revealing:KinderScreen.Result;kinderRevealStarted=Time.unscaledTime;kinderSaveError=null;}
                         else kinderSaveError="保存できませんでした。石・報酬はまだ変更していません。";
                     }catch(Exception e){kinderSaveError="保存できませんでした。内容を保持して再試行します。";Debug.LogException(e);}
                 }

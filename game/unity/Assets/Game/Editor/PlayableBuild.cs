@@ -59,6 +59,27 @@ public static class PlayableBuild
         old=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(old));old.UpgradeFormalV1();old.Validate();
         Check(old.version==2 && old.heroines.Length==5 && old.stones==0,"Unity formal V1 upgrade preserves ownership");
     }
+    private static void ValidateFormalCampaign()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        var initial=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth"}};
+        var journal=new FormalCampaignJournal(initial,encode,decode);
+        var request=new FormalVictoryRequest("unity.victory",WorldCatalog.ColossusIds[0],10,0);
+        Func<CampaignSaveV2,CampaignSaveV2> build=w=>{
+            var c=new CampaignState(WorldCatalog.ColossusIds,w);var first=WorldCatalog.Colossi[0];
+            c.ClaimColossusVictory(first.Id,first.EnvironmentTags,new VictoryReward(request.BattleId,10,10,4,GreenReturnDragonVerticalSlice.PoemIds.Take(4)),GreenReturnDragonVerticalSlice.StoryChapters,Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);return c.CreateSave();
+        };
+        Check(journal.CommitVictory(request,build,s=>false)==GrowthCommitResult.SaveFailed,"Unity unified save failure");
+        Check(journal.Snapshot.world.claimedBattleIds.Length==0 && journal.Snapshot.growth.stones==0,"Unity world and wallet both unchanged");
+        FormalCampaignSave persisted=null;
+        Check(journal.CommitVictory(request,null,s=>{persisted=decode(encode(s));persisted.Validate();return true;})==GrowthCommitResult.Committed,"Unity unified retry JSON roundtrip");
+        Check(persisted.world.claimedBattleIds.Contains(request.BattleId) && persisted.world.unlockedGardenIds.Length>0 && persisted.growth.nectar==160 && persisted.growth.awakeningCrystals==2 && persisted.growth.stones==50,"Unity complete reward in one payload");
+        var restarted=new FormalCampaignJournal(persisted,encode,decode);
+        Check(restarted.CommitVictory(request,null,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity unified replay after restart");
+        var changed=restarted.Snapshot.world;changed.materials+=1;
+        Check(restarted.CommitWorld(changed,s=>{s.Validate();return true;}) && restarted.Snapshot.growth.stones==50,"Unity world operation retains formal wallet");
+    }
     public static void Validate()
     {
         assertions=0;
@@ -66,6 +87,7 @@ public static class PlayableBuild
         ValidateFormalCombat();
         ValidateFormalGrowth();
         ValidateFormalKinder();
+        ValidateFormalCampaign();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
