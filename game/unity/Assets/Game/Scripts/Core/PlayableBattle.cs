@@ -12,7 +12,7 @@ namespace NewAster.Core
         public int LastActionChain { get; private set; }
         public int RemainingActions => Enumerable.Range(0, 5).Count(i => State.Heroes[i].IsAlive && !Acted[i]);
         public bool Guarded { get; private set; }
-        public const decimal BaseChainRate = .65m;
+        public const decimal BaseChainRate = .50m;
         public int Seed { get; }
         public bool NextAttackIsMajor => !State.Parts[0].IsBroken && State.BossGauge + 1 >= State.BossGaugeMax;
         // Temporary encounter tuning; final per-colossus action tables remain TBD.
@@ -55,7 +55,7 @@ namespace NewAster.Core
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
@@ -66,6 +66,8 @@ namespace NewAster.Core
             if(timings.GetLength(0)!=5 || timings.GetLength(1)!=3 || timings.Cast<SkillTimingDefinition>().Any(t=>t==null)) throw new ArgumentException("Timing requires five heroes and three skills each.");
             if(healingSkills.Any(d=>timings[d.Actor,d.Slot].CastPercent>0) || Enumerable.Range(0,5).Any(i=>timings[i,2].CastPercent>0)) throw new ArgumentException("Deferred support effects are not implemented.");
             random = new Random(seed);
+            chainActions=(heroineChainActions??Enumerable.Range(0,5).Select(i=>new HeroineChainAction("hero-"+i,"placeholder-chain-"+i,.6m))).ToArray();
+            if(chainActions.Length!=5 || chainActions.Any(a=>a==null) || chainActions.Select(a=>a.Id).Distinct().Count()!=5 || Enumerable.Range(0,5).Any(i=>chainActions[i].HeroId!="hero-"+i)) throw new ArgumentException("Explicit chain definitions must match formation heroes.");
             defense = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 1]).ToArray();
             support = Enumerable.Range(0, 5).Select(i => progress.Branches[i * 3 + 2]).ToArray();
             State = new BattleState(level,
@@ -87,7 +89,9 @@ namespace NewAster.Core
         public decimal ChainRate(int heroIndex)
         {
             if (heroIndex < 0 || heroIndex >= 5) return 0m;
-            return Math.Min(1m, BaseChainRate + State.TurnChainModifiers[heroIndex].AdditiveRate);
+            if(UsesTimeline) return BaseChainRate+(HasCumulativeChainBonus(heroIndex)?.05m:0m);
+            // Legacy validation-only mode is isolated from the current automatic chain.
+            return Math.Min(1m, .65m + State.TurnChainModifiers[heroIndex].AdditiveRate);
         }
         private decimal AttackPower(int heroIndex, int skill, string target, int chain)
         {
@@ -143,6 +147,7 @@ namespace NewAster.Core
             if (Ended || heroIndex < 0 || heroIndex > 4 || skill < 0 || skill > 2 || Acted[heroIndex] || !State.Heroes[heroIndex].IsAlive) return false;
             var hero = State.Heroes[heroIndex];
             var healing=HealingSkill(heroIndex,skill);
+            LastFullChain=false; LastChainActionCount=0; LastChainChecks=Array.Empty<ChainConnection>();
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
             if(UsesTimeline && CastDelay(heroIndex,skill)>0) return StartCasting(heroIndex,skill,target);
             if(healing!=null)
@@ -183,11 +188,12 @@ namespace NewAster.Core
                 if(nextChain==1) chainMembers.Clear();
                 chainMembers.Add(heroIndex);
                 LastActionChain = Chain;
-                decimal roll = (decimal)random.NextDouble();
-                chainPending = roll < ChainRate(heroIndex);
+                decimal roll = UsesTimeline?1m:(decimal)random.NextDouble();
+                chainPending = !UsesTimeline && roll < ChainRate(heroIndex);
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.PartBroken ? " / 部位破壊！" : "")
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
                 RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage);
+                if(UsesTimeline) ResolveAutomaticChain(heroIndex,skillChainBonuses[skill],(bool[])cumulativeChainActors.Clone());
             }
             Acted[heroIndex] = true;
             if(healing==null) LastHealingTargets=Array.Empty<int>();

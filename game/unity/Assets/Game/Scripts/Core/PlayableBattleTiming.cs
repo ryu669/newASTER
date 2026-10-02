@@ -41,7 +41,7 @@ namespace NewAster.Core
         private long bossAt;
         private int commandCount;
         private readonly SkillTimingDefinition[,] timings;
-        private sealed class PendingCast { public int Slot; public string Target; public decimal Power; }
+        private sealed class PendingCast { public int Slot; public string Target; public decimal Power; public int ChainBonus; public bool[] ChainActors; }
         public SkillTimingDefinition Timing(int actor,int slot)
         {
             // Vertical-slice profiles only; each skill has independent casting/recovery fields.
@@ -63,7 +63,7 @@ namespace NewAster.Core
             var d=Timing(actor,slot);
             return (d.CastPercent>0?"詠唱："+(d.CastPercent>=150?"長い":d.CastPercent>=100?"普通":"短い")+" "+CastDelay(actor,slot)+" / ":"")+"待機："+(d.RecoveryPercent>=150?"長い":d.RecoveryPercent>=125?"やや長い":d.RecoveryPercent<100?"短い":"標準")+" "+RecoveryDelay(actor,slot);
         }
-        private int NextChain(int actor) => chainPending && Chain<5 && (!UsesTimeline || !chainMembers.Contains(actor))?Chain+1:1;
+        private int NextChain(int actor) => !UsesTimeline && chainPending && Chain<5?Chain+1:1;
         private void InitializeTimeline()
         {
             for(int i=0;i<5;i++) readyAt[i]=SkillTimingDefinition.Delay(State.Heroes[i].Speed,100);
@@ -93,7 +93,7 @@ namespace NewAster.Core
             if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
             int cost=slot==1?3:0;
             if(!State.Heroes[actor].SpendResource(cost)) return false;
-            casting[actor]=new PendingCast { Slot=slot,Target=target,Power=AttackPower(actor,slot,target,1) };
+            casting[actor]=new PendingCast { Slot=slot,Target=target,Power=AttackPower(actor,slot,target,1),ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
             readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
             Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
             LastHealingTargets=Array.Empty<int>(); LastActionWasCastStart=true; LastCastResolvedActor=-1;
@@ -124,6 +124,7 @@ namespace NewAster.Core
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
                     RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ":"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage);
+                    if(outcome.Accepted) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
                     readyAt[actor]=Clock+RecoveryDelay(actor,pending.Slot);
                     Chain=0; chainPending=false; chainMembers.Clear();
                     continue;
@@ -133,6 +134,7 @@ namespace NewAster.Core
                 if(hadCommand[actor]) State.Heroes[actor].GainResource(3);
                 hadCommand[actor]=true;
                 State.BeginTurn(unchecked(Seed+(++commandCount)*97+State.SelectedLevel),.25m);
+                GenerateChainModifiers();
                 return;
             }
             AvailableHero=-1;

@@ -376,7 +376,7 @@ namespace NewAster.Presentation
             Meter(698,112,370,10,gauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
             if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
             if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
-            Label(1180,88,390,42,$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
+            Label(1180,88,390,42,visual!=null && visual.FullChain?$"FULL CHAIN / 追加 {visual.ChainActionCount-visual.Chain}":$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
             if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体",!playback.Busy && !paused)) target="body";
             for(int i=0;i<4;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),!s.Parts[i].IsBroken && !playback.Busy && !paused)) target=s.Parts[i].Id; }
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
@@ -387,13 +387,14 @@ namespace NewAster.Presentation
             if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
-            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {visual?.Resources[actor]??hero.JobResource}\n接続率 {encounter.ChainRate(actor):P0}",text,Color.white);
+            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　資源 {visual?.Resources[actor]??hero.JobResource}\nチェイン基本50% / 補正込み最大70%",text,Color.white);
             bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
             for(int slot=0;slot<3;slot++) {
                 var healSkill=encounter.HealingSkill(actor,slot);
                 string caption=healSkill!=null?healSkill.Name+" / 資源"+healSkill.ResourceCost+"\n"+encounter.HealingDescription(actor,slot):slot<2?(slot==0?"通常攻撃":"強撃")+$"\n予測 {encounter.PreviewDamage(actor,slot,target)} / 資源{(slot==0?0:3)}":PlayableBattle.SupportName(actor)+" / 資源3\n"+encounter.SupportDescription(actor);
                 int cost=healSkill!=null?healSkill.ResourceCost:slot==0?0:3;
                 caption+="\n"+encounter.TimingDescription(actor,slot);
+                if(slot<2 && healSkill==null && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
                 if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost,skillButton)) {
                     if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
                     else Act(actor,slot);
@@ -401,7 +402,7 @@ namespace NewAster.Presentation
             }
             Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
             Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
-            Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n支援は攻撃チェインを終了",small,Color.white);
+            Label(1180,716,390,65,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString())),small,Color.white);
             if(playback.Busy) {
                 if(Btn(1180,807,390,58,"演出をスキップ（結果は同じ）",!paused && !retreat && !help)) { playback.Skip(); if(stage!=null) stage.ClearActionEffects(); shownEvent=0; SelectNextHero(); FinishCheck(); }
             }

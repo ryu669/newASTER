@@ -16,6 +16,8 @@ namespace NewAster.Core
         public bool PartBroken { get; }
         public int Damage { get; }
         public int Chain { get; }
+        public bool FullChain { get; }
+        public int ChainActionCount { get; }
         public int BossHp { get; }
         public int BossGauge { get; }
         public IReadOnlyList<int> HeroHp { get; }
@@ -23,9 +25,10 @@ namespace NewAster.Core
         public IReadOnlyList<int> PartHp { get; }
         public IReadOnlyList<int> HealingTargets { get; }
         public IReadOnlyList<bool> Casting { get; }
-        public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting)
+        public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting,bool fullChain=false,int chainActionCount=0)
         {
             Sequence=sequence; Clock=clock; Kind=kind; Actor=actor; Target=target??"body"; Message=message??"";
+            FullChain=fullChain; ChainActionCount=chainActionCount;
             Major=major; PartBroken=partBroken; Damage=damage; Chain=chain; BossHp=state.BossHitPoints; BossGauge=state.BossGauge;
             HeroHp=Array.AsReadOnly(state.Heroes.Select(h=>h.HitPoints).ToArray());
             Resources=Array.AsReadOnly(state.Heroes.Select(h=>h.JobResource).ToArray());
@@ -75,7 +78,7 @@ namespace NewAster.Core
         }
         private void RecordPresentation(BattlePresentationKind kind,int actor,string target,string message,bool major=false,bool broken=false,int damage=0,IEnumerable<int> healingTargets=null)
         {
-            presentationEvents.Add(new BattlePresentationEvent(++presentationSequence,Clock,kind,actor,target,message,major,broken,damage,LastActionChain,State,healingTargets,Enumerable.Range(0,5).Select(IsCasting)));
+            presentationEvents.Add(new BattlePresentationEvent(++presentationSequence,Clock,kind,actor,target,message,major,broken,damage,LastActionChain,State,healingTargets,Enumerable.Range(0,5).Select(IsCasting),LastFullChain,LastChainActionCount));
         }
     }
 }
