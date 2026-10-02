@@ -86,6 +86,11 @@ public static class PlayableBuild
     }
     private static void ValidateCombatDefinitions()
     {
+        var referenceSource=Resources.Load<TextAsset>("Combat/heroine-reference");
+        Check(referenceSource!=null,"Formal heroine reference must exist");
+        var references=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);references.Validate();
+        Check(references.Hero("heroine.echidna").skills.All(s=>s.damageType=="physical" && s.casting!="none"),"Blaster reference contains three physical casting skills, not placeholder healing");
+        Check(references.Hero("heroine.excalipan").skills[1].effects.Any(e=>e.kind=="self-heal" && e.basis=="base-attack-percent" && e.amount==70),"Gunner healing uses the observed base attack basis");
         var source=Resources.Load<TextAsset>("Combat/battle-preview");
         Check(source!=null,"Combat JSON must exist before a player can be built");
         var definitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);definitions.Validate();

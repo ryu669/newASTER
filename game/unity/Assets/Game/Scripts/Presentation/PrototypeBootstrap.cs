@@ -33,6 +33,7 @@ namespace NewAster.Presentation
         private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
         private CombatDefinitionCatalog combatDefinitions;
+        private HeroineReferenceCatalog heroineReferences;
         private string combatDefinitionError;
         private float illustrationElapsed;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
@@ -72,6 +73,10 @@ namespace NewAster.Presentation
             var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
             try {
+                var referenceSource=Resources.Load<TextAsset>("Combat/heroine-reference");
+                if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
+                heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
+                Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
                 var source=Resources.Load<TextAsset>("Combat/battle-preview");
                 if(source==null) throw new ArgumentException("Combat/battle-preview missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
@@ -234,7 +239,7 @@ namespace NewAster.Presentation
             Label(75,160,860,70,"万物の書をひらく",heading);
             Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
-            Label(75,570,850,150,"進行は自動保存されます。戦闘中の状態は保存せず、再開時は本に戻ります。\n人物が確定するまで5人は役割名で表示します。",small);
+            Label(75,560,880,170,"正式編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n動画の15スキルを資料データに登録済み。現在遊べる戦闘は旧仮5人で、正式編成への切替は準備中です。\n進行は自動保存。戦闘中は保存せず、再開時は本に戻ります。",small);
         }
         private void DrawBook()
         {

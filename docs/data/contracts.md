@@ -376,6 +376,8 @@ rankValuesは基準量と各ランクの値を明示し、普通の数値効果�
 
 ## Lv育成・ジョブ基準・キャラ補正
 
+初期正式編成はスレイヤー／アイコノクラスト／アンダーマイン／エキドナ／エクスカリパン。[動画確認値と正式実装への変換](initial-five-heroines.md)を参照。`heroine-reference.json` の観測型を実行用HeroineDefとして扱わず、装備込みの値を基礎値へ昇格させない。
+
 ```text
 LevelGrowthDef { id:Id,nectarResourceId:"resource.nectar",costBase:10,costPerCurrentLevel:2,
                  statGrowthBasePct:100,statGrowthPerLevelPct:3,speedGrowsWithLevel:false }

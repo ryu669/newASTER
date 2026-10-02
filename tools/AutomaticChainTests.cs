@@ -12,6 +12,30 @@ public static class AutomaticChainTests
     public static void Main(string[] args)
     {
         var options=new JsonSerializerOptions {IncludeFields=true};
+        string referenceJson=File.ReadAllText(args[1]);
+        Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);
+        var reference=freshReference();reference.Validate();
+        Check(reference.formation.Length==5 && reference.heroines.Sum(h=>h.skills.Length)==15,"Five selected heroines and fifteen observed skills");
+        reference.heroines=reference.heroines.Reverse().ToArray();reference.Validate();
+        Check(reference.Hero(reference.formation[3]).jobId=="job.blaster","Formal roster resolves by ID, not JSON order");
+        Check(reference.Hero("heroine.slayer").skills[1].effects.All(e=>e.turns==3),"Slayer self buffs have three-turn duration");
+        Check(reference.Hero("heroine.iconoclast").skills[1].damageType=="magic","Berserker has observed magic attack");
+        Check(reference.Hero("heroine.undermine").skills[1].effects.Any(e=>e.kind=="regen" && e.amount==140 && e.turns==4),"Defender regen is not generic party healing");
+        Check(reference.Hero("heroine.echidna").skills.All(s=>s.damageType=="physical" && s.target=="enemy.range" && s.casting!="none"),"All three blaster skills cast physical ranged damage");
+        Check(reference.Hero("heroine.excalipan").skills[1].effects.Any(e=>e.kind=="self-heal" && e.basis=="base-attack-percent" && e.amount==70),"Gunner healing preserves base attack basis");
+        Action<Action<HeroineReferenceCatalog>,string> rejectReference=(mutate,message)=>{var candidate=freshReference();mutate(candidate);bool rejected=false;try{candidate.Validate();}catch(ArgumentException){rejected=true;}Check(rejected,message);};
+        rejectReference(r=>r.schemaVersion=2,"Unknown reference version rejected");
+        rejectReference(r=>r.status="formal","Observed evidence cannot masquerade as executable formal data");
+        rejectReference(r=>r.statContext="level-one-base","Equipment stats cannot masquerade as level-one bases");
+        rejectReference(r=>r.formation[3]="hero-3","Placeholder IDs cannot replace formal roster");
+        rejectReference(r=>r.heroines[3].jobId="job.healer","Blaster cannot be relabelled healer");
+        rejectReference(r=>r.heroines[0].skills[0].id="heroine.echidna.1","Cross-owner skill rejected");
+        rejectReference(r=>r.heroines[0].skills[0].effects[0].kind="invented","Unknown effect rejected");
+        rejectReference(r=>r.heroines[0].observedStats.speed=-1,"Unknown base speed cannot be silently converted to observed value");
+        rejectReference(r=>r.heroines[0].skills[0].casting="longer-maybe","Unsupported timing category rejected");
+        rejectReference(r=>r.heroines[0].skills[0].attackPercent=0,"Damage attack cannot have missing multiplier");
+        rejectReference(r=>r.heroines[0].sourceFile=null,"Missing evidence source rejected");
+        rejectReference(r=>r.heroines[0].unresolved=new string[0],"Incomplete conversion cannot hide unresolved rules");
         string json=File.ReadAllText(args[0]);
         Func<CombatDefinitionCatalog> fresh=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(json,options);
         var catalog=fresh();catalog.Validate();
