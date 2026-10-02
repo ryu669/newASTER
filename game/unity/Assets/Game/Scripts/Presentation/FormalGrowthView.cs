@@ -38,6 +38,7 @@ namespace NewAster.Presentation
         }
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
+            unified.collection?.ValidateContent(CollectionContractFixture.Create(combatDefinitions));
             formalCampaign=new FormalCampaignJournal(unified,s=>JsonUtility.ToJson(s,true),t=>JsonUtility.FromJson<FormalCampaignSave>(t));
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);

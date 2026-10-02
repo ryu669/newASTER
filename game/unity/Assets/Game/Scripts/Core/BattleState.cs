@@ -118,8 +118,8 @@ namespace NewAster.Core
             Parts = parts?.ToArray() ?? throw new ArgumentNullException(nameof(parts));
             if (Heroes.Count != PartySize || Heroes.Select(hero => hero.Id).Distinct().Count() != PartySize)
                 throw new ArgumentException("Battle requires exactly five unique heroes.", nameof(heroes));
-            if (Parts.Count != VerticalSlicePartCount || Parts.Select(part => part.Id).Distinct().Count() != VerticalSlicePartCount)
-                throw new ArgumentException("Vertical slice requires exactly four unique parts.", nameof(parts));
+            if (Parts.Count < 4 || Parts.Count > 6 || Parts.Select(part => part.Id).Distinct().Count() != Parts.Count)
+                throw new ArgumentException("Battle requires four to six unique parts.", nameof(parts));
             SelectedLevel = selectedLevel;
             BossMaxHitPoints = Math.Max(1, bossHitPoints);
             BossHitPoints = BossMaxHitPoints;
