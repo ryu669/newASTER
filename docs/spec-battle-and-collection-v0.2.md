@@ -61,7 +61,7 @@ PartDef {
 ### 3.1 定義データ
 
 ```text
-HeroineDef { id, name, jobId, baseRarity: 6, skills[3], traitId, weaponTreeId,
+HeroineDef { id, name, jobId, baseRarity: 6, skills[3], traitId, weaponTreeId, chainActionId,
              poemChapters[3], affinityEventIds[3], loverEventIds[2] }
 SkillDef { id, ownerId, targetRuleId, costRuleId, powerRuleId, waitRuleId,
            castRuleId, attributeId?, statusEffects[], partModifierId?, chainEligible }
@@ -85,9 +85,11 @@ JobDef { id, resourceType, resourceInitRuleId, resourceGainRules[], resourceSpen
 
 ## 4. チェイン詳細
 
-[実装契約](spec-implementation-contracts.md)2章を適用する。固定ラウンドの「未行動者へ即座に連鎖」は廃止し、速度順の連続即時攻撃へ接続する暫定方式を使用する。最大5人、同じ人物の再登場でリセット、敵／支援／パス／詠唱イベントで終了。割込みや追加行動は発生させない。
+[実装契約](spec-implementation-contracts.md)2章を適用する。起点の攻撃後、次の候補への接続を確率判定し、成功したらその人物の固定チェイン行動をユーザー入力なしで実行する。2人目以降も同じ。最大5人、同一人物の重複参加なし。通常の速度順、次コマンド予定、通常未行動フラグから独立する。
 
-補正はコマンド受付一回で一度だけ生成・表示し、確定時に失効する。基本率・付与率はTBD、保存と表示はbp整数。人物や装備による永続／間接の率強化は禁止する。候補・乱数・資源は無効入力や再描画で変えない。
+各HeroineDefはchainActionIdを必須とし、ChainActionDefの効果・自動対象・資源・通常待機への影響・演出を参照する。通常スキル選択や対象選択のコマンド受付へ戻さない。候補順、基本率・補正、固定行動の数値、資源と待機の扱いはTBDで、行動順から独立という要件だけから推測しない。
+
+接続失敗・候補なし・5人到達・勝敗確定で終了する。チェイン率の人物／装備強化は禁止。抽選と固定行動は一度だけ解決し、描画側から再実行しない。旧「時系列上の連続即時攻撃で接続」は廃止する。
 
 ## 5. 詩・章・戦闘終了時の収集
 
