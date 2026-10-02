@@ -173,7 +173,7 @@ FurnitureDef { id, recipeId, placementRuleId, interactionSetId }
 ```
 ```text
 WeaponTreeDef { heroineId, nodes[] }
-WeaponNode { id, parentIds[], tier, displayPosition, weaponId, cost, skillId?, statModifiers[] }
+WeaponNode { id, parentIds[], tier, displayPosition, weaponId, materialCosts:CostEntry[], skillId?, statModifiers[] }
 ```
 
 ```text
@@ -182,8 +182,8 @@ OopartInstance { instanceId, defId, level, fixedStats, randomStats, directUpgrad
 ```
 ```text
 BannerDef { id, heroinePoolIds[], materialPoolIds[], oopartPoolIds[], heroineRate: 0.03,
-            exchangeThreshold: 100 }
-GachaState { bannerId, totalDrawCount, exchangeAvailableCount, history[] }
+            singleDrawCost:300,tenDrawCost:3000,pointsPerDraw:1,exchangeOfferId:Id }
+GachaState { bannerId, totalDrawCount, pointAccountId:Id, history[] }
 ```
 ## 箱庭・ADV・保存の型
 
@@ -312,3 +312,21 @@ length／participantIdsは通常周回の異なる参加者数・集合として
 HeroinePoemLinkは格納先HeroineDef.idが所有者。colossusPoemIdはownerType=colossusの詩、heroinePoemIdsは全件ownerType=heroineかつownerIdが格納先ヒロインと一致すること。同ヒロイン内でcolossusPoemId重複を拒否する。複数の巨神獣詩が同じヒロイン詩を指すことは許可し、取得は集合の和集合とする。実際の対応数・対応先は人物別データで指定する。
 
 heardColossusPoemIdsは取得済み詩の再歌唱も含む。pendingColossusPoemIdsは未所持の新規取得だけ。両集合は歌唱完了時に更新し、歌唱回数を所持数へ変換しない。battle結果の詩付与条件はvictory|defeat|retreat、取得上限フィールドは持たない。上限なしは所持定義数を越えた重複所持を意味しない。
+
+## ガチャ費用・ポイント交換・人物別装備素材
+
+```text
+GachaPointAccount { id:Id,balance:nonnegativeInt }
+GachaTicketDef { id:Id,targetHeroineId:Id,targetBannerId:Id }
+GuaranteedHeroineBannerDef { id:Id,ticketId:Id,targetHeroineId:Id,heroineProbabilityBp:10000,
+                           ticketCost:1,stoneCost:0,pointGrantRuleId:Id }
+TicketInventory { ticketId:Id,count:nonnegativeInt }
+GachaExchangeOffer { id:Id,pointAccountId:Id,pointCost:100,ticketId:Id,ticketCount:1 }
+MaterialDef { id:Id,displayName:string,kind:"colossus",colossusId:Id }
+```
+
+石ガチャはpointsPerDraw=1を必須とし、1回1・10回10ポイントを付与する。専用チケットガチャのpointGrantRuleIdは別途TBDであり、未定の正式データを受け入れない。pointAccountIdの共有関係で共通／バナー別範囲を表すが、正式な範囲はTBD。totalDrawCountは履歴・統計用で、ポイント残高や交換権へ自動変換しない。旧exchangeAvailableCountは新契約から除き、既存保存の変換は正式付与規則と明示移行表の確定後に行う。
+
+WeaponNode.materialCostsは所属WeaponTreeDef.heroineIdのノード専用定義。各resourceIdはMaterialDef.idを参照し、対応巨神獣が存在すること。初期取得ノードは空費用を明示してよいが、素材消費で解放するノードは1件以上・amount>0を必須とする。既定費用の暗黙継承、未知素材、負量、別人物のノード流用を拒否する。費用の合算・不足・原子的保存は共通CostEntry契約に従う。
+
+専用チケットと専用ガチャのtargetHeroineIdは一致を必須とし、別対象への使用を拒否する。石ガチャ抽選の3%テーブルは専用100%ガチャへ適用しない。
