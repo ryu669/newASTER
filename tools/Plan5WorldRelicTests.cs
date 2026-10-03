@@ -14,6 +14,16 @@ public static class Plan5WorldRelicTests
         var catalog=CollectionContractFixture.Create(combat);var dragon=catalog.owners[0];var relicId=catalog.relics[0].id;
         Func<FormalCampaignSave> fresh=()=>new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()},collection=new FormalCollectionLedger()};
         check(WorldCatalog.Colossi.Count==15 && WorldCatalog.Colossi.Count(c=>ColossusCombatCatalog.CanSummon(c.Id))==1,"Fifteen pages but only authored encounter summonable");
+        var worldContract=new CampaignState(WorldCatalog.ColossusIds);
+        foreach(var colossus in WorldCatalog.Colossi) {
+            check(worldContract.ColossusUnlocks.IsUnlocked(colossus.Id),"Sequential page and final integration prerequisites resolve");
+            var reward=worldContract.ClaimColossusVictory(colossus.Id,colossus.EnvironmentTags,new VictoryReward("world.first."+colossus.Id,1,10,4,Array.Empty<string>()),Array.Empty<StoryRequirement>(),Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
+            check(reward.FirstClear && colossus.EnvironmentTags.All(worldContract.Terraforming.EnvironmentTags.Contains),"Every first clear applies its distinct multiple environments");
+            int environments=worldContract.Terraforming.EnvironmentTags.Count,gardens=worldContract.Gardens.UnlockedGardenIds.Count,materials=worldContract.Progress.Materials;
+            var repeat=worldContract.ClaimColossusVictory(colossus.Id,colossus.EnvironmentTags,new VictoryReward("world.repeat."+colossus.Id,50,10,4,Array.Empty<string>()),Array.Empty<StoryRequirement>(),Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
+            check(!repeat.FirstClear && repeat.NewEnvironmentTags.Count==0 && repeat.NewGardenIds.Count==0 && worldContract.Terraforming.EnvironmentTags.Count==environments && worldContract.Gardens.UnlockedGardenIds.Count==gardens && worldContract.Progress.Materials>materials,"Repeated high-level rewards never duplicate environment or garden unlocks");
+        }
+        check(GardenCatalog.Requirements.All(g=>worldContract.Gardens.UnlockedGardenIds.Contains(g.GardenId)),"All garden environment combinations including integrated world resolve");
         reject(()=>ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[1]),"Unmade enemy cannot reuse dragon encounter");
         foreach(int level in new[]{1,9,10,19,20,29,30,39,40,44,45,49,50}){
             var band=catalog.rewardBands.Single(x=>x.ownerId==dragon.id && level>=x.minLevel && level<=x.maxLevel);

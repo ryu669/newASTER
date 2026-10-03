@@ -12,6 +12,11 @@ public static class BattleEndTests
         Func<string,FormalCampaignSave> decode=t=>JsonSerializer.Deserialize<FormalCampaignSave>(t,options);
         var catalog=CollectionContractFixture.Create(combat.FormationIds);
         var dragon=catalog.owners[0];
+        check(!FormalCampaignJsonShape.HasRootMember("{\"nested\":{\"collection\":{}}}","collection"),"Nested collection does not masquerade as envelope field");
+        check(!FormalCampaignJsonShape.HasRootMember("{\"text\":\"\\\"collection\\\":{}\"}","collection"),"Quoted collection text is not an envelope member");
+        check(FormalCampaignJsonShape.HasRootMember("{\"collect\\u0069on\":{\"version\":2}}","collection"),"Unicode escaped collection member remains detectable");
+        check(FormalCampaignJsonShape.HasRootMember("{\"x\":[{\"text\":\"} \\\"\"}],\"collection\":{}}","collection"),"Escaped strings and nested arrays preserve root depth");
+        check(FormalCampaignJsonShape.RootMemberIsNull("{\"collection\" : null}","collection") && !FormalCampaignJsonShape.RootMemberIsNull("{\"collection\":\"null\"}","collection"),"Explicit optional null distinguished from quoted payload");
         Func<FormalCampaignSave> fresh=()=>new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",stones=987,nectar=654}};
         Action<Action,string> reject=(f,name)=>{bool failed=false;try{f();}catch(Exception e)when(e is ArgumentException || e is InvalidOperationException){failed=true;}check(failed,name);};
         foreach(var reason in new[]{BattleEndReason.Victory,BattleEndReason.Defeat,BattleEndReason.Retreat}){

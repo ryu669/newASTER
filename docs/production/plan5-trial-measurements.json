@@ -1,0 +1,299 @@
+{
+  "contentVersion": "collection-fixture-2026-10-03",
+  "status": "fixture-measurement",
+  "strategy": "basic attacks only; no player thinking or UI input time",
+  "hunts": [
+    {
+      "level": 1,
+      "fights": 500,
+      "attempts": 500,
+      "drops": 374,
+      "empty": 126,
+      "rate": 0.748
+    },
+    {
+      "level": 10,
+      "fights": 500,
+      "attempts": 1000,
+      "drops": 747,
+      "empty": 31,
+      "rate": 0.747
+    },
+    {
+      "level": 20,
+      "fights": 500,
+      "attempts": 1500,
+      "drops": 1124,
+      "empty": 10,
+      "rate": 0.7493333333333333
+    },
+    {
+      "level": 30,
+      "fights": 500,
+      "attempts": 2000,
+      "drops": 1495,
+      "empty": 2,
+      "rate": 0.7475
+    },
+    {
+      "level": 40,
+      "fights": 500,
+      "attempts": 2500,
+      "drops": 1893,
+      "empty": 1,
+      "rate": 0.7572
+    }
+  ],
+  "encounters": [
+    {
+      "heroLevel": 1,
+      "bossLevel": 1,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 15.7,
+      "meanSinging": 1,
+      "meanTimelineTicks": 314,
+      "meanPlaybackSeconds": 40.9450005620718
+    },
+    {
+      "heroLevel": 1,
+      "bossLevel": 10,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 24.7,
+      "meanSinging": 1,
+      "meanTimelineTicks": 475.85,
+      "meanPlaybackSeconds": 63.360000872612
+    },
+    {
+      "heroLevel": 1,
+      "bossLevel": 44,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 55.4,
+      "meanSinging": 1.65,
+      "meanTimelineTicks": 1009.25,
+      "meanPlaybackSeconds": 139.7900019288063
+    },
+    {
+      "heroLevel": 1,
+      "bossLevel": 45,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 56.25,
+      "meanSinging": 1.75,
+      "meanTimelineTicks": 1021.75,
+      "meanPlaybackSeconds": 141.7400019556284
+    },
+    {
+      "heroLevel": 1,
+      "bossLevel": 50,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 60.3,
+      "meanSinging": 1.85,
+      "meanTimelineTicks": 1091.8,
+      "meanPlaybackSeconds": 152.02500210106373
+    },
+    {
+      "heroLevel": 10,
+      "bossLevel": 1,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 12.55,
+      "meanSinging": 1,
+      "meanTimelineTicks": 261.4,
+      "meanPlaybackSeconds": 33.57500045895576
+    },
+    {
+      "heroLevel": 10,
+      "bossLevel": 10,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 19.7,
+      "meanSinging": 1,
+      "meanTimelineTicks": 391.25,
+      "meanPlaybackSeconds": 52.07000072002411
+    },
+    {
+      "heroLevel": 10,
+      "bossLevel": 44,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 45.9,
+      "meanSinging": 1,
+      "meanTimelineTicks": 847.5,
+      "meanPlaybackSeconds": 115.50000159144402
+    },
+    {
+      "heroLevel": 10,
+      "bossLevel": 45,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 46.5,
+      "meanSinging": 1.1,
+      "meanTimelineTicks": 859.75,
+      "meanPlaybackSeconds": 116.97000161111355
+    },
+    {
+      "heroLevel": 10,
+      "bossLevel": 50,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 49.85,
+      "meanSinging": 1.2,
+      "meanTimelineTicks": 910.9,
+      "meanPlaybackSeconds": 125.74000173509121
+    },
+    {
+      "heroLevel": 30,
+      "bossLevel": 1,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 8.5,
+      "meanSinging": 1,
+      "meanTimelineTicks": 192.8,
+      "meanPlaybackSeconds": 23.235000318288805
+    },
+    {
+      "heroLevel": 30,
+      "bossLevel": 10,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 14.05,
+      "meanSinging": 1,
+      "meanTimelineTicks": 284.7,
+      "meanPlaybackSeconds": 36.960000506043436
+    },
+    {
+      "heroLevel": 30,
+      "bossLevel": 44,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 32.1,
+      "meanSinging": 1,
+      "meanTimelineTicks": 604.8,
+      "meanPlaybackSeconds": 81.79500112831593
+    },
+    {
+      "heroLevel": 30,
+      "bossLevel": 45,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 32.6,
+      "meanSinging": 1,
+      "meanTimelineTicks": 613.9,
+      "meanPlaybackSeconds": 82.91000114381313
+    },
+    {
+      "heroLevel": 30,
+      "bossLevel": 50,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 35.45,
+      "meanSinging": 1,
+      "meanTimelineTicks": 663.9,
+      "meanPlaybackSeconds": 89.15500122904777
+    },
+    {
+      "heroLevel": 60,
+      "bossLevel": 1,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 6,
+      "meanSinging": 0.65,
+      "meanTimelineTicks": 153.95,
+      "meanPlaybackSeconds": 16.140000218153
+    },
+    {
+      "heroLevel": 60,
+      "bossLevel": 10,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 9.25,
+      "meanSinging": 1,
+      "meanTimelineTicks": 205.5,
+      "meanPlaybackSeconds": 25.51500035226345
+    },
+    {
+      "heroLevel": 60,
+      "bossLevel": 44,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 22.5,
+      "meanSinging": 1,
+      "meanTimelineTicks": 437.35,
+      "meanPlaybackSeconds": 57.915000799298284
+    },
+    {
+      "heroLevel": 60,
+      "bossLevel": 45,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 22.75,
+      "meanSinging": 1,
+      "meanTimelineTicks": 440.15,
+      "meanPlaybackSeconds": 58.835000813007355
+    },
+    {
+      "heroLevel": 60,
+      "bossLevel": 50,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 24.65,
+      "meanSinging": 1,
+      "meanTimelineTicks": 475.65,
+      "meanPlaybackSeconds": 63.160000869631766
+    },
+    {
+      "heroLevel": 120,
+      "bossLevel": 1,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 4.65,
+      "meanSinging": 0.25,
+      "meanTimelineTicks": 124.2,
+      "meanPlaybackSeconds": 10.51500013768673
+    },
+    {
+      "heroLevel": 120,
+      "bossLevel": 10,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 6.05,
+      "meanSinging": 0.65,
+      "meanTimelineTicks": 154.65,
+      "meanPlaybackSeconds": 16.26000021994114
+    },
+    {
+      "heroLevel": 120,
+      "bossLevel": 44,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 14.4,
+      "meanSinging": 1,
+      "meanTimelineTicks": 288.5,
+      "meanPlaybackSeconds": 37.64000051617622
+    },
+    {
+      "heroLevel": 120,
+      "bossLevel": 45,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 14.5,
+      "meanSinging": 1,
+      "meanTimelineTicks": 290.4,
+      "meanPlaybackSeconds": 38.120000523328784
+    },
+    {
+      "heroLevel": 120,
+      "bossLevel": 50,
+      "runs": 20,
+      "wins": 20,
+      "meanCommands": 15.75,
+      "meanSinging": 1,
+      "meanTimelineTicks": 314.7,
+      "meanPlaybackSeconds": 41.025000563263895
+    }
+  ]
+}

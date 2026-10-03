@@ -111,6 +111,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
             if(capturePath!=null && args.Contains("-captureVictory")) PrepareVictoryCapture(args);
             if(capturePath!=null && args.Contains("-captureCollection")) PrepareCollectionCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan5Acceptance")) PreparePlan5Acceptance(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
@@ -511,7 +512,7 @@ namespace NewAster.Presentation
             }
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
-            if(lastSinging!=null)Label(30,80,1050,35,lastSinging,small,Color.white);
+            if(lastSinging!=null)Label(28,132,1050,24,lastSinging,small,Color.white);
             if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }
