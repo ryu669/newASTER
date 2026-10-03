@@ -5,7 +5,8 @@ using System.IO;
 namespace NewAster.Core
 {
     // Read the stable envelope header without interpreting future payload fields.
-    [Serializable] public sealed class FormalCampaignHeader {public int version;public string saveId;}
+    [Serializable] public sealed class FormalCollectionHeader { public int version; public string contentVersion; }
+    [Serializable] public sealed class FormalCampaignHeader {public int version;public string saveId;public FormalCollectionHeader collection;}
     [Serializable] public sealed class FormalCampaignSave
     {
         public const string Identity="newaster.formal-campaign";
@@ -16,6 +17,8 @@ namespace NewAster.Core
         public FormalGrowthSave growth;
         // Optional additive field: earlier formal envelopes retain all existing state.
         public FormalEngagementState engagement;
+        // Additive contract; missing on earlier formal saves means no new collection receipts.
+        public FormalCollectionLedger collection;
         public void Validate()
         {
             if(version!=1 || saveId!=Identity || revision<0 || world==null || growth==null)throw new ArgumentException("Unsupported formal campaign.");
@@ -23,6 +26,11 @@ namespace NewAster.Core
             if(growth.saveId!="newaster.formal-growth")throw new ArgumentException("Growth identity mismatch.");
             ValidateWorld(world);
             engagement?.Validate();
+            collection?.Validate();
+            if(collection!=null)foreach(var r in collection.receipts)
+                if(!growth.receipts.Any(g=>g.transactionId==r.battle.battleId && g.signature==new FormalBattleEndRequest(r,0).Signature))throw new ArgumentException("Collection transaction receipt mismatch.");
+            if(collection!=null)foreach(var receipt in collection.receipts)
+                if(!world.claimedBattleIds.Contains(receipt.battle.battleId) || receipt.acquiredPoemIds.Any(id=>!world.poemIds.Contains(id)) || receipt.unlockedChapterIds.Any(id=>!world.unlockedStoryIds.Contains(id)))throw new ArgumentException("Collection receipt without durable world state.");
             foreach(var receipt in growth.receipts.Where(r=>r.signature.StartsWith("victory|",StringComparison.Ordinal)))
                 if(!world.claimedBattleIds.Contains(receipt.transactionId))throw new ArgumentException("Victory receipt without world reward.");
         }
@@ -52,7 +60,7 @@ namespace NewAster.Core
             if(!File.Exists(path))return File.Exists(path+".bak")?FormalLoadResult.Blocked:FormalLoadResult.Missing;
             try{
                 string source=File.ReadAllText(path);var envelope=decodeHeader(source);
-                if(envelope!=null && (envelope.version!=1 || envelope.saveId!=FormalCampaignSave.Identity))return FormalLoadResult.Blocked;
+                if(UnsupportedHeader(envelope))return FormalLoadResult.Blocked;
                 var header=decode(source);
                 // Never hide future/foreign content behind an older backup.
                 if(Unsupported(header))return FormalLoadResult.Blocked;

@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-public static class PlayableBuild
+public static partial class PlayableBuild
 {
     private static PlayableBattle LegacyBattle(int level,PlayableProgress progress,int seed=1,System.Collections.Generic.IEnumerable<HealingSkillDefinition> definitions=null) => new PlayableBattle(level,progress,seed,definitions,false);
     private static int assertions;
@@ -147,6 +147,7 @@ public static class PlayableBuild
         ValidateFormalRecovery();
         ValidateFormalEngagement();
         ValidateFormalSplitRecovery();
+        ValidatePlan5();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

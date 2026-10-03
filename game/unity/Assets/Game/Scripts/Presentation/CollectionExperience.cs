@@ -1,0 +1,122 @@
+using System;
+using System.Linq;
+using NewAster.Core;
+using NewAster.Data;
+using UnityEngine;
+namespace NewAster.Presentation
+{
+    public sealed partial class PrototypeBootstrap
+    {
+        private bool collectionOpen;
+        private int collectionOwner,collectionRelicPage,collectionTab,resultTab;
+        private Vector2 resultScroll;
+        private FormalRelicRequest relicRequest;
+        private string relicError;
+        private CollectionReceipt lastCollectionResult;
+        private CollectionCatalog CollectionData()=>collectionCatalog??(collectionCatalog=CollectionContractFixture.Create(combatDefinitions));
+        private string CollectionOwnerName(CollectionOwnerDef owner)=>owner.kind=="colossus"?(campaign.ColossusUnlocks.IsUnlocked(owner.id)?WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName:"未解放の巨神獣"):combatDefinitions.Hero(owner.id).name;
+        private void CollectionBack(){if(formalCampaign.HasPending)return;if(relicRequest!=null){relicRequest=null;relicError=null;return;}collectionOpen=false;}
+        private void RelicSelect(CollectionRelic relic,RelicOperation operation,string heroineId=null){relicRequest=new FormalRelicRequest("relic."+Guid.NewGuid().ToString("N"),relic.id,heroineId,formalCampaign.Snapshot.revision,operation);relicError=null;}
+        private void RelicCommit()
+        {
+            try{
+                var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?(s=>true):formalCampaignStore.Save);
+                if(outcome==GrowthCommitResult.SaveFailed){relicError="保存待ちです。同じ強化・装備内容で再試行します。";return;}
+                formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);relicRequest=null;relicError="保存しました。能力は次の出撃から反映されます。";
+            }catch(Exception e){relicError=e is ArgumentException?"素材数・80%条件・Lv上限・装備先を確認してください。":"保存できません。同じ内容で再試行してください。";Debug.LogException(e);}
+        }
+        private void DrawCollectionExperience()
+        {
+            GrowthStyles();GrowthFill(0,0,1600,900,ink);GrowthFrame(90,80,1420,745);
+            Label(150,112,1050,65,"記憶とオーパーツ",growthTitleStyle);
+            if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
+            if(GrowthButton(150,205,600,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
+            if(GrowthButton(780,205,650,52,"オーパーツ・素材",relicRequest==null,collectionTab==1))collectionTab=1;
+            if(relicRequest!=null){DrawRelicConfirmation();return;}
+            if(collectionTab==0){
+                var owners=CollectionData().owners;collectionOwner=Math.Max(0,Math.Min(collectionOwner,owners.Length-1));var o=owners[collectionOwner];
+                Label(340,283,920,55,CollectionOwnerName(o),growthTitleStyle);
+                if(GrowthButton(150,280,150,55,"‹ 対象"))collectionOwner=(collectionOwner+owners.Length-1)%owners.Length;
+                if(GrowthButton(1280,280,150,55,"対象 ›"))collectionOwner=(collectionOwner+1)%owners.Length;
+                var world=formalCampaign.Snapshot.world;
+                for(int i=0;i<3;i++){
+                    var c=CollectionData().chapters.Single(x=>x.id==o.chapterIds[i]);int count=c.poemIds.Count(world.poemIds.Contains);
+                    GrowthLine(150,355+i*110,1430,355+i*110,gold);
+                    Label(180,375+i*110,1200,45,$"第{i+1}章   詩 {count}/{c.poemIds.Length}   {(world.unlockedStoryIds.Contains(c.id)?"章の条件達成":"未解放")}",growthTextStyle);
+                    Label(180,420+i*110,1200,36,o.kind=="colossus"?"条件：この巨神獣の詩を8つそろえる。本文は未制作です。":"条件：開始編成に参加し、対応する巨神獣の歌を聞く。本文未制作。",growthSmallStyle);
+                }
+                Label(150,710,1280,65,"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
+            }else DrawRelicInventory();
+        }
+        private void DrawRelicInventory()
+        {
+            var ledger=formalCampaign.Snapshot.collection;var items=ledger?.relics??Array.Empty<CollectionRelic>();int pages=Math.Max(1,(items.Length+2)/3);collectionRelicPage=Math.Max(0,Math.Min(collectionRelicPage,pages-1));
+            Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。固有能力：攻撃 +5%。Lv上限120。\n同名は項目ごとの高値を保持。素材・能力・費用は検証用です。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
+            if(items.Length==0)Label(180,395,1200,100,"オーパーツ未所持。勝利時のレリックハントで獲得します。\n敗北・撤退は詩のみ取得します。",growthTextStyle);
+            foreach(var pair in items.Skip(collectionRelicPage*3).Take(3).Select((r,i)=>new{r,i})){
+                var r=pair.r;int y=380+pair.i*112;string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=ledger.materials.SingleOrDefault(x=>x.sourceColossusId==owner)?.amount??0;
+                Label(170,y,730,48,$"{name}の遺物  Lv{r.level}  攻撃 {r.attackRoll}/100  HP {r.hpRoll}/1000",growthSmallStyle);
+                Label(170,y+50,730,40,$"素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
+                if(GrowthButton(910,y,150,40,"Lv強化",r.level<120))RelicSelect(r,RelicOperation.LevelUp);
+                if(GrowthButton(1080,y,150,40,"攻撃強化",FormalRelicRules.DirectEligible(r.attackRoll,100)&&r.attackRoll<100))RelicSelect(r,RelicOperation.AttackUp);
+                if(GrowthButton(1250,y,150,40,"HP強化",FormalRelicRules.DirectEligible(r.hpRoll,1000)&&r.hpRoll<1000))RelicSelect(r,RelicOperation.HpUp);
+                if(e!=null){if(GrowthButton(910,y+50,490,40,"装備を外す"))RelicSelect(r,RelicOperation.Unequip,e.heroineId);}
+                else if(GrowthButton(910,y+50,490,40,"装備先を選ぶ"))RelicSelect(r,RelicOperation.Equip,combatDefinitions.FormationIds[0]);
+            }
+            if(GrowthButton(150,740,200,45,"‹ 前"))collectionRelicPage=(collectionRelicPage+pages-1)%pages;Label(380,745,170,35,$"{collectionRelicPage+1}/{pages}",growthSmallStyle);
+            if(GrowthButton(580,740,200,45,"次 ›"))collectionRelicPage=(collectionRelicPage+1)%pages;
+            if(relicError!=null)Label(800,740,630,55,relicError,growthSmallStyle);
+        }
+        private void DrawRelicConfirmation()
+        {
+            var r=formalCampaign.Snapshot.collection.relics.Single(x=>x.id==relicRequest.RelicId);Label(170,290,1260,65,"オーパーツの変更を確認",growthTitleStyle);string info;
+            if(relicRequest.Operation==RelicOperation.LevelUp)info=$"Lv {r.level} → {Math.Min(120,r.level+1)}\n攻撃固定成長 +2 ／ HP固定成長 +5\n対応する巨神獣素材 {10*r.level} を消費します。";
+            else if(relicRequest.Operation==RelicOperation.AttackUp)info=$"攻撃抽選値 {r.attackRoll} → {Math.Min(100,r.attackRoll+1)} / 100\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 1000 を消費します。";
+            else if(relicRequest.Operation==RelicOperation.HpUp)info=$"HP抽選値 {r.hpRoll} → {Math.Min(1000,r.hpRoll+10)} / 1000\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 1000 を消費します。";
+            else info=relicRequest.Operation==RelicOperation.Unequip?"選択中の人物から装備を外します。":$"装備先：{combatDefinitions.Hero(relicRequest.HeroineId).name}\nHP +{FormalRelicRules.Hp(r)} ／ 攻撃 +{FormalRelicRules.Attack(r)}、固有能力で攻撃 +5%。\n現在の装備を置き換えます。チェイン率は変化しません。";
+            Label(170,375,1260,175,info,growthTextStyle);
+            if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<5;i++){
+                var id=combatDefinitions.FormationIds[i];if(GrowthButton(170+i*250,565,230,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation);
+            }
+            if(relicError!=null)Label(170,635,1260,55,relicError,growthSmallStyle);
+            if(GrowthButton(170,710,580,65,"取消",!formalCampaign.HasPending))CollectionBack();
+            if(GrowthButton(790,710,640,65,formalCampaign.HasPending?"同じ変更を保存する":"変更して保存する",true,true))RelicCommit();
+        }
+        private string ResultDetail()
+        {
+            if(lastCollectionResult==null || resultTab==0)return result;var r=lastCollectionResult;
+            if(resultTab==1)return $"聞いた巨神獣の詩 {r.battle.heardPoemIds.Length} ／ 新規 {r.acquiredPoemIds.Length}\n"+string.Join("\n",r.acquiredPoemIds.Select(id=>CollectionData().poems.Single(p=>p.id==id)).GroupBy(p=>p.ownerId).Select(g=>CollectionOwnerName(CollectionData().owners.Single(o=>o.id==g.Key))+"："+g.Count()+"詩"))+$"\n新しい章 {r.unlockedChapterIds.Length} ／ 本文未制作";
+            if(resultTab==2)return r.reason==BattleEndReason.Victory?"世界記憶と環境を復元しました。\n初回のページ・庭解放と、再戦の累積資源を別に保存しています。\n巨神獣別素材はオーパーツ強化に使えます。":"敗北・撤退では世界復元・素材・初回解放は発生しません。\n聞いた詩と対応する人物詩・章を保存しました。";
+            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。提供率は検証用です。";
+        }
+        private void PrepareCollectionCapture(string[] args)
+        {
+            if(!formalDiagnostic)throw new InvalidOperationException("Collection diagnostics must not access player saves.");
+            selectedLevel=50;StartBattle(WorldCatalog.ColossusIds[0]);
+            encounter=new PlayableBattle(50,campaign.Playable,8,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(activeColossus));StartCollection();
+            // Diagnostic fixture only; normal play records completed enemy commands.
+            foreach(var id in collectionCatalog.owners[0].poemIds.Take(8))collectionSession.RecordCompletedSinging(id);
+            var reason=args.Contains("-collectionDefeat")?BattleEndReason.Defeat:args.Contains("-collectionRetreat")?BattleEndReason.Retreat:BattleEndReason.Victory;
+            if(reason==BattleEndReason.Victory)encounter.State.ApplyBossDamage(int.MaxValue);
+            else if(reason==BattleEndReason.Defeat)foreach(var hero in encounter.State.Heroes)hero.TakeDamage(int.MaxValue);
+            formalVictoryDiagnosticFailure=args.Contains("-collectionPending") || args.Contains("-collectionRetry");string before=JsonUtility.ToJson(formalCampaign.Snapshot);
+            PrepareFormalBattleEnd(reason);
+            if(args.Contains("-collectionRetry")){
+                if(!formalCampaign.HasPending || JsonUtility.ToJson(formalCampaign.Snapshot)!=before)throw new Exception("Collection pending was not atomic.");
+                var request=formalBattleEndRequest;formalVictoryDiagnosticFailure=false;PersistFormalVictory();
+                if(formalCampaign.HasPending || formalBattleEndRequest!=null || lastCollectionResult.acquiredPoemIds.Length!=48)throw new Exception("Collection retry failed.");
+                if(formalCampaign.CommitBattleEnd(request,null,null,s=>throw new Exception("duplicate"))!=GrowthCommitResult.AlreadyCommitted)throw new Exception("Collection replay failed.");
+                Debug.Log("COLLECTION_END_NAVIGATION_PASS 4 assertions reason="+reason);
+            }
+            resultTab=args.Contains("-collectionPoems")?1:args.Contains("-collectionWorld")?2:args.Contains("-collectionDrops")?3:0;
+            if(args.Contains("-collectionChapters") || args.Contains("-collectionInventory") || args.Contains("-collectionConfirm")){
+                result=null;encounter=null;collectionOpen=true;collectionTab=args.Contains("-collectionChapters")?0:1;
+                if(args.Contains("-collectionConfirm")){
+                    var relic=formalCampaign.Snapshot.collection.relics.First();string prior=JsonUtility.ToJson(formalCampaign.Snapshot);RelicSelect(relic,RelicOperation.LevelUp);CollectionBack();
+                    if(relicRequest!=null || JsonUtility.ToJson(formalCampaign.Snapshot)!=prior)throw new Exception("Relic cancel changed saved state.");
+                    RelicSelect(relic,RelicOperation.LevelUp);Debug.Log("COLLECTION_RELIC_CANCEL_PASS 2 assertions");
+                }
+            }
+        }
+    }
+}

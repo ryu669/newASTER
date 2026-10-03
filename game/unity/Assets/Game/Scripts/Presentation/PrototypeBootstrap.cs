@@ -111,6 +111,7 @@ namespace NewAster.Presentation
             }
             if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
             if(capturePath!=null && args.Contains("-captureVictory")) PrepareVictoryCapture(args);
+            if(capturePath!=null && args.Contains("-captureCollection")) PrepareCollectionCapture(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
@@ -153,6 +154,7 @@ namespace NewAster.Presentation
             UpdateEngagement();
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 if(recoveryActive)recoveryConfirm=false;
+                else if(collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
                 else if(kinderGarden && formalProgression!=null) KinderBack();
                 else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
@@ -236,6 +238,7 @@ namespace NewAster.Presentation
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
@@ -273,7 +276,7 @@ namespace NewAster.Presentation
             if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
             if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  翠還竜の詩 {campaign.Progress.CollectedPoemIds.Count}/24",small);
+            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
@@ -288,7 +291,7 @@ namespace NewAster.Presentation
             if(!unlocked) { Label(32,365,920,120,"前の巨神獣を初めて討伐すると、このページが開きます。\n最後の巨神獣には、14体すべての初回討伐が必要です。",text); return; }
             if(book.Face==BookFace.Details) {
                 Label(32,365,920,100,"初回討伐で世界へ定着する環境："+string.Join("・",c.EnvironmentTags),text);
-                Label(32,490,920,195,"角冠：大技ゲージ / 左翼：攻撃 / 右翼：装甲 / 尾：資源妨害\n部位を破壊してから本体を攻めると安全に戦えます。\n全15ページに共通の仮戦闘を使用しています。詩と物語は翠還竜に実装しています。",text);
+                Label(32,490,920,195,"角冠：大技ゲージ / 左翼：攻撃 / 右翼：装甲 / 尾：資源妨害\n部位を破壊してから本体を攻めると安全に戦えます。\n緑還竜の戦闘定義のみ試遊できます。他の敵の戦闘は未制作です。詩本文は未制作です。",text);
             } else {
                 Label(32,363,925,110,"巨神獣の体に残った呪歌は、失われた世界の記憶。\n討伐して環境を取り戻し、詩を集めると物語の章が開きます。",text);
                 Label(32,485,900,45,$"挑戦 Lv.{selectedLevel}  /  選択可能 1〜{campaign.Playable.HighestLevel}",heading);
@@ -298,7 +301,7 @@ namespace NewAster.Presentation
                 if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
                 if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
                 Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
-                if(Btn(32,692,910,70,"5人の誓女と出撃する")) StartBattle(c.Id);
+                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",ColossusCombatCatalog.CanSummon(c.Id))) StartBattle(c.Id);
             }
         }
         private void DrawHeroine()
@@ -404,20 +407,17 @@ namespace NewAster.Presentation
         }
         private void DrawStories()
         {
-            Label(32,275,930,65,"翠還竜の記憶",heading);
-            Label(32,353,920,65,"討伐ごとに未取得の詩を4つ獲得。8つ集めると1章を読めます。",text);
-            for(int i=0;i<3;i++) {
-                var chapter=GreenReturnDragonVerticalSlice.StoryChapters[i]; int n=chapter.RequiredPoemIds.Count(id=>campaign.Progress.CollectedPoemIds.Contains(id));
-                bool open=campaign.Progress.UnlockedStoryIds.Contains(chapter.StoryId);
-                if(Btn(32,457+i*92,910,74,$"第{i+1}章  {Chapters[i]}  /  詩 {n}/8  {(campaign.Progress.ReadStoryIds.Contains(chapter.StoryId)?"既読":open?"読めます":"未開放")}",open)) { storyText=Stories[i]; storyId=chapter.StoryId; storyChapter=i; scroll=Vector2.zero; }
-            }
-            Label(32,754,910,38,"物語は試遊用のオリジナル短編です。",small);
+            Label(32,320,920,110,"正式な詩本文・物語本文は未制作です。",text);
+            if(Btn(32,480,920,65,"巨神獣・人物の詩と章の進捗")){collectionOpen=true;collectionTab=0;}
+            if(Btn(32,565,920,65,"オーパーツと素材を確認")){collectionOpen=true;collectionTab=1;}
         }
         private void StartBattle(string colossus)
         {
+            if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot);
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection);
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
+            StartCollection();
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
             playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
@@ -490,6 +490,7 @@ namespace NewAster.Presentation
             }
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
+            if(lastSinging!=null)Label(30,80,1050,35,lastSinging,small,Color.white);
             if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }
@@ -527,23 +528,19 @@ namespace NewAster.Presentation
         private void FinishCheck()
         {
             if(playback.Busy || !encounter.Ended || result!=null) return;
-            if(!encounter.State.IsVictory) { result="敗北\n\n報酬はありません。育成や部位破壊を試して再挑戦しましょう。"; return; }
+            if(!encounter.State.IsVictory) { PrepareFormalBattleEnd(BattleEndReason.Defeat); return; }
             PrepareFormalVictory();
         }
         private void DrawResult()
         {
-            if(formalVictoryRequest!=null) { DrawVictorySavePending();return; }
-            if(encounter.State.IsVictory) {DrawFormalVictoryComplete();return;}
-            Modal(); Label(340,194,890,90,encounter.State.IsVictory?"記憶を取り戻した":"再び、誓いを",heading); Label(340,300,890,285,result,text);
-            if(!encounter.State.IsVictory && Btn(340,580,860,52,"同じ巨神獣・難度で再挑戦")) { StartBattle(activeColossus); return; }
-            if(Btn(340,650,420,62,"本へ戻る")) { result=null; encounter=null; status="報酬を使って育成・庭を進めましょう。"; }
-            if(Btn(780,650,420,62,"育成ページへ")) { result=null; encounter=null; book.ChangeBookmark(BookBookmark.Heroines); }
+            if(formalBattleEndRequest!=null) { DrawVictorySavePending();return; }
+            DrawFormalVictoryComplete();
         }
         private void DrawRetreat()
         {
-            Modal(); Label(340,245,880,90,"撤退しますか？",heading); Label(340,365,870,125,"この戦闘の報酬は得られません。これまでの育成や獲得した記憶は保持されます。",text);
+            Modal(); Label(340,245,880,90,"撤退しますか？",heading); Label(340,365,870,125,"聞いた詩と対応する人物の詩は持ち帰ります。素材・石・世界復元は勝利時だけ取得できます。",text);
             if(Btn(340,605,420,64,"戦闘へ戻る")) { retreat=false; paused=false; }
-            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects(); retreat=false; encounter=null; result=null; Save(); }
+            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects(); retreat=false; PrepareFormalBattleEnd(BattleEndReason.Retreat); }
         }
         private void DrawStory()
         {

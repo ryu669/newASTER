@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using System.IO;
 using System.Security.Cryptography;
@@ -17,13 +18,14 @@ namespace NewAster.Core
         public string SavePath=>path;
         private static string Digest(byte[] bytes){using(var hash=SHA256.Create())return Convert.ToBase64String(hash.ComputeHash(bytes));}
         private string DecodeBytes(byte[] bytes){using(var stream=new MemoryStream(bytes))using(var reader=new StreamReader(stream,System.Text.Encoding.UTF8,true))return reader.ReadToEnd();}
-        private bool Unsupported(FormalCampaignSave s)=>s!=null && (s.version!=1 || s.saveId!=FormalCampaignSave.Identity || s.growth!=null && (s.growth.version!=2 || s.growth.contentVersion!=FormalGrowthSave.ContentVersion || s.growth.saveId!="newaster.formal-growth") || s.world!=null && s.world.version!=2 || s.engagement!=null && s.engagement.version!=1);
+        private static bool UnsupportedHeader(FormalCampaignHeader h)=>h!=null && (h.version!=1 || h.saveId!=FormalCampaignSave.Identity || h.collection!=null && (h.collection.version!=1 || h.collection.contentVersion!=CollectionCatalog.FixtureVersion));
+        private bool Unsupported(FormalCampaignSave s)=>s!=null && (s.version!=1 || s.saveId!=FormalCampaignSave.Identity || s.growth!=null && (s.growth.version!=2 || s.growth.contentVersion!=FormalGrowthSave.ContentVersion || s.growth.saveId!="newaster.formal-growth") || s.world!=null && s.world.version!=2 || s.engagement!=null && s.engagement.version!=1 || s.collection!=null && (s.collection.version!=1 || s.collection.contentVersion!=CollectionCatalog.FixtureVersion || s.collection.relics!=null && s.collection.relics.Any(r=>r!=null && r.contentVersion!=CollectionCatalog.FixtureVersion) || s.collection.receipts!=null && s.collection.receipts.Any(r=>r!=null && r.battle!=null && (r.battle.contentVersion!=CollectionCatalog.FixtureVersion || r.battle.combatVersion!="combat-v3-newaster-original" || r.battle.colossusVersion!=ColossusCombatDef.Version))));
         public FormalRecoveryOffer InspectRecovery()
         {
             try{
                 bool exists=File.Exists(path);byte[] primary=exists?File.ReadAllBytes(path):null;
                 if(exists){
-                    try{string source=DecodeBytes(primary);var envelope=decodeHeader(source);if(envelope!=null && (envelope.version!=1 || envelope.saveId!=FormalCampaignSave.Identity))return new FormalRecoveryOffer(FormalRecoveryStatus.Unsupported,path);var header=decode(source);if(Unsupported(header))return new FormalRecoveryOffer(FormalRecoveryStatus.Unsupported,path);header?.Validate();if(header!=null)return new FormalRecoveryOffer(FormalRecoveryStatus.Healthy,path);}
+                    try{string source=DecodeBytes(primary);var envelope=decodeHeader(source);if(UnsupportedHeader(envelope))return new FormalRecoveryOffer(FormalRecoveryStatus.Unsupported,path);var header=decode(source);if(Unsupported(header))return new FormalRecoveryOffer(FormalRecoveryStatus.Unsupported,path);header?.Validate();if(header!=null)return new FormalRecoveryOffer(FormalRecoveryStatus.Healthy,path);}
                     catch(Exception e)when(e is ArgumentException || e is InvalidOperationException || e is FormatException){}
                 }
                 if(!File.Exists(path+".bak"))return new FormalRecoveryOffer(exists?FormalRecoveryStatus.NoValidBackup:FormalRecoveryStatus.Missing,path);
