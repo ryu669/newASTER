@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 using NewAster.Core;
 
@@ -100,7 +101,8 @@ namespace NewAster.Presentation
                 }
             }
             foreach(Transform part in dragon) {
-                int index=part.name.Contains("Horn")?0:part.name.Contains("Left")?1:part.name.Contains("Right")?2:part.name.Contains("Tail")?3:-1;
+                string partId=part.name.Contains("Horn")?"crystal-horn-crown":part.name.Contains("Left")?"left-wing-root":part.name.Contains("Right")?"right-wing-root":part.name.Contains("Tail")?"vine-wrapped-tail":null;
+                int index=battle==null || partId==null?-1:battle.State.Parts.ToList().FindIndex(p=>p.Id==partId);
                 var renderer=part.GetComponent<Renderer>(); if(renderer==null) continue;
                 renderer.enabled=battle==null || index<0 || (visual!=null?visual.PartHp[index]>0:!battle.State.Parts[index].IsBroken);
                 bool selected=battle!=null && (index<0?target=="body":target==battle.State.Parts[index].Id);

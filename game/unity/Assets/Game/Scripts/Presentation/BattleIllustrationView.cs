@@ -56,6 +56,18 @@ namespace NewAster.Presentation
                 if(GUI.Button(rect,(target==p.partId?"◆ ":"")+partNames[index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.partId;
                 GUI.enabled=old;
             }
+            var unplaced=battle.State.Parts.Select((part,index)=>new{part,index})
+                .Where(p=>manifest==null || !manifest.parts.Any(binding=>binding.partId==p.part.Id)).ToArray();
+            for(int slot=0;slot<unplaced.Length;slot++) {
+                var p=unplaced[slot];int hp=e?.PartHp[p.index]??p.part.HitPoints;
+                // Missing art bindings remain selectable; the header always lists every part.
+                bool sideSlots=manifest!=null && unplaced.Length<=2;
+                float width=sideSlots?140:560f/System.Math.Min(3,unplaced.Length);
+                var rect=new Rect(sideSlots?548+slot*430:548+(slot%3)*width,sideSlots?612:568+(slot/3)*56,width-8,50);
+                var old=GUI.enabled;GUI.enabled=canSelect && hp>0;
+                if(GUI.Button(rect,(target==p.part.Id?"◆ ":"")+partNames[p.index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.part.Id;
+                GUI.enabled=old;
+            }
             if(e!=null && e.Damage>0) GUI.Label(new Rect(855,579,260,45),"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
             if(e!=null && e.Kind==BattlePresentationKind.CastStart) GUI.Label(new Rect(50,592,400,40),"詠唱開始（まだダメージなし）",small);
             GUI.Label(new Rect(16,683,1110,22),"2D表示基盤 / 背景・敵・残り4人は未制作。候補絵は正式採用前。",small);

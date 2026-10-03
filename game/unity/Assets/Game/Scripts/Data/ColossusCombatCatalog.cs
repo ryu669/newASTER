@@ -3,6 +3,26 @@ namespace NewAster.Data
 {
     public static class ColossusCombatCatalog
     {
+        public static string PartName(BattlePart part,int index)
+        {
+            switch(part.Id) {
+                case "crystal-horn-crown":return "結晶角冠";
+                case "left-wing-root":return "左翼の根";
+                case "right-wing-root":return "右翼の装甲";
+                case "vine-wrapped-tail":return "蔓の尾";
+                default:return "補助部位 "+(index+1);
+            }
+        }
+        public static string PartEffect(BattlePart part)
+        {
+            switch(part.Role) {
+                case "gauge":return "大技ゲージ上昇を止める";
+                case "attack":return "敵の攻撃を弱める";
+                case "armor":return "本体の軽減を解除";
+                case "drain":return "資源妨害を止める";
+                default:return "追加効果なし";
+            }
+        }
         public static bool CanSummon(string id)=>id==GreenReturnDragonVerticalSlice.ColossusId;
         public static ColossusCombatDef Get(string id)
         {

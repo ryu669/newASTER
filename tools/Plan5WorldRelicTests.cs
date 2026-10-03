@@ -35,6 +35,8 @@ public static class Plan5WorldRelicTests
         var protectedSkill=new BattleSkill("protection-check",1m,0,bodyPartProtection:true);
         var unprotectedSkill=new BattleSkill("unprotected-check",1m,0);
         var protectedHero=reorderedBattle.State.Heroes[0];
+        check(ColossusCombatCatalog.PartName(reorderedBattle.State.Parts[5],5)=="右翼の装甲" && ColossusCombatCatalog.PartEffect(reorderedBattle.State.Parts[5])=="本体の軽減を解除","Reordered armor retains correct name and break explanation");
+        check(ColossusCombatCatalog.PartEffect(reorderedBattle.State.Parts[4])=="追加効果なし","Auxiliary part never advertises armor break effect");
         int protectedDamage=BattleActionResolver.CalculateDamage(reorderedBattle.State,protectedHero,protectedSkill,"body");
         int fullDamage=BattleActionResolver.CalculateDamage(reorderedBattle.State,protectedHero,unprotectedSkill,"body");
         check(protectedDamage<fullDamage,"Reordered six part encounter retains armor protection");

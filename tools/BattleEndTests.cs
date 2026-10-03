@@ -48,6 +48,32 @@ public static class BattleEndTests
             var repeatReceipt=repeat.Finish(reason,disk.world.poemIds,disk.world.unlockedStoryIds);
             check(repeatReceipt.acquiredPoemIds.Length==0 && repeatReceipt.battle.heardPoemIds.Length==1,"Hearing and new acquisition are distinct");
         }
+        foreach(var reason in new[]{BattleEndReason.Victory,BattleEndReason.Defeat,BattleEndReason.Retreat}) {
+            var initial=fresh();initial.growth.heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id,level=reason==BattleEndReason.Victory?10:1}).ToArray();
+            int level=reason==BattleEndReason.Defeat?50:1;
+            var battle=new PlayableBattle(level,new PlayableProgress(),23,combatDefinitions:combat,formalGrowth:initial.growth,colossusDefinition:ColossusCombatCatalog.Get(dragon.id));
+            var session=new BattleCollectionSession(catalog,"played."+reason,dragon.id,level,0,combat.FormationIds,23);
+            var singing=new Random(23 ^ 0x534F4E47);
+            battle.CompletedEnemyAction=()=>session.RecordCompletedSinging(dragon.poemIds[singing.Next(24)]);
+            int steps=0;
+            while(!battle.Ended && session.Snapshot.heardPoemIds.Length==0 && steps++<100)battle.Pass();
+            while(reason!=BattleEndReason.Retreat && !battle.Ended && steps++<2000) {
+                if(reason==BattleEndReason.Defeat || !battle.Act(battle.AvailableHero,0,"body"))battle.Pass();
+                battle.DrainPresentationEvents();
+            }
+            check(steps<2000 && session.Snapshot.heardPoemIds.Length>0,"Real encounter records singing before bounded ending");
+            check(reason==BattleEndReason.Retreat?!battle.Ended:reason==BattleEndReason.Victory?battle.State.IsVictory:!battle.State.Heroes.Any(h=>h.IsAlive),"Actions reach requested end without injected HP or songs");
+            var receipt=session.Finish(reason,initial.world.poemIds,initial.world.unlockedStoryIds);
+            var request=new FormalBattleEndRequest(receipt,0);
+            var journal=new FormalCampaignJournal(initial,encode,decode);string before=encode(journal.Snapshot),durable=null;
+            Func<CampaignSaveV2,CampaignSaveV2> victory=w=>{var state=new CampaignState(WorldCatalog.ColossusIds,w);state.ClaimColossusVictory(dragon.id,WorldCatalog.Colossi[0].EnvironmentTags,new VictoryReward(request.Id,level,10,4,Array.Empty<string>()),Array.Empty<StoryRequirement>(),Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);return state.CreateSave();};
+            check(journal.CommitBattleEnd(request,catalog,victory,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==before,"Played ending preserves all state on failed save");
+            check(journal.CommitBattleEnd(request,null,null,s=>{durable=encode(s);return true;})==GrowthCommitResult.Committed,"Played ending retries original result");
+            var restarted=new FormalCampaignJournal(decode(durable),encode,decode);var restored=restarted.Snapshot;
+            check(restored.collection.receipts.Single().battle.heardPoemIds.SequenceEqual(receipt.battle.heardPoemIds) && receipt.acquiredPoemIds.All(p=>restored.world.poemIds.Contains(p)),"Played singing and collection survive serialized restart");
+            check(restored.collection.receipts.Single().battle.formationIds.SequenceEqual(combat.FormationIds),"Played ending retains original party including defeated heroes");
+            check(restarted.CommitBattleEnd(request,null,null,s=>throw new Exception("Duplicate played write"))==GrowthCommitResult.AlreadyCommitted,"Played ending cannot grant twice after restart");
+        }
         for(int seed=0;seed<20;seed++){
             var a=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:combat);
             var b=new PlayableBattle(1,new PlayableProgress(),seed,combatDefinitions:combat);
