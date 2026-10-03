@@ -21,3 +21,5 @@
 Windowsの設定／停止復帰720p・1080pは `tmp/plan7-sample-20261003121456`、4方式の戦闘・報酬一致720p・1080pは `tmp/plan7-sample-20261003121520` で合格。波形記録は `tmp/plan7-audio-transitions.json`。Unity1,174 assertions、C#92ファイル（既存警告2件）、Windowsビルド286,776,726 bytes。ログ `tmp/plan7-audio-v2-pcm-build.log`、Assembly-CSharp SHA-256 `E15B1FA676B2747D34E89A90CAC7F1CCDEDB3EBF938FDD68B1947B287BB7B8E9`。この版の性能測定は実施していない。
 
 新保存からのADV720p／1080pも `tmp/plan6-home-player-20261003121702-65e3d13628b84a5993fee483c3f1fe62` で合格。今回の最終ビルドは計6起動を確認した。
+
+後続で同SHAの連続戦闘・箱庭・CGを測定し、さらに通知修正版の戦闘を720p／1080pで測定した。[ビルド別性能記録](plan7-active-performance.md)を参照。上記の「性能未実施」は音源v2取り込み完了時点の記録である。

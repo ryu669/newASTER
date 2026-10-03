@@ -135,15 +135,18 @@ namespace NewAster.Presentation
                 if(GUI.Button(rect,(target==p.part.Id?"◆ ":"")+partNames[p.index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.part.Id;
                 GUI.enabled=old;
             }
-            if(e!=null && e.Damage>0) GUI.Label(new Rect(855,579,260,45),"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
-            if(e!=null && e.Kind==BattlePresentationKind.CastStart) GUI.Label(new Rect(50,592,400,40),"詠唱開始（まだダメージなし）",small);
             if(foreground!=null)GUI.DrawTexture(new Rect(0,330,1152,372),foreground,ScaleMode.StretchToFill,true);
             if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(new Rect(0,330,1152,372),tint);}
             if(actor>=0 && actor<5){int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Fill(new Rect(16,639,470,40),new Color(.035f,.065f,.08f,.92f));
                 GUI.Label(new Rect(30,643,445,32),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && portraits[binding]!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
-            Fill(new Rect(0,681,1152,24),new Color(.035f,.065f,.08f,.92f));
-            GUI.Label(new Rect(16,683,1110,22),"美術候補 / 残り4人は未制作。正式採用前。"+(Inspection!=null?" 素材確認："+Inspection:""),small);
+            if(e!=null && (e.Damage>0 || e.Kind==BattlePresentationKind.CastStart)) {
+                Fill(new Rect(510,639,626,40),new Color(.035f,.065f,.08f,.92f));
+                GUI.Label(new Rect(524,643,598,32),e.Kind==BattlePresentationKind.CastStart?"詠唱開始（まだダメージなし）":"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
+            }
+            Fill(new Rect(0,679,1152,23),new Color(.035f,.065f,.08f,.92f));
+            var footerStyle=new GUIStyle(small){padding=new RectOffset(0,0,0,0)};
+            GUI.Label(new Rect(16,680,1110,22),"美術候補 / 残り4人は未制作。正式採用前。"+(Inspection!=null?" 素材確認："+Inspection:""),footerStyle);
             return target;
         }
     }

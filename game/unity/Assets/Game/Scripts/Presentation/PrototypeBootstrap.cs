@@ -522,7 +522,7 @@ namespace NewAster.Presentation
             string enemyStatus=visual?.EnemyStatuses[targetIndex+1]??encounter.EnemyStatusDescription(target);
             Label(28,240,1050,45,(targetIndex<0?"対象：本体　防御部位を壊すと本体ダメージが増加":"対象："+partNames[targetIndex]+"　破壊効果："+ColossusCombatCatalog.PartEffect(targetPart))+"\n"+enemyStatus,small,Color.white);
             var order=encounter.UpcomingOrder();
-            for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
+            for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,280,177,49,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
             if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
             int actor=selectedHero; var hero=s.Heroes[actor];
             Label(1180,175,390,50,Names[actor],heading,Color.white);
@@ -565,7 +565,6 @@ namespace NewAster.Presentation
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
             if(lastSinging!=null)Label(28,132,1050,24,lastSinging,small,Color.white);
-            if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }
         private void DrawAllySelection()
