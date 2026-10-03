@@ -16,7 +16,8 @@ function Write-Composition([string]$Name,[int]$Width,[int]$Height,[object[]]$Lay
         $actualHeight=[int]([uint32]$bytes[20]*16777216+[uint32]$bytes[21]*65536+[uint32]$bytes[22]*256+$bytes[23])
         if($actualWidth -ne $Width -or $actualHeight -ne $Height){throw "Source dimension mismatch: $source"}
         $clip=if($layer.Clip){' clip-path="url(#face-region)"'}else{''}
-        $content+='<g id="'+$layer.Id+'" inkscape:groupmode="layer" inkscape:label="'+$layer.Id+'"'+$clip+'><image x="0" y="0" width="'+$Width+'" height="'+$Height+'" xlink:href="'+$relative+'" /></g>'
+        $transform=if($layer.Placement -and $layer.Placement.enabled){' transform="translate('+([double]$layer.Placement.x*$Width).ToString('0.######',[Globalization.CultureInfo]::InvariantCulture)+' '+([double]$layer.Placement.y*$Height).ToString('0.######',[Globalization.CultureInfo]::InvariantCulture)+') scale('+([double]$layer.Placement.scale).ToString('0.######',[Globalization.CultureInfo]::InvariantCulture)+')"'}else{''}
+        $content+='<g id="'+$layer.Id+'" inkscape:groupmode="layer" inkscape:label="'+$layer.Id+'"'+$clip+$transform+'><image x="0" y="0" width="'+$Width+'" height="'+$Height+'" xlink:href="'+$relative+'" /></g>'
     }
     $content+='</svg>'
     $path=Join-Path $output ($Name+'.svg')
@@ -27,9 +28,9 @@ function Write-Composition([string]$Name,[int]$Width,[int]$Height,[object[]]$Lay
 }
 $manifest=Get-Content (Join-Path $repo 'game/unity/Assets/Game/Resources/Illustrations/battle-formal.json') -Raw | ConvertFrom-Json
 $layers=@()
-foreach($part in ($manifest.parts | Where-Object {$_.drawOrder -lt 0} | Sort-Object drawOrder,partId)){$layers+=@{Id=$part.partId;Resource=$part.resourcePath}}
+foreach($part in ($manifest.parts | Where-Object {$_.drawOrder -lt 0} | Sort-Object drawOrder,partId)){$layers+=@{Id=$part.partId;Resource=$part.resourcePath;Placement=$part.placement}}
 $layers+=@{Id='body';Resource=$manifest.bodyResourcePath}
-foreach($part in ($manifest.parts | Where-Object {$_.drawOrder -ge 0} | Sort-Object drawOrder,partId)){$layers+=@{Id=$part.partId;Resource=$part.resourcePath}}
+foreach($part in ($manifest.parts | Where-Object {$_.drawOrder -ge 0} | Sort-Object drawOrder,partId)){$layers+=@{Id=$part.partId;Resource=$part.resourcePath;Placement=$part.placement}}
 Write-Composition 'green-colossus-candidate-v1' 1254 1254 $layers
 Write-Composition 'forest-candidate-v1' 1672 941 @(@{Id='far';Resource=$manifest.backgroundResourcePath},@{Id='middle';Resource=$manifest.middleResourcePath},@{Id='front';Resource=$manifest.foregroundResourcePath})
 foreach($expression in @('joy','puzzled','determined')){

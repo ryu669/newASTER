@@ -35,7 +35,8 @@
       "y": 0.0,
       "width": 0.4,
       "height": 0.28,
-      "resourcePath": "Illustrations/green-crown-candidate-v1",
+      "resourcePath": "Illustrations/green-crown-candidate-v2",
+      "placement": { "enabled": true, "x": 0.32, "y": 0.015, "scale": 0.36 },
       "hideWhenDestroyed": true,
       "drawOrder": 1,
       "inputPriority": 1

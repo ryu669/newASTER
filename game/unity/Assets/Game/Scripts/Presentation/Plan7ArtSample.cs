@@ -25,7 +25,7 @@ namespace NewAster.Presentation
         private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
         private Texture2D SampleImage(string name)
         {
-            if(!artTextures.TryGetValue(name,out var texture)){texture=Resources.Load<Texture2D>("Illustrations/"+name+(name=="slayer-cutin" || name=="green-major"?"-candidate-v3":"-candidate-v1"));artTextures[name]=texture;if(texture==null)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
+            if(!artTextures.TryGetValue(name,out var texture)){string version=name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
             return texture;
         }
         private void SampleImage(Rect rect,string name,bool crop=false)

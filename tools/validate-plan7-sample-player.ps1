@@ -1,13 +1,20 @@
-param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus,[switch]$CompleteBattle)
+param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus,[switch]$CompleteBattle,[string]$ExpectedAssemblySha256)
 $ErrorActionPreference='Stop'
 if($ValidateFocus -and ($Measure -or $Uncapped -or @($Cases | Where-Object {$_ -ne 'settings'}).Count -gt 0)){throw 'Focus validation requires settings cases without performance measurement'}
 if($Uncapped -and $Cases -contains 'activecombat'){throw 'Active combat measurement requires normal synchronization so frame count covers action playback'}
 if($CompleteBattle -and @($Cases | Where-Object {$_ -ne 'activecombat'}).Count -gt 0){throw 'CompleteBattle requires activecombat cases'}
 $repo=Split-Path $PSScriptRoot -Parent
 if(-not $Player){$Player=Join-Path $repo 'game/Builds/playable/newASTER.exe'}
+$assemblyPath=Join-Path (Split-Path $Player -Parent) (([IO.Path]::GetFileNameWithoutExtension($Player))+'_Data/Managed/Assembly-CSharp.dll')
+$assemblySha256=(Get-FileHash -LiteralPath $assemblyPath).Hash
+$resourceAssetsPath=Join-Path (Split-Path $assemblyPath -Parent | Split-Path -Parent) 'resources.assets'
+$resourceAssetsSha256=(Get-FileHash -LiteralPath $resourceAssetsPath).Hash
+if($ExpectedAssemblySha256 -and $assemblySha256 -ne $ExpectedAssemblySha256){throw 'Player assembly differs from expected validated build; no player launched.'}
 $output=Join-Path $repo ('tmp/plan7-sample-'+[DateTime]::UtcNow.ToString('yyyyMMddHHmmss'))
 New-Item -ItemType Directory -Path $output | Out-Null
 foreach($case in $Cases){foreach($height in $Heights){
+    if((Get-FileHash -LiteralPath $assemblyPath).Hash -ne $assemblySha256){throw 'Player assembly changed during capture; no further player launched.'}
+    if((Get-FileHash -LiteralPath $resourceAssetsPath).Hash -ne $resourceAssetsSha256){throw 'Player resources changed during capture; no further player launched.'}
     if($height -ne 720 -and $height -ne 1080){throw 'Only 720p and 1080p supported'}
     $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
     if($Measure -or $Uncapped){
@@ -43,7 +50,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     if(@([regex]::Matches($text,'PLAN7_AUDIO_WAVEFORM_PASS')).Count -ne 6){throw "Imported audio waveform validation missing: $log"}
     if($ValidateFocus -and $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS'){throw "Focus/audio validation did not finish (requires application focus): $log"}
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}
-    $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped;completeBattle=[bool]$CompleteBattle}
+    $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped;completeBattle=[bool]$CompleteBattle;assemblySha256=$assemblySha256;resourceAssetsSha256=$resourceAssetsSha256}
     [IO.File]::WriteAllText((Join-Path $output ($name+'-memory.json')),($memory | ConvertTo-Json)+[Environment]::NewLine)
     if($Measure -or $Uncapped){Write-Output "PLAN7_PROCESS_MEMORY case=$name peakWorkingBytes=$peakWorking observedWorkingPeakBytes=$peakObserved"}
     if($Measure -or $Uncapped){if($text -notmatch 'PLAN7_PERFORMANCE'){throw 'Missing performance record'};($text -split "`n") | Where-Object {$_ -match 'PLAN7_PERFORMANCE'} | Write-Output}

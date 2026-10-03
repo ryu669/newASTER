@@ -1,5 +1,11 @@
 # 計画7：候補素材の生成記録
 
+## green-crown-candidate-v2
+
+2026-10-03、内蔵imagegenで旧角冠だけを編集した。上端の先端をキャンバス内に収め、同じ結晶・樹皮・苔の意匠を維持する。原本と本体を参照し、本体は生成画像へ含めない。透明背景を指定した。実寸1254×1254のRGBAで、生成待ち約32.7秒は実制作工数へ換算しない。旧v1は保持する。
+
+[最終プロンプト全文](../../game/art-source/2d/green-crown-candidate-v2.prompt.txt)。選定素材は`game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png`。生成で変わった倍率・位置はゲームの独立した描画配置で補正する。出力が目標位置を厳密に守ったとは扱わない。輪郭の低アルファ微小画素は残り、透過全体の完成品質や原画レイヤーは未達。
+
 ## green-major-candidate-v1
 
 Use case: stylized-concept. Original forest colossus dragon MAJOR ATTACK cut-in sprite. Use provided body/crown/wing/tail references for same identity. Reassemble whole moss bark emerald crystal dragon with two enormous greenleaf membrane wings, emerald branching horn crown and vine wrapped tail, roaring toward camera, emerald energy gathering in mouth, front threequarter dramatic chest-up composition, entirecrown and wings fullyinside square1280x1280 with8% margins. Painted premium Japanese fantasy, original project design, trueRGBA transparentbackground, no text, scenery or UI. No different creature or extra limbs.

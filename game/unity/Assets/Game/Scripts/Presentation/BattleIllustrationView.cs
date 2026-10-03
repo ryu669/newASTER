@@ -51,8 +51,10 @@ namespace NewAster.Presentation
             int hp=e?.PartHp[index]??battle.State.Parts[index].HitPoints;
             if(Inspection==part.partId)hp=0; // diagnostic drawing only, state remains unchanged
             string path=BattleIllustrationManifest.PartResource(part,hp);
-            if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(canvas,art,ScaleMode.ScaleToFit,true);
+            if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);
         }
+        public static Rect PartCanvas(Rect canvas,PartIllustrationBinding part)
+        {var p=part.placement;return p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);}
         public static int DisplayActor(int available,BattlePresentationEvent e) => e!=null?e.Actor:available;
         public void DrawEnemyPreview(Rect canvas,int brokenMask)
         {
@@ -63,7 +65,7 @@ namespace NewAster.Presentation
         }
         public void DrawEnemyMajorPreview(Rect canvas){if(enemyMajor!=null)GUI.DrawTexture(canvas,enemyMajor,ScaleMode.ScaleToFit,true);}
         private void DrawPreviewPart(PartIllustrationBinding part,Rect canvas,int mask)
-        {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null && layers.TryGetValue(path,out var art))GUI.DrawTexture(canvas,art,ScaleMode.ScaleToFit,true);}
+        {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null && layers.TryGetValue(path,out var art))GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);}
         private static void Fill(Rect rect,Color color) { var saved=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=saved; }
         public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames,bool showActorLabel=true)
         {

@@ -30,7 +30,7 @@ $definitions=@(
     @('slayer-garden-cg','cg','heroine.slayer','slayer-cg'))
 $assets=@()
 foreach($d in $definitions){
-    $version=if($d[0] -in @('slayer-cutin','green-major')){'v3'}else{'v1'}
+    $version=if($d[0] -eq 'green-crown'){'v2'}elseif($d[0] -in @('slayer-cutin','green-major')){'v3'}else{'v1'}
     $resource='Illustrations/'+$d[0]+'-candidate-'+$version
     $relative='game/unity/Assets/Game/Resources/'+$resource+'.png'
     $path=Join-Path $repo $relative
@@ -44,6 +44,13 @@ foreach($d in $definitions){
         for($x=0;$x -lt $bitmap.Width;$x++){foreach($y in @(0,($bitmap.Height-1))){$a=$bitmap.GetPixel($x,$y).A;if($a -gt 16){$edge++};if($a -eq 0){$transparent++}}}
         for($y=1;$y -lt $bitmap.Height-1;$y++){foreach($x in @(0,($bitmap.Width-1))){$a=$bitmap.GetPixel($x,$y).A;if($a -gt 16){$edge++};if($a -eq 0){$transparent++}}}
         $assets+=[ordered]@{assetId=$assetId;resourcePath=$resource;ownerId=$d[2];usage=$d[1];canvasGroupId=$d[3];width=$bitmap.Width;height=$bitmap.Height;renderAnchor='center / ScaleToFit; garden authored slots in HomeExperienceFixture';edgeAlphaAbove16=$edge;transparentBorderPixels=$transparent;sha256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash;path=$relative;creator='OpenAI imagegen / project-directed original candidate';created='2026-10-03';sourceRecord='docs/production/plan7-art-prompts.md';usageTerms='Original generated project asset; candidate, no third-party extraction';adoption='candidate';editableLayerSource=$false}
+        if($d[0] -eq 'green-crown'){
+            $manifest=Get-Content (Join-Path $repo 'game/unity/Assets/Game/Resources/Illustrations/battle-formal.json') -Raw | ConvertFrom-Json
+            $binding=$manifest.parts | Where-Object partId -eq 'crystal-horn-crown'
+            if($binding.resourcePath -ne $resource){throw 'Crown audit differs from runtime manifest'}
+            $assets[-1]['renderAnchor']='normalized shared enemy canvas / uniform placement independent from hit rectangle'
+            $assets[-1]['renderPlacement']=$binding.placement
+        }
     }finally{$bitmap.Dispose()}
 }
 $audio=@()

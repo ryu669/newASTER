@@ -118,6 +118,8 @@ ActorDisplay { heroineId:Id,positionSlotId:Id,outfitId:Id,expressionId:Id,poseId
 
 hideWhenBroken=falseではbrokenAssetId必須。戦闘部位IDは個体定義と一対一。ヒロインの固有チェイン行動の絵はChainActionDef.presentationIdから解決し、通常スキルの選択UIへ変換しない。layoutIdはGardenLayout／AdvLayout等の用途別定義を参照する。アセット一覧と一致する参照だけを受け入れる。
 
+現行Unityの`BattleIllustrationManifest` v1は部位に任意の`placement:{enabled:bool,x:float,y:float,scale:float}`を持つ。未指定またはenabled=falseは共有キャンバス全域を使用する。enabled=trueでは有限のx／y≥0、scale>0、x+scale≤1、y+scale≤1を必須とする。一様倍率で正方形・縦横比を保ち、同寸法の元PNGを移動・縮小表示する。通常／破壊で同じ配置を使い、選択用x／y／width／heightやHP・コアを変更しない。[角冠の実装・互換検証](../production/plan7-crown.md)を参照。
+
 ## 戦闘・チェイン定義型
 
 ```text

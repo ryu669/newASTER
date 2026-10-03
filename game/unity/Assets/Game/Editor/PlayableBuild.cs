@@ -291,6 +291,15 @@ public static partial class PlayableBuild
         var artSource=Resources.Load<TextAsset>("Illustrations/battle-formal");Check(artSource!=null,"Formal illustration manifest exists independently from legacy art");
         var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
         Check(definitions.formation.All(id=>art.HeroIndex(id)>=0),"Formal illustration IDs match selected heroines");
+        var crown=art.parts.Single(p=>p.partId=="crystal-horn-crown");
+        var roundtripArt=JsonUtility.FromJson<BattleIllustrationManifest>(JsonUtility.ToJson(art));roundtripArt.Validate();
+        Check(roundtripArt.parts.Single(p=>p.partId==crown.partId).placement.scale==.36f,"Unity retains crown placement through JSON roundtrip");
+        var placed=NewAster.Presentation.BattleIllustrationView.PartCanvas(new Rect(100,200,500,500),crown);
+        Check(Math.Abs(placed.x-260)<.001 && Math.Abs(placed.y-207.5f)<.001 && Math.Abs(placed.width-180)<.001 && placed.width==placed.height,"Crown placement retains square aspect within enemy canvas");
+        var unplaced=art.parts.Single(p=>p.partId=="left-wing-root");
+        Check(NewAster.Presentation.BattleIllustrationView.PartCanvas(new Rect(100,200,500,500),unplaced)==new Rect(100,200,500,500),"Legacy layer uses unchanged canvas");
+        var crownImage=Resources.Load<Texture2D>(crown.resourcePath);var bodyImage=Resources.Load<Texture2D>(art.bodyResourcePath);
+        Check(crownImage!=null && bodyImage!=null && crownImage.width==bodyImage.width && crownImage.height==bodyImage.height,"Crown and body retain native matching canvases");
         for(int actor=0;actor<5;actor++) for(int slot=0;slot<3;slot++) {
             var defs=fresh();foreach(var skill in defs.skills)skill.chainEligible=false;
             var saved=new PlayableProgress();saved.Levels[0]=120;saved.Branches[0]=10;

@@ -163,24 +163,30 @@
       "editableLayerSource": false
     },
     {
-      "assetId": "art.candidate.green-crown.v1",
-      "resourcePath": "Illustrations/green-crown-candidate-v1",
+      "assetId": "art.candidate.green-crown.v2",
+      "resourcePath": "Illustrations/green-crown-candidate-v2",
       "ownerId": "colossus.green-return-dragon",
       "usage": "crystal-horn-crown",
       "canvasGroupId": "green-parts",
       "width": 1254,
       "height": 1254,
-      "renderAnchor": "center / ScaleToFit; garden authored slots in HomeExperienceFixture",
+      "renderAnchor": "normalized shared enemy canvas / uniform placement independent from hit rectangle",
       "edgeAlphaAbove16": 0,
-      "transparentBorderPixels": 4976,
-      "sha256": "248A98B50353B24ED5D447645B0336411E29D81BED58B2A5369E10946537A1F0",
-      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v1.png",
+      "transparentBorderPixels": 5012,
+      "sha256": "1F66FD4E06A466148BEE19B3B75FFE035476A90712E945B2051781573110D15E",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png",
       "creator": "OpenAI imagegen / project-directed original candidate",
       "created": "2026-10-03",
       "sourceRecord": "docs/production/plan7-art-prompts.md",
       "usageTerms": "Original generated project asset; candidate, no third-party extraction",
       "adoption": "candidate",
-      "editableLayerSource": false
+      "editableLayerSource": false,
+      "renderPlacement": {
+        "enabled": true,
+        "x": 0.32,
+        "y": 0.015,
+        "scale": 0.36
+      }
     },
     {
       "assetId": "art.candidate.green-wing-left.v1",

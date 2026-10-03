@@ -132,6 +132,14 @@ public static class AutomaticChainTests
         Check(manifest.HitPart(.2f,.2f,id=>true)=="part-1","Overlapping parts use explicit input priority");
         Check(manifest.HitPart(.2f,.2f,id=>id!="part-1")=="part-0","Broken priority part cannot intercept another part");
         Check(manifest.HitPart(.8f,.8f,id=>true)==null,"Outside authored hit regions has no part");
+        layer.placement=new IllustrationLayerPlacement{enabled=true,x=.16f,y=0,scale=.68f};manifest.Validate();
+        Check(manifest.HitPart(.2f,.2f,id=>id!="part-1")=="part-0","Art placement does not move authored hit regions");
+        layer.placement.scale=0;ExpectManifestFailure(manifest,"Zero layer scale rejected");
+        layer.placement.scale=float.NaN;ExpectManifestFailure(manifest,"NaN layer scale rejected");
+        layer.placement.scale=.9f;ExpectManifestFailure(manifest,"Layer extending outside canvas rejected");
+        layer.placement.scale=.68f;layer.placement.y=-.01f;ExpectManifestFailure(manifest,"Negative layer placement rejected");
+        layer.placement=null;manifest.Validate();Check(layer.placement==null,"Legacy full-canvas layers remain valid without placement");
+        layer.placement=new IllustrationLayerPlacement();manifest.Validate();Check(!layer.placement.enabled,"Missing Unity inline fields remain disabled even when materialized");layer.placement=null;
         var enemyPreview=new PlayableBattle(1,new PlayableProgress());enemyPreview.DrainPresentationEvents();
         var enemyHp=enemyPreview.State.Heroes.Select(h=>h.HitPoints).ToArray();BattlePresentationEvent enemyEvent=null;
         for(int step=0;step<100 && enemyEvent==null;step++){enemyPreview.Pass();enemyEvent=enemyPreview.DrainPresentationEvents().FirstOrDefault(e=>e.Kind==BattlePresentationKind.Enemy);}
