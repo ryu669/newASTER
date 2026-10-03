@@ -18,6 +18,8 @@ HomeAssetDefに任意のResourcesパスとfullFrameを追加した。ADVは全�
 
 ## 最終プロンプト（内蔵ツール）
 
+追記：実際の描画は [顔領域だけの重ね描画](plan7-expression-layers.md) へ変更した。上記の全身差し替えと初期検証は履歴であり、現在は通常立ち絵の衣装・翼・剣・足先を固定する。元PNGを加工せず、顔矩形の外の画素を使わない。
+
 決意: Use case: identity-preserve. Edit target: provided transparent full-body standing sprite. Create determined expression variant. Change ONLY facial expression: focused blue eyes, slightly lowered brows, confident closed lips, calm resolve, no anger. Keep head angle, face shape, hair, flowers, clothing, body pose, wings, hands, sword, boots, lighting and all artwork outside the face unchanged. Preserve exact 1024x1536 canvas, scale and placement; no recentering or crop. One figure only. Genuine transparent RGBA background, no text or watermark. Game expression sprite aligned with original.
 
 困惑: Use case: identity-preserve. Edit target: the provided transparent full-body standing sprite. Create a puzzled expression variant. Change ONLY facial expression: mildly worried raised inner eyebrows, blue eyes looking thoughtfully forward, small uncertain parted lips, no tears. Keep head angle, face shape, hair, flowers, clothing, body pose, wings, hands, sword, boots, lighting and all artwork outside the face unchanged. Preserve exact 1024x1536 canvas, scale and placement; no recentering or crop. One figure only. Genuine transparent RGBA background, no text or watermark. Game expression sprite to align with original.

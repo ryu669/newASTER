@@ -37,7 +37,7 @@ namespace NewAster.Data
             c.scripts=c.scripts.Concat(c.events.Select(e=>new HomeAdvScript{id=e.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).Concat(c.chapters.Select(ch=>new HomeAdvScript{id=ch.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).ToArray();
             // Candidate art is explicitly bound to Slayer only; the fixture remains non-release content.
             var candidateAssets=new[]{new HomeAssetDef{id="art.candidate.slayer.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/slayer-standing-candidate-v1",fullFrame=true}}
-                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",fullFrame=true})).ToArray();
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",regionalOverlay=true,overlayRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536}})).ToArray();
             c.assets=c.assets.Concat(candidateAssets).ToArray();
             c.assets.Single(a=>a.id=="asset.fixture.background").resourcePath="Illustrations/forest-far-candidate-v1";
             c.assets.Single(a=>a.id=="asset.fixture.foreground").resourcePath="Illustrations/forest-front-candidate-v1";

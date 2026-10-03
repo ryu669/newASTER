@@ -30,7 +30,7 @@ $definitions=@(
     @('slayer-garden-cg','cg','heroine.slayer','slayer-cg'))
 $assets=@()
 foreach($d in $definitions){
-    $version=if($d[0] -eq 'slayer-cutin'){'v3'}else{'v1'}
+    $version=if($d[0] -in @('slayer-cutin','green-major')){'v3'}else{'v1'}
     $resource='Illustrations/'+$d[0]+'-candidate-'+$version
     $relative='game/unity/Assets/Game/Resources/'+$resource+'.png'
     $path=Join-Path $repo $relative

@@ -23,7 +23,7 @@ namespace NewAster.Presentation
         private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
         private Texture2D SampleImage(string name)
         {
-            if(!artTextures.TryGetValue(name,out var texture)){texture=Resources.Load<Texture2D>("Illustrations/"+name+(name=="slayer-cutin"?"-candidate-v3":"-candidate-v1"));artTextures[name]=texture;if(texture==null)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
+            if(!artTextures.TryGetValue(name,out var texture)){texture=Resources.Load<Texture2D>("Illustrations/"+name+(name=="slayer-cutin" || name=="green-major"?"-candidate-v3":"-candidate-v1"));artTextures[name]=texture;if(texture==null)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
             return texture;
         }
         private void SampleImage(Rect rect,string name,bool crop=false)
@@ -110,8 +110,12 @@ namespace NewAster.Presentation
                 Label(1200,680,340,85,"部位画像だけを切替。\n戦闘のHP・報酬は操作しません。",small,Color.white);
             }else if(artTab=="actor"){
                 string name=artPose=="idle"?(artExpression=="normal"?"slayer-standing":"slayer-expression-"+artExpression):"slayer-"+artPose;
-                SampleImage(new Rect(65,180,540,560),name);
-                var texture=SampleImage(name);if(texture!=null && artPose=="idle")GUI.DrawTextureWithTexCoords(new Rect(650,260,460,300),texture,new Rect(.32f,.78f,.32f,.16f));
+                var texture=SampleImage(name);
+                if(artPose=="idle"){
+                    var standing=SampleImage("slayer-standing");var definition=HomeData().assets.SingleOrDefault(a=>a.resourcePath=="Illustrations/"+name+"-candidate-v1");var region=definition?.regionalOverlay==true?definition.overlayRegion01:null;
+                    DrawExpressionLayer(new Rect(65,180,540,560),standing,texture,region);
+                    DrawExpressionLayer(new Rect(650,260,460,300),standing,texture,region,new HomeRect{x=.32f,y=.06f,width=.32f,height=.16f});
+                }else SampleImage(new Rect(65,180,540,560),name);
                 Label(1200,180,340,50,"スレイヤー ／ 候補",heading,Color.white);
                 for(int i=0;i<4;i++){string expression=new[]{"normal","joy","puzzled","determined"}[i];if(Btn(1200,250+i*60,340,48,new[]{"通常","喜び","困惑","決意"}[i])){artPose="idle";artExpression=expression;}}
                 for(int i=0;i<4;i++){string pose=new[]{"idle","attack","hit","cutin"}[i];if(Btn(1200,510+i*60,340,48,new[]{"待機","攻撃","被弾","カットイン"}[i]))artPose=pose;}

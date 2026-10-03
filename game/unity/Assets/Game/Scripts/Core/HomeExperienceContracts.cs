@@ -32,7 +32,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HomeChapterDef
     { public string id,ownerId,sceneId; public string[] requiredPoemIds=Array.Empty<string>(); public HomeCost[] rewards=Array.Empty<HomeCost>(); }
     [Serializable] public sealed class HomeTextDef { public string id,text; }
-    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; public string resourcePath; public bool fullFrame; }
+    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; public string resourcePath; public bool fullFrame,regionalOverlay; public HomeRect overlayRegion01; }
     [Serializable] public sealed class HomeDisplayVariant { public string id,assetId; }
     [Serializable] public sealed class HomeDisplaySet
     {
@@ -114,7 +114,7 @@ namespace NewAster.Core
             if(es.Keys.Intersect(chs.Keys).Any())Fail("DUPLICATE_ID","/events",null,"章とイベントの報酬IDが重複しています。");
             var tx=Index(texts,t=>t.id,"/texts");var ast=Index(assets,a=>a.id,"/assets");Index(displays,d=>d.id,"/displays");var slots=Index(actorSlots,s=>s.id,"/actorSlots");var scs=Index(scripts,s=>s.id,"/scripts");Index(subjects,s=>s.id,"/subjects");
             foreach(var t in texts)if(string.IsNullOrWhiteSpace(t.text))Fail("INVALID_RANGE","/texts",t.id,"本文が空です。");
-            foreach(var a in assets){if(!new[]{"background","standing","expression","pose","cg","audio","furniture","foreground"}.Contains(a.kind))Fail("INVALID_RANGE","/assets",a.id,"素材種別が不正です。");if((release || status=="release") && a.placeholder)Fail("PLACEHOLDER_IN_RELEASE","/assets",a.id,"正式必須素材が仮素材です。");}
+            foreach(var a in assets){if(!new[]{"background","standing","expression","pose","cg","audio","furniture","foreground"}.Contains(a.kind))Fail("INVALID_RANGE","/assets",a.id,"素材種別が不正です。");if(a.regionalOverlay && (a.kind!="expression" || a.fullFrame || !Rect(a.overlayRegion01)))Fail("INVALID_RANGE","/assets",a.id,"表情の重ね領域が不正です。");if((release || status=="release") && a.placeholder)Fail("PLACEHOLDER_IN_RELEASE","/assets",a.id,"正式必須素材が仮素材です。");}
             foreach(var n in weaponNodes){Ref(hs.Contains(n.heroineId),"/weaponNodes/heroineId",n.heroineId);Set(n.parentIds,"/weaponNodes/parentIds");if(n.initial?n.parentIds.Length!=0:n.parentIds.Length==0)Fail("MISSING_REFERENCE","/weaponNodes/parentIds",n.id,"初期以外には親が必要です。");foreach(var id in n.parentIds)Ref(ns.TryGetValue(id,out var parent) && parent.heroineId==n.heroineId,"/weaponNodes/parentIds",id);Costs(n.costs,rs,"/weaponNodes/costs",!n.initial);Ref(abs.Contains(n.abilityId),"/weaponNodes/abilityId",n.abilityId);Ref(sks.Contains(n.skillId),"/weaponNodes/skillId",n.skillId);}
             foreach(var n in weaponNodes)foreach(var cost in n.costs)Ref(materialIndex.ContainsKey(cost.resourceId),"/weaponNodes/costs/resourceId",cost.resourceId);
             foreach(var group in weaponNodes.GroupBy(n=>n.heroineId))if(group.Count(n=>n.initial)!=1)Fail("INVALID_RANGE","/weaponNodes",group.Key,"人物ごとの初期ノードは一つです。");

@@ -137,3 +137,19 @@ Edit target: the supplied Slayer character cut-in game asset. Produce a revised 
 Edit the supplied game character cut-in. Keep exactly the same adult blonde floral swordswoman, face, outfit, raised sword pose, folded knees and two white wings. ONLY change framing and finish any contour touching the edge. The entire existing figure must be SMALLER and centered: all opaque content including top hair loop, wing feathers, every ribbon and sword must fit inside the central 70% of both width and height of a square transparent canvas. This means a completely empty transparent margin of 15% on the top, bottom, left AND right, with NO painted pixel, speckle, glow or shadow in this outer margin. Zoom out substantially; do not fill the canvas. The top hair loop must be entirely visible below the upper margin, never touch canvas edge. Do not alter the face, expression, identity or costume. No text, backdrop or cast shadow. Transparent RGBA game cut-in asset, ideally native 1536x1536.
 
 原本：`C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-ebabcdf6-0906-4d94-9ca8-41ece33322fd.png`。実寸1254×1254。外周100pxのアルファ16超は0、低アルファ1〜16の微小画素は288。厳密な全透明余白・指定解像度達成とは記録しない。主要輪郭の切れを修正した候補として、見本と戦闘マニフェストへ接続する。v1は保持する。
+
+## green-major-candidate-v2-review（接続しない比較原本）
+
+参照：`green-major-candidate-v1.png`。内蔵imagegen、透過指定、2026-10-03。
+
+Edit target: supplied original forest crystal dragon special attack cut-in. Preserve its botanical wooden dragon identity, emerald crystal horn crown, moss flower vines, emerald translucent leaf wings, pale bark belly, green eyes, open roaring mouth with a small emerald light breath and premium intricate Japanese fantasy game painting. Fix cut-off crown and wings by zooming OUT substantially: portray the complete dragon as a coiled three-quarter roaring figure including complete both wings, crystal crown tips, claws, folded tail and lower body. All visible painted contours must lie within the central 70 percent of a square transparent canvas, with a completely transparent EMPTY margin of at least 15 percent on all four edges. No feathers, crystals, vines, glow or light particles in the empty margin. The crown tips and both outer wing tips must be fully visible. Retain exactly one dragon, exactly two wings, coherent limbs and coiled tail. No background, floor, shadows, text, logos, border or watermark. Native RGBA transparent game cut-in asset, ideally 1536 by 1536.
+
+原本：`C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-636198db-15b8-4059-b65d-5fbbd5b27a0e.png`。プロジェクト保存：`docs/production/plan7-green-major-v2-review.png`。輪郭は収まるが余白が小さいため接続しない。
+
+## green-major-candidate-v3（安全域修正版）
+
+参照：上記v2。内蔵imagegen、透過指定、2026-10-03。
+
+Edit only the framing of this complete forest crystal dragon game cut-in. Keep precisely its identity, intricate botanical wood scales, emerald crystals, two moss flower vine leaf wings, roaring green mouth, claws, and coiled tail composition. Zoom OUT significantly. On a square transparent canvas ALL painted content must be contained inside the central 60 percent of both width and height: place the entire dragon from x=20% to80% and y=20% to80%. Leave the top, bottom, left and right outer 20% entirely EMPTY transparent, no paint, particles, glow, moss, shadow or speckles. Do not enlarge the subject to fill the canvas. Preserve complete crown tips and complete both wing tips. No alterations to design, no background, text, logos or borders. RGBA transparency.
+
+原本：`C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-4bdec1e1-9a52-4c99-835b-d863c1b85f55.png`。実寸1254×1254。外周100pxのアルファ16超は0、低アルファ1〜16の微小画素は624。指定20%の全透明余白達成とは記録しない。冠・両翼・尾の主要輪郭を収めた候補として接続する。元寸法・透過取り込み設定を維持し、v1は保持する。全部位健在時だけ大技画像を表示する条件も維持する。

@@ -35,6 +35,10 @@ public static class Plan6HomeTests
         invalid(c=>c.gardens[2].zones=c.gardens[0].zones,"INVALID_RANGE","Unmade garden cannot silently reuse another layout");
         invalid(c=>c.furniture[0].footprint.x=.8f,"INVALID_RANGE","Out-of-bounds furniture footprint rejected");
         invalid(c=>c.displays[0].expressions=Array.Empty<HomeDisplayVariant>(),"MISSING_REFERENCE","Missing normal expression rejected");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.slayer.expression.joy.v1").overlayRegion01.width=float.NaN,"INVALID_RANGE","Nonfinite expression patch rejected");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.slayer.expression.joy.v1").overlayRegion01.x=.99f,"INVALID_RANGE","Expression patch outside source rejected");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.slayer.expression.joy.v1").fullFrame=true,"INVALID_RANGE","Ambiguous full-frame and regional expression rejected");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.slayer.expression.joy.v1").kind="standing","INVALID_RANGE","Regional overlay restricted to expression assets");
         invalid(c=>c.events[0].unlockCondition=null,"UNRESOLVED_RULE","Undefined event condition not replaced by always");
         invalid(c=>c.events[0].unlockCondition=new HomeCondition{kind="all"},"INVALID_RANGE","Empty all condition rejected");
         invalid(c=>c.events[0].unlockCondition=new HomeCondition{kind="atLeast",domain="affection",value=1},"MISSING_REFERENCE","Affection condition needs owner");

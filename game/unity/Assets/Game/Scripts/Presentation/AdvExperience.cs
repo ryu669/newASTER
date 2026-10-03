@@ -21,10 +21,28 @@ namespace NewAster.Presentation
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
             if(expression!=null && standing!=null && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;
-            if(standing!=null)GUI.DrawTexture(rect,fullExpression?expression:standing,ScaleMode.ScaleToFit,true);
+            if(standing!=null)DrawExpressionLayer(rect,fullExpression?expression:standing,expression,expressionDef?.regionalOverlay==true?expressionDef.overlayRegion01:null);
             else GrowthFill(x,y,w,h,new Color(.22f,.38f,.42f));
-            if(standing!=null && expression!=null && !fullExpression && expression.width==standing.width && expression.height==standing.height)GUI.DrawTexture(rect,expression,ScaleMode.ScaleToFit,true);
+            if(standing!=null && expression!=null && !fullExpression && expressionDef?.regionalOverlay!=true && expression.width==standing.width && expression.height==standing.height)GUI.DrawTexture(rect,expression,ScaleMode.ScaleToFit,true);
             if(standing==null){Label(x+15,y+70,w-30,110,combatDefinitions.Hero(actor.HeroineId).name,growthTextStyle);Label(x+15,y+200,w-30,110,actor.PosePlaceholder?"未対応pose\n同人物の仮表示":"静的検証用\n立ち絵",growthSmallStyle);}
+        }
+        // The source PNGs remain untouched. All pixels outside the authored patch use the standing image.
+        private static void DrawExpressionLayer(Rect destination,Texture2D standing,Texture2D expression,HomeRect region,HomeRect crop=null)
+        {
+            if(standing==null)return;
+            if(crop==null){
+                float scale=Math.Min(destination.width/standing.width,destination.height/standing.height);
+                destination=new Rect(destination.x+(destination.width-standing.width*scale)/2,destination.y+(destination.height-standing.height*scale)/2,standing.width*scale,standing.height*scale);
+                crop=new HomeRect{x=0,y=0,width=1,height=1};
+            }
+            GUI.BeginGroup(destination);
+            try{
+                GUI.DrawTextureWithTexCoords(new Rect(0,0,destination.width,destination.height),standing,new Rect(crop.x,1-crop.y-crop.height,crop.width,crop.height),true);
+                if(expression!=null && region!=null && expression.width==standing.width && expression.height==standing.height){
+                    var patch=new Rect((region.x-crop.x)/crop.width*destination.width,(region.y-crop.y)/crop.height*destination.height,region.width/crop.width*destination.width,region.height/crop.height*destination.height);
+                    GUI.DrawTextureWithTexCoords(patch,expression,new Rect(region.x,1-region.y-region.height,region.width,region.height),true);
+                }
+            }finally{GUI.EndGroup();}
         }
         private void SyncAdvAudio()
         {
