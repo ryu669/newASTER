@@ -31,7 +31,7 @@ namespace NewAster.Presentation
         private void PlayedAcceptanceEnding(BattleEndReason reason,int seed,int songs)
         {
             selectedLevel=reason==BattleEndReason.Defeat?50:1;StartBattle(WorldCatalog.ColossusIds[0]);
-            encounter=new PlayableBattle(selectedLevel,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(activeColossus),collectionGrowth:formalCampaign.Snapshot.collection);StartCollection();
+            encounter=new PlayableBattle(selectedLevel,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(activeColossus),collectionGrowth:formalCampaign.Snapshot.collection);StartCollection();
             int completions=0,steps=0;var record=encounter.CompletedEnemyAction;encounter.CompletedEnemyAction=()=>{record();completions++;};
             while(!encounter.Ended && completions<songs && steps++<20000)encounter.Pass();
             while(reason!=BattleEndReason.Retreat && !encounter.Ended && steps++<20000) {
@@ -88,7 +88,7 @@ namespace NewAster.Presentation
             RelicSelect(formalCampaign.Snapshot.collection.relics.Single(),RelicOperation.Equip,combatDefinitions.FormationIds[0]);
             var comparison=RelicEquipmentComparison(relic,relicRequest);AcceptanceCheck(comparison.Contains("→") && comparison.Contains("チェイン率"),"equip comparison provides actual before and after");RelicCommit();ReloadAcceptance();
             AcceptanceCheck(formalCampaign.Snapshot.collection.equipment.Length==1 && formalCampaign.Snapshot.collection.relics.Single().level==2,"upgrade and equip durable together");
-            selectedLevel=1;StartBattle(WorldCatalog.ColossusIds[0]);var equipped=encounter.State.Heroes[0];var naked=new PlayableBattle(1,campaign.Playable,encounter.Seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(activeColossus));
+            selectedLevel=1;StartBattle(WorldCatalog.ColossusIds[0]);var equipped=encounter.State.Heroes[0];var naked=new PlayableBattle(1,campaign.Playable,encounter.Seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(activeColossus));
             AcceptanceCheck(equipped.BaseAttack>naked.State.Heroes[0].BaseAttack && encounter.ChainRate(0)==naked.ChainRate(0),"retry encounter applies equipment without chain change");
             encounter=null;collectionOpen=true;RelicSelect(formalCampaign.Snapshot.collection.relics.Single(),RelicOperation.Unequip,combatDefinitions.FormationIds[0]);
             Debug.Log("PLAN5_PLAYER_ACCEPTANCE_PASS "+acceptanceChecks+" assertions fights="+fights+" file="+path);

@@ -59,7 +59,7 @@ namespace NewAster.Core
                 if(request.Revision!=current.revision || current.world.claimedBattleIds.Contains(request.Id))throw new ArgumentException("Stale battle end.");
                 catalog.Validate();current.collection?.ValidateContent(catalog);var r=request.Receipt;var b=r.battle;
                 if(b.revision>request.Revision || b.contentVersion!=catalog.contentVersion)throw new ArgumentException("Battle content revision mismatch.");
-                var session=new BattleCollectionSession(catalog,b.battleId,b.colossusId,b.level,b.revision,b.formationIds);
+                var session=new BattleCollectionSession(catalog,b.battleId,b.colossusId,b.level,b.revision,b.formationIds,b.seed,b.colossusVersion);
                 foreach(var poem in b.heardPoemIds)session.RecordCompletedSinging(poem);
                 var expected=session.Finish(r.reason,current.world.poemIds,current.world.unlockedStoryIds);
                 if(!expected.acquiredPoemIds.SequenceEqual(r.acquiredPoemIds) || !expected.unlockedChapterIds.SequenceEqual(r.unlockedChapterIds))throw new ArgumentException("Collection result mismatch.");

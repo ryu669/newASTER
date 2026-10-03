@@ -60,5 +60,23 @@ public static class Plan8StoryIntegrationTests
         }
         bool invalid=false;try{new FormalHomeRequest("future","talk",0,"home-trial-future","operation");}catch(ArgumentException){invalid=true;}
         check(invalid,"Known trial support never accepts unknown future content versions");
+        var legacyEnemy=ColossusCombatCatalog.Get(story.colossusId);var trialEnemy=ColossusCombatCatalog.GetPlan8Trial(story.colossusId);
+        check(legacyEnemy.hpPerLevel==120 && legacyEnemy.damagePerLevel==2 && legacyEnemy.contentVersion==ColossusCombatDef.Version,"Normal enemy baseline remains intact");
+        check(trialEnemy.hpPerLevel==600 && trialEnemy.damagePerLevel==8 && trialEnemy.contentVersion==ColossusCombatDef.Plan8Version && trialEnemy.parts.Select(p=>p.hpPerLevel).SequenceEqual(legacyEnemy.parts.Select(p=>p.hpPerLevel)),"Named Plan8 enemy profile changes body HP and attack slopes only");
+        var originalBattle=new BattleCollectionSession(collection,"plan8-curve",story.colossusId,45,0,combat.FormationIds,12,trialEnemy.contentVersion);
+        check(originalBattle.Snapshot.colossusVersion==trialEnemy.contentVersion,"Battle receipt freezes actual enemy profile version");
+        var mixed=journal.Snapshot;var frozen=originalBattle.Finish(BattleEndReason.Retreat,mixed.world.poemIds,mixed.world.unlockedStoryIds);mixed.collection.receipts=mixed.collection.receipts.Concat(new[]{frozen}).ToArray();mixed.collection.ValidateContent(collection);
+        check(true,"Known old and adjusted enemy receipts coexist without recalculating old history");
+        invalid=false;try{trialEnemy.contentVersion="colossus-plan8-future";trialEnemy.Validate();}catch(ArgumentException){invalid=true;}
+        check(invalid,"Unknown future enemy profile remains rejected");
+        var heard=new System.Collections.Generic.HashSet<string>();var random=new Random(4);
+        for(int i=0;i<24;i++)heard.Add(TrialSingingSelector.Select(collection,story.colossusId,combat.FormationIds,Array.Empty<string>(),heard,random,true));
+        check(heard.Count==24,"Trial selector avoids repeat source poems until available missing sources have sung");
+        string ownedSource=story.chapters[3].poems[0].sourcePoemId;
+        var allSources=story.chapters.Take(3).SelectMany(c=>c.poems).Select(p=>p.id).ToArray();
+        string reSung=TrialSingingSelector.Select(collection,story.colossusId,new[]{story.chapters[3].ownerId},allSources,allSources.Where(id=>id!=ownedSource),random,true);
+        check(reSung==ownedSource,"Already-owned enemy source stays eligible for missing starting-hero correspondence");
+        var uniform=new Random(8);string uniformExpected=allSources[uniform.Next(allSources.Length)];
+        check(TrialSingingSelector.Select(collection,story.colossusId,combat.FormationIds,allSources,allSources,new Random(8),false)==uniformExpected,"Ordinary uniform selection consumes the same one RNG draw");
     }
 }

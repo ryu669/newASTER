@@ -10,6 +10,8 @@ namespace NewAster.Core
     [Serializable] public sealed class ColossusCombatDef
     {
         public const string Version="colossus-trial-2026-10-03";
+        public const string Plan8Version="colossus-plan8-2026-10-04";
+        public static bool SupportedVersion(string value)=>value==Version || value==Plan8Version;
         public int schemaVersion=1;
         public string contentVersion=Version,status="trial",id;
         public int baseHp,hpPerLevel,gaugeMax,baseDamage,damagePerLevel,majorBonus,ultimateBonus;
@@ -17,7 +19,7 @@ namespace NewAster.Core
         public ColossusPartCombatDef[] parts;
         public void Validate()
         {
-            if(schemaVersion!=1 || contentVersion!=Version || status!="trial" || !CollectionCatalog.ValidId(id) || baseHp<1 || hpPerLevel<0 || gaugeMax<2 || baseDamage<1 || damagePerLevel<0 || majorBonus<1 || ultimateBonus<majorBonus ||
+            if(schemaVersion!=1 || !SupportedVersion(contentVersion) || status!="trial" || !CollectionCatalog.ValidId(id) || baseHp<1 || hpPerLevel<0 || gaugeMax<2 || baseDamage<1 || damagePerLevel<0 || majorBonus<1 || ultimateBonus<majorBonus ||
                new[]{normalAction,enragedAction,majorAction,ultimateAction}.Any(string.IsNullOrWhiteSpace) ||
                parts==null || parts.Length<4 || parts.Length>6 || parts.Any(p=>p==null || !CollectionCatalog.ValidId(p.id) || p.baseHp<1 || p.hpPerLevel<0 ||
                    !new[]{"gauge","attack","armor","drain","auxiliary"}.Contains(p.role) || p.breakEffect!=(p.role=="gauge"?"gauge-down":"")) ||

@@ -158,7 +158,7 @@ namespace NewAster.Core
         public string[] formationIds,heardPoemIds;
         public void Validate()
         {
-            if(!CollectionCatalog.ValidId(battleId) || !CollectionCatalog.ValidId(colossusId) || !CollectionCatalog.SupportedVersion(contentVersion) || combatVersion!="combat-v3-newaster-original" || colossusVersion!=ColossusCombatDef.Version || level<1 || level>50 || revision<0 ||
+            if(!CollectionCatalog.ValidId(battleId) || !CollectionCatalog.ValidId(colossusId) || !CollectionCatalog.SupportedVersion(contentVersion) || combatVersion!="combat-v3-newaster-original" || !ColossusCombatDef.SupportedVersion(colossusVersion) || level<1 || level>50 || revision<0 ||
                formationIds==null || formationIds.Length!=5 || formationIds.Any(x=>!CollectionCatalog.ValidId(x)) || formationIds.Distinct().Count()!=5 ||
                heardPoemIds==null || heardPoemIds.Any(x=>!CollectionCatalog.ValidId(x)) || heardPoemIds.Distinct().Count()!=heardPoemIds.Length)throw new ArgumentException("Invalid battle collection record.");
         }
@@ -212,10 +212,10 @@ namespace NewAster.Core
         private readonly CollectionBattleRecord battle;
         private readonly HashSet<string> heard=new HashSet<string>();
         private CollectionReceipt ended;
-        public BattleCollectionSession(CollectionCatalog catalog,string battleId,string colossusId,int level,long revision,IEnumerable<string> formation,int seed=0)
+        public BattleCollectionSession(CollectionCatalog catalog,string battleId,string colossusId,int level,long revision,IEnumerable<string> formation,int seed=0,string colossusVersion=ColossusCombatDef.Version)
         {
             catalog.Validate();this.catalog=catalog.Copy();
-            battle=new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=catalog.contentVersion,level=level,seed=seed,revision=revision,formationIds=(formation??throw new ArgumentNullException(nameof(formation))).ToArray(),heardPoemIds=Array.Empty<string>()};
+            battle=new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=catalog.contentVersion,colossusVersion=colossusVersion,level=level,seed=seed,revision=revision,formationIds=(formation??throw new ArgumentNullException(nameof(formation))).ToArray(),heardPoemIds=Array.Empty<string>()};
             battle.Validate();
             if(!this.catalog.owners.Any(x=>x.id==colossusId && x.kind=="colossus") || battle.formationIds.Any(id=>!this.catalog.owners.Any(x=>x.id==id && x.kind=="heroine")))throw new ArgumentException("Unknown battle owner.");
         }

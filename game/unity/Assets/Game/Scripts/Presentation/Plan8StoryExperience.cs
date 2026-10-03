@@ -10,6 +10,7 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool plan8StoryTrial;
+        private ColossusCombatDef ActiveColossusDefinition(string id)=>plan8StoryTrial?ColossusCombatCatalog.GetPlan8Trial(id):ColossusCombatCatalog.Get(id);
         private TrialStoryContent plan8Story;
         private string trialPoemChapter;
         private Vector2 trialPoemScroll;
