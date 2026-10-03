@@ -60,7 +60,7 @@ namespace NewAster.Core
             foreach(var id in unlockedEventIds)if(!catalog.events.Any(e=>e.id==id && heroes.Contains(e.heroineId)))throw new ArgumentException("Unknown event.");
             foreach(var id in claimedRewardIds)if(!catalog.events.Any(e=>e.id==id && e.rewards.Length>0 && readEventIds.Contains(id)) && !catalog.chapters.Any(c=>c.id==id && c.rewards.Length>0 && campaign.world.readStoryIds.Contains(id)))throw new ArgumentException("Unknown or incomplete first reward source.");
             foreach(var id in loverHeroineIds)if(!heroes.Contains(id) || !catalog.events.Any(e=>e.heroineId==id && e.establishesLover && readEventIds.Contains(e.id)))throw new ArgumentException("Lover status requires explicit completed event.");
-            foreach(var line in readLineKeys){var script=catalog.scripts.SingleOrDefault(s=>s.id==line.sceneId);if(script==null || script.scriptVersion!=line.scriptVersion || !script.commands.Any(c=>c.kind=="line" && c.lineId==line.lineId))throw new ArgumentException("Unknown read line or script version.");}
+            foreach(var line in readLineKeys){var script=catalog.scripts.SingleOrDefault(s=>s.id==line.sceneId);if(script==null || line.scriptVersion>script.scriptVersion || line.scriptVersion==script.scriptVersion && !script.commands.Any(c=>c.kind=="line" && c.lineId==line.lineId))throw new ArgumentException("Unknown read line or script version.");}
         }
     }
 }

@@ -6,8 +6,8 @@ namespace NewAster.Core
 {
     public sealed class AdvActorState
     {
-        public string HeroineId{get;} public string SlotId{get;} public string OutfitId{get;} public string ExpressionAsset{get;} public string PoseAsset{get;} public bool PosePlaceholder{get;}
-        internal AdvActorState(HomeAdvCommand cmd,HomeDisplaySet d){HeroineId=cmd.heroineId;SlotId=cmd.slotId;OutfitId=cmd.outfitId;ExpressionAsset=(d.expressions.FirstOrDefault(e=>e.id==cmd.expressionId)??d.expressions.Single(e=>e.id=="expression.normal")).assetId;var pose=d.poses.FirstOrDefault(p=>p.id==cmd.poseId);PoseAsset=pose?.assetId;PosePlaceholder=pose==null;}
+        public string HeroineId{get;} public string SlotId{get;} public string OutfitId{get;} public string StandingAsset{get;} public string ExpressionAsset{get;} public string PoseAsset{get;} public bool PosePlaceholder{get;}
+        internal AdvActorState(HomeAdvCommand cmd,HomeDisplaySet d){HeroineId=cmd.heroineId;SlotId=cmd.slotId;OutfitId=cmd.outfitId;StandingAsset=d.standingAssetId;ExpressionAsset=(d.expressions.FirstOrDefault(e=>e.id==cmd.expressionId)??d.expressions.Single(e=>e.id=="expression.normal")).assetId;var pose=d.poses.FirstOrDefault(p=>p.id==cmd.poseId);PoseAsset=pose?.assetId;PosePlaceholder=pose==null;}
     }
     public sealed class AdvSession
     {
@@ -16,6 +16,7 @@ namespace NewAster.Core
         public string SourceId{get;} public string SceneId=>script.id;public int ScriptVersion=>script.scriptVersion;public bool Replay{get;}
         public bool EndReached{get;private set;} public bool Completed{get;private set;} public bool Paused{get;private set;} public bool Auto{get;private set;} public bool Skip{get;private set;}
         public string BackgroundId{get;private set;} public string CgId{get;private set;} public bool HideActors{get;private set;} public string SoundId{get;private set;} public string SoundChannel{get;private set;}
+        public int SoundRevision{get;private set;}
         public string LineId{get;private set;} public string Text{get;private set;}=""; public string SpeakerId{get;private set;} public int CharactersPerSecond{get;private set;}=30;
         public string VisibleText=>visible>=elements.Length?Text:Text.Substring(0,elements[visible]);public bool FullyVisible=>visible>=elements.Length;public bool InTransition=>transitionRemaining>0;
         public IReadOnlyList<AdvActorState> Actors=>actors.AsReadOnly();public IReadOnlyList<string> Backlog=>backlog.AsReadOnly();public IReadOnlyList<HomeReadLine> NewlyRead=>newlyRead.AsReadOnly();private readonly List<HomeReadLine> newlyRead=new List<HomeReadLine>();
@@ -32,7 +33,7 @@ namespace NewAster.Core
                 case "hideActor":actors.RemoveAll(a=>a.HeroineId==cmd.heroineId);break;
                 case "cg":CgId=cmd.assetId;HideActors=cmd.hideActors;transitionRemaining=cmd.durationMs/1000d;break;
                 case "hideCg":CgId=null;HideActors=false;break;
-                case "sound":SoundId=cmd.audioId;SoundChannel=cmd.channel;break;
+                case "sound":SoundId=cmd.audioId;SoundChannel=cmd.channel;SoundRevision++;break;
                 case "line":LineId=cmd.lineId;Text=catalog.texts.Single(t=>t.id==cmd.textId).text;SpeakerId=cmd.speakerId;elements=StringInfo.ParseCombiningCharacters(Text);backlog.Add((SpeakerId??"地の文")+"："+Text);if(Skip && !read.Contains(LineId))Skip=false;return;
                 case "end":EndReached=true;Auto=false;Skip=false;return;
                 default:throw new ArgumentException("Unsupported ADV command.");
@@ -70,6 +71,7 @@ namespace NewAster.Core
         {
             if(session.Replay || !session.EndReached || request.Kind!="sceneEnd" || request.OperationKey!=session.SourceId+"/"+session.SceneId+"/"+session.ScriptVersion)throw new ArgumentException("Invalid scene completion.");
             return CommitHomeCandidate(request,c,s=>{
+                s.home.readLineKeys=s.home.readLineKeys.Concat(session.NewlyRead.Where(l=>!s.home.readLineKeys.Any(old=>old.sceneId==l.sceneId && old.scriptVersion==l.scriptVersion && old.lineId==l.lineId))).ToArray();
                 var ev=c.events.SingleOrDefault(e=>e.id==session.SourceId);var ch=c.chapters.SingleOrDefault(ch0=>ch0.id==session.SourceId);HomeCost[] rewards;
                 if(ev!=null){if(ev.sceneId!=session.SceneId || !s.home.unlockedEventIds.Contains(ev.id))throw new ArgumentException("Event is not unlocked.");s.home.readEventIds=s.home.readEventIds.Union(new[]{ev.id}).ToArray();if(ev.establishesLover)s.home.loverHeroineIds=s.home.loverHeroineIds.Union(new[]{ev.heroineId}).ToArray();rewards=ev.rewards;}
                 else if(ch!=null){if(ch.sceneId!=session.SceneId || !s.world.unlockedStoryIds.Contains(ch.id))throw new ArgumentException("Chapter is not unlocked.");s.world.readStoryIds=s.world.readStoryIds.Union(new[]{ch.id}).ToArray();rewards=ch.rewards;}

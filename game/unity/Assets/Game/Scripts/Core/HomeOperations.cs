@@ -7,7 +7,7 @@ namespace NewAster.Core
     public sealed class HomeOperation
     {
         public string Kind{get;} public string Target{get;} public string Owner{get;} public string Garden{get;} public string Zone{get;} public float X{get;} public float Y{get;}
-        public string Key=>string.Join("/",new[]{Target,Owner??"-",Garden??"-",Zone??"-",X.ToString("R",CultureInfo.InvariantCulture),Y.ToString("R",CultureInfo.InvariantCulture)});
+        public string Key=>string.Join("/",new[]{Target,Owner??"-",Garden??"-",Zone??"-",X.ToString("R",CultureInfo.InvariantCulture),Y.ToString("R",CultureInfo.InvariantCulture)}.Select(Uri.EscapeDataString));
         public HomeOperation(string kind,string target,string owner=null,string garden=null,string zone=null,float x=0,float y=0)
         {if(!HomeExperienceCatalog.Id(target) || float.IsNaN(x) || float.IsInfinity(x) || float.IsNaN(y) || float.IsInfinity(y))throw new ArgumentException("Invalid operation payload.");Kind=kind;Target=target;Owner=owner;Garden=garden;Zone=zone;X=x;Y=y;}
     }
@@ -33,6 +33,7 @@ namespace NewAster.Core
             switch(op.Kind){
                 case "weapon": {
                     var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
+                    if(n.abilityId!="ability.home-fixture.attack" || n.skillId!="skill.home-fixture.preview")throw new ArgumentException("この武器効果は未対応です。");
                     if(!h.weaponNodeIds.Contains(n.id)){if(n.parentIds.Any(id=>!h.weaponNodeIds.Contains(id)))throw new ArgumentException("すべての親ノードが必要です。");Spend(s,n.costs);h.weaponNodeIds=h.weaponNodeIds.Concat(new[]{n.id}).ToArray();}break;}
                 case "equip": {
                     Owned(s,op.Owner);h.weaponEquipment=h.weaponEquipment.Where(e=>e.heroineId!=op.Owner).ToArray();
@@ -52,7 +53,7 @@ namespace NewAster.Core
                     if(slot==null || c.assets.Single(a=>a.id==f.assetId).placeholder){o.furnitureInstanceId=null;o.actionId=null;o.slotId="slot.idle";break;}
                     o.furnitureInstanceId=p.instanceId;o.slotId=slot.id;o.actionId=slot.actionIds[0];break;}
                 case "talk": {
-                    Owned(s,op.Target);var resource=c.materials[0].id;Spend(s,new[]{new HomeCost{resourceId=resource,amount=1}});var a=h.affections.SingleOrDefault(a0=>a0.heroineId==op.Target);if(a==null){a=new HomeAffection{heroineId=op.Target};h.affections=h.affections.Concat(new[]{a}).ToArray();}a.value=checked(a.value+1);break;}
+                    Owned(s,op.Target);var rule=c.interactions.SingleOrDefault(t=>t.heroineId==op.Target);if(rule==null || rule.affectionGain<=0 || rule.costs==null)throw new ArgumentException("交流費用・増分が未定です。");Spend(s,rule.costs);var a=h.affections.SingleOrDefault(a0=>a0.heroineId==op.Target);if(a==null){a=new HomeAffection{heroineId=op.Target};h.affections=h.affections.Concat(new[]{a}).ToArray();}a.value=checked(a.value+rule.affectionGain);break;}
                 default:throw new ArgumentException("Unsupported home operation.");
             }
             HomeConditions.Refresh(s,c);

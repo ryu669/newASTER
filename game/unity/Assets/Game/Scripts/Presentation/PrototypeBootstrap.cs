@@ -115,6 +115,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -153,9 +154,13 @@ namespace NewAster.Presentation
         private void Update()
         {
             UpdateBookTransition();
+            UpdateAdv();
             UpdateEngagement();
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(recoveryActive)recoveryConfirm=false;
+                if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
+                else if(placing){placing=false;selectedFurniture=null;}
+                else if(recoveryActive)recoveryConfirm=false;
                 else if(collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
                 else if(kinderGarden && formalProgression!=null) KinderBack();
@@ -244,6 +249,7 @@ namespace NewAster.Presentation
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
@@ -283,7 +289,7 @@ namespace NewAster.Presentation
             if(Btn(28,160,180,42,"‹ 前のページ",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
             if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
-            if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
+            if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"キンダーガーデン",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
             Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
@@ -434,7 +440,8 @@ namespace NewAster.Presentation
             var world=formalCampaign.Snapshot.world;
             for(int i=0;i<owner.chapterIds.Length;i++){
                 var chapter=CollectionData().chapters.Single(c=>c.id==owner.chapterIds[i]);string state=world.readStoryIds.Contains(chapter.id)?"読了":world.unlockedStoryIds.Contains(chapter.id)?"解放・未読":"未解放";
-                Label(32,410+i*66,920,50,book.Face==BookFace.Overview?$"第{i+1}章　{state}　／　本文は制作待ち":$"第{i+1}章　詩 {chapter.poemIds.Count(world.poemIds.Contains)}/{chapter.poemIds.Length}　／　{state}",text);
+                Label(32,410+i*66,formalDiagnostic?520:920,50,book.Face==BookFace.Overview?$"第{i+1}章　{state}　／　正式本文未制作":$"第{i+1}章　詩 {chapter.poemIds.Count(world.poemIds.Contains)}/{chapter.poemIds.Length}　／　{state}",text);
+                if(formalDiagnostic){if(Btn(560,405+i*66,210,50,"検証ADV",world.unlockedStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,false);if(Btn(785,405+i*66,170,50,"回想",world.readStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,true);}
             }
             if(Btn(32,635,920,58,"この対象の詩と章の一覧",BookInputAllowed && !book.IsTransitioning))OpenCollectionForBook();
             if(Btn(32,713,920,58,"オーパーツと素材を確認",BookInputAllowed && !book.IsTransitioning)){collectionOpen=true;collectionTab=1;}
