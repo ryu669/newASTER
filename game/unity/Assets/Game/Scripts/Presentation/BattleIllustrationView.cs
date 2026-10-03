@@ -11,6 +11,16 @@ namespace NewAster.Presentation
         private BattleIllustrationManifest manifest;
         private Texture2D[] portraits;
         private string warning;
+        private Texture2D background,body;
+        private System.Collections.Generic.Dictionary<string,Texture2D> layers=new System.Collections.Generic.Dictionary<string,Texture2D>();
+        private Texture2D LoadLayer(string path)
+        {
+            if(string.IsNullOrWhiteSpace(path)) return null;
+            if(layers.TryGetValue(path,out var found)) return found;
+            var image=Resources.Load<Texture2D>(path);
+            if(image==null) throw new ArgumentException("Image missing: "+path);
+            layers.Add(path,image);return image;
+        }
         public BattleIllustrationView(string resource="Illustrations/battle-preview")
         {
             try {
@@ -18,14 +28,30 @@ namespace NewAster.Presentation
                 if(source==null) throw new ArgumentException("battle-preview manifest missing");
                 manifest=JsonUtility.FromJson<BattleIllustrationManifest>(source.text);manifest.Validate();
                 portraits=manifest.heroes.Select(h=>string.IsNullOrEmpty(h.resourcePath)?null:Resources.Load<Texture2D>(h.resourcePath)).ToArray();
+                background=LoadLayer(manifest.backgroundResourcePath);body=LoadLayer(manifest.bodyResourcePath);
+                foreach(var part in manifest.parts) {
+                    foreach(var path in new[]{part.resourcePath,part.destroyedResourcePath}) {
+                        var layer=LoadLayer(path);
+                        if(layer!=null && (body==null || layer.width!=body.width || layer.height!=body.height))
+                            throw new ArgumentException("Enemy layer canvas mismatch: "+path);
+                    }
+                }
                 for(int i=0;i<5;i++) if(!string.IsNullOrEmpty(manifest.heroes[i].resourcePath) && portraits[i]==null) throw new ArgumentException("Image missing: "+manifest.heroes[i].resourcePath);
-            } catch(Exception e) { manifest=null;portraits=null;warning=e.Message;Debug.LogWarning("ILLUSTRATION_MANIFEST_WARNING "+warning); }
+            } catch(Exception e) { manifest=null;portraits=null;background=null;body=null;layers.Clear();warning=e.Message;Debug.LogWarning("ILLUSTRATION_MANIFEST_WARNING "+warning); }
+        }
+        private void DrawEnemyLayer(PartIllustrationBinding part,Rect canvas,PlayableBattle battle,BattlePresentationEvent e)
+        {
+            int index=battle.State.Parts.ToList().FindIndex(p=>p.Id==part.partId);
+            if(index<0) return;
+            string path=BattleIllustrationManifest.PartResource(part,e?.PartHp[index]??battle.State.Parts[index].HitPoints);
+            if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(canvas,art,ScaleMode.ScaleToFit,true);
         }
         public static int DisplayActor(int available,BattlePresentationEvent e) => e!=null?e.Actor:available;
         private static void Fill(Rect rect,Color color) { var saved=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=saved; }
         public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames)
         {
             Fill(new Rect(0,330,1152,372),new Color(.08f,.14f,.19f));
+            if(background!=null) GUI.DrawTexture(new Rect(0,330,1152,372),background,ScaleMode.ScaleAndCrop);
             int actor=DisplayActor(battle.AvailableHero,e);
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
@@ -42,8 +68,14 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(30,646,445,35),"行動者 "+(actor+1)+" / "+names[actor]+(art!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);
             } else GUI.Label(new Rect(40,458,435,75),"巨神獣の行動\n対象の状態は下部カードへ",style);
             var enemy=new Rect(538,339,590,340);
-            Fill(enemy,new Color(.12f,.21f,.22f));
-            GUI.Label(new Rect(670,447,320,55),"巨神獣：部位配置の仮表示",small);
+            if(body==null) {
+                Fill(enemy,new Color(.12f,.21f,.22f));
+                GUI.Label(new Rect(670,447,320,55),"巨神獣：部位配置の仮表示",small);
+            } else {
+                foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
+                GUI.DrawTexture(enemy,body,ScaleMode.ScaleToFit,true);
+                foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
+            }
             if(canSelect && GUI.Button(new Rect(735,487,195,64),(target=="body"?"◆ ":"")+"本体")) target="body";
             else if(!canSelect) GUI.Label(new Rect(745,500,190,40),"本体",style);
             if(warning!=null) GUI.Label(new Rect(548,610,570,65),"素材警告："+warning,small);

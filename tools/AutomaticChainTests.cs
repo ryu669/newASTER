@@ -121,6 +121,13 @@ public static class AutomaticChainTests
         ExpectManifestFailure(manifest,"Out-of-range rectangle rejected");manifest.parts[0].x=.1f;
         manifest.placeholder=false;ExpectManifestFailure(manifest,"Final manifest cannot hide placeholders");manifest.placeholder=true;
         manifest.heroes[0].placeholder=false;ExpectManifestFailure(manifest,"Final heroine requires a resource path");manifest.heroes[0].placeholder=true;
+        var layer=manifest.parts[0];layer.resourcePath="enemy/horn";
+        Check(BattleIllustrationManifest.PartResource(layer,1)=="enemy/horn","Intact part keeps own image");
+        Check(BattleIllustrationManifest.PartResource(layer,0)=="enemy/horn","Missing destruction art does not silently disappear");
+        layer.destroyedResourcePath="enemy/horn-broken";
+        Check(BattleIllustrationManifest.PartResource(layer,0)=="enemy/horn-broken","Broken part selects explicit variant");
+        layer.hideWhenDestroyed=true;
+        Check(BattleIllustrationManifest.PartResource(layer,0)==null,"Explicit disappearance hides only the broken layer");
         manifest.parts[0]=null;ExpectManifestFailure(manifest,"Missing part binding rejected");
         var actions=new List<int>();
         var result=AutomaticChain.Resolve(0,5,0,new bool[5],i=>true,()=>false,max=>0,(i,bonus,step)=>actions.Add(i));
