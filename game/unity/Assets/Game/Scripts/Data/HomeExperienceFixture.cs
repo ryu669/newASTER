@@ -1,0 +1,38 @@
+using System;
+using System.Linq;
+using NewAster.Core;
+
+namespace NewAster.Data
+{
+    // Functional acceptance only. No text or numerical fixture is authored game content.
+    public static class HomeExperienceFixture
+    {
+        public static HomeExperienceCatalog Create(CombatDefinitionCatalog combat)
+        {
+            var collection=CollectionContractFixture.Create(combat);var heroes=combat.FormationIds;
+            var c=new HomeExperienceCatalog{
+                schemaVersion=1,contentVersion=HomeExperienceCatalog.FixtureVersion,status="fixture",
+                heroineIds=heroes.ToArray(),colossusIds=WorldCatalog.ColossusIds.ToArray(),poemIds=collection.poems.Select(p=>p.id).ToArray(),resourceIds=collection.resources.Where(r=>r.kind=="material").Select(r=>r.id).Concat(new[]{"resource.materials"}).ToArray(),
+                abilityIds=new[]{"ability.home-fixture.attack"},skillIds=new[]{"skill.home-fixture.preview"},
+                materials=collection.resources.Where(r=>r.kind=="material" && WorldCatalog.ColossusIds.Contains(r.ownerId)).Select(r=>new HomeMaterialDef{id=r.id,colossusId=r.ownerId}).ToArray(),
+                gardens=GardenCatalog.Requirements.Select((g,i)=>i<2?Garden(g.GardenId):new HomeGardenLayout{id=g.GardenId,schemaVersion=1,unmade=true}).ToArray(),
+                actorSlots=new[]{Slot("slot.left",.22f),Slot("slot.center",.5f),Slot("slot.right",.78f)},
+                texts=new[]{new HomeTextDef{id="text.fixture.line",text="【動作検証用】この文章は正式な人物の物語ではありません。"}},
+                scripts=new[]{new HomeAdvScript{schemaVersion=1,scriptVersion=1,id="scene.home-fixture",commands=new[]{new HomeAdvCommand{commandId="cmd.background",kind="background",assetId="asset.fixture.background",transition="instant"},new HomeAdvCommand{commandId="cmd.actor",kind="actor",heroineId=heroes[0],slotId="slot.left",outfitId="outfit.fixture",expressionId="expression.normal",poseId="pose.idle"},new HomeAdvCommand{commandId="cmd.line",kind="line",lineId="line.fixture",textId="text.fixture.line",speakerId=heroes[0]},new HomeAdvCommand{commandId="cmd.end",kind="end"}}}},
+                assets=new[]{Asset("asset.fixture.background","background"),Asset("asset.fixture.furniture","furniture"),Asset("asset.fixture.standing","standing"),Asset("asset.fixture.expression","expression"),Asset("asset.fixture.pose","pose"),Asset("asset.fixture.cg","cg"),Asset("asset.fixture.audio","audio")},
+                displays=heroes.Select(h=>new HomeDisplaySet{id="display.fixture."+h,heroineId=h,outfitId="outfit.fixture",standingAssetId="asset.fixture.standing",expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}},poses=new[]{new HomeDisplayVariant{id="pose.idle",assetId="asset.fixture.pose"}}}).ToArray(),
+                furniture=Enumerable.Range(0,3).Select(i=>new HomeFurnitureLayout{id="furniture.fixture."+i,assetId="asset.fixture.furniture",size01=new HomePoint{x=.16f,y=.2f},drawAnchor=new HomePoint{x=.5f,y=1},footprint=new HomeRect{x=.1f,y=.75f,width=.8f,height=.25f},orientationIds=new[]{"orientation.default"},costs=new[]{new HomeCost{resourceId=collection.owners[0].materialIds[0],amount=2+i}},slots=new[]{new HomeFurnitureSlot{id="slot.use",offset=new HomePoint{x=.5f,y=.8f},actionIds=new[]{"action.sit"}}}}).ToArray(),
+                weaponNodes=heroes.SelectMany(h=>new[]{new HomeWeaponNode{id=h+".weapon.root",heroineId=h,initial=true,abilityId="ability.home-fixture.attack",skillId="skill.home-fixture.preview"},new HomeWeaponNode{id=h+".weapon.alpha",heroineId=h,parentIds=new[]{h+".weapon.root"},costs=new[]{new HomeCost{resourceId=collection.owners[0].materialIds[0],amount=3}},abilityId="ability.home-fixture.attack",skillId="skill.home-fixture.preview"},new HomeWeaponNode{id=h+".weapon.beta",heroineId=h,parentIds=new[]{h+".weapon.root"},costs=new[]{new HomeCost{resourceId=collection.owners[0].materialIds[0],amount=4}},abilityId="ability.home-fixture.attack",skillId="skill.home-fixture.preview"},new HomeWeaponNode{id=h+".weapon.gamma",heroineId=h,parentIds=new[]{h+".weapon.alpha",h+".weapon.beta"},costs=new[]{new HomeCost{resourceId=collection.owners[0].materialIds[0],amount=5}},abilityId="ability.home-fixture.attack",skillId="skill.home-fixture.preview"}}).ToArray(),
+                events=heroes.SelectMany(h=>Enumerable.Range(0,5).Select(i=>new HomeEventDef{id=h+".event."+i,heroineId=h,kind=i<3?"affinity":"lover",establishesLover=i==2,sceneId="scene.home-fixture",unlockCondition=i==0?Always():new HomeCondition{kind="flag",domain="eventRead",id=h+".event."+(i-1)}})).ToArray(),
+                chapters=collection.chapters.Select(ch=>new HomeChapterDef{id=ch.id,ownerId=ch.ownerId,requiredPoemIds=ch.poemIds.ToArray(),sceneId="scene.home-fixture"}).ToArray()
+            };
+            c.subjects=c.colossusIds.Select((id,i)=>Subject("colossi",id,i)).Concat(heroes.Select((id,i)=>Subject("heroines",id,i))).Concat(c.gardens.Select((g,i)=>Subject("gardens",g.id,i))).Concat(c.colossusIds.Concat(heroes).Select((id,i)=>Subject("stories",id,i))).ToArray();
+            c.Validate();return c;
+        }
+        private static HomeCondition Always()=>new HomeCondition{kind="always"};
+        private static HomeBookSubject Subject(string bookmark,string id,int order)=>new HomeBookSubject{id="book."+bookmark+"."+id,bookmarkId=bookmark,subjectId=id,pageOrder=order,unlockCondition=Always()};
+        private static HomeAssetDef Asset(string id,string kind)=>new HomeAssetDef{id=id,kind=kind,placeholder=true};
+        private static HomeActorSlot Slot(string id,float x)=>new HomeActorSlot{id=id,anchor=new HomePoint{x=x,y=.8f},pivot=new HomePoint{x=.5f,y=1},size01=new HomePoint{x=.25f,y=.65f},drawOrder=id=="slot.left"?0:id=="slot.center"?1:2};
+        private static HomeGardenLayout Garden(string id)=>new HomeGardenLayout{id=id,schemaVersion=1,zones=new[]{new HomeGardenZone{id="zone.ground",order=0,bounds=new HomeRect{x=0,y=0,width=1,height=1}}}};
+    }
+}

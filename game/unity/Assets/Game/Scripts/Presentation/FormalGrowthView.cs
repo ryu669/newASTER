@@ -9,17 +9,33 @@ namespace NewAster.Presentation
 {
     public static class UnityFormalCampaignJson
     {
+        public static string Encode(FormalCampaignSave value)
+        {
+            if(value==null)throw new ArgumentNullException(nameof(value));string text=JsonUtility.ToJson(value,true);
+            if(value.home==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"home");
+            if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
+            if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
+            return text;
+        }
         public static FormalCampaignSave Decode(string text)
         {
             var value=new FormalCampaignSave{version=0,saveId=null};JsonUtility.FromJsonOverwrite(text,value);
             if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"world"))value.world=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"growth"))value.growth=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
             return value;
         }
         public static FormalCampaignHeader DecodeHeader(string text)
-        {var value=new FormalCampaignHeader();JsonUtility.FromJsonOverwrite(text,value);if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;return value;}
+        {
+            var value=new FormalCampaignHeader();JsonUtility.FromJsonOverwrite(text,value);
+            if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;return value;
+        }
     }
     public sealed partial class PrototypeBootstrap
     {
@@ -33,7 +49,7 @@ namespace NewAster.Presentation
             var splitGrowthStore=new FormalGrowthStore(Path.Combine(Application.persistentDataPath,"formal-growth-v1.json"),"newaster.formal-growth",
                 s=>JsonUtility.ToJson(s,true),text=>JsonUtility.FromJson<FormalGrowthSave>(text));
             formalDiagnostic=Environment.GetCommandLineArgs().Contains("-presentationCapture");
-            Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+            Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
             Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;
             formalCampaignStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"formal-campaign-v1.json"),encode,decode,UnityFormalCampaignJson.DecodeHeader);
             FormalCampaignSave unified=null;
@@ -53,15 +69,11 @@ namespace NewAster.Presentation
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
             unified.collection?.ValidateContent(CollectionContractFixture.Create(combatDefinitions));
-            formalCampaign=new FormalCampaignJournal(unified,s=>JsonUtility.ToJson(s,true),UnityFormalCampaignJson.Decode);
+            unified.home?.ValidateContent(HomeExperienceFixture.Create(combatDefinitions),unified);
+            formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
-            book=new BookNavigationState(new System.Collections.Generic.Dictionary<BookBookmark,System.Collections.Generic.IReadOnlyList<string>> {
-                [BookBookmark.Colossi]=NewAster.Data.WorldCatalog.ColossusIds,
-                [BookBookmark.Heroines]=combatDefinitions.FormationIds,
-                [BookBookmark.Gardens]=new[]{"garden.grassland-forest"},
-                [BookBookmark.Stories]=new[]{"story.green-return-dragon"}
-            });
+            book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
         }
         private bool SaveFormalGrowth(FormalGrowthSave next)

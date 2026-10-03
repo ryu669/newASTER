@@ -13,7 +13,7 @@ public static partial class PlayableBuild
         var catalog=CollectionContractFixture.Create(combat);
         var restored=JsonUtility.FromJson<CollectionCatalog>(JsonUtility.ToJson(catalog));restored.Validate();
         Check(restored.poems.Length==450 && restored.chapters.Length==60 && restored.weaponNodes.Length==15,"Unity collection definition counts and nested weapon JSON");
-        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+        Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
         Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;
         var preCollection=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",stones=321,heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()}};
         string oldJson="{\"version\":1,\"saveId\":\"newaster.formal-campaign\",\"revision\":0,\"world\":"+JsonUtility.ToJson(preCollection.world)+",\"growth\":"+JsonUtility.ToJson(preCollection.growth)+"}";
