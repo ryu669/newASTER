@@ -1,12 +1,12 @@
-param([string]$Player)
+param([string]$Player,[ValidateSet('Garden','Weapons','Events','Adv','Cg','Backlog')][string[]]$Cases=@('Garden','Weapons','Events','Adv','Cg','Backlog'),[ValidateSet('Old','New')][string[]]$SaveForms=@('Old','New'))
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
 if(-not $Player){$Player=Join-Path $repo 'game/Builds/playable/newASTER.exe'}
 $output=Join-Path $repo ('tmp/plan6-home-player-'+[DateTime]::UtcNow.ToString('yyyyMMddHHmmss')+'-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $output | Out-Null
-foreach($saveForm in @('Old','New')){
+foreach($saveForm in $SaveForms){
     $save=Join-Path $output ($saveForm+'-campaign.json')
-    foreach($display in @('Garden','Weapons','Events','Adv','Cg','Backlog')){
+    foreach($display in $Cases){
         foreach($resolution in @(@(1280,720),@(1920,1080))){
             $name=$saveForm+'-'+$display+'-'+$resolution[1];$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
             $flags=@('-screen-fullscreen','0','-screen-width',"$($resolution[0])",'-screen-height',"$($resolution[1])",'-presentationCapture',('"'+$png+'"'),'-capturePlan6Home','-plan6Save',('"'+$save+'"'),'-homeCase',$display,'-logFile',('"'+$log+'"'))

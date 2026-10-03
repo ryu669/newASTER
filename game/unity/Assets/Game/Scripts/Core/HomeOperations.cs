@@ -51,9 +51,9 @@ namespace NewAster.Core
                     var o=h.occupants.Single(o0=>o0.heroineId==op.Target);var p=h.furniturePlacements.Single(p0=>p0.instanceId==op.Owner && p0.gardenId==o.gardenId);var f=c.furniture.Single(f0=>f0.id==p.defId);var slot=f.slots.FirstOrDefault(sl=>!h.occupants.Any(other=>other.furnitureInstanceId==p.instanceId && other.slotId==sl.id));
                     // Placeholder SD has no action animation: show the reason, retain idle.
                     if(slot==null || c.assets.Single(a=>a.id==f.assetId).placeholder){o.furnitureInstanceId=null;o.actionId=null;o.slotId="slot.idle";break;}
-                    o.furnitureInstanceId=p.instanceId;o.slotId=slot.id;o.actionId=slot.actionIds[0];break;}
+                    o.furnitureInstanceId=p.instanceId;o.slotId=slot.id;o.actionId=slot.actionIds[0];o.x=p.x+(slot.offset.x-f.drawAnchor.x)*f.size01.x;o.y=p.y+(slot.offset.y-f.drawAnchor.y)*f.size01.y;break;}
                 case "talk": {
-                    Owned(s,op.Target);var rule=c.interactions.SingleOrDefault(t=>t.heroineId==op.Target);if(rule==null || rule.affectionGain<=0 || rule.costs==null)throw new ArgumentException("交流費用・増分が未定です。");Spend(s,rule.costs);var a=h.affections.SingleOrDefault(a0=>a0.heroineId==op.Target);if(a==null){a=new HomeAffection{heroineId=op.Target};h.affections=h.affections.Concat(new[]{a}).ToArray();}a.value=checked(a.value+rule.affectionGain);break;}
+                    Owned(s,op.Target);var rule=c.interactions.SingleOrDefault(t=>t.heroineId==op.Target);if(rule==null || rule.affectionGain<=0 || rule.costs==null)throw new ArgumentException("交流費用・増分が未定です。");Spend(s,rule.costs);var a=h.affections.SingleOrDefault(a0=>a0.heroineId==op.Target);if(a==null){a=new HomeAffection{heroineId=op.Target};h.affections=h.affections.Concat(new[]{a}).ToArray();}a.value=checked(a.value+rule.affectionGain);var occupant=h.occupants.SingleOrDefault(o=>o.heroineId==op.Target);if(occupant!=null){occupant.furnitureInstanceId=null;occupant.actionId=null;occupant.slotId="slot.idle";}break;}
                 default:throw new ArgumentException("Unsupported home operation.");
             }
             HomeConditions.Refresh(s,c);
