@@ -43,8 +43,6 @@ namespace NewAster.Presentation
         private float portraitYaw=-20, portraitZoom=1;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
-        private static readonly string[] PartNames = { "結晶角冠", "左翼の根", "右翼の装甲", "蔓の尾" };
-        private static readonly string[] Effects = { "大技ゲージ上昇を止める", "敵の攻撃を弱める", "本体の軽減を解除", "資源妨害を止める" };
         private static readonly string[] Furniture = { "根のベンチ", "苔のランタン", "花のテーブル" };
         private static readonly string[] Chapters = { "最初の種", "忘れられた約束", "帰る場所" };
         private static readonly string[] Stories = {
@@ -89,6 +87,7 @@ namespace NewAster.Presentation
             var args=Environment.GetCommandLineArgs();
             slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
+            if(capturePath!=null && args.Contains("-captureSixParts")) PrepareSixPartCapture(args);
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
                 Debug.LogWarning("Formal roster has no selected-allies healing skill; legacy capture option ignored.");
             }
@@ -112,6 +111,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureKinder")) PrepareKinderCapture(args);
             if(capturePath!=null && args.Contains("-captureVictory")) PrepareVictoryCapture(args);
             if(capturePath!=null && args.Contains("-captureCollection")) PrepareCollectionCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan5Acceptance")) PreparePlan5Acceptance(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
@@ -221,8 +221,8 @@ namespace NewAster.Presentation
                     }
                 }
                 if(e.PartBroken) {
-                    var indices=Enumerable.Range(0,4).Where(i=>e.TargetIds.Contains(encounter.State.Parts[i].Id) && e.PartHp[i]==0).ToArray();
-                    if(indices.Length>0) {breakNotice=string.Join(" / ",indices.Select(i=>PartNames[i]+"：部位破壊！ "+Effects[i]));breakNoticeRemaining=6f;}
+                    var indices=Enumerable.Range(0,encounter.State.Parts.Count).Where(i=>e.TargetIds.Contains(encounter.State.Parts[i].Id) && e.PartHp[i]==0).ToArray();
+                    if(indices.Length>0) {breakNotice=string.Join(" / ",indices.Select(i=>ColossusCombatCatalog.PartName(encounter.State.Parts[i],i)+"：部位破壊！ "+ColossusCombatCatalog.PartEffect(encounter.State.Parts[i])));breakNoticeRemaining=6f;}
                 }
             }
             if(!playback.Busy && shownEvent!=0) {
@@ -423,15 +423,36 @@ namespace NewAster.Presentation
             playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
             selectingAlly=false; selectedAllies.Clear(); breakNotice=""; breakNoticeRemaining=0;
         }
+        private void PrepareSixPartCapture(string[] args)
+        {
+            if(!formalDiagnostic)throw new InvalidOperationException("Six-part fixture requires diagnostic save isolation.");
+            var def=ColossusCombatCatalog.Get(activeColossus);
+            def.parts=def.parts.Where(p=>p.role!="armor").Concat(new[]{
+                new ColossusPartCombatDef{id="fixture.aux.left",role="auxiliary",breakEffect="",baseHp=312},
+                new ColossusPartCombatDef{id="fixture.aux.right",role="auxiliary",breakEffect="",baseHp=312}
+            }).Concat(def.parts.Where(p=>p.role=="armor")).ToArray();
+            encounter=new PlayableBattle(1,campaign.Playable,8,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:def);
+            StartCollection();selectedHero=encounter.AvailableHero;target=def.parts[4].id;
+            if(args.Contains("-captureSixPartsBroken")) {
+                encounter.Act(selectedHero,0,target);
+                var events=encounter.DrainPresentationEvents();
+                if(!events.Any(e=>e.TargetIds.Contains(target) && e.PartHp.Count==6))throw new InvalidOperationException("Six-part target event missing.");
+                encounter.State.BreakPart(target,int.MaxValue);
+                breakNotice=ColossusCombatCatalog.PartName(encounter.State.Parts[4],4)+"：部位破壊！ "+ColossusCombatCatalog.PartEffect(encounter.State.Parts[4]);breakNoticeRemaining=60;
+                target=def.parts[5].id;SelectNextHero();
+                Debug.Log("SIX_PART_TARGET_PASS fifth target hit, broken part disabled, sixth armor selected");
+            }
+        }
         private void DrawBattle()
         {
             var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
             var Jobs=new[]{"ファイター","バーサーカー","ディフェンダー","ブラスター","ガンナー"};
             var s=encounter.State;
+            var partNames=s.Parts.Select(ColossusCombatCatalog.PartName).ToArray();
             var visual=playback.Current;
             var stageStyle=new GUIStyle(text);stageStyle.normal.textColor=Color.white;
             var stageSmall=new GUIStyle(small);stageSmall.normal.textColor=new Color(.85f,.9f,.9f);
-            target=illustrationView.Draw(encounter,visual,illustrationElapsed,target,!playback.Busy && !paused && result==null && !selectingAlly && !retreat && !help,stageStyle,stageSmall,Names,PartNames);
+            target=illustrationView.Draw(encounter,visual,illustrationElapsed,target,!playback.Busy && !paused && result==null && !selectingAlly && !retreat && !help,stageStyle,stageSmall,Names,partNames);
             int bossHp=visual?.BossHp??s.BossHitPoints, gauge=visual?.BossGauge??s.BossGauge;
             Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
             Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
@@ -442,11 +463,12 @@ namespace NewAster.Presentation
             if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
             Label(1180,88,390,42,visual!=null && visual.FullChain?$"FULL CHAIN / 追加 {visual.ChainActionCount-visual.Chain}":$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
             if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体",!playback.Busy && !paused)) target="body";
-            for(int i=0;i<4;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*228,172,218,56,(target==s.Parts[i].Id?"◆ ":"")+PartNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),!s.Parts[i].IsBroken && !playback.Busy && !paused)) target=s.Parts[i].Id; }
+            float partWidth=912f/s.Parts.Count;
+            for(int i=0;i<s.Parts.Count;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*partWidth,172,partWidth-10,56,(target==s.Parts[i].Id?"◆ ":"")+partNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),partHp>0 && !playback.Busy && !paused)) target=s.Parts[i].Id; }
             var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
             int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
             string enemyStatus=visual?.EnemyStatuses[targetIndex+1]??encounter.EnemyStatusDescription(target);
-            Label(28,240,1050,45,(targetIndex<0?"対象：本体　右翼の装甲を壊すと本体ダメージが増加":"対象："+PartNames[targetIndex]+"　破壊効果："+Effects[targetIndex])+"\n"+enemyStatus,small,Color.white);
+            Label(28,240,1050,45,(targetIndex<0?"対象：本体　防御部位を壊すと本体ダメージが増加":"対象："+partNames[targetIndex]+"　破壊効果："+ColossusCombatCatalog.PartEffect(targetPart))+"\n"+enemyStatus,small,Color.white);
             var order=encounter.UpcomingOrder();
             for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
             if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
@@ -490,7 +512,7 @@ namespace NewAster.Presentation
             }
             status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
             Label(24,841,1090,55,status,small,Color.white);
-            if(lastSinging!=null)Label(30,80,1050,35,lastSinging,small,Color.white);
+            if(lastSinging!=null)Label(28,132,1050,24,lastSinging,small,Color.white);
             if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
             if(selectingAlly) DrawAllySelection();
         }

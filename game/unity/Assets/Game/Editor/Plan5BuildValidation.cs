@@ -2,6 +2,8 @@ using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
+using NewAster.Presentation;
+using System.IO;
 using UnityEngine;
 public static partial class PlayableBuild
 {
@@ -12,7 +14,21 @@ public static partial class PlayableBuild
         var restored=JsonUtility.FromJson<CollectionCatalog>(JsonUtility.ToJson(catalog));restored.Validate();
         Check(restored.poems.Length==450 && restored.chapters.Length==60 && restored.weaponNodes.Length==15,"Unity collection definition counts and nested weapon JSON");
         Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
-        Func<string,FormalCampaignSave> decode=s=>JsonUtility.FromJson<FormalCampaignSave>(s);
+        Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;
+        var preCollection=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",stones=321,heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()}};
+        string oldJson="{\"version\":1,\"saveId\":\"newaster.formal-campaign\",\"revision\":0,\"world\":"+JsonUtility.ToJson(preCollection.world)+",\"growth\":"+JsonUtility.ToJson(preCollection.growth)+"}";
+        Check(UnityFormalCampaignJson.DecodeHeader(oldJson).collection==null,"Unity omitted optional collection header remains absent");
+        var oldSave=decode(oldJson);oldSave.Validate();Check(oldSave.collection==null && oldSave.engagement==null && oldSave.growth.stones==321,"Unity old envelope retains absent additions and balances");
+        string explicitNull=oldJson.Substring(0,oldJson.Length-1)+",\"collection\":null,\"engagement\":null}";
+        var nullSave=decode(explicitNull);nullSave.Validate();Check(nullSave.collection==null && nullSave.engagement==null && UnityFormalCampaignJson.DecodeHeader(explicitNull).collection==null,"Unity explicit null additions remain optional");
+        string oldPath=Path.Combine(Application.temporaryCachePath,"plan5-old-"+Guid.NewGuid().ToString("N")+".json");
+        try {
+            File.WriteAllText(oldPath,oldJson);var store=new FormalCampaignStore(oldPath,encode,decode,UnityFormalCampaignJson.DecodeHeader);
+            Check(store.Load(out var loaded)==FormalLoadResult.Loaded && loaded.growth.stones==321,"Unity actual old formal file loads without backup rollback");
+            string future=oldJson.Substring(0,oldJson.Length-1)+",\"collection\":{\"version\":2,\"contentVersion\":\"future\",\"relics\":\"changed-shape\"}}";
+            File.WriteAllText(oldPath+".bak",oldJson);File.WriteAllText(oldPath,future);
+            Check(store.Load(out _) == FormalLoadResult.Blocked && store.InspectRecovery().Status==FormalRecoveryStatus.Unsupported,"Unity future collection shape blocks old backup");
+        }finally{if(File.Exists(oldPath))File.Delete(oldPath);if(File.Exists(oldPath+".bak"))File.Delete(oldPath+".bak");}
         foreach(var reason in new[]{BattleEndReason.Victory,BattleEndReason.Defeat,BattleEndReason.Retreat}){
             var initial=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()}};
             var journal=new FormalCampaignJournal(initial,encode,decode);string before=encode(journal.Snapshot);

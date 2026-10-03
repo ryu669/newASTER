@@ -53,7 +53,7 @@ namespace NewAster.Presentation
         private void PersistFormalVictory()
         {
             try{
-                Func<FormalCampaignSave,bool> writer=formalDiagnostic?(s=>!formalVictoryDiagnosticFailure):formalCampaignStore.Save;
+                Func<FormalCampaignSave,bool> writer=formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save;
                 var outcome=formalCampaign.CommitBattleEnd(formalBattleEndRequest,collectionCatalog,BuildVictoryWorld,writer);
                 if(outcome==GrowthCommitResult.SaveFailed){result="戦闘終了 ／ 保存待ち";return;}
                 var r=formalBattleEndRequest.Receipt;var saved=formalCampaign.Snapshot;

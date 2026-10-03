@@ -7,6 +7,20 @@ using UnityEngine;
 
 namespace NewAster.Presentation
 {
+    public static class UnityFormalCampaignJson
+    {
+        public static FormalCampaignSave Decode(string text)
+        {
+            var value=new FormalCampaignSave{version=0,saveId=null};JsonUtility.FromJsonOverwrite(text,value);
+            if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"world"))value.world=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"growth"))value.growth=null;
+            return value;
+        }
+        public static FormalCampaignHeader DecodeHeader(string text)
+        {var value=new FormalCampaignHeader();JsonUtility.FromJsonOverwrite(text,value);if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;return value;}
+    }
     public sealed partial class PrototypeBootstrap
     {
         private FormalProgression formalProgression;
@@ -20,8 +34,8 @@ namespace NewAster.Presentation
                 s=>JsonUtility.ToJson(s,true),text=>JsonUtility.FromJson<FormalGrowthSave>(text));
             formalDiagnostic=Environment.GetCommandLineArgs().Contains("-presentationCapture");
             Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
-            Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
-            formalCampaignStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"formal-campaign-v1.json"),encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));
+            Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;
+            formalCampaignStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"formal-campaign-v1.json"),encode,decode,UnityFormalCampaignJson.DecodeHeader);
             FormalCampaignSave unified=null;
             var unifiedLoad=formalDiagnostic?FormalLoadResult.Missing:formalCampaignStore.Load(out unified);
             if(unifiedLoad==FormalLoadResult.Blocked || unifiedLoad==FormalLoadResult.RecoveredBackup){BeginSaveRecovery();return;}
@@ -39,7 +53,7 @@ namespace NewAster.Presentation
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
             unified.collection?.ValidateContent(CollectionContractFixture.Create(combatDefinitions));
-            formalCampaign=new FormalCampaignJournal(unified,s=>JsonUtility.ToJson(s,true),t=>JsonUtility.FromJson<FormalCampaignSave>(t));
+            formalCampaign=new FormalCampaignJournal(unified,s=>JsonUtility.ToJson(s,true),UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
             book=new BookNavigationState(new System.Collections.Generic.Dictionary<BookBookmark,System.Collections.Generic.IReadOnlyList<string>> {
@@ -52,7 +66,7 @@ namespace NewAster.Presentation
         }
         private bool SaveFormalGrowth(FormalGrowthSave next)
         {
-            if(formalDiagnostic)return false;
+            if(formalDiagnostic)return acceptanceStore!=null && formalCampaign.CommitGrowth(next,SaveDiagnosticCampaign);
             return formalCampaign.CommitGrowth(next,formalCampaignStore.Save);
         }
         private void DrawFormalGrowth() => DrawGrowthExperience();
