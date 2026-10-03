@@ -195,6 +195,7 @@ namespace NewAster.Presentation
             if(stage!=null) stage.SetPortraitView(modelViewer);
             bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
             if(!bookPreviewVisible)viewCamera.cullingMask=0;
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
             if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
@@ -286,14 +287,17 @@ namespace NewAster.Presentation
             Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
-            bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && BookInputAllowed && !book.IsTransitioning;
+            bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
-                case BookBookmark.Gardens: DrawGarden(); break;
+                case BookBookmark.Gardens: DrawFormalGarden(); break;
                 case BookBookmark.Stories: DrawStories(); break;
             }
             GUI.enabled=previousBookEnabled;
+            DrawHomeConfirmation();
+            if(homeTrial){if(Btn(1050,85,510,48,"検証用の別セーブ ／ 通常へ戻る",BookInputAllowed))ExitHomeTrial();}
+            else if(Btn(1050,85,510,48,"計画6の機能検証用セーブを開く",BookInputAllowed))EnterHomeTrial();
         }
         private void DrawColossus()
         {
@@ -439,7 +443,7 @@ namespace NewAster.Presentation
         {
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection);
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             StartCollection();
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";

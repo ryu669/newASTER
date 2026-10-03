@@ -8,8 +8,9 @@ namespace NewAster.Core
     [Serializable] public sealed class HomePlacement
     { public string instanceId,defId,gardenId,zoneId,orientationId; public float x,y; }
     [Serializable] public sealed class HomeOccupant
-    { public string heroineId,gardenId,slotId,furnitureInstanceId,actionId; }
+    { public string heroineId,gardenId,slotId,furnitureInstanceId,actionId; public float x=.5f,y=.5f; }
     [Serializable] public sealed class HomeAffection { public string heroineId; public int value; }
+    [Serializable] public sealed class HomeWeaponEquipment { public string heroineId,nodeId; }
     [Serializable] public sealed class HomeReadLine { public string sceneId,lineId; public int scriptVersion; }
     [Serializable] public sealed class HomeReceipt { public string transactionId,kind,signature,resultHash; }
     [Serializable] public sealed class FormalHomeProgress
@@ -21,6 +22,7 @@ namespace NewAster.Core
         public string[] weaponNodeIds=Array.Empty<string>(),loverHeroineIds=Array.Empty<string>(),unlockedEventIds=Array.Empty<string>(),readEventIds=Array.Empty<string>(),claimedRewardIds=Array.Empty<string>();
         public HomeAffection[] affections=Array.Empty<HomeAffection>(); public HomeReadLine[] readLineKeys=Array.Empty<HomeReadLine>();
         public HomeReceipt[] receipts=Array.Empty<HomeReceipt>();
+        public HomeWeaponEquipment[] weaponEquipment=Array.Empty<HomeWeaponEquipment>();
         public static FormalHomeProgress Empty(string contentVersion)=>new FormalHomeProgress{version=1,contentVersion=contentVersion};
         private static void Set(string[] ids){if(ids==null || ids.Any(id=>!HomeExperienceCatalog.Id(id)) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid home ID set.");}
         private static void Index<T>(T[] entries,Func<T,string> key) where T:class
@@ -29,13 +31,14 @@ namespace NewAster.Core
         {
             if(version!=1 || contentVersion!=HomeExperienceCatalog.FixtureVersion)throw new ArgumentException("Unsupported home progress.");
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
+            Index(weaponEquipment,x=>x.heroineId);if(weaponEquipment.Any(e=>!weaponNodeIds.Contains(e.nodeId)))throw new ArgumentException("Weapon must be acquired.");
             foreach(var ids in new[]{weaponNodeIds,loverHeroineIds,unlockedEventIds,readEventIds,claimedRewardIds})Set(ids);
             if(readEventIds.Any(id=>!unlockedEventIds.Contains(id)) || affections.Any(a=>a.value<0) || furnitureInstances.Any(x=>!HomeExperienceCatalog.Id(x.defId)))throw new ArgumentException("Invalid home progression.");
             foreach(var p in furniturePlacements){
                 if(!HomeExperienceCatalog.Id(p.defId) || !HomeExperienceCatalog.Id(p.gardenId) || !HomeExperienceCatalog.Id(p.zoneId) || p.orientationId!="orientation.default" || float.IsNaN(p.x) || float.IsNaN(p.y) || p.x<0 || p.x>1 || p.y<0 || p.y>1 || !furnitureInstances.Any(i=>i.instanceId==p.instanceId && i.defId==p.defId))throw new ArgumentException("Invalid furniture placement.");
             }
             foreach(var o in occupants){
-                if(!HomeExperienceCatalog.Id(o.gardenId) || !HomeExperienceCatalog.Id(o.slotId))throw new ArgumentException("Invalid garden occupant.");
+                if(!HomeExperienceCatalog.Id(o.gardenId) || !HomeExperienceCatalog.Id(o.slotId) || float.IsNaN(o.x) || float.IsNaN(o.y) || float.IsInfinity(o.x) || float.IsInfinity(o.y) || o.x<0 || o.x>1 || o.y<0 || o.y>1)throw new ArgumentException("Invalid garden occupant.");
                 bool usesFurniture=!string.IsNullOrEmpty(o.furnitureInstanceId);
                 if(usesFurniture!=!string.IsNullOrEmpty(o.actionId) || usesFurniture && !furniturePlacements.Any(p=>p.instanceId==o.furnitureInstanceId && p.gardenId==o.gardenId))throw new ArgumentException("Invalid occupant furniture reference.");
             }
@@ -47,8 +50,10 @@ namespace NewAster.Core
         {
             Validate();catalog.Validate();if(catalog.contentVersion!=contentVersion)throw new ArgumentException("Home content version mismatch.");
             var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();
+            foreach(var e in weaponEquipment)if(!heroes.Contains(e.heroineId) || !catalog.weaponNodes.Any(n=>n.id==e.nodeId && n.heroineId==e.heroineId))throw new ArgumentException("Invalid weapon owner.");
             foreach(var instance in furnitureInstances)if(!catalog.furniture.Any(f=>f.id==instance.defId))throw new ArgumentException("Unknown furniture definition.");
             foreach(var p in furniturePlacements)if(!campaign.world.unlockedGardenIds.Contains(p.gardenId) || !catalog.gardens.Any(g=>g.id==p.gardenId && g.zones.Any(z=>z.id==p.zoneId)))throw new ArgumentException("Unknown or locked placement garden.");
+            foreach(var p in furniturePlacements)HomeGeometry.Validate(campaign,catalog,p);
             foreach(var o in occupants){if(!heroes.Contains(o.heroineId) || !catalog.heroineIds.Contains(o.heroineId) || !campaign.world.unlockedGardenIds.Contains(o.gardenId) || !catalog.gardens.Any(g=>g.id==o.gardenId && !g.unmade))throw new ArgumentException("Unknown or locked occupant.");if(!string.IsNullOrEmpty(o.furnitureInstanceId)){var instance=furnitureInstances.Single(i=>i.instanceId==o.furnitureInstanceId);if(!catalog.furniture.Single(f=>f.id==instance.defId).slots.Any(s=>s.id==o.slotId && s.actionIds.Contains(o.actionId)))throw new ArgumentException("Unknown furniture action.");}}
             foreach(var id in weaponNodeIds){var node=catalog.weaponNodes.SingleOrDefault(n=>n.id==id);if(node==null || !heroes.Contains(node.heroineId) || node.parentIds.Any(parent=>!weaponNodeIds.Contains(parent)))throw new ArgumentException("Unknown or orphan acquired weapon node.");}
             if(affections.Any(a=>!heroes.Contains(a.heroineId) || !catalog.heroineIds.Contains(a.heroineId)))throw new ArgumentException("Unknown affection owner.");

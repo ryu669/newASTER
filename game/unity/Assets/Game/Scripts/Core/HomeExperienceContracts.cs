@@ -13,7 +13,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HomeBookSubject
     { public string id,bookmarkId,subjectId; public int pageOrder; public HomeCondition unlockCondition; }
     [Serializable] public sealed class HomeWeaponNode
-    { public string id,heroineId,abilityId,skillId; public bool initial; public string[] parentIds=Array.Empty<string>(); public HomeCost[] costs=Array.Empty<HomeCost>(); }
+    { public string id,heroineId,abilityId,skillId; public bool initial; public int attackBonus; public float skillPower=1; public HomePoint treePosition; public string terminal; public string[] parentIds=Array.Empty<string>(); public HomeCost[] costs=Array.Empty<HomeCost>(); }
     [Serializable] public sealed class HomeGardenZone { public string id; public int order; public HomeRect bounds; }
     [Serializable] public sealed class HomeGardenLayout
     { public string id; public int schemaVersion; public bool unmade; public HomeGardenZone[] zones=Array.Empty<HomeGardenZone>(); }
@@ -84,6 +84,7 @@ namespace NewAster.Core
         {if(ids==null || ids.Any(x=>!Id(x)))Fail("INVALID_RANGE",pointer,null,"ID一覧が不正です。");if(ids.Distinct().Count()!=ids.Length)Fail("DUPLICATE_ID",pointer,null,"ID一覧が重複しています。");return new HashSet<string>(ids,StringComparer.Ordinal);}
         private void Ref(bool valid,string pointer,string id){if(!valid)Fail("MISSING_REFERENCE",pointer,id,"参照先がありません。");}
         private static bool Unit(float v)=>!float.IsNaN(v) && !float.IsInfinity(v) && v>=0 && v<=1;
+        private static bool Finite(float v)=>!float.IsNaN(v) && !float.IsInfinity(v);
         private static bool Point(HomePoint p)=>p!=null && Unit(p.x) && Unit(p.y);
         private static bool Size(HomePoint p)=>Point(p) && p.x>0 && p.y>0;
         private static bool Rect(HomeRect r)=>r!=null && Unit(r.x) && Unit(r.y) && Unit(r.width) && Unit(r.height) && r.width>0 && r.height>0 && (double)r.x+r.width<=1.00000001 && (double)r.y+r.height<=1.00000001;
@@ -115,6 +116,7 @@ namespace NewAster.Core
             foreach(var n in weaponNodes)foreach(var cost in n.costs)Ref(materialIndex.ContainsKey(cost.resourceId),"/weaponNodes/costs/resourceId",cost.resourceId);
             foreach(var group in weaponNodes.GroupBy(n=>n.heroineId))if(group.Count(n=>n.initial)!=1)Fail("INVALID_RANGE","/weaponNodes",group.Key,"人物ごとの初期ノードは一つです。");
             Cycle(ns.Keys,id=>ns[id].parentIds,"/weaponNodes");
+            foreach(var n in weaponNodes)if(n.attackBonus<0 || !Finite(n.skillPower) || n.skillPower<=0 || n.skillPower>10 || n.treePosition==null || !Finite(n.treePosition.x) || !Finite(n.treePosition.y) || n.treePosition.x<0 || n.treePosition.x>1 || n.treePosition.y<0 || n.treePosition.y>1)Fail("INVALID_RANGE","/weaponNodes/effects",n.id,"武器効果と樹の座標が不正です。");
             foreach(var g in gardens){if(g.schemaVersion!=1)Fail("UNKNOWN_SCHEMA","/gardens",g.id,"未対応の箱庭定義版です。");Index(g.zones,z=>z.id,"/gardens/zones");if(g.unmade){if(release || status=="release")Fail("PLACEHOLDER_IN_RELEASE","/gardens",g.id,"正式区画の配置定義が未制作です。");if(g.zones.Length!=0)Fail("INVALID_RANGE","/gardens/zones",g.id,"未制作区画に配置範囲を代用できません。");continue;}if(g.zones.Length==0 || g.zones.Any(z=>z.order<0 || !Rect(z.bounds)) || g.zones.Select(z=>z.order).Distinct().Count()!=g.zones.Length)Fail("INVALID_RANGE","/gardens/zones",g.id,"ゾーン境界と順序が不正です。");}
             foreach(var f in furniture){if(!Size(f.size01) || !Point(f.drawAnchor) || !Rect(f.footprint))Fail("INVALID_RANGE","/furniture",f.id,"家具の寸法・接地・占有範囲が不正です。");Set(f.orientationIds,"/furniture/orientationIds");if(f.orientationIds.Length!=1 || f.orientationIds[0]!="orientation.default")Fail("UNRESOLVED_RULE","/furniture/orientationIds",f.id,"初回は既定の向きだけに対応します。");Ref(ast.TryGetValue(f.assetId,out var a) && a.kind=="furniture","/furniture/assetId",f.assetId);Costs(f.costs,rs,"/furniture/costs",false);Index(f.slots,s=>s.id,"/furniture/slots");foreach(var s in f.slots){if(!Point(s.offset))Fail("INVALID_RANGE","/furniture/slots",s.id,"使用位置が不正です。");Set(s.actionIds,"/furniture/slots/actionIds");if(s.actionIds.Length==0)Fail("UNRESOLVED_RULE","/furniture/slots",s.id,"使用動作がありません。");}}
             foreach(var s in actorSlots)if(!Point(s.anchor) || !Point(s.pivot) || !Size(s.size01) || s.drawOrder<0)Fail("INVALID_RANGE","/actorSlots",s.id,"人物表示位置が不正です。");

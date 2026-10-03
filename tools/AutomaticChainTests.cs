@@ -25,6 +25,7 @@ public static class AutomaticChainTests
         Plan5WorldRelicTests.Run(Check,formal());
         Plan6HomeTests.Run(Check,formal());
         Plan6BookTests.Run(Check);
+        Plan6ExperienceTests.Run(Check,formal());
         Plan5TrialMeasurements.Run(Check,formal());
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);

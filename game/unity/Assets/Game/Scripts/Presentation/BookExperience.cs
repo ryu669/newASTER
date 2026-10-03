@@ -25,7 +25,7 @@ namespace NewAster.Presentation
             if(bookLevelOwner!=null)bookLevelByColossus[bookLevelOwner]=selectedLevel;
             bookLevelOwner=book.SubjectId;selectedLevel=bookLevelByColossus.TryGetValue(bookLevelOwner,out var level)?Math.Max(1,Math.Min(campaign.Playable.HighestLevel,level)):1;
         }
-        private bool BookInputAllowed=>formalCampaign==null || !formalCampaign.HasPending && !formalProgression.HasPending;
+        private bool BookInputAllowed=>formalCampaign==null || !formalCampaign.HasPending && !formalProgression.HasPending && homeRequest==null && !placing;
         private void RequestBookBookmark(BookBookmark bookmark){if(BookInputAllowed && book.RequestBookmark(bookmark)){bookTransitionElapsed=0;scroll=Vector2.zero;}}
         private void RequestBookTurn(int direction){if(BookInputAllowed && book.RequestTurn(direction)){bookTransitionElapsed=0;scroll=Vector2.zero;}}
         private void RequestBookFlip(){if(BookInputAllowed && book.RequestFlip())bookTransitionElapsed=0;}

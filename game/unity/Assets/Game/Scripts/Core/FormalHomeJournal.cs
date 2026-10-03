@@ -11,7 +11,7 @@ namespace NewAster.Core
         public string Signature=>"home|"+Kind+"|"+ContentVersion+"|"+OperationKey;
         public FormalHomeRequest(string id,string kind,long revision,string contentVersion,string operationKey)
         {
-            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || contentVersion!=HomeExperienceCatalog.FixtureVersion)throw new ArgumentException("Invalid home request.");
+            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit","weapon","craft","place","occupant","talk","sceneEnd"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || contentVersion!=HomeExperienceCatalog.FixtureVersion)throw new ArgumentException("Invalid home request.");
             Id=id;Kind=kind;Revision=revision;ContentVersion=contentVersion;OperationKey=operationKey;
         }
     }
@@ -23,6 +23,9 @@ namespace NewAster.Core
         // through dedicated typed requests; this boundary cannot mutate world or growth.
         public GrowthCommitResult CommitHome(FormalHomeRequest request,HomeExperienceCatalog catalog,
             Func<FormalHomeProgress,FormalHomeProgress> build,Func<FormalCampaignSave,bool> save)
+        {return CommitHomeCandidate(request,catalog,build==null?null:(Func<FormalCampaignSave,FormalCampaignSave>)(s=>{s.home=build(s.home);return s;}),save);}
+        private GrowthCommitResult CommitHomeCandidate(FormalHomeRequest request,HomeExperienceCatalog catalog,
+            Func<FormalCampaignSave,FormalCampaignSave> build,Func<FormalCampaignSave,bool> save)
         {
             if(request==null || save==null)throw new ArgumentException("Invalid home transaction.");
             string transactionId=request.Id,kind=request.Kind;long revision=request.Revision;
@@ -36,7 +39,7 @@ namespace NewAster.Core
                 catalog.Validate();if(catalog.contentVersion!=request.ContentVersion)throw new ArgumentException("Unsupported home content.");
                 if(current.growth.receipts.Any(r=>r.transactionId==transactionId) || current.world.claimedBattleIds.Contains(transactionId))throw new ArgumentException("Transaction identity already used.");
                 var next=Snapshot;next.home=next.home??FormalHomeProgress.Empty(catalog.contentVersion);
-                var before=next.home;next=Copy(next);writing=true;try{next.home=build(next.home);}finally{writing=false;}
+                var before=next.home;next=Copy(next);writing=true;try{next=build(next);}finally{writing=false;}
                 if(next.home==null)throw new ArgumentException("Missing home result.");
                 next=Copy(next);next.home.ValidateContent(catalog,next);
                 if(!before.receipts.Select(r=>r.transactionId+"|"+r.kind+"|"+r.signature+"|"+r.resultHash).SequenceEqual(next.home.receipts.Select(r=>r.transactionId+"|"+r.kind+"|"+r.signature+"|"+r.resultHash)) ||
