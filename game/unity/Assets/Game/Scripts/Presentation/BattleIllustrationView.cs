@@ -53,19 +53,25 @@ namespace NewAster.Presentation
             Fill(new Rect(0,330,1152,372),new Color(.08f,.14f,.19f));
             if(background!=null) GUI.DrawTexture(new Rect(0,330,1152,372),background,ScaleMode.ScaleAndCrop);
             int actor=DisplayActor(battle.AvailableHero,e);
+            // Asset inspection only: never changes the engine's available actor or command target.
+            bool inspectStanding=Environment.GetCommandLineArgs().Contains("-inspectPlan7Standing");
+            if(inspectStanding) actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
             var actorRect=new Rect(16+movement,339,470,335);
             if(actor>=0 && actor<5) {
                 int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Texture2D art=binding>=0?portraits[binding]:null;
-                if(art!=null) GUI.DrawTextureWithTexCoords(actorRect,art,new Rect(380f/1672,1-750f/941,912f/1672,650f/941));
+                if(art!=null) {
+                    if(manifest.heroes[binding].fullCanvas) GUI.DrawTexture(new Rect(actorRect.x,actorRect.y,actorRect.width,300),art,ScaleMode.ScaleToFit,true);
+                    else GUI.DrawTextureWithTexCoords(actorRect,art,new Rect(380f/1672,1-750f/941,912f/1672,650f/941));
+                }
                 else {
                     Fill(actorRect,new Color(.15f,.23f,.29f));
                     GUI.Label(new Rect(44,454,416,90),names[actor]+"\n人物イラスト未制作",style);
                 }
                 Fill(new Rect(16,639,470,48),new Color(.035f,.065f,.08f,.92f));
-                GUI.Label(new Rect(30,646,445,35),"行動者 "+(actor+1)+" / "+names[actor]+(art!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);
+                GUI.Label(new Rect(30,646,445,35),(inspectStanding?"素材確認 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(art!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);
             } else GUI.Label(new Rect(40,458,435,75),"巨神獣の行動\n対象の状態は下部カードへ",style);
             var enemy=new Rect(538,339,590,340);
             if(body==null) {

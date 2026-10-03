@@ -4,7 +4,8 @@
   "heroes": [
     {
       "heroineId": "heroine.slayer",
-      "resourcePath": "Illustrations/slayer-bust-preview",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
       "placeholder": true
     },
     {

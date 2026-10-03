@@ -3,7 +3,7 @@ using System.Linq;
 namespace NewAster.Data
 {
     [Serializable] public sealed class HeroIllustrationBinding
-    { public string heroineId; public string resourcePath; public bool placeholder; }
+    { public string heroineId; public string resourcePath; public bool placeholder; public bool fullCanvas; }
     [Serializable] public sealed class PartIllustrationBinding
     { public string partId; public float x,y,width,height; public string resourcePath, destroyedResourcePath; public bool hideWhenDestroyed; public int drawOrder; }
     [Serializable] public sealed class BattleIllustrationManifest
