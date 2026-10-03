@@ -51,6 +51,14 @@ namespace NewAster.Presentation
             else if(display=="Events"){book.ChangeBookmark(BookBookmark.Gardens);if(book.Face==BookFace.Overview)book.FlipPage();selectedResident=combatDefinitions.FormationIds[0];}
             else if(display=="Adv" || display=="Backlog" || display=="Cg"){book.ChangeBookmark(BookBookmark.Gardens);BeginAdv(HomeData().events[0].id,true);adv.Tick(.3);if(display=="Cg"){AdvanceAdv();AdvanceAdv();adv.Advance();}else{adv.Advance();if(display=="Backlog"){advBacklog=true;adv.Pause();}else adv.Pause();}}
             else{book.ChangeBookmark(BookBookmark.Gardens);selectedResident=combatDefinitions.FormationIds[0];}
+            int artArg=Array.IndexOf(args,"-inspectPlan7Expression");
+            if(artArg>=0){
+                if(display!="Adv" || artArg+1>=args.Length)throw new ArgumentException("Expression capture requires ADV and expression name");
+                var expression=args[artArg+1];if(!new[]{"normal","joy","puzzled","determined"}.Contains(expression))throw new ArgumentException("Unknown candidate expression");
+                adv=new AdvSession(HomeData(),"scene.art-candidate.slayer",HomeData().events[0].id,true,formalCampaign.Snapshot.home.readLineKeys);
+                for(int line=0;line<Array.IndexOf(new[]{"normal","joy","puzzled","determined"},expression);line++){adv.Advance();adv.Advance();}
+                adv.Advance();adv.Pause();Debug.Log("PLAN7_EXPRESSION_CAPTURE "+expression+" asset="+adv.Actors.Single().ExpressionAsset);
+            }
             Debug.Log("PLAN6_HOME_PLAYER_PASS checks="+acceptanceChecks+" resumed="+args.Contains("-plan6Resume")+" case="+display);
         }
     }

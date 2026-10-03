@@ -35,6 +35,18 @@ namespace NewAster.Data
             foreach(var e in c.events)e.sceneId="scene.fixture."+e.id;foreach(var ch in c.chapters)ch.sceneId="scene.fixture."+ch.id;
             foreach(var e in c.events.Where(e=>e.id.EndsWith(".event.0")))e.unlockCondition=new HomeCondition{kind="atLeast",domain="affection",ownerId=e.heroineId,value=1};
             c.scripts=c.scripts.Concat(c.events.Select(e=>new HomeAdvScript{id=e.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).Concat(c.chapters.Select(ch=>new HomeAdvScript{id=ch.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).ToArray();
+            // Candidate art is explicitly bound to Slayer only; the fixture remains non-release content.
+            var candidateAssets=new[]{new HomeAssetDef{id="art.candidate.slayer.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/slayer-standing-candidate-v1",fullFrame=true}}
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",fullFrame=true})).ToArray();
+            c.assets=c.assets.Concat(candidateAssets).ToArray();
+            var slayerDisplay=c.displays.Single(d=>d.heroineId=="heroine.slayer");slayerDisplay.standingAssetId=candidateAssets[0].id;
+            slayerDisplay.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeDisplayVariant{id="expression."+expression,assetId="art.candidate.slayer.expression."+expression+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.slayer",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="art.background",kind="background",assetId="asset.fixture.background",transition="instant"}}.Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(expression=>new[]{
+                    new HomeAdvCommand{commandId="art.actor."+expression,kind="actor",heroineId="heroine.slayer",slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+expression,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="art.line."+expression,kind="line",lineId="art.line."+expression,textId="text.fixture.line",speakerId="heroine.slayer"}}))
+                    .Concat(new[]{new HomeAdvCommand{commandId="art.end",kind="end"}}).ToArray()}}).ToArray();
             c.Validate();return c;
         }
         private static HomeCondition Always()=>new HomeCondition{kind="always"};

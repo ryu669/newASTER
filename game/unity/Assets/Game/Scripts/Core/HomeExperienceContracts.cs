@@ -31,7 +31,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HomeChapterDef
     { public string id,ownerId,sceneId; public string[] requiredPoemIds=Array.Empty<string>(); public HomeCost[] rewards=Array.Empty<HomeCost>(); }
     [Serializable] public sealed class HomeTextDef { public string id,text; }
-    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; }
+    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; public string resourcePath; public bool fullFrame; }
     [Serializable] public sealed class HomeDisplayVariant { public string id,assetId; }
     [Serializable] public sealed class HomeDisplaySet
     {

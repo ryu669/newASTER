@@ -55,5 +55,12 @@ public static class Plan6ExperienceTests
         string source=c.chapters[0].id;var chapter=c.chapters[0];var poems=journal.Snapshot;poems.world.poemIds=poems.world.poemIds.Union(chapter.requiredPoemIds).ToArray();HomeConditions.Refresh(poems,c);check(poems.world.unlockedStoryIds.Contains(source),"main chapter unlocked only from poems without event dependency");
         var domains=journal.Snapshot;check(HomeConditions.Evaluate(new HomeCondition{kind="flag",domain="heroineOwned",id=combat.FormationIds[0]},domains) && HomeConditions.Evaluate(new HomeCondition{kind="flag",domain="lover",id=combat.FormationIds[0]},domains) && HomeConditions.Evaluate(new HomeCondition{kind="atLeast",domain="terraformingXp",value=0},domains),"independent flag and quantity domains");
         var talkPack=HomeExperienceFixture.Create(combat);talkPack.interactions[0].costs=null;reject(()=>talkPack.Validate(),"unresolved interaction cost blocks adoption");
+        var artPreview=new AdvSession(c,"scene.art-candidate.slayer",ev.id,true,journal.Snapshot.home.readLineKeys);
+        foreach(var expression in new[]{"normal","joy","puzzled","determined"}){
+            var actor=artPreview.Actors.Single();var expected=c.displays.Single(d=>d.heroineId=="heroine.slayer").expressions.Single(x=>x.id=="expression."+expression).assetId;
+            check(actor.HeroineId=="heroine.slayer" && actor.ExpressionAsset==expected,"candidate expression resolves by same hero and expression ID: "+expression);
+            artPreview.Advance();artPreview.Advance();
+        }
+        check(artPreview.EndReached && !artPreview.NewlyRead.Any(),"candidate gallery replay creates no read progress");
     }
 }

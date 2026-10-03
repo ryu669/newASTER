@@ -8,6 +8,25 @@ namespace NewAster.Presentation
     {
         private AdvSession adv;private FormalHomeRequest advRequest;private HomeReadLine advPendingLine;private int advSavedLines;private bool advBacklog,advHelp;private Vector2 advScroll;private string advError;
         private AudioSource advBgm,advSe;private int advSoundRevision;private bool advAudioPaused;
+        private Texture2D AdvTexture(string assetId)
+        {
+            var asset=HomeData().assets.SingleOrDefault(a=>a.id==assetId);
+            return asset!=null && !string.IsNullOrWhiteSpace(asset.resourcePath)?Resources.Load<Texture2D>(asset.resourcePath):null;
+        }
+        private void DrawAdvActor(AdvActorState actor)
+        {
+            var slot=HomeData().actorSlots.Single(s=>s.id==actor.SlotId);
+            float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
+            var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,525-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
+            var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
+            if(expression!=null && standing!=null && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
+            bool fullExpression=expression!=null && expressionDef.fullFrame;
+            if(standing!=null)GUI.DrawTexture(rect,fullExpression?expression:standing,ScaleMode.ScaleToFit,true);
+            else GrowthFill(x,y,w,h,new Color(.22f,.38f,.42f));
+            if(standing!=null && expression!=null && !fullExpression && expression.width==standing.width && expression.height==standing.height)GUI.DrawTexture(rect,expression,ScaleMode.ScaleToFit,true);
+            if(standing==null){Label(x+15,y+70,w-30,110,combatDefinitions.Hero(actor.HeroineId).name,growthTextStyle);Label(x+15,y+200,w-30,110,actor.PosePlaceholder?"未対応pose\n同人物の仮表示":"静的検証用\n立ち絵",growthSmallStyle);}
+            else Label(x,y-35,w,35,combatDefinitions.Hero(actor.HeroineId).name+"：美術候補",growthSmallStyle);
+        }
         private void SyncAdvAudio()
         {
             if(adv==null)return;
@@ -53,7 +72,7 @@ namespace NewAster.Presentation
             Label(45,25,1490,50,"機能検証用ADV ／ 正式本文・美術は未制作"+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
             Label(45,85,1490,35,"背景："+adv.BackgroundId+" ／ 音：未制作・継続",growthSmallStyle);
             if(adv.CgId!=null){GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG動作確認用の仮表示",growthTitleStyle);}
-            if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder)){var slot=HomeData().actorSlots.Single(s=>s.id==actor.SlotId);float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;var rect=new Rect(x,y,w,h);var standing=Resources.Load<Texture2D>(actor.StandingAsset);if(standing!=null)GUI.DrawTexture(rect,standing,ScaleMode.ScaleToFit,true);else GrowthFill(x,y,w,h,new Color(.22f,.38f,.42f));Label(x+15,y+70,w-30,110,combatDefinitions.Hero(actor.HeroineId).name,growthTextStyle);Label(x+15,y+200,w-30,110,actor.PosePlaceholder?"未対応pose\n同人物の仮表示":"静的検証用\n立ち絵",growthSmallStyle);}
+            if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder))DrawAdvActor(actor);
             GrowthFrame(40,525,1520,245);Label(70,540,1440,45,adv.SpeakerId==null?"地の文":combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,600,1440,150,adv.VisibleText,growthTextStyle);
             if(adv.EndReached){Label(70,605,1440,80,adv.Completed?(adv.Replay?"回想が終了しました。進行は変更していません。":"読了の保存が完了しました。"):advError??"endに到達しました。読了は保存成功後に確定します。",growthTextStyle);
                 if(GrowthButton(55,790,730,58,adv.Completed?"本へ戻る":adv.Replay?"回想を終了する":"読了を保存する",true,true)){if(adv.Completed){CloseAdv();return;}else CompleteAdv();}}
