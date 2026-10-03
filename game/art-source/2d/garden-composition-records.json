@@ -1,0 +1,50 @@
+[
+  {
+    "action": "sit",
+    "furnitureId": "furniture.fixture.0",
+    "canvas": [
+      1504.0,
+      1583.0
+    ],
+    "actorOrigin": [
+      -145.464,
+      -328.548
+    ],
+    "actorScale": 1.2,
+    "furnitureFrontPolygons": 2,
+    "actorHandsPolygons": 0,
+    "sourceSha256": "E2E956946D77314927DB15D3E770DAC564E2E7A3157F8142B040EC620C88D20B"
+  },
+  {
+    "action": "work",
+    "furnitureId": "furniture.fixture.1",
+    "canvas": [
+      1254.0,
+      1268.0
+    ],
+    "actorOrigin": [
+      31.350000000000026,
+      -13.793999999999873
+    ],
+    "actorScale": 0.95,
+    "furnitureFrontPolygons": 1,
+    "actorHandsPolygons": 1,
+    "sourceSha256": "E2E956946D77314927DB15D3E770DAC564E2E7A3157F8142B040EC620C88D20B"
+  },
+  {
+    "action": "look",
+    "furnitureId": "furniture.fixture.2",
+    "canvas": [
+      1912.0,
+      1254.0
+    ],
+    "actorOrigin": [
+      783.75,
+      97.81199999999994
+    ],
+    "actorScale": 0.9,
+    "furnitureFrontPolygons": 0,
+    "actorHandsPolygons": 0,
+    "sourceSha256": "E2E956946D77314927DB15D3E770DAC564E2E7A3157F8142B040EC620C88D20B"
+  }
+]
