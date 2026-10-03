@@ -54,6 +54,8 @@ namespace NewAster.Presentation
         private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
         private void Awake()
         {
+            // Exit before opening any ordinary save store or initializing gameplay.
+            if (TrialBaselineResources.RunDiagnostic(Environment.GetCommandLineArgs())) { enabled = false; return; }
             campaign = new CampaignState(WorldCatalog.ColossusIds);
             book = new BookNavigationState(new Dictionary<BookBookmark, IReadOnlyList<string>> {
                 [BookBookmark.Colossi] = WorldCatalog.ColossusIds,

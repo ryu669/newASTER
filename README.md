@@ -12,7 +12,7 @@
 
 - [現行要求](docs/requirements/game.md)：最新の優先仕様。
 - [実装計画と完了条件](docs/production/implementation-plan.md)：番号ごとの検証済み範囲と残作業。
-- [計画8の詳細実装計画](docs/production/plan8-implementation-plan.md)：8-1〜8-10で通し試遊、試遊本文・詩対応、難度・経済、保存・操作・音・性能を確認。計画策定済み、実装・受入れは未着手。
+- [計画8の詳細実装計画](docs/production/plan8-implementation-plan.md)：8-1〜8-10で通し試遊、試遊本文・詩対応、難度・経済、保存・操作・音・性能を確認。8-1の基準定義・隔離診断を実装・検証済み、8-2以降は未着手。
 - [計画6の詳細実装計画](docs/production/plan6-implementation-plan.md)：万物の書・人物別装備の樹・2D箱庭・好感度・ADVを6-1〜6-10で接続。6-1〜6-10の機能ゲート完了。
 - [計画6の完了記録](docs/production/plan6-completion-gate.md)：Core 5,540・Unity 1,174・Windows通し保存／再起動、箱庭・ADVの720p／1080p検証と後続制作範囲。
 - [計画7の開発見本](docs/production/plan7-candidate-review.md)：人物1人・敵1体・背景・家具・CG・音を接続し、戦闘・箱庭は画像を大きく表示して必要時に操作を展開。2026-10-04の改訂条件で完了。

@@ -26,6 +26,7 @@ public static class AutomaticChainTests
         Plan6HomeTests.Run(Check,formal());
         Plan6BookTests.Run(Check);
         Plan6ExperienceTests.Run(Check,formal());
+        Plan8BaselineTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Trial/plan8-baseline.json")));
         Plan5TrialMeasurements.Run(Check,formal());
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);

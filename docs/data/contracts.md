@@ -1,6 +1,14 @@
 # 共通データ・JSON交換形式・イベント・検証
 
-更新：2026-10-02。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
+更新：2026-10-04。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
+
+## 計画8の基準定義と診断境界
+
+`TrialDefinition`（schemaVersion=1、status=development-trial）は`Resources/Trial/plan8-baseline.json`から読む。id、contentVersion、colossusId、heroineIds、敵Lv範囲と最強技境界、本文制作目標、definitions、measurementsを持つ。definitionsはrole／resourcePathの4参照、measurementsは時間・戦闘・収集・経済・庭・読書・導線・保存・音・性能の10分類。採用用途、対象と編成順、範囲、参照集合、欠落／重複を検査する。制作目標の件数は本文制作済みの証明ではなく、正式コンテンツの公開ゲートを解除しない。
+
+`TrialDiagnosticBoundary`は完全修飾のrepositoryRoot／normalSaveRootと安全なrunIdから、tmp内の診断ディレクトリ・SavePath・run固有identityを導出する。通常保存との重複、相対パス、トラバーサル、Windows予約名、既存run、junction／symlinkを拒否する。この操作はファイルを作成・読込せず、通常のFormalCampaignSave.Identityを変更しない。診断identityはrunの名前空間であり、通常payloadのsaveIdへ代入するものではない。実保存・codec接続は計画8の後続でこの境界と通常payloadの契約を適用して検証する。
+
+基準診断は通常の保存store初期化より前に終了する。`-validatePlan8Baseline`、`-plan8RepositoryRoot`、`-plan8RunId`を使用し、storeOpened=False／saveWritten=Falseと本文目標未制作を記録する。計測レコードの型は8-2で別途追加する。[実装記録](../production/plan8-progress.md)を参照。
 
 ## 共通データ型と座標
 

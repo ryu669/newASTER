@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-10-03T21:55:46.3268077Z",
+  "baselineSourceCommit": "d83cc95a590641e7a3f83b33c0c28fb6ad3d57d2",
+  "scope": "Source and local player identity snapshot, not a build/run/performance acceptance",
+  "sourceTrees": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core",
+      "baselineGitTree": "5eb7ae12fa2eb320679d854c48be307f78b128a5"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data",
+      "baselineGitTree": "9df8a2c82a2ca10da38a235f15b6871e464aeab0"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation",
+      "baselineGitTree": "d309b76af90bae9d661395b798b89406543cdf13"
+    },
+    {
+      "path": "game/unity/Assets/Game/Editor",
+      "baselineGitTree": "68ea7a3c8a97e7354df1ddda669040c7c6423c80"
+    }
+  ],
+  "sources": [
+    {
+      "path": "game/unity/Assets/Game/Resources/Combat/battle-formal.json",
+      "baselineGitBlob": "d7b37618ee754d4f52c2c9db05779f0a5ef5df48",
+      "workingGitBlob": "d7b37618ee754d4f52c2c9db05779f0a5ef5df48",
+      "workingSha256": "8DDFD74CED0286E7FA6166999C6BC6EEAA4B5DF83A4907ECE2ED0F8745997740"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/battle-formal.json",
+      "baselineGitBlob": "3be5057de149e855281585eda106153d9e02a1ee",
+      "workingGitBlob": "3be5057de149e855281585eda106153d9e02a1ee",
+      "workingSha256": "F334117A92590987DAD261638E2F318810B3103CE688DBCFC003A8F238A73D99"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Economy/kinder-trial.json",
+      "baselineGitBlob": "89c343cb1f21af55006587b01d187e1a39822e58",
+      "workingGitBlob": "89c343cb1f21af55006587b01d187e1a39822e58",
+      "workingSha256": "4B55D623EBD8E7A499A0C27918637DC05E06234E0BC867F1C070F923C2D66AB2"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Economy/engagement-trial.json",
+      "baselineGitBlob": "f331af9d3e29179e4576bab455e36044fe32b180",
+      "workingGitBlob": "f331af9d3e29179e4576bab455e36044fe32b180",
+      "workingSha256": "3BC292CB88F1E69DABB8E3AE27FC6EF0FD5C80747035F326802BB4BCC8DD621B"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/ColossusCombatCatalog.cs",
+      "baselineGitBlob": "351a3292ae7a4b476b2912231e7d92897aa3080c",
+      "workingGitBlob": "351a3292ae7a4b476b2912231e7d92897aa3080c",
+      "workingSha256": "D99F01EFF5C00EC95578DDBF86A01E02DB5F60A31D869D9980DFDC93461078FE"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/CollectionContractFixture.cs",
+      "baselineGitBlob": "8357870fd28a1e8d7032b976536f4b79fcf7c0a0",
+      "workingGitBlob": "8357870fd28a1e8d7032b976536f4b79fcf7c0a0",
+      "workingSha256": "1E79CE00A3AA064D5E2DB50E3281007051D5040851B354893A93E20EC8590BE5"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/HomeExperienceFixture.cs",
+      "baselineGitBlob": "d9ae3968308beeba4c16decfdadbf3afede94061",
+      "workingGitBlob": "d9ae3968308beeba4c16decfdadbf3afede94061",
+      "workingSha256": "A4E3057F13824D822F39E04EEA4E4A6A2CBF35429637060576641950A0B7D8A2"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/FormalCampaignJournal.cs",
+      "baselineGitBlob": "5d8808fcdb534784a5fa784734783f9241c65101",
+      "workingGitBlob": "5d8808fcdb534784a5fa784734783f9241c65101",
+      "workingSha256": "6A69737E7C0ECECFCCBA55759DA6B26CBAADEC8449D947F2CFD35FA67C530038"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/FormalProgression.cs",
+      "baselineGitBlob": "ee85ce396d4a9d6c967d9fb4d2d702dec84b36db",
+      "workingGitBlob": "ee85ce396d4a9d6c967d9fb4d2d702dec84b36db",
+      "workingSha256": "38EB81736901FA182D15B50F9B1FE13939D9FBEF20315A3D95ED8EFA1AC97CB1"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/FormalGrowthView.cs",
+      "baselineGitBlob": "699e3a82dc35bd2300d484b646dd0e719140f4dc",
+      "workingGitBlob": "699e3a82dc35bd2300d484b646dd0e719140f4dc",
+      "workingSha256": "6E3F2E97CFF69BE63B3E6FFC7DBDCD1E79FB9E66EDE71216DD8C37D9B1C7227C"
+    }
+  ],
+  "player": [
+    {
+      "path": "game/Builds/playable/newASTER.exe",
+      "present": true,
+      "sha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873"
+    },
+    {
+      "path": "game/Builds/playable/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "present": true,
+      "sha256": "BC67F6948C45417A9B5FFA91E33DEA976BE04D91EA9ED806150AF59BA504392C"
+    },
+    {
+      "path": "game/Builds/playable/newASTER_Data/resources.assets",
+      "present": true,
+      "sha256": "BE96CD708E1497BD2E6BD0A3412CAC14697B9203A5D90085A643AF565E6D9EE9"
+    }
+  ],
+  "trialDefinitionSha256": "492CD06CCA1158AC0F8878DBBF04F4066B0FB058D406AA13F82B9050F543D7B5",
+  "trialDefinition": {
+    "schemaVersion": 1,
+    "id": "trial.plan8.vertical-slice",
+    "contentVersion": "trial-plan8-baseline-2026-10-04",
+    "status": "development-trial",
+    "colossusId": "colossus.green-return-dragon",
+    "heroineIds": [
+      "heroine.slayer",
+      "heroine.iconoclast",
+      "heroine.undermine",
+      "heroine.echidna",
+      "heroine.excalipan"
+    ],
+    "minEnemyLevel": 1,
+    "maxEnemyLevel": 50,
+    "strongestSkillLevel": 45,
+    "requiredColossusChapters": 3,
+    "requiredHeroineFirstChapters": 5,
+    "requiredEvents": 1,
+    "definitions": [
+      {
+        "role": "combat",
+        "resourcePath": "Combat/battle-formal"
+      },
+      {
+        "role": "illustrations",
+        "resourcePath": "Illustrations/battle-formal"
+      },
+      {
+        "role": "kinder",
+        "resourcePath": "Economy/kinder-trial"
+      },
+      {
+        "role": "engagement",
+        "resourcePath": "Economy/engagement-trial"
+      }
+    ],
+    "measurements": [
+      "timing",
+      "battle",
+      "collection",
+      "economy",
+      "garden",
+      "reading",
+      "navigation",
+      "save",
+      "audio",
+      "performance"
+    ]
+  },
+  "baselineSourcesChanged": false,
+  "authoredContentReady": false
+}

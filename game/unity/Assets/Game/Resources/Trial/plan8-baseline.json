@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "trial.plan8.vertical-slice",
+  "contentVersion": "trial-plan8-baseline-2026-10-04",
+  "status": "development-trial",
+  "colossusId": "colossus.green-return-dragon",
+  "heroineIds": ["heroine.slayer", "heroine.iconoclast", "heroine.undermine", "heroine.echidna", "heroine.excalipan"],
+  "minEnemyLevel": 1,
+  "maxEnemyLevel": 50,
+  "strongestSkillLevel": 45,
+  "requiredColossusChapters": 3,
+  "requiredHeroineFirstChapters": 5,
+  "requiredEvents": 1,
+  "definitions": [
+    {"role": "combat", "resourcePath": "Combat/battle-formal"},
+    {"role": "illustrations", "resourcePath": "Illustrations/battle-formal"},
+    {"role": "kinder", "resourcePath": "Economy/kinder-trial"},
+    {"role": "engagement", "resourcePath": "Economy/engagement-trial"}
+  ],
+  "measurements": ["timing", "battle", "collection", "economy", "garden", "reading", "navigation", "save", "audio", "performance"]
+}
