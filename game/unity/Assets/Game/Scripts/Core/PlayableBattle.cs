@@ -355,8 +355,11 @@ namespace NewAster.Core
                 if(State.BossStatus.Active("stun")) {TickEnemyStatuses();Log+="\n巨神獣はスタンで行動不能。";RecordPresentation(BattlePresentationKind.Enemy,-1,"body","スタン：巨神獣行動を一回阻止",standalone:true);return;}
             }
             bool major=NextAttackIsMajor;string action=NextEnemyAction;lastEnemyWasMajor=major;
+            long actualDamage=0;var damagedHeroes=new List<string>();
             foreach(int i in EnemyTargetSelector.Resolve(State,!IsFormal || major,EnemyActionCount%5)) {
+                int beforeHp=State.Heroes[i].HitPoints;
                 int damage=PreviewEnemyDamage(i);State.Heroes[i].TakeDamage(damage);
+                int lost=beforeHp-State.Heroes[i].HitPoints;if(lost>0){actualDamage+=lost;damagedHeroes.Add(State.Heroes[i].Id);}
                 if(IsFormal && damage>0 && State.Heroes[i].IsAlive) State.Heroes[i].GainResource(jobProfiles[i].gainOnHit);
             }
             State.AdvanceBossGauge(RolePart("gauge",0).IsBroken || RolePart("gauge",0).Status.Active("stun") ? 0 : 1);
@@ -364,7 +367,7 @@ namespace NewAster.Core
             if (!RolePart("drain",3).IsBroken && !RolePart("drain",3).Status.Active("stun")) foreach (var hero in State.Heroes.Where(h=>h.IsAlive)) hero.SpendResource(Math.Min(1, hero.JobResource));
             if(IsFormal) TickEnemyStatuses();
             Log += "\n巨神獣の" + action + "！";
-            RecordPresentation(BattlePresentationKind.Enemy,-1,"body","巨神獣の"+action+"！",major:major);
+            RecordPresentation(BattlePresentationKind.Enemy,-1,"body","巨神獣の"+action+"！",major:major,damage:(int)Math.Min(int.MaxValue,actualDamage),targetIds:damagedHeroes);
             CompletedEnemyAction?.Invoke();
             if (!State.Heroes.Any(h => h.IsAlive)) { Log += " 育成して再挑戦できます。"; return; }
         }

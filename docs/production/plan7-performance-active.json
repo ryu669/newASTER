@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-03",
+  "cpu": "13th Gen Intel Core i7-13700F",
+  "gpu": "NVIDIA GeForce RTX 4070",
+  "environment": "Each launch passed low-load desktop preflight. Idle apps remained open. No continuous load isolation claim. Wallpaper paused through official CLI and play restored in finally.",
+  "scope": "Active combat: 1800 frames after 8-second warmup, level30 heroes versus level1 boss, basic attacks after20passes. Includes actual major and part-break playback but no completed rendered battle in interval. Work and CG: 600 static frames. No cold-load, complete-battle, all-effects peak or low-spec acceptance; memory budget TBD.",
+  "privateRecords": "App/process details stay in tmp only.",
+  "runs": [
+    {
+      "case": "activecombat",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "assemblySha256": "E15B1FA676B2747D34E89A90CAC7F1CCDEDB3EBF938FDD68B1947B287BB7B8E9",
+      "buildLog": "tmp/plan7-audio-v2-pcm-build.log",
+      "source": "tmp/plan7-sample-20261003124955/activecombat-1080.log",
+      "memorySource": "tmp/plan7-sample-20261003124955/activecombat-1080-memory.json",
+      "preflightTimeUtc": "2026-10-03T12:50:03.2217744Z",
+      "systemCpuSamplesPercent": [
+        7,
+        11,
+        14
+      ],
+      "availableMemoryMiB": 17629,
+      "metrics": {
+        "frames": 1800.0,
+        "meanMs": 16.738,
+        "p95Ms": 16.664,
+        "p99Ms": 16.712,
+        "maxMs": 33.393,
+        "under16_7ms": 0.9894,
+        "textureRgbaEstimateBytes": 150980480.0,
+        "resourceValidationSeconds": 0.041,
+        "vsync": 1.0,
+        "targetFrameRate": -1.0,
+        "startupSeconds": 38.21
+      },
+      "playback": {
+        "commands": 25,
+        "busyFrames": 1781,
+        "majorFrames": 64,
+        "breakFrames": 96,
+        "completedRuns": 0
+      },
+      "peakWorkingBytes": 321863680,
+      "observedWorkingPeakBytes": 321818624,
+      "processElapsedMs": 40840,
+      "sampleIntervalMs": 250
+    },
+    {
+      "case": "work",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "assemblySha256": "E15B1FA676B2747D34E89A90CAC7F1CCDEDB3EBF938FDD68B1947B287BB7B8E9",
+      "buildLog": "tmp/plan7-audio-v2-pcm-build.log",
+      "source": "tmp/plan7-sample-20261003125140/work-1080.log",
+      "memorySource": "tmp/plan7-sample-20261003125140/work-1080-memory.json",
+      "preflightTimeUtc": "2026-10-03T12:51:46.8461772Z",
+      "systemCpuSamplesPercent": [
+        26,
+        2,
+        1
+      ],
+      "availableMemoryMiB": 17520,
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.664,
+        "p95Ms": 16.664,
+        "p99Ms": 16.664,
+        "maxMs": 16.664,
+        "under16_7ms": 1.0,
+        "textureRgbaEstimateBytes": 150980480.0,
+        "resourceValidationSeconds": 0.04,
+        "vsync": 1.0,
+        "targetFrameRate": -1.0,
+        "startupSeconds": 17.989
+      },
+      "playback": {},
+      "peakWorkingBytes": 354193408,
+      "observedWorkingPeakBytes": 354148352,
+      "processElapsedMs": 20131,
+      "sampleIntervalMs": 250
+    },
+    {
+      "case": "cg",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "assemblySha256": "E15B1FA676B2747D34E89A90CAC7F1CCDEDB3EBF938FDD68B1947B287BB7B8E9",
+      "buildLog": "tmp/plan7-audio-v2-pcm-build.log",
+      "source": "tmp/plan7-sample-20261003125140/cg-1080.log",
+      "memorySource": "tmp/plan7-sample-20261003125140/cg-1080-memory.json",
+      "preflightTimeUtc": "2026-10-03T12:52:12.7185439Z",
+      "systemCpuSamplesPercent": [
+        7,
+        7,
+        7
+      ],
+      "availableMemoryMiB": 17553,
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.983,
+        "p95Ms": 16.697,
+        "p99Ms": 33.362,
+        "maxMs": 33.393,
+        "under16_7ms": 0.975,
+        "textureRgbaEstimateBytes": 150980480.0,
+        "resourceValidationSeconds": 0.04,
+        "vsync": 1.0,
+        "targetFrameRate": -1.0,
+        "startupSeconds": 18.182
+      },
+      "playback": {},
+      "peakWorkingBytes": 338681856,
+      "observedWorkingPeakBytes": 338640896,
+      "processElapsedMs": 20289,
+      "sampleIntervalMs": 250
+    },
+    {
+      "case": "activecombat",
+      "resolution": [
+        1280,
+        720
+      ],
+      "assemblySha256": "651A66B148BB5E1A5D544EA8206B4553EC77DE69657BDE434ACCD3E64B7D891C",
+      "buildLog": "tmp/plan7-battle-notice-build.log",
+      "source": "tmp/plan7-sample-20261003125502/activecombat-720.log",
+      "memorySource": "tmp/plan7-sample-20261003125502/activecombat-720-memory.json",
+      "preflightTimeUtc": "2026-10-03T12:55:08.2731385Z",
+      "systemCpuSamplesPercent": [
+        2,
+        0,
+        3
+      ],
+      "availableMemoryMiB": 17149,
+      "metrics": {
+        "frames": 1800.0,
+        "meanMs": 16.754,
+        "p95Ms": 16.664,
+        "p99Ms": 16.764,
+        "maxMs": 33.377,
+        "under16_7ms": 0.9867,
+        "textureRgbaEstimateBytes": 150980480.0,
+        "resourceValidationSeconds": 0.043,
+        "vsync": 1.0,
+        "targetFrameRate": -1.0,
+        "startupSeconds": 38.168
+      },
+      "playback": {
+        "commands": 25,
+        "busyFrames": 1781,
+        "majorFrames": 67,
+        "breakFrames": 98,
+        "completedRuns": 0
+      },
+      "peakWorkingBytes": 321265664,
+      "observedWorkingPeakBytes": 321224704,
+      "processElapsedMs": 40388,
+      "sampleIntervalMs": 250
+    },
+    {
+      "case": "activecombat",
+      "resolution": [
+        1920,
+        1080
+      ],
+      "assemblySha256": "651A66B148BB5E1A5D544EA8206B4553EC77DE69657BDE434ACCD3E64B7D891C",
+      "buildLog": "tmp/plan7-battle-notice-build.log",
+      "source": "tmp/plan7-sample-20261003125502/activecombat-1080.log",
+      "memorySource": "tmp/plan7-sample-20261003125502/activecombat-1080-memory.json",
+      "preflightTimeUtc": "2026-10-03T12:56:15.4469468Z",
+      "systemCpuSamplesPercent": [
+        1,
+        4,
+        2
+      ],
+      "availableMemoryMiB": 16918,
+      "metrics": {
+        "frames": 1800.0,
+        "meanMs": 16.856,
+        "p95Ms": 16.697,
+        "p99Ms": 33.359,
+        "maxMs": 33.407,
+        "under16_7ms": 0.9789,
+        "textureRgbaEstimateBytes": 150980480.0,
+        "resourceValidationSeconds": 0.043,
+        "vsync": 1.0,
+        "targetFrameRate": -1.0,
+        "startupSeconds": 38.332
+      },
+      "playback": {
+        "commands": 25,
+        "busyFrames": 1781,
+        "majorFrames": 67,
+        "breakFrames": 98,
+        "completedRuns": 0
+      },
+      "peakWorkingBytes": 322809856,
+      "observedWorkingPeakBytes": 322768896,
+      "processElapsedMs": 40468,
+      "sampleIntervalMs": 250
+    }
+  ]
+}

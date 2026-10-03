@@ -24,7 +24,7 @@ namespace NewAster.Presentation
         {
             if(Application.isFocused && (Input.anyKey || (Input.mousePosition-lastEngagementMouse).sqrMagnitude>1 || Input.mouseScrollDelta.sqrMagnitude>0))lastEngagementInput=Time.unscaledTime;
             lastEngagementMouse=Input.mousePosition;
-            if(formalDiagnostic || adv!=null || collectionOpen || recoveryActive || combatDefinitionError!=null || formalCampaign==null || title || paused || help || retreat || modelViewer || result!=null || engagementOpen || !Application.isFocused || formalCampaign.HasPending || formalProgression.HasPending)return;
+            if(formalDiagnostic || artSample || adv!=null || collectionOpen || recoveryActive || combatDefinitionError!=null || formalCampaign==null || title || paused || help || retreat || modelViewer || result!=null || engagementOpen || !Application.isFocused || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(Time.unscaledTime-lastEngagementInput>60 && !(encounter!=null && playback.Busy))return;
             float elapsed=Time.unscaledDeltaTime;if(elapsed>0 && elapsed<=2)unsavedActiveSeconds+=elapsed;
             if(unsavedActiveSeconds>=60 && Time.unscaledTime>=nextClockAttempt){FlushActiveTime();nextClockAttempt=Time.unscaledTime+60;}

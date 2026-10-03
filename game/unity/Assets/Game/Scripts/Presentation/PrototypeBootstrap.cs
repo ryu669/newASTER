@@ -28,7 +28,7 @@ namespace NewAster.Presentation
         private Texture2D paper, dark, teal;
         private Camera viewCamera;
         private string capturePath;
-        private int captureFrame;
+        private int captureFrame,capturedAtFrame=-1;
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
@@ -61,7 +61,11 @@ namespace NewAster.Presentation
                 [BookBookmark.Gardens] = new[] { "garden.grassland-forest" },
                 [BookBookmark.Stories] = new[] { "story.green-return-dragon" }
             });
-            font = Font.CreateDynamicFontFromOSFont(new[] { "Yu Gothic", "Meiryo", "Arial" }, 20);
+            font = Resources.Load<Font>("Fonts/NotoSansCJKjp-Regular");
+            if (font == null) throw new InvalidOperationException("Bundled Japanese font is missing: Fonts/NotoSansCJKjp-Regular");
+            foreach (char glyph in "庭戦闘部位破壊設定喜困決意帰還図鑑0123456789！？")
+                if (!font.HasCharacter(glyph)) throw new InvalidOperationException("Bundled font is missing glyph: " + glyph);
+            Debug.Log("PLAN7_BUNDLED_FONT_PASS NotoSansCJKjp-Regular");
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
             illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
@@ -116,10 +120,15 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
+            if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
+            if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
+            if(capturePath!=null && args.Contains("-validatePlan7Playback"))PreparePlan7Playback();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
             }
+            int battleMenuIndex=Array.IndexOf(args,"-captureBattleMenu");
+            if(capturePath!=null && battleMenuIndex>=0 && battleMenuIndex+1<args.Length)PrepareBattleMenuCapture(args[battleMenuIndex+1]);
             if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
                 while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents();
@@ -156,10 +165,13 @@ namespace NewAster.Presentation
             UpdateBookTransition();
             UpdateAdv();
             UpdateEngagement();
-            if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+            if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
+            if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
+                if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
+                else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(placing){placing=false;selectedFurniture=null;}
+                else if(CloseGardenMenuLayer()){}
                 else if(recoveryActive)recoveryConfirm=false;
                 else if(collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
@@ -171,6 +183,7 @@ namespace NewAster.Presentation
                 else if(help) help=false;
                 else if(kinderGarden) kinderGarden=false;
                 else if(retreat) { retreat=false; paused=false; }
+                else if(CloseBattleMenuLayer()){}
                 else if(encounter!=null && result==null) paused=!paused;
                 else if(result==null) help=true;
             }
@@ -196,6 +209,8 @@ namespace NewAster.Presentation
             }
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
+            UpdatePlan7ActiveCombat();
+            UpdateArtAudio();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
             bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
@@ -207,18 +222,21 @@ namespace NewAster.Presentation
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
-                if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
-                if(captureFrame==150) Application.Quit();
+                int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
+                bool ready=plan7FullCombat?plan7FullCombatComplete:captureFrame==captureAt;
+                if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
+                if(capturedAtFrame>=0 && captureFrame==capturedAtFrame+60) Application.Quit();
             }
         }
         private void UpdatePlayback()
         {
             if(encounter==null) { playback.Reset(); shownEvent=0; return; }
             bool stopped=paused || retreat || help;
-            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime;
+            float playbackRate=plan7FullCombat?1:(ArtSampleSettings.Shortened?2:1);
+            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime*playbackRate;
             if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
             // Show a newly queued event at least once before its duration starts ticking.
-            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime,stopped);
+            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime*playbackRate,stopped);
             var e=playback.Current;
             if(e!=null && e.Sequence!=shownEvent) {
                 illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
@@ -242,13 +260,16 @@ namespace NewAster.Presentation
         }
         private void QueueBattleEvents()
         {
+            ResetBattleMenu();
             playback.Enqueue(encounter.DrainPresentationEvents());
             if(!playback.Busy) { SelectNextHero(); FinishCheck(); }
         }
         private void OnGUI()
         {
+            if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(artSample){DrawArtSample();return;}
             if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
@@ -261,6 +282,7 @@ namespace NewAster.Presentation
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
                 return;
             }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens && book.HasSubject){DrawGardenHome();return;}
             Panel(0,0,1024,900,paper); Panel(0,0,1600,80,dark);
             Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
             if(title) { DrawTitle(); return; }
@@ -281,6 +303,7 @@ namespace NewAster.Presentation
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
             if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
             Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
+            if(Btn(1050,770,510,65,"計画7 ／ 美術見本を見る",BookInputAllowed))OpenArtSample();
         }
         private void DrawBook()
         {
@@ -457,6 +480,7 @@ namespace NewAster.Presentation
             selectedHero=encounter.AvailableHero;
             playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
             selectingAlly=false; selectedAllies.Clear(); breakNotice=""; breakNoticeRemaining=0;
+            ResetBattleMenu();
         }
         private void PrepareSixPartCapture(string[] args)
         {
@@ -478,81 +502,9 @@ namespace NewAster.Presentation
                 Debug.Log("SIX_PART_TARGET_PASS fifth target hit, broken part disabled, sixth armor selected");
             }
         }
-        private void DrawBattle()
-        {
-            var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
-            var Jobs=new[]{"ファイター","バーサーカー","ディフェンダー","ブラスター","ガンナー"};
-            var s=encounter.State;
-            var partNames=s.Parts.Select(ColossusCombatCatalog.PartName).ToArray();
-            var visual=playback.Current;
-            var stageStyle=new GUIStyle(text);stageStyle.normal.textColor=Color.white;
-            var stageSmall=new GUIStyle(small);stageSmall.normal.textColor=new Color(.85f,.9f,.9f);
-            target=illustrationView.Draw(encounter,visual,illustrationElapsed,target,!playback.Busy && !paused && result==null && !selectingAlly && !retreat && !help,stageStyle,stageSmall,Names,partNames);
-            int bossHp=visual?.BossHp??s.BossHitPoints, gauge=visual?.BossGauge??s.BossGauge;
-            Panel(0,0,1600,160,dark); Panel(1152,160,448,740,dark); Panel(0,702,1152,198,dark);
-            Label(28,18,920,48,$"{WorldCatalog.Colossi.First(c=>c.Id==activeColossus).DisplayName}  Lv.{s.SelectedLevel}",heading,Color.white);
-            Label(28,72,850,30,$"HP {bossHp}/{s.BossMaxHitPoints}　大技 {gauge}/{s.BossGaugeMax}　TIME {visual?.Clock??encounter.Clock}",small,Color.white);
-            Meter(28,112,650,10,bossHp,s.BossMaxHitPoints,new Color(.65f,.18f,.3f));
-            Meter(698,112,370,10,gauge,s.BossGaugeMax,new Color(.9f,.5f,.15f));
-            if(Btn(1180,22,180,45,paused?"再開":"一時停止")) paused=!paused;
-            if(Btn(1380,22,180,45,"撤退")) { retreat=true; paused=true; }
-            Label(1180,88,390,42,visual!=null && visual.FullChain?$"FULL CHAIN / 追加 {visual.ChainActionCount-visual.Chain}":$"直前 {visual?.Chain??encounter.LastActionChain} CHAIN",heading,new Color(1f,.82f,.4f));
-            if(Btn(24,172,190,56,(target=="body"?"◆ ":"")+"本体",!playback.Busy && !paused)) target="body";
-            float partWidth=912f/s.Parts.Count;
-            for(int i=0;i<s.Parts.Count;i++) { int partHp=visual?.PartHp[i]??s.Parts[i].HitPoints; if(Btn(224+i*partWidth,172,partWidth-10,56,(target==s.Parts[i].Id?"◆ ":"")+partNames[i]+"\n"+(partHp==0?"破壊済":"HP "+partHp),partHp>0 && !playback.Busy && !paused)) target=s.Parts[i].Id; }
-            var targetPart=s.Parts.FirstOrDefault(p=>p.Id==target);
-            int targetIndex=targetPart==null?-1:s.Parts.ToList().IndexOf(targetPart);
-            string enemyStatus=visual?.EnemyStatuses[targetIndex+1]??encounter.EnemyStatusDescription(target);
-            Label(28,240,1050,45,(targetIndex<0?"対象：本体　防御部位を壊すと本体ダメージが増加":"対象："+partNames[targetIndex]+"　破壊効果："+ColossusCombatCatalog.PartEffect(targetPart))+"\n"+enemyStatus,small,Color.white);
-            var order=encounter.UpcomingOrder();
-            for(int i=0;i<order.Count;i++) { var e=order[i]; Label(28+i*180,286,177,47,(i==0?"▶ ":"")+(e.Actor<0?"巨神獣":Names[e.Actor])+(e.IsCast?" 発動":"")+"\nT "+e.At,small,e.IsCast?new Color(.8f,.65f,1f):Color.white); }
-            if(breakNoticeRemaining>0) { Panel(28,335,1050,72,dark); Label(44,346,1020,60,breakNotice,text,new Color(1f,.82f,.4f)); }
-            int actor=selectedHero; var hero=s.Heroes[actor];
-            Label(1180,175,390,50,Names[actor],heading,Color.white);
-            Label(1180,231,390,66,$"{Jobs[actor]}　速度 {hero.Speed}　{encounter.ResourceName(actor)} {visual?.Resources[actor]??hero.JobResource}/{hero.JobResourceMax}\nチェイン基本50% / 補正込み最大70%",text,Color.white);
-            bool enabled=!paused && !playback.Busy && result==null && !selectingAlly && !encounter.Acted[actor] && hero.IsAlive;
-            for(int slot=0;slot<3;slot++) {
-                var healSkill=encounter.HealingSkill(actor,slot);
-                int cost=encounter.SkillResourceCost(actor,slot);
-                string caption=encounter.SkillName(actor,slot)+" / "+encounter.ResourceName(actor)+cost+"\n"+(encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healSkill!=null?encounter.HealingDescription(actor,slot):encounter.IsAttackSkill(actor,slot)?encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target)+" / 会心 "+encounter.PreviewCriticalChanceBp(actor,slot)/100m+"%":encounter.SupportDescription(actor));
-                caption+="\n"+encounter.TimingDescription(actor,slot);
-                caption+=encounter.AttackFollowUpDescription(actor,slot);
-                if(encounter.IsAttackSkill(actor,slot) && encounter.SkillChainBonusBp(slot)>0) caption+=" / CHAIN +10%";
-                var fittedSkillStyle=new GUIStyle(skillButton);
-                while(fittedSkillStyle.fontSize>11 && fittedSkillStyle.CalcHeight(new GUIContent(caption),378)>80) fittedSkillStyle.fontSize--;
-                if(Btn(1180,310+slot*94,390,88,caption,enabled && hero.JobResource>=cost && encounter.ConditionsSatisfied(actor,slot),fittedSkillStyle)) {
-                    if(healSkill!=null) { healingActor=actor; healingSlot=slot; selectingAlly=true; selectedAllies.Clear(); }
-                    else Act(actor,slot);
-                }
-            }
-            Label(1180,592,390,32,"次の敵行動",small,new Color(1f,.82f,.4f));
-            Label(1180,630,390,85,encounter.NextEnemyAction+(encounter.IsEnraged?"\n怒り：攻撃力上昇":""),text,Color.white);
-            Label(1180,716,390,85,$"選択中の誓女への予測：{encounter.PreviewEnemyDamage(actor)}\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>(i+1).ToString()))+"\n固定："+encounter.ChainActionDescription(actor)+"（本作独自）",small,Color.white);
-            var activeEffects=visual?.HeroEffects[actor]??hero.TimedEffects;
-            if(activeEffects.Count>0) Label(28,664,1090,38,Names[actor]+"："+string.Join(" / ",activeEffects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+"行動）")),small,Color.white);
-            if(playback.Busy) {
-                if(Btn(1180,807,390,58,"演出をスキップ（結果は同じ）",!paused && !retreat && !help)) { playback.Skip(); if(stage!=null) stage.ClearActionEffects(); shownEvent=0; SelectNextHero(); FinishCheck(); }
-            }
-            else if(Btn(1180,807,390,58,"行動者に戻る",!paused && result==null && !selectingAlly && actor!=encounter.AvailableHero)) SelectNextHero();
-            else if(actor==encounter.AvailableHero && Btn(1180,807,390,58,"パス（この誓女は標準待機）",!paused && result==null && !selectingAlly)) { encounter.Pass(); QueueBattleEvents(); }
-            for(int i=0;i<5;i++) {
-                float x=18+i*225; var h=s.Heroes[i];
-                int hp=visual?.HeroHp[i]??h.HitPoints, resource=visual?.Resources[i]??h.JobResource;
-                bool casting=visual?.Casting[i]??encounter.IsCasting(i);
-                bool healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
-                if(healed) { var savedColor=GUI.color;GUI.color=new Color(.18f,.65f,.43f);GUI.DrawTexture(new Rect(x-2,712,219,122),Texture2D.whiteTexture);GUI.color=savedColor; }
-                if(Btn(x,714,215,60,(selectedHero==i?"◆ ":"")+Names[i]+"\n"+(healed?"回復対象":hp==0?"戦闘不能":casting?"詠唱中":playback.Busy?"演出再生中":encounter.AvailableHero==i?"行動可能":"待機 → T "+encounter.NextAt(i)),h.IsAlive && !selectingAlly && !paused && !playback.Busy)) selectedHero=i;
-                Label(x,782,215,32,$"HP {hp}/{h.MaxHitPoints}　{encounter.ResourceName(i)} {resource}",small,Color.white);
-                Meter(x,817,215,6,hp,h.MaxHitPoints,hp*3<h.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
-            }
-            status=visual!=null?visual.Message+(paused?"（一時停止中）":""):paused?"一時停止中。再開するボタンで戻れます。":encounter.Log;
-            Label(24,841,1090,55,status,small,Color.white);
-            if(lastSinging!=null)Label(28,132,1050,24,lastSinging,small,Color.white);
-            if(visual!=null) { Panel(28,334,1050,40,dark); Label(44,337,1020,34,(visual.Actor<0?"巨神獣":Names[visual.Actor])+" / "+visual.Message,small,visual.Kind==BattlePresentationKind.CastRelease?new Color(.8f,.65f,1f):Color.white); }
-            if(selectingAlly) DrawAllySelection();
-        }
         private void DrawAllySelection()
         {
+            var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
             var d=encounter.HealingSkill(healingActor,healingSlot);
             var affected=encounter.HealingTargets(healingActor,healingSlot,selectedAllies.OrderBy(i=>i));
             bool selectable=d.TargetRule==HealingTargetRule.SelectedAllies;
@@ -584,6 +536,7 @@ namespace NewAster.Presentation
         }
         private void FinishCheck()
         {
+            if(plan7ActiveCombat)return;
             if(playback.Busy || !encounter.Ended || result!=null) return;
             if(!encounter.State.IsVictory) { PrepareFormalBattleEnd(BattleEndReason.Defeat); return; }
             PrepareFormalVictory();
