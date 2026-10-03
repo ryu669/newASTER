@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-03",
+  "sourceRun": "tmp/plan7-sample-20261003143743",
+  "scope": "Previously executed normal-speed 1080p fixture, not a new run or all-content certification",
+  "build": {
+    "case": "activecombat",
+    "height": 1080,
+    "peakWorkingBytes": 310685696,
+    "observedWorkingPeakBytes": 310648832,
+    "sampleIntervalMs": 250,
+    "processElapsedMs": 64474,
+    "uncapped": false,
+    "completeBattle": true,
+    "assemblySha256": "BC67F6948C45417A9B5FFA91E33DEA976BE04D91EA9ED806150AF59BA504392C",
+    "resourceAssetsSha256": "BE96CD708E1497BD2E6BD0A3412CAC14697B9203A5D90085A643AF565E6D9EE9"
+  },
+  "markers": [
+    "PLAN7_SAMPLE_ASSETS_PASS 24 textures / 6 audio clips / Japanese glyphs",
+    "PLAN7_PLAYBACK_MODE_PASS normal commands=32 events=66 major=1 breaks=4 victory=True",
+    "PLAN7_PLAYBACK_MODE_PASS shortened commands=32 events=66 major=1 breaks=4 victory=True",
+    "PLAN7_PLAYBACK_MODE_PASS skip commands=32 events=66 major=1 breaks=4 victory=True",
+    "PLAN7_PLAYBACK_MODE_PASS paused commands=32 events=66 major=1 breaks=4 victory=True",
+    "PLAN7_PLAYBACK_EQUIVALENCE_PASS modes=4 seed=73491 sha256=C25F94B478A5E40EC571BC8378BCC0CEC415D2340A7784811EA7C31CB2603A4C",
+    "PLAN7_FULL_COMBAT_PASS commands=32 repaintedEvents=66 victory=True queueEmpty=True rewardSignatureMatches=True saveUnchanged=True playbackRate=1",
+    "PLAN7_EFFECT_PERFORMANCE category=major frames=67 p95Ms=16.664 maxMs=16.664 under16_7ms=1.0000",
+    "PLAN7_EFFECT_PERFORMANCE category=break frames=198 p95Ms=16.664 maxMs=21.640 under16_7ms=0.9848",
+    "PLAN7_PERFORMANCE scene=scripted-active-combat frames=3202 meanMs=16.951 p95Ms=16.695 p99Ms=33.361 maxMs=50.056 under16_7ms=0.9753 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.043 vsync=1 targetFrameRate=-1 startupSeconds=62.297 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070"
+  ]
+}
