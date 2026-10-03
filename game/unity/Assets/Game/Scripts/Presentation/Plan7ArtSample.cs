@@ -16,7 +16,7 @@ namespace NewAster.Presentation
     }
     public sealed partial class PrototypeBootstrap
     {
-        private bool artSample,artSamplePaused;private string artTab="battle",artPose="idle",artExpression="normal";
+        private bool artSample,artSamplePaused,artHasFocus=true;private string artTab="battle",artPose="idle",artExpression="normal";
         private int artBrokenMask,artFurniture;private AudioSource artBgm,artSe;private PlayableBattle audioBattle;private long audioSequence;private bool audioVictory;
         private readonly List<float> artFrameTimes=new List<float>();private readonly bool measureArt=Environment.GetCommandLineArgs().Contains("-measurePlan7");
         private float artResourceValidationSeconds;
@@ -31,18 +31,22 @@ namespace NewAster.Presentation
         private void EnsureArtAudio()
         {if(artBgm!=null)return;artBgm=gameObject.AddComponent<AudioSource>();artSe=gameObject.AddComponent<AudioSource>();artBgm.playOnAwake=false;artSe.playOnAwake=false;artBgm.loop=true;
             if(!Environment.GetCommandLineArgs().Contains("-presentationCapture") && PlayerPrefs.HasKey("art.fullscreen"))Screen.fullScreenMode=PlayerPrefs.GetInt("art.fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;}
-        private void PlayArtSound(string name)
-        {EnsureArtAudio();var clip=Resources.Load<AudioClip>("Audio/candidate-"+name);if(clip!=null)artSe.PlayOneShot(clip,ArtSampleSettings.Se);}
+        private bool PlayArtSound(string name)
+        {if(!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:encounter==null || paused || help || retreat))return false;
+            EnsureArtAudio();var clip=Resources.Load<AudioClip>("Audio/candidate-"+name);if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);return true;}
+        private void SetArtSamplePaused(bool value)
+        {artSamplePaused=value || !artHasFocus || !Application.isFocused;if(artSamplePaused){artBgm?.Pause();artSe?.Pause();}}
         private void UpdateArtAudio()
         {
             if(measureArt && Time.realtimeSinceStartup>8)artFrameTimes.Add(Time.unscaledDeltaTime);
             EnsureArtAudio();artBgm.volume=ArtSampleSettings.Bgm;artSe.volume=1;
             bool active=artSample || encounter!=null && adv==null;
-            bool stop=!Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
+            bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
             if(!active){artBgm.Stop();artSe.Stop();return;}
             if(artBgm.clip==null)artBgm.clip=Resources.Load<AudioClip>("Audio/candidate-bgm");
             if(stop){artBgm.Pause();artSe.Pause();return;}
             artBgm.UnPause();artSe.UnPause();if(!artBgm.isPlaying && artBgm.clip!=null)artBgm.Play();
+            if(artSample)return;
             if(audioBattle!=encounter){audioBattle=encounter;audioSequence=0;audioVictory=false;}
             var e=playback.Current;if(e==null || e.Sequence==audioSequence)return;audioSequence=e.Sequence;
             if(e.Kind==BattlePresentationKind.Pass || e.Kind==BattlePresentationKind.CastStart || e.Kind==BattlePresentationKind.CastCanceled)return;
@@ -50,7 +54,8 @@ namespace NewAster.Presentation
             PlayArtSound(e.BossHp==0?"victory":e.PartBroken?"break":e.Kind==BattlePresentationKind.Healing?"heal":e.Kind==BattlePresentationKind.Support?"shield":"hit");
         }
         private void OnApplicationFocus(bool focused)
-        {if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null)adv.Pause();}}
+        {artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
+            artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}
         private void PrepareArtSample(string[] args)
@@ -136,10 +141,10 @@ namespace NewAster.Presentation
             if(Btn(80,430,430,55,"揺れ軽減："+(ArtSampleSettings.ReducedMotion?"ON":"OFF")))PlayerPrefs.SetInt("art.motion",ArtSampleSettings.ReducedMotion?0:1);
             if(Btn(545,430,430,55,"フラッシュ軽減："+(ArtSampleSettings.ReducedFlash?"ON":"OFF")))PlayerPrefs.SetInt("art.flash",ArtSampleSettings.ReducedFlash?0:1);
             if(Btn(1010,430,430,55,"演出短縮："+(ArtSampleSettings.Shortened?"ON":"OFF")))PlayerPrefs.SetInt("art.shortened",ArtSampleSettings.Shortened?0:1);
-            var sounds=new[]{"hit","shield","heal","break","victory"};for(int i=0;i<5;i++)if(Btn(80+i*280,530,260,55,new[]{"ヒット","防壁","回復","部位破壊","撃破"}[i]))PlayArtSound(sounds[i]);
+            var sounds=new[]{"hit","shield","heal","break","victory"};for(int i=0;i<5;i++)if(Btn(80+i*280,530,260,55,new[]{"ヒット","防壁","回復","部位破壊","撃破"}[i],!artSamplePaused))PlayArtSound(sounds[i]);
             if(Btn(80,590,665,45,"本文・見本文字："+(ArtSampleSettings.LargeText?"大きめ":"標準")))PlayerPrefs.SetInt("art.large-text",ArtSampleSettings.LargeText?0:1);
             if(Btn(785,590,665,45,"画面："+(Screen.fullScreen?"全画面":"ウィンドウ"))){bool fullscreen=!Screen.fullScreen;Screen.fullScreenMode=fullscreen?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;PlayerPrefs.SetInt("art.fullscreen",fullscreen?1:0);}
-            if(Btn(80,650,1370,60,artSamplePaused?"手動で再開":"音を一時停止"))artSamplePaused=!artSamplePaused;
+            if(Btn(80,650,1370,60,artSamplePaused?"手動で再開":"音を一時停止"))SetArtSamplePaused(!artSamplePaused);
             Label(80,740,1370,95,"新規作成した合成音の候補です。非アクティブ後は手動で再開します。\n表示設定は演出だけに適用し、HP・行動順・抽選・報酬を変えません。",small,Color.white);
         }
     }

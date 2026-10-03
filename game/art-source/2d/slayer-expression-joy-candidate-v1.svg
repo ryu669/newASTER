@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1024" height="1536" viewBox="0 0 1024 1536">
+<title>newASTER candidate composition</title>
+<desc>Editable composition layers referencing original PNG pixels. Not original painting layers or a higher resolution delivery.</desc>
+<defs><clipPath id="face-region"><rect x="435" y="178" width="111" height="98" /></clipPath></defs>
+<g id="standing" inkscape:groupmode="layer" inkscape:label="standing"><image x="0" y="0" width="1024" height="1536" xlink:href="../../unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png" /></g>
+<g id="face-joy" inkscape:groupmode="layer" inkscape:label="face-joy" clip-path="url(#face-region)"><image x="0" y="0" width="1024" height="1536" xlink:href="../../unity/Assets/Game/Resources/Illustrations/slayer-expression-joy-candidate-v1.png" /></g>
+</svg>

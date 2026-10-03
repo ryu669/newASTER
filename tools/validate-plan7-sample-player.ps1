@@ -1,5 +1,6 @@
-param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped)
+param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus)
 $ErrorActionPreference='Stop'
+if($ValidateFocus -and ($Measure -or $Uncapped -or @($Cases | Where-Object {$_ -ne 'settings'}).Count -gt 0)){throw 'Focus validation requires settings cases without performance measurement'}
 $repo=Split-Path $PSScriptRoot -Parent
 if(-not $Player){$Player=Join-Path $repo 'game/Builds/playable/newASTER.exe'}
 $output=Join-Path $repo ('tmp/plan7-sample-'+[DateTime]::UtcNow.ToString('yyyyMMddHHmmss'))
@@ -21,6 +22,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     if($Measure -or $Uncapped){$flags+='-measurePlan7'}
     if($Uncapped){$flags+='-measurePlan7Uncapped'}
     if($LargeText){$flags+='-inspectLargeText'}
+    if($ValidateFocus){$flags+='-validatePlan7Focus'}
     $watch=[Diagnostics.Stopwatch]::StartNew();$peakWorking=0L;$peakObserved=0L
     $process=Start-Process -FilePath $Player -ArgumentList $flags -WindowStyle Normal -PassThru
     while(-not $process.WaitForExit(250)){
@@ -31,6 +33,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     $text=Get-Content -LiteralPath $log -Raw
     if($process.ExitCode -ne 0 -or $text -notmatch 'PLAN7_SAMPLE_ASSETS_PASS' -or ($case -ne 'gameplay' -and $text -notmatch ('PLAN7_SAMPLE_CAPTURE '+[regex]::Escape($case)+' / read-only')) -or $text -match '(Exception:|PLAN7_ASSET_MISSING|ILLUSTRATION_MANIFEST_WARNING)'){throw "Sample failed: $log"}
     if($text -notmatch 'PLAN7_BUNDLED_FONT_PASS'){throw "Bundled font not validated: $log"}
+    if($ValidateFocus -and $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS'){throw "Focus/audio validation did not finish (requires application focus): $log"}
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}
     $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped}
     [IO.File]::WriteAllText((Join-Path $output ($name+'-memory.json')),($memory | ConvertTo-Json)+[Environment]::NewLine)

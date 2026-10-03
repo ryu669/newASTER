@@ -162,6 +162,7 @@ namespace NewAster.Presentation
             UpdateBookTransition();
             UpdateAdv();
             UpdateEngagement();
+            if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
             if(Input.GetKeyDown(KeyCode.Escape)) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}

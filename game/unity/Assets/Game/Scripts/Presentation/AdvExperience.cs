@@ -50,7 +50,7 @@ namespace NewAster.Presentation
             if(advBgm==null){advBgm=gameObject.AddComponent<AudioSource>();advSe=gameObject.AddComponent<AudioSource>();advBgm.playOnAwake=false;advSe.playOnAwake=false;}
             advBgm.volume=ArtSampleSettings.Bgm;advSe.volume=ArtSampleSettings.Se;
             if(advSoundRevision!=adv.SoundRevision){advSoundRevision=adv.SoundRevision;var sound=HomeData().assets.SingleOrDefault(a=>a.id==adv.SoundId);var clip=Resources.Load<AudioClip>(sound?.resourcePath??"");if(clip!=null){var channel=adv.SoundChannel=="bgm"?advBgm:advSe;channel.clip=clip;channel.loop=adv.SoundChannel=="bgm";channel.Play();}}
-            if(adv.Paused && !advAudioPaused){advBgm.Pause();advSe.Pause();advAudioPaused=true;}else if(!adv.Paused && advAudioPaused){advBgm.UnPause();advSe.UnPause();advAudioPaused=false;}
+            if(adv.Paused || !artHasFocus || !Application.isFocused){advBgm.Pause();advSe.Pause();advAudioPaused=true;}else if(advAudioPaused){advBgm.UnPause();advSe.UnPause();advAudioPaused=false;}
         }
         private void BeginAdv(string source,bool replay)
         {
