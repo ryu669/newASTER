@@ -65,13 +65,14 @@ namespace NewAster.Presentation
         private void DrawPreviewPart(PartIllustrationBinding part,Rect canvas,int mask)
         {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null && layers.TryGetValue(path,out var art))GUI.DrawTexture(canvas,art,ScaleMode.ScaleToFit,true);}
         private static void Fill(Rect rect,Color color) { var saved=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=saved; }
-        public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames)
+        public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames,bool showActorLabel=true)
         {
             style=new GUIStyle(style);small=new GUIStyle(small);style.normal.textColor=Color.white;small.normal.textColor=new Color(.97f,.94f,.83f);
-            Fill(new Rect(0,330,1152,372),new Color(.08f,.14f,.19f));
-            if(background!=null) GUI.DrawTexture(new Rect(0,330,1152,372),background,ScaleMode.ScaleAndCrop);
+            var sceneRect=new Rect(0,0,1600,900);
+            Fill(sceneRect,new Color(.08f,.14f,.19f));
+            if(background!=null) GUI.DrawTexture(sceneRect,background,ScaleMode.ScaleAndCrop);
             float parallax=ArtSampleSettings.ReducedMotion?0:Mathf.Sin(elapsed*.7f)*3;
-            if(middle!=null)GUI.DrawTexture(new Rect(-4+parallax,330,1160,372),middle,ScaleMode.StretchToFill,true);
+            if(middle!=null)GUI.DrawTexture(new Rect(-4+parallax,0,1608,900),middle,ScaleMode.StretchToFill,true);
             int actor=DisplayActor(battle.AvailableHero,e);
             // Asset inspection only: never changes the engine's available actor or command target.
             bool inspectStanding=args.Contains("-inspectPlan7Standing") || Inspection!=null;
@@ -80,42 +81,44 @@ namespace NewAster.Presentation
             if(victim && !inspectStanding)actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=!ArtSampleSettings.ReducedMotion && e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
-            var actorRect=new Rect(16+movement,339,470,335);
+            var actorRect=new Rect(890+movement,104,650,550);
             if(actor>=0 && actor<5) {
                 int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Texture2D art=binding>=0?portraits[binding]:null;
                 if(binding>=0){var hero=manifest.heroes[binding];string path=Inspection=="hit" || victim?hero.hitResourcePath:Inspection=="cutin" || e!=null && e.Actor==actor && (e.Major || e.FullChain)?hero.cutinResourcePath:Inspection=="attack" || e!=null && e.Actor==actor && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease)?hero.attackResourcePath:null;
                     if(path!=null && layers.TryGetValue(path,out var pose))art=pose;}
                 if(art!=null) {
-                    if(manifest.heroes[binding].fullCanvas) GUI.DrawTexture(new Rect(actorRect.x,actorRect.y,actorRect.width,300),art,ScaleMode.ScaleToFit,true);
+                    if(manifest.heroes[binding].fullCanvas) GUI.DrawTexture(actorRect,art,ScaleMode.ScaleToFit,true);
                     else GUI.DrawTextureWithTexCoords(actorRect,art,new Rect(380f/1672,1-750f/941,912f/1672,650f/941));
                 }
                 else {
-                    Fill(actorRect,new Color(.15f,.23f,.29f));
-                    GUI.Label(new Rect(44,454,416,90),names[actor]+"\n人物イラスト未制作",style);
+                    Fill(new Rect(960,580,490,75),new Color(.035f,.065f,.08f,.8f));
+                    GUI.Label(new Rect(978,592,455,55),names[actor]+"\n人物の絵は準備中です",style);
                 }
-            } else GUI.Label(new Rect(40,458,435,75),"巨神獣の行動\n対象の状態は下部カードへ",style);
-            var enemy=body==null?new Rect(538,339,590,340):new Rect(650,339,340,340);
+            }
+            var enemy=new Rect(90,86,620,620);
             if(body==null) {
                 Fill(enemy,new Color(.12f,.21f,.22f));
-                GUI.Label(new Rect(670,447,320,55),"巨神獣：部位配置の仮表示",small);
+                GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
             } else if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.Major && e.PartHp.All(hp=>hp>0) && enemyMajor!=null){GUI.DrawTexture(enemy,enemyMajor,ScaleMode.ScaleToFit,true);} else {
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
                 GUI.DrawTexture(enemy,body,ScaleMode.ScaleToFit,true);
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
-            if(body!=null && manifest!=null && canSelect && Event.current.type==EventType.MouseDown && Event.current.button==0 && enemy.Contains(Event.current.mousePosition)) {
+            if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.StretchToFill,true);
+            if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(sceneRect,tint);}
+            if(body!=null && manifest!=null && canSelect && Event.current.type==EventType.MouseDown && Event.current.button==0 && enemy.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<708) {
                 var mouse=Event.current.mousePosition;
                 string hit=manifest.HitPart((mouse.x-enemy.x)/enemy.width,(mouse.y-enemy.y)/enemy.height,id=>battle.State.Parts.Any(p=>p.Id==id && p.HitPoints>0));
                 if(hit!=null){target=hit;Event.current.Use();}
-                else if(new Rect(785,470,85,170).Contains(mouse)){target="body";Event.current.Use();}
+                else if(new Rect(enemy.x+enemy.width*.397f,enemy.y+enemy.height*.385f,enemy.width*.25f,enemy.height*.5f).Contains(mouse)){target="body";Event.current.Use();}
             }
-            if(body==null && canSelect && GUI.Button(new Rect(735,487,195,64),(target=="body"?"◆ ":"")+"本体")) target="body";
-            else if(!canSelect && body==null) GUI.Label(new Rect(745,500,190,40),"本体",style);
-            if(warning!=null) GUI.Label(new Rect(548,610,570,65),"素材警告："+warning,small);
+            if(body==null && canSelect && GUI.Button(new Rect(330,440,195,64),(target=="body"?"◆ ":"")+"本体")) target="body";
+            else if(!canSelect && body==null) GUI.Label(new Rect(340,450,190,40),"本体",style);
+            if(warning!=null) GUI.Label(new Rect(100,615,570,65),"素材警告："+warning,small);
             if(manifest!=null) foreach(var p in manifest.parts) {
                 int index=battle.State.Parts.ToList().FindIndex(part=>part.Id==p.partId);
-                if(index<0) { GUI.Label(new Rect(548,610,550,55),"部位IDが戦闘定義と不一致",small);continue; }
+                if(index<0) { GUI.Label(new Rect(100,615,550,55),"部位IDが戦闘定義と不一致",small);continue; }
                 int hp=Inspection==p.partId?0:e?.PartHp[index]??battle.State.Parts[index].HitPoints;
                 var rect=new Rect(enemy.x+p.x*enemy.width,enemy.y+p.y*enemy.height,p.width*enemy.width,p.height*enemy.height);
                 var old=GUI.enabled;GUI.enabled=canSelect && hp>0;
@@ -123,30 +126,14 @@ namespace NewAster.Presentation
                 if(body!=null && (target==p.partId || rect.Contains(Event.current.mousePosition))) {Fill(new Rect(rect.x,rect.y,rect.width,2),new Color(1,.85f,.35f));Fill(new Rect(rect.x,rect.yMax-2,rect.width,2),new Color(1,.85f,.35f));}
                 GUI.enabled=old;
             }
-            var unplaced=battle.State.Parts.Select((part,index)=>new{part,index})
-                .Where(p=>manifest==null || !manifest.parts.Any(binding=>binding.partId==p.part.Id)).ToArray();
-            for(int slot=0;slot<unplaced.Length;slot++) {
-                var p=unplaced[slot];int hp=e?.PartHp[p.index]??p.part.HitPoints;
-                // Missing art bindings remain selectable; the header always lists every part.
-                bool sideSlots=manifest!=null && unplaced.Length<=2;
-                float width=sideSlots?140:560f/System.Math.Min(3,unplaced.Length);
-                var rect=new Rect(sideSlots?548+slot*430:548+(slot%3)*width,sideSlots?612:568+(slot/3)*56,width-8,50);
-                var old=GUI.enabled;GUI.enabled=canSelect && hp>0;
-                if(GUI.Button(rect,(target==p.part.Id?"◆ ":"")+partNames[p.index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.part.Id;
-                GUI.enabled=old;
-            }
-            if(foreground!=null)GUI.DrawTexture(new Rect(0,330,1152,372),foreground,ScaleMode.StretchToFill,true);
-            if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(new Rect(0,330,1152,372),tint);}
-            if(actor>=0 && actor<5){int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
-                Fill(new Rect(16,639,470,40),new Color(.035f,.065f,.08f,.92f));
-                GUI.Label(new Rect(30,643,445,32),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && portraits[binding]!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
+            // Parts without image bindings remain selectable in the on-demand target drawer.
+            if(showActorLabel && actor>=0 && actor<5){int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
+                Fill(new Rect(900,666,650,32),new Color(.035f,.065f,.08f,.78f));
+                GUI.Label(new Rect(914,669,620,28),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && portraits[binding]!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
             if(e!=null && (e.Damage>0 || e.Kind==BattlePresentationKind.CastStart)) {
-                Fill(new Rect(510,639,626,40),new Color(.035f,.065f,.08f,.92f));
-                GUI.Label(new Rect(524,643,598,32),e.Kind==BattlePresentationKind.CastStart?"詠唱開始（まだダメージなし）":"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
+                Fill(new Rect(100,666,650,32),new Color(.035f,.065f,.08f,.78f));
+                GUI.Label(new Rect(114,669,620,28),e.Kind==BattlePresentationKind.CastStart?"詠唱開始（まだダメージなし）":"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
             }
-            Fill(new Rect(0,679,1152,23),new Color(.035f,.065f,.08f,.92f));
-            var footerStyle=new GUIStyle(small){padding=new RectOffset(0,0,0,0)};
-            GUI.Label(new Rect(16,680,1110,22),"美術候補 / 残り4人は未制作。正式採用前。"+(Inspection!=null?" 素材確認："+Inspection:""),footerStyle);
             return target;
         }
     }
