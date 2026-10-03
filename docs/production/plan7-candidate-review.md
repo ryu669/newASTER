@@ -33,7 +33,7 @@ PNG原本をゲーム内に保持し、音は元コードから再生成でき�
 | 戦闘・家具・SD | 実際は1254×1254。1024〜2048角の範囲内 |
 | 輪郭と安全域 | 人物・敵カットインをv3へ更新し、前髪・翼・剣／冠・両翼・尾の主要輪郭を収めた。両方の外周100pxにアルファ16超の画素はないが微小な低アルファ画素は残る。前景端の接触は用途上意図する |
 | 表情 | [顔領域の重ね描画](plan7-expression-layers.md) で通常立ち絵を固定。720p／1080pの6画像比較で、表情矩形の外側の美術領域は変化0。元PNG自体の顔以外の一致・顔際と表情の完成品質は別に残る |
-| 箱庭接続 | 家具利用動作とスロットは接続済み。素材内の接地位置・家具との前後マスクの精密調整は未完了 |
+| 箱庭接続 | [接地位置と前後マスク](plan7-garden-composition.md)を実庭・見本へ共通接続。座面・足元・手元、移動／撤去による解除、別プロセスの再読込を検証。輪郭境界の最終品質は候補ゲートとして残る |
 | 編集元 | 生成PNG・プロンプトは保持。編集レイヤーを持つ元ファイルは未納品 |
 | 日本語 | [同梱Noto Sans CJK JP](plan7-font.md) のロードと字形を検査。OSフォント検索を廃止。720p／1080pのADV・バックログ・CG・設定と表情4種をWindows実行版で確認済み |
 | 音 | 読込とPCM検査済み。聴感・BGM接続・各効果の明瞭さは未確認 |
@@ -45,7 +45,7 @@ PNG原本をゲーム内に保持し、音は元コードから再生成でき�
 
 `tools/audit-plan7-assets.ps1` は画像を編集せず、寸法・透過端・音のPCMを検査して台帳を更新する。`tools/validate-plan7-sample-player.ps1` は実行ファイルを720p／1080pで撮影する。`-Measure -Cases gameplay,battle,cg,settings -Heights 1080` は各画面のフレーム時間とロード済み画像のメモリを記録する。実戦の待機画面と比較画面を区別し、連続戦闘・ピーク・正式性能ゲートの合格へ読み替えない。
 
-代表画面：[健在4部位](plan7-screenshots/break-0-1080.png)、[全破壊](plan7-screenshots/break-15-720.png)、[家具利用](plan7-screenshots/sit-1080.png)、[CG](plan7-screenshots/cg-1080.png)、[敵大技](plan7-screenshots/enemycutin-1080.png)、[実戦](plan7-screenshots/gameplay-1080.png)、[箱庭](plan7-screenshots/garden-720.png)、[ADV・大きめ本文](plan7-screenshots/adv-1080.png)、[設定](plan7-screenshots/settings-large-720.png)、[人物カットインv3](plan7-screenshots/cutin-720.png)。撮影PNGを加工せず保持する。箱庭・ADV・設定・人物カットインは同梱フォント導入後の撮影へ更新した。
+代表画面：[健在4部位](plan7-screenshots/break-0-1080.png)、[全破壊](plan7-screenshots/break-15-720.png)、[座る](plan7-screenshots/sit-1080.png)、[作業](plan7-screenshots/work-1080.png)、[眺める](plan7-screenshots/look-1080.png)、[CG](plan7-screenshots/cg-1080.png)、[敵大技](plan7-screenshots/enemycutin-1080.png)、[実戦](plan7-screenshots/gameplay-1080.png)、[箱庭](plan7-screenshots/garden-720.png)、[ADV・大きめ本文](plan7-screenshots/adv-1080.png)、[設定](plan7-screenshots/settings-large-720.png)、[人物カットインv3](plan7-screenshots/cutin-720.png)。撮影PNGを加工せず保持する。家具利用・箱庭を接地／前後マスク／名前帯の変更後へ更新した。ADV・設定・人物カットインは同梱フォント導入後の撮影である。
 
 性能の同期解除は診断用 `-Uncapped` だけに適用する。通常設定を変更して性能ゲートを通したことにしない。画像メモリは24画像の幅×高さ×4のRGBA換算見積もりであり、GPU実使用量ではない。Unity実行版が0を返すメモリAPIは未取得（最新診断では−1）として扱い、Windows側の250ms間隔プロセス測定を使用する。`resourceValidationSeconds` は既にロード済み画像も含む素材検査の所要時間、`startupSeconds` は測定終了時のUnity起動後経過時間であり、どちらも冷起動ロード時間ではない。
 

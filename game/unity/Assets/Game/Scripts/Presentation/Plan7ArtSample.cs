@@ -120,10 +120,10 @@ namespace NewAster.Presentation
                 for(int i=0;i<4;i++){string expression=new[]{"normal","joy","puzzled","determined"}[i];if(Btn(1200,250+i*60,340,48,new[]{"通常","喜び","困惑","決意"}[i])){artPose="idle";artExpression=expression;}}
                 for(int i=0;i<4;i++){string pose=new[]{"idle","attack","hit","cutin"}[i];if(Btn(1200,510+i*60,340,48,new[]{"待機","攻撃","被弾","カットイン"}[i]))artPose=pose;}
             }else if(artTab=="garden"){
-                var props=new[]{"bench","desk","fountain"};for(int i=0;i<3;i++)SampleImage(new Rect(100+i*340,400,310,310),"garden-"+props[i]);
-                string action=new[]{"sit","work","look"}[artFurniture];SampleImage(new Rect(135+artFurniture*340,artFurniture==0?360:310,240,300),"slayer-sd-"+action);
+                var props=new[]{"bench","desk","fountain"};var use=GardenUse("furniture.fixture."+artFurniture);
+                GUI.BeginGroup(stageRect);try{DrawGardenArtUse(new Rect(280,200,400,400),SampleImage("garden-"+props[artFurniture]),use,true);}finally{GUI.EndGroup();}
                 for(int i=0;i<3;i++)if(Btn(1200,260+i*80,340,60,new[]{"ベンチ：座る","作業台：作業する","噴水：眺める"}[i]))artFurniture=i;
-                Label(1200,550,340,150,"SD方式の最初の1人。\n家具と人物は別画像。\n利用位置は調整中です。",small,Color.white);
+                Label(1200,550,340,150,"SD方式の最初の1人。\n家具と人物は別画像。\n座面・接地・手元を重ねて表示。",small,Color.white);
             }else if(artTab=="cg"){SampleImage(stageRect,"slayer-garden-cg",true);Label(1200,230,340,180,"CG候補1枚\n本文・イベントへの正式採用は未確認。",text,Color.white);}
             if(artTab!="cg")SampleImage(stageRect,"forest-front",true);
             Label(40,795,1510,75,"候補素材の比較画面 ／ 正式採用前。解像度・輪郭・接続位置は制作記録を参照。\n旧素材と通常セーブは保持しています。",small,Color.white);

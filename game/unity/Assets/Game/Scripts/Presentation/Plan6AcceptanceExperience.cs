@@ -25,7 +25,8 @@ namespace NewAster.Presentation
             if(!formalDiagnostic || capturePath==null)throw new InvalidOperationException("Plan6 acceptance requires isolated capture.");
             int arg=Array.IndexOf(args,"-plan6Save");if(arg<0 || arg+1>=args.Length)throw new ArgumentException("Plan6 acceptance save path missing.");string path=Path.GetFullPath(args[arg+1]);Directory.CreateDirectory(Path.GetDirectoryName(path));acceptanceStore=new FormalCampaignStore(path,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);acceptanceChecks=0;homeTrial=true;
             if(args.Contains("-plan6Resume")){
-                AcceptanceCheck(acceptanceStore.Load(out var loaded)==FormalLoadResult.Loaded,"separate Windows process loads unified home file");BindFormalCampaign(loaded);AcceptanceCheck(loaded.home.weaponEquipment.Length==5 && loaded.home.furnitureInstances.Length==3 && loaded.home.furniturePlacements.Length==2 && loaded.home.occupants.Length==5,"all durable home states survive process restart");AcceptanceCheck(loaded.home.loverHeroineIds.Contains(combatDefinitions.FormationIds[0]) && loaded.home.readLineKeys.Length>=12 && loaded.world.readStoryIds.Length>0,"chapter event lover read-line survive process restart");
+                int useArg=Array.IndexOf(args,"-inspectPlan7GardenUse");string priorUse=useArg>=0 && useArg+1<args.Length?args[useArg+1]:null;int expectedPlacements=priorUse=="look"?3:priorUse=="remove"?1:2;
+                AcceptanceCheck(acceptanceStore.Load(out var loaded)==FormalLoadResult.Loaded,"separate Windows process loads unified home file");BindFormalCampaign(loaded);AcceptanceCheck(loaded.home.weaponEquipment.Length==5 && loaded.home.furnitureInstances.Length==3 && loaded.home.furniturePlacements.Length==expectedPlacements && loaded.home.occupants.Length==5,"all durable home states survive process restart");AcceptanceCheck(loaded.home.loverHeroineIds.Contains(combatDefinitions.FormationIds[0]) && loaded.home.readLineKeys.Length>=12 && loaded.world.readStoryIds.Length>0,"chapter event lover read-line survive process restart");
             }else{
                 // Exercise an actual pre-home save first; no heuristic migration of legacy arrays.
                 var old=CreateHomeTrial();old.home=args.Contains("-plan6NewSave")?FormalHomeProgress.Empty(HomeData().contentVersion):null;old.collection=null;old.growth.nectar=10000;old.world.unlockedGardenIds=Array.Empty<string>();AcceptanceCheck(!File.Exists(path) && acceptanceStore.Save(old),"isolated initial formal file written without overwriting prior test");AcceptanceCheck(acceptanceStore.Load(out var legacy)==FormalLoadResult.Loaded && (legacy.home==null)==!args.Contains("-plan6NewSave"),"pre-home and new-home forms preserve presence");BindFormalCampaign(legacy);
@@ -47,6 +48,24 @@ namespace NewAster.Presentation
                 string future="{\"version\":1,\"saveId\":\"newaster.formal-campaign\",\"home\":{\"version\":2,\"contentVersion\":\"future\"}}";File.WriteAllText(recoveryPath,future);AcceptanceCheck(recoveryStore.Load(out _)==FormalLoadResult.Blocked && recoveryStore.InspectRecovery().Status==FormalRecoveryStatus.Unsupported && File.ReadAllText(recoveryPath)==future,"Windows future home blocks backup replacement");
             }
             var sceneCase=Array.IndexOf(args,"-homeCase");string display=sceneCase<0?"Garden":args[sceneCase+1];encounter=null;result=null;title=false;
+            int gardenUseArg=Array.IndexOf(args,"-inspectPlan7GardenUse");
+            if(gardenUseArg>=0){
+                if(display!="Garden" || gardenUseArg+1>=args.Length)throw new ArgumentException("Garden use capture requires Garden and scenario");
+                string scenario=args[gardenUseArg+1];if(!new[]{"sit","work","look","move","remove","idle"}.Contains(scenario))throw new ArgumentException("Unknown garden scenario");
+                var catalog=HomeData();string hero=combatDefinitions.FormationIds[0],garden=catalog.gardens[0].id;
+                AcceptanceHome(new HomeOperation("occupant",hero,garden:garden,x:.15f,y:.8f));
+                if(scenario!="idle"){
+                    int index=scenario=="work"?1:scenario=="look"?2:0;string instance="acceptance.furniture."+index;
+                    AcceptanceHome(new HomeOperation("place",instance,garden:garden,zone:"zone.ground",x:new[]{.3f,.6f,.8f}[index],y:.7f));
+                    AcceptanceHome(new HomeOperation("use",hero,instance));
+                    if(scenario=="move")AcceptanceHome(new HomeOperation("place",instance,garden:garden,zone:"zone.ground",x:.45f,y:.72f));
+                    if(scenario=="remove")AcceptanceHome(new HomeOperation("remove",instance));
+                }
+                ReloadAcceptance();var occupant=HomeState.occupants.Single(o=>o.heroineId==hero);
+                bool usingFurniture=new[]{"sit","work","look"}.Contains(scenario);
+                AcceptanceCheck(usingFurniture?occupant.actionId=="action."+scenario && GardenUsePlacement(occupant,HomeState)!=null:string.IsNullOrEmpty(occupant.actionId) && string.IsNullOrEmpty(occupant.furnitureInstanceId) && GardenUsePlacement(occupant,HomeState)==null,"garden composition survives reload and release");
+                Debug.Log("PLAN7_GARDEN_USE_CAPTURE "+scenario+" action="+(occupant.actionId??"idle")+" / isolated");
+            }
             if(display=="Weapons"){book.ChangeBookmark(BookBookmark.Heroines);growthScreen=GrowthScreen.Weapons;selectedNode=combatDefinitions.FormationIds[0]+".weapon.gamma";}
             else if(display=="Events"){book.ChangeBookmark(BookBookmark.Gardens);if(book.Face==BookFace.Overview)book.FlipPage();selectedResident=combatDefinitions.FormationIds[0];}
             else if(display=="Adv" || display=="Backlog" || display=="Cg"){book.ChangeBookmark(BookBookmark.Gardens);BeginAdv(HomeData().events[0].id,true);adv.Tick(.3);if(display=="Cg"){AdvanceAdv();AdvanceAdv();adv.Advance();}else{adv.Advance();if(display=="Backlog"){advBacklog=true;adv.Pause();}else adv.Pause();}}
