@@ -89,7 +89,11 @@ namespace NewAster.Core
             if(battle.EnemyStatus(targetId).Active("fracture")) effectiveDefense*=.7m;
             decimal raw=(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
             if(part!=null) raw*=skill.PerTargetPartScale;
-            else if(skill.BodyPartProtection && !battle.Parts[2].IsBroken && !battle.Parts[2].Status.Active("stun")) raw*=.7m;
+            else if(skill.BodyPartProtection) {
+                var armor=battle.Parts.Any(p=>!string.IsNullOrEmpty(p.Role))
+                    ?battle.Parts.Single(p=>p.Role=="armor"):battle.Parts[2];
+                if(!armor.IsBroken && !armor.Status.Active("stun")) raw*=.7m;
+            }
             return (int)Math.Max(1m,Math.Min(skill.DamageCap>0?skill.DamageCap:int.MaxValue,Math.Floor(raw)));
         }
 

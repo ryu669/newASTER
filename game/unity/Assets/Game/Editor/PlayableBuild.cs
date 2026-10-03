@@ -1,12 +1,13 @@
 using System;
 using System.Linq;
+using System.IO;
 using NewAster.Core;
 using NewAster.Data;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
 
-public static class PlayableBuild
+public static partial class PlayableBuild
 {
     private static PlayableBattle LegacyBattle(int level,PlayableProgress progress,int seed=1,System.Collections.Generic.IEnumerable<HealingSkillDefinition> definitions=null) => new PlayableBattle(level,progress,seed,definitions,false);
     private static int assertions;
@@ -22,11 +23,131 @@ public static class PlayableBuild
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception("Build failed: "+report.summary.result);
         Debug.Log("PLAYABLE_BUILD_PASS "+assertions+" assertions / "+report.summary.totalSize+" bytes");
     }
+    private static void ValidateFormalSplitRecovery()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-split-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
+        string path=Path.Combine(directory,"formal.json"),growth=Path.Combine(directory,"growth.json"),world=Path.Combine(directory,"world.json");
+        try {
+            var initial=new FormalGrowthSave {saveId="newaster.formal-growth",stones=999,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=25}}};var w=new CampaignState(WorldCatalog.ColossusIds).CreateSave();
+            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));
+            File.WriteAllText(growth,"broken");File.WriteAllText(growth+".bak",JsonUtility.ToJson(initial));File.WriteAllText(world,JsonUtility.ToJson(w));
+            var offer=store.InspectSplitRecovery(growth,world,t=>JsonUtility.FromJson<FormalGrowthHeader>(t),t=>JsonUtility.FromJson<FormalGrowthSave>(t),t=>JsonUtility.FromJson<FormalWorldHeader>(t),t=>JsonUtility.FromJson<CampaignSaveV2>(t),initial,w);
+            Check(offer.CanRestore && !File.Exists(path),"Unity split JSON inspect is read-only");
+            var preview=store.RecoveryPreview(offer);Check(preview.growth.stones==999 && preview.growth.heroines[0].level==25,"Unity split preview retains complete heroine");
+            var restored=store.RestoreSplitConfirmed(offer,growth,world);Check(restored.growth.stones==999 && restored.growth.receipts.Length==0,"Unity split confirmation adds no gifts");
+            Check(File.ReadAllText(growth)=="broken" && File.Exists(growth+".bak") && File.Exists(world),"Unity split source files retained");
+            Check(store.Load(out var loaded)==FormalLoadResult.Loaded && encode(restored)==encode(loaded),"Unity split recovered file readable normally");
+        }finally{foreach(var file in Directory.GetFiles(directory))File.Delete(file);Directory.Delete(directory);}
+    }
+    private static void ValidateFormalEngagement()
+    {
+        var rules=JsonUtility.FromJson<FormalEngagementRules>(Resources.Load<TextAsset>("Economy/engagement-trial").text);rules.Validate();
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer"}}}};
+        var journal=new FormalCampaignJournal(decode(encode(original)),encode,decode);var utc=new DateTime(2026,10,2,15,0,0,DateTimeKind.Utc);
+        Check(journal.Snapshot.engagement==null || journal.Snapshot.engagement.activeSeconds==0,"Earlier formal save has no awarded playtime");
+        journal.CommitActiveSeconds(1800,s=>{decode(encode(s)).Validate();return true;});
+        var request=new FormalEngagementRequest(false,0,1,journal.Snapshot.revision);string before=encode(journal.Snapshot);
+        Check(journal.CommitEngagement(request,rules,utc,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==before,"Unity time reward failure atomic");
+        Check(journal.CommitEngagement(request,rules,utc,s=>{decode(encode(s)).Validate();return true;})==GrowthCommitResult.Committed,"Unity time reward retry and JSON ledger");
+        var loaded=new FormalCampaignJournal(decode(encode(journal.Snapshot)),encode,decode);
+        Check(loaded.Snapshot.growth.stones==100 && loaded.Snapshot.engagement.claimedPeriods==1,"Unity time receipt and stone retained");
+        Check(loaded.CommitEngagement(request,rules,utc,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity reload prevents replay reward");
+        var daily=new FormalEngagementRequest(true,20261003,0,loaded.Snapshot.revision);loaded.CommitEngagement(daily,rules,utc,s=>true);
+        Check(loaded.Snapshot.growth.stones==400 && FormalEngagementRules.Day(utc.AddSeconds(-1))==20261002,"Unity daily grant Japanese midnight");
+    }
+    private static void ValidateFormalGrowth()
+    {
+        var catalog=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>("Combat/battle-formal").text);
+        var save=new FormalGrowthSave {saveId="unity.growth",nectar=20000,awakeningCrystals=80,
+            heroines=catalog.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
+        var progression=new FormalProgression(save,catalog.FormationIds);
+        FormalGrowthSave persisted=null;
+        var request=new GrowthRequest("unity.growth.level",catalog.FormationIds[0],0,GrowthOperation.Level,50);
+        Check(progression.Commit(request,s=>{persisted=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(s));persisted.Validate();return true;})==GrowthCommitResult.Committed,"Unity growth JSON commit");
+        Check(persisted.nectar==17060 && persisted.heroines[0].level==50,"Unity growth costs persist");
+        var restored=new FormalProgression(persisted,catalog.FormationIds);
+        Check(restored.Commit(request,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity receipt roundtrip prevents duplicate consumption");
+        var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog);
+        var grown=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:catalog,formalGrowth:persisted);
+        Check(grown.State.Heroes[0].Attack>baseline.State.Heroes[0].Attack && grown.State.Heroes[0].Speed==baseline.State.Heroes[0].Speed,"Unity growth changes battle power not speed");
+    }
+    private static void ValidateFormalKinder()
+    {
+        var banner=JsonUtility.FromJson<FormalKinderBanner>(Resources.Load<TextAsset>("Economy/kinder-trial").text);banner.Validate(banner.heroineIds);
+        var save=new FormalGrowthSave {saveId="unity.kinder",stones=3000,kinderPoints=200,heroines=banner.heroineIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
+        var state=new FormalProgression(save,banner.heroineIds);FormalGrowthSave disk=null;
+        Func<FormalGrowthSave,bool> writer=s=>{disk=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(s));disk.Validate();return true;};
+        var request=new KinderRequest("unity.draw",0,KinderOperation.StoneDraw,10);
+        Check(state.CommitKinder(request,banner,max=>0,s=>false)==GrowthCommitResult.SaveFailed,"Unity kinder failure atomic");
+        Check(state.Snapshot.stones==3000 && state.Snapshot.totalKinderDraws==0,"Unity failure no partial debit");
+        Check(state.CommitKinder(request,banner,max=>throw new Exception("reroll"),writer)==GrowthCommitResult.Committed,"Unity retry no reroll");
+        Check(disk.stones==0 && disk.kinderPoints==210 && disk.heroines[0].fragments==1000 && disk.receipts[0].kinderOutcomes.Length==10,"Unity JSON ten rewards and charges");
+        var restored=new FormalProgression(disk,banner.heroineIds);
+        Check(restored.CommitKinder(request,null,null,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity kinder replay after load");
+        restored.CommitKinder(new KinderRequest("unity.exchange",1,KinderOperation.Exchange,heroineId:banner.heroineIds[1]),banner,null,writer);
+        Check(disk.kinderPoints==110 && disk.tickets[0].count==1 && disk.heroines[1].fragments==0,"Unity exchange only ticket");
+        restored.CommitKinder(new KinderRequest("unity.ticket",2,KinderOperation.TicketDraw,heroineId:banner.heroineIds[1]),banner,null,writer);
+        Check(disk.tickets[0].count==0 && disk.heroines[1].fragments==100 && disk.kinderPoints==110,"Unity ticket no extra points");
+        var old=new FormalGrowthSave {version=1,saveId="unity.old-formal",heroines=save.heroines};
+        old=JsonUtility.FromJson<FormalGrowthSave>(JsonUtility.ToJson(old));old.UpgradeFormalV1();old.Validate();
+        Check(old.version==2 && old.heroines.Length==5 && old.stones==0,"Unity formal V1 upgrade preserves ownership");
+    }
+    private static void ValidateFormalRecovery()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-recovery-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
+        string path=Path.Combine(directory,"formal.json");
+        try{
+            var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",stones=123,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=20}}}};
+            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));store.Save(original);var next=decode(encode(original));next.revision=1;store.Save(next);
+            string backup=File.ReadAllText(path+".bak");File.WriteAllText(path,"broken");var offer=store.InspectRecovery();
+            Check(offer.CanRestore,"Unity valid backup can be confirmed");
+            Check(store.RecoveryPreview(offer).growth.heroines[0].level==20 && File.ReadAllText(path)=="broken","Unity preview read-only and level preserved");
+            var restored=store.RestoreConfirmed(offer,out var retained);
+            Check(File.ReadAllText(retained)=="broken" && File.ReadAllText(path+".bak")==backup,"Unity corrupt primary and backup preserved");
+            Check(encode(restored)==encode(original) && store.Load(out var loaded)==FormalLoadResult.Loaded,"Unity recovery roundtrip all data");
+            store.RestoreConfirmed(offer,out var duplicate);Check(duplicate==null && store.RecoveryPreview(offer).growth.stones==123,"Unity recovery repeat no new grants");
+            next=decode(encode(restored));next.revision=1;store.Save(next);Check(store.Load(out var loadedAfter)==FormalLoadResult.Loaded && loadedAfter.revision==1,"Unity normal save after recovery");
+            next.version=2;File.WriteAllText(path,encode(next));Check(store.InspectRecovery().Status==FormalRecoveryStatus.Unsupported,"Unity future primary rollback blocked");
+            bool rejected=false;try{store.RestoreConfirmed(offer,out _);}catch(InvalidOperationException){rejected=true;}Check(rejected,"Unity stale recovery offer rejects future current");
+        }finally{foreach(var file in Directory.GetFiles(directory))File.Delete(file);Directory.Delete(directory);}
+    }
+    private static void ValidateFormalCampaign()
+    {
+        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
+        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        var initial=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth"}};
+        var journal=new FormalCampaignJournal(initial,encode,decode);
+        var request=new FormalVictoryRequest("unity.victory",WorldCatalog.ColossusIds[0],10,0);
+        Func<CampaignSaveV2,CampaignSaveV2> build=w=>{
+            var c=new CampaignState(WorldCatalog.ColossusIds,w);var first=WorldCatalog.Colossi[0];
+            c.ClaimColossusVictory(first.Id,first.EnvironmentTags,new VictoryReward(request.BattleId,10,10,4,GreenReturnDragonVerticalSlice.PoemIds.Take(4)),GreenReturnDragonVerticalSlice.StoryChapters,Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);return c.CreateSave();
+        };
+        Check(journal.CommitVictory(request,build,s=>false)==GrowthCommitResult.SaveFailed,"Unity unified save failure");
+        Check(journal.Snapshot.world.claimedBattleIds.Length==0 && journal.Snapshot.growth.stones==0,"Unity world and wallet both unchanged");
+        FormalCampaignSave persisted=null;
+        Check(journal.CommitVictory(request,null,s=>{persisted=decode(encode(s));persisted.Validate();return true;})==GrowthCommitResult.Committed,"Unity unified retry JSON roundtrip");
+        Check(persisted.world.claimedBattleIds.Contains(request.BattleId) && persisted.world.unlockedGardenIds.Length>0 && persisted.growth.nectar==160 && persisted.growth.awakeningCrystals==2 && persisted.growth.stones==50,"Unity complete reward in one payload");
+        var restarted=new FormalCampaignJournal(persisted,encode,decode);
+        Check(restarted.CommitVictory(request,null,s=>false)==GrowthCommitResult.AlreadyCommitted,"Unity unified replay after restart");
+        var changed=restarted.Snapshot.world;changed.materials+=1;
+        Check(restarted.CommitWorld(changed,s=>{s.Validate();return true;}) && restarted.Snapshot.growth.stones==50,"Unity world operation retains formal wallet");
+    }
     public static void Validate()
     {
         assertions=0;
         ValidateCombatDefinitions();
         ValidateFormalCombat();
+        ValidateFormalGrowth();
+        ValidateFormalKinder();
+        ValidateFormalCampaign();
+        ValidateFormalRecovery();
+        ValidateFormalEngagement();
+        ValidateFormalSplitRecovery();
+        ValidatePlan5();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

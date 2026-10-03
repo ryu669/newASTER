@@ -457,3 +457,21 @@ LevelUpRequest { transactionId:Id,heroineId:Id,targetLevel:1..120,baseRevision:n
 resource.nectarはLv育成専用の単一数量資源として定義し、MaterialDef.kind=colossusへ混ぜない。ネクタルの大小・品質別IDは作らない。JobBaseStats.jobIdは格納先JobDef.idと一致。キャラのHP／攻撃／防御bp合計30000、全参照と上限Lvを検証する。速度補正はチェイン接続へ適用しない。
 
 費用・成長算式はsystems/progression.mdを唯一の定義元とする。計算は広い整数で行い、UIと保存結果は同じ算式を使う。基礎ステータスはLv・ジョブ・キャラ補正とcontentVersionから導出し、セーブの重複正値を定義元にしない。内容版を変更するときの既存キャラ再計算は版移行規則に明示する。
+
+## 計画4・独立育成保存の先行実装
+
+現行通常ゲームは`FormalCampaignSave {version:1,saveId:"newaster.formal-campaign",revision:nonnegativeLong,world:CampaignSaveV2,growth:FormalGrowthSave}`へ統合済み。育成payloadの契約は下記を維持し、独立ファイルは正常な直前正式保存の読取専用統合元だけとする。`FormalCampaignJournal`は世界・育成・討伐の確定を一つの書込callbackへ渡す。worldの各配列長・数量・ID集合を検証し、unknown IDを推測で削除しない。
+
+保存codecはpayloadとは独立した`FormalCampaignHeader {version,saveId}`の読込を提供する。将来版でpayloadの型が変わっても、読込不能な「破損」と誤判定して古いbackupへ戻さない。`FormalRecoveryOffer`はstatusと、確認した保存場所・raw bytes指紋・候補payloadを不変保持する。`RecoveryPreview`は独立したコピー、`RestoreConfirmed`は同じ場所・指紋・候補の再検証を必須にする。確認前のoffer取得・previewは状態やファイルを変更しない。
+
+`FormalVictoryRequest`はbattleId・colossusId・召喚Lv・基準envelope revisionを不変保持し、receipt.signatureに検証用報酬版・colossusId・Lvを記録する。receipt IDはworld.claimedBattleIdsの同じbattleIdと対になる。初回組立だけ世界callbackを実行し、失敗後は候補全体を再利用する。確定済みID再送はcallback・書込・付与を再実行しない。世界と育成のrevisionは別で、世界のみの操作ではgrowth revisionを増やさない。
+
+2026-10-02ユーザー確定により旧試遊互換は不要。`FormalGrowthSave`はCampaignSaveV2を入力として受け入れず、正式人物IDで別管理する。現行`version=2`、`contentVersion=growth-2026-10-02`、`saveId`、非負long `revision`、非負int `nectar/awakeningCrystals/overflow/stones/kinderPoints/totalKinderDraws`、`heroines[]`、`tickets[{heroineId,count}]`、`receipts[]`を必須とする。人物状態は`heroineId/level/awakeningStage/duplicateRank/fragments`、receiptは`transactionId/signature/kinderOutcomes[]`。outcomeはkind・heroineId・amount・grantKind（owned/fragments/overflow）を持ち、育成receiptの結果列は空。配列と要素は深く複製し、負数・重複チケットID・不正結果種別を拒否する。既存正式v1だけ新経済を0で補完する。件数上限・将来の保存サイズ制限は配布受入れで追加する。
+
+`GrowthRequest`は不変で、内容版・人物ID・操作種別・目標Lv・基準revisionを署名に含める。Level以外のtargetLevelは0。入力／出力／I/Oへ渡すpayloadは深いコピー。確定済みIDの別内容再使用、未知人物への操作、不足、上限超過、オーバーフローを状態変更前に拒否する。未知人物の既存状態は保存往復で保持する。
+
+`GrowthPreview`はネクタル・結晶・専用欠片・汎用の消費内訳、最大時の汎用化量、対象人物の変更後状態を返す。汎用化と強化を同一payloadで確定する。`ReceiveHeroine`は排出／報酬の内部付与入口で、画面から無償付与する操作ではない。`KinderRequest`は操作ID・revision・種別・回数・対象ID・定義版を不変保持する。石／ポイント／チケット／全排出／重複変換を同一payloadで保存し、人物付与だけ別保存しない。抽選定義は検証後に複製、プレビューは乱数を消費しない。結果再送はreceiptを返して乱数・費用・保存を再実行しない。
+
+`FormalGrowthMath`はジョブ基準を引数に取る純粋算式。Lvの基礎値は最後に一度切捨て、重複の+2%／段階を別に切捨てる。特性量は明示単位の基準量に対して算出する。bp特性を整数percentへ先に丸めない。
+
+正式5人の通常育成・戦闘への接続を実装済み。`PlayableBattle.formalGrowth`は正式定義でのみ受理し、出撃5人全員の所持を必須とする。成長値は出撃時に導出して固定する。現行5ジョブの実行基準は`battle-formal.json.jobs`で、旧試遊のLv／枝／重複配列は使用しない。物理／魔法防御に同じ人物defenseBpと成長式を適用する。HP／攻撃の人物特性は明示されたtraitHpPercent／traitAttackPercentだけをbpへ変換し、rankの成長を掛けた後、基礎値・重複の外側へ乗算する。Lv50や最大rankでも速度とチェイン確率は変えない。追加特性種別を勝手に同じ式へ補完しない。

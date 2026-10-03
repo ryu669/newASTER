@@ -53,13 +53,15 @@ namespace NewAster.Core
         public int HitPoints { get; private set; }
         public bool IsBroken => HitPoints == 0;
         public string BreakEffectId { get; }
+        public string Role { get; }
         public int PhysicalDefense { get; }
         public int MagicDefense { get; }
         public int MaxHitPoints { get; }
         public EnemyStatusState Status { get; }
 
-        public BattlePart(string id, int hitPoints, string breakEffectId,int physicalDefense=0,int magicDefense=0,EnemyStatusResistanceDef[] resistances=null)
+        public BattlePart(string id, int hitPoints, string breakEffectId,int physicalDefense=0,int magicDefense=0,EnemyStatusResistanceDef[] resistances=null,string role=null)
         {
+            Role=role;
             Status=new EnemyStatusState(resistances);
             if(physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Defense cannot be negative.");
             PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
@@ -118,8 +120,8 @@ namespace NewAster.Core
             Parts = parts?.ToArray() ?? throw new ArgumentNullException(nameof(parts));
             if (Heroes.Count != PartySize || Heroes.Select(hero => hero.Id).Distinct().Count() != PartySize)
                 throw new ArgumentException("Battle requires exactly five unique heroes.", nameof(heroes));
-            if (Parts.Count != VerticalSlicePartCount || Parts.Select(part => part.Id).Distinct().Count() != VerticalSlicePartCount)
-                throw new ArgumentException("Vertical slice requires exactly four unique parts.", nameof(parts));
+            if (Parts.Count < 4 || Parts.Count > 6 || Parts.Select(part => part.Id).Distinct().Count() != Parts.Count)
+                throw new ArgumentException("Battle requires four to six unique parts.", nameof(parts));
             SelectedLevel = selectedLevel;
             BossMaxHitPoints = Math.Max(1, bossHitPoints);
             BossHitPoints = BossMaxHitPoints;

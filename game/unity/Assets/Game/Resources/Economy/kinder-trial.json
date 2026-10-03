@@ -1,0 +1,11 @@
+{
+  "id": "kinder.initial-five",
+  "contentVersion": "kinder-trial-2026-10-02",
+  "status": "trial",
+  "heroineIds": ["heroine.slayer", "heroine.iconoclast", "heroine.undermine", "heroine.echidna", "heroine.excalipan"],
+  "ticketPoints": false,
+  "materials": [
+    {"kind": "nectar", "weight": 9000, "amount": 200},
+    {"kind": "crystal", "weight": 700, "amount": 2}
+  ]
+}

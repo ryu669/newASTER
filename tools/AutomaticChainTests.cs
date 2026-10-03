@@ -11,9 +11,19 @@ public static class AutomaticChainTests
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main(string[] args)
     {
+        CollectionContractTests.Run(Check);
+        FormalProgressionTests.Run(Check);
+        FormalCampaignTests.Run(Check);
+        FormalRecoveryTests.Run(Check);
+        FormalEngagementTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};
+        FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
         Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
+        FormalProgressionTests.Battle(Check,formal());
+        BattleEndTests.Run(Check,formal());
+        Plan5WorldRelicTests.Run(Check,formal());
+        Plan5TrialMeasurements.Run(Check,formal());
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);
         var reference=freshReference();reference.Validate();
