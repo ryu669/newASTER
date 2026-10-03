@@ -68,8 +68,8 @@ namespace NewAster.Presentation
         }
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
-            unified.collection?.ValidateContent(CollectionContractFixture.Create(combatDefinitions));
-            unified.home?.ValidateContent(HomeExperienceFixture.Create(combatDefinitions),unified);
+            unified.collection?.ValidateContent(plan8StoryTrial?TrialStoryCatalog.Collection(combatDefinitions,StoryData()):CollectionContractFixture.Create(combatDefinitions));
+            unified.home?.ValidateContent(plan8StoryTrial?HomeData():HomeExperienceFixture.Create(combatDefinitions),unified);
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);

@@ -11,7 +11,7 @@ namespace NewAster.Core
         public string Signature=>"battle-end|"+receipt.battle.contentVersion+"|"+receipt.battle.combatVersion+"|"+receipt.battle.colossusVersion+"|"+receipt.reason+"|"+receipt.battle.colossusId+"|"+receipt.battle.level+"|"+receipt.battle.revision+"|"+receipt.battle.seed+"|"+string.Join(",",receipt.battle.formationIds)+"|"+string.Join(",",receipt.battle.heardPoemIds)+"|"+string.Join(",",receipt.acquiredPoemIds)+"|"+string.Join(",",receipt.unlockedChapterIds);
         public FormalBattleEndRequest(CollectionReceipt receipt,long revision)
         {
-            new FormalCollectionLedger {receipts=new[]{receipt}}.Validate();
+            new FormalCollectionLedger {contentVersion=receipt?.battle?.contentVersion,receipts=new[]{receipt}}.Validate();
             if(revision<0)throw new ArgumentException("Invalid end revision.");
             this.receipt=Copy(receipt);Revision=revision;
         }
@@ -77,7 +77,7 @@ namespace NewAster.Core
                 if(current.world.poemIds.Except(next.world.poemIds).Any() || current.world.claimedBattleIds.Except(next.world.claimedBattleIds).Any())throw new ArgumentException("World history lost.");
                 next.world.poemIds=next.world.poemIds.Union(r.acquiredPoemIds).ToArray();
                 next.world.unlockedStoryIds=next.world.unlockedStoryIds.Union(r.unlockedChapterIds).ToArray();
-                if(next.collection==null)next.collection=new FormalCollectionLedger();
+                if(next.collection==null)next.collection=new FormalCollectionLedger{contentVersion=catalog.contentVersion};
                 if(r.reason==BattleEndReason.Victory)ApplyHunt(next.collection,catalog,r);
                 next.collection.receipts=next.collection.receipts.Concat(new[]{r}).ToArray();
                 next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.Id,signature=request.Signature}}).ToArray();

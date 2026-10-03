@@ -14,7 +14,7 @@ namespace NewAster.Presentation
         private const float BookTransitionSeconds=.16f; // Presentation trial setting, no progression rule.
         private BookNavigationState CreateFormalBook()
         {
-            var data=HomeExperienceFixture.Create(combatDefinitions);
+            var data=HomeData();
             var navigation=new BookNavigationState(data.subjects.Select(s=>new BookOrderedSubject(
                 s.bookmarkId=="colossi"?BookBookmark.Colossi:s.bookmarkId=="heroines"?BookBookmark.Heroines:s.bookmarkId=="gardens"?BookBookmark.Gardens:BookBookmark.Stories,s.subjectId,s.pageOrder)));
             return navigation;

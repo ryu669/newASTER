@@ -141,8 +141,10 @@ namespace NewAster.Presentation
                 }else if(selectedResident!=null){
                     Label(1064,451,470,32,"好感度 "+(state.affections.SingleOrDefault(a=>a.heroineId==selectedResident)?.value??0),small,Color.white);
                     if(Btn(1064,490,470,44,"交流 ／ 素材1・好感度＋1",formalDiagnostic))ProposeHome(new HomeOperation("talk",selectedResident));
-                    var events=HomeData().events.Where(e=>e.heroineId==selectedResident).ToArray();
-                    for(int i=0;i<events.Length;i++){var item=events[i];bool read=state.readEventIds.Contains(item.id),open=state.unlockedEventIds.Contains(item.id);if(Btn(1064,550+i*49,470,43,(read?"回想":open?"物語を読む":"未解放")+" "+(i+1),formalDiagnostic && open))BeginAdv(item.id,read);}
+                    var events=HomeData().events.Where(e=>e.heroineId==selectedResident && (!plan8StoryTrial || HasTrialText(e.id))).ToArray();
+                    for(int i=0;i<events.Length;i++){var item=events[i];bool read=state.readEventIds.Contains(item.id),open=state.unlockedEventIds.Contains(item.id);if(Btn(1064,550+i*49,470,43,(read?"回想":open?"物語を読む":"未解放")+" "+(plan8StoryTrial?OriginalStoryTitle(item.id):(i+1).ToString()),formalDiagnostic && open))BeginAdv(item.id,read);}
+                    if(plan8StoryTrial && events.Length==0)Label(1064,605,470,70,"この人物の交流本文は未制作です。",small,Color.white);
+                    else if(plan8StoryTrial && events.Any(e=>!state.unlockedEventIds.Contains(e.id)))Label(1064,605,470,70,"解放条件：素材1を使って交流し、好感度1にする。",small,Color.white);
                 }
             }
             GUI.enabled=oldEnabled;

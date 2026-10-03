@@ -27,7 +27,10 @@ public static partial class PlayableBuild
         var failed=new TrialRunTelemetry("unity-run","unity-session",trial.contentVersion,"build-hash","diagnostic",()=>seconds,()=>DateTime.UtcNow,row=>throw new System.IO.IOException());
         failed.Record("event-2","save","failed");Check(failed.Incomplete,"Unity telemetry disk failure never escapes into gameplay");
         var story=JsonUtility.FromJson<TrialStoryContent>(Resources.Load<TextAsset>("Trial/plan8-story-content").text);story.Validate(combat,WorldCatalog.ColossusIds[0]);
-        Check(story.chapters.Sum(c=>c.poems.Length)==54 && story.events.Length==1,"Unity imports original trial text and explicit poem correspondences; gameplay adapter pending");
+        Check(story.chapters.Sum(c=>c.poems.Length)==54 && story.events.Length==1,"Unity imports original trial text and explicit poem correspondences; original trial catalog adapter validated below");
+        var originalCollection=TrialStoryCatalog.Collection(combat,story);var originalHome=TrialStoryCatalog.Home(combat,story);
+        Check(originalCollection.links.Length==30 && originalCollection.chapters.Count(c=>c.textId!=null)==8,"Original trial has 30 authored correspondences and eight text chapters only");
+        Check(originalHome.scripts.Count(s=>s.id.StartsWith("scene.trial.plan8."))==9,"Original trial adds eight chapter scripts and one distinct event script");
         Debug.Log("PLAN8_BUILD_BASELINE_PASS trial-only, no authored-content acceptance");
     }
 }

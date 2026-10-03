@@ -29,6 +29,7 @@ public static class AutomaticChainTests
         Plan8BaselineTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Trial/plan8-baseline.json")));
         Plan8TelemetryTests.Run(Check,formal());
         Plan8StoryTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Trial/plan8-story-content.json")));
+        Plan8StoryIntegrationTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Trial/plan8-story-content.json")));
         Plan5TrialMeasurements.Run(Check,formal());
         string referenceJson=File.ReadAllText(args[1]);
         Func<HeroineReferenceCatalog> freshReference=()=>JsonSerializer.Deserialize<HeroineReferenceCatalog>(referenceJson,options);

@@ -123,6 +123,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
+            if(capturePath!=null && args.Contains("-capturePlan8Story"))PreparePlan8StoryCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
             if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
             if(capturePath!=null && args.Contains("-validatePlan7Playback"))PreparePlan7Playback();
@@ -308,6 +309,7 @@ namespace NewAster.Presentation
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
             if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
             Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
+            if(Btn(1050,680,510,65,"計画8 ／ オリジナル試遊",BookInputAllowed))EnterPlan8StoryTrial();
             if(Btn(1050,770,510,65,"計画7 ／ 美術見本を見る",BookInputAllowed))OpenArtSample();
         }
         private void DrawBook()

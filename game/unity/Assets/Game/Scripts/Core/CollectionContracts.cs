@@ -36,6 +36,8 @@ namespace NewAster.Core
     }
     [Serializable] public sealed class CollectionCatalog
     {
+        public const string TrialVersion="collection-trial-story-2026-10-04";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion;
         public const string FixtureVersion="collection-fixture-2026-10-03";
         public int schemaVersion=1;
         public string contentVersion=FixtureVersion,status="fixture";
@@ -61,7 +63,7 @@ namespace NewAster.Core
         }
         public void Validate()
         {
-            if(schemaVersion!=1 || contentVersion!=FixtureVersion || status!="fixture")
+            if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial"))
                 throw new ArgumentException("Unsupported collection content.");
             var os=Index(owners,x=>x.id);var ps=Index(poems,x=>x.id);var cs=Index(chapters,x=>x.id);
             var rs=Index(resources,x=>x.id);var relicIndex=Index(relics,x=>x.id);
@@ -75,7 +77,7 @@ namespace NewAster.Core
                 if(o.poemIds.Length!=total || o.chapterIds.Length!=3)throw new ArgumentException("Invalid poem or chapter count.");
                 foreach(var id in o.poemIds)if(!ps.TryGetValue(id,out var p) || p.ownerId!=o.id || !o.chapterIds.Contains(p.chapterId))throw new ArgumentException("Poem owner or chapter mismatch.");
                 foreach(var id in o.chapterIds){
-                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || !string.IsNullOrEmpty(c.textId))throw new ArgumentException("Invalid or unapproved fixture chapter.");
+                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || (contentVersion==FixtureVersion?!string.IsNullOrEmpty(c.textId):!string.IsNullOrEmpty(c.textId) && !c.textId.StartsWith("text.trial.plan8.",StringComparison.Ordinal)))throw new ArgumentException("Invalid or unapproved fixture chapter.");
                     IdSet(c.poemIds);
                     if(c.poemIds.Length!=perChapter || c.poemIds.Any(p=>!o.poemIds.Contains(p) || ps[p].chapterId!=id))throw new ArgumentException("Invalid chapter membership.");
                 }
@@ -156,7 +158,7 @@ namespace NewAster.Core
         public string[] formationIds,heardPoemIds;
         public void Validate()
         {
-            if(!CollectionCatalog.ValidId(battleId) || !CollectionCatalog.ValidId(colossusId) || contentVersion!=CollectionCatalog.FixtureVersion || combatVersion!="combat-v3-newaster-original" || colossusVersion!=ColossusCombatDef.Version || level<1 || level>50 || revision<0 ||
+            if(!CollectionCatalog.ValidId(battleId) || !CollectionCatalog.ValidId(colossusId) || !CollectionCatalog.SupportedVersion(contentVersion) || combatVersion!="combat-v3-newaster-original" || colossusVersion!=ColossusCombatDef.Version || level<1 || level>50 || revision<0 ||
                formationIds==null || formationIds.Length!=5 || formationIds.Any(x=>!CollectionCatalog.ValidId(x)) || formationIds.Distinct().Count()!=5 ||
                heardPoemIds==null || heardPoemIds.Any(x=>!CollectionCatalog.ValidId(x)) || heardPoemIds.Distinct().Count()!=heardPoemIds.Length)throw new ArgumentException("Invalid battle collection record.");
         }
@@ -180,7 +182,7 @@ namespace NewAster.Core
         public CollectionEquipment[] equipment=Array.Empty<CollectionEquipment>();
         public void ValidateContent(CollectionCatalog catalog)
         {
-            Validate();catalog.Validate();
+            Validate();catalog.Validate();if(contentVersion!=catalog.contentVersion)throw new ArgumentException("Collection ledger content version mismatch.");
             foreach(var receipt in receipts){
                 var b=receipt.battle;
                 if(!catalog.owners.Any(o=>o.id==b.colossusId && o.kind=="colossus") || b.formationIds.Any(id=>!catalog.owners.Any(o=>o.id==id && o.kind=="heroine")) ||
@@ -192,13 +194,13 @@ namespace NewAster.Core
         }
         public void Validate()
         {
-            if(version!=1 || contentVersion!=CollectionCatalog.FixtureVersion || receipts==null || receipts.Any(x=>x==null || x.battle==null) || receipts.Select(x=>x.battle.battleId).Distinct().Count()!=receipts.Length)throw new ArgumentException("Invalid collection ledger.");
+            if(version!=1 || !CollectionCatalog.SupportedVersion(contentVersion) || receipts==null || receipts.Any(x=>x==null || x.battle==null) || receipts.Select(x=>x.battle.battleId).Distinct().Count()!=receipts.Length)throw new ArgumentException("Invalid collection ledger.");
             if(materials==null || materials.Any(x=>x==null || !CollectionCatalog.ValidId(x.id) || !CollectionCatalog.ValidId(x.sourceColossusId) || x.amount<0) || materials.Select(x=>x.id).Distinct().Count()!=materials.Length ||
-               relics==null || relics.Any(x=>x==null || !CollectionCatalog.ValidId(x.id) || x.contentVersion!=CollectionCatalog.FixtureVersion || x.level<1 || x.level>120 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || relics.Select(x=>x.id).Distinct().Count()!=relics.Length ||
+               relics==null || relics.Any(x=>x==null || !CollectionCatalog.ValidId(x.id) || !CollectionCatalog.SupportedVersion(x.contentVersion) || x.level<1 || x.level>120 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || relics.Select(x=>x.id).Distinct().Count()!=relics.Length ||
                equipment==null || equipment.Any(x=>x==null || !CollectionCatalog.ValidId(x.heroineId) || !relics.Any(r=>r.id==x.relicId)) || equipment.Select(x=>x.heroineId).Distinct().Count()!=equipment.Length || equipment.Select(x=>x.relicId).Distinct().Count()!=equipment.Length)throw new ArgumentException("Invalid material or relic inventory.");
             foreach(var r in receipts){
                 r.battle.Validate();
-                if(r.relicDrawCount<0 || r.relicDrawCount>5 || r.relicDrops==null || r.relicDrops.Length>r.relicDrawCount || r.reason!=BattleEndReason.Victory && (r.relicDrawCount!=0 || r.relicDrops.Length!=0) || r.relicDrops.Any(x=>x==null || x.contentVersion!=CollectionCatalog.FixtureVersion || !CollectionCatalog.ValidId(x.id) || x.level!=1 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || !Enum.IsDefined(typeof(BattleEndReason),r.reason) || r.acquiredPoemIds==null || r.unlockedChapterIds==null ||
+                if(r.relicDrawCount<0 || r.relicDrawCount>5 || r.relicDrops==null || r.relicDrops.Length>r.relicDrawCount || r.reason!=BattleEndReason.Victory && (r.relicDrawCount!=0 || r.relicDrops.Length!=0) || r.relicDrops.Any(x=>x==null || !CollectionCatalog.SupportedVersion(x.contentVersion) || !CollectionCatalog.ValidId(x.id) || x.level!=1 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || !Enum.IsDefined(typeof(BattleEndReason),r.reason) || r.acquiredPoemIds==null || r.unlockedChapterIds==null ||
                    new[]{r.acquiredPoemIds,r.unlockedChapterIds}.Any(ids=>ids.Any(x=>!CollectionCatalog.ValidId(x)) || ids.Distinct().Count()!=ids.Length))throw new ArgumentException("Invalid collection receipt.");
             }
         }

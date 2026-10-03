@@ -29,7 +29,7 @@ namespace NewAster.Core
         {if(entries==null || entries.Any(x=>x==null || !HomeExperienceCatalog.Id(key(x))) || entries.Select(key).Distinct().Count()!=entries.Length)throw new ArgumentException("Missing or duplicate home entity.");}
         public void Validate()
         {
-            if(version!=1 || contentVersion!=HomeExperienceCatalog.FixtureVersion)throw new ArgumentException("Unsupported home progress.");
+            if(version!=1 || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Unsupported home progress.");
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
             Index(weaponEquipment,x=>x.heroineId);if(weaponEquipment.Any(e=>!weaponNodeIds.Contains(e.nodeId)))throw new ArgumentException("Weapon must be acquired.");
             foreach(var ids in new[]{weaponNodeIds,loverHeroineIds,unlockedEventIds,readEventIds,claimedRewardIds})Set(ids);

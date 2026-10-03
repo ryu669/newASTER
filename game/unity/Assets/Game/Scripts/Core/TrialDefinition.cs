@@ -57,6 +57,10 @@ namespace NewAster.Core
 
         // Only derives a path. Never creates a directory, opens a store or reads a player save.
         public static TrialDiagnosticBoundary Create(string repositoryRoot, string normalSaveRoot, string runId)
+            =>Resolve(repositoryRoot,normalSaveRoot,runId,false);
+        public static TrialDiagnosticBoundary OpenExisting(string repositoryRoot,string normalSaveRoot,string runId)
+            =>Resolve(repositoryRoot,normalSaveRoot,runId,true);
+        private static TrialDiagnosticBoundary Resolve(string repositoryRoot,string normalSaveRoot,string runId,bool existing)
         {
             if (string.IsNullOrWhiteSpace(repositoryRoot) || string.IsNullOrWhiteSpace(normalSaveRoot) ||
                 !Path.IsPathFullyQualified(repositoryRoot) || !Path.IsPathFullyQualified(normalSaveRoot))
@@ -67,11 +71,12 @@ namespace NewAster.Core
             string root = Path.GetFullPath(Path.Combine(repositoryRoot, "tmp", "plan8-runs"));
             string normal = Path.GetFullPath(normalSaveRoot);
             if (Within(root, normal) || Within(normal, root)) throw new ArgumentException("Trial and normal save roots must not overlap.");
-            for (var parent = new DirectoryInfo(root); parent != null; parent = parent.Parent)
+            string directory = Path.GetFullPath(Path.Combine(root, runId));
+            for (var parent = new DirectoryInfo(directory); parent != null; parent = parent.Parent)
                 if (parent.Exists && (parent.Attributes & FileAttributes.ReparsePoint) != 0)
                     throw new ArgumentException("Trial root cannot traverse a junction or symbolic link.");
-            string directory = Path.GetFullPath(Path.Combine(root, runId));
-            if (Directory.Exists(directory) || File.Exists(directory)) throw new ArgumentException("Trial run ID already exists; use a fresh run.");
+            if(!existing && (Directory.Exists(directory) || File.Exists(directory)))throw new ArgumentException("Trial run ID already exists; use a fresh run.");
+            if(existing && !Directory.Exists(directory))throw new ArgumentException("Trial run does not exist.");
             return new TrialDiagnosticBoundary(directory, runId);
         }
 
