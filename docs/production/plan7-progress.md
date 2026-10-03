@@ -1,6 +1,6 @@
 # 計画7：最初の美術完成見本
 
-更新：2026-10-03。状態：候補一式を制作・接続し、Windows実画面検証中。計画6の機能完了を引き継ぐ。正式品質ゲートは未通過。[候補見本と残り](plan7-candidate-review.md)、[素材台帳](plan7-candidate-assets.json)を参照。
+更新：2026-10-04。状態：候補一式を制作・接続し、Windows実画面と通し戦闘を検証済み。計画6の機能完了を引き継ぐ。原画納品・品質・実工数の条件は未充足で計画7全体は未完了。[完了条件の実ファイル監査](plan7-completion-status.md)、[候補見本と残り](plan7-candidate-review.md)、[素材台帳](plan7-candidate-assets.json)を参照。
 
 ## 順序と完了条件
 

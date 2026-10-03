@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-10-03T15:04:51.0255904Z",
+  "complete": false,
+  "scope": "Read-only material delivery checks. Does not re-run or certify Q1-Q5 functional/visual acceptance, artistic judgement, cold load or human work hours.",
+  "gates": [
+    {
+      "id": "integrity",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "nativeDimensions",
+      "status": "incomplete",
+      "issues": 5
+    },
+    {
+      "id": "paintingSource",
+      "status": "incomplete",
+      "issues": 24
+    },
+    {
+      "id": "artQuality",
+      "status": "incomplete",
+      "issues": 24
+    },
+    {
+      "id": "listening",
+      "status": "incomplete",
+      "issues": 6
+    },
+    {
+      "id": "productionTime",
+      "status": "incomplete",
+      "issues": 1
+    }
+  ],
+  "issues": [
+    {
+      "gate": "nativeDimensions",
+      "assetId": "art.candidate.slayer.standing.v1",
+      "reason": "Actual 1024x1536; target 1600x2400. Upscaled exports are not proof of new native detail."
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer.standing.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer.standing.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer.expression.joy.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer.expression.joy.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer.expression.puzzled.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer.expression.puzzled.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer.expression.determined.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer.expression.determined.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-attack.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-attack.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-hit.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-hit.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-cutin.v3",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-cutin.v3",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-body.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-body.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-crown.v2",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-crown.v2",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-wing-left.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-wing-left.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-wing-right.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-wing-right.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-tail.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-tail.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.green-major.v3",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.green-major.v3",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "nativeDimensions",
+      "assetId": "art.candidate.forest-far.v1",
+      "reason": "Actual 1672x941; target 1920x1080. Upscaled exports are not proof of new native detail."
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.forest-far.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.forest-far.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "nativeDimensions",
+      "assetId": "art.candidate.forest-mid.v1",
+      "reason": "Actual 1672x941; target 1920x1080. Upscaled exports are not proof of new native detail."
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.forest-mid.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.forest-mid.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "nativeDimensions",
+      "assetId": "art.candidate.forest-front.v1",
+      "reason": "Actual 1672x941; target 1920x1080. Upscaled exports are not proof of new native detail."
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.forest-front.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.forest-front.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.furniture.bench.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.furniture.bench.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.furniture.desk.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.furniture.desk.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.furniture.fountain.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.furniture.fountain.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-sd-idle.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-sd-idle.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-sd-sit.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-sd-sit.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-sd-work.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-sd-work.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-sd-look.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-sd-look.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "nativeDimensions",
+      "assetId": "art.candidate.slayer-garden-cg.v1",
+      "reason": "Actual 1672x941; target 1920x1080. Upscaled exports are not proof of new native detail."
+    },
+    {
+      "gate": "paintingSource",
+      "assetId": "art.candidate.slayer-garden-cg.v1",
+      "reason": "Original painting layers are not delivered; composition SVG is a separate artifact"
+    },
+    {
+      "gate": "artQuality",
+      "assetId": "art.candidate.slayer-garden-cg.v1",
+      "reason": "Candidate quality remains unaccepted; pixel/hash checks do not certify face, hands, clothing or silhouette"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.hit.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.shield.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.heal.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.break.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.victory.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "listening",
+      "assetId": "audio.candidate.bgm.v2",
+      "reason": "Loop seam and effect clarity have no listening acceptance record; waveform tests are separate"
+    },
+    {
+      "gate": "productionTime",
+      "assetId": "Q6",
+      "reason": "Person, enemy and formal event active-work records H/E/V are not available; quantity estimate exists, duration estimate remains unverified"
+    }
+  ],
+  "art": [
+    {
+      "assetId": "art.candidate.slayer.standing.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "E343DF8EB6FE0AAAEC7CB1E65870DAD9161A4BB0A3AFE92334908B00669E19B8",
+      "usage": "standing"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.joy.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-joy-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "2987CBB053E8BB9FD14E7827A3CDBEEBB89F218CE9E0939BF26FFA01AC2A6482",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.puzzled.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-puzzled-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "3C16F5F284362573E3BEC717AF93AEB3C500F1E9D1174BC10D90AAB86E189D02",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.determined.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-determined-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ED196A2C97A7EA5493DB6BF3AE17C00C8F5912E3D7E2ACB2FA429020BF5F462E",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer-attack.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-attack-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "74A28016733166F07F30CFB75C1933B94EF62DFB7E747C363291077450214AB7",
+      "usage": "attack"
+    },
+    {
+      "assetId": "art.candidate.slayer-hit.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "40BA73F690EF7D94BDA811699AA6907900B2225EB67AB96845BCB3A11361F0C4",
+      "usage": "hit"
+    },
+    {
+      "assetId": "art.candidate.slayer-cutin.v3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-cutin-candidate-v3.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2A7BF6BDE5E55348A47163B78592E53F8E790B9626080DC24ED92E4FE4084DBF",
+      "usage": "cutin"
+    },
+    {
+      "assetId": "art.candidate.green-body.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "AD318E67391D58AB06B21068A4B2DFDD8538B9D30F13071FE3A21B54395C8D88",
+      "usage": "body"
+    },
+    {
+      "assetId": "art.candidate.green-crown.v2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1F66FD4E06A466148BEE19B3B75FFE035476A90712E945B2051781573110D15E",
+      "usage": "crystal-horn-crown"
+    },
+    {
+      "assetId": "art.candidate.green-wing-left.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-wing-left-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "F4A51F0E2EBE5C75B215835F996D136F03F3E782D7CF84CC749BCC3208E6D478",
+      "usage": "left-wing-root"
+    },
+    {
+      "assetId": "art.candidate.green-wing-right.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-wing-right-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9D742DE3FCC93609078AA46B0DF68F3A7B8469150038763689E3A754E0324379",
+      "usage": "right-wing-root"
+    },
+    {
+      "assetId": "art.candidate.green-tail.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "BFB7DF6FAFDD29B29C87E43BC46A28DFC7435DD6C4FC2D6D257CAF9E355EA9A9",
+      "usage": "vine-wrapped-tail"
+    },
+    {
+      "assetId": "art.candidate.green-major.v3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-major-candidate-v3.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7FD538D404E402CBFF67B57D26C2A40D1F8A52C6894BA1D84794B5D8C13059FA",
+      "usage": "major"
+    },
+    {
+      "assetId": "art.candidate.forest-far.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-far-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "D0CBBB0959163F8CBC47CC6A6B995B53C7B69AAA572D07DB37B7F89A7BB337B3",
+      "usage": "background"
+    },
+    {
+      "assetId": "art.candidate.forest-mid.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-mid-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "73957D71AADEF1AED00EA5A8FCDA5B75D1585064CDB917C24D57484C7587D45B",
+      "usage": "middle"
+    },
+    {
+      "assetId": "art.candidate.forest-front.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-front-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "EA8568EDBDC39F0E4F1AB23635EFD49784A883C30354510D699FD45A07E76139",
+      "usage": "foreground"
+    },
+    {
+      "assetId": "art.candidate.furniture.bench.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-bench-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "B387425FCC2292B8C298A4F3C379C8B55BF987A26606F67E5E5E0460D96765A1",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.furniture.desk.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-desk-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0E3EB4776CE5F624529857387AB6A2814BB223155B765BFA6DEE401DBE009882",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.furniture.fountain.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-fountain-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "66D6CED10E25A7AB0A59E81519D2746113F6531121F517C046A996AC1F65C480",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-idle.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-idle-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "EAD29E6A676C906B500AD63AFF351D7E1718017CD0362B05EB355E7F2CA535B6",
+      "usage": "idle"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-sit.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-sit-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "3C64EBBC9D1B26010085E05BE2B942F7439D5AA6334B04719A41FE5ED42460B0",
+      "usage": "sit"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-work.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-work-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "FAB3B3FA2F984065AEBC60C5B89BC6791D2DE4D2AAD5F79142BFEA43317F2119",
+      "usage": "work"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-look.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-look-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "A7C0FF1F4809BCE4171D5983FE3B8D8271BE64F6A584B6D0B3C8A09A2CE0835B",
+      "usage": "look"
+    },
+    {
+      "assetId": "art.candidate.slayer-garden-cg.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-garden-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "A204E2D4DE4FD391BDB0CE2CF8672225FC1F1A4DF3CF379DB3028BF1593E9FA4",
+      "usage": "cg"
+    }
+  ],
+  "audio": [
+    {
+      "assetId": "audio.candidate.hit.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-hit-v2.wav",
+      "sha256": "5022AB7D249750A29DA7844C1A9FEE4AAC618BE33B804BC0BF72C0D87BE8534F",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.shield.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-shield-v2.wav",
+      "sha256": "6E2C515F4A07D2B9562918377BD083D72B6FD2DE384A7E1CD3AC21A5F74FBEAE",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.heal.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-heal-v2.wav",
+      "sha256": "19307C3F0FA3706BD92CDB8DEF5E676FF947F4595D9A32040820EDBFD1C8039A",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.break.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-break-v2.wav",
+      "sha256": "F21E24E44297C7D2487F37D160993EB903649465A15B094389FE304A4203421A",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.victory.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-victory-v2.wav",
+      "sha256": "50238758656A64E1E5E27415A054F664ED9CE0F65AA0F708F94D6DEA997DC6C7",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.bgm.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-bgm-v2.wav",
+      "sha256": "70A03248F5ADF5C7D86D69E38A95DFF89031E39A3C757C97F7ED2C3C38D86FEC",
+      "listeningAcceptance": "pending"
+    }
+  ],
+  "functionalEvidence": [
+    "docs/production/plan7-crown.md",
+    "docs/production/plan7-full-combat.md",
+    "docs/production/plan7-validation.md"
+  ],
+  "requiredApproval": false
+}
