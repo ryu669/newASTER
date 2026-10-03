@@ -35,7 +35,7 @@ namespace NewAster.Presentation
             if(!Environment.GetCommandLineArgs().Contains("-presentationCapture") && PlayerPrefs.HasKey("art.fullscreen"))Screen.fullScreenMode=PlayerPrefs.GetInt("art.fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;}
         private bool PlayArtSound(string name)
         {if(!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:encounter==null || paused || help || retreat))return false;
-            EnsureArtAudio();var clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(name));if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);return true;}
+            EnsureArtAudio();var clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(name));if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);TrialObserve("audio","se-requested",name);return true;}
         private void SetArtSamplePaused(bool value)
         {artSamplePaused=value || !artHasFocus || !Application.isFocused;if(artSamplePaused){artBgm?.Pause();artSe?.Pause();}}
         private void UpdateArtAudio()
@@ -56,7 +56,7 @@ namespace NewAster.Presentation
             PlayArtSound(e.BossHp==0?"victory":e.PartBroken?"break":e.Kind==BattlePresentationKind.Healing?"heal":e.Kind==BattlePresentationKind.Support?"shield":"hit");
         }
         private void OnApplicationFocus(bool focused)
-        {artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
+        {TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
             artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}

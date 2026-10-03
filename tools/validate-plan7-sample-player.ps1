@@ -1,5 +1,6 @@
-param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus,[switch]$CompleteBattle,[string]$ExpectedAssemblySha256)
+param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus,[switch]$CompleteBattle,[string]$ExpectedAssemblySha256,[switch]$Plan8Telemetry)
 $ErrorActionPreference='Stop'
+if($Plan8Telemetry -and ($Measure -or $Uncapped)){throw 'Telemetry validation is functional, not a performance benchmark'}
 if($ValidateFocus -and ($Measure -or $Uncapped -or @($Cases | Where-Object {$_ -ne 'settings'}).Count -gt 0)){throw 'Focus validation requires settings cases without performance measurement'}
 if($Uncapped -and $Cases -contains 'activecombat'){throw 'Active combat measurement requires normal synchronization so frame count covers action playback'}
 if($CompleteBattle -and @($Cases | Where-Object {$_ -ne 'activecombat'}).Count -gt 0){throw 'CompleteBattle requires activecombat cases'}
@@ -34,6 +35,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     if($Uncapped){$flags+='-measurePlan7Uncapped'}
     if($LargeText){$flags+='-inspectLargeText'}
     if($ValidateFocus){$flags+='-validatePlan7Focus'}
+    if($Plan8Telemetry){$telemetryId='telemetry-'+[Guid]::NewGuid().ToString('N');$flags+=@('-plan8Telemetry','-plan8RepositoryRoot',('"'+$repo+'"'),'-plan8RunId',$telemetryId)}
     $watch=[Diagnostics.Stopwatch]::StartNew();$peakWorking=0L;$peakObserved=0L
     $process=Start-Process -FilePath $Player -ArgumentList $flags -WindowStyle Normal -PassThru
     while(-not $process.WaitForExit(250)){
@@ -49,6 +51,14 @@ foreach($case in $Cases){foreach($height in $Heights){
     if($text -notmatch 'PLAN7_BUNDLED_FONT_PASS'){throw "Bundled font not validated: $log"}
     if(@([regex]::Matches($text,'PLAN7_AUDIO_WAVEFORM_PASS')).Count -ne 6){throw "Imported audio waveform validation missing: $log"}
     if($ValidateFocus -and $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS'){throw "Focus/audio validation did not finish (requires application focus): $log"}
+    if($Plan8Telemetry){
+        if($text -notmatch 'PLAN8_TELEMETRY_COMPLETE events=' -or $text -match 'PLAN8_TELEMETRY_INCOMPLETE'){throw 'Telemetry run is incomplete'}
+        $events=@(Get-Content -LiteralPath (Join-Path $repo ('tmp/plan8-runs/'+$telemetryId+'/events.jsonl')) | ForEach-Object {$_ | ConvertFrom-Json})
+        if($events.Count -lt 3 -or @($events | Where-Object buildHash -ne $assemblySha256).Count -gt 0 -or @($events | Where-Object runId -ne $telemetryId).Count -gt 0){throw 'Telemetry provenance mismatch'}
+        if(@($events.eventId | Select-Object -Unique).Count -ne $events.Count){throw 'Duplicate telemetry event IDs'}
+        $events | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $output ($name+'-telemetry.json')) -Encoding utf8
+        Write-Output "PLAN8_TELEMETRY_PLAYER_PASS run=$telemetryId events=$($events.Count)"
+    }
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}
     $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped;completeBattle=[bool]$CompleteBattle;assemblySha256=$assemblySha256;resourceAssetsSha256=$resourceAssetsSha256}
     [IO.File]::WriteAllText((Join-Path $output ($name+'-memory.json')),($memory | ConvertTo-Json)+[Environment]::NewLine)

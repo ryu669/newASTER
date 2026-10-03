@@ -1,6 +1,6 @@
 # 計画8：実装・検証記録
 
-更新：2026-10-04。8-1の基準定義・診断境界を実装し、対象の検証を完了。8-2以降は未着手。計画8全体は未完了。[詳細計画](plan8-implementation-plan.md)と[受入ケース](acceptance.md#計画8縦切り通し試遊と調整)を定義元にする。
+更新：2026-10-04。8-1を検証済み。8-2の計測層を戦闘・操作・保存へ接続し、8-3の試遊本文を制作・データ検証済み。8-2の全分類統合と8-3のゲーム接続、8-4〜8-10は未完了。計画8全体は未完了。[詳細計画](plan8-implementation-plan.md)と[受入ケース](acceptance.md#計画8縦切り通し試遊と調整)を定義元にする。
 
 ## 8-1：基準版と試遊対象
 
@@ -45,3 +45,27 @@
 Core5,617 assertions（基準・参照・保存境界の異常系34項目追加）、C#96ファイルのコンパイルが合格。既存の非推奨APIと未割当フィールドの2警告を維持。Unity1,181 assertions、Windowsビルド293,082,310 bytesが合格。最終ビルドで正常診断・不正run拒否の2起動が合格し、通常保存と設定の前後ハッシュが一致した。通常の戦闘画面も720p／1080pの2起動で回帰し、24画像・6音源・日本語字形の読込が合格。最終ビルドの採用結果は計4起動。720pの画面を目視確認した。再現結果は[検証JSON](plan8-baseline-validation.json)。性能測定は実施していない。
 
 再現：`tools/snapshot-plan8-baseline.ps1`、`tools/validate-automatic-chain.ps1`、`tools/compile-unity-scripts.ps1`。Unityビルド後に`tools/validate-plan8-baseline-player.ps1`と同スクリプトの`-UnsafeRunFixture`を実行する。
+
+## 8-2：任意のrun計測層を接続
+
+`TrialRunTelemetry`は単調増加時計とUTC、出力sinkを注入する。経過秒・アクティブ秒・TIME tick・演出予定秒を分け、eventIdで重複を除く。書込・時計・serializerの例外はゲームへ返さず、runをIncompleteにする。乱数・ゲーム状態・保存writerを保持しない。
+
+Windows起動の`-plan8Telemetry -plan8RepositoryRoot <repo> -plan8RunId <new-id>`で任意に有効化する。ログは8-1境界で導出した`tmp/plan8-runs/<id>/events.jsonl`を排他新規作成する。通常起動は無効。これはログの隔離であり、通常プレイのセーブ先を切り替える指定ではない。診断には既存の保存隔離された`-presentationCapture`を併用する。
+
+各行にrun/session/操作/battle ID、seed、入力方式、基準定義版、assembly・resources.assets・参照定義本文のSHA-256を記録する。戦闘受理／拒否、描画演出、敵行動完了の歌唱、結果と取得、開始残高、正式保存の成否・残高・取引、生活取引、ADVの開始／中断／読了・行既読、共通ボタン操作、画面移動、焦点・停止・判断／演出の区間を観測する。保存を観測するwriterは元の保存を同じ回数だけ呼び、記録失敗で成否を変えない。比較用の内部再生はrunログへ混入させず、診断自動入力を人間の試遊入力と区別する。
+
+Coreでは4 seed×計測OFF／ON／IO例外sinkを比較し、全演出イベント・HP・TIME・資源・部位・歌唱取得・報酬と最終保存JSONが一致。100秒の非アクティブ区間、重複ID、時計逆行、出力失敗も検証した。試遊本文の試験を含めCore5,679 assertions、C#99ファイル、Unity1,184 assertionsが合格。最終Windowsビルドは293,131,126 bytes。
+
+`tools/validate-plan8-telemetry-player.ps1`で720pの実描画戦闘を検証し、159件の記録と66演出、4再生方式の結果・報酬一致、ビルド／素材hash、単調時計、通常保存・ファイル設定の前後hash一致を確認。採用runは`telemetry-4756bdb738604b1d882cbe0cbb38fc3e`、出力は`tmp/plan7-sample-20261003224158`。詳細は[検証JSON](plan8-telemetry-validation.json)。過程の旧ビルドrunは最終証拠に加算しない。
+
+性能測定の既存出力を同じrunへ結ぶ部分と、一周で各生活・読書・経済の不足理由を集計する受入れは残る。T8-02全体を完了にはしない。性能測定は未実施。人間の判断・聴感・実AltTabの証拠ではない。
+
+同じ最終ビルドで1080p通常戦闘のResource・日本語字形回帰も合格し、大きな敵／人物表示と閉じた操作メニューを画像で確認した。出力は`tmp/plan7-sample-20261003224538`。負荷測定には使用していない。
+
+## 8-3：本文と明示対応を制作
+
+[試遊本文の契約](plan8-story-content.md)とResource JSONを追加。緑還竜3章24詩、正式5人の第1章30詩、スレイヤー交流イベント1本をオリジナルで制作した。各詩の本文内引用、章・所有者、異なる30対応と理由、好感度1・恋人非確定のイベントを検証する。人物第2・3章は制作していない。
+
+Coreの異常系とUnity JSON importは合格。既存Collection/Homeはfixture内容版だけを受け入れ、旧読了と実歌唱対応もその版に固定されている。この版を黙って上書きせず、新本文の取得・読書・保存の版切替を接続する作業が次に必要。現段階ではゲーム内の本文・歌唱対応は変えていない。8-3／T8-03は未完了。
+
+新規本文の制作窓を[作業記録](plan8-story-authoring-window.json)に残した。開始時刻からResource作成時刻までの経過であり、独占的な実作業時間は計測できていないためnull。後続ビルド待機・過去の美術工数を本文の実作業時間に加算しない。

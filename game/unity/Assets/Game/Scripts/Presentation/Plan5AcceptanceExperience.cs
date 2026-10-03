@@ -15,7 +15,11 @@ namespace NewAster.Presentation
         }
         private FormalCampaignStore acceptanceStore;
         private int acceptanceChecks;
-        private bool SaveDiagnosticCampaign(FormalCampaignSave next)=>!formalVictoryDiagnosticFailure && (acceptanceStore==null || acceptanceStore.Save(next));
+        private bool SaveDiagnosticCampaign(FormalCampaignSave next)
+        {
+            bool success=!formalVictoryDiagnosticFailure && (acceptanceStore==null || acceptanceStore.Save(next));
+            ObserveTrialSave(next,success);return success;
+        }
         private void AcceptanceCheck(bool ok,string description)
         {acceptanceChecks++;if(!ok)throw new InvalidOperationException("Plan5 acceptance: "+description);}
         private void ReloadAcceptance()

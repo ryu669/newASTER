@@ -62,7 +62,7 @@ namespace NewAster.Presentation
                 if(growthLoad==FormalLoadResult.Blocked || growthLoad==FormalLoadResult.RecoveredBackup || worldLoad==FormalLoadResult.Blocked){BeginSplitSaveRecovery();return;}
                 if(growth==null)growth=new FormalGrowthSave {saveId="newaster.formal-growth",nectar=2940,awakeningCrystals=20,heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
                 unified=new FormalCampaignSave {growth=growth,world=world??new CampaignState(WorldCatalog.ColossusIds).CreateSave()};unified.Validate();
-                if(!formalDiagnostic)formalCampaignStore.Save(unified);
+                if(!formalDiagnostic)SaveTrialObservedCampaign(unified);
             }
             BindFormalCampaign(unified);
         }
@@ -75,11 +75,13 @@ namespace NewAster.Presentation
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
             book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
+            TrialObserve("save","loaded","revision="+unified.revision);
+            TrialObserve("economy","opening-balance",$"nectar={unified.growth.nectar};crystals={unified.growth.awakeningCrystals};stones={unified.growth.stones}");
         }
         private bool SaveFormalGrowth(FormalGrowthSave next)
         {
             if(formalDiagnostic)return acceptanceStore!=null && formalCampaign.CommitGrowth(next,SaveDiagnosticCampaign);
-            return formalCampaign.CommitGrowth(next,formalCampaignStore.Save);
+            return formalCampaign.CommitGrowth(next,SaveTrialObservedCampaign);
         }
         private void DrawFormalGrowth() => DrawGrowthExperience();
     }

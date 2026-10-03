@@ -26,6 +26,8 @@ $lines+='"'+(Join-Path $PSScriptRoot 'Plan6HomeTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan6BookTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan6ExperienceTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan8BaselineTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan8TelemetryTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan8StoryTests.cs')+'"'
 $response=Join-Path $output 'compile.rsp'
 [IO.File]::WriteAllLines($response,$lines,[Text.UTF8Encoding]::new($false))
 & $DotNet (Join-Path $sdk.FullName 'Roslyn/bincore/csc.dll') ('@'+$response)

@@ -1,0 +1,12 @@
+{
+  "unit": "plan8-original-trial-text-8chapters-1event",
+  "startedAtUtc": "2026-10-03T22:30:33.736295+00:00",
+  "scope": "new text drafting only; no historical art hours",
+  "resourceWrittenAtUtc": "2026-10-03T22:34:27.513301+00:00",
+  "elapsedWindowSeconds": 233.777006,
+  "exclusiveActiveWorkSeconds": null,
+  "buildWaitIncluded": false,
+  "historicalArtHoursIncluded": false,
+  "method": "start timestamp before drafting through JSON write; active time was not instrumented",
+  "resourceSha256": "397BC86E5D25F392C02AF9055141D9E8359875043579F6CFA3E2CEA4D3526289"
+}

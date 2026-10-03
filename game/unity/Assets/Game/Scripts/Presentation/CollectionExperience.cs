@@ -21,7 +21,7 @@ namespace NewAster.Presentation
         private void RelicCommit()
         {
             try{
-                var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save);
+                var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);
                 if(outcome==GrowthCommitResult.SaveFailed){relicError="保存待ちです。同じ強化・装備内容で再試行します。";return;}
                 formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);relicRequest=null;relicError="保存しました。能力は次の出撃から反映されます。";
             }catch(Exception e){relicError=e is ArgumentException?"素材数・80%条件・Lv上限・装備先を確認してください。":"保存できません。同じ内容で再試行してください。";Debug.LogException(e);}

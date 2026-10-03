@@ -25,6 +25,7 @@ namespace NewAster.Presentation
                 var songs=collectionCatalog.owners.Single(o=>o.id==activeColossus).poemIds;
                 var id=songs[singingRandom.Next(songs.Length)];
                 collectionSession.RecordCompletedSinging(id);
+                TrialObserve("collection","singing-completed",id);
                 lastSinging="歌唱を記録：詩 "+(Array.IndexOf(songs,id)+1)+"（収集テスト用・本文未制作）";
             };
         }
@@ -33,6 +34,7 @@ namespace NewAster.Presentation
         {
             var current=formalCampaign.Snapshot;
             var receipt=collectionSession.Finish(reason,current.world.poemIds,current.world.unlockedStoryIds);
+            TrialObserve("battle","end",reason.ToString(),battleId+"/end");
             formalBattleEndRequest=new FormalBattleEndRequest(receipt,current.revision);
             formalVictoryRequest=reason==BattleEndReason.Victory?new FormalVictoryRequest(battleId,receipt.battle.colossusId,receipt.battle.level,current.revision):null;
             formalVictorySummary=null;PersistFormalVictory();
@@ -53,11 +55,13 @@ namespace NewAster.Presentation
         private void PersistFormalVictory()
         {
             try{
-                Func<FormalCampaignSave,bool> writer=formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save;
+                Func<FormalCampaignSave,bool> writer=formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign;
                 var outcome=formalCampaign.CommitBattleEnd(formalBattleEndRequest,collectionCatalog,BuildVictoryWorld,writer,HomeData());
-                if(outcome==GrowthCommitResult.SaveFailed){result="戦闘終了 ／ 保存待ち";return;}
+                if(outcome==GrowthCommitResult.SaveFailed){TrialObserve("save","battle-end-failed");result="戦闘終了 ／ 保存待ち";return;}
                 var r=formalBattleEndRequest.Receipt;var saved=formalCampaign.Snapshot;
                 lastCollectionResult=saved.collection.receipts.Single(x=>x.battle.battleId==r.battle.battleId);resultTab=0;
+                TrialObserve("collection","committed",$"heard={r.battle.heardPoemIds.Length};new={r.acquiredPoemIds.Length};chapters={r.unlockedChapterIds.Length}",battleId+"/collection-committed");
+                TrialObserve("economy","balance",$"nectar={saved.growth.nectar};crystals={saved.growth.awakeningCrystals}",battleId+"/balance");
                 campaign=new CampaignState(WorldCatalog.ColossusIds,saved.world);
                 formalProgression=new FormalProgression(saved.growth,combatDefinitions.FormationIds);
                 result=(formalVictorySummary??(r.reason==BattleEndReason.Defeat?"敗北":"撤退"))+$"\n聞いた詩 {r.battle.heardPoemIds.Length} ／ 新しい詩 {r.acquiredPoemIds.Length} ／ 開いた章 {r.unlockedChapterIds.Length}";

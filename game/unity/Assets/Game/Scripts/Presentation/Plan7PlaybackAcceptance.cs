@@ -43,16 +43,19 @@ namespace NewAster.Presentation
         }
         private void PlaybackCommand(PlayableBattle battle,int index)
         {
-            if(index<20){battle.Pass();return;}
+            if(index<20){battle.Pass();TrialObserve("battle","diagnostic-pass",tick:battle.Clock);return;}
             string part=battle.State.Parts.FirstOrDefault(p=>!p.IsBroken)?.Id??"body";
-            if(!battle.Act(battle.AvailableHero,0,part))battle.Pass();
+            bool accepted=battle.Act(battle.AvailableHero,0,part);
+            TrialObserve("battle",accepted?"diagnostic-input-accepted":"diagnostic-input-rejected","skill=0;target="+part,tick:battle.Clock);
+            if(!accepted)battle.Pass();
         }
         private void PreparePlan7Playback()
         {
             if(!formalDiagnostic || capturePath==null)throw new InvalidOperationException("Playback acceptance requires isolated capture mode");
             string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),reference=null;
             activeColossus=WorldCatalog.ColossusIds[0];selectedLevel=1;
-            foreach(string mode in new[]{"normal","shortened","skip","paused"}){
+            trialReference=true;
+            try { foreach(string mode in new[]{"normal","shortened","skip","paused"}){
                 encounter=PlaybackFixture(73491);battleId="plan7.playback.fixture";StartCollection();
                 var queue=new BattlePlaybackQueue();var trace=new StringBuilder();int commands=0,events=0,major=0,broken=0;
                 while(!encounter.Ended && commands<20000){
@@ -67,12 +70,13 @@ namespace NewAster.Presentation
                 string signature=PlaybackSignature(encounter,trace);
                 if(reference==null)reference=signature;else FocusCheck(reference==signature,"same seed/input HP, timeline, events, poems and reward receipt: "+mode);
                 Debug.Log("PLAN7_PLAYBACK_MODE_PASS "+mode+" commands="+commands+" events="+events+" major="+major+" breaks="+broken+" victory="+encounter.State.IsVictory);
-            }
+            }} finally { trialReference=false; }
             FocusCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"replay validation leaves durable save unchanged");
             plan7ReferenceSignature=reference;plan7SaveBefore=before;
             using(var hash=SHA256.Create())Debug.Log("PLAN7_PLAYBACK_EQUIVALENCE_PASS modes=4 seed=73491 sha256="+BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes(reference))).Replace("-",""));
             plan7ActiveCombat=true;artSample=false;title=false;paused=false;result=null;playback.Reset();shownEvent=0;
             encounter=PlaybackFixture(73491);battleId=plan7FullCombat?"plan7.playback.fixture":"plan7.performance.fixture";StartCollection();selectedHero=encounter.AvailableHero;target="body";
+            TrialObserve("battle","diagnostic-start","heroLevel=30;enemyLevel=1");
         }
         private void UpdatePlan7ActiveCombat()
         {
@@ -84,6 +88,7 @@ namespace NewAster.Presentation
                 FocusCheck(PlaybackSignature(encounter,plan7RenderedTrace)==plan7ReferenceSignature,"fully rendered battle matches four playback modes including rewards");
                 FocusCheck(plan7SaveBefore==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"rendered battle leaves durable save unchanged");
                 plan7ScriptRuns=1;plan7FullCombatComplete=true;
+                TrialObserve("battle","diagnostic-end","Victory;shadow-save-only",battleId+"/end");
                 Debug.Log("PLAN7_FULL_COMBAT_PASS commands="+plan7ScriptCommands+" repaintedEvents="+plan7RepaintedEvents.Count+" victory=True queueEmpty=True rewardSignatureMatches=True saveUnchanged=True playbackRate=1");return;
             }
             if(encounter.Ended){plan7ScriptRuns++;encounter=PlaybackFixture(73491+plan7ScriptRuns);battleId="plan7.performance.fixture."+plan7ScriptRuns;StartCollection();playback.Reset();shownEvent=0;result=null;plan7ScriptCommands=0;}

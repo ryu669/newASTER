@@ -49,7 +49,7 @@ namespace NewAster.Presentation
             if(adv==null)return;
             if(advBgm==null){advBgm=gameObject.AddComponent<AudioSource>();advSe=gameObject.AddComponent<AudioSource>();advBgm.playOnAwake=false;advSe.playOnAwake=false;}
             advBgm.volume=ArtSampleSettings.Bgm;advSe.volume=ArtSampleSettings.Se;
-            if(advSoundRevision!=adv.SoundRevision){advSoundRevision=adv.SoundRevision;var sound=HomeData().assets.SingleOrDefault(a=>a.id==adv.SoundId);var clip=Resources.Load<AudioClip>(sound?.resourcePath??"");if(clip!=null){var channel=adv.SoundChannel=="bgm"?advBgm:advSe;channel.clip=clip;channel.loop=adv.SoundChannel=="bgm";channel.Play();}}
+            if(advSoundRevision!=adv.SoundRevision){advSoundRevision=adv.SoundRevision;var sound=HomeData().assets.SingleOrDefault(a=>a.id==adv.SoundId);var clip=Resources.Load<AudioClip>(sound?.resourcePath??"");if(clip!=null){var channel=adv.SoundChannel=="bgm"?advBgm:advSe;channel.clip=clip;channel.loop=adv.SoundChannel=="bgm";channel.Play();TrialObserve("audio","adv-requested",adv.SoundId+";channel="+adv.SoundChannel);}}
             if(adv.Paused || !artHasFocus || !Application.isFocused){advBgm.Pause();advSe.Pause();advAudioPaused=true;}else if(advAudioPaused){advBgm.UnPause();advSe.UnPause();advAudioPaused=false;}
         }
         private void BeginAdv(string source,bool replay)
@@ -59,13 +59,14 @@ namespace NewAster.Presentation
             if(!unlocked || replay && !read)return;
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
             advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
+            TrialObserve("reading",replay?"replay-start":"start",source);
             if(ch!=null && book.Bookmark==BookBookmark.Stories)book.BeginReading(ch.id,3);
         }
         private void PersistAdvLine()
         {
             if(adv==null || adv.Replay || advSavedLines>=adv.NewlyRead.Count)return;
             if(advRequest==null){advPendingLine=adv.NewlyRead[advSavedLines];advRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),"advRead",formalCampaign.Snapshot.revision,HomeData().contentVersion,advPendingLine.sceneId+"/"+advPendingLine.scriptVersion+"/"+advPendingLine.lineId);}
-            try{if(formalCampaign.CommitAdvLine(advRequest,HomeData(),advPendingLine,formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save)==GrowthCommitResult.SaveFailed){advError="行既読を保存できません。同じ内容で再試行してください。";adv.Pause();return;}advSavedLines++;advRequest=null;advPendingLine=null;advError=null;}
+            try{if(formalCampaign.CommitAdvLine(advRequest,HomeData(),advPendingLine,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign)==GrowthCommitResult.SaveFailed){advError="行既読を保存できません。同じ内容で再試行してください。";adv.Pause();return;}advSavedLines++;advRequest=null;advPendingLine=null;advError=null;}
             catch(Exception e){advError="行既読の保存を停止しました："+e.Message;adv.Pause();}
         }
         private void CompleteAdv()
@@ -74,11 +75,11 @@ namespace NewAster.Presentation
             if(adv.Replay){adv.MarkCommitted();return;}
             if(advSavedLines<adv.NewlyRead.Count){PersistAdvLine();return;}
             if(advRequest==null)advRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),"sceneEnd",formalCampaign.Snapshot.revision,HomeData().contentVersion,adv.SourceId+"/"+adv.SceneId+"/"+adv.ScriptVersion);
-            try{if(formalCampaign.CommitAdvEnd(advRequest,HomeData(),adv,formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save)==GrowthCommitResult.SaveFailed){advError="読了を保存できません。同じ候補を再保存します。";return;}adv.MarkCommitted();advRequest=null;advError=null;campaign=new CampaignState(NewAster.Data.WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);}
+            try{if(formalCampaign.CommitAdvEnd(advRequest,HomeData(),adv,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign)==GrowthCommitResult.SaveFailed){advError="読了を保存できません。同じ候補を再保存します。";return;}adv.MarkCommitted();advRequest=null;advError=null;campaign=new CampaignState(NewAster.Data.WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);}
             catch(Exception e){advError="読了の保存を停止しました："+e.Message;}
         }
         private void AdvanceAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;adv.Advance();PersistAdvLine();SyncAdvAudio();}
-        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;book.EndReading();adv=null;advBacklog=false;advHelp=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
+        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;TrialObserve("reading",adv.Completed?"completed":"interrupted",adv.SourceId);book.EndReading();adv=null;advBacklog=false;advHelp=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
         private void UpdateAdv()
         {
             if(adv==null)return;if(!Application.isFocused || advBacklog || advHelp || formalCampaign.HasPending || advRequest!=null){adv.Pause();SyncAdvAudio();return;}adv.Tick(Time.unscaledDeltaTime);PersistAdvLine();SyncAdvAudio();

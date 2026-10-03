@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "scope": "8-2-rendered-diagnostic-not-human-playtest",
+  "passed": true,
+  "normalSaveUnchanged": true,
+  "runId": "telemetry-4756bdb738604b1d882cbe0cbb38fc3e",
+  "buildHash": "00935B72E1324518497D42ADAF9795F6E15AB93FB8085C6DC4933B33C56E2184",
+  "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+  "definitionHash": "7A400BD3392FBAFEE9F579A68BE9C91EC600E90E6395F42245855F0A13DB4D98",
+  "events": 159,
+  "renderedPresentations": 66,
+  "performanceMeasured": false,
+  "authoredContentConnected": false,
+  "coreAssertions": 5679,
+  "unityAssertions": 1184,
+  "csharpFiles": 99,
+  "buildBytes": 293131126,
+  "sourceScope": "run telemetry connection and original trial text contract; complete plan8 acceptance pending",
+  "buildLog": "tmp/plan8-telemetry-final-build.log",
+  "playerOutput": "tmp/plan7-sample-20261003224158",
+  "plan8Complete": false,
+  "gameplay1080Regression": {
+    "passed": true,
+    "imageReviewed": true,
+    "output": "tmp/plan7-sample-20261003224538",
+    "scope": "large battle art, closed operation menu, Japanese font and resource loading; no performance measurement"
+  }
+}
