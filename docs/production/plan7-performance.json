@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-03",
+  "os": "Windows 11 Home 10.0.26300",
+  "cpu": "13th Gen Intel Core i7-13700F",
+  "gpu": "NVIDIA GeForce RTX 4070",
+  "memoryKiB": 33257584,
+  "buildBytes": 255784454,
+  "assemblySha256": "33A1E47815168DD18E1DD3EC80A9C354311E3EC28519C99C38FEFC90B843F366",
+  "measurements": [
+    {
+      "scene": "gameplay-idle",
+      "mode": "normal",
+      "height": 1080,
+      "frames": 600,
+      "meanMs": 16.666,
+      "p95Ms": 16.718,
+      "under16_7ms": 0.8483,
+      "rgbaEstimateBytes": 150980480,
+      "processPeakWorkingBytes": 290816000,
+      "sampleIntervalMs": 250,
+      "resourceValidationSeconds": 0.036,
+      "log": "tmp/plan7-sample-20261003073940/gameplay-1080.log",
+      "raw": "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.666 p95Ms=16.718 under16_7ms=0.8483 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.036 vsync=1 targetFrameRate=-1 startupSeconds=18.002 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070"
+    },
+    {
+      "scene": "battle",
+      "mode": "normal",
+      "height": 1080,
+      "frames": 600,
+      "meanMs": 16.666,
+      "p95Ms": 16.711,
+      "under16_7ms": 0.8967,
+      "rgbaEstimateBytes": 150980480,
+      "processPeakWorkingBytes": 329314304,
+      "sampleIntervalMs": 250,
+      "resourceValidationSeconds": 0.035,
+      "log": "tmp/plan7-sample-20261003073940/battle-1080.log",
+      "raw": "PLAN7_PERFORMANCE scene=battle frames=600 meanMs=16.666 p95Ms=16.711 under16_7ms=0.8967 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.035 vsync=1 targetFrameRate=-1 startupSeconds=17.990 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070"
+    },
+    {
+      "scene": "gameplay-idle",
+      "mode": "uncapped",
+      "height": 1080,
+      "frames": 599,
+      "meanMs": 1.168,
+      "p95Ms": 1.664,
+      "under16_7ms": 1.0,
+      "rgbaEstimateBytes": 150980480,
+      "processPeakWorkingBytes": 318451712,
+      "sampleIntervalMs": 250,
+      "resourceValidationSeconds": 0.042,
+      "log": "tmp/plan7-sample-20261003074021/gameplay-1080.log",
+      "raw": "PLAN7_PERFORMANCE scene=gameplay-idle frames=599 meanMs=1.168 p95Ms=1.664 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.042 vsync=0 targetFrameRate=-1 startupSeconds=8.706 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070"
+    },
+    {
+      "scene": "battle",
+      "mode": "uncapped",
+      "height": 1080,
+      "frames": 600,
+      "meanMs": 2.105,
+      "p95Ms": 4.235,
+      "under16_7ms": 1.0,
+      "rgbaEstimateBytes": 150980480,
+      "processPeakWorkingBytes": 340189184,
+      "sampleIntervalMs": 250,
+      "resourceValidationSeconds": 0.041,
+      "log": "tmp/plan7-sample-20261003074021/battle-1080.log",
+      "raw": "PLAN7_PERFORMANCE scene=battle frames=600 meanMs=2.105 p95Ms=4.235 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.041 vsync=0 targetFrameRate=-1 startupSeconds=9.269 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070"
+    }
+  ],
+  "acceptance": "Deferred: other apps and games were running; all measurements are exploratory shared-load references, not isolated game performance acceptance.",
+  "environmentStatus": "Other concurrent applications confirmed after measurement; repeat only after preflight reports clear."
+}

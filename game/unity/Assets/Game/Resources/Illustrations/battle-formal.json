@@ -4,8 +4,12 @@
   "heroes": [
     {
       "heroineId": "heroine.slayer",
-      "resourcePath": "Illustrations/slayer-bust-preview",
-      "placeholder": true
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": true,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
     },
     {
       "heroineId": "heroine.iconoclast",
@@ -27,31 +31,53 @@
   "parts": [
     {
       "partId": "crystal-horn-crown",
-      "x": 0.36,
-      "y": 0.04,
-      "width": 0.28,
-      "height": 0.18
+      "x": 0.3,
+      "y": 0.0,
+      "width": 0.4,
+      "height": 0.28,
+      "resourcePath": "Illustrations/green-crown-candidate-v2",
+      "placement": { "enabled": true, "x": 0.32, "y": 0.015, "scale": 0.36 },
+      "hideWhenDestroyed": true,
+      "drawOrder": 1,
+      "inputPriority": 1
     },
     {
       "partId": "left-wing-root",
       "x": 0.02,
-      "y": 0.32,
-      "width": 0.25,
-      "height": 0.25
+      "y": 0.05,
+      "width": 0.33,
+      "height": 0.75,
+      "resourcePath": "Illustrations/green-wing-left-candidate-v1",
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 1
     },
     {
       "partId": "right-wing-root",
-      "x": 0.73,
-      "y": 0.32,
-      "width": 0.25,
-      "height": 0.25
+      "x": 0.7,
+      "y": 0.05,
+      "width": 0.28,
+      "height": 0.75,
+      "resourcePath": "Illustrations/green-wing-right-candidate-v1",
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 1
     },
     {
       "partId": "vine-wrapped-tail",
-      "x": 0.36,
-      "y": 0.77,
+      "x": 0.7,
+      "y": 0.65,
       "width": 0.28,
-      "height": 0.18
+      "height": 0.3,
+      "resourcePath": "Illustrations/green-tail-candidate-v1",
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 2
     }
-  ]
+  ],
+  "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+  "middleResourcePath": "Illustrations/forest-mid-candidate-v1",
+  "foregroundResourcePath": "Illustrations/forest-front-candidate-v1",
+  "bodyResourcePath": "Illustrations/green-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/green-major-candidate-v3"
 }

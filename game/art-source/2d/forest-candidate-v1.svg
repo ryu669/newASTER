@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1672" height="941" viewBox="0 0 1672 941">
+<title>newASTER candidate composition</title>
+<desc>Editable composition layers referencing original PNG pixels. Not original painting layers or a higher resolution delivery.</desc>
+<g id="far" inkscape:groupmode="layer" inkscape:label="far"><image x="0" y="0" width="1672" height="941" xlink:href="../../unity/Assets/Game/Resources/Illustrations/forest-far-candidate-v1.png" /></g>
+<g id="middle" inkscape:groupmode="layer" inkscape:label="middle"><image x="0" y="0" width="1672" height="941" xlink:href="../../unity/Assets/Game/Resources/Illustrations/forest-mid-candidate-v1.png" /></g>
+<g id="front" inkscape:groupmode="layer" inkscape:label="front"><image x="0" y="0" width="1672" height="941" xlink:href="../../unity/Assets/Game/Resources/Illustrations/forest-front-candidate-v1.png" /></g>
+</svg>

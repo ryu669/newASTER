@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="1254" height="1254" viewBox="0 0 1254 1254">
+<title>newASTER candidate composition</title>
+<desc>Editable composition layers referencing original PNG pixels. Not original painting layers or a higher resolution delivery.</desc>
+<g id="left-wing-root" inkscape:groupmode="layer" inkscape:label="left-wing-root"><image x="0" y="0" width="1254" height="1254" xlink:href="../../unity/Assets/Game/Resources/Illustrations/green-wing-left-candidate-v1.png" /></g>
+<g id="right-wing-root" inkscape:groupmode="layer" inkscape:label="right-wing-root"><image x="0" y="0" width="1254" height="1254" xlink:href="../../unity/Assets/Game/Resources/Illustrations/green-wing-right-candidate-v1.png" /></g>
+<g id="vine-wrapped-tail" inkscape:groupmode="layer" inkscape:label="vine-wrapped-tail"><image x="0" y="0" width="1254" height="1254" xlink:href="../../unity/Assets/Game/Resources/Illustrations/green-tail-candidate-v1.png" /></g>
+<g id="body" inkscape:groupmode="layer" inkscape:label="body"><image x="0" y="0" width="1254" height="1254" xlink:href="../../unity/Assets/Game/Resources/Illustrations/green-body-candidate-v1.png" /></g>
+<g id="crystal-horn-crown" inkscape:groupmode="layer" inkscape:label="crystal-horn-crown" transform="translate(401.28 18.81) scale(0.36)"><image x="0" y="0" width="1254" height="1254" xlink:href="../../unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png" /></g>
+</svg>

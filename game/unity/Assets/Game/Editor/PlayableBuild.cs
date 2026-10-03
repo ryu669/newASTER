@@ -21,16 +21,20 @@ public static partial class PlayableBuild
             target=BuildTarget.StandaloneWindows64, options=BuildOptions.None
         });
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception("Build failed: "+report.summary.result);
+        var notices = Path.GetFullPath("../Builds/playable/ThirdPartyNotices/NotoSansCJKjp");
+        Directory.CreateDirectory(notices);
+        File.Copy("Assets/Game/Resources/Fonts/OFL.txt", Path.Combine(notices, "OFL.txt"), true);
+        File.Copy("Assets/Game/Resources/Fonts/NOTICE.txt", Path.Combine(notices, "NOTICE.txt"), true);
         Debug.Log("PLAYABLE_BUILD_PASS "+assertions+" assertions / "+report.summary.totalSize+" bytes");
     }
     private static void ValidateFormalSplitRecovery()
     {
-        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;Func<string,FormalCampaignSave> decode=NewAster.Presentation.UnityFormalCampaignJson.Decode;
         string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-split-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
         string path=Path.Combine(directory,"formal.json"),growth=Path.Combine(directory,"growth.json"),world=Path.Combine(directory,"world.json");
         try {
             var initial=new FormalGrowthSave {saveId="newaster.formal-growth",stones=999,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=25}}};var w=new CampaignState(WorldCatalog.ColossusIds).CreateSave();
-            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));
+            var store=new FormalCampaignStore(path,encode,decode,NewAster.Presentation.UnityFormalCampaignJson.DecodeHeader);
             File.WriteAllText(growth,"broken");File.WriteAllText(growth+".bak",JsonUtility.ToJson(initial));File.WriteAllText(world,JsonUtility.ToJson(w));
             var offer=store.InspectSplitRecovery(growth,world,t=>JsonUtility.FromJson<FormalGrowthHeader>(t),t=>JsonUtility.FromJson<FormalGrowthSave>(t),t=>JsonUtility.FromJson<FormalWorldHeader>(t),t=>JsonUtility.FromJson<CampaignSaveV2>(t),initial,w);
             Check(offer.CanRestore && !File.Exists(path),"Unity split JSON inspect is read-only");
@@ -43,7 +47,7 @@ public static partial class PlayableBuild
     private static void ValidateFormalEngagement()
     {
         var rules=JsonUtility.FromJson<FormalEngagementRules>(Resources.Load<TextAsset>("Economy/engagement-trial").text);rules.Validate();
-        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;Func<string,FormalCampaignSave> decode=NewAster.Presentation.UnityFormalCampaignJson.Decode;
         var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer"}}}};
         var journal=new FormalCampaignJournal(decode(encode(original)),encode,decode);var utc=new DateTime(2026,10,2,15,0,0,DateTimeKind.Utc);
         Check(journal.Snapshot.engagement==null || journal.Snapshot.engagement.activeSeconds==0,"Earlier formal save has no awarded playtime");
@@ -96,13 +100,13 @@ public static partial class PlayableBuild
     }
     private static void ValidateFormalRecovery()
     {
-        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
-        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
+        Func<string,FormalCampaignSave> decode=NewAster.Presentation.UnityFormalCampaignJson.Decode;
         string directory=Path.Combine(Path.GetTempPath(),"newaster-unity-recovery-"+Guid.NewGuid().ToString("N"));Directory.CreateDirectory(directory);
         string path=Path.Combine(directory,"formal.json");
         try{
             var original=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",stones=123,heroines=new[]{new FormalHeroineGrowth {heroineId="heroine.slayer",level=20}}}};
-            var store=new FormalCampaignStore(path,encode,decode,t=>JsonUtility.FromJson<FormalCampaignHeader>(t));store.Save(original);var next=decode(encode(original));next.revision=1;store.Save(next);
+            var store=new FormalCampaignStore(path,encode,decode,NewAster.Presentation.UnityFormalCampaignJson.DecodeHeader);store.Save(original);var next=decode(encode(original));next.revision=1;store.Save(next);
             string backup=File.ReadAllText(path+".bak");File.WriteAllText(path,"broken");var offer=store.InspectRecovery();
             Check(offer.CanRestore,"Unity valid backup can be confirmed");
             Check(store.RecoveryPreview(offer).growth.heroines[0].level==20 && File.ReadAllText(path)=="broken","Unity preview read-only and level preserved");
@@ -117,8 +121,8 @@ public static partial class PlayableBuild
     }
     private static void ValidateFormalCampaign()
     {
-        Func<FormalCampaignSave,string> encode=s=>JsonUtility.ToJson(s,true);
-        Func<string,FormalCampaignSave> decode=t=>JsonUtility.FromJson<FormalCampaignSave>(t);
+        Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
+        Func<string,FormalCampaignSave> decode=NewAster.Presentation.UnityFormalCampaignJson.Decode;
         var initial=new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth"}};
         var journal=new FormalCampaignJournal(initial,encode,decode);
         var request=new FormalVictoryRequest("unity.victory",WorldCatalog.ColossusIds[0],10,0);
@@ -148,6 +152,7 @@ public static partial class PlayableBuild
         ValidateFormalEngagement();
         ValidateFormalSplitRecovery();
         ValidatePlan5();
+        ValidatePlan6();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
@@ -286,6 +291,15 @@ public static partial class PlayableBuild
         var artSource=Resources.Load<TextAsset>("Illustrations/battle-formal");Check(artSource!=null,"Formal illustration manifest exists independently from legacy art");
         var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
         Check(definitions.formation.All(id=>art.HeroIndex(id)>=0),"Formal illustration IDs match selected heroines");
+        var crown=art.parts.Single(p=>p.partId=="crystal-horn-crown");
+        var roundtripArt=JsonUtility.FromJson<BattleIllustrationManifest>(JsonUtility.ToJson(art));roundtripArt.Validate();
+        Check(roundtripArt.parts.Single(p=>p.partId==crown.partId).placement.scale==.36f,"Unity retains crown placement through JSON roundtrip");
+        var placed=NewAster.Presentation.BattleIllustrationView.PartCanvas(new Rect(100,200,500,500),crown);
+        Check(Math.Abs(placed.x-260)<.001 && Math.Abs(placed.y-207.5f)<.001 && Math.Abs(placed.width-180)<.001 && placed.width==placed.height,"Crown placement retains square aspect within enemy canvas");
+        var unplaced=art.parts.Single(p=>p.partId=="left-wing-root");
+        Check(NewAster.Presentation.BattleIllustrationView.PartCanvas(new Rect(100,200,500,500),unplaced)==new Rect(100,200,500,500),"Legacy layer uses unchanged canvas");
+        var crownImage=Resources.Load<Texture2D>(crown.resourcePath);var bodyImage=Resources.Load<Texture2D>(art.bodyResourcePath);
+        Check(crownImage!=null && bodyImage!=null && crownImage.width==bodyImage.width && crownImage.height==bodyImage.height,"Crown and body retain native matching canvases");
         for(int actor=0;actor<5;actor++) for(int slot=0;slot<3;slot++) {
             var defs=fresh();foreach(var skill in defs.skills)skill.chainEligible=false;
             var saved=new PlayableProgress();saved.Levels[0]=120;saved.Branches[0]=10;

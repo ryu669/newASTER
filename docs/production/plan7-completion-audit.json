@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 2,
+  "policyRevision": "2026-10-04-development-sample",
+  "checkedAtUtc": "2026-10-03T15:30:40.9710042Z",
+  "complete": true,
+  "scope": "Plan7 development sample: one person, one enemy with four parts, one layered background, three furniture uses, CG, six audio clips; final release art and mass production excluded",
+  "finalReleaseAccepted": false,
+  "gates": [
+    {
+      "id": "integrity",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "displayDimensions",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "editableSources",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "audioTechnical",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "sampleReview",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "evidence",
+      "status": "passed",
+      "issues": 0
+    },
+    {
+      "id": "functionalEvidence",
+      "status": "passed",
+      "issues": 0
+    }
+  ],
+  "issues": [],
+  "art": [
+    {
+      "assetId": "art.candidate.slayer.standing.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "E343DF8EB6FE0AAAEC7CB1E65870DAD9161A4BB0A3AFE92334908B00669E19B8",
+      "usage": "standing"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.joy.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-joy-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "2987CBB053E8BB9FD14E7827A3CDBEEBB89F218CE9E0939BF26FFA01AC2A6482",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.puzzled.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-puzzled-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "3C16F5F284362573E3BEC717AF93AEB3C500F1E9D1174BC10D90AAB86E189D02",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer.expression.determined.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-determined-candidate-v1.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ED196A2C97A7EA5493DB6BF3AE17C00C8F5912E3D7E2ACB2FA429020BF5F462E",
+      "usage": "expression"
+    },
+    {
+      "assetId": "art.candidate.slayer-attack.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-attack-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "74A28016733166F07F30CFB75C1933B94EF62DFB7E747C363291077450214AB7",
+      "usage": "attack"
+    },
+    {
+      "assetId": "art.candidate.slayer-hit.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "40BA73F690EF7D94BDA811699AA6907900B2225EB67AB96845BCB3A11361F0C4",
+      "usage": "hit"
+    },
+    {
+      "assetId": "art.candidate.slayer-cutin.v3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-cutin-candidate-v3.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2A7BF6BDE5E55348A47163B78592E53F8E790B9626080DC24ED92E4FE4084DBF",
+      "usage": "cutin"
+    },
+    {
+      "assetId": "art.candidate.green-body.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "AD318E67391D58AB06B21068A4B2DFDD8538B9D30F13071FE3A21B54395C8D88",
+      "usage": "body"
+    },
+    {
+      "assetId": "art.candidate.green-crown.v2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1F66FD4E06A466148BEE19B3B75FFE035476A90712E945B2051781573110D15E",
+      "usage": "crystal-horn-crown"
+    },
+    {
+      "assetId": "art.candidate.green-wing-left.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-wing-left-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "F4A51F0E2EBE5C75B215835F996D136F03F3E782D7CF84CC749BCC3208E6D478",
+      "usage": "left-wing-root"
+    },
+    {
+      "assetId": "art.candidate.green-wing-right.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-wing-right-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9D742DE3FCC93609078AA46B0DF68F3A7B8469150038763689E3A754E0324379",
+      "usage": "right-wing-root"
+    },
+    {
+      "assetId": "art.candidate.green-tail.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "BFB7DF6FAFDD29B29C87E43BC46A28DFC7435DD6C4FC2D6D257CAF9E355EA9A9",
+      "usage": "vine-wrapped-tail"
+    },
+    {
+      "assetId": "art.candidate.green-major.v3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-major-candidate-v3.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7FD538D404E402CBFF67B57D26C2A40D1F8A52C6894BA1D84794B5D8C13059FA",
+      "usage": "major"
+    },
+    {
+      "assetId": "art.candidate.forest-far.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-far-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "D0CBBB0959163F8CBC47CC6A6B995B53C7B69AAA572D07DB37B7F89A7BB337B3",
+      "usage": "background"
+    },
+    {
+      "assetId": "art.candidate.forest-mid.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-mid-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "73957D71AADEF1AED00EA5A8FCDA5B75D1585064CDB917C24D57484C7587D45B",
+      "usage": "middle"
+    },
+    {
+      "assetId": "art.candidate.forest-front.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/forest-front-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "EA8568EDBDC39F0E4F1AB23635EFD49784A883C30354510D699FD45A07E76139",
+      "usage": "foreground"
+    },
+    {
+      "assetId": "art.candidate.furniture.bench.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-bench-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "B387425FCC2292B8C298A4F3C379C8B55BF987A26606F67E5E5E0460D96765A1",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.furniture.desk.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-desk-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "0E3EB4776CE5F624529857387AB6A2814BB223155B765BFA6DEE401DBE009882",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.furniture.fountain.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/garden-fountain-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "66D6CED10E25A7AB0A59E81519D2746113F6531121F517C046A996AC1F65C480",
+      "usage": "furniture"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-idle.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-idle-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "EAD29E6A676C906B500AD63AFF351D7E1718017CD0362B05EB355E7F2CA535B6",
+      "usage": "idle"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-sit.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-sit-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "3C64EBBC9D1B26010085E05BE2B942F7439D5AA6334B04719A41FE5ED42460B0",
+      "usage": "sit"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-work.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-work-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "FAB3B3FA2F984065AEBC60C5B89BC6791D2DE4D2AAD5F79142BFEA43317F2119",
+      "usage": "work"
+    },
+    {
+      "assetId": "art.candidate.slayer-sd-look.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-look-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "A7C0FF1F4809BCE4171D5983FE3B8D8271BE64F6A584B6D0B3C8A09A2CE0835B",
+      "usage": "look"
+    },
+    {
+      "assetId": "art.candidate.slayer-garden-cg.v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-garden-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "sha256": "A204E2D4DE4FD391BDB0CE2CF8672225FC1F1A4DF3CF379DB3028BF1593E9FA4",
+      "usage": "cg"
+    }
+  ],
+  "audio": [
+    {
+      "assetId": "audio.candidate.hit.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-hit-v2.wav",
+      "sha256": "5022AB7D249750A29DA7844C1A9FEE4AAC618BE33B804BC0BF72C0D87BE8534F",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.shield.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-shield-v2.wav",
+      "sha256": "6E2C515F4A07D2B9562918377BD083D72B6FD2DE384A7E1CD3AC21A5F74FBEAE",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.heal.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-heal-v2.wav",
+      "sha256": "19307C3F0FA3706BD92CDB8DEF5E676FF947F4595D9A32040820EDBFD1C8039A",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.break.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-break-v2.wav",
+      "sha256": "F21E24E44297C7D2487F37D160993EB903649465A15B094389FE304A4203421A",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.victory.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-victory-v2.wav",
+      "sha256": "50238758656A64E1E5E27415A054F664ED9CE0F65AA0F708F94D6DEA997DC6C7",
+      "listeningAcceptance": "pending"
+    },
+    {
+      "assetId": "audio.candidate.bgm.v2",
+      "path": "game/unity/Assets/Game/Resources/Audio/candidate-bgm-v2.wav",
+      "sha256": "70A03248F5ADF5C7D86D69E38A95DFF89031E39A3C757C97F7ED2C3C38D86FEC",
+      "listeningAcceptance": "pending"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/production/plan7-crown.md",
+      "sha256": "094760B06C946F578D84F74403F25B3155277DEB4F9B4A524B5BEA9EF698CC43"
+    },
+    {
+      "path": "docs/production/plan7-full-combat.md",
+      "sha256": "35568400ED524FA40FDF67ABC75639B3E0FB8CB53BE4BC91608A308962D77316"
+    },
+    {
+      "path": "docs/production/plan7-validation.md",
+      "sha256": "C18A9EEFA18281CC7EE4AD520C6C69F5C815269C947C61FE8003CA86A22DAE19"
+    },
+    {
+      "path": "docs/production/plan7-garden-composition.md",
+      "sha256": "9DE95CE6B52A86674AD9FFF0448D43F87E8D0AD73D70E1D5905259F4589EC1B8"
+    },
+    {
+      "path": "docs/production/plan7-expression-layers.md",
+      "sha256": "3967D9E8E5A25C4C91A15D2DA126DBCEB6753E3AD2DFA44DB5A9022ED0967639"
+    },
+    {
+      "path": "docs/production/plan7-audio-v2.md",
+      "sha256": "6535ABD4883A22BBF0332A396BC21A36BE5D8AF48CDCFE6AA3D73C266629D188"
+    },
+    {
+      "path": "docs/production/plan7-audio-transition-metrics.json",
+      "sha256": "9202DF141DE12F216494A1CCE6D0798ED6B9494EEB2219E694D3CA03CD86CC2A"
+    },
+    {
+      "path": "docs/production/plan7-playback-acceptance.md",
+      "sha256": "8D4B5F8FD362F0024598C8B6D8F0989EEB26561C6BF40629C0B552727563336A"
+    },
+    {
+      "path": "docs/production/plan6-completion-gate.md",
+      "sha256": "84D14A1CD4D50DECBC7D2376DCCC1342CB08A36DFDE992420B88992FB590C067"
+    },
+    {
+      "path": "docs/production/plan5-completion-gate.md",
+      "sha256": "765A54285BD202EB8414183ACCD09E76A9EDC02AEE11B4E91943D9A29E8B0564"
+    },
+    {
+      "path": "docs/production/plan7-completion-functional-evidence.json",
+      "sha256": "50CD8973F70260B8E5B2B0AF411139F16B216D81EA05C14D54D3A99F096195E4"
+    },
+    {
+      "path": "docs/production/plan7-art-prompts.md",
+      "sha256": "229E59D6128CFCC0699592031A78A5E3FFFDF8B467CA12315A5F121F934F89A9"
+    },
+    {
+      "path": "docs/production/plan7-crown-screenshots/closed-1080.png",
+      "sha256": "76C54C7E75353C2724EE17CBDF1282AEC0F6292B2F54ADF177BFB0ABFA6D28B9"
+    },
+    {
+      "path": "docs/production/plan7-crown-screenshots/targets-720.png",
+      "sha256": "7AF818FC6A7C9D300E2F28DB1AEA447839627F236D32F75BFD85187123B8E45B"
+    },
+    {
+      "path": "docs/production/plan7-crown-screenshots/broken-720.png",
+      "sha256": "3937A2BC3EEFA3EA356E00E6F75273C3E3DFFCBA5994B3E08923BE585270E744"
+    },
+    {
+      "path": "docs/production/plan7-screenshots/sit-1080.png",
+      "sha256": "184707543A9834D0BFE8147D5CC8C72FE5900BA334ADCA5B9744F62F79EBAF54"
+    },
+    {
+      "path": "docs/production/plan7-screenshots/work-1080.png",
+      "sha256": "4C767DED60EA8AD3542D4D6A56F237B12D8634F7DEB60A16C509324F05C5AF29"
+    },
+    {
+      "path": "docs/production/plan7-screenshots/look-1080.png",
+      "sha256": "CF1F53B0FEF211F3D994E4D6B239723DA2A66405A2FDCEE0C17EA5A073A179BB"
+    },
+    {
+      "path": "docs/production/plan7-screenshots/expression-layer-joy-1080.png",
+      "sha256": "FA4702887CBA423A67571A57E360DE6E9B24F34AC68612612296EE50F19B7F52"
+    },
+    {
+      "path": "docs/production/garden-menu-screenshots/closed-720.png",
+      "sha256": "71EC8CCDB866EE0C12C6A2BF71209DD2A8039EDDDB61760BC20B13E4895B31D7"
+    },
+    {
+      "path": "tools/Plan7AudioSource.cs",
+      "sha256": "105F75DB5E40426B959EB43B6EE8717EC530596625FF077FEF260D7D477AE4B6"
+    },
+    {
+      "path": "tools/export-plan7-composition-sources.ps1",
+      "sha256": "36EF473A158655A84534DFFAA2471B4AC29DA6F5D2BAEA1DE705D51C58DEDE2E"
+    },
+    {
+      "path": "tools/export-plan7-garden-sources.ps1",
+      "sha256": "33F022405FE8A5CF8FE53AC826C7FD933872CC10646A18A9622D27769F85F6FD"
+    },
+    {
+      "path": "game/art-source/2d/green-crown-candidate-v2.prompt.txt",
+      "sha256": "B91DC227D0BA8FB43BB9B21443CE5D4ADE0ADE4FE855BBFC30C95FCF1F7F8596"
+    },
+    {
+      "path": "game/art-source/2d/garden-composition-records.json",
+      "sha256": "3584E708B5B10C44DA4150FF0E606B00FCEB173A3002F986F5273F6B4BA44B01"
+    },
+    {
+      "path": "game/art-source/2d/forest-candidate-v1.svg",
+      "sha256": "42AB8C782089BBF835C5229393F778EA77602EDB044C84555D639EB4A6A9FD0C"
+    },
+    {
+      "path": "game/art-source/2d/garden-look-composition-v1.svg",
+      "sha256": "0669970B3E5F25994DC3AFEE761F8377D849A7B2384A0D26068BBD8AA85858ED"
+    },
+    {
+      "path": "game/art-source/2d/garden-sit-composition-v1.svg",
+      "sha256": "0C515DB9555424FAA93DD1CEFABC5C8831C741BFBFC49F2617F5F07BBFCDD7A2"
+    },
+    {
+      "path": "game/art-source/2d/garden-work-composition-v1.svg",
+      "sha256": "D8C3DA5B357C54742DA1725B47D04A0A3FB55E0D7A510D44167763F2EC9B1317"
+    },
+    {
+      "path": "game/art-source/2d/green-colossus-candidate-v1.svg",
+      "sha256": "3D380CD46646418E8095C337FF259A3705D4C9955A19908F496292A9FCD31E49"
+    },
+    {
+      "path": "game/art-source/2d/slayer-expression-determined-candidate-v1.svg",
+      "sha256": "DDF38FA211201C380430405BFB424DBB18728D67AADAB3F63F9EB98FAD8F140B"
+    },
+    {
+      "path": "game/art-source/2d/slayer-expression-joy-candidate-v1.svg",
+      "sha256": "E77FE293C13BB1279B7028040A769B623DADB3053CDDCA6F3FAF81A3CEA1BE52"
+    },
+    {
+      "path": "game/art-source/2d/slayer-expression-puzzled-candidate-v1.svg",
+      "sha256": "ADC2AEB839BA2D781CA28FE46DB0A379422B36E33140C1141238DC6A539BFAA3"
+    }
+  ],
+  "localBuildStatus": "checked against recorded build",
+  "deferred": [
+    "Final art direction, anatomy/edge polish and final adoption for public delivery",
+    "Human listening and real AltTab/long session acceptance",
+    "Painting brush layers if pixel-level art revisions require them; current PNG/prompts/editable composition retained",
+    "Measured active production hours H/E/V and formal event content before schedule/cost commitments",
+    "Other four persons and fourteen enemies, final story and production-wide/low-end performance acceptance"
+  ],
+  "requiredApproval": false
+}

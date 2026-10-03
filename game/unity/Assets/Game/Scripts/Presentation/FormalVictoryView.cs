@@ -54,7 +54,7 @@ namespace NewAster.Presentation
         {
             try{
                 Func<FormalCampaignSave,bool> writer=formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save;
-                var outcome=formalCampaign.CommitBattleEnd(formalBattleEndRequest,collectionCatalog,BuildVictoryWorld,writer);
+                var outcome=formalCampaign.CommitBattleEnd(formalBattleEndRequest,collectionCatalog,BuildVictoryWorld,writer,HomeData());
                 if(outcome==GrowthCommitResult.SaveFailed){result="戦闘終了 ／ 保存待ち";return;}
                 var r=formalBattleEndRequest.Receipt;var saved=formalCampaign.Snapshot;
                 lastCollectionResult=saved.collection.receipts.Single(x=>x.battle.battleId==r.battle.battleId);resultTab=0;

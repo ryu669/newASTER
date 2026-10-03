@@ -1,0 +1,13 @@
+Noto Sans CJK JP Regular (unmodified)
+Copyright 2014-2021 Adobe (http://www.adobe.com/).
+
+Font source:
+https://github.com/notofonts/noto-cjk/blob/main/Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf
+License source:
+https://github.com/notofonts/noto-cjk/blob/main/Sans/LICENSE
+Copyright holder and years corroborated by upstream Sans/HISTORY.md,
+Sans/README-third_party.md and Google's Noto Sans JP copyright notice.
+The original copyright metadata is also retained in the unmodified font.
+
+Licensed under SIL Open Font License 1.1; see OFL.txt.
+SHA-256: 68A3FC98800B2A27B371F2FB79991DAF3633BD89309D4FFAA6946FD587F375B5

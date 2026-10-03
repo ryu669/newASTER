@@ -50,7 +50,7 @@ namespace NewAster.Presentation
             if(!formalDiagnostic || capturePath==null)throw new InvalidOperationException("Acceptance requires isolated capture mode.");
             string root=Path.Combine(Path.GetDirectoryName(Path.GetFullPath(capturePath)),Path.GetFileNameWithoutExtension(capturePath)+".acceptance");Directory.CreateDirectory(root);
             string path=Path.Combine(root,"formal-campaign-v1.json");
-            acceptanceStore=new FormalCampaignStore(path,s=>JsonUtility.ToJson(s,true),UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
+            acceptanceStore=new FormalCampaignStore(path,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
             if(args.Contains("-plan5Resume")) {
                 AcceptanceCheck(acceptanceStore.Load(out var resumed)==FormalLoadResult.Loaded,"separate player process loads accepted save");BindFormalCampaign(resumed);
                 AcceptanceCheck(resumed.collection!=null && resumed.collection.receipts.Any(r=>r.reason==BattleEndReason.Defeat) && resumed.collection.receipts.Any(r=>r.reason==BattleEndReason.Retreat),"every ending survives process restart");

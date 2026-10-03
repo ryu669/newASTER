@@ -1,0 +1,58 @@
+{
+  "status": "candidate",
+  "pixelThreshold": 16,
+  "assets": [
+    {
+      "version": "v1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "248A98B50353B24ED5D447645B0336411E29D81BED58B2A5369E10946537A1F0",
+      "alphaAbove16Bounds": [
+        393,
+        5,
+        862,
+        368
+      ],
+      "alpha1Through16Pixels": 19642,
+      "placement": {
+        "x": 0,
+        "y": 0,
+        "scale": 1
+      },
+      "placedAlphaAbove16Bounds": [
+        393,
+        5,
+        862,
+        368
+      ]
+    },
+    {
+      "version": "v2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1F66FD4E06A466148BEE19B3B75FFE035476A90712E945B2051781573110D15E",
+      "alphaAbove16Bounds": [
+        309,
+        73,
+        946,
+        545
+      ],
+      "alpha1Through16Pixels": 25126,
+      "placement": {
+        "enabled": true,
+        "x": 0.32,
+        "y": 0.015,
+        "scale": 0.36
+      },
+      "placedAlphaAbove16Bounds": [
+        512.52,
+        45.089999999999996,
+        741.84,
+        215.01
+      ]
+    }
+  ],
+  "scope": "Native canvas and top clipping only. Tiny-alpha noise, paint layers and final quality are not accepted by this audit."
+}

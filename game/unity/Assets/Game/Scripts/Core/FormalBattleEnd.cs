@@ -46,7 +46,7 @@ namespace NewAster.Core
             }
             receipt.relicDrawCount=band.draws;receipt.relicDrops=drops.ToArray();
         }
-        public GrowthCommitResult CommitBattleEnd(FormalBattleEndRequest request,CollectionCatalog catalog,Func<CampaignSaveV2,CampaignSaveV2> victoryWorld,Func<FormalCampaignSave,bool> save)
+        public GrowthCommitResult CommitBattleEnd(FormalBattleEndRequest request,CollectionCatalog catalog,Func<CampaignSaveV2,CampaignSaveV2> victoryWorld,Func<FormalCampaignSave,bool> save,HomeExperienceCatalog homeCatalog=null)
         {
             if(request==null || save==null)throw new ArgumentNullException();
             if(writing)throw new InvalidOperationException("Concurrent campaign write.");
@@ -82,6 +82,7 @@ namespace NewAster.Core
                 next.collection.receipts=next.collection.receipts.Concat(new[]{r}).ToArray();
                 next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.Id,signature=request.Signature}}).ToArray();
                 next.growth.revision=checked(next.growth.revision+1);next.revision=checked(next.revision+1);
+                if(homeCatalog!=null){homeCatalog.Validate();HomeConditions.Refresh(next,homeCatalog);next.home?.ValidateContent(homeCatalog,next);}else if(next.home!=null)throw new ArgumentException("Home conditions must join the battle transaction.");
                 next=Copy(next);next.Validate();pending=next;pendingBattleEnd=request;
             }
             if(!Persist(pending,save))return GrowthCommitResult.SaveFailed;
