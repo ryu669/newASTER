@@ -30,10 +30,11 @@ $definitions=@(
     @('slayer-garden-cg','cg','heroine.slayer','slayer-cg'))
 $assets=@()
 foreach($d in $definitions){
-    $resource='Illustrations/'+$d[0]+'-candidate-v1'
+    $version=if($d[0] -eq 'slayer-cutin'){'v3'}else{'v1'}
+    $resource='Illustrations/'+$d[0]+'-candidate-'+$version
     $relative='game/unity/Assets/Game/Resources/'+$resource+'.png'
     $path=Join-Path $repo $relative
-    $assetId='art.candidate.'+$d[0]+'.v1'
+    $assetId='art.candidate.'+$d[0]+'.'+$version
     if($d[0] -eq 'slayer-standing'){$assetId='art.candidate.slayer.standing.v1'}
     if($d[0].StartsWith('slayer-expression-')){$assetId='art.candidate.slayer.expression.'+$d[0].Substring(18)+'.v1'}
     if($d[1] -eq 'furniture'){$assetId='art.candidate.furniture.'+$d[0].Substring(7)+'.v1'}

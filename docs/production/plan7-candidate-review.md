@@ -31,11 +31,11 @@ PNG原本をゲーム内に保持し、音は元コードから再生成でき�
 | 背景・CGの納品寸法 | 実際は1672×941。1920×1080以上の条件に未達。生成プロンプトの指定値を実寸として記録しない |
 | 立ち絵の納品寸法 | 実際は1024×1536。1600×2400目安に未達 |
 | 戦闘・家具・SD | 実際は1254×1254。1024〜2048角の範囲内 |
-| 輪郭と安全域 | 人物・敵カットインの外周にアルファが残る。前髪・翼・冠・剣の切れを修正する必要がある。前景端の接触は用途上意図する |
+| 輪郭と安全域 | 人物カットインをv3へ更新し前髪・翼・剣の主要輪郭を画面内へ収めた。外周100pxにアルファ16超の画素はないが微小な低アルファ画素は残る。敵の冠・翼の切れは未修正。前景端の接触は用途上意図する |
 | 表情 | 全4種のキャンバス寸法は一致。顔以外の厳密なピクセル一致、衣装・武器・人物位置の品質確認は未通過 |
 | 箱庭接続 | 家具利用動作とスロットは接続済み。素材内の接地位置・家具との前後マスクの精密調整は未完了 |
 | 編集元 | 生成PNG・プロンプトは保持。編集レイヤーを持つ元ファイルは未納品 |
-| 日本語 | このWindows環境の動的フォントと代表的な見本文字を検査。日本語フォントがないPCを含む同梱フォントの受入れは未実施 |
+| 日本語 | [同梱Noto Sans CJK JP](plan7-font.md) のロードと字形を検査。OSフォント検索を廃止。720p／1080pのADV・バックログ・CG・設定と表情4種をWindows実行版で確認済み |
 | 音 | 読込とPCM検査済み。聴感・BGM接続・各効果の明瞭さは未確認 |
 | 完成品質 | ユーザーによる1人・1体・1背景セットの品質確認は未実施。正式採用と5人への量産を完了扱いにしない |
 
@@ -45,8 +45,8 @@ PNG原本をゲーム内に保持し、音は元コードから再生成でき�
 
 `tools/audit-plan7-assets.ps1` は画像を編集せず、寸法・透過端・音のPCMを検査して台帳を更新する。`tools/validate-plan7-sample-player.ps1` は実行ファイルを720p／1080pで撮影する。`-Measure -Cases gameplay,battle,cg,settings -Heights 1080` は各画面のフレーム時間とロード済み画像のメモリを記録する。実戦の待機画面と比較画面を区別し、連続戦闘・ピーク・正式性能ゲートの合格へ読み替えない。
 
-代表画面：[健在4部位](plan7-screenshots/break-0-1080.png)、[全破壊](plan7-screenshots/break-15-720.png)、[家具利用](plan7-screenshots/sit-1080.png)、[CG](plan7-screenshots/cg-1080.png)、[敵大技](plan7-screenshots/enemycutin-1080.png)、[実戦](plan7-screenshots/gameplay-1080.png)、[箱庭](plan7-screenshots/garden-720.png)、[ADV・大きめ本文](plan7-screenshots/adv-1080.png)、[設定](plan7-screenshots/settings-large-720.png)。撮影PNGを加工せず保持する。
+代表画面：[健在4部位](plan7-screenshots/break-0-1080.png)、[全破壊](plan7-screenshots/break-15-720.png)、[家具利用](plan7-screenshots/sit-1080.png)、[CG](plan7-screenshots/cg-1080.png)、[敵大技](plan7-screenshots/enemycutin-1080.png)、[実戦](plan7-screenshots/gameplay-1080.png)、[箱庭](plan7-screenshots/garden-720.png)、[ADV・大きめ本文](plan7-screenshots/adv-1080.png)、[設定](plan7-screenshots/settings-large-720.png)、[人物カットインv3](plan7-screenshots/cutin-720.png)。撮影PNGを加工せず保持する。箱庭・ADV・設定・人物カットインは同梱フォント導入後の撮影へ更新した。
 
 性能の同期解除は診断用 `-Uncapped` だけに適用する。通常設定を変更して性能ゲートを通したことにしない。画像メモリは24画像の幅×高さ×4のRGBA換算見積もりであり、GPU実使用量ではない。Unity実行版が0を返すメモリAPIは未取得（最新診断では−1）として扱い、Windows側の250ms間隔プロセス測定を使用する。`resourceValidationSeconds` は既にロード済み画像も含む素材検査の所要時間、`startupSeconds` は測定終了時のUnity起動後経過時間であり、どちらも冷起動ロード時間ではない。
 
-これまでの性能値は他アプリ・ゲームの同時負荷を除外できていない参考値。単体性能の合否は保留する。以後の測定は他アプリとCPU／GPU負荷の事前確認を各起動の必須条件とし、他負荷があれば延期する。
+初期の性能値は他アプリ・ゲームの同時負荷を除外できていない参考値。ユーザーの再測定許可後は他アプリとCPU／GPU負荷の事前確認を各起動の必須条件とし、他負荷があれば延期する。低負荷確認後の再測定と、初期参考値を [検証記録](plan7-validation.md) で区別する。全アプリを閉じた環境・演出ピーク・連続戦闘の単体性能合否は保留する。

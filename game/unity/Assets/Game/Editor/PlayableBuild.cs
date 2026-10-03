@@ -21,6 +21,10 @@ public static partial class PlayableBuild
             target=BuildTarget.StandaloneWindows64, options=BuildOptions.None
         });
         if(report.summary.result!=BuildResult.Succeeded) throw new Exception("Build failed: "+report.summary.result);
+        var notices = Path.GetFullPath("../Builds/playable/ThirdPartyNotices/NotoSansCJKjp");
+        Directory.CreateDirectory(notices);
+        File.Copy("Assets/Game/Resources/Fonts/OFL.txt", Path.Combine(notices, "OFL.txt"), true);
+        File.Copy("Assets/Game/Resources/Fonts/NOTICE.txt", Path.Combine(notices, "NOTICE.txt"), true);
         Debug.Log("PLAYABLE_BUILD_PASS "+assertions+" assertions / "+report.summary.totalSize+" bytes");
     }
     private static void ValidateFormalSplitRecovery()

@@ -61,7 +61,11 @@ namespace NewAster.Presentation
                 [BookBookmark.Gardens] = new[] { "garden.grassland-forest" },
                 [BookBookmark.Stories] = new[] { "story.green-return-dragon" }
             });
-            font = Font.CreateDynamicFontFromOSFont(new[] { "Yu Gothic", "Meiryo", "Arial" }, 20);
+            font = Resources.Load<Font>("Fonts/NotoSansCJKjp-Regular");
+            if (font == null) throw new InvalidOperationException("Bundled Japanese font is missing: Fonts/NotoSansCJKjp-Regular");
+            foreach (char glyph in "庭戦闘部位破壊設定喜困決意帰還図鑑0123456789！？")
+                if (!font.HasCharacter(glyph)) throw new InvalidOperationException("Bundled font is missing glyph: " + glyph);
+            Debug.Log("PLAN7_BUNDLED_FONT_PASS NotoSansCJKjp-Regular");
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
             illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
@@ -117,7 +121,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
-            if(capturePath!=null && args.Contains("-measurePlan7") && !artSample)ValidateArtSampleResources();
+            if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();

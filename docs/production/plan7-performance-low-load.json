@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-03",
+  "assemblySha256": "6AC77E9414DCAE67DE76500401C8BFFBD45FC1AF664F2402FA0CED1497D5573E",
+  "buildLog": "tmp/plan7-font-cutin-final-build.log",
+  "resolution": [1920, 1080],
+  "cpu": "Intel Core i7-13700F",
+  "gpu": "NVIDIA GeForce RTX 4070",
+  "environment": "Low-load desktop preflight passed before each launch. Other idle applications remained open; not isolated or monitored throughout measurement.",
+  "wallpaper": "Temporarily paused through official CLI and restored in finally.",
+  "framesPerCase": 600,
+  "textureRgbaEstimateBytes": 150980480,
+  "privatePreflightRecords": "Kept in tmp only; no application names or window titles published.",
+  "cases": [
+    {"scene":"gameplay-idle","vsync":1,"meanMs":16.707,"p95Ms":16.696,"under16_7ms":0.9950,"peakWorkingBytes":300912640,"source":"tmp/plan7-sample-20261003082148/gameplay-1080.log"},
+    {"scene":"battle-sample","vsync":1,"meanMs":16.764,"p95Ms":16.697,"under16_7ms":0.9933,"peakWorkingBytes":334135296,"source":"tmp/plan7-sample-20261003082148/battle-1080.log"},
+    {"scene":"cg","vsync":1,"meanMs":16.795,"p95Ms":16.697,"under16_7ms":0.9750,"peakWorkingBytes":330784768,"source":"tmp/plan7-sample-20261003082148/cg-1080.log"},
+    {"scene":"settings","vsync":1,"meanMs":16.664,"p95Ms":16.664,"under16_7ms":1.0000,"peakWorkingBytes":333041664,"source":"tmp/plan7-sample-20261003082148/settings-1080.log"},
+    {"scene":"gameplay-idle","vsync":0,"meanMs":0.819,"p95Ms":1.148,"under16_7ms":1.0000,"peakWorkingBytes":336183296,"source":"tmp/plan7-sample-20261003082413/gameplay-1080.log"},
+    {"scene":"battle-sample","vsync":0,"meanMs":1.396,"p95Ms":1.721,"under16_7ms":1.0000,"peakWorkingBytes":349925376,"source":"tmp/plan7-sample-20261003082413/battle-1080.log"}
+  ],
+  "limitations": ["Short idle/static samples; no continuous battle or peak effects acceptance.", "Uncapped mode is diagnostic only; default vsync remains 1.", "Texture bytes are an estimate, not actual GPU allocation.", "Resource validation time is not cold-start load time."]
+}

@@ -7,9 +7,17 @@ New-Item -ItemType Directory -Path $output | Out-Null
 foreach($case in $Cases){foreach($height in $Heights){
     if($height -ne 720 -and $height -ne 1080){throw 'Only 720p and 1080p supported'}
     $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
-    if($Measure -or $Uncapped){& (Join-Path $PSScriptRoot 'check-plan7-performance-environment.ps1') -Output (Join-Path $output ($name+'-environment-before.json'))}
+    if($Measure -or $Uncapped){
+        $ready=$false
+        for($attempt=1;$attempt -le 3;$attempt++){
+            $envPath=Join-Path $output ($name+'-environment-attempt-'+$attempt+'.json')
+            try{& (Join-Path $PSScriptRoot 'check-plan7-performance-environment.ps1') -Output $envPath;Copy-Item -LiteralPath $envPath -Destination (Join-Path $output ($name+'-environment-before.json'));$ready=$true;break}
+            catch{if($_.Exception.Message -notmatch 'PLAN7_PERFORMANCE_DEFERRED'){throw};Write-Output "PLAN7_PERFORMANCE_WAIT $name attempt=$attempt";if($attempt -lt 3){Start-Sleep -Seconds 5}}
+        }
+        if(-not $ready){throw "PLAN7_PERFORMANCE_DEFERRED: readiness never cleared for $name; no player launched."}
+    }
     $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',('"'+$png+'"'),'-capturePlan7Sample','-artCase',$case,'-logFile',('"'+$log+'"'))
-    if($case -eq 'gameplay'){$flags=$flags | Where-Object {$_ -notin @('-capturePlan7Sample','-artCase','gameplay')};$flags+='-capture2DActor0'}
+    if($case -eq 'gameplay'){$flags=$flags | Where-Object {$_ -notin @('-capturePlan7Sample','-artCase','gameplay')};$flags+=@('-capture2DActor0','-validatePlan7Assets')}
     if($Measure -or $Uncapped){$flags+='-measurePlan7'}
     if($Uncapped){$flags+='-measurePlan7Uncapped'}
     if($LargeText){$flags+='-inspectLargeText'}
@@ -22,6 +30,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     $watch.Stop()
     $text=Get-Content -LiteralPath $log -Raw
     if($process.ExitCode -ne 0 -or $text -notmatch 'PLAN7_SAMPLE_ASSETS_PASS' -or ($case -ne 'gameplay' -and $text -notmatch ('PLAN7_SAMPLE_CAPTURE '+[regex]::Escape($case)+' / read-only')) -or $text -match '(Exception:|PLAN7_ASSET_MISSING|ILLUSTRATION_MANIFEST_WARNING)'){throw "Sample failed: $log"}
+    if($text -notmatch 'PLAN7_BUNDLED_FONT_PASS'){throw "Bundled font not validated: $log"}
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}
     $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped}
     [IO.File]::WriteAllText((Join-Path $output ($name+'-memory.json')),($memory | ConvertTo-Json)+[Environment]::NewLine)

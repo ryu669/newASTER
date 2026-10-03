@@ -9,7 +9,7 @@
       "placeholder": true,
       "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
       "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
-      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v1"
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
     },
     {
       "heroineId": "heroine.iconoclast",

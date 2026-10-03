@@ -121,3 +121,19 @@ Use case: stylized-concept. Match provided SD Slayer identity/costume blondebob 
 Use case: stylized-concept. Original game event CG, wide16:9 opaque painted illustration, target2048x1152. Reference1 Slayer identity, reference2 restored forest atmosphere. Adult blondebob blueeyes loopingforelock pinkflowers pinkknitdress detachedsleeves whiteboots whitefeather floweredwings. One heroine sitting peacefully on ornate creamstone wooden gardenbench amid blooming pink flowers, holding a small newly sprouted plant, warmgentle smile. Dawnlight, emeraldforestvalley distant, delicate gold architectural details. Waist-up to knees composition, readableface offcenterleft, broad picturesque garden. Premium Japanese fantasy CG, no text, UI, logo, watermark or othercharacters. Do not invent story text; image only.
 
 生成原本：C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-b2232b31-5246-47b4-9d90-82a8bdb4f16b.png
+
+## slayer-cutin-candidate-v2-review（接続しない比較原本）
+
+参照：`slayer-cutin-candidate-v1.png`。内蔵imagegen、透過指定、2026-10-03。
+
+Edit target: the supplied Slayer character cut-in game asset. Produce a revised isolated character cut-in on a square transparent canvas, ideally 1536 x 1536. Preserve her identity, blonde bob hair, blue eyes, pink floral lace dress, small white feather wings, gold floral sword, pale detailed anime illustration style, and raised sword pose. Fix the delivery problem: all visible hair loop above her head, both wings, sword hilt, sword tip, hands, ribbons, and dress outline must be entirely within the canvas, with at least 8 percent completely transparent clear padding on EVERY edge. Zoom out and complete the missing outer contours and lower dress rather than cropping. Show from head to knees with a fully enclosed hem silhouette, no truncated legs at the bottom: use a graceful folded ribbon/dress composition closing the lower silhouette, not legs cut by the canvas. Preserve anatomy and design, two hands, exactly two wings, one sword. No backdrop, no cast shadow, no glow filling the padding, no border, text, logo or watermark. Native transparent RGBA background.
+
+原本：`C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-c0d6f55e-9ec3-464c-a9dc-1ea463a82aef.png`。プロジェクト保存：`docs/production/plan7-slayer-cutin-v2-review.png`。頭上の余白不足により接続しない。
+
+## slayer-cutin-candidate-v3（安全域修正版）
+
+参照：上記v2。内蔵imagegen、透過指定、2026-10-03。
+
+Edit the supplied game character cut-in. Keep exactly the same adult blonde floral swordswoman, face, outfit, raised sword pose, folded knees and two white wings. ONLY change framing and finish any contour touching the edge. The entire existing figure must be SMALLER and centered: all opaque content including top hair loop, wing feathers, every ribbon and sword must fit inside the central 70% of both width and height of a square transparent canvas. This means a completely empty transparent margin of 15% on the top, bottom, left AND right, with NO painted pixel, speckle, glow or shadow in this outer margin. Zoom out substantially; do not fill the canvas. The top hair loop must be entirely visible below the upper margin, never touch canvas edge. Do not alter the face, expression, identity or costume. No text, backdrop or cast shadow. Transparent RGBA game cut-in asset, ideally native 1536x1536.
+
+原本：`C:\Users\nishi\.codex\generated_images\01a0fe98-69ef-7480-a79f-9b12fef7cf82\exec-ebabcdf6-0906-4d94-9ca8-41ece33322fd.png`。実寸1254×1254。外周100pxのアルファ16超は0、低アルファ1〜16の微小画素は288。厳密な全透明余白・指定解像度達成とは記録しない。主要輪郭の切れを修正した候補として、見本と戦闘マニフェストへ接続する。v1は保持する。
