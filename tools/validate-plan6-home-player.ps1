@@ -1,4 +1,4 @@
-param([string]$Player,[ValidateSet('Garden','Weapons','Events','Adv','Cg','Backlog')][string[]]$Cases=@('Garden','Weapons','Events','Adv','Cg','Backlog'),[ValidateSet('Old','New')][string[]]$SaveForms=@('Old','New'))
+param([string]$Player,[ValidateSet('Garden','Weapons','Events','Adv','Cg','Backlog')][string[]]$Cases=@('Garden','Weapons','Events','Adv','Cg','Backlog'),[ValidateSet('Old','New')][string[]]$SaveForms=@('Old','New'),[switch]$LargeText)
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
 if(-not $Player){$Player=Join-Path $repo 'game/Builds/playable/newASTER.exe'}
@@ -11,6 +11,7 @@ foreach($saveForm in $SaveForms){
             $name=$saveForm+'-'+$display+'-'+$resolution[1];$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
             $flags=@('-screen-fullscreen','0','-screen-width',"$($resolution[0])",'-screen-height',"$($resolution[1])",'-presentationCapture',('"'+$png+'"'),'-capturePlan6Home','-plan6Save',('"'+$save+'"'),'-homeCase',$display,'-logFile',('"'+$log+'"'))
             if(Test-Path -LiteralPath $save){$flags+='-plan6Resume'}elseif($saveForm -eq 'New'){$flags+='-plan6NewSave'}
+            if($LargeText){$flags+='-inspectLargeText'}
             $process=Start-Process -FilePath $Player -ArgumentList $flags -WindowStyle Normal -PassThru
             if(-not $process.WaitForExit(60000)){$process.Kill();throw "Plan6 home player timeout: $name"}
             $text=Get-Content -LiteralPath $log -Raw

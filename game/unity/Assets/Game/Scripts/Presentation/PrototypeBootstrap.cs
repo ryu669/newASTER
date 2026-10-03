@@ -116,6 +116,8 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
+            if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
+            if(capturePath!=null && args.Contains("-measurePlan7") && !artSample)ValidateArtSampleResources();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -157,7 +159,8 @@ namespace NewAster.Presentation
             UpdateAdv();
             UpdateEngagement();
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
+                else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(placing){placing=false;selectedFurniture=null;}
                 else if(recoveryActive)recoveryConfirm=false;
@@ -196,6 +199,7 @@ namespace NewAster.Presentation
             }
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
+            UpdateArtAudio();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
             bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
@@ -207,18 +211,19 @@ namespace NewAster.Presentation
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
-                if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
-                if(captureFrame==150) Application.Quit();
+                int captureAt=measureArt?600:90;
+                if(captureFrame==captureAt){ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
+                if(captureFrame==captureAt+60) Application.Quit();
             }
         }
         private void UpdatePlayback()
         {
             if(encounter==null) { playback.Reset(); shownEvent=0; return; }
             bool stopped=paused || retreat || help;
-            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime;
+            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime*(ArtSampleSettings.Shortened?2:1);
             if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
             // Show a newly queued event at least once before its duration starts ticking.
-            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime,stopped);
+            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime*(ArtSampleSettings.Shortened?2:1),stopped);
             var e=playback.Current;
             if(e!=null && e.Sequence!=shownEvent) {
                 illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
@@ -249,6 +254,7 @@ namespace NewAster.Presentation
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(artSample){DrawArtSample();return;}
             if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
@@ -281,6 +287,7 @@ namespace NewAster.Presentation
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
             if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
             Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
+            if(Btn(1050,770,510,65,"計画7 ／ 美術見本を見る",BookInputAllowed))OpenArtSample();
         }
         private void DrawBook()
         {

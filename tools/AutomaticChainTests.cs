@@ -128,6 +128,16 @@ public static class AutomaticChainTests
         Check(BattleIllustrationManifest.PartResource(layer,0)=="enemy/horn-broken","Broken part selects explicit variant");
         layer.hideWhenDestroyed=true;
         Check(BattleIllustrationManifest.PartResource(layer,0)==null,"Explicit disappearance hides only the broken layer");
+        manifest.parts[1].inputPriority=2;
+        Check(manifest.HitPart(.2f,.2f,id=>true)=="part-1","Overlapping parts use explicit input priority");
+        Check(manifest.HitPart(.2f,.2f,id=>id!="part-1")=="part-0","Broken priority part cannot intercept another part");
+        Check(manifest.HitPart(.8f,.8f,id=>true)==null,"Outside authored hit regions has no part");
+        var enemyPreview=new PlayableBattle(1,new PlayableProgress());enemyPreview.DrainPresentationEvents();
+        var enemyHp=enemyPreview.State.Heroes.Select(h=>h.HitPoints).ToArray();BattlePresentationEvent enemyEvent=null;
+        for(int step=0;step<100 && enemyEvent==null;step++){enemyPreview.Pass();enemyEvent=enemyPreview.DrainPresentationEvents().FirstOrDefault(e=>e.Kind==BattlePresentationKind.Enemy);}
+        Check(enemyEvent!=null,"Timeline advances to an enemy presentation");
+        Check(enemyEvent.Actor==-1 && enemyEvent.Damage==enemyHp.Select((hp,i)=>hp-enemyPreview.State.Heroes[i].HitPoints).Sum(),"Enemy presentation keeps enemy actor and actual HP loss");
+        Check(enemyEvent.TargetIds.SequenceEqual(enemyPreview.State.Heroes.Where((h,i)=>h.HitPoints<enemyHp[i]).Select(h=>h.Id)),"Enemy hit pose targets come from actual damage recipients");
         manifest.parts[0]=null;ExpectManifestFailure(manifest,"Missing part binding rejected");
         var actions=new List<int>();
         var result=AutomaticChain.Resolve(0,5,0,new bool[5],i=>true,()=>false,max=>0,(i,bonus,step)=>actions.Add(i));

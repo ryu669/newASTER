@@ -3,14 +3,15 @@ using System.Linq;
 namespace NewAster.Data
 {
     [Serializable] public sealed class HeroIllustrationBinding
-    { public string heroineId; public string resourcePath; public bool placeholder; public bool fullCanvas; }
+    { public string heroineId; public string resourcePath,attackResourcePath,hitResourcePath,cutinResourcePath; public bool placeholder; public bool fullCanvas; }
     [Serializable] public sealed class PartIllustrationBinding
-    { public string partId; public float x,y,width,height; public string resourcePath, destroyedResourcePath; public bool hideWhenDestroyed; public int drawOrder; }
+    { public string partId; public float x,y,width,height; public string resourcePath, destroyedResourcePath; public bool hideWhenDestroyed; public int drawOrder,inputPriority; }
     [Serializable] public sealed class BattleIllustrationManifest
     {
         public int schemaVersion;
         public bool placeholder;
         public string backgroundResourcePath, bodyResourcePath;
+        public string middleResourcePath,foregroundResourcePath,enemyMajorResourcePath;
         public HeroIllustrationBinding[] heroes;
         public PartIllustrationBinding[] parts;
         public int HeroIndex(string heroineId)
@@ -34,6 +35,9 @@ namespace NewAster.Data
         public static string PartResource(PartIllustrationBinding part,int hitPoints)
             => hitPoints>0?part.resourcePath:part.hideWhenDestroyed?null:
                 string.IsNullOrWhiteSpace(part.destroyedResourcePath)?part.resourcePath:part.destroyedResourcePath;
+        public string HitPart(float x,float y,Func<string,bool> alive)
+            => parts.Where(p=>alive(p.partId) && x>=p.x && x<=p.x+p.width && y>=p.y && y<=p.y+p.height)
+                .OrderByDescending(p=>p.inputPriority).ThenBy(p=>p.partId,StringComparer.Ordinal).Select(p=>p.partId).FirstOrDefault();
         private static bool Valid(float x,float y,float w,float h)
             => !float.IsNaN(x+y+w+h) && !float.IsInfinity(x+y+w+h) && x>=0 && y>=0 && w>0 && h>0 && x+w<=1 && y+h<=1;
     }

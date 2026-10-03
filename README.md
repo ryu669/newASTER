@@ -14,6 +14,7 @@
 - [実装計画と完了条件](docs/production/implementation-plan.md)：番号ごとの検証済み範囲と残作業。
 - [計画6の詳細実装計画](docs/production/plan6-implementation-plan.md)：万物の書・人物別装備の樹・2D箱庭・好感度・ADVを6-1〜6-10で接続。6-1〜6-10の機能ゲート完了。
 - [計画6の完了記録](docs/production/plan6-completion-gate.md)：Core 5,540・Unity 1,174・Windows通し保存／再起動、箱庭・ADVの720p／1080p検証と後続制作範囲。
+- [計画7の候補見本](docs/production/plan7-candidate-review.md)：タイトルの「計画7 ／ 美術見本を見る」から人物1人・敵1体・背景・家具・CG・音を比較。納品寸法と完成品質は未通過。
 - [初期正式5人・動画確認値](docs/data/initial-five-heroines.md)：動画の15技と、本作独自の資源・状態異常・固有行動を区別。
 - [計画5の実装・検証記録](docs/production/plan5-completion-gate.md)：機能ゲート完了、初期fixture値、保存保全、Windows通し受入れと後続範囲。
 - [計画3の受入れ記録](docs/production/plan3-completion-gate.md)：正式JSON、全15技・5固有行動、保存非破壊、検証と後続範囲。
