@@ -1,6 +1,7 @@
 param([string]$Player,[string[]]$Cases=@('break-0','break-1','break-2','break-3','break-4','break-5','break-6','break-7','break-8','break-9','break-10','break-11','break-12','break-13','break-14','break-15','idle','attack','hit','cutin','sit','work','look','cg','settings','enemycutin'),[int[]]$Heights=@(720,1080),[switch]$Measure,[switch]$LargeText,[switch]$Uncapped,[switch]$ValidateFocus)
 $ErrorActionPreference='Stop'
 if($ValidateFocus -and ($Measure -or $Uncapped -or @($Cases | Where-Object {$_ -ne 'settings'}).Count -gt 0)){throw 'Focus validation requires settings cases without performance measurement'}
+if($Uncapped -and $Cases -contains 'activecombat'){throw 'Active combat measurement requires normal synchronization so frame count covers action playback'}
 $repo=Split-Path $PSScriptRoot -Parent
 if(-not $Player){$Player=Join-Path $repo 'game/Builds/playable/newASTER.exe'}
 $output=Join-Path $repo ('tmp/plan7-sample-'+[DateTime]::UtcNow.ToString('yyyyMMddHHmmss'))
@@ -18,7 +19,8 @@ foreach($case in $Cases){foreach($height in $Heights){
         if(-not $ready){throw "PLAN7_PERFORMANCE_DEFERRED: readiness never cleared for $name; no player launched."}
     }
     $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',('"'+$png+'"'),'-capturePlan7Sample','-artCase',$case,'-logFile',('"'+$log+'"'))
-    if($case -eq 'gameplay'){$flags=$flags | Where-Object {$_ -notin @('-capturePlan7Sample','-artCase','gameplay')};$flags+=@('-capture2DActor0','-validatePlan7Assets')}
+    if($case -in @('gameplay','activecombat')){$flags=$flags | Where-Object {$_ -notin @('-capturePlan7Sample','-artCase',$case)};$flags+='-validatePlan7Assets';if($case -eq 'gameplay'){$flags+='-capture2DActor0'}}
+    if($case -eq 'activecombat'){$flags+='-validatePlan7Playback'}
     if($Measure -or $Uncapped){$flags+='-measurePlan7'}
     if($Uncapped){$flags+='-measurePlan7Uncapped'}
     if($LargeText){$flags+='-inspectLargeText'}
@@ -31,7 +33,9 @@ foreach($case in $Cases){foreach($height in $Heights){
     }
     $watch.Stop()
     $text=Get-Content -LiteralPath $log -Raw
-    if($process.ExitCode -ne 0 -or $text -notmatch 'PLAN7_SAMPLE_ASSETS_PASS' -or ($case -ne 'gameplay' -and $text -notmatch ('PLAN7_SAMPLE_CAPTURE '+[regex]::Escape($case)+' / read-only')) -or $text -match '(Exception:|PLAN7_ASSET_MISSING|ILLUSTRATION_MANIFEST_WARNING)'){throw "Sample failed: $log"}
+    if($process.ExitCode -ne 0 -or $text -notmatch 'PLAN7_SAMPLE_ASSETS_PASS' -or ($case -notin @('gameplay','activecombat') -and $text -notmatch ('PLAN7_SAMPLE_CAPTURE '+[regex]::Escape($case)+' / read-only')) -or $text -match '(Exception:|PLAN7_ASSET_MISSING|ILLUSTRATION_MANIFEST_WARNING)'){throw "Sample failed: $log"}
+    if($case -eq 'activecombat' -and $text -notmatch 'PLAN7_PLAYBACK_EQUIVALENCE_PASS'){throw "Missing playback equivalence result: $log"}
+    if($case -eq 'activecombat' -and $text -notmatch 'PLAN7_ACTIVE_COMBAT_PROGRESS_PASS'){throw "Active combat did not progress while capturing: $log"}
     if($text -notmatch 'PLAN7_BUNDLED_FONT_PASS'){throw "Bundled font not validated: $log"}
     if($ValidateFocus -and $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS'){throw "Focus/audio validation did not finish (requires application focus): $log"}
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}

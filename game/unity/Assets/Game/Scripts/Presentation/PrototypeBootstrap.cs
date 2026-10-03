@@ -122,6 +122,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
             if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
+            if(capturePath!=null && args.Contains("-validatePlan7Playback"))PreparePlan7Playback();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -163,7 +164,7 @@ namespace NewAster.Presentation
             UpdateAdv();
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
-            if(Input.GetKeyDown(KeyCode.Escape)) {
+            if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
@@ -205,6 +206,7 @@ namespace NewAster.Presentation
             }
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
+            UpdatePlan7ActiveCombat();
             UpdateArtAudio();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
@@ -217,8 +219,8 @@ namespace NewAster.Presentation
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
-                int captureAt=measureArt?600:90;
-                if(captureFrame==captureAt){ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
+                int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
+                if(captureFrame==captureAt){ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(captureFrame==captureAt+60) Application.Quit();
             }
         }
@@ -258,6 +260,7 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
             if(artSample){DrawArtSample();return;}
@@ -598,6 +601,7 @@ namespace NewAster.Presentation
         }
         private void FinishCheck()
         {
+            if(plan7ActiveCombat)return;
             if(playback.Busy || !encounter.Ended || result!=null) return;
             if(!encounter.State.IsVictory) { PrepareFormalBattleEnd(BattleEndReason.Defeat); return; }
             PrepareFormalVictory();
