@@ -27,6 +27,8 @@ namespace NewAster.Core
         private readonly Random random;
         private readonly ColossusCombatDef colossusDefinition;
         private readonly FormalCollectionLedger collectionGrowth;
+        private readonly HomeExperienceCatalog homeCatalog;
+        private readonly FormalHomeProgress homeProgress;
         private BattlePart RolePart(string role,int legacyIndex)=>colossusDefinition==null?State.Parts[legacyIndex]:State.Parts.Single(p=>p.Id==colossusDefinition.parts.Single(d=>d.role==role).id);
         private bool chainPending;
         private bool lastEnemyWasMajor;
@@ -76,9 +78,11 @@ namespace NewAster.Core
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null, ColossusCombatDef colossusDefinition = null, FormalCollectionLedger collectionGrowth = null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null, ColossusCombatDef colossusDefinition = null, FormalCollectionLedger collectionGrowth = null, FormalHomeProgress homeProgress=null,HomeExperienceCatalog homeCatalog=null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
+            this.homeCatalog=homeCatalog;this.homeProgress=homeProgress;
+            if(homeProgress!=null){homeProgress.Validate();if(homeCatalog==null)throw new ArgumentException("Weapon definitions required.");homeCatalog.Validate();}
             collectionGrowth?.Validate();this.collectionGrowth=collectionGrowth;
             if(colossusDefinition!=null){colossusDefinition.Validate();this.colossusDefinition=colossusDefinition.Copy();}
             formationIds=Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray();
@@ -96,6 +100,7 @@ namespace NewAster.Core
                     var s=combatDefinitions.Skill(formationIds[i],slot);
                     commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,effectRuleId=s.effectRuleId,targetRuleId=s.targetRuleId,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,selfEffects=s.selfEffects?.Select(e=>e.Copy()).ToArray(),criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,conditions=s.conditions?.Select(c=>c.Copy()).ToArray(),damageType=s.damageType,ignoreDefenseBp=s.ignoreDefenseBp,statusEffects=s.statusEffects?.Select(e=>e.Copy()).ToArray(),enemyWaitAdd=s.enemyWaitAdd,selfWaitReductionPercent=s.selfWaitReductionPercent,chargeConsumeMax=s.chargeConsumeMax,chargeBonusPercent=s.chargeBonusPercent,specialWeaponBonusPercent=s.specialWeaponBonusPercent};
                 }
+                if(homeProgress!=null)for(int i=0;i<5;i++){var e=homeProgress.weaponEquipment.SingleOrDefault(w=>w.heroineId==formationIds[i]);if(e==null)continue;var n=homeCatalog.weaponNodes.Single(w=>w.id==e.nodeId && w.heroineId==formationIds[i]);if(n.abilityId!="ability.home-fixture.attack" || n.skillId!="skill.home-fixture.preview" || n.attackBonus<0 || float.IsNaN(n.skillPower) || n.skillPower<=0)throw new ArgumentException("Unsupported weapon effect.");commandDefinitions[i,0].powerScale=n.skillPower;commandDefinitions[i,0].name="検証武器スキル "+(n.terminal??"根");}
             }
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
             if(healingSkills.Any(d=>d==null) || healingSkills.GroupBy(d=>new {d.Actor,d.Slot}).Any(g=>g.Count()>1)) throw new ArgumentException("Duplicate or null healing definition.");
@@ -132,6 +137,7 @@ namespace NewAster.Core
                 var g=growth.heroines.Single(x=>x.heroineId==h.id);
                 int hp=FormalGrowthMath.Stat(j.hp,h.hpBp,g.level,g.duplicateRank);
                 int attack=FormalGrowthMath.Stat(j.attack,h.attackBp,g.level,g.duplicateRank);
+                var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);if(weapon!=null)attack=checked(attack+homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId).attackBonus);
                 var relic=FormalRelicRules.Equipped(collectionGrowth,h.id);
                 if(relic!=null){hp=checked(hp+FormalRelicRules.Hp(relic));attack=checked(attack+FormalRelicRules.Attack(relic));attack=checked((int)((long)attack*105/100));}
                 int hpTrait=h.traitHpPercent==0?0:FormalGrowthMath.TraitAmount(h.traitHpPercent*100,g.duplicateRank);

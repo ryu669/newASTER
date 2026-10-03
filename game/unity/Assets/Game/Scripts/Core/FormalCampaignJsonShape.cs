@@ -8,11 +8,34 @@ namespace NewAster.Core
     {
         public static bool HasRootMember(string json,string member)
             =>FindRootMemberValue(json,member)>=0;
+        public static int? RootInt32Member(string json,string member)
+        {
+            int start=FindRootMemberValue(json,member);if(start<0)return null;int end=start;
+            if(end<json.Length && json[end]=='-')end++;while(end<json.Length && json[end]>='0' && json[end]<='9')end++;
+            if(end==start || end<json.Length && !char.IsWhiteSpace(json[end]) && json[end]!=',' && json[end]!='}')return null;
+            return int.TryParse(json.Substring(start,end-start),NumberStyles.AllowLeadingSign,CultureInfo.InvariantCulture,out int value)?value:(int?)null;
+        }
         public static bool RootMemberIsNull(string json,string member)
         {
             int index=FindRootMemberValue(json,member);
             if(index<0 || index+4>json.Length || json.Substring(index,4)!="null")return false;
             return index+4==json.Length || char.IsWhiteSpace(json[index+4]) || json[index+4]==',' || json[index+4]=='}';
+        }
+        // Used only on serializer-produced JSON: Unity's inline serialization can
+        // turn a null serializable object into a default object. Preserve true absence.
+        public static string WithNullRootMember(string json,string member)
+        {
+            int start=FindRootMemberValue(json,member);if(start<0)return json;
+            int depth=0;bool quoted=false,escaped=false;int end=start;
+            for(;end<json.Length;end++){
+                char c=json[end];
+                if(quoted){if(escaped){escaped=false;continue;}if(c=='\\'){escaped=true;continue;}if(c=='"')quoted=false;continue;}
+                if(c=='"'){quoted=true;continue;}
+                if(c=='{' || c=='['){depth++;continue;}
+                if(c=='}' || c==']'){if(depth==0)break;depth--;if(depth==0){end++;break;}continue;}
+                if(depth==0 && (c==',' || char.IsWhiteSpace(c)))break;
+            }
+            return json.Substring(0,start)+"null"+json.Substring(end);
         }
         private static int FindRootMemberValue(string json,string member)
         {

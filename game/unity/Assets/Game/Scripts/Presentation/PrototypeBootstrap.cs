@@ -114,6 +114,8 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-capturePlan5Acceptance")) PreparePlan5Acceptance(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
+            if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents(); SelectNextHero();
@@ -151,9 +153,14 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            UpdateBookTransition();
+            UpdateAdv();
             UpdateEngagement();
             if(Input.GetKeyDown(KeyCode.Escape)) {
-                if(recoveryActive)recoveryConfirm=false;
+                if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
+                else if(placing){placing=false;selectedFurniture=null;}
+                else if(recoveryActive)recoveryConfirm=false;
                 else if(collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
                 else if(kinderGarden && formalProgression!=null) KinderBack();
@@ -191,11 +198,15 @@ namespace NewAster.Presentation
             UpdatePlayback();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
-            if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView);
+            bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
+            if(!bookPreviewVisible)viewCamera.cullingMask=0;
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
+            if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
             if(capturePath!=null && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
+                if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
                 if(captureFrame==90) ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);
                 if(captureFrame==150) Application.Quit();
             }
@@ -238,12 +249,13 @@ namespace NewAster.Presentation
         {
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
-            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
@@ -254,9 +266,11 @@ namespace NewAster.Presentation
             if(title) { DrawTitle(); return; }
             Panel(1024,80,576,118,dark);
             Label(1050,100,510,70,encounter==null?"記憶が、新しい世界を育てる。":"巨神獣との空中戦",heading,Color.white);
+            if(encounter==null && (!book.HasSubject || book.Bookmark!=BookBookmark.Colossi || book.SubjectId!=WorldCatalog.ColossusIds[0]))Label(1050,275,510,100,book.HasSubject?"この対象の絵は制作待ちです。":"表示する対象はありません。",text,Color.white);
             Panel(1024,657,576,243,dark);
             if(encounter==null) DrawBook(); else DrawBattle();
-            Panel(0,812,1024,88,dark); Label(28,826,970,60,status,small,Color.white);
+            Panel(0,812,1024,88,dark);if(encounter!=null || !book.IsTransitioning)Label(28,826,970,60,encounter==null?"しおりで分類、めくりで対象、裏返しで同じ対象の情報へ。":status,small,Color.white);
+            if(encounter==null)DrawBookTransition();
             drawingModal=true;
             if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(kinderGarden) DrawKinderGarden(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
         }
@@ -264,29 +278,37 @@ namespace NewAster.Presentation
         {
             Label(75,160,860,70,"万物の書をひらく",heading);
             Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
-            if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) title=false;
+            if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
             if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
             Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
         }
         private void DrawBook()
         {
             string[] tabs={"巨神獣","誓女・育成","庭","物語"};
-            for(int i=0;i<4;i++) if(Btn(28+i*242,100,230,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i])) { book.ChangeBookmark((BookBookmark)i); scroll=Vector2.zero; }
-            if(Btn(28,160,180,42,"‹ 前のページ")) book.TurnPage(-1);
-            if(Btn(218,160,180,42,"次のページ ›")) book.TurnPage(1);
-            if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す")) book.FlipPage();
-            if(Btn(600,160,120,42,"保存")) Save(); if(Btn(730,160,170,42,"キンダーガーデン")) kinderGarden=true; if(Btn(910,160,70,42,"？")) help=true;
+            for(int i=0;i<4;i++) if(Btn(28+i*242,100,230,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i],BookInputAllowed && !book.IsTransitioning))RequestBookBookmark((BookBookmark)i);
+            if(Btn(28,160,180,42,"‹ 前のページ",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
+            if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
+            if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
+            if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"キンダーガーデン",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
             Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
+            if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
+            if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
+            bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
             switch(book.Bookmark) {
                 case BookBookmark.Colossi: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
-                case BookBookmark.Gardens: DrawGarden(); break;
+                case BookBookmark.Gardens: DrawFormalGarden(); break;
                 case BookBookmark.Stories: DrawStories(); break;
             }
+            GUI.enabled=previousBookEnabled;
+            DrawHomeConfirmation();
+            if(homeTrial){if(Btn(1050,85,510,48,"検証用の別セーブ ／ 通常へ戻る",BookInputAllowed))ExitHomeTrial();}
+            else if(Btn(1050,85,510,48,"計画6の機能検証用セーブを開く",BookInputAllowed))EnterHomeTrial();
         }
         private void DrawColossus()
         {
-            var c=WorldCatalog.Colossi[book.SubjectIndex]; bool unlocked=campaign.ColossusUnlocks.IsUnlocked(c.Id);
+            SyncBookSelectedLevel();
+            var c=WorldCatalog.Colossi.Single(x=>x.Id==book.SubjectId); bool unlocked=campaign.ColossusUnlocks.IsUnlocked(c.Id);
             Label(32,278,930,65,$"{book.SubjectIndex+1:00}  {(unlocked?c.DisplayName:"？？？")}",heading);
             if(!unlocked) { Label(32,365,920,120,"前の巨神獣を初めて討伐すると、このページが開きます。\n最後の巨神獣には、14体すべての初回討伐が必要です。",text); return; }
             if(book.Face==BookFace.Details) {
@@ -301,7 +323,7 @@ namespace NewAster.Presentation
                 if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
                 if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
                 Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
-                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",ColossusCombatCatalog.CanSummon(c.Id))) StartBattle(c.Id);
+                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id))) StartBattle(c.Id);
             }
         }
         private void DrawHeroine()
@@ -385,7 +407,12 @@ namespace NewAster.Presentation
         }
         private void DrawGarden()
         {
-            bool unlocked=campaign.Gardens.UnlockedGardenIds.Count>0;
+            bool unlocked=campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId);
+            if(book.SubjectId!="garden.grassland-forest"){
+                var requirement=GardenCatalog.Requirements.Single(r=>r.GardenId==book.SubjectId);
+                Label(32,275,930,65,string.Join("と",requirement.RequiredEnvironmentTags)+"の庭",heading);
+                Label(32,365,920,160,"解放条件："+string.Join("・",requirement.RequiredEnvironmentTags)+"\n"+(unlocked?"区画の条件は達成済みです。配置画面は制作待ちです。":"この環境を世界へ取り戻すと、区画が解放されます。"),text);return;
+            }
             Label(32,275,930,65,unlocked?"草原と森の庭":"まだ白い庭",heading);
             if(!unlocked) { Label(32,365,920,130,"翠還竜の初回討伐で草原と森が戻り、庭が開放されます。\n家具を作り、仲間とここで過ごせるようになります。",text); return; }
             if(book.Face==BookFace.Details) {
@@ -407,15 +434,23 @@ namespace NewAster.Presentation
         }
         private void DrawStories()
         {
-            Label(32,320,920,110,"正式な詩本文・物語本文は未制作です。",text);
-            if(Btn(32,480,920,65,"巨神獣・人物の詩と章の進捗")){collectionOpen=true;collectionTab=0;}
-            if(Btn(32,565,920,65,"オーパーツと素材を確認")){collectionOpen=true;collectionTab=1;}
+            var owner=CollectionData().owners.Single(o=>o.id==book.SubjectId);
+            Label(32,270,920,50,CollectionOwnerName(owner),heading);
+            Label(32,333,920,48,book.Face==BookFace.Overview?"物語の章 ／ 正式本文は未制作です。":"本文読了と詩の進捗 ／ 好感度とは別に記録します。",small);
+            var world=formalCampaign.Snapshot.world;
+            for(int i=0;i<owner.chapterIds.Length;i++){
+                var chapter=CollectionData().chapters.Single(c=>c.id==owner.chapterIds[i]);string state=world.readStoryIds.Contains(chapter.id)?"読了":world.unlockedStoryIds.Contains(chapter.id)?"解放・未読":"未解放";
+                Label(32,410+i*66,formalDiagnostic?520:920,50,book.Face==BookFace.Overview?$"第{i+1}章　{state}　／　正式本文未制作":$"第{i+1}章　詩 {chapter.poemIds.Count(world.poemIds.Contains)}/{chapter.poemIds.Length}　／　{state}",text);
+                if(formalDiagnostic){if(Btn(560,405+i*66,210,50,"検証ADV",world.unlockedStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,false);if(Btn(785,405+i*66,170,50,"回想",world.readStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,true);}
+            }
+            if(Btn(32,635,920,58,"この対象の詩と章の一覧",BookInputAllowed && !book.IsTransitioning))OpenCollectionForBook();
+            if(Btn(32,713,920,58,"オーパーツと素材を確認",BookInputAllowed && !book.IsTransitioning)){collectionOpen=true;collectionTab=1;}
         }
         private void StartBattle(string colossus)
         {
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection);
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             StartCollection();
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";

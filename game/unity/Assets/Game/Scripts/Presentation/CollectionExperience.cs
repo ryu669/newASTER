@@ -48,8 +48,8 @@ namespace NewAster.Presentation
             if(collectionTab==0){
                 var owners=CollectionData().owners;collectionOwner=Math.Max(0,Math.Min(collectionOwner,owners.Length-1));var o=owners[collectionOwner];
                 Label(340,283,920,55,CollectionOwnerName(o),growthTitleStyle);
-                if(GrowthButton(150,280,150,55,"‹ 対象"))collectionOwner=(collectionOwner+owners.Length-1)%owners.Length;
-                if(GrowthButton(1280,280,150,55,"対象 ›"))collectionOwner=(collectionOwner+1)%owners.Length;
+                if(GrowthButton(150,280,150,55,"‹ 対象",BookInputAllowed && !book.IsTransitioning && collectionOwner>0))CollectionTurnOwner(-1);
+                if(GrowthButton(1280,280,150,55,"対象 ›",BookInputAllowed && !book.IsTransitioning && collectionOwner+1<owners.Length))CollectionTurnOwner(1);
                 var world=formalCampaign.Snapshot.world;
                 for(int i=0;i<3;i++){
                     var c=CollectionData().chapters.Single(x=>x.id==o.chapterIds[i]);int count=c.poemIds.Count(world.poemIds.Contains);
@@ -58,6 +58,7 @@ namespace NewAster.Presentation
                     Label(180,420+i*110,1200,36,o.kind=="colossus"?"条件：この巨神獣の詩を8つそろえる。本文は未制作です。":"条件：開始編成に参加し、対応する巨神獣の歌を聞く。本文未制作。",growthSmallStyle);
                 }
                 Label(150,710,1280,65,"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
+                DrawBookTransition(true);
             }else DrawRelicInventory();
         }
         private void DrawRelicInventory()
