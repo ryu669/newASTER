@@ -67,7 +67,7 @@ namespace NewAster.Presentation
                 Debug.Log("PLAN7_GARDEN_USE_CAPTURE "+scenario+" action="+(occupant.actionId??"idle")+" / isolated");
             }
             if(display=="Weapons"){book.ChangeBookmark(BookBookmark.Heroines);growthScreen=GrowthScreen.Weapons;selectedNode=combatDefinitions.FormationIds[0]+".weapon.gamma";}
-            else if(display=="Events"){book.ChangeBookmark(BookBookmark.Gardens);if(book.Face==BookFace.Overview)book.FlipPage();selectedResident=combatDefinitions.FormationIds[0];}
+            else if(display=="Events"){book.ChangeBookmark(BookBookmark.Gardens);if(book.Face==BookFace.Overview)book.FlipPage();selectedResident=combatDefinitions.FormationIds[0];gardenPanel=GardenPanel.Events;gardenMenuExpanded=true;}
             else if(display=="Adv" || display=="Backlog" || display=="Cg"){book.ChangeBookmark(BookBookmark.Gardens);BeginAdv(HomeData().events[0].id,true);adv.Tick(.3);if(display=="Cg"){AdvanceAdv();AdvanceAdv();adv.Advance();}else{adv.Advance();if(display=="Backlog"){advBacklog=true;adv.Pause();}else adv.Pause();}}
             else{book.ChangeBookmark(BookBookmark.Gardens);selectedResident=combatDefinitions.FormationIds[0];}
             int artArg=Array.IndexOf(args,"-inspectPlan7Expression");
@@ -78,6 +78,7 @@ namespace NewAster.Presentation
                 for(int line=0;line<Array.IndexOf(new[]{"normal","joy","puzzled","determined"},expression);line++){adv.Advance();adv.Advance();}
                 adv.Advance();adv.Pause();Debug.Log("PLAN7_EXPRESSION_CAPTURE "+expression+" asset="+adv.Actors.Single().ExpressionAsset);
             }
+            int menuArg=Array.IndexOf(args,"-inspectGardenMenu");if(menuArg>=0)PrepareGardenMenuCapture(args[menuArg+1]);
             Debug.Log("PLAN6_HOME_PLAYER_PASS checks="+acceptanceChecks+" resumed="+args.Contains("-plan6Resume")+" case="+display);
         }
     }

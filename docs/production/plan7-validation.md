@@ -7,14 +7,16 @@
 | 検証 | 結果 |
 | --- | --- |
 | Core `validate-automatic-chain.ps1` | 5,576 assertions 合格。表情領域の非有限値・画像外・全身併用・素材種別を含む。部位入力優先、破壊済み除外、敵行動者と実ダメージ対象、家具3動作と未対応人物・再利用・保存分離も維持 |
-| Unityスクリプト | 88ファイルのコンパイル成功。既存の非推奨API／未代入フィールド警告2件 |
-| Unity `PlayableBuild.ValidateAndBuild` | 1,174 assertions、Windowsビルド成功。家具前後マスク・接地・人物名帯を含む最新ログ `tmp/plan7-garden-scale-build.log`、合計284,853,190 bytes |
+| Unityスクリプト | 89ファイルのコンパイル成功。既存の非推奨API／未代入フィールド警告2件 |
+| Unity `PlayableBuild.ValidateAndBuild` | 1,174 assertions、Windowsビルド成功。開閉式の庭メニューを含む最新ログ `tmp/garden-menu-escape-build.log`、合計284,862,406 bytes |
 | 素材監査 | 24 PNG、6 PCM WAV。画像寸法・端の透過・ハッシュと出典を台帳化。PNG GUID24個の重複なし。全音源は非無音・非クリッピング、先頭／末尾サンプル0 |
 | Windows | 修正後の再確認を含む100起動ケースが合格。各起動の例外・必須素材欠落・マニフェスト警告を検査し、撮影PNGを保存 |
 
-最新バイナリのC#実装識別は `newASTER_Data/Managed/Assembly-CSharp.dll` のSHA-256 `290FEAD04BB525CF759E420957BF3CF7B54283FD142C4234FE0ED92DC44143BA`。初期100ケースと [初期参考測定データ](plan7-performance.json) は旧ビルド `33A1E47815168DD18E1DD3EC80A9C354311E3EC28519C99C38FEFC90B843F366` に対応する。同梱フォント導入時の性能集計は `6AC77E9414DCAE67DE76500401C8BFFBD45FC1AF664F2402FA0CED1497D5573E` の別ビルドに対応し、最新の表情・庭描画変更後に測定したと読み替えない。
+最新バイナリのC#実装識別は `newASTER_Data/Managed/Assembly-CSharp.dll` のSHA-256 `4AF5A88DD6C031FDB6A0F0527B85746B856A8D8DF0061E3714F6726D535EC6F8`。初期100ケースと [初期参考測定データ](plan7-performance.json) は旧ビルド `33A1E47815168DD18E1DD3EC80A9C354311E3EC28519C99C38FEFC90B843F366` に対応する。同梱フォント導入時の性能集計は `6AC77E9414DCAE67DE76500401C8BFFBD45FC1AF664F2402FA0CED1497D5573E` の別ビルドに対応し、最新の表情・庭描画変更後に測定したと読み替えない。
 
 ## Windowsの検査範囲と証拠
+
+ユーザーの参考画像に合わせた庭の開閉式メニューは [別記録](garden-menu.md) を参照する。前段24起動、最後のEscape優先・確認文調整後の影響箇所12起動、計36起動が合格した。古い箱庭の撮影と新しい広い庭の撮影、各ビルドの識別を分けて保持する。今回のUIで負荷測定は実施していない。
 
 ### 家具前後描画・接地・名前帯の検証
 
@@ -110,7 +112,7 @@ Windows 11 Home 10.0.26300、Core i7-13700F、RTX 4070、可視メモリ33,257,5
 
 ## 家具前後描画追加後の短時間測定
 
-待機サイズ変更を含む最新ビルド（上記SHA-256、`tmp/plan7-garden-scale-build.log`）で作業台の静的見本を1起動だけ測定した。Unityビルドと機能検証プロセスの終了を確認し、各CPU／GPUと空きRAMの事前確認に合格してから起動した。全体CPUは準備サンプル1%、判定サンプル4%・2%。他の低負荷アプリは開いたままで、測定中の継続的な隔離を保証しない。壁紙だけ公式CLIで一時停止し、`finally` の再生命令と復元マーカーを確認した。
+待機サイズ変更時ビルド（SHA-256 `290FEAD04BB525CF759E420957BF3CF7B54283FD142C4234FE0ED92DC44143BA`、`tmp/plan7-garden-scale-build.log`）で作業台の静的見本を1起動だけ測定した。Unityビルドと機能検証プロセスの終了を確認し、各CPU／GPUと空きRAMの事前確認に合格してから起動した。全体CPUは準備サンプル1%、判定サンプル4%・2%。他の低負荷アプリは開いたままで、測定中の継続的な隔離を保証しない。壁紙だけ公式CLIで一時停止し、`finally` の再生命令と復元マーカーを確認した。
 
 1080p・通常同期・8秒準備後の600フレームで平均16.671ms、p95 16.664ms、16.7ms以内99.83%。外部プロセス測定の最大ワーキングセット350,289,920 bytes、250ms観測最大350,244,864 bytes。素材検査0.033秒。記録は `tmp/plan7-sample-20261003094027`、[公開用集計](plan7-performance-garden.json)に私的なアプリ名を含めない。例外・素材欠落なし。
 

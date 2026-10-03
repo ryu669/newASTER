@@ -167,6 +167,7 @@ namespace NewAster.Presentation
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(placing){placing=false;selectedFurniture=null;}
+                else if(CloseGardenMenuLayer()){}
                 else if(recoveryActive)recoveryConfirm=false;
                 else if(collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
@@ -271,6 +272,7 @@ namespace NewAster.Presentation
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
                 return;
             }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens && book.HasSubject){DrawGardenHome();return;}
             Panel(0,0,1024,900,paper); Panel(0,0,1600,80,dark);
             Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
             if(title) { DrawTitle(); return; }

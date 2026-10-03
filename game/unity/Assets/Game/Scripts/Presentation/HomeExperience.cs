@@ -16,14 +16,14 @@ namespace NewAster.Presentation
             acceptanceStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"plan6-home-trial-v1.json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
             var load=acceptanceStore.Load(out var trial);if(load!=FormalLoadResult.Loaded && load!=FormalLoadResult.Missing){status="検証セーブを読めません。元ファイルを保持しています。";acceptanceStore=null;return;}
             if(load==FormalLoadResult.Missing){trial=CreateHomeTrial();if(!acceptanceStore.Save(trial)){status="検証セーブを保存できません。";acceptanceStore=null;return;}}
-            formalDiagnostic=true;homeTrial=true;BindFormalCampaign(trial);title=false;encounter=null;book.ChangeBookmark(BookBookmark.Gardens);
+            ResetGardenMenu();formalDiagnostic=true;homeTrial=true;BindFormalCampaign(trial);title=false;encounter=null;book.ChangeBookmark(BookBookmark.Gardens);
         }
         private FormalCampaignSave CreateHomeTrial()
         {
             var c=HomeData();var s=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(c.contentVersion),collection=new FormalCollectionLedger{materials=c.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
             s.world.unlockedGardenIds=c.gardens.Take(2).Select(g=>g.id).ToArray();HomeConditions.Refresh(s,c);return s;
         }
-        private void ExitHomeTrial(){if(!BookInputAllowed || homeOriginal==null)return;formalDiagnostic=false;homeTrial=false;acceptanceStore=null;BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;}
+        private void ExitHomeTrial(){if(!BookInputAllowed || homeOriginal==null)return;ResetGardenMenu();formalDiagnostic=false;homeTrial=false;acceptanceStore=null;BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;}
         private HomeExperienceCatalog HomeData()=>homeData??(homeData=HomeExperienceFixture.Create(combatDefinitions));
         private HomeOperation homeOperation;private FormalHomeRequest homeRequest;
         private string homeError,selectedFurniture,selectedResident,selectedNode;private float previewX=.5f,previewY=.65f;private bool placing;
@@ -37,7 +37,7 @@ namespace NewAster.Presentation
         private void DrawHomeConfirmation(bool growth=false)
         {
             if(homeRequest==null)return;
-            Panel(590,580,920,220,dark);Label(610,590,870,85,(homeError??"確定すると保存します。取消は無消費です。")+"\n"+homeOperation.Kind+" / "+homeOperation.Target,small,Color.white);
+            Panel(590,580,920,220,dark);Label(610,590,870,85,(homeError??"確定すると保存します。取消は無消費です。")+"\n"+HomeOperationSummary(),small,Color.white);
             if(Btn(610,704,530,58,formalCampaign.HasPending?"同じ内容で保存を再試行":"確定する"))ConfirmHome();
             if(Btn(1160,704,330,58,"取消",!formalCampaign.HasPending)){homeRequest=null;homeOperation=null;homeError=null;}
         }
@@ -64,15 +64,7 @@ namespace NewAster.Presentation
                 var events=HomeData().events.Where(e=>e.heroineId==owner).ToArray();for(int i=0;i<events.Length;i++){var ev=events[i];bool open=state.unlockedEventIds.Contains(ev.id),read=state.readEventIds.Contains(ev.id);Label(32,485+i*55,520,45,$"{(ev.kind=="affinity"?"好感度":"恋人")} {i+1} ／ {(read?"読了":open?"解放・未読":"前提イベントの読了待ち")}",small);if(Btn(565,480+i*55,210,45,"検証ADV",formalDiagnostic && open))BeginAdv(ev.id,false);if(Btn(790,480+i*55,170,45,"回想",formalDiagnostic && read))BeginAdv(ev.id,true);}return;
             }
             var area=new Rect(32,355,930,235);GrowthFill(area.x,area.y,area.width,area.height,new Color(.17f,.28f,.24f));Label(48,364,890,30,"検証用静的2D素材 ／ 家具選択と人物名簿を分けて操作",small,Color.white);
-            GUI.BeginGroup(area);
-            try{
-                var localArea=new Rect(0,0,area.width,area.height);
-                var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
-                var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
-                foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
-                foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.StretchToFill,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
-                DrawGardenResidentLabels(localArea,state,garden);
-            }finally{GUI.EndGroup();}
+            DrawGardenScene(area,state,garden,layout,true);
             // A translucent ground preview never mutates inventory or the journal.
             if(placing && selectedFurniture!=null){GrowthFill(area.x+previewX*area.width-55,area.y+previewY*area.height-40,110,40,new Color(.4f,.8f,.9f,.55f));if(Event.current.type==EventType.MouseDown && area.Contains(Event.current.mousePosition) && homeRequest==null){previewX=Mathf.Clamp01((Event.current.mousePosition.x-area.x)/area.width);previewY=Mathf.Clamp01((Event.current.mousePosition.y-area.y)/area.height);Event.current.Use();}}
             if(!placing){for(int i=0;i<c.furniture.Length;i++){var f=c.furniture[i];var cost=f.costs[0];if(Btn(32+i*313,610,302,45,$"家具{i+1}を作る 素材{cost.amount}",homeRequest==null))ProposeHome(new HomeOperation("craft",f.id,"furniture."+Guid.NewGuid().ToString("N")));}
@@ -87,6 +79,18 @@ namespace NewAster.Presentation
                 if(Btn(1050,655,505,45,"交流 ／ 検証素材1・好感度＋1",homeRequest==null && !placing))ProposeHome(new HomeOperation("talk",selectedResident));
                 if(Btn(1050,710,505,45,"家具を使う ／ 未対応ならidle",homeRequest==null && !placing && selectedFurniture!=null && state.occupants.Any(o=>o.heroineId==selectedResident && o.gardenId==garden)))ProposeHome(new HomeOperation("use",selectedResident,selectedFurniture));}
             Label(32,775,950,30,"人物は名簿から選択。美術は候補／スレイヤー以外のSD・会話本文は未制作。",small);
+        }
+        private void DrawGardenScene(Rect area,FormalHomeProgress state,string garden,HomeGardenLayout layout,bool names)
+        {
+            GUI.BeginGroup(area);
+            try{
+                var localArea=new Rect(0,0,area.width,area.height);
+                var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
+                var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
+                foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
+                foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.StretchToFill,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
+                if(names)DrawGardenResidentLabels(localArea,state,garden);
+            }finally{GUI.EndGroup();}
         }
         private void DrawGardenFurniture(Rect area,HomePlacement placement,FormalHomeProgress state)
         {
