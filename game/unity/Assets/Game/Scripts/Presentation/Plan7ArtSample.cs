@@ -20,6 +20,7 @@ namespace NewAster.Presentation
         private bool artSample,artSamplePaused,artHasFocus=true;private string artTab="battle",artPose="idle",artExpression="normal";
         private int artBrokenMask,artFurniture;private AudioSource artBgm,artSe;private PlayableBattle audioBattle;private long audioSequence;private bool audioVictory;
         private readonly List<float> artFrameTimes=new List<float>();private readonly bool measureArt=Environment.GetCommandLineArgs().Contains("-measurePlan7");
+        private readonly List<float> artMajorFrameTimes=new List<float>(),artBreakFrameTimes=new List<float>();
         private float artResourceValidationSeconds;
         private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
         private Texture2D SampleImage(string name)
@@ -39,7 +40,7 @@ namespace NewAster.Presentation
         {artSamplePaused=value || !artHasFocus || !Application.isFocused;if(artSamplePaused){artBgm?.Pause();artSe?.Pause();}}
         private void UpdateArtAudio()
         {
-            if(measureArt && Time.realtimeSinceStartup>8)artFrameTimes.Add(Time.unscaledDeltaTime);
+            if(measureArt && Time.realtimeSinceStartup>8 && capturedAtFrame<0){artFrameTimes.Add(Time.unscaledDeltaTime);var visual=playback.Current;if(visual!=null && visual.Major)artMajorFrameTimes.Add(Time.unscaledDeltaTime);if(visual!=null && visual.PartBroken)artBreakFrameTimes.Add(Time.unscaledDeltaTime);}
             EnsureArtAudio();artBgm.volume=ArtSampleSettings.Bgm;artSe.volume=1;
             bool active=artSample || encounter!=null && adv==null;
             bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
@@ -90,6 +91,10 @@ namespace NewAster.Presentation
             long rgbaBytes=artTextures.Values.Where(t=>t!=null).Sum(t=>(long)t.width*t.height*4);long working=-1,peak=-1;
             try{using(var process=System.Diagnostics.Process.GetCurrentProcess()){working=process.WorkingSet64;peak=process.PeakWorkingSet64;}}catch(Exception ex){Debug.Log("PLAN7_MEMORY_UNAVAILABLE "+ex.GetType().Name);}
             if(working<=0 || peak<=0){working=-1;peak=-1;}
+            foreach(var category in new[]{new{label="major",frames=artMajorFrameTimes},new{label="break",frames=artBreakFrameTimes}}){
+                if(category.frames.Count==0)continue;var times=category.frames.OrderBy(x=>x).ToArray();
+                Debug.Log("PLAN7_EFFECT_PERFORMANCE category="+category.label+" frames="+times.Length+" p95Ms="+(times[(int)((times.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" maxMs="+(times.Last()*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" under16_7ms="+(times.Count(x=>x<=.0167f)/(double)times.Length).ToString("F4",System.Globalization.CultureInfo.InvariantCulture));
+            }
             Debug.Log("PLAN7_PERFORMANCE scene="+(plan7ActiveCombat?"scripted-active-combat":artSample?artTab:"gameplay-idle")+" frames="+ordered.Length+" meanMs="+(ordered.Average()*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" p95Ms="+(ordered[(int)((ordered.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" p99Ms="+(ordered[(int)((ordered.Length-1)*.99)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" maxMs="+(ordered.Last()*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" under16_7ms="+ratio.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)+" textureRgbaEstimateBytes="+rgbaBytes+" processWorkingBytes="+working+" processPeakWorkingBytes="+peak+" resourceValidationSeconds="+artResourceValidationSeconds.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" vsync="+QualitySettings.vSyncCount+" targetFrameRate="+Application.targetFrameRate+" startupSeconds="+Time.realtimeSinceStartup.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" cpu="+SystemInfo.processorType+" gpu="+SystemInfo.graphicsDeviceName);
         }
         private void DrawArtSample()

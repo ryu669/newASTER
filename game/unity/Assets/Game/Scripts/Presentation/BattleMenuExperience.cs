@@ -31,6 +31,7 @@ namespace NewAster.Presentation
         }
         private void DrawBattle()
         {
+            RecordPlan7RenderedEvent();
             var Names=Enumerable.Range(0,5).Select(encounter.HeroineName).ToArray();
             var s=encounter.State;var visual=playback.Current;
             if(playback.Busy && (battlePanel==BattlePanel.Actions || battlePanel==BattlePanel.Targets))battlePanel=BattlePanel.None;

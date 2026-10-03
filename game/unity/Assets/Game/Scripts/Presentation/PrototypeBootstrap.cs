@@ -28,7 +28,7 @@ namespace NewAster.Presentation
         private Texture2D paper, dark, teal;
         private Camera viewCamera;
         private string capturePath;
-        private int captureFrame;
+        private int captureFrame,capturedAtFrame=-1;
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
@@ -223,18 +223,20 @@ namespace NewAster.Presentation
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
                 int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
-                if(captureFrame==captureAt){ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
-                if(captureFrame==captureAt+60) Application.Quit();
+                bool ready=plan7FullCombat?plan7FullCombatComplete:captureFrame==captureAt;
+                if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
+                if(capturedAtFrame>=0 && captureFrame==capturedAtFrame+60) Application.Quit();
             }
         }
         private void UpdatePlayback()
         {
             if(encounter==null) { playback.Reset(); shownEvent=0; return; }
             bool stopped=paused || retreat || help;
-            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime*(ArtSampleSettings.Shortened?2:1);
+            float playbackRate=plan7FullCombat?1:(ArtSampleSettings.Shortened?2:1);
+            if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime*playbackRate;
             if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
             // Show a newly queued event at least once before its duration starts ticking.
-            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime*(ArtSampleSettings.Shortened?2:1),stopped);
+            if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime*playbackRate,stopped);
             var e=playback.Current;
             if(e!=null && e.Sequence!=shownEvent) {
                 illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
