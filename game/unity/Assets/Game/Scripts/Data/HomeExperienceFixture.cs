@@ -42,7 +42,7 @@ namespace NewAster.Data
             c.assets.Single(a=>a.id=="asset.fixture.background").resourcePath="Illustrations/forest-far-candidate-v1";
             c.assets.Single(a=>a.id=="asset.fixture.foreground").resourcePath="Illustrations/forest-front-candidate-v1";
             c.assets.Single(a=>a.id=="asset.fixture.cg").resourcePath="Illustrations/slayer-garden-cg-candidate-v1";
-            c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal";
+            c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal-v2";
             var furnitureArt=new[]{"bench","desk","fountain"};var actions=new[]{"sit","work","look"};
             for(int i=0;i<3;i++){
                 var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=new[]{"heroine.slayer"};

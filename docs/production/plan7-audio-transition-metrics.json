@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 1,
+  "status": "waveform-check-only",
+  "units": "16-bit signed PCM sample units",
+  "v2MaxBoundarySlopeErrorLimit": 8,
+  "listeningAcceptance": "pending",
+  "clips": [
+    {
+      "name": "bgm",
+      "version": "v1",
+      "sampleRate": 44100,
+      "samples": 705600,
+      "maxBoundarySlopeError": 363.5,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.0,
+      "boundaries": [
+        {
+          "seconds": 0.5,
+          "jump": 73,
+          "slopeError": 146.0
+        },
+        {
+          "seconds": 1.0,
+          "jump": -87,
+          "slopeError": 362.0
+        },
+        {
+          "seconds": 1.5,
+          "jump": 22,
+          "slopeError": 228.5
+        },
+        {
+          "seconds": 2.0,
+          "jump": 18,
+          "slopeError": 198.5
+        },
+        {
+          "seconds": 2.5,
+          "jump": -37,
+          "slopeError": 275.5
+        },
+        {
+          "seconds": 3.0,
+          "jump": 110,
+          "slopeError": 94.0
+        },
+        {
+          "seconds": 3.5,
+          "jump": 68,
+          "slopeError": 85.0
+        },
+        {
+          "seconds": 4.0,
+          "jump": 8,
+          "slopeError": 153.0
+        },
+        {
+          "seconds": 4.5,
+          "jump": 31,
+          "slopeError": 151.0
+        },
+        {
+          "seconds": 5.0,
+          "jump": 47,
+          "slopeError": 190.0
+        },
+        {
+          "seconds": 5.5,
+          "jump": 21,
+          "slopeError": 254.0
+        },
+        {
+          "seconds": 6.0,
+          "jump": 36,
+          "slopeError": 228.5
+        },
+        {
+          "seconds": 6.5,
+          "jump": -19,
+          "slopeError": 188.0
+        },
+        {
+          "seconds": 7.0,
+          "jump": 37,
+          "slopeError": 129.0
+        },
+        {
+          "seconds": 7.5,
+          "jump": 68,
+          "slopeError": 93.5
+        },
+        {
+          "seconds": 8.0,
+          "jump": 44,
+          "slopeError": 130.0
+        },
+        {
+          "seconds": 8.5,
+          "jump": 46,
+          "slopeError": 146.0
+        },
+        {
+          "seconds": 9.0,
+          "jump": -130,
+          "slopeError": 363.5
+        },
+        {
+          "seconds": 9.5,
+          "jump": 31,
+          "slopeError": 227.0
+        },
+        {
+          "seconds": 10.0,
+          "jump": -23,
+          "slopeError": 198.5
+        },
+        {
+          "seconds": 10.5,
+          "jump": -34,
+          "slopeError": 275.0
+        },
+        {
+          "seconds": 11.0,
+          "jump": 62,
+          "slopeError": 94.5
+        },
+        {
+          "seconds": 11.5,
+          "jump": 32,
+          "slopeError": 85.5
+        },
+        {
+          "seconds": 12.0,
+          "jump": 8,
+          "slopeError": 153.0
+        },
+        {
+          "seconds": 12.5,
+          "jump": 54,
+          "slopeError": 150.5
+        },
+        {
+          "seconds": 13.0,
+          "jump": 53,
+          "slopeError": 187.0
+        },
+        {
+          "seconds": 13.5,
+          "jump": 26,
+          "slopeError": 253.0
+        },
+        {
+          "seconds": 14.0,
+          "jump": 26,
+          "slopeError": 226.5
+        },
+        {
+          "seconds": 14.5,
+          "jump": 99,
+          "slopeError": 186.5
+        },
+        {
+          "seconds": 15.0,
+          "jump": 74,
+          "slopeError": 129.0
+        },
+        {
+          "seconds": 15.5,
+          "jump": 67,
+          "slopeError": 94.5
+        }
+      ]
+    },
+    {
+      "name": "bgm",
+      "version": "v2",
+      "sampleRate": 44100,
+      "samples": 705600,
+      "maxBoundarySlopeError": 1.5,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.0,
+      "boundaries": [
+        {
+          "seconds": 0.5,
+          "jump": 5,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 1.0,
+          "jump": 9,
+          "slopeError": 1.5
+        },
+        {
+          "seconds": 1.5,
+          "jump": 6,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 2.0,
+          "jump": 0,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 2.5,
+          "jump": 57,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 3.0,
+          "jump": 35,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 3.5,
+          "jump": 9,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 4.0,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 4.5,
+          "jump": -6,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 5.0,
+          "jump": 2,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 5.5,
+          "jump": 4,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 6.0,
+          "jump": 20,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 6.5,
+          "jump": -33,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 7.0,
+          "jump": -5,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 7.5,
+          "jump": 3,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 8.0,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 8.5,
+          "jump": -6,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 9.0,
+          "jump": -22,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 9.5,
+          "jump": 14,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 10.0,
+          "jump": -41,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 10.5,
+          "jump": 60,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 11.0,
+          "jump": 1,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 11.5,
+          "jump": -5,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 12.0,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 12.5,
+          "jump": 4,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 13.0,
+          "jump": 5,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 13.5,
+          "jump": 8,
+          "slopeError": 1.0
+        },
+        {
+          "seconds": 14.0,
+          "jump": 10,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 14.5,
+          "jump": 75,
+          "slopeError": 0.5
+        },
+        {
+          "seconds": 15.0,
+          "jump": 21,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 15.5,
+          "jump": 2,
+          "slopeError": 1.0
+        }
+      ]
+    },
+    {
+      "name": "heal",
+      "version": "v1",
+      "sampleRate": 44100,
+      "samples": 52920,
+      "maxBoundarySlopeError": 2219.5,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.5,
+      "boundaries": [
+        {
+          "seconds": 0.2,
+          "jump": 2067,
+          "slopeError": 2219.5
+        },
+        {
+          "seconds": 0.4,
+          "jump": -400,
+          "slopeError": 430.0
+        },
+        {
+          "seconds": 0.6000000000000001,
+          "jump": -80,
+          "slopeError": 234.5
+        },
+        {
+          "seconds": 0.8,
+          "jump": 230,
+          "slopeError": 203.0
+        },
+        {
+          "seconds": 1.0,
+          "jump": 639,
+          "slopeError": 688.5
+        }
+      ]
+    },
+    {
+      "name": "heal",
+      "version": "v2",
+      "sampleRate": 44100,
+      "samples": 52920,
+      "maxBoundarySlopeError": 0.0,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.0,
+      "boundaries": [
+        {
+          "seconds": 0.2,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 0.4,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 0.6000000000000001,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 0.8,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 1.0,
+          "jump": 0,
+          "slopeError": 0.0
+        }
+      ]
+    },
+    {
+      "name": "victory",
+      "version": "v1",
+      "sampleRate": 44100,
+      "samples": 105840,
+      "maxBoundarySlopeError": 1349.5,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.0,
+      "boundaries": [
+        {
+          "seconds": 0.3,
+          "jump": -659,
+          "slopeError": 866.5
+        },
+        {
+          "seconds": 0.6,
+          "jump": 940,
+          "slopeError": 710.0
+        },
+        {
+          "seconds": 0.8999999999999999,
+          "jump": 78,
+          "slopeError": 277.0
+        },
+        {
+          "seconds": 1.2,
+          "jump": -966,
+          "slopeError": 1349.5
+        },
+        {
+          "seconds": 1.5,
+          "jump": 78,
+          "slopeError": 365.0
+        },
+        {
+          "seconds": 1.7999999999999998,
+          "jump": 156,
+          "slopeError": 392.5
+        },
+        {
+          "seconds": 2.1,
+          "jump": 117,
+          "slopeError": 294.0
+        }
+      ]
+    },
+    {
+      "name": "victory",
+      "version": "v2",
+      "sampleRate": 44100,
+      "samples": 105840,
+      "maxBoundarySlopeError": 0.0,
+      "endpointJump": 0,
+      "loopBoundarySlopeError": 0.0,
+      "boundaries": [
+        {
+          "seconds": 0.3,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 0.6,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 0.8999999999999999,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 1.2,
+          "jump": 0,
+          "slopeError": 0.0
+        },
+        {
+          "seconds": 1.5,
+          "jump": 0,
+          "slopeError": 0.0
+        }
+      ]
+    }
+  ]
+}

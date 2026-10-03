@@ -29,7 +29,7 @@ namespace NewAster.Presentation
             paused=false;UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);FocusCheck(artBgm.isPlaying,"manual battle resume");
             encounter=null;UpdateArtAudio();FocusCheck(!artBgm.isPlaying && !artSe.isPlaying,"leaving battle stops both sources");
             adv=new AdvSession(HomeData(),"scene.art-candidate.slayer",HomeData().events[0].id,true,Array.Empty<HomeReadLine>());adv.Resume();SyncAdvAudio();
-            advBgm.clip=Resources.Load<AudioClip>("Audio/candidate-bgm");advBgm.loop=true;advBgm.Play();yield return new WaitForSecondsRealtime(.1f);
+            advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;advBgm.Play();yield return new WaitForSecondsRealtime(.1f);
             OnApplicationFocus(false);FocusCheck(adv.Paused && !advBgm.isPlaying && !advSe.isPlaying,"ADV focus loss stops both sources");
             string visible=adv.VisibleText;yield return new WaitForSecondsRealtime(.1f);OnApplicationFocus(true);SyncAdvAudio();
             FocusCheck(adv.Paused && !advBgm.isPlaying && adv.VisibleText==visible,"ADV focus regain keeps text and audio paused");

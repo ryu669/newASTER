@@ -37,6 +37,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     if($case -eq 'activecombat' -and $text -notmatch 'PLAN7_PLAYBACK_EQUIVALENCE_PASS'){throw "Missing playback equivalence result: $log"}
     if($case -eq 'activecombat' -and $text -notmatch 'PLAN7_ACTIVE_COMBAT_PROGRESS_PASS'){throw "Active combat did not progress while capturing: $log"}
     if($text -notmatch 'PLAN7_BUNDLED_FONT_PASS'){throw "Bundled font not validated: $log"}
+    if(@([regex]::Matches($text,'PLAN7_AUDIO_WAVEFORM_PASS')).Count -ne 6){throw "Imported audio waveform validation missing: $log"}
     if($ValidateFocus -and $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS'){throw "Focus/audio validation did not finish (requires application focus): $log"}
     if(-not(Test-Path -LiteralPath $png)){throw "Missing screenshot: $png"}
     $memory=[ordered]@{case=$case;height=$height;peakWorkingBytes=$peakWorking;observedWorkingPeakBytes=$peakObserved;sampleIntervalMs=250;processElapsedMs=$watch.ElapsedMilliseconds;uncapped=[bool]$Uncapped}

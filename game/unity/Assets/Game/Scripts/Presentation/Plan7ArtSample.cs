@@ -7,6 +7,7 @@ namespace NewAster.Presentation
 {
     public static class ArtSampleSettings
     {
+        public static string AudioResource(string name)=>"Audio/candidate-"+name+"-v2";
         public static float Bgm=>PlayerPrefs.GetFloat("art.bgm",.25f);
         public static float Se=>PlayerPrefs.GetFloat("art.se",.5f);
         public static bool ReducedMotion=>PlayerPrefs.GetInt("art.motion",0)==1;
@@ -33,7 +34,7 @@ namespace NewAster.Presentation
             if(!Environment.GetCommandLineArgs().Contains("-presentationCapture") && PlayerPrefs.HasKey("art.fullscreen"))Screen.fullScreenMode=PlayerPrefs.GetInt("art.fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;}
         private bool PlayArtSound(string name)
         {if(!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:encounter==null || paused || help || retreat))return false;
-            EnsureArtAudio();var clip=Resources.Load<AudioClip>("Audio/candidate-"+name);if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);return true;}
+            EnsureArtAudio();var clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(name));if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);return true;}
         private void SetArtSamplePaused(bool value)
         {artSamplePaused=value || !artHasFocus || !Application.isFocused;if(artSamplePaused){artBgm?.Pause();artSe?.Pause();}}
         private void UpdateArtAudio()
@@ -43,7 +44,7 @@ namespace NewAster.Presentation
             bool active=artSample || encounter!=null && adv==null;
             bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
             if(!active){artBgm.Stop();artSe.Stop();return;}
-            if(artBgm.clip==null)artBgm.clip=Resources.Load<AudioClip>("Audio/candidate-bgm");
+            if(artBgm.clip==null)artBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));
             if(stop){artBgm.Pause();artSe.Pause();return;}
             artBgm.UnPause();artSe.UnPause();if(!artBgm.isPlaying && artBgm.clip!=null)artBgm.Play();
             if(artSample)return;
@@ -75,7 +76,7 @@ namespace NewAster.Presentation
             if(measureArt && Environment.GetCommandLineArgs().Contains("-measurePlan7Uncapped")){QualitySettings.vSyncCount=0;Application.targetFrameRate=-1;}
             var expected=new[]{"slayer-standing","slayer-attack","slayer-hit","slayer-cutin","slayer-expression-joy","slayer-expression-puzzled","slayer-expression-determined","green-body","green-crown","green-wing-left","green-wing-right","green-tail","forest-far","forest-mid","forest-front","garden-bench","garden-desk","garden-fountain","slayer-sd-idle","slayer-sd-sit","slayer-sd-work","slayer-sd-look","slayer-garden-cg"};
             foreach(string image in expected.Concat(new[]{"green-major"}))if(SampleImage(image)==null)throw new ArgumentException("Mandatory sample asset missing: "+image);
-            foreach(string audio in new[]{"hit","shield","heal","break","victory","bgm"})if(Resources.Load<AudioClip>("Audio/candidate-"+audio)==null)throw new ArgumentException("Mandatory sample audio missing: "+audio);
+            foreach(string audio in new[]{"hit","shield","heal","break","victory","bgm"})ValidateCandidateAudio(audio,Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(audio)));
             string required="計画美術完成見本候補緑還竜本体結晶角冠左右翼根装甲蔓尾復元人物通常喜困惑決意待機攻撃被弾箱庭家具利用座作業噴水眺音表示設定一時停止手動再開揺軽減演出短縮背景回想";
             font.RequestCharactersInTexture(required,21);string missing=new string(required.Distinct().Where(c=>!font.HasCharacter(c)).ToArray());
             if(missing.Length>0)throw new ArgumentException("Sample Japanese glyphs missing: "+missing);

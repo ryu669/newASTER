@@ -58,7 +58,7 @@ namespace NewAster.Presentation
             bool unlocked=e!=null?(snapshot.home?.unlockedEventIds.Contains(source)??false):ch!=null && snapshot.world.unlockedStoryIds.Contains(source);bool read=e!=null?(snapshot.home?.readEventIds.Contains(source)??false):snapshot.world.readStoryIds.Contains(source);
             if(!unlocked || replay && !read)return;
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
-            advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>("Audio/candidate-bgm");advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
+            advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
             if(ch!=null && book.Bookmark==BookBookmark.Stories)book.BeginReading(ch.id,3);
         }
         private void PersistAdvLine()

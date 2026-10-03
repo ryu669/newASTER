@@ -48,12 +48,12 @@ foreach($d in $definitions){
 }
 $audio=@()
 foreach($name in @('hit','shield','heal','break','victory','bgm')){
-    $relative='game/unity/Assets/Game/Resources/Audio/candidate-'+$name+'.wav'
+    $relative='game/unity/Assets/Game/Resources/Audio/candidate-'+$name+'-v2.wav'
     $path=Join-Path $repo $relative;$bytes=[IO.File]::ReadAllBytes($path)
     if([Text.Encoding]::ASCII.GetString($bytes,0,4) -ne 'RIFF' -or [BitConverter]::ToInt16($bytes,20) -ne 1 -or [BitConverter]::ToInt16($bytes,34) -ne 16){throw "Unexpected PCM format: $path"}
     $peak=0;for($i=44;$i -lt $bytes.Length;$i+=2){$peak=[Math]::Max($peak,[Math]::Abs([int][BitConverter]::ToInt16($bytes,$i)))}
     if($peak -eq 0 -or $peak -ge 32767){throw "Silent or clipped audio: $path"}
-    $audio+=[ordered]@{assetId=('audio.candidate.'+$name+'.v1');resourcePath=('Audio/candidate-'+$name);path=$relative;sampleRate=[BitConverter]::ToInt32($bytes,24);channels=[BitConverter]::ToInt16($bytes,22);bits=16;seconds=($bytes.Length-44)/88200.0;peak=$peak;firstSample=[BitConverter]::ToInt16($bytes,44);lastSample=[BitConverter]::ToInt16($bytes,$bytes.Length-2);sha256=(Get-FileHash -LiteralPath $path).Hash;creator='Original procedural score / tools/Plan7AudioSource.cs';created='2026-10-03';adoption='candidate';listeningAcceptance='pending'}
+    $audio+=[ordered]@{assetId=('audio.candidate.'+$name+'.v2');resourcePath=('Audio/candidate-'+$name+'-v2');path=$relative;sampleRate=[BitConverter]::ToInt32($bytes,24);channels=[BitConverter]::ToInt16($bytes,22);bits=16;seconds=($bytes.Length-44)/88200.0;peak=$peak;firstSample=[BitConverter]::ToInt16($bytes,44);lastSample=[BitConverter]::ToInt16($bytes,$bytes.Length-2);sha256=(Get-FileHash -LiteralPath $path).Hash;creator='Original procedural score / tools/Plan7AudioSource.cs';created='2026-10-03';adoption='candidate';listeningAcceptance='pending'}
 }
 $result=[ordered]@{schemaVersion=1;status='candidate';art=@($assets);audio=@($audio);limitations=@('Background/CG 1672x941 and standing 1024x1536 fall below requested delivery dimensions.','Nonzero alpha at canvas edges is an inspection flag, not automatic proof of cropping.','Generation originals and prompts retained; layered editable source not delivered.','Art direction, consistent expression geometry, sound listening and formal adoption pending.')}
 [IO.File]::WriteAllText($Output,($result | ConvertTo-Json -Depth 10)+[Environment]::NewLine)
