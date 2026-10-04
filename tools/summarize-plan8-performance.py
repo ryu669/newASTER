@@ -12,6 +12,8 @@ parser.add_argument('--home', action='append', default=[])
 parser.add_argument('--deferred', action='append', default=[])
 parser.add_argument('--rejected', action='append', default=[])
 parser.add_argument('--readiness-policy-log', required=True)
+parser.add_argument('--normal-after')
+parser.add_argument('--functional-home', action='append', default=[])
 args = parser.parse_args()
 
 def read(path):
@@ -36,7 +38,7 @@ def environment(path):
             'gpuMaxPercent': max((g['percent'] for g in raw['gpu']), default=0),
             'otherAppsClosed': False}
 
-battles, homes, deferred, rejected = [], [], [], []
+battles, homes, deferred, rejected, displays = [], [], [], [], []
 for name in args.battle:
     path = directory(name)
     for joined_path in sorted(path.glob('*-plan8-measurement.json')):
@@ -80,8 +82,15 @@ for name in args.home:
         log_path = path / (prefix + '.log')
         log = log_path.read_text(encoding='utf-8-sig')
         assert 'PLAN6_HOME_PLAYER_PASS' in log and 'Exception:' not in log
+        performance_line = next(line for line in item['performance'] if line.startswith('PLAN7_PERFORMANCE '))
+        load_line = next(line for line in item['performance'] if line.startswith('PLAN8_HOME_LOAD '))
+        assert f'scene={item["case"]} ' in load_line
+        metrics = {key: float(re.search(r'\b' + key + r'=([0-9.]+)', performance_line)[1])
+                   for key in ('frames', 'meanMs', 'p95Ms', 'p99Ms', 'maxMs', 'under16_7ms', 'resourceValidationSeconds')}
+        load = {key: float(re.search(r'\b' + key + r'=([0-9.]+)', load_line)[1])
+                for key in ('prepareToFirstRepaintMs', 'firstGuiCpuMs')}
         homes.append({'source': name, 'sourceSha256': sha(measurement_path), 'logSha256': sha(log_path),
-                      'environment': env, **item})
+                      'environment': env, 'metrics': metrics, 'scenePreparation': load, **item})
 for name in args.deferred:
     path = directory(name)
     for env_path in sorted(path.glob('*environment-*.json')):
@@ -98,6 +107,33 @@ for name in args.rejected:
                      'reason': 'Diagnostic active-time flush mutated comparison save during prolonged playback.',
                      'fix': 'Disable automatic engagement ticking in captures; preserve normal trial and explicit clock injection.'})
 data = root / 'game/Builds/playable/newASTER_Data'
+current_build = sha(data / 'Managed/Assembly-CSharp.dll')
+current_resources = sha(data / 'resources.assets')
+for name in args.functional_home:
+    path = directory(name)
+    for log_path in sorted(path.glob('*-Backlog-*.log')):
+        text = log_path.read_text(encoding='utf-8-sig')
+        assert 'PLAN6_HOME_PLAYER_PASS' in text and 'Exception:' not in text and 'PLAN7_PERFORMANCE ' not in text
+        assert log_path.stat().st_mtime >= (data / 'Managed/Assembly-CSharp.dll').stat().st_mtime
+        displays.append({'source': name, 'case': log_path.stem, 'logSha256': sha(log_path),
+                         'screenshotSha256': sha(log_path.with_suffix('.png')), 'passed': True,
+                         'assemblySha256': current_build, 'resourceSha256': current_resources,
+                         'performanceMeasured': False, 'humanInput': False})
+assert all(h['assemblySha256'] == current_build and h['resourceSha256'] == current_resources for h in homes)
+environments = [b['environment'] for b in battles] + [h['environment'] for h in homes]
+full_hashes = {e['sourceSha256'] for e in environments if e['checkMode'] == 'full-three-sample'}
+reuse = [e for e in environments if e['checkMode'] == 'batch-change-snapshot']
+assert all(e['fullCheckSha256'] in full_hashes for e in reuse)
+normal_save_boundary = None
+if homes:
+    assert args.normal_after
+    normal_after = root / 'tmp' / args.normal_after
+    assert normal_after.resolve().parent == (root / 'tmp').resolve()
+    baseline_battle = next(b for b in reversed(battles) if b['buildHash'] == current_build and b['height'] == 720)
+    normal_before = directory(baseline_battle['source']) / 'normal-save-after.json'
+    assert normal_before.read_text(encoding='utf-8-sig').strip() == normal_after.read_text(encoding='utf-8-sig').strip()
+    normal_save_boundary = {'unchanged': True, 'beforeSha256': sha(normal_before), 'afterSha256': sha(normal_after),
+                            'scope': 'normal save and settings from the 720p battle exit through all home runs; player logs excluded'}
 policy_log = root / 'tmp' / args.readiness_policy_log
 assert policy_log.resolve().parent == (root / 'tmp').resolve()
 assert 'PLAN8_READINESS_REUSE_POLICY_PASS' in policy_log.read_text(encoding='utf-8-sig')
@@ -107,13 +143,19 @@ report = {'schemaVersion': 1, 'scope': 'normal synchronized diagnostic player; m
           'frameGoal': {'height': 1080, 'maxMilliseconds': 16.7, 'minimumFraction': .95},
           'sameRunTelemetryJoinPassed': True,
           'frameGoalPassed': any(b['height'] == 1080 and b['result'] == 'passed' and b['buildHash'] == sha(data / 'Managed/Assembly-CSharp.dll') for b in battles),
+          'frame720Passed': any(b['height'] == 720 and b['result'] == 'passed' and b['buildHash'] == current_build for b in battles),
+          'homeSceneMatrixMeasured': {(h['case'], h['height']) for h in homes if h['gardenUse'] == 'None'} >= {(scene, height) for scene in ('Garden', 'Adv', 'Cg', 'Backlog') for height in (720, 1080)},
+          'gardenFurnitureMoveMeasured': {h['height'] for h in homes if h['case'] == 'Garden' and h['gardenUse'] == 'move'} >= {720, 1080},
           'coldOsCacheMeasured': False, 'humanInputMeasured': False, 'otherAppsClosed': False,
           'readinessReusePolicy': {'passed': True, 'logSha256': sha(policy_log),
                                   'sourceSha256': hashlib.sha256((root / 'tools/check-plan8-measurement-readiness.ps1').read_text(encoding='utf-8-sig').encode('utf-8')).hexdigest().upper(),
                                   'sourceHashNormalization': 'UTF-8 without BOM; LF newlines',
                                   'methods': ['UTC DateTime and ISO string age', '120s/600s boundaries', 'expired/future/failed/invalid cache'],
                                   'automaticRetries': 0, 'maximumGapSeconds': 120, 'maximumBatchSeconds': 600},
+          'actualBatchReuse': {'checks': len(reuse), 'allBoundToRecordedFullChecks': True},
+          'homeNormalSaveBoundary': normal_save_boundary,
           'battleRuns': battles, 'homeRuns': homes, 'deferredAttempts': deferred, 'rejectedDiagnostics': rejected,
+          'additionalFunctionalDisplays': displays,
           'limitations': ['GUI CPU excludes Update, GPU work and synchronization waits.',
                           'Home preparation includes diagnostic navigation; assets are prevalidated before first repaint.',
                           'Process-to-first-repaint observation includes 250ms polling and log flush, and is not first displayed pixel latency.',

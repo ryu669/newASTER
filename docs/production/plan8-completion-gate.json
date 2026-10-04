@@ -2,35 +2,266 @@
   "schemaVersion": 1,
   "date": "2026-10-04",
   "overallComplete": false,
-  "technicalGateComplete": false,
+  "technicalGateComplete": true,
   "experienceGateComplete": false,
-  "requirementsChanged": false,
+  "requirementsChanged": true,
   "scope": "development vertical slice; condition results distinguish automatic diagnostics, human acceptance and performance",
   "conditions": [
-    {"id": "T8-01.baseline-boundary", "result": "passed", "method": "definition validation and isolated player", "evidence": "plan8-baseline-validation.json"},
-    {"id": "T8-02.noninterference", "result": "passed", "method": "Core on/off/failing sink equivalence", "evidence": "plan8-telemetry-validation.json"},
-    {"id": "T8-02.journey-nine-categories", "result": "passed", "method": "automated transactions; seed/hash/clock/ID verification", "evidence": "plan8-journey-validation.json"},
-    {"id": "T8-02.performance-join-runtime", "result": "passed", "method": "low-load rendered adjusted battle, same-run telemetry/build/resources/memory and unchanged normal save", "evidence": "plan8-performance-validation.json"},
-    {"id": "T8-03.authored-content-read-save", "result": "passed", "method": "automated completed singing and 77 read lines", "evidence": "plan8-journey-validation.json"},
-    {"id": "T8-03.human-reading", "result": "not-run", "method": "human reading required", "evidence": "plan8-operation-inventory.md"},
-    {"id": "T8-04.curve-and-parts", "result": "passed", "method": "baseline/adopted 1500 battles each plus Core boundary tests", "evidence": "plan8-balance-measurements.json"},
-    {"id": "T8-04.rendered-equivalence", "result": "passed", "method": "four playback policies and rendered ordinary battle", "evidence": "plan8-regression-validation.json"},
-    {"id": "T8-04.human-first-repeat-duration", "result": "not-run", "method": "human judgment and input timing required", "evidence": "plan8-completion-gate.md"},
-    {"id": "T8-05.collection-battle-distribution", "result": "passed", "method": "80 seeded collection runs including duplicates and censoring", "evidence": "plan8-balance-measurements.json"},
-    {"id": "T8-05.human-duration-and-listening", "result": "not-run", "method": "real time median/p90 and listening required", "evidence": "plan8-completion-gate.md"},
-    {"id": "T8-06.earned-progression-and-exchange", "result": "passed", "method": "ordered 65-battle progression; independent 235-battle exchange journey", "evidence": "plan8-journey-validation.json"},
-    {"id": "T8-06.statistics-and-arithmetic-budget", "result": "passed", "method": "200000 seeded draws and arithmetic Lv120 budget", "evidence": "plan8-economy-measurements.json"},
-    {"id": "T8-06.human-arrival-and-active-thirty-minutes", "result": "not-run", "method": "real elapsed active play; injected 60 seconds is not acceptance", "evidence": "plan8-economy.md"},
-    {"id": "T8-07.new-trial-physical-restart", "result": "passed", "method": "separate processes, same save hashes, failed retry and duplicate rejection", "evidence": "plan8-journey-validation.json"},
-    {"id": "T8-07.formal-old-current-and-recovery", "result": "passed", "method": "Windows payload regressions and Core original backup/foreign/future file tests", "evidence": "plan8-regression-validation.json"},
-    {"id": "T8-08.diagnostic-ui-font-pcm-focus", "result": "passed", "method": "720p/1080p diagnostic states; simulated focus; PCM inspection", "evidence": "plan8-regression-validation.json"},
-    {"id": "T8-08.native-mouse-and-alt-tab", "result": "not-run", "method": "native Windows input required; available UI control is browser-only", "evidence": "plan8-operation-inventory.md"},
-    {"id": "T8-08.listening-and-speed-readability", "result": "not-run", "method": "human listening and reading at four speeds required", "evidence": "plan8-operation-inventory.md"},
-    {"id": "T8-09.frame-1080-and-memory", "result": "passed", "method": "latest build 1080p normal vsync/speed, 98.83% <=16.7ms and external peak; previous failed run retained", "evidence": "plan8-performance-validation.json"},
-    {"id": "T8-09.frame-720", "result": "not-run", "method": "batch stopped on load change; no automatic retry", "evidence": "plan8-performance-validation.json"},
-    {"id": "T8-09.scene-load-memory", "result": "not-run", "method": "home scene measurement implemented; low-load runtime measurement pending", "evidence": "plan8-performance-validation.json"},
-    {"id": "T8-09.os-cold-start", "result": "not-run", "method": "engine first repaint measured; OS cache uncontrolled and no cold reboot performed", "evidence": "plan8-performance-validation.json"},
-    {"id": "T8-10.evidence-and-handoff-preparation", "result": "passed", "method": "documentation and bound automatic evidence", "evidence": "plan8-completion-gate.md"},
-    {"id": "T8-10.final-acceptance", "result": "not-run", "method": "all required technical and experience conditions must pass", "evidence": "plan8-completion-gate.md"}
-  ]
+    {
+      "id": "T8-01.baseline-boundary",
+      "result": "passed",
+      "method": "definition validation and isolated player",
+      "evidence": "plan8-baseline-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-02.noninterference",
+      "result": "passed",
+      "method": "Core on/off/failing sink equivalence",
+      "evidence": "plan8-telemetry-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-02.journey-nine-categories",
+      "result": "passed",
+      "method": "automated transactions; seed/hash/clock/ID verification",
+      "evidence": "plan8-journey-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-02.performance-join-runtime",
+      "result": "passed",
+      "method": "low-load rendered adjusted battle, same-run telemetry/build/resources/memory and unchanged normal save",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-03.authored-content-read-save",
+      "result": "passed",
+      "method": "automated completed singing and 77 read lines",
+      "evidence": "plan8-journey-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-03.human-reading",
+      "result": "not-run",
+      "method": "human reading required",
+      "evidence": "plan8-operation-inventory.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-04.curve-and-parts",
+      "result": "passed",
+      "method": "baseline/adopted 1500 battles each plus Core boundary tests",
+      "evidence": "plan8-balance-measurements.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-04.rendered-equivalence",
+      "result": "passed",
+      "method": "four playback policies and rendered ordinary battle",
+      "evidence": "plan8-regression-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-04.human-first-repeat-duration",
+      "result": "not-run",
+      "method": "human judgment and input timing required",
+      "evidence": "plan8-completion-gate.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-05.collection-battle-distribution",
+      "result": "passed",
+      "method": "80 seeded collection runs including duplicates and censoring",
+      "evidence": "plan8-balance-measurements.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-05.human-duration-and-listening",
+      "result": "not-run",
+      "method": "real time median/p90 and listening required",
+      "evidence": "plan8-completion-gate.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-06.earned-progression-and-exchange",
+      "result": "passed",
+      "method": "ordered 65-battle progression; independent 235-battle exchange journey",
+      "evidence": "plan8-journey-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-06.statistics-and-arithmetic-budget",
+      "result": "passed",
+      "method": "200000 seeded draws and arithmetic Lv120 budget",
+      "evidence": "plan8-economy-measurements.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-06.human-arrival-and-active-thirty-minutes",
+      "result": "not-run",
+      "method": "real elapsed active play; injected 60 seconds is not acceptance",
+      "evidence": "plan8-economy.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-07.new-trial-physical-restart",
+      "result": "passed",
+      "method": "separate processes, same save hashes, failed retry and duplicate rejection",
+      "evidence": "plan8-journey-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-07.formal-old-current-and-recovery",
+      "result": "passed",
+      "method": "Windows payload regressions and Core original backup/foreign/future file tests",
+      "evidence": "plan8-regression-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-08.diagnostic-ui-font-pcm-focus",
+      "result": "passed",
+      "method": "720p/1080p diagnostic states; simulated focus; PCM inspection",
+      "evidence": "plan8-regression-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-08.native-mouse-and-alt-tab",
+      "result": "not-run",
+      "method": "Full matrix not executed; native sky route exists but previous session was stopped by physical Escape. Replaced by minimal smoke.",
+      "evidence": "plan8-operation-inventory.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-08.listening-and-speed-readability",
+      "result": "not-run",
+      "method": "human listening and reading at four speeds required",
+      "evidence": "plan8-operation-inventory.md",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-09.frame-1080-and-memory",
+      "result": "passed",
+      "method": "latest build 1080p normal vsync/speed, 98.83% <=16.7ms and external peak; previous failed run retained",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-09.frame-720",
+      "result": "passed",
+      "method": "latest build 3449 frames, 100% <=16.7ms; rendered/save/telemetry equivalence",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-09.scene-garden",
+      "result": "passed",
+      "method": "720p/1080p isolated home; prepared first repaint, external peak and process restart limits recorded",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-09.scene-adv",
+      "result": "passed",
+      "method": "720p/1080p isolated formal ADV; loading and external peak with prevalidated assets",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-09.scene-cg",
+      "result": "passed",
+      "method": "720p/1080p isolated formal CG; loading and external peak with prevalidated assets",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-09.scene-load-memory",
+      "result": "not-run",
+      "method": "Garden/ADV/CG measured; backlog and furniture move remaining after CPU load change",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-09.os-cold-start",
+      "result": "not-run",
+      "method": "engine first repaint measured; OS cache uncontrolled and no cold reboot performed",
+      "evidence": "plan8-performance-validation.json",
+      "requiredForCompletion": false,
+      "gate": "technical",
+      "exclusionReason": "2026-10-04 user scope reduction; not treated as a passed test"
+    },
+    {
+      "id": "T8-10.evidence-and-handoff-preparation",
+      "result": "passed",
+      "method": "documentation and bound automatic evidence",
+      "evidence": "plan8-completion-gate.md",
+      "requiredForCompletion": true,
+      "gate": "technical"
+    },
+    {
+      "id": "T8-08.minimal-native-smoke",
+      "result": "not-run",
+      "requiredForCompletion": true,
+      "gate": "experience",
+      "method": "At most five actual actions: open/close one menu and inspect one short text line; no full route, AltTab matrix or timing study",
+      "evidence": "plan8-verification-scope.md"
+    },
+    {
+      "id": "T8-08.minimal-listening-smoke",
+      "result": "not-run",
+      "requiredForCompletion": true,
+      "gate": "experience",
+      "method": "At most 15 seconds: one BGM sample and one effect for obvious silence/distortion; no full loop or volume comparison",
+      "evidence": "plan8-verification-scope.md"
+    },
+    {
+      "id": "T8-10.final-acceptance",
+      "result": "not-run",
+      "method": "All required conditions under the revised user scope, including two minimal smoke checks",
+      "evidence": "plan8-completion-gate.md",
+      "requiredForCompletion": true,
+      "gate": "final"
+    }
+  ],
+  "verificationPolicy": {
+    "authority": "direct user instruction on 2026-10-04",
+    "instruction": "今後は性能測定は不要。実操作・聴取も最小限にして",
+    "futurePerformanceMeasurement": false,
+    "nativeSmokeMaximumActions": 5,
+    "listeningSmokeMaximumSeconds": 15,
+    "changeEvidence": "plan8-verification-scope.md"
+  }
 }
