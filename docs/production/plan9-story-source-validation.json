@@ -1,35 +1,15 @@
 {
   "schemaVersion": 1,
   "status": "partial-source-not-connected",
-  "chapters": 41,
-  "poems": 318,
+  "chapters": 60,
+  "poems": 450,
   "events": 0,
   "required": {
     "chapters": 60,
     "poems": 450,
     "events": 25
   },
-  "missingChapterIds": [
-    "colossus.dead-king-megadeath.collection.chapter.1",
-    "colossus.dead-king-megadeath.collection.chapter.2",
-    "colossus.dead-king-megadeath.collection.chapter.3",
-    "colossus.final-flame-ice-phoenix.collection.chapter.1",
-    "colossus.final-flame-ice-phoenix.collection.chapter.2",
-    "colossus.final-flame-ice-phoenix.collection.chapter.3",
-    "colossus.newborn-asteria.collection.chapter.1",
-    "colossus.newborn-asteria.collection.chapter.2",
-    "colossus.newborn-asteria.collection.chapter.3",
-    "heroine.echidna.poem-chapter.2",
-    "heroine.echidna.poem-chapter.3",
-    "heroine.excalipan.poem-chapter.2",
-    "heroine.excalipan.poem-chapter.3",
-    "heroine.iconoclast.poem-chapter.2",
-    "heroine.iconoclast.poem-chapter.3",
-    "heroine.slayer.poem-chapter.2",
-    "heroine.slayer.poem-chapter.3",
-    "heroine.undermine.poem-chapter.2",
-    "heroine.undermine.poem-chapter.3"
-  ],
+  "missingChapterIds": [],
   "sources": [
     {
       "path": "game/story-source/plan9/amber-king-serpent.json",
@@ -44,12 +24,32 @@
       "sha256": "8326066b94f25b8160df8cd558821232004779521cec4cebbf09d7ad9200f01b"
     },
     {
+      "path": "game/story-source/plan9/dead-king-megadeath.json",
+      "sha256": "9cadacf6c090e45cddf772e35ebe2d81e2fd28d6e0cf4fd0661af435ee0f0244"
+    },
+    {
+      "path": "game/story-source/plan9/echidna-later-chapters.json",
+      "sha256": "a77296397bb0b704e2fed2241d146fe21485bbc0621f9b5eae8e959048739bc5"
+    },
+    {
       "path": "game/story-source/plan9/emerald-star-astal.json",
       "sha256": "3560c348ce95c0403ccc0f10e5464d566e31f7bb19b3644f58ac3e0ce9893a72"
     },
     {
+      "path": "game/story-source/plan9/excalipan-later-chapters.json",
+      "sha256": "0b4a1047eb14730d415ace83c650b7a43350bbddf8a19b1450e817faa0e00893"
+    },
+    {
+      "path": "game/story-source/plan9/final-flame-ice-phoenix.json",
+      "sha256": "d0595520b50beaa3d7720c3045c12d388b5c80c595af5086d8b551cb06985db4"
+    },
+    {
       "path": "game/story-source/plan9/heaven-tree-orochi.json",
       "sha256": "7fb4e2b3ea49295ce6a7cd6c342d015bce4c3b73434a2056eb291d9f23bfc3a1"
+    },
+    {
+      "path": "game/story-source/plan9/iconoclast-later-chapters.json",
+      "sha256": "9d8e13d383e1ea2c20595a800b143e72217538e0cadfc196b19504edf12d40db"
     },
     {
       "path": "game/story-source/plan9/initial-authored-chapters.json",
@@ -58,6 +58,10 @@
     {
       "path": "game/story-source/plan9/memory-crystal-dragon.json",
       "sha256": "78cb75f3112f2e2ef36db51aba81032f02dec6bd24c03c583c0f6afd27e547f2"
+    },
+    {
+      "path": "game/story-source/plan9/newborn-asteria.json",
+      "sha256": "3571346218f9a3126b121d910937f98f9212fb02d78b1fc0471f987196fe33bb"
     },
     {
       "path": "game/story-source/plan9/red-crystal-tyrant.json",
@@ -74,6 +78,14 @@
     {
       "path": "game/story-source/plan9/sky-tower-machine.json",
       "sha256": "276fffd82f7b32df77a4d90472c26774455f60adbe63c65a8620067d29157b3b"
+    },
+    {
+      "path": "game/story-source/plan9/slayer-later-chapters.json",
+      "sha256": "5ed653009bdb74e242966efc491124e6cda807e1888a03edcc4296e393621ea2"
+    },
+    {
+      "path": "game/story-source/plan9/undermine-later-chapters.json",
+      "sha256": "2ff62a374cf30af1cf66efd6dd5af8dc3bb058779856fa16e5b1b9eb421f4832"
     },
     {
       "path": "game/story-source/plan9/white-divine-dragon-mother.json",

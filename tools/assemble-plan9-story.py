@@ -16,7 +16,7 @@ chapters=[];events=[];provenance=[]
 for path in sorted(sources.glob('*.json')):
     data=json.loads(path.read_text(encoding='utf-8-sig'))
     provenance.append(dict(path=path.relative_to(root).as_posix(),sha256=hashlib.sha256(path.read_bytes()).hexdigest()))
-    for index,original in enumerate(data.get('chapters',[]),1):
+    for index,original in enumerate(data.get('chapters',[]),data.get('startChapterIndex',1)):
         c=dict(original);owner=c.get('ownerId',data.get('ownerId'))
         assert owner in owners,f'Unknown story owner: {owner}'
         c['ownerId']=owner;c.setdefault('id',owner+('.collection.chapter.' if owner in colossi else '.poem-chapter.')+str(index))
@@ -26,6 +26,8 @@ for path in sorted(sources.glob('*.json')):
         normalized=[]
         for i,value in enumerate(c['poems']):
             p=dict(value) if isinstance(value,dict) else dict(text=value[0],body=value[1])
+            if not isinstance(value,dict) and len(value)==4:
+                p.update(sourcePoemId=value[2],reason=value[3])
             p.setdefault('id',owner+'.collection.poem.'+str((index-1)*per+i+1).zfill(2))
             assert p['text'] and p['text'] in p['body'],f'Poem not quoted: {p["id"]}'
             if owner in heroes:assert p.get('sourcePoemId') and p.get('reason'),f'Unexplained correspondence: {p["id"]}'
@@ -42,6 +44,9 @@ for c in chapters:
     assert all('【オリジナル試遊本文】' not in c[k] and '【動作検証用' not in c[k] for k in ['introduction','conclusion'])
 for p in poems:
     if p.get('sourcePoemId'):assert any(s['id']==p['sourcePoemId'] for s in poems),f'Missing authored source: {p["id"]}'
+for hero in heroes:
+    links=[p['sourcePoemId'] for c in chapters if c['ownerId']==hero for p in c['poems']]
+    assert len(set(links))==len(links),f'Duplicate heroine correspondence: {hero}'
 expected={owner+('.collection.chapter.' if owner in colossi else '.poem-chapter.')+str(i) for owner in owners for i in range(1,4)}
 missing=sorted(expected-{c['id'] for c in chapters})
 full=not missing and len(poems)==450 and len(events)==25
