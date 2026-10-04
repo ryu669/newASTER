@@ -45,7 +45,7 @@ namespace NewAster.Data
             c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal-v2";
             var furnitureArt=new[]{"bench","desk","fountain"};var actions=new[]{"sit","work","look"};
             for(int i=0;i<3;i++){
-                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=new[]{"heroine.slayer"};
+                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=new[]{"heroine.slayer","heroine.iconoclast"};
                 f.slots[0].actionIds=actions[i]=="sit"?new[]{"action.sit"}:new[]{"action."+actions[i],"action.sit"};
                 c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=f.assetId,kind="furniture",placeholder=true,resourcePath="Illustrations/garden-"+furnitureArt[i]+"-candidate-v1"}}).ToArray();
             }
@@ -57,6 +57,25 @@ namespace NewAster.Data
                     new HomeAdvCommand{commandId="art.actor."+expression,kind="actor",heroineId="heroine.slayer",slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+expression,poseId="pose.idle"},
                     new HomeAdvCommand{commandId="art.line."+expression,kind="line",lineId="art.line."+expression,textId="text.fixture.line",speakerId="heroine.slayer"}}))
                     .Concat(new[]{new HomeAdvCommand{commandId="art.end",kind="end"}}).ToArray()}}).ToArray();
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id="art.candidate.iconoclast.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/iconoclast-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select((expression,i)=>new HomeAssetDef{
+                    id="art.candidate.iconoclast.expression."+expression+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/iconoclast-expression-"+expression+"-source-v1",
+                    overlayRegion01=new HomeRect{x=466f/1024,y=280f/1536,width=110f/1024,height=83f/1536},
+                    overlaySourceRegion01=i==0?new HomeRect{x=461f/1024,y=230f/1536,width=110f/1024,height=83f/1536}:
+                        i==1?new HomeRect{x=343f/1024,y=626f/1536,width=376f/1024,height=284f/1536}:
+                        new HomeRect{x=403f/1230,y=588f/1280,width=440f/1230,height=327f/1280}})).ToArray();
+            var iconoclastDisplay=c.displays.Single(d=>d.heroineId=="heroine.iconoclast");iconoclastDisplay.standingAssetId="art.candidate.iconoclast.standing.v1";
+            iconoclastDisplay.usePortraitCrop=true;
+            iconoclastDisplay.portraitCrop01=new HomeRect{x=0,y=.07f,width=1,height=.48f};
+            iconoclastDisplay.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeDisplayVariant{id="expression."+expression,assetId="art.candidate.iconoclast.expression."+expression+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.iconoclast",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="iconoclast.background",kind="background",assetId="asset.fixture.background",transition="instant"}}
+                .Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(expression=>new[]{
+                    new HomeAdvCommand{commandId="iconoclast.actor."+expression,kind="actor",heroineId="heroine.iconoclast",slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+expression,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="iconoclast.line."+expression,kind="line",lineId="iconoclast.line."+expression,textId="text.fixture.line",speakerId="heroine.iconoclast"}}))
+                .Concat(new[]{new HomeAdvCommand{commandId="iconoclast.end",kind="end"}}).ToArray()}}).ToArray();
             c.Validate();return c;
         }
         private static HomeCondition Always()=>new HomeCondition{kind="always"};

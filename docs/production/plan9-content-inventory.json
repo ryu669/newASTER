@@ -6900,6 +6900,86 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "iconoclast-event-0-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-0-cg-candidate-v1.png",
+      "sha256": "6A51F7F1A3476FCA2C55F3B1901AFE1F5AE800469A4960A7C505F128FA9062EA",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-event-1-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-1-cg-candidate-v1.png",
+      "sha256": "BC54876865D93E51997DCB9951B14367EAEC5CB48F1B9F8D919E85641CA99DFE",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-event-2-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-2-cg-candidate-v1.png",
+      "sha256": "1E97DCAEA3B818EC0179A8D0E1DEA720B1306C358296865BDB67F3F33664947D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-event-3-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-3-cg-candidate-v1.png",
+      "sha256": "37916E96DD5472E6315EE697C71C640259D558D1BDF9D7CCDC2631B46ED32890",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-event-4-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-4-cg-candidate-v1.png",
+      "sha256": "2641623D1512A1E09AF9833D5A1FB60F4E2F8D9141BC07ADA6D6E61467DC6B46",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-expression-determined-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-determined-source-v1.png",
+      "sha256": "9AC2078CF802A9C31996E0D2D31A2A38A10E3D3F5490AA2D9C8875DBBAEDCA90",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-expression-joy-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-joy-source-v1.png",
+      "sha256": "F2032E377CF10AA58ADF4900A839D5FE705A86BD5B00381F08F333F2DDE9AC02",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-expression-puzzled-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-puzzled-source-v1.png",
+      "sha256": "9AD7E5A2DFCBDCA8D8191470E272EBACF1DCF6E6B7BC0108D74B50ABD1A55531",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "iconoclast-hit-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -6917,6 +6997,46 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-portrait-candidate-v1.png",
       "sha256": "EFB9F6E49C191881E1DA7DE0BEBB83CD22949986F661EDAE3CFAEB6F7DF2A221",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-sd-idle-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-idle-candidate-v1.png",
+      "sha256": "340816723E8464AB320F3A03CE659733E310B954C8654C7003155F705E885CA4",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-sd-look-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-look-candidate-v1.png",
+      "sha256": "2650A21F7A960038CC731B44CA95BFC643FD71FF9805C9D2F8906867BF18243C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-sd-sit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-sit-candidate-v1.png",
+      "sha256": "5489BB2B12A8C34CF9B328F0B0D0225AAAE8B3D2E0C7CD82186B3DDF2ED7B1D2",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-sd-work-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-work-candidate-v1.png",
+      "sha256": "A26830BC891C1A10C6EEBC476CAB3DABC860E1801B37135158DE984475F08BA5",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

@@ -1,0 +1,12 @@
+{
+  "tool": "built-in imagegen",
+  "eventId": "heroine.iconoclast.event.0",
+  "candidate": "iconoclast-event-0-cg-candidate-v1.png",
+  "actualSize": [
+    1672,
+    941
+  ],
+  "prompt": "Use case: illustration-story. Asset type: original newASTER event CG candidate, heroine.iconoclast.event.0 'Broken Compass'. Input is character identity reference ONLY. Same adult angel woman with short tousled pale pink hair and upward wisps, amber eyes, red/gold military long jacket, white/pink fitted torso, plaid shorts, white feather wings. Scene: warmly sunlit restored fantasy garden workshop, lush leaves and distant stone arches; she sits at a wooden workbench, delicately holds a newly repaired small brass compass with both gloved hands, proud surprised gentle smile looking toward viewer. A small screwdriver and two tiny screws rest clearly on tabletop. Emotional beat: her powerful hands have repaired something fragile. High-quality painted Japanese fantasy RPG event illustration, consistent face/outfit, anatomically correct hands with five fingers, one character only, no extra angels. Wide cinematic 16:9 framing ideally 1920x1080 or larger; leave lower quarter with calmer table/shadow detail for separate game text overlay. Head/hair and face fully inside safe margin, compass hands easily readable. Opaque PNG, no text, no UI, no watermark. No copying original game's scenery or composition.",
+  "framingEdit": "Use case: precise-object-edit. Keep this exact original Iconoclast compass-repair CG character identity, hands, repaired brass compass, red/gold outfit, white wings and sunny garden workshop. Reframe camera slightly farther back so ALL upward pink hair wisps have clear sky/background margin above, at least 6 percent canvas height. Do not cut off hair tips. Maintain wide cinematic 16:9 composition, ideally 1920x1080 or larger, opaque PNG. Leave calm lower tabletop quarter for separate dialogue UI. No text or UI, one character only.",
+  "status": "candidate; formal event integration pending"
+}

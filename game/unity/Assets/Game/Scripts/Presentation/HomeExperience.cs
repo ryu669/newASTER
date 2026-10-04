@@ -102,14 +102,16 @@ namespace NewAster.Presentation
         private void DrawGardenFurniture(Rect area,HomePlacement placement,FormalHomeProgress state)
         {
             var f=HomeData().furniture.Single(item=>item.id==placement.defId);var image=GardenFurnitureImageRect(area,placement);
-            var texture=AdvTexture(f.assetId);if(texture!=null)DrawGardenArtUse(image,texture,GardenUse(placement.defId),state.occupants.Any(o=>GardenUsePlacement(o,state)?.instanceId==placement.instanceId));else{GrowthFill(image.x,image.y,image.width,image.height,new Color(.6f,.44f,.28f));Label(image.x,image.y,150,30,placement.defId.Substring(placement.defId.Length-1),small,Color.white);}
+            var occupant=state.occupants.FirstOrDefault(o=>GardenUsePlacement(o,state)?.instanceId==placement.instanceId);
+            var texture=AdvTexture(f.assetId);if(texture!=null)DrawGardenArtUse(image,texture,GardenUse(placement.defId,occupant?.heroineId??"heroine.slayer"),occupant!=null,occupant?.heroineId??"heroine.slayer");else{GrowthFill(image.x,image.y,image.width,image.height,new Color(.6f,.44f,.28f));Label(image.x,image.y,150,30,placement.defId.Substring(placement.defId.Length-1),small,Color.white);}
         }
         private void DrawGardenResident(Rect area,HomeOccupant occupant)
         {
             float x=area.x+occupant.x*area.width,y=area.y+occupant.y*area.height;
-            if(occupant.heroineId=="heroine.slayer"){
+            if(occupant.heroineId=="heroine.slayer" || occupant.heroineId=="heroine.iconoclast"){
                 string action=occupant.actionId=="action.sit"?"sit":occupant.actionId=="action.work"?"work":occupant.actionId=="action.look"?"look":"idle";
-                var texture=SampleImage("slayer-sd-"+action);if(texture==null)texture=SampleImage("slayer-sd-idle");
+                string prefix=occupant.heroineId=="heroine.iconoclast"?"iconoclast":"slayer";
+                var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");
                 float size=area.width*.128f*.95f;
                 if(texture!=null)GUI.DrawTexture(new Rect(x-size*.5f,y-size*.98f,size,size),texture,ScaleMode.ScaleToFit,true);else GrowthDiamond(x,y,14);
             }else GrowthDiamond(x,y,14);

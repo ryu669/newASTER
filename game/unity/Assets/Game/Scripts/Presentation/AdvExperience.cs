@@ -19,9 +19,22 @@ namespace NewAster.Presentation
             float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
             var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,525-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
-            if(expression!=null && standing!=null && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
+            if(expression!=null && standing!=null && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;
-            if(standing!=null)DrawExpressionLayer(rect,fullExpression?expression:standing,expression,expressionDef?.regionalOverlay==true?expressionDef.overlayRegion01:null);
+            var display=HomeData().displays.Single(d=>d.heroineId==actor.HeroineId && d.outfitId==actor.OutfitId);
+            var portraitCrop=display.portraitCrop01;
+            bool mappedPortrait=display.usePortraitCrop && portraitCrop!=null && standing!=null;
+            if(mappedPortrait){
+                rect=new Rect(rect.center.x-325,rect.y,650,rect.height);
+                var face=expressionDef?.overlayRegion01;var source=expressionDef?.overlaySourceRegion01;
+                DrawMappedExpression(rect,standing,expressionDef?.mappedOverlay==true?expression:null,
+                    face==null?new Rect():new Rect(face.x,face.y,face.width,face.height),source==null?new Rect():new Rect(source.x,source.y,source.width,source.height),new Rect(portraitCrop.x,portraitCrop.y,portraitCrop.width,portraitCrop.height));
+            }
+            else if(standing!=null && expressionDef?.mappedOverlay==true){
+                var face=expressionDef.overlayRegion01;var source=expressionDef.overlaySourceRegion01;
+                DrawMappedExpression(rect,standing,expression,new Rect(face.x,face.y,face.width,face.height),new Rect(source.x,source.y,source.width,source.height),new Rect(0,0,1,1));
+            }
+            else if(standing!=null)DrawExpressionLayer(rect,fullExpression?expression:standing,expression,expressionDef?.regionalOverlay==true?expressionDef.overlayRegion01:null);
             else GrowthFill(x,y,w,h,new Color(.22f,.38f,.42f));
             if(standing!=null && expression!=null && !fullExpression && expressionDef?.regionalOverlay!=true && expression.width==standing.width && expression.height==standing.height)GUI.DrawTexture(rect,expression,ScaleMode.ScaleToFit,true);
             if(standing==null){Label(x+15,y+70,w-30,110,combatDefinitions.Hero(actor.HeroineId).name,growthTextStyle);Label(x+15,y+200,w-30,110,actor.PosePlaceholder?"未対応pose\n同人物の仮表示":"静的検証用\n立ち絵",growthSmallStyle);}

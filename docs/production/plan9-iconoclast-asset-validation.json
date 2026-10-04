@@ -91,6 +91,133 @@
       "transparentPixels": 355565,
       "status": "candidate",
       "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-sd-idle",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-idle-candidate-v1.png",
+      "sha256": "340816723e8464ab320f3a03ce659733e310b954c8654c7003155f705e885ca4",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        181,
+        97,
+        1086,
+        1181
+      ],
+      "transparentPixels": 988415,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-sd-sit",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-sit-candidate-v1.png",
+      "sha256": "5489bb2b12a8c34cf9b328f0b0d0225aaae8b3d2e0c7cd82186b3ddf2ed7b1d2",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        140,
+        35,
+        1128,
+        1203
+      ],
+      "transparentPixels": 900836,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-sd-work",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-work-candidate-v1.png",
+      "sha256": "a26830bc891c1a10c6eebc476cab3dabc860e1801b37135158de984475f08ba5",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        110,
+        30,
+        1168,
+        1229
+      ],
+      "transparentPixels": 839056,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-sd-look",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-look-candidate-v1.png",
+      "sha256": "2650a21f7a960038cc731b44ca95bfc643fd71ff9805c9d2f8906867bf18243c",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        194,
+        80,
+        1079,
+        1190
+      ],
+      "transparentPixels": 981536,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-event-0-cg",
+      "eventId": "heroine.iconoclast.event.0",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-0-cg-candidate-v1.png",
+      "sha256": "6a51f7f1a3476fca2c55f3b1901afe1f5ae800469a4960a7c505f128fa9062ea",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-event-1-cg",
+      "eventId": "heroine.iconoclast.event.1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-1-cg-candidate-v1.png",
+      "sha256": "bc54876865d93e51997dcb9951b14367eaec5cb48f1b9f8d919e85641ca99dfe",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-event-2-cg",
+      "eventId": "heroine.iconoclast.event.2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-2-cg-candidate-v1.png",
+      "sha256": "1e97dcaea3b818ec0179a8d0e1dea720b1306c358296865bdb67f3f33664947d",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-event-3-cg",
+      "eventId": "heroine.iconoclast.event.3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-3-cg-candidate-v1.png",
+      "sha256": "37916e96dd5472e6315ee697c71c640259d558d1bdf9d7ccdc2631b46ed32890",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-event-4-cg",
+      "eventId": "heroine.iconoclast.event.4",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-4-cg-candidate-v1.png",
+      "sha256": "2641623d1512a1e09af9833d5a1fb60f4e2f8d9141bc07ada6d6e61467dc6b46",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "status": "candidate",
+      "finalDeliveryApproved": false
     }
   ]
 }

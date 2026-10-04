@@ -94,6 +94,10 @@ namespace NewAster.Presentation
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             InitializeFormalEntrance(args);
+            int expressionIndex=Array.IndexOf(args,"-inspectPlan9Expression");
+            if(expressionIndex>=0 && expressionIndex+1<args.Length)plan9Expression=args[expressionIndex+1];
+            int cgIndex=Array.IndexOf(args,"-inspectPlan9Cg");
+            if(cgIndex>=0 && cgIndex+1<args.Length)plan9Cg=args[cgIndex+1];
             slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureSixParts")) PrepareSixPartCapture(args);
@@ -299,6 +303,8 @@ namespace NewAster.Presentation
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
+            if(plan9Cg!=null){DrawPlan9EventCg();return;}
             if(artSample){DrawArtSample();return;}
             if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}

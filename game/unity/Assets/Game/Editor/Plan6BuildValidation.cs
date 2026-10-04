@@ -21,6 +21,7 @@ public static partial class PlayableBuild
         book.Close();book.Reenter();Check(book.SubjectIndex==0 && book.Bookmark==BookBookmark.Colossi,"Unity book closes and reenters independently of progress");
         var emptyBook=new BookNavigationState(Array.Empty<BookOrderedSubject>());Check(emptyBook.SubjectId==null && !emptyBook.CanFlip,"Unity empty book category");
         var pack=JsonUtility.FromJson<HomeExperienceCatalog>(JsonUtility.ToJson(catalog));pack.Validate();
+        Check(pack.assets.Single(a=>a.id=="art.candidate.iconoclast.expression.joy.v1").mappedOverlay && pack.displays.Single(d=>d.heroineId=="heroine.iconoclast").usePortraitCrop && pack.displays.Single(d=>d.heroineId=="heroine.iconoclast").portraitCrop01.width==1,"Unity mapped face source and portrait crop survive JSON roundtrip");
         Check(pack.weaponNodes.Length==20 && pack.events.Length==25 && pack.scripts[0].commands[2].textId=="text.fixture.line","Unity complete home definition pack roundtrip");
         Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
         Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;

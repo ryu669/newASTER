@@ -38,6 +38,10 @@ foreach($height in $Heights){
    'iconoclast-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.iconoclast')}
    'iconoclast-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.iconoclast')}
    'iconoclast-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.iconoclast')}
+   {$_ -in @('iconoclast-cg-0','iconoclast-cg-1','iconoclast-cg-2','iconoclast-cg-3','iconoclast-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(14))}
+   {$_ -in @('iconoclast-normal','iconoclast-joy','iconoclast-puzzled','iconoclast-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(11))}
+   {$_ -in @('iconoclast-adv-normal','iconoclast-adv-joy','iconoclast-adv-puzzled','iconoclast-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvExpression',$case.Substring(15))}
+   {$_ -in @('iconoclast-garden-idle','iconoclast-garden-sit','iconoclast-garden-work','iconoclast-garden-look','iconoclast-garden-move','iconoclast-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(18),'-inspectPlan9GardenHero')}
    'growth-large' {$flags+=@('-captureGrowth','-inspectLargeText')}
    'book-large' {$flags+=@('-captureBook','-inspectLargeText')}
    'battle' {$flags+=@('-captureBattleMenu','closed')}
@@ -53,6 +57,8 @@ foreach($height in $Heights){
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
   if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}
+  if($case.StartsWith('iconoclast-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('iconoclast-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong garden heroine'}
   if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
   $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}
   Write-Output ('PLAN9_UI_CAPTURE_PASS '+$name)
