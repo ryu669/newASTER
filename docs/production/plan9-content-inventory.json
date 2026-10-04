@@ -222,7 +222,7 @@
         "job.defender"
       ],
       "state": "functional",
-      "artState": "missing",
+      "artState": "candidate",
       "acceptance": "P9-05; unique art + 3 skills + chain + equipment",
       "source": "Combat/battle-formal.json"
     },
@@ -7187,6 +7187,176 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
       "sha256": "E343DF8EB6FE0AAAEC7CB1E65870DAD9161A4BB0A3AFE92334908B00669E19B8",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-attack-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-attack-candidate-v1.png",
+      "sha256": "827DA44AB34A2262E960A4D4736EF7B42A5135FF63709DB04C9C8607C548BB00",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-cutin-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-cutin-candidate-v1.png",
+      "sha256": "C0C913E10AF0B3E2B5878367E9E675310B941E1B621819A9E4C3D259E7B5197C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-event-0-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-0-cg-candidate-v1.png",
+      "sha256": "086A8929A5EA8AED9F90A449317BA4085C4A78A4659CF7FEB42A93D36CFA0A91",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-event-1-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-1-cg-candidate-v1.png",
+      "sha256": "6ADC350116406855FC2BDD52A4C4D8D36C158A0509DEEAEA7B1A8E150B8CE3A1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-event-2-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-2-cg-candidate-v1.png",
+      "sha256": "AB1B043B6A141F0BF0AAA97A147545CA3EB41157BD618F963A3F338DD455C762",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-event-3-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-3-cg-candidate-v1.png",
+      "sha256": "97C48E5A73143114BC21CD5ED64C5F428AFB3556769264CD32DF8649F1AFDF9F",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-event-4-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-4-cg-candidate-v1.png",
+      "sha256": "DFFDF9C3AD27E3A9DE3F0EBE5C4E0D8A2B5FEB25AAB6F27D1B40ED0176C1FFB5",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-expression-determined-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-determined-source-v1.png",
+      "sha256": "329222D115645530C63C5082A56732F4C7F0BB927E1BBE1EA0F6BE20BE37216C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-expression-joy-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-joy-source-v1.png",
+      "sha256": "3B6827A9FC11E506828D6EF6A540D978E88AAD64AB51D13354028A2893141BBB",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-expression-puzzled-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-puzzled-source-v1.png",
+      "sha256": "D7386DB4A9D580376238373A865F9274E59DA9DA395A02C24196E3BBDE26E53C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-hit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-hit-candidate-v1.png",
+      "sha256": "A139AC3234A0F5E9BF98967A42AD03230668E8D6E76FDA9CE050B118FC0130A4",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-portrait-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-portrait-candidate-v1.png",
+      "sha256": "17F03B01FEDA22A6169507233A1CAEF55D5C9FD0431D82C221F709D131273EA9",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-sd-idle-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-idle-candidate-v1.png",
+      "sha256": "1BD5DBE2FB368B482F8DB68FEF4996107F16C995425492C9345EE74A45035F2F",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-sd-look-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-look-candidate-v1.png",
+      "sha256": "E778049021642EC0A8D5FA8B78887128A05D807CF3650976C86CF33740AF58F6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-sd-sit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-sit-candidate-v1.png",
+      "sha256": "0E19FB95911F793AD8F8CF258C00D3CFBCA0C7E054F4E5F15DE824D7DFEA383C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-sd-work-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-work-candidate-v1.png",
+      "sha256": "626B6C47D8B10AAF3B95805EF4BBEA2A6031695B387AE3E0BEB8505C465E8762",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "undermine-standing-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-standing-candidate-v1.png",
+      "sha256": "277582A6E9F592D2A1F2EEFC7961D6EE167B7842A5CB1AF2955CA76D23D784B3",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     }
   ]

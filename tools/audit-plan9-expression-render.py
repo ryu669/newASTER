@@ -8,11 +8,16 @@ from PIL import Image
 parser = argparse.ArgumentParser()
 parser.add_argument('gallery')
 parser.add_argument('--output', required=True)
+parser.add_argument('--hero', default='iconoclast', choices=('iconoclast','undermine'))
 args = parser.parse_args()
 gallery = Path(args.gallery)
 face = (466/1024, 280/1536, 110/1024, 83/1536)
+if args.hero == 'undermine':
+    face = (473/1024,302/1536,100/1024,82/1536)
 boxes = []
 for destination, crop in [((65,180,540,560),(0,0,1,1)),((650,260,460,300),(.39,.155,.235,.12))]:
+    if args.hero == 'undermine' and destination[0] == 650:
+        crop = (.40,.18,.22,.12)
     x,y,w,h = destination
     cx,cy,cw,ch = crop
     scale = min(w/(1024*cw),h/(1536*ch))
@@ -22,14 +27,14 @@ for destination, crop in [((65,180,540,560),(0,0,1,1)),((650,260,460,300),(.39,.
     boxes.append((dx+(fx-cx)/cw*aw,dy+(fy-cy)/ch*ah,fw/cw*aw,fh/ch*ah))
 rows=[]
 for height in (720,1080):
-    baseline_path=gallery/f'iconoclast-normal-{height}.png'
+    baseline_path=gallery/f'{args.hero}-normal-{height}.png'
     if not baseline_path.exists():
         continue
     with Image.open(baseline_path) as base:
         bounds=[(math.floor(x*base.width/1600)-2,math.floor(y*base.height/900)-2,
                  math.ceil((x+w)*base.width/1600)+2,math.ceil((y+h)*base.height/900)+2) for x,y,w,h in boxes]
         for expression in ('joy','puzzled','determined'):
-            with Image.open(gallery/f'iconoclast-{expression}-{height}.png') as candidate:
+            with Image.open(gallery/f'{args.hero}-{expression}-{height}.png') as candidate:
                 if base.size != candidate.size:
                     raise ValueError('Capture size mismatch')
                 inside=outside=0
@@ -45,5 +50,7 @@ for height in (720,1080):
                     raise ValueError(f'{expression}-{height}: inside={inside}, outside={outside}')
                 rows.append(dict(expression=expression,height=height,changedInside=inside,changedOutside=outside))
                 print(f'PLAN9_EXPRESSION_RENDER_PASS {expression}-{height} inside={inside} outside={outside}')
-Path(args.output).write_text(json.dumps(dict(schemaVersion=1,performanceMeasured=False,
+if not rows:
+    raise ValueError('No expression captures found')
+Path(args.output).write_text(json.dumps(dict(schemaVersion=1,heroineId=f'heroine.{args.hero}',performanceMeasured=False,
     scope='art-stage-comparison; visual seam acceptance separate',cases=rows),indent=2)+'\n',encoding='utf-8')

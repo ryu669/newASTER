@@ -22,6 +22,11 @@
     },
     {
       "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
       "placeholder": true
     },
     {

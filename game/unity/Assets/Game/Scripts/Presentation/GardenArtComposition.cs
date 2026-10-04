@@ -61,6 +61,11 @@ namespace NewAster.Presentation
         {
             var original=gardenArtUses.SingleOrDefault(a=>a.furnitureId==furnitureId);
             if(original==null || heroineId=="heroine.slayer")return original;
+            if(heroineId=="heroine.undermine")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.50f,.64f):original.action=="work"?new Vector2(.50f,.49f):new Vector2(.5f,.97f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.38f,.44f,.60f,.44f,.60f,.52f,.38f,.52f)}:Array.Empty<Vector2[]>()};
             if(heroineId!="heroine.iconoclast")return null;
             return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
@@ -89,7 +94,7 @@ namespace NewAster.Presentation
         }
         private void DrawGardenArtUse(Rect furniture,Texture2D texture,GardenArtUse use,bool occupied,string heroineId="heroine.slayer")
         {
-            string prefix=heroineId=="heroine.iconoclast"?"iconoclast":"slayer";
+            string prefix=heroineId.Substring("heroine.".Length);
             var actor=occupied && use!=null?SampleImage(prefix+"-sd-"+use.action):null;
             var furnitureLayers=actor==null?null:GardenImageLayers(texture,use.front,use.furnitureId);
             if(texture!=null)GUI.DrawTexture(furniture,(Texture)furnitureLayers?.back??texture,ScaleMode.ScaleToFit,true);

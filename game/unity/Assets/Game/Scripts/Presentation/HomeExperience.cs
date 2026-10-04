@@ -108,9 +108,9 @@ namespace NewAster.Presentation
         private void DrawGardenResident(Rect area,HomeOccupant occupant)
         {
             float x=area.x+occupant.x*area.width,y=area.y+occupant.y*area.height;
-            if(occupant.heroineId=="heroine.slayer" || occupant.heroineId=="heroine.iconoclast"){
+            if(occupant.heroineId=="heroine.slayer" || occupant.heroineId=="heroine.iconoclast" || occupant.heroineId=="heroine.undermine"){
                 string action=occupant.actionId=="action.sit"?"sit":occupant.actionId=="action.work"?"work":occupant.actionId=="action.look"?"look":"idle";
-                string prefix=occupant.heroineId=="heroine.iconoclast"?"iconoclast":"slayer";
+                string prefix=occupant.heroineId.Substring("heroine.".Length);
                 var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");
                 float size=area.width*.128f*.95f;
                 if(texture!=null)GUI.DrawTexture(new Rect(x-size*.5f,y-size*.98f,size,size),texture,ScaleMode.ScaleToFit,true);else GrowthDiamond(x,y,14);

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "eventId": "heroine.undermine.event.0",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-0-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "086a8929a5ea8aed9f90a449317ba4085c4a78a4659cf7feb42a93d36cfa0a91",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.undermine.event.1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-1-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "6adc350116406855fc2bdd52a4c4d8d36c158a0509deeaea7b1a8e150b8ce3a1",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.undermine.event.2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-2-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "ab1b043b6a141f0bf0aaa97a147545ca3eb41157bd618f963a3f338dd455c762",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.undermine.event.3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-3-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "97c48e5a73143114bc21cd5ed64c5f428afb3556769264cd32df8649f1afdf9f",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.undermine.event.4",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-4-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "dffdf9c3ad27e3a9de3f0ebe5c4e0d8a2b5feb25aab6f27d1b40ed0176c1ffb5",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

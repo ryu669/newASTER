@@ -34,6 +34,15 @@ foreach($height in $Heights){
    'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
    'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
+   'undermine-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.undermine')}
+   'undermine-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.undermine')}
+   {$_ -in @('undermine-cg-0','undermine-cg-1','undermine-cg-2','undermine-cg-3','undermine-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(13),'-inspectPlan9ArtUndermine')}
+   {$_ -in @('undermine-normal','undermine-joy','undermine-puzzled','undermine-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(10),'-inspectPlan9ArtUndermine')}
+   {$_ -in @('undermine-adv-normal','undermine-adv-joy','undermine-adv-puzzled','undermine-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvUndermine',$case.Substring(14))}
+   {$_ -in @('undermine-garden-idle','undermine-garden-sit','undermine-garden-work','undermine-garden-look','undermine-garden-move','undermine-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(17),'-inspectPlan9GardenUndermine')}
    'iconoclast-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.iconoclast')}
    'iconoclast-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.iconoclast')}
    'iconoclast-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.iconoclast')}
@@ -58,7 +67,11 @@ foreach($height in $Heights){
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
   if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}
   if($case.StartsWith('iconoclast-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('undermine-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('undermine-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.undermine event='+$case.Substring(13))){throw 'Wrong CG heroine or stale build'}
+  if($case.StartsWith('iconoclast-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.iconoclast event='+$case.Substring(14))){throw 'Wrong CG heroine or stale build'}
   if($case.StartsWith('iconoclast-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('undermine-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong garden heroine'}
   if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
   $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}
   Write-Output ('PLAN9_UI_CAPTURE_PASS '+$name)

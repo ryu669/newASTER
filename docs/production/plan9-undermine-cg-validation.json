@@ -1,0 +1,88 @@
+{
+  "assemblySha256": "0DE13DE4C0E021F590A3E8BB12458D0B51B81BA16A3F5E154918A73D73BB96F6",
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-0-720.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-0-720.log",
+      "case": "undermine-cg-0"
+    },
+    {
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-1-720.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-1-720.log",
+      "case": "undermine-cg-1"
+    },
+    {
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-2-720.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-2-720.log",
+      "case": "undermine-cg-2"
+    },
+    {
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-3-720.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-3-720.log",
+      "case": "undermine-cg-3"
+    },
+    {
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-4-720.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-4-720.log",
+      "case": "undermine-cg-4"
+    },
+    {
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-0-1080.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-0-1080.log",
+      "case": "undermine-cg-0"
+    },
+    {
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-1-1080.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-1-1080.log",
+      "case": "undermine-cg-1"
+    },
+    {
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-2-1080.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-2-1080.log",
+      "case": "undermine-cg-2"
+    },
+    {
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-3-1080.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-3-1080.log",
+      "case": "undermine-cg-3"
+    },
+    {
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-4-1080.png",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-a7622c1ca32e4665b864d9fdb7467c99\\undermine-cg-4-1080.log",
+      "case": "undermine-cg-4"
+    }
+  ]
+}

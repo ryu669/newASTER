@@ -5,12 +5,13 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private string plan9Expression;
+        private string plan9ArtHero="heroine.iconoclast";
         private string plan9Cg;
         private void DrawPlan9EventCg()
         {
             GrowthStyles();TitleFill(new Rect(0,0,1600,900),titleInk);
-            Label(40,20,1520,50,"アイコノクラスト ／ 交流CG制作候補 "+plan9Cg,heading,titleGold);
-            var texture=Resources.Load<Texture2D>("Illustrations/iconoclast-event-"+plan9Cg+"-cg-candidate-v1");
+            Label(40,20,1520,50,combatDefinitions.Hero(plan9ArtHero).name+" ／ 交流CG制作候補 "+plan9Cg,heading,titleGold);
+            var texture=Resources.Load<Texture2D>("Illustrations/"+plan9ArtHero.Substring("heroine.".Length)+"-event-"+plan9Cg+"-cg-candidate-v1");
             if(texture==null)throw new InvalidOperationException("Event CG candidate missing");
             GUI.DrawTexture(new Rect(40,90,1520,740),texture,ScaleMode.ScaleToFit,false);
             Label(40,845,1520,40,"本文・解放条件・正式採用の審査前",small,Color.white);
@@ -20,14 +21,18 @@ namespace NewAster.Presentation
         private void DrawPlan9CharacterArt()
         {
             GrowthStyles();TitleFill(new Rect(0,0,1600,900),titleInk);
-            Label(40,30,1520,60,"アイコノクラスト ／ 表情合成の制作審査",heading,titleGold);
+            Label(40,30,1520,60,combatDefinitions.Hero(plan9ArtHero).name+" ／ 表情合成の制作審査",heading,titleGold);
             TitleBorder(new Rect(40,145,1130,615));
-            var standing=Resources.Load<Texture2D>("Illustrations/iconoclast-standing-candidate-v1");
-            var source=plan9Expression=="normal"?null:Resources.Load<Texture2D>("Illustrations/iconoclast-expression-"+plan9Expression+"-source-v1");
+            string prefix=plan9ArtHero.Substring("heroine.".Length);
+            bool undermine=prefix=="undermine";
+            var standing=Resources.Load<Texture2D>("Illustrations/"+prefix+"-standing-candidate-v1");
+            var source=plan9Expression=="normal"?null:Resources.Load<Texture2D>("Illustrations/"+prefix+"-expression-"+plan9Expression+"-source-v1");
             var sourceRegion=plan9Expression=="joy"?new Rect(461f/1024,230f/1536,110f/1024,83f/1536):
                 plan9Expression=="puzzled"?new Rect(343f/1024,626f/1536,376f/1024,284f/1536):new Rect(403f/1230,588f/1280,440f/1230,327f/1280);
-            DrawMappedExpression(new Rect(65,180,540,560),standing,source,IconoclastFace,sourceRegion,new Rect(0,0,1,1));
-            DrawMappedExpression(new Rect(650,260,460,300),standing,source,IconoclastFace,sourceRegion,new Rect(.39f,.155f,.235f,.12f));
+            var face=undermine?new Rect(473f/1024,302f/1536,100f/1024,82f/1536):IconoclastFace;
+            if(undermine)sourceRegion=face;
+            DrawMappedExpression(new Rect(65,180,540,560),standing,source,face,sourceRegion,new Rect(0,0,1,1));
+            DrawMappedExpression(new Rect(650,260,460,300),standing,source,face,sourceRegion,undermine?new Rect(.40f,.18f,.22f,.12f):new Rect(.39f,.155f,.235f,.12f));
             string[] variants={"normal","joy","puzzled","determined"};string[] captions={"通常","喜び","困惑","決意"};
             for(int i=0;i<4;i++)if(TitleButton(1200,250+i*60,340,48,captions[i]))plan9Expression=variants[i];
             Label(40,800,1510,65,"元の立ち絵を保持し、顔の領域のみ重ねます。\n顔以外の不変と、顔の自然さを別に審査します。",small,Color.white);
