@@ -62,7 +62,7 @@ namespace NewAster.Data
                 if(cg!=null && i==paragraphs.Length-1)commands.Add(new HomeAdvCommand{commandId="hide-cg",kind="hideCg"});
                 string key=scene.Substring("scene.".Length),text="text."+key+"."+(i==0?"intro":i.ToString());
                 texts.Add(new HomeTextDef{id=text,text=paragraphs[i]});
-                commands.Add(new HomeAdvCommand{commandId="line."+i,kind="line",lineId="line."+i,textId=text,speakerId=hero});
+                commands.Add(new HomeAdvCommand{commandId="line."+i,kind="line",lineId="line."+i,textId=text});
             }
             commands.Add(new HomeAdvCommand{commandId="end",kind="end"});
             scripts.Add(new HomeAdvScript{id=scene,schemaVersion=1,scriptVersion=1,commands=commands.ToArray()});

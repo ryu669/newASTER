@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapters-720.png",
+      "height": 720,
+      "case": "story-chapters",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapters-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-conditions-720.png",
+      "height": 720,
+      "case": "story-conditions",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-conditions-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-book-720.png",
+      "height": 720,
+      "case": "story-book",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-book-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapter-720.png",
+      "height": 720,
+      "case": "story-chapter",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapter-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-events-720.png",
+      "height": 720,
+      "case": "story-events",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-events-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.slayer.2-720.png",
+      "height": 720,
+      "case": "story-event.slayer.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.slayer.2-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.iconoclast.2-720.png",
+      "height": 720,
+      "case": "story-event.iconoclast.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.iconoclast.2-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.undermine.2-720.png",
+      "height": 720,
+      "case": "story-event.undermine.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.undermine.2-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.echidna.2-720.png",
+      "height": 720,
+      "case": "story-event.echidna.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.echidna.2-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.excalipan.2-720.png",
+      "height": 720,
+      "case": "story-event.excalipan.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.excalipan.2-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapters-1080.png",
+      "height": 1080,
+      "case": "story-chapters",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapters-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-conditions-1080.png",
+      "height": 1080,
+      "case": "story-conditions",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-conditions-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-book-1080.png",
+      "height": 1080,
+      "case": "story-book",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-book-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapter-1080.png",
+      "height": 1080,
+      "case": "story-chapter",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-chapter-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-events-1080.png",
+      "height": 1080,
+      "case": "story-events",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-events-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.slayer.2-1080.png",
+      "height": 1080,
+      "case": "story-event.slayer.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.slayer.2-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.iconoclast.2-1080.png",
+      "height": 1080,
+      "case": "story-event.iconoclast.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.iconoclast.2-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.undermine.2-1080.png",
+      "height": 1080,
+      "case": "story-event.undermine.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.undermine.2-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.echidna.2-1080.png",
+      "height": 1080,
+      "case": "story-event.echidna.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.echidna.2-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.excalipan.2-1080.png",
+      "height": 1080,
+      "case": "story-event.excalipan.2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5f9e78647822419faeb9718e420dbf93\\story-event.excalipan.2-1080.log"
+    }
+  ],
+  "assemblySha256": "84EA31C2F47133C6A86F1420D4B6EE1889718323B662174770CACAB5C73BE5AC",
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "coreAssertions": 6710,
+  "buildAssertions": 1442,
+  "visualReview": "All 20 images inspected; story book illustration and development menu remain for full UI acceptance"
+}

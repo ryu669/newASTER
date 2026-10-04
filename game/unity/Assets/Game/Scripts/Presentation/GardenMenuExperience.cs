@@ -124,31 +124,32 @@ namespace NewAster.Presentation
             }else if(!available){Label(1064,215,470,110,"この庭では、まだ操作できません。",small,Color.white);}
             else if(gardenPanel==GardenPanel.Furniture){
                 var data=HomeData();
-                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];if(Btn(1064,204+i*52,470,46, GardenFurnitureName(item.id)+"を作る ／ 素材"+item.costs[0].amount,formalDiagnostic))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
+                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];if(Btn(1064,204+i*52,470,46, GardenFurnitureName(item.id)+"を作る ／ 素材"+item.costs[0].amount,HomeOperationsAllowed))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
                 Label(1064,365,470,32,"持っている家具",small,Color.white);
                 gardenMenuScroll=GUI.BeginScrollView(new Rect(1064,407,470,170),gardenMenuScroll,new Rect(0,0,445,Math.Max(170,state.furnitureInstances.Length*50)));
                 for(int i=0;i<state.furnitureInstances.Length;i++){var item=state.furnitureInstances[i];if(Btn(0,i*50,440,44,(selectedFurniture==item.instanceId?"◆ ":"")+GardenFurnitureName(item.defId)+" "+(i+1)))selectedFurniture=item.instanceId;}
                 GUI.EndScrollView();
-                if(Btn(1064,600,470,55,"選んだ家具を配置・移動",formalDiagnostic && selectedFurniture!=null))BeginGardenPlacement();
+                if(Btn(1064,600,470,55,"選んだ家具を配置・移動",HomeOperationsAllowed && selectedFurniture!=null))BeginGardenPlacement();
                 Label(1064,665,470,35,"選んだ家具は「人物」から利用できます。",small,Color.white);
             }else{
                 var heroes=formalCampaign.Snapshot.growth.heroines;if(selectedResident==null && heroes.Length>0)selectedResident=heroes[0].heroineId;
-                for(int i=0;i<heroes.Length;i++){string hero=heroes[i].heroineId;if(Btn(1064,204+i*48,470,42,(hero==selectedResident?"◆ ":"")+combatDefinitions.Hero(hero).name))selectedResident=hero;}
+                for(int i=0;i<heroes.Length;i++){string hero=heroes[i].heroineId;int spacing=gardenPanel==GardenPanel.Events?40:48,height=gardenPanel==GardenPanel.Events?35:42;if(Btn(1064,204+i*spacing,470,height,(hero==selectedResident?"◆ ":"")+combatDefinitions.Hero(hero).name))selectedResident=hero;}
                 if(gardenPanel==GardenPanel.Residents){
-                    if(Btn(1064,470,470,52,"この庭へ移動（家具利用を解除）",formalDiagnostic && selectedResident!=null))ProposeHome(new HomeOperation("occupant",selectedResident,garden:garden,x:.15f+Array.FindIndex(heroes,h=>h.heroineId==selectedResident)*.16f,y:.72f));
-                    if(Btn(1064,535,470,52,"選んだ家具を使う",formalDiagnostic && selectedFurniture!=null && state.furniturePlacements.Any(p=>p.instanceId==selectedFurniture && p.gardenId==garden) && state.occupants.Any(o=>o.heroineId==selectedResident && o.gardenId==garden)))ProposeHome(new HomeOperation("use",selectedResident,selectedFurniture));
+                    if(Btn(1064,470,470,52,"この庭へ移動（家具利用を解除）",HomeOperationsAllowed && selectedResident!=null))ProposeHome(new HomeOperation("occupant",selectedResident,garden:garden,x:.15f+Array.FindIndex(heroes,h=>h.heroineId==selectedResident)*.16f,y:.72f));
+                    if(Btn(1064,535,470,52,"選んだ家具を使う",HomeOperationsAllowed && selectedFurniture!=null && state.furniturePlacements.Any(p=>p.instanceId==selectedFurniture && p.gardenId==garden) && state.occupants.Any(o=>o.heroineId==selectedResident && o.gardenId==garden)))ProposeHome(new HomeOperation("use",selectedResident,selectedFurniture));
                     Label(1064,610,470,85,selectedFurniture==null?"家具パネルで、利用する家具を選んでください。":"選択中："+GardenFurnitureName(state.furnitureInstances.Single(f=>f.instanceId==selectedFurniture).defId),small,Color.white);
                 }else if(selectedResident!=null){
-                    Label(1064,451,470,32,"好感度 "+(state.affections.SingleOrDefault(a=>a.heroineId==selectedResident)?.value??0),small,Color.white);
-                    if(Btn(1064,490,470,44,"交流 ／ 素材1・好感度＋1",formalDiagnostic))ProposeHome(new HomeOperation("talk",selectedResident));
+                    Label(1064,415,470,32,"好感度 "+(state.affections.SingleOrDefault(a=>a.heroineId==selectedResident)?.value??0),small,Color.white);
+                    if(Btn(1064,465,470,44,"交流 ／ 素材1・好感度＋1",HomeOperationsAllowed))ProposeHome(new HomeOperation("talk",selectedResident));
                     var events=HomeData().events.Where(e=>e.heroineId==selectedResident && (!plan8StoryTrial || HasTrialText(e.id))).ToArray();
-                    for(int i=0;i<events.Length;i++){var item=events[i];bool read=state.readEventIds.Contains(item.id),open=state.unlockedEventIds.Contains(item.id);if(Btn(1064,550+i*49,470,43,(read?"回想":open?"物語を読む":"未解放")+" "+(plan8StoryTrial?OriginalStoryTitle(item.id):(i+1).ToString()),formalDiagnostic && open))BeginAdv(item.id,read);}
+                    for(int i=0;i<events.Length;i++){var item=events[i];bool read=state.readEventIds.Contains(item.id),open=state.unlockedEventIds.Contains(item.id);if(Btn(1064,525+i*40,470,35,(read?"回想":open?"物語を読む":"未解放")+" "+(ProductionStoryActive?ProductionStoryTitle(item.id):plan8StoryTrial?OriginalStoryTitle(item.id):(i+1).ToString()),HomeOperationsAllowed && open))BeginAdv(item.id,read);}
+                    if(ProductionStoryActive)Label(1064,725,470,22,"好感度1・5・10・15・20と、前の物語の読了で解放",new GUIStyle(small){fontSize=14},Color.white);
                     if(plan8StoryTrial && events.Length==0)Label(1064,605,470,70,"この人物の交流本文は未制作です。",small,Color.white);
                     else if(plan8StoryTrial && events.Any(e=>!state.unlockedEventIds.Contains(e.id)))Label(1064,605,470,70,"解放条件：素材1を使って交流し、好感度1にする。",small,Color.white);
                 }
             }
             GUI.enabled=oldEnabled;
-            if(!formalDiagnostic && gardenPanel!=GardenPanel.Navigation)Label(1064,712,470,27,"操作は下の「庭の検証セーブ」で試せます。",new GUIStyle(small){fontSize=14},Color.white);
+            if(!HomeOperationsAllowed && gardenPanel!=GardenPanel.Navigation)Label(1064,712,470,27,"操作は下の「庭の検証セーブ」で試せます。",new GUIStyle(small){fontSize=14},Color.white);
             // Consume the remaining pointer event before it can reach controls behind this drawer.
             if(interactive && !help && gardenDrawer.Contains(Event.current.mousePosition) && (Event.current.type==EventType.MouseDown || Event.current.type==EventType.MouseUp || Event.current.type==EventType.ScrollWheel))Event.current.Use();
         }

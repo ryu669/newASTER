@@ -88,6 +88,9 @@ public static class Plan9StoryTests
         check(trialRejected,"Separate trial profile cannot silently become a normal production save");
         bool cloneRejected=false;try{ProductionStoryMigration.Prepare(prior,combat,pack,s=>s);}catch(ArgumentException){cloneRejected=true;}
         check(cloneRejected,"Migration rejects shared campaign objects");
+        var noLedger=clone(prior);noLedger.collection=null;var without=ProductionStoryMigration.Prepare(noLedger,combat,pack,clone);
+        HomeRules.Grant(without,home,Array.Empty<HomeCost>());
+        check(without.collection.contentVersion==CollectionCatalog.ProductionVersion,"First production read on a pre-collection save creates the correct ledger version");
         Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
         var journal=new FormalCampaignJournal(migrated,encode,decode);
         for(int index=0;index<3;index++){
@@ -103,6 +106,18 @@ public static class Plan9StoryTests
             journal=new FormalCampaignJournal(decode(encode(journal.Snapshot)),encode,decode);
         }
         check(journal.Snapshot.growth.nectar==123 && journal.Snapshot.collection.materials[0].amount==17 && journal.Snapshot.home.unlockedEventIds.Contains(hero0+".event.3"),"Restart retains event chain without unconfigured rewards");
+        var collected=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion)};
+        var collectionJournal=new FormalCampaignJournal(collected,encode,decode);
+        foreach(string enemy in WorldCatalog.ColossusIds){
+            var session=new BattleCollectionSession(collection,"production-source-"+enemy,enemy,1,collectionJournal.Snapshot.revision,combat.FormationIds,31,ColossusCombatCatalog.Get(enemy).contentVersion);
+            foreach(string poem in collection.owners.Single(o=>o.id==enemy).poemIds)session.RecordCompletedSinging(poem);
+            var receipt=session.Finish(BattleEndReason.Retreat,collectionJournal.Snapshot.world.poemIds,collectionJournal.Snapshot.world.unlockedStoryIds);
+            var request=new FormalBattleEndRequest(receipt,collectionJournal.Snapshot.revision);
+            check(collectionJournal.CommitBattleEnd(request,collection,null,s=>true,home)==GrowthCommitResult.Committed,"Production singing collection atomically applies authored correspondences");
+        }
+        check(collectionJournal.Snapshot.world.poemIds.Length==450 && collectionJournal.Snapshot.world.unlockedStoryIds.Length==60,"All fifteen source collections unlock exactly 450 poems and sixty authored chapters");
+        check(collectionJournal.Snapshot.home.readEventIds.Length==0 && collectionJournal.Snapshot.home.loverHeroineIds.Length==0 && collectionJournal.Snapshot.world.readStoryIds.Length==0,"Collecting poems never grants story reads or romantic relationship");
+        check(collectionJournal.Snapshot.collection.materials.Length==0 && collectionJournal.Snapshot.world.firstClearIds.Length==0,"Retreat collection never grants materials or world clears");
         string directory=System.IO.Path.Combine(System.IO.Path.GetTempPath(),"newaster-production-story-"+Guid.NewGuid().ToString("N"));
         System.IO.Directory.CreateDirectory(directory);string path=System.IO.Path.Combine(directory,"campaign.json");
         try{

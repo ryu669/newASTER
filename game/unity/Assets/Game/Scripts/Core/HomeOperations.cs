@@ -23,7 +23,7 @@ namespace NewAster.Core
         }
         public static void Grant(FormalCampaignSave s,HomeExperienceCatalog c,HomeCost[] rewards)
         {
-            s.collection=s.collection??new FormalCollectionLedger{contentVersion=c.contentVersion==HomeExperienceCatalog.TrialVersion?CollectionCatalog.TrialVersion:CollectionCatalog.FixtureVersion};
+            s.collection=s.collection??new FormalCollectionLedger{contentVersion=c.contentVersion==HomeExperienceCatalog.TrialVersion?CollectionCatalog.TrialVersion:c.contentVersion==HomeExperienceCatalog.ProductionVersion?CollectionCatalog.ProductionVersion:CollectionCatalog.FixtureVersion};
             foreach(var r in rewards){var source=c.materials.SingleOrDefault(m=>m.id==r.resourceId);if(source==null)throw new ArgumentException("Unsupported reward.");var m=s.collection.materials.SingleOrDefault(x=>x.id==r.resourceId);if(m==null){m=new CollectionMaterial{id=r.resourceId,sourceColossusId=source.colossusId};s.collection.materials=s.collection.materials.Concat(new[]{m}).ToArray();}m.amount=checked(m.amount+r.amount);}
         }
         public static void Owned(FormalCampaignSave s,string hero){if(!s.growth.heroines.Any(h=>h.heroineId==hero))throw new ArgumentException("Unknown heroine.");}

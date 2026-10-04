@@ -67,12 +67,12 @@ namespace NewAster.Presentation
         }
         private void BeginAdv(string source,bool replay)
         {
-            if(!formalDiagnostic || !BookInputAllowed)return;var c=HomeData();var snapshot=formalCampaign.Snapshot;var e=c.events.SingleOrDefault(x=>x.id==source);var ch=c.chapters.SingleOrDefault(x=>x.id==source);
+            if(!HomeOperationsAllowed || !BookInputAllowed)return;var c=HomeData();var snapshot=formalCampaign.Snapshot;var e=c.events.SingleOrDefault(x=>x.id==source);var ch=c.chapters.SingleOrDefault(x=>x.id==source);
             if(plan8StoryTrial && !HasTrialText(source))return;
             bool unlocked=e!=null?(snapshot.home?.unlockedEventIds.Contains(source)??false):ch!=null && snapshot.world.unlockedStoryIds.Contains(source);bool read=e!=null?(snapshot.home?.readEventIds.Contains(source)??false):snapshot.world.readStoryIds.Contains(source);
             if(!unlocked || replay && !read)return;
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
-            if(plan8StoryTrial && !replay)adv.ResumeAtFirstUnread();
+            if((plan8StoryTrial || ProductionStoryActive) && !replay)adv.ResumeAtFirstUnread();
             advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
             if(advBgm.clip!=null)TrialObserve("audio","adv-bgm-requested",advBgm.clip.name+";loop=true");
             TrialObserve("reading",replay?"replay-start":"start",source);
@@ -105,10 +105,11 @@ namespace NewAster.Presentation
             bool previousAdvEnabled=GUI.enabled;GUI.enabled=previousAdvEnabled && !advBacklog && !advHelp;
             drawingModal=true;GrowthStyles();GrowthFill(0,0,1600,900,new Color(.09f,.17f,.22f));
             var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,425),background,ScaleMode.ScaleAndCrop);
-            Label(45,25,1490,50,(plan8StoryTrial?"オリジナル試遊 ／ "+OriginalStoryTitle(adv.SourceId):"機能検証用ADV ／ 正式本文未制作・美術候補")+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
+            if(ProductionStoryActive && adv.CgId!=null){var scene=AdvTexture(adv.CgId);if(scene!=null)GUI.DrawTexture(new Rect(0,100,1600,900),scene,ScaleMode.ScaleToFit);}
+            Label(45,25,1490,50,(ProductionStoryActive?ProductionStoryTitle(adv.SourceId):plan8StoryTrial?"オリジナル試遊 ／ "+OriginalStoryTitle(adv.SourceId):"機能検証用ADV ／ 正式本文未制作・美術候補")+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
             GrowthFill(0,80,1600,40,navy);
-            Label(45,85,1490,35,plan8StoryTrial?"試遊本文 ／ 美術・音は開発用見本です。":"背景："+adv.BackgroundId+" ／ BGM・SE：見本用の合成音候補",growthSmallStyle);
-            if(adv.CgId!=null){var cg=AdvTexture(adv.CgId);if(cg!=null)GUI.DrawTexture(new Rect(280,115,1040,410),cg,ScaleMode.ScaleToFit);else{GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);}}
+            Label(45,85,1490,35,ProductionStoryActive?"万物の書 ／ 物語":plan8StoryTrial?"試遊本文 ／ 美術・音は開発用見本です。":"背景："+adv.BackgroundId+" ／ BGM・SE：見本用の合成音候補",growthSmallStyle);
+            if(adv.CgId!=null && !ProductionStoryActive){var cg=AdvTexture(adv.CgId);if(cg!=null)GUI.DrawTexture(new Rect(280,115,1040,410),cg,ScaleMode.ScaleToFit);else{GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);}}
             if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder))DrawAdvActor(actor);
             var bodyStyle=new GUIStyle(growthTextStyle){fontSize=ArtSampleSettings.LargeText?27:23};
             GrowthFrame(40,525,1520,245);Label(70,540,1440,45,adv.SpeakerId==null?"地の文":combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,600,1440,150,adv.VisibleText,bodyStyle);

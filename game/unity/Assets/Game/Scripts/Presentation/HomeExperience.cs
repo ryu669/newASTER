@@ -16,11 +16,11 @@ namespace NewAster.Presentation
             acceptanceStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"plan6-home-trial-v1.json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
             var load=acceptanceStore.Load(out var trial);if(load!=FormalLoadResult.Loaded && load!=FormalLoadResult.Missing){status="検証セーブを読めません。元ファイルを保持しています。";acceptanceStore=null;return;}
             if(load==FormalLoadResult.Missing){trial=CreateHomeTrial();if(!acceptanceStore.Save(trial)){status="検証セーブを保存できません。";acceptanceStore=null;return;}}
-            ResetGardenMenu();formalDiagnostic=true;homeTrial=true;BindFormalCampaign(trial);title=false;encounter=null;book.ChangeBookmark(BookBookmark.Gardens);
+            ResetGardenMenu();formalDiagnostic=true;homeTrial=true;homeData=HomeExperienceFixture.Create(combatDefinitions);collectionCatalog=CollectionContractFixture.Create(combatDefinitions);BindFormalCampaign(trial);title=false;encounter=null;book.ChangeBookmark(BookBookmark.Gardens);
         }
         private FormalCampaignSave CreateHomeTrial()
         {
-            var c=HomeData();var s=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(c.contentVersion),collection=new FormalCollectionLedger{materials=c.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
+            var c=HomeExperienceFixture.Create(combatDefinitions);var s=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(c.contentVersion),collection=new FormalCollectionLedger{materials=c.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
             s.world.unlockedGardenIds=c.gardens.Take(2).Select(g=>g.id).ToArray();HomeConditions.Refresh(s,c);return s;
         }
         private void ExitHomeTrial()
@@ -31,11 +31,11 @@ namespace NewAster.Presentation
             unsavedActiveSeconds=0;engagementRequest=null;engagementOpen=false;
             BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;
         }
-        private HomeExperienceCatalog HomeData()=>homeData??(homeData=HomeExperienceFixture.Create(combatDefinitions));
+        private HomeExperienceCatalog HomeData()=>homeData??(homeData=SelectHomeCatalog());
         private HomeOperation homeOperation;private FormalHomeRequest homeRequest;
         private string homeError,selectedFurniture,selectedResident,selectedNode;private float previewX=.5f,previewY=.65f;private bool placing;
         private FormalHomeProgress HomeState=>formalCampaign.Snapshot.home??FormalHomeProgress.Empty(HomeData().contentVersion);
-        private void ProposeHome(HomeOperation op){if(!formalDiagnostic){status="検証用の別セーブを開くと操作できます。";return;}if(homeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;homeOperation=op;homeRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),op.Kind=="equip"?"weapon":op.Kind=="remove"?"place":op.Kind=="use"?"occupant":op.Kind,formalCampaign.Snapshot.revision,HomeData().contentVersion,op.Key);homeError=null;}
+        private void ProposeHome(HomeOperation op){if(!HomeOperationsAllowed)return;if(homeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;homeOperation=op;homeRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),op.Kind=="equip"?"weapon":op.Kind=="remove"?"place":op.Kind=="use"?"occupant":op.Kind,formalCampaign.Snapshot.revision,HomeData().contentVersion,op.Key);homeError=null;}
         private void ConfirmHome()
         {
             try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}homeRequest=null;homeOperation=null;placing=false;homeError=null;}

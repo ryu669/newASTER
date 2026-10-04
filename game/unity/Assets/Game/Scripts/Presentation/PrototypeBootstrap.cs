@@ -150,6 +150,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
             if(capturePath!=null && args.Contains("-capturePlan8Story"))PreparePlan8StoryCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan9Story"))PreparePlan9StoryCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
             if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
             if(capturePath!=null && args.Contains("-plan8Performance"))PreparePlan8Performance(args);
@@ -504,12 +505,14 @@ namespace NewAster.Presentation
         {
             var owner=CollectionData().owners.Single(o=>o.id==book.SubjectId);
             Label(32,270,920,50,CollectionOwnerName(owner),heading);
-            Label(32,333,920,48,book.Face==BookFace.Overview?"物語の章 ／ 正式本文は未制作です。":"本文読了と詩の進捗 ／ 好感度とは別に記録します。",small);
+            Label(32,333,920,48,book.Face==BookFace.Overview?(ProductionStoryActive?"詩をそろえると、物語の章が開きます。":"物語の章 ／ 正式本文は未制作です。"):"本文読了と詩の進捗 ／ 好感度とは別に記録します。",small);
             var world=formalCampaign.Snapshot.world;
             for(int i=0;i<owner.chapterIds.Length;i++){
                 var chapter=CollectionData().chapters.Single(c=>c.id==owner.chapterIds[i]);string state=world.readStoryIds.Contains(chapter.id)?"読了":world.unlockedStoryIds.Contains(chapter.id)?"解放・未読":"未解放";
-                Label(32,410+i*66,formalDiagnostic?520:920,50,book.Face==BookFace.Overview?$"第{i+1}章　{state}　／　正式本文未制作":$"第{i+1}章　詩 {chapter.poemIds.Count(world.poemIds.Contains)}/{chapter.poemIds.Length}　／　{state}",text);
-                if(formalDiagnostic){if(Btn(560,405+i*66,210,50,"検証ADV",world.unlockedStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,false);if(Btn(785,405+i*66,170,50,"回想",world.readStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,true);}
+                bool visible=owner.kind=="heroine" || campaign.ColossusUnlocks.IsUnlocked(owner.id);
+                string name=ProductionStoryActive?(visible?ProductionStoryTitle(chapter.id):"未解放の章"):"第"+(i+1)+"章";
+                Label(32,410+i*66,HomeOperationsAllowed?520:920,50,book.Face==BookFace.Overview?$"{name}　{state}":$"第{i+1}章　詩 {chapter.poemIds.Count(world.poemIds.Contains)}/{chapter.poemIds.Length}　／　{state}",text);
+                if(HomeOperationsAllowed){if(Btn(560,405+i*66,210,50,ProductionStoryActive?"読む／再開":"検証ADV",world.unlockedStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,false);if(Btn(785,405+i*66,170,50,"回想",world.readStoryIds.Contains(chapter.id)))BeginAdv(chapter.id,true);}
             }
             if(Btn(32,635,920,58,"この対象の詩と章の一覧",BookInputAllowed && !book.IsTransitioning))OpenCollectionForBook();
             if(Btn(32,713,920,58,"オーパーツと素材を確認",BookInputAllowed && !book.IsTransitioning)){collectionOpen=true;collectionTab=1;}

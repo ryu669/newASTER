@@ -32,6 +32,7 @@ foreach($height in $Heights){
    'audio-focus' {$flags+=@('-capturePlan7Sample','-artCase','settings','-validatePlan7Focus')}
    {$_ -in @('settings','credits','exit','development','help')} {$flags+=@('-capturePlan9Title','-plan9TitlePanel',$case)}
    'book' {$flags+='-captureBook'}
+   {$_ -match '^story-(chapters|conditions|chapter|events|book|event\.(slayer|iconoclast|undermine|echidna|excalipan)\.[0-4])$'} {$flags+=@('-capturePlan9Story','-plan9RepositoryRoot',$repo,'-plan9StoryRunId',([Guid]::NewGuid().ToString('N')),'-plan9StoryView',$case.Substring(6))}
    'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
    'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
@@ -133,6 +134,7 @@ foreach($height in $Heights){
    if($text -notmatch ($marker+' id='+[regex]::Escape($expectedEnemy)) -or $text -match 'ILLUSTRATION_MANIFEST_WARNING'){throw 'Wrong enemy or missing independent artwork'}
   }
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
+  if($case.StartsWith('story-') -and $text -notmatch ('PLAN9_STORY_PLAYER_PASS.*events=25 lover=5 view='+[regex]::Escape($case.Substring(6)))){throw 'Wrong production story view or incomplete event progression'}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
   if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}
   if($case.StartsWith('red-battle-') -and ($text -notmatch 'PLAN9_COLOSSUS_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy combat capture unavailable'}

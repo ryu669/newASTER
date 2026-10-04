@@ -75,15 +75,18 @@ namespace NewAster.Presentation
                 var worldLoad=formalDiagnostic?FormalLoadResult.Missing:CampaignSaveStore.LoadFormalSplit(out world);
                 if(growthLoad==FormalLoadResult.Blocked || growthLoad==FormalLoadResult.RecoveredBackup || worldLoad==FormalLoadResult.Blocked){BeginSplitSaveRecovery();return;}
                 if(growth==null)growth=new FormalGrowthSave {saveId="newaster.formal-growth",nectar=2940,awakeningCrystals=20,heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
-                unified=new FormalCampaignSave {growth=growth,world=world??new CampaignState(WorldCatalog.ColossusIds).CreateSave()};unified.Validate();
+                unified=new FormalCampaignSave {growth=growth,world=world??new CampaignState(WorldCatalog.ColossusIds).CreateSave()};
+                if(ProductionStoryActive){unified=ProductionStoryMigration.Prepare(unified,combatDefinitions,ProductionStoryData(),s=>UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(s)));unified.revision=0;unified.collection=new FormalCollectionLedger{contentVersion=CollectionCatalog.ProductionVersion};}
+                unified.Validate();
                 if(!formalDiagnostic)SaveTrialObservedCampaign(unified);
             }
             BindFormalCampaign(unified);
         }
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
-            unified.collection?.ValidateContent(plan8StoryTrial?TrialStoryCatalog.Collection(combatDefinitions,StoryData()):CollectionContractFixture.Create(combatDefinitions));
-            unified.home?.ValidateContent(plan8StoryTrial?HomeData():HomeExperienceFixture.Create(combatDefinitions),unified);
+            if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
+            unified.collection?.ValidateContent(SelectCollectionCatalog());
+            unified.home?.ValidateContent(HomeData(),unified);
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
