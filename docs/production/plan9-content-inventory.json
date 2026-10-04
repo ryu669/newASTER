@@ -7610,6 +7610,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "silver-sea-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/silver-sea-far-candidate-v1.png",
+      "sha256": "E4DBFD2C5AE5E3255D0C1C904A01827D246AA6619444714319628CBE4B55902C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "sky-barrier-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -8037,6 +8047,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-standing-candidate-v1.png",
       "sha256": "277582A6E9F592D2A1F2EEFC7961D6EE167B7842A5CB1AF2955CA76D23D784B3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-armor-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-armor-candidate-v1.png",
+      "sha256": "2CC47A8898C4980606CF7B2DDC9A30B68F72FFCACFA70C41CD6C14B2CEF7AB39",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-body-candidate-v1.png",
+      "sha256": "AC2337061EF48EB15404439AFEEB61E2783A9D3D546FFB36E15B5513C12D2399",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-core-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-core-candidate-v1.png",
+      "sha256": "1A5FD4C1CC7F36C5BA65FE6D4790BC73AC5B57DFF46930E77EB564DD2507C49D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-fin-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-fin-candidate-v1.png",
+      "sha256": "0E7DE69DF8749BF1EEE9057994D2C60E8E79FCF3B52436A9230B51F0B3C115EC",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-major-candidate-v1.png",
+      "sha256": "0584D9AAB6005A0B4F32B2FBE67B1D4FD6DE65126F900D9D9E5F49E84619A4AE",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "whale-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-tail-candidate-v1.png",
+      "sha256": "1E103031030E53C796BA36D8403286C75BF30423B1B98B75E401872BB74BEAC3",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     }
   ]

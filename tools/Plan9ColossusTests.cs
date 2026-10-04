@@ -72,6 +72,12 @@ public static class Plan9ColossusTests
         b.State.BreakPart("rose.whip",int.MaxValue);check(b.NextEnemyAction=="花弁の輪舞" && b.NextEnemyTargets.Length==5,"Destroyed whip falls back to petal dance");
         b=rose();next(b);next(b);check(b.NextEnemyAction=="根脈吸収","Rose third step drains resources");
         b.State.BreakPart("rose.root",int.MaxValue);check(b.NextEnemyAction=="花弁の輪舞","Broken root removes drain action");
+        Func<PlayableBattle> whale=()=>new PlayableBattle(1,new PlayableProgress(),76,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.silver-sea-whale"));
+        b=whale();check(b.NextEnemyAction=="銀潮の波" && b.NextEnemyTargets.Length==5,"Whale opens with all-target wave");
+        next(b);check(b.NextEnemyAction=="潜航突進" && b.NextEnemyTargets.Length==1,"Whale follows wave with single dive");
+        b.State.BreakPart("whale.fin",int.MaxValue);check(b.NextEnemyAction=="銀潮の波","Destroyed fin removes dive");
+        b=whale();next(b);next(b);check(b.NextEnemyAction=="潮流吸収","Whale third step is tidal drain");
+        b.State.BreakPart("whale.tail",int.MaxValue);check(b.NextEnemyAction=="銀潮の波","Destroyed whale tail removes tidal drain");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

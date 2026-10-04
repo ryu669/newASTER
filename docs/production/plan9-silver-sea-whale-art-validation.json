@@ -1,0 +1,120 @@
+{
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-normal-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-normal-720.log",
+      "case": "whale-art-normal",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part1-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part1-720.log",
+      "case": "whale-art-part1",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part2-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part2-720.log",
+      "case": "whale-art-part2",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part3-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part3-720.log",
+      "case": "whale-art-part3",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part4-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part4-720.log",
+      "case": "whale-art-part4",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-all-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-all-720.log",
+      "case": "whale-art-all",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-major-720.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-major-720.log",
+      "case": "whale-art-major",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-normal-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-normal-1080.log",
+      "case": "whale-art-normal",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part1-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part1-1080.log",
+      "case": "whale-art-part1",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part2-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part2-1080.log",
+      "case": "whale-art-part2",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part3-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part3-1080.log",
+      "case": "whale-art-part3",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part4-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-part4-1080.log",
+      "case": "whale-art-part4",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-all-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-all-1080.log",
+      "case": "whale-art-all",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-major-1080.png",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-30c4d74a24df47ab9299025d4d375e0a\\whale-art-major-1080.log",
+      "case": "whale-art-major",
+      "height": 1080
+    }
+  ],
+  "assemblySha256": "21E94ACF47757CA7A9D01EC3D8AF7C0551329A537643467EF172AC837DA1DD6C",
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.silver-sea-whale",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "39cbdafdacccc83ea031c41c32eed010768239d1cc268de4a9339ca1569a8bc5",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        179,
+        461,
+        1101,
+        845
+      ],
+      "sha256": "ac2337061ef48eb15404439afeeb61e2783a9d3d546ffb36e15b5513c12d2399",
+      "status": "candidate"
+    },
+    {
+      "purpose": "whale.core",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-core-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        270,
+        287,
+        1036,
+        959
+      ],
+      "sha256": "1a5fd4c1cc7f36c5ba65fe6d4790bc73ac5b57dff46930e77eb564dd2507c49d",
+      "status": "candidate"
+    },
+    {
+      "purpose": "whale.fin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-fin-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        74,
+        304,
+        1192,
+        1012
+      ],
+      "sha256": "0e7de69df8749bf1eee9057994d2c60e8e79fcf3b52436a9230b51f0b3c115ec",
+      "status": "candidate"
+    },
+    {
+      "purpose": "whale.armor",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-armor-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        60,
+        480,
+        1196,
+        822
+      ],
+      "sha256": "2cc47a8898c4980606cf7b2ddc9a30b68f72ffcacfa70c41cd6c14b2cef7ab39",
+      "status": "candidate"
+    },
+    {
+      "purpose": "whale.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        107,
+        154,
+        1150,
+        1029
+      ],
+      "sha256": "1e103031030e53c796ba36d8403286c75bf30423b1b98b75e401872bb74beac3",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/whale-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        53,
+        275,
+        1232,
+        1007
+      ],
+      "sha256": "0584d9aab6005a0b4f32b2fbe67b1d4fd6de65126f900d9d9e5f49e84619a4ae",
+      "status": "candidate"
+    }
+  ]
+}

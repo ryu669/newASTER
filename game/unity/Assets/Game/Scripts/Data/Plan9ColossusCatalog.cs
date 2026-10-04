@@ -11,7 +11,25 @@ namespace NewAster.Data
             {"colossus.red-crystal-tyrant",RedCrystalTyrant},
             {"colossus.memory-crystal-dragon",MemoryCrystalDragon},
             {"colossus.sky-tower-machine",SkyTowerMachine},
-            {"colossus.crystal-rose-princess",CrystalRosePrincess}
+            {"colossus.crystal-rose-princess",CrystalRosePrincess},
+            {"colossus.silver-sea-whale",SilverSeaWhale}
+        };
+        private static ColossusCombatDef SilverSeaWhale()=>new ColossusCombatDef {
+            id="colossus.silver-sea-whale",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2500,hpPerLevel=180,gaugeMax=5,baseDamage=15,damagePerLevel=2,majorBonus=34,ultimateBonus=64,
+            normalAction="銀潮の波",enragedAction="荒潮浮上",majorAction="大技：銀海奔流",ultimateAction="極大技：大海の再誕",
+            enemySpeed=76,enrageHpPercent=40,enrageDamagePercent=140,attackBreakDamagePercent=65,majorDamageType="magic",majorWaitPercent=190,
+            parts=new[]{
+                new ColossusPartCombatDef{id="whale.core",role="gauge",breakEffect="gauge-down",baseHp=340,hpPerLevel=14},
+                new ColossusPartCombatDef{id="whale.fin",role="attack",breakEffect="",baseHp=420,hpPerLevel=17},
+                new ColossusPartCombatDef{id="whale.armor",role="armor",breakEffect="",baseHp=500,hpPerLevel=20},
+                new ColossusPartCombatDef{id="whale.tail",role="drain",breakEffect="",baseHp=370,hpPerLevel=15}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="銀潮の波",targetRule="all",damageType="magic",damagePercent=60,gaugeGain=1,drainAmount=0,waitPercent=135},
+                new ColossusActionCombatDef{name="潜航突進",targetRule="single",requiredPartId="whale.fin",damageType="physical",damagePercent=130,gaugeGain=1,drainAmount=0,waitPercent=110},
+                new ColossusActionCombatDef{name="潮流吸収",targetRule="highest-resource",requiredPartId="whale.tail",damageType="magic",damagePercent=75,gaugeGain=2,drainAmount=2,waitPercent=150}
+            }
         };
         private static ColossusCombatDef CrystalRosePrincess()=>new ColossusCombatDef {
             id="colossus.crystal-rose-princess",contentVersion=ColossusCombatDef.Plan9Version,
