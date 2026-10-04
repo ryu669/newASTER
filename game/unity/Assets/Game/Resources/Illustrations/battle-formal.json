@@ -16,6 +16,8 @@
       "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
       "fullCanvas": true,
       "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
       "placeholder": true
     },
     {

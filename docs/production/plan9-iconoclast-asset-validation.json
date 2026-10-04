@@ -55,6 +55,42 @@
       "transparentPixels": 517929,
       "status": "candidate",
       "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-hit",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-hit-candidate-v1.png",
+      "sha256": "62617515ff4c65d8eed321f87b3d6ef7f2f7b3ad56e1134406ff598dcf5d56b8",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        133,
+        48,
+        1180,
+        1191
+      ],
+      "transparentPixels": 893009,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-cutin",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-cutin-candidate-v1.png",
+      "sha256": "64407717d5cd0897c61cd3a6574309c15884dbcaa05155a82c99369e92517b85",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        0,
+        12,
+        1536,
+        1024
+      ],
+      "transparentPixels": 355565,
+      "status": "candidate",
+      "finalDeliveryApproved": false
     }
   ]
 }

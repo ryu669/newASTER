@@ -7,7 +7,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = ROOT / 'game/unity/Assets/Game/Resources/Illustrations'
 rows = []
-for pose in ('standing', 'attack', 'portrait'):
+for pose in ('standing', 'attack', 'portrait', 'hit', 'cutin'):
     path = FOLDER / f'iconoclast-{pose}-candidate-v1.png'
     with Image.open(path) as image:
         if image.mode != 'RGBA':
@@ -17,7 +17,7 @@ for pose in ('standing', 'attack', 'portrait'):
         if hist[0] == 0 or sum(hist[240:]) == 0:
             raise ValueError(f'Missing transparency or visible character: {path.name}')
         bbox = alpha.point(lambda value: 255 if value > 32 else 0).getbbox()
-        if bbox is None or (pose != 'portrait' and (bbox[0] == 0 or bbox[1] == 0 or bbox[2] == image.width or bbox[3] == image.height)):
+        if bbox is None or (pose not in ('portrait', 'cutin') and (bbox[0] == 0 or bbox[1] == 0 or bbox[2] == image.width or bbox[3] == image.height)):
             raise ValueError(f'Visible silhouette touches canvas edge: {path.name}')
         rows.append(dict(assetId=f'iconoclast-{pose}', heroineId='heroine.iconoclast',
                          path=str(path.relative_to(ROOT)).replace('\\', '/'),
@@ -28,4 +28,4 @@ for pose in ('standing', 'attack', 'portrait'):
 output = ROOT / 'docs/production/plan9-iconoclast-asset-validation.json'
 output.write_text(json.dumps(dict(schemaVersion=1, performanceMeasured=False, assets=rows),
                              ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-print('PLAN9_CHARACTER_ASSET_PASS 3 RGBA candidates / visible bounds / SHA256; portrait allows intentional torso/wing crop')
+print('PLAN9_CHARACTER_ASSET_PASS 5 RGBA candidates / visible bounds / SHA256; portrait and cutin allow intentional torso/wing crop')

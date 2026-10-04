@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.iconoclast",
+  "baseSha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+  "candidateSha256": "f2032e377cf10aa58adf4900a839d5fe705a86bd5b00381f08f333f2dde9ac02",
+  "faceRegion": [
+    420,
+    240,
+    210,
+    170
+  ],
+  "changedInside": 35328,
+  "changedOutside": 834153,
+  "accepted": false,
+  "reason": "changed-outside-face-or-no-expression-change",
+  "performanceMeasured": false
+}

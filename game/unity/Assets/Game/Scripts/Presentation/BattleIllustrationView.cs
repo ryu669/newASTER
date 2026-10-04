@@ -56,6 +56,8 @@ namespace NewAster.Presentation
         public static Rect PartCanvas(Rect canvas,PartIllustrationBinding part)
         {var p=part.placement;return p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);}
         public static int DisplayActor(int available,BattlePresentationEvent e) => e!=null?e.Actor:available;
+        public static int DisplayVictim(string[] heroineIds,BattlePresentationEvent e)
+        {return e!=null && e.Kind==BattlePresentationKind.Enemy?Array.FindIndex(heroineIds,id=>e.TargetIds.Contains(id)):-1;}
         public void DrawEnemyPreview(Rect canvas,int brokenMask)
         {
             if(manifest==null || body==null)return;
@@ -84,8 +86,9 @@ namespace NewAster.Presentation
                 actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id==inspectId);
                 if(actor<0)throw new ArgumentException("Unknown illustration inspection heroine: "+inspectId);
             }
-            bool victim=e!=null && e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Contains("heroine.slayer");
-            if(victim && !inspectStanding)actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
+            int victimIndex=DisplayVictim(battle.State.Heroes.Select(h=>h.Id).ToArray(),e);
+            if(victimIndex>=0 && !inspectStanding)actor=victimIndex;
+            bool victim=victimIndex>=0 && !inspectStanding;
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=!ArtSampleSettings.ReducedMotion && e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
             var actorRect=new Rect(890+movement,104,650,550);

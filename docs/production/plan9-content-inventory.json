@@ -6890,6 +6890,26 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "iconoclast-cutin-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-cutin-candidate-v1.png",
+      "sha256": "64407717D5CD0897C61CD3A6574309C15884DBCAA05155A82C99369E92517B85",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-hit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-hit-candidate-v1.png",
+      "sha256": "62617515FF4C65D8EED321F87B3D6EF7F2F7B3AD56E1134406FF598DCF5D56B8",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "iconoclast-portrait-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",

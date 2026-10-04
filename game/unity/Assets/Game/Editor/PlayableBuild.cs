@@ -241,6 +241,13 @@ public static partial class PlayableBuild
         var first=battle.DrainPresentationEvents().First(e=>e.Kind==BattlePresentationKind.Attack);
         Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(battle.AvailableHero,first)==actor,"Presentation actor overrides the next available heroine");
         Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(3,null)==3,"Idle display uses the available actor");
+        string[] portraitIds={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan"};
+        for(int victim=0;victim<portraitIds.Length;victim++){
+            var hitEvent=new BattlePresentationEvent(1,0,BattlePresentationKind.Enemy,-1,portraitIds[victim],"hit",false,false,1,0,battle.State,Array.Empty<int>(),Enumerable.Repeat(false,5),targetIds:new[]{portraitIds[victim]});
+            Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,hitEvent)==victim,"Hit portrait follows target ID for each formal heroine");
+        }
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,first)==-1,"Hero attacks do not select a hit portrait");
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,null)==-1,"Idle frames do not select a hit portrait");
         var compound=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);
         compound.Skill("hero-0",0).selfHealingBaseAttackPercent=70;
         compound.Skill("hero-0",0).selfDamageMaxHpPercent=10;
