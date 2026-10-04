@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-source-not-connected",
+  "chapters": 17,
+  "poems": 126,
+  "events": 0,
+  "required": {
+    "chapters": 60,
+    "poems": 450,
+    "events": 25
+  },
+  "missingChapterIds": [
+    "colossus.amber-king-serpent.collection.chapter.1",
+    "colossus.amber-king-serpent.collection.chapter.2",
+    "colossus.amber-king-serpent.collection.chapter.3",
+    "colossus.black-smoke-citadel.collection.chapter.1",
+    "colossus.black-smoke-citadel.collection.chapter.2",
+    "colossus.black-smoke-citadel.collection.chapter.3",
+    "colossus.crystal-rose-princess.collection.chapter.1",
+    "colossus.crystal-rose-princess.collection.chapter.2",
+    "colossus.crystal-rose-princess.collection.chapter.3",
+    "colossus.dead-king-megadeath.collection.chapter.1",
+    "colossus.dead-king-megadeath.collection.chapter.2",
+    "colossus.dead-king-megadeath.collection.chapter.3",
+    "colossus.emerald-star-astal.collection.chapter.1",
+    "colossus.emerald-star-astal.collection.chapter.2",
+    "colossus.emerald-star-astal.collection.chapter.3",
+    "colossus.final-flame-ice-phoenix.collection.chapter.1",
+    "colossus.final-flame-ice-phoenix.collection.chapter.2",
+    "colossus.final-flame-ice-phoenix.collection.chapter.3",
+    "colossus.heaven-tree-orochi.collection.chapter.1",
+    "colossus.heaven-tree-orochi.collection.chapter.2",
+    "colossus.heaven-tree-orochi.collection.chapter.3",
+    "colossus.newborn-asteria.collection.chapter.1",
+    "colossus.newborn-asteria.collection.chapter.2",
+    "colossus.newborn-asteria.collection.chapter.3",
+    "colossus.reenactment-yimir.collection.chapter.1",
+    "colossus.reenactment-yimir.collection.chapter.2",
+    "colossus.reenactment-yimir.collection.chapter.3",
+    "colossus.silver-sea-whale.collection.chapter.1",
+    "colossus.silver-sea-whale.collection.chapter.2",
+    "colossus.silver-sea-whale.collection.chapter.3",
+    "colossus.white-divine-dragon-mother.collection.chapter.1",
+    "colossus.white-divine-dragon-mother.collection.chapter.2",
+    "colossus.white-divine-dragon-mother.collection.chapter.3",
+    "heroine.echidna.poem-chapter.2",
+    "heroine.echidna.poem-chapter.3",
+    "heroine.excalipan.poem-chapter.2",
+    "heroine.excalipan.poem-chapter.3",
+    "heroine.iconoclast.poem-chapter.2",
+    "heroine.iconoclast.poem-chapter.3",
+    "heroine.slayer.poem-chapter.2",
+    "heroine.slayer.poem-chapter.3",
+    "heroine.undermine.poem-chapter.2",
+    "heroine.undermine.poem-chapter.3"
+  ],
+  "sources": [
+    {
+      "path": "game/story-source/plan9/initial-authored-chapters.json",
+      "sha256": "1d0f8f055b0741053a0a419b58daa6070f17d376b18720a1719dae0326a1800b"
+    },
+    {
+      "path": "game/story-source/plan9/memory-crystal-dragon.json",
+      "sha256": "78cb75f3112f2e2ef36db51aba81032f02dec6bd24c03c583c0f6afd27e547f2"
+    },
+    {
+      "path": "game/story-source/plan9/red-crystal-tyrant.json",
+      "sha256": "aa786cbe6448c9f107dd6fc14c4cdbba51f483b90a73daba1213032c708de900"
+    },
+    {
+      "path": "game/story-source/plan9/sky-tower-machine.json",
+      "sha256": "276fffd82f7b32df77a4d90472c26774455f60adbe63c65a8620067d29157b3b"
+    }
+  ]
+}

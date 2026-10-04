@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "status": "authored-source-partial-not-connected",
+  "source": "Earlier original prose, reviewed for production; diagnostic labels removed; original IDs preserved",
+  "chapters": [
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.1",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "空の底の種",
+      "introduction": "土を失った空に、一匹の竜が背を丸めていた。その背には町の門も、畑の畝もない。小さな布袋だけが、折れた角に結ばれている。万物の書に触れると、袋を抱えて走った庭師の記憶が開いた。",
+      "conclusion": "庭師が最後に守ったものは、完成した庭ではなかった。再び庭を作れるだけの小さな可能性だった。竜の角から袋がほどけ、書の余白に一粒の種の影が落ちた。",
+      "poems": [
+        {
+          "id": "colossus.green-return-dragon.collection.poem.01",
+          "text": "土がなくても、種を忘れないで",
+          "body": "庭師は空へ逃れる舟に最後の袋を渡した。「土がなくても、種を忘れないで」。乗れなかった自分の代わりに、まだ見ぬ畑へ届くことを願った。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.02",
+          "text": "名前より先に、芽を呼ぼう",
+          "body": "袋には持ち主の名札がない。庭師は名札を切って舟の裂け目をふさいだ。「名前より先に、芽を呼ぼう」。誰の功績になるかを決めるより、いま守るべきものがあった。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.03",
+          "text": "小さな手にも、明日の重さ",
+          "body": "袋を受け取った子供は、それを両手で抱えた。「小さな手にも、明日の重さ」。舟の舵を握る大人と、種を抱く子供の仕事に、庭師は上下をつけなかった。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.04",
+          "text": "刃を置いた場所から、道が伸びる",
+          "body": "庭師は畑を囲う杭を外し、人が通れる道を作った。「刃を置いた場所から、道が伸びる」。守るための境界が、逃げる人を阻むなら、今日は開けておく。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.05",
+          "text": "傷の数だけ、結び目を知る",
+          "body": "袋は何度も裂けていた。庭師は古い糸で穴を結び、強く締めすぎないように指を添えた。「傷の数だけ、結び目を知る」。壊れた経験は、次に壊さない手つきにもなる。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.06",
+          "text": "待つことも、運ぶこと",
+          "body": "舟が見えなくなっても、庭師は空を見上げていた。「待つことも、運ぶこと」。届いたと確かめられない約束を、投げ捨てずに持ち続ける。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.07",
+          "text": "空いた鉢には、風が座る",
+          "body": "避難した家の窓辺には、鉢だけが残った。庭師は空の鉢を持ち上げ、まだ軽いと笑った。「空いた鉢には、風が座る」。失われた形を責めず、新しい中身を待つ席にした。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.08",
+          "text": "帰る場所は、作りながら帰る",
+          "body": "庭師は舟の消えた方角へ、小さな作業台を向けた。「帰る場所は、作りながら帰る」。誰かが戻る日に間に合わなくても、今日の一枚から板を張ろう。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.2",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "雨のない約束",
+      "introduction": "記憶の泉は、底まで乾いていた。庭師は毎朝そこへ歩き、水を汲めない桶を置く。待っていた子供は、桶の軽さを知っている。それでも二人は、翌日会う時刻を決めた。",
+      "conclusion": "雨を呼ぶ翼は、約束を守ろうとする人々の記憶を集めたものだった。戦いで翼が崩れると、乾いた泉の石が一つ、書の中で濡れた。そこへ水を戻す仕事は、いまの私たちに残された。",
+      "poems": [
+        {
+          "id": "colossus.green-return-dragon.collection.poem.09",
+          "text": "明日、もう一度来る",
+          "body": "庭師は空の桶を伏せ、子供と目の高さを合わせた。「明日、もう一度来る」。水を約束できない日は、会うことだけを約束した。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.10",
+          "text": "遠回りにも、足跡は続く",
+          "body": "崩れた橋を避け、二人は泉まで長い道を歩いた。「遠回りにも、足跡は続く」。早く着けないことと、進んでいないことは違う。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.11",
+          "text": "見えない雲へ、翼を貸す",
+          "body": "雨を探す舟の帆が破れた。庭師は屋根の布を渡した。「見えない雲へ、翼を貸す」。成功が見えない仕事にも、渡せる道具はある。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.12",
+          "text": "守るとは、重さを分けること",
+          "body": "帰り道、庭師が桶を持ち、子供が種を持った。「守るとは、重さを分けること」。一人が全部抱えるより、二人が同じ道を歩けるようにした。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.13",
+          "text": "乾いた井戸にも、声は届く",
+          "body": "子供は井戸へ、自分の名前を呼んだ。返ってきた声に、庭師も名前を重ねた。「乾いた井戸にも、声は届く」。何も返らないと思っていた場所に、二人分の響きが残った。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.14",
+          "text": "雨の前に、器を洗おう",
+          "body": "庭師は残り水で桶を洗った。子供が惜しいと言うと、うなずいてから手を動かした。「雨の前に、器を洗おう」。来るかどうか分からない恵みを、迎えられる形にして待つ。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.15",
+          "text": "折れた枝にも、向きがある",
+          "body": "倒れた木を二人で動かし、泉の入口を開けた。「折れた枝にも、向きがある」。使えなくなったものも、置き直せば誰かを助けられる。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.16",
+          "text": "約束は、晴れた日にも残る",
+          "body": "最後の朝、雲は一つもなかった。子供は庭師より先に泉へ来ていた。「約束は、晴れた日にも残る」。二人の仕事は、雨の有無だけで終わらなかった。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.3",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "次の木陰",
+      "introduction": "庭師の記憶は、新しい星の土へ続いていた。昔と同じ畑は作れない。泉の向きも、風の温度も違う。戻った人々は、古い図面を囲みながら、最初の一鉢をどこへ置くか話し合った。",
+      "conclusion": "竜の歌は、過去を元通りにする命令ではなかった。残ったものを使い、違う世界で誰かと暮らすための相談だった。書を閉じると、私たちの庭にも、まだ使われていない席がある。",
+      "poems": [
+        {
+          "id": "colossus.green-return-dragon.collection.poem.17",
+          "text": "同じ土でなくても、根は伸びる",
+          "body": "庭師は古い畑の土と、新しい星の土を並べた。「同じ土でなくても、根は伸びる」。違いを消すのでなく、根が選ぶ道を見てみよう。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.18",
+          "text": "木陰は、誰の名前も選ばない",
+          "body": "最初の苗の影に、知らない人が腰を下ろした。庭師は自分の椅子を少し寄せた。「木陰は、誰の名前も選ばない」。休む理由を説明する前に、座れる場所があってよい。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.19",
+          "text": "欠けた椅子を、隣へ向ける",
+          "body": "椅子の背は片側が欠けていた。庭師は欠けた方を壁に向けず、話す人の方へ向けた。「欠けた椅子を、隣へ向ける」。隠すより、そこから誰かに声を掛けてみた。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.20",
+          "text": "知らない季節を、二人で測る",
+          "body": "新しい星では、夕方に冷たい風が吹いた。二人は苗の葉を毎日描いた。「知らない季節を、二人で測る」。一度の失敗で決めず、違いを確かめながら育てる。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.21",
+          "text": "古い地図に、今日の道を足す",
+          "body": "庭師は昔の地図を捨てず、余白へ新しい泉を描いた。「古い地図に、今日の道を足す」。過去を残すことは、今日を描き足せないことではない。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.22",
+          "text": "別れた歌にも、続きを渡す",
+          "body": "戻らなかった人の名前を、子供は新しい鉢に書いた。「別れた歌にも、続きを渡す」。その人の代わりになろうとせず、受け取った仕事を今日の形で続ける。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.23",
+          "text": "ここで、次の約束をしよう",
+          "body": "泉に最初の雨が落ちた。庭師は桶を置き、子供の方を向いた。「ここで、次の約束をしよう」。今度は雨を待つだけでなく、この水をどこへ運ぶか決める。"
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.poem.24",
+          "text": "帰っておいで、席は増やせる",
+          "body": "庭の入口に、もう一枚の板が運ばれた。「帰っておいで、席は増やせる」。完成を待って門を閉めるより、来た人と続きを作れる庭にした。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.1",
+      "ownerId": "heroine.slayer",
+      "title": "置いた刃の向こう",
+      "introduction": "スレイヤーは、剣を抜くより先に庭の入口を見ていた。戦いのあとにも、自分の手で守れるものがあるだろうか。緑還竜から届いた六つの歌に、自分の歩いてきた道を重ねる。",
+      "conclusion": "剣を捨てるわけではない。剣を置いて座れる場所を、もう一つ増やす。そのためなら、戦いへ戻る理由も少し変わる。",
+      "poems": [
+        {
+          "id": "heroine.slayer.collection.poem.01",
+          "text": "剣を置ける場所も、守りたい",
+          "body": "「剣を置ける場所も、守りたい」。スレイヤーは庭の門から尖った杭を一本抜く。通れない人を見落とさないことも、守る仕事に入れておこう。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.04",
+          "reason": "境界を開く庭師の行動が、戦闘後の安全な入口を作る決意に対応する。"
+        },
+        {
+          "id": "heroine.slayer.collection.poem.02",
+          "text": "名乗る前に、手を貸そう",
+          "body": "道具の使い方を尋ねられ、スレイヤーは名を言う前に板を押さえた。「名乗る前に、手を貸そう」。ここでは肩書きより、いま空いている手が役に立つ。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.02",
+          "reason": "名札を手放して芽を守る判断を、肩書きより手助けを優先する場面へ結ぶ。"
+        },
+        {
+          "id": "heroine.slayer.collection.poem.03",
+          "text": "ほどけた糸は、急がず結ぶ",
+          "body": "剣帯を直す指は、いつもより遅い。「ほどけた糸は、急がず結ぶ」。傷を見つけた途端に力で締める癖を、庭の小さな仕事から変えてみる。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.05",
+          "reason": "袋を傷めない結び方と、スレイヤーが力加減を学ぶ経験を対応させる。"
+        },
+        {
+          "id": "heroine.slayer.collection.poem.04",
+          "text": "待っている人へ、背を向けない",
+          "body": "出撃の支度が終わっても、スレイヤーは一度振り返った。「待っている人へ、背を向けない」。戻る時刻を保証できなくても、戻ろうとしていることは伝えられる。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.06",
+          "reason": "見えない到着を待つ庭師に、帰還する側から応える歌。"
+        },
+        {
+          "id": "heroine.slayer.collection.poem.05",
+          "text": "空いた席から、話を始める",
+          "body": "ベンチの隣を空け、スレイヤーは鞘を膝から下ろした。「空いた席から、話を始める」。話すべきことを決めていなくても、一緒に座るところからでよい。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.07",
+          "reason": "空の鉢を待つ席にする記憶が、人を迎える空席の意味に対応する。"
+        },
+        {
+          "id": "heroine.slayer.collection.poem.06",
+          "text": "帰る道は、歩く前から作る",
+          "body": "入口の板を留め終えると、スレイヤーは戦いの地図を開いた。「帰る道は、歩く前から作る」。出ていく準備に、戻った後の一日も加えてみる。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.08",
+          "reason": "帰る場所を作り続ける庭師の仕事を、出撃前に生活を整える行動へ結ぶ。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.1",
+      "ownerId": "heroine.iconoclast",
+      "title": "折れたものの仕事",
+      "introduction": "翼の砕き手は、壊した翼の記憶から目をそらせなかった。必要な破壊だったと説明するだけでは、その翼が誰を運んだかは分からない。彼女は書を開き直す。",
+      "conclusion": "壊す力は、壊れたものを扱う責任も連れてくる。翼の砕き手は倒れた枝を持ち、庭の入口へ運んだ。",
+      "poems": [
+        {
+          "id": "heroine.iconoclast.collection.poem.01",
+          "text": "折った翼の、行き先を読む",
+          "body": "「折った翼の、行き先を読む」。彼女は竜の翼を見た時、雨を探す帆の記憶も一緒に覚えておこうと決めた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.11",
+          "reason": "雨を探す翼の由来を知ることが、部位破壊後の責任を考える起点となる。"
+        },
+        {
+          "id": "heroine.iconoclast.collection.poem.02",
+          "text": "壊れた橋にも、帰り道を引く",
+          "body": "「壊れた橋にも、帰り道を引く」。通れなくした場所を記した後、彼女は別の道へ印をつけた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.10",
+          "reason": "遠回りでも歩き続ける人々に、道を壊した側が代わりの経路を用意する。"
+        },
+        {
+          "id": "heroine.iconoclast.collection.poem.03",
+          "text": "刃先だけで、答えを決めない",
+          "body": "「刃先だけで、答えを決めない」。杭を切る前に、その向こうを誰が通るのか尋ねてみる。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.04",
+          "reason": "境界を開く選択を、力を使う前の確認へ対応させる。"
+        },
+        {
+          "id": "heroine.iconoclast.collection.poem.04",
+          "text": "折れた枝を、持ち直そう",
+          "body": "「折れた枝を、持ち直そう」。枝の切り口を布で包み、傷をつけない手すりに変えた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.15",
+          "reason": "倒木を置き直す記憶から、壊れたものを別の用途へ回す行動を受け継ぐ。"
+        },
+        {
+          "id": "heroine.iconoclast.collection.poem.05",
+          "text": "欠けた場所にも、隣がある",
+          "body": "「欠けた場所にも、隣がある」。椅子の欠けを隠そうとしていた手を止め、人の方へ椅子を向け直す。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.19",
+          "reason": "欠けを隠さず隣へ向ける椅子が、自分の不完全さを認める場面と対応する。"
+        },
+        {
+          "id": "heroine.iconoclast.collection.poem.06",
+          "text": "次の門は、閉じずに直す",
+          "body": "「次の門は、閉じずに直す」。修理中の門の横に、彼女は通れる隙間を残した。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.24",
+          "reason": "人を迎えながら庭を作る結末を、修理と通行を両立する決意へ結ぶ。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.1",
+      "ownerId": "heroine.undermine",
+      "title": "重さを分ける盾",
+      "introduction": "誓いの守護者は、皆の荷物を一人で持とうとした。軽くなるはずの仲間は、彼女の遅れる足を待っていた。竜の記憶にあった二つの桶を、もう一度見比べる。",
+      "conclusion": "盾を持つ手と、桶を受け取る手は両立する。守護者は仲間へ一つ荷物を渡し、同じ速さで庭へ戻った。",
+      "poems": [
+        {
+          "id": "heroine.undermine.collection.poem.01",
+          "text": "盾の陰にも、手を伸ばせる",
+          "body": "「盾の陰にも、手を伸ばせる」。守護者は受け取る手を隠さず、荷物を仲間へ渡した。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.12",
+          "reason": "重さを分ける庭師の守り方が、全てを抱え込まない盾の使い方に対応する。"
+        },
+        {
+          "id": "heroine.undermine.collection.poem.02",
+          "text": "小さな手を、空けて待つ",
+          "body": "「小さな手を、空けて待つ」。仲間に任せる仕事を、危ないからという理由だけで奪わない。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.03",
+          "reason": "子供も種を運ぶ役を担った記憶から、守られる人の主体性を尊重する。"
+        },
+        {
+          "id": "heroine.undermine.collection.poem.03",
+          "text": "明日の門で、また会おう",
+          "body": "「明日の門で、また会おう」。守護者は戻る仲間のため、門番の交代時刻を決めた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.09",
+          "reason": "会うことの約束を、誰かが一人で待ち続けない当番へ具体化する。"
+        },
+        {
+          "id": "heroine.undermine.collection.poem.04",
+          "text": "雨を受ける盾もある",
+          "body": "「雨を受ける盾もある」。盾を少し傾けると、たまった水が鉢の方へ流れた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.14",
+          "reason": "雨の器を用意する記憶が、盾を防御以外にも使う工夫に対応する。"
+        },
+        {
+          "id": "heroine.undermine.collection.poem.05",
+          "text": "休む人に、理由を問わない",
+          "body": "「休む人に、理由を問わない」。守護者は木陰の席を確かめ、疲れた人を先に座らせた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.18",
+          "reason": "名前を選ばない木陰から、休む権利を誰にも開く態度を受け継ぐ。"
+        },
+        {
+          "id": "heroine.undermine.collection.poem.06",
+          "text": "約束を、交代で守ろう",
+          "body": "「約束を、交代で守ろう」。晴れた日にも泉の見回りを続けるため、守護者は自分の休みも表に書いた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.16",
+          "reason": "天候に依存しない約束を、一人の無理に依存しない仕組みへ変える。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.1",
+      "ownerId": "heroine.echidna",
+      "title": "まだ知らない芽",
+      "introduction": "森の歌い手は、新しい土を前に歌い出すのをためらった。昔の歌が、この星の根に合うとは限らない。葉の変化を記すことから、小さな歌を作り直した。",
+      "conclusion": "正しい歌を一度で見つけなくてもよい。明日の葉を見て、一行を直せばよい。歌い手は新しい鉢を窓辺へ運んだ。",
+      "poems": [
+        {
+          "id": "heroine.echidna.collection.poem.01",
+          "text": "違う土にも、問いかける",
+          "body": "「違う土にも、問いかける」。歌い手は昔の育て方を急いで押しつけず、根の向きを確かめた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.17",
+          "reason": "異なる土でも伸びる根から、環境に合わせて歌を変える態度へ対応させる。"
+        },
+        {
+          "id": "heroine.echidna.collection.poem.02",
+          "text": "芽の名は、明日でもいい",
+          "body": "「芽の名は、明日でもいい」。名札を書く手を止め、今日は葉の形だけを描いた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.02",
+          "reason": "名前より芽を守る庭師の優先を、未知の苗を観察する仕事へ受け継ぐ。"
+        },
+        {
+          "id": "heroine.echidna.collection.poem.03",
+          "text": "風の席へ、鉢を置こう",
+          "body": "「風の席へ、鉢を置こう」。空いた鉢に新しい土を入れ、残しておいた窓辺へ戻す。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.07",
+          "reason": "空の鉢を失敗の証拠にせず、新たな育成の席として扱う。"
+        },
+        {
+          "id": "heroine.echidna.collection.poem.04",
+          "text": "冷たい夕日も、記しておく",
+          "body": "「冷たい夕日も、記しておく」。歌い手は葉が縮む時刻を、成功した日の隣にも書いた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.20",
+          "reason": "知らない季節を測る二人の記録が、失敗も観察として残す姿勢に対応する。"
+        },
+        {
+          "id": "heroine.echidna.collection.poem.05",
+          "text": "井戸の底へ、歌を一つ",
+          "body": "「井戸の底へ、歌を一つ」。まだ水のない泉へ歌い、返る響きから深さを確かめた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.13",
+          "reason": "乾いた井戸にも届く声が、恵みの有無だけで歌の意味を決めない場面へ結び付く。"
+        },
+        {
+          "id": "heroine.echidna.collection.poem.06",
+          "text": "次の水を、一緒に運ぶ",
+          "body": "「次の水を、一緒に運ぶ」。雨が落ちたあと、歌い手は歌を終えず、桶を持つ人に歩調を合わせた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.23",
+          "reason": "次の約束で水の行き先を決める記憶が、歌の後にも仕事を続ける行動に対応する。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.1",
+      "ownerId": "heroine.excalipan",
+      "title": "余白の星図",
+      "introduction": "星の術師は、新しい空の下で昔の星図を広げた。同じ星がなくても、測った人の工夫まで消えたわけではない。竜の記憶の余白に、いま見える方角を書き込んだ。",
+      "conclusion": "完成した図を持っているから進むのではない。足りないところを皆と描き足せるから、次の道へ進める。術師は書の余白を広く残した。",
+      "poems": [
+        {
+          "id": "heroine.excalipan.collection.poem.01",
+          "text": "地図の余白に、足を置く",
+          "body": "「地図の余白に、足を置く」。術師は描かれていない道を、一歩ずつ測りながら進んだ。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.21",
+          "reason": "古い地図への追記が、未知の星で計測を続ける術師の出発点となる。"
+        },
+        {
+          "id": "heroine.excalipan.collection.poem.02",
+          "text": "遠い雲にも、方角を渡す",
+          "body": "「遠い雲にも、方角を渡す」。雨を探す人へ、戻れる目印を示す光を上げた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.11",
+          "reason": "翼を貸す庭師に対応し、術師は探索のための方角を提供する。"
+        },
+        {
+          "id": "heroine.excalipan.collection.poem.03",
+          "text": "見えない道は、消さずに測る",
+          "body": "「見えない道は、消さずに測る」。遠回りになった道も、距離と休む場所を星図へ残した。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.10",
+          "reason": "遠回りの足跡を無駄と見なさず、次に歩く人へ役立つ情報に変える。"
+        },
+        {
+          "id": "heroine.excalipan.collection.poem.04",
+          "text": "終わった歌を、閉じ込めない",
+          "body": "「終わった歌を、閉じ込めない」。術師は戻らない人の記録を読み、新しい測り方の横へ置いた。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.22",
+          "reason": "別れた歌の続きを渡す記憶が、過去の知識を現在の作業へ引き継ぐ姿勢と対応する。"
+        },
+        {
+          "id": "heroine.excalipan.collection.poem.05",
+          "text": "違う星にも、帰る線を",
+          "body": "「違う星にも、帰る線を」。出発点だけでなく、庭へ戻る道の印も増やした。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.08",
+          "reason": "帰る場所を作りながら帰る歌を、新しい星で帰還経路を確保する仕事へ結ぶ。"
+        },
+        {
+          "id": "heroine.excalipan.collection.poem.06",
+          "text": "空の席へ、星図を広げる",
+          "body": "「空の席へ、星図を広げる」。皆が座れる机に地図を置き、自分だけが知る印を説明した。",
+          "sourcePoemId": "colossus.green-return-dragon.collection.poem.24",
+          "reason": "増やせる席という庭の結末が、知識を一人で所有せず共有する場面に対応する。"
+        }
+      ],
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1"
+    }
+  ]
+}
