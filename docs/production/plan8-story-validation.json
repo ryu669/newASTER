@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "stage": "8-3",
+  "scope": "original-story-gameplay-technical-connection",
+  "status": "technical-connection-validated; plan8-incomplete",
+  "branch": "codex/plan8-detailed-plan",
+  "baseMain": "d83cc95a590641e7a3f83b33c0c28fb6ad3d57d2",
+  "coreAssertions": 5697,
+  "unityAssertions": 1186,
+  "csharpFiles": 101,
+  "existingCompilerWarnings": 2,
+  "buildBytes": 293146998,
+  "buildLog": "tmp/plan8-story-adopted-build.log",
+  "contentStatus": "development-trial",
+  "collectionVersion": "collection-trial-story-2026-10-04",
+  "homeVersion": "home-trial-story-2026-10-04",
+  "storyChapters": 8,
+  "storyEvents": 1,
+  "poems": 54,
+  "authoredCorrespondences": 30,
+  "originalReadLines": 77,
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "humanPlaytest": false,
+  "listeningAccepted": false,
+  "collectionMedianMeasured": false,
+  "collectionP90Measured": false,
+  "storyRuns": [
+    {
+      "output": "tmp/plan8-story-player/story-dd1f9e8664b048978db963d8f412161e",
+      "resultSha256": "514FFC696F4E29AEB770901ECD4A74F25FBC6E9D5D2F79A8329D674C4513EF06",
+      "result": {
+        "schemaVersion": 1,
+        "scope": "original-story-transactions-and-rendered-replay; automated-not-human-playtest",
+        "passed": true,
+        "runId": "story-dd1f9e8664b048978db963d8f412161e",
+        "assemblySha256": "70D5ADAA13D2BFF7AAC51AFAD623421ED752A6276490B028E35E01C551FB7AD9",
+        "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+        "height": 720,
+        "normalSaveUnchanged": true,
+        "performanceMeasured": false,
+        "cases": [
+          {
+            "case": "new",
+            "passed": true,
+            "saveSha256": "C23A7312DA69DE24A5CFB99440D976A010C26544DD1E5FB45CC2415CAC2A179B",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": false
+          },
+          {
+            "case": "resume",
+            "passed": true,
+            "saveSha256": "C23A7312DA69DE24A5CFB99440D976A010C26544DD1E5FB45CC2415CAC2A179B",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": true
+          }
+        ]
+      },
+      "newProcessAssertions": 347,
+      "resumeAssertions": 6,
+      "actualCompletedSingingCollectionBattles": 31,
+      "seedStart": 19000,
+      "seedEnd": 19030
+    },
+    {
+      "output": "tmp/plan8-story-player/story-45c6fa7cc473499d910e3fc252b1e9b4",
+      "resultSha256": "40BE7B803D58B4E58B5A5F9B89B72625E5FA18A2A7F5FA89CBF7AFC638925D33",
+      "result": {
+        "schemaVersion": 1,
+        "scope": "original-story-transactions-and-rendered-replay; automated-not-human-playtest",
+        "passed": true,
+        "runId": "story-45c6fa7cc473499d910e3fc252b1e9b4",
+        "assemblySha256": "70D5ADAA13D2BFF7AAC51AFAD623421ED752A6276490B028E35E01C551FB7AD9",
+        "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+        "height": 1080,
+        "normalSaveUnchanged": true,
+        "performanceMeasured": false,
+        "cases": [
+          {
+            "case": "new",
+            "passed": true,
+            "saveSha256": "CF6891A0A257550E25552C43757EB49995E5F9ABBACD4CFE5A57B3043F1676C0",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": false
+          },
+          {
+            "case": "resume",
+            "passed": true,
+            "saveSha256": "CF6891A0A257550E25552C43757EB49995E5F9ABBACD4CFE5A57B3043F1676C0",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": true
+          }
+        ]
+      },
+      "newProcessAssertions": 347,
+      "resumeAssertions": 6,
+      "actualCompletedSingingCollectionBattles": 31,
+      "seedStart": 19000,
+      "seedEnd": 19030
+    }
+  ],
+  "normalGameplayRegression": {
+    "output": "tmp/plan7-sample-20261003232920",
+    "height": 1080,
+    "textures": 24,
+    "audioClips": 6,
+    "japaneseGlyphs": true,
+    "visualInspected": true,
+    "performanceMeasured": false
+  },
+  "sourceFiles": [
+    {
+      "path": "game/unity/Assets/Game/Resources/Trial/plan8-story-content.json",
+      "sha256": "397BC86E5D25F392C02AF9055141D9E8359875043579F6CFA3E2CEA4D3526289"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/TrialStoryCatalog.cs",
+      "sha256": "1D174FC8317F58BCB614D0D880122008A7C77CEC60CAFFB3AB7EC9BEC6FAD69A"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan8StoryExperience.cs",
+      "sha256": "1F96524A0B9C6C45CB88193D85BDBADEE22061472CAD3A4E9D27A5C5FA00C4E8"
+    },
+    {
+      "path": "tools/validate-plan8-story-player.ps1",
+      "sha256": "4E9D39AEC7F66FA7D65452DABCEEAC7FE458EDA9B3D9C59E10098170B287775E"
+    }
+  ],
+  "remaining": [
+    "8-2 full category/loop aggregation and performance joins",
+    "8-4 difficulty through 8-10 production handoff",
+    "human reading/navigation/listening acceptance"
+  ]
+}

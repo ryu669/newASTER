@@ -15,7 +15,11 @@ namespace NewAster.Presentation
         }
         private FormalCampaignStore acceptanceStore;
         private int acceptanceChecks;
-        private bool SaveDiagnosticCampaign(FormalCampaignSave next)=>!formalVictoryDiagnosticFailure && (acceptanceStore==null || acceptanceStore.Save(next));
+        private bool SaveDiagnosticCampaign(FormalCampaignSave next)
+        {
+            bool success=!formalVictoryDiagnosticFailure && (acceptanceStore==null || acceptanceStore.Save(next));
+            ObserveTrialSave(next,success);return success;
+        }
         private void AcceptanceCheck(bool ok,string description)
         {acceptanceChecks++;if(!ok)throw new InvalidOperationException("Plan5 acceptance: "+description);}
         private void ReloadAcceptance()
@@ -24,14 +28,17 @@ namespace NewAster.Presentation
             AcceptanceCheck(acceptanceStore.Load(out var loaded)==FormalLoadResult.Loaded && JsonUtility.ToJson(loaded)==expected,"physical file restart matches complete ledger");
             BindFormalCampaign(loaded);
         }
-        private void PlayedAcceptanceEnding(BattleEndReason reason,int seed,int songs)
+        private void PlayedAcceptanceEnding(BattleEndReason reason,int seed,int songs,int level=0)
         {
-            selectedLevel=reason==BattleEndReason.Defeat?50:1;StartBattle(WorldCatalog.ColossusIds[0]);
-            encounter=new PlayableBattle(selectedLevel,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(activeColossus),collectionGrowth:formalCampaign.Snapshot.collection);StartCollection();
+            selectedLevel=level>0?level:reason==BattleEndReason.Defeat?50:1;
+            AcceptanceCheck(!plan8JourneyCapture || selectedLevel<=campaign.Playable.HighestLevel,"journey respects the real unlocked enemy level");
+            StartBattle(WorldCatalog.ColossusIds[0],seed);
             int completions=0,steps=0;var record=encounter.CompletedEnemyAction;encounter.CompletedEnemyAction=()=>{record();completions++;};
-            while(!encounter.Ended && completions<songs && steps++<20000)encounter.Pass();
+            while(!encounter.Ended && completions<songs && steps++<20000){encounter.Pass();TrialObserve("battle","diagnostic-pass",tick:encounter.Clock);}
             while(reason!=BattleEndReason.Retreat && !encounter.Ended && steps++<20000) {
-                if(reason==BattleEndReason.Defeat || !encounter.Act(encounter.AvailableHero,0,"body"))encounter.Pass();
+                bool accepted=reason!=BattleEndReason.Defeat && encounter.Act(encounter.AvailableHero,0,"body");
+                if(reason!=BattleEndReason.Defeat)TrialObserve("battle",accepted?"diagnostic-input-accepted":"diagnostic-input-rejected","skill=0;target=body",tick:encounter.Clock);
+                if(!accepted){encounter.Pass();TrialObserve("battle","diagnostic-pass",tick:encounter.Clock);}
                 encounter.DrainPresentationEvents();
             }
             AcceptanceCheck(steps<20000 && completions>0,"bounded real commands and completed singing");
@@ -44,6 +51,7 @@ namespace NewAster.Presentation
             AcceptanceCheck(formalCampaign.CommitBattleEnd(request,null,null,s=>throw new Exception("duplicate write"))==GrowthCommitResult.AlreadyCommitted,"restart excludes replay");
             for(int tab=0;tab<4;tab++){resultTab=tab;AcceptanceCheck(!string.IsNullOrEmpty(ResultDetail()),"result tab resolves after reload");}
             Debug.Log("PLAN5_PLAYED_END reason="+reason+" seed="+seed+" commands="+steps+" singing="+completions);
+            if(plan8JourneyCapture)RecordTrialJourney("battle."+formalCampaign.Snapshot.collection.receipts.Length);
         }
         private void PreparePlan5Acceptance(string[] args)
         {
@@ -84,7 +92,7 @@ namespace NewAster.Presentation
             RelicSelect(formalCampaign.Snapshot.collection.relics.Single(),RelicOperation.Equip,combatDefinitions.FormationIds[0]);
             var comparison=RelicEquipmentComparison(relic,relicRequest);AcceptanceCheck(comparison.Contains("→") && comparison.Contains("チェイン率"),"equip comparison provides actual before and after");RelicCommit();ReloadAcceptance();
             AcceptanceCheck(formalCampaign.Snapshot.collection.equipment.Length==1 && formalCampaign.Snapshot.collection.relics.Single().level==2,"upgrade and equip durable together");
-            selectedLevel=1;StartBattle(WorldCatalog.ColossusIds[0]);var equipped=encounter.State.Heroes[0];var naked=new PlayableBattle(1,campaign.Playable,encounter.Seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(activeColossus));
+            selectedLevel=1;StartBattle(WorldCatalog.ColossusIds[0]);var equipped=encounter.State.Heroes[0];var naked=new PlayableBattle(1,campaign.Playable,encounter.Seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(activeColossus));
             AcceptanceCheck(equipped.BaseAttack>naked.State.Heroes[0].BaseAttack && encounter.ChainRate(0)==naked.ChainRate(0),"retry encounter applies equipment without chain change");
             encounter=null;collectionOpen=true;RelicSelect(formalCampaign.Snapshot.collection.relics.Single(),RelicOperation.Unequip,combatDefinitions.FormationIds[0]);
             Debug.Log("PLAN5_PLAYER_ACCEPTANCE_PASS "+acceptanceChecks+" assertions fights="+fights+" file="+path);

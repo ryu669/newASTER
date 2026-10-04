@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "phase": "8-1",
+  "scope": "Baseline definition and diagnostic boundary validation, not the complete Plan8 playtest",
+  "core": {
+    "status": "passed",
+    "assertions": 5617,
+    "addedChecks": 34
+  },
+  "compile": {
+    "status": "passed",
+    "sourceFiles": 96,
+    "existingWarnings": 2
+  },
+  "unity": {
+    "status": "passed",
+    "assertions": 1181
+  },
+  "build": {
+    "sourceLog": "tmp/plan8-baseline-final-build.log",
+    "bytes": 293082310
+  },
+  "playerCases": [
+    {
+      "schemaVersion": 1,
+      "case": "baseline-valid",
+      "passed": true,
+      "normalSaveUnchanged": true,
+      "assemblySha256": "D89D45BB8E34AF78B9E16DA1AF69DC75B6F85CA9EBFFDBAD9DBF8F8A8AB7AEE7",
+      "resourceAssetsSha256": "D88FC9D90D0C99AC6DA8AC2818549C5D31B8F077303A2B6D6EE8C19CFC81BF8D",
+      "exitCode": 0,
+      "performanceMeasured": false,
+      "authoredContentReady": false,
+      "sourceResult": "tmp/plan8-baseline-player/baseline-e7dfc547f13247ee8ffc80384a36cc63/result.json"
+    },
+    {
+      "schemaVersion": 1,
+      "case": "unsafe-run-rejected",
+      "passed": true,
+      "normalSaveUnchanged": true,
+      "assemblySha256": "D89D45BB8E34AF78B9E16DA1AF69DC75B6F85CA9EBFFDBAD9DBF8F8A8AB7AEE7",
+      "resourceAssetsSha256": "D88FC9D90D0C99AC6DA8AC2818549C5D31B8F077303A2B6D6EE8C19CFC81BF8D",
+      "exitCode": 2,
+      "performanceMeasured": false,
+      "authoredContentReady": false,
+      "sourceResult": "tmp/plan8-baseline-player/baseline-e4869f3307db4e7ba79c3770d03f67c7/result.json"
+    }
+  ],
+  "performanceMeasured": false,
+  "authoredContentReady": false,
+  "nextPhase": "8-2",
+  "regressionCases": [
+    {
+      "case": "gameplay",
+      "height": 720,
+      "passed": true,
+      "sourceRun": "tmp/plan7-sample-20261003220055",
+      "assemblySha256": "D89D45BB8E34AF78B9E16DA1AF69DC75B6F85CA9EBFFDBAD9DBF8F8A8AB7AEE7",
+      "resourceAssetsSha256": "D88FC9D90D0C99AC6DA8AC2818549C5D31B8F077303A2B6D6EE8C19CFC81BF8D",
+      "performanceMeasured": false
+    },
+    {
+      "case": "gameplay",
+      "height": 1080,
+      "passed": true,
+      "sourceRun": "tmp/plan7-sample-20261003220055",
+      "assemblySha256": "D89D45BB8E34AF78B9E16DA1AF69DC75B6F85CA9EBFFDBAD9DBF8F8A8AB7AEE7",
+      "resourceAssetsSha256": "D88FC9D90D0C99AC6DA8AC2818549C5D31B8F077303A2B6D6EE8C19CFC81BF8D",
+      "performanceMeasured": false
+    }
+  ]
+}

@@ -48,7 +48,7 @@ namespace NewAster.Presentation
             GrowthFill(x,y,w,h,enabled?(primary?new Color(.19f,.32f,.31f):hover?new Color(.13f,.22f,.26f):new Color(.075f,.145f,.20f)):new Color(.085f,.10f,.12f));
             GrowthLine(x,y,x+w,y,enabled?gold:new Color(.23f,.25f,.25f));GrowthLine(x,y+h,x+w,y+h,enabled?gold:new Color(.23f,.25f,.25f));
             var color=growthButtonStyle.normal.textColor;growthButtonStyle.normal.textColor=enabled?ivory:muted;
-            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;return clicked;
+            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked)TrialObserve("navigation","button",caption);return clicked;
         }
         private void GrowthBack()
         {

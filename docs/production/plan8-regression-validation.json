@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "scope": "functional Windows old/current formal payload, rendered playback, simulated focus and diagnostic menus; not performance or native input/listening",
+  "passed": true,
+  "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+  "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+  "unityAssertions": 1187,
+  "buildBytes": 293164406,
+  "buildLogSha256": "79CBE7BA7E06C1EA42E0C969E11AA0719A180113D626DBD9E29E9D8FF00E50BF",
+  "coreAssertions": 5709,
+  "coreVerification": "observed AUTOMATIC_CHAIN_PASS output; physical original backup/foreign/future cases included",
+  "coreTestSha256": "55504D54818CD8C639461D93D65D719DEE35935F39FED7E1DA994204F7F87A9E",
+  "compiledCSharpFiles": 103,
+  "telemetry": {
+    "schemaVersion": 1,
+    "scope": "8-2-rendered-diagnostic-not-human-playtest",
+    "passed": true,
+    "normalSaveUnchanged": true,
+    "runId": "telemetry-9f5376e370c74399920b22e03c73258a",
+    "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+    "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+    "definitionHash": "7A400BD3392FBAFEE9F579A68BE9C91EC600E90E6395F42245855F0A13DB4D98",
+    "events": 159,
+    "renderedPresentations": 66,
+    "performanceMeasured": false,
+    "frameBudgetPassed": null,
+    "authoredContentConnected": false
+  },
+  "cases": [
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "legacy",
+      "passed": true,
+      "logSha256": "DA11EE579AB4A96C67A64DDB57C79938DF0B803BB71465FD8218EC2FC4A3E259",
+      "screenshotSha256": "724DFC72F100299E47BCC9CAD43337B89972E0994C1BBDB890757576BD2996AF"
+    },
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "new",
+      "passed": true,
+      "logSha256": "18FD46168ED9DE1F4B52BDEBE12858954CD3040CD50A21636F17FF1A73E5C836",
+      "screenshotSha256": "3A2F480F482A76F6781D644BF91BECBFDDBE0351B2AFBEC5A01B122EB48055D0"
+    },
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "legacy-resume",
+      "passed": true,
+      "logSha256": "DB8AE9E7F082030F524441310C59E3793D78C9979F0C08A89E50DD3A1ED0B199",
+      "screenshotSha256": "0566D59F9F110FF96258863A9FAAFF0111533E0CAE6F8064917B7D82CAD1F90D"
+    },
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "new-resume",
+      "passed": true,
+      "logSha256": "6D57992928DAC09D788BFAA388E5A6D9409654F8FBB949EDBC6054BE78CE84EB",
+      "screenshotSha256": "C3831138B9741DF944389D6F9A6EF5E4455A9EFC66A2D3C956306ECE308FBE6B"
+    },
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "many",
+      "passed": true,
+      "logSha256": "C95117DDCCF5853B38117B82C51B0137851DC4CAC55508AC82902F0B8583E517",
+      "screenshotSha256": "1F3FC368EB6746125B67E086900C3D8A52F8C0680CCD57A20C0BEC799A6521D6"
+    },
+    {
+      "suite": "plan5-player-acceptance-20261004012229-958e5bef6cd84d5babf706a655aaa1d6",
+      "case": "world",
+      "passed": true,
+      "logSha256": "BFF242BF57F57756B63154EF01B6329C54F8316AC013CD3A13D3245CE112410B",
+      "screenshotSha256": "E1A5FB0289C13A3F7B8912086D4CCF28DB52F257E2F84AE357987638A7735489"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "Old-Garden-720",
+      "passed": true,
+      "logSha256": "A57DD0F35DF2B47656A829C4A44325345BE18C8B0075DF4E255EB9B93922ECE9",
+      "screenshotSha256": "F364D2F777B1DDECB493F0370F228CACAB8F65237EE5BFB6291EDDE93E4DE4D3"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "Old-Garden-1080",
+      "passed": true,
+      "logSha256": "B1217EA2342914FC67852F09842F40F584DDC5A18571D5663893B082BEF4182F",
+      "screenshotSha256": "FB7C5BC3F393FDE0BF1A654B85460CCFDA73AB0ED8327E0263BD2021C0BBED0A"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "Old-Adv-720",
+      "passed": true,
+      "logSha256": "67C6F1B6151BB7F5E86B8F7FF2AC1F90E1D23AE6D5AF6CB070E6FA08E95A7579",
+      "screenshotSha256": "8CE8DBA53FEC4675EDA3B05B2A892DF94A4748AB3D87B70E84DC5A594B4DC690"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "Old-Adv-1080",
+      "passed": true,
+      "logSha256": "2C64BFF8F2127FF227ED508E03F813E0343F68014D38FA4799DA7FB7C491894E",
+      "screenshotSha256": "F13C47308B42C087F800D393731A0CDC711138A4C14FD2518D7CFD6F2CD1E2A8"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "New-Garden-720",
+      "passed": true,
+      "logSha256": "A97F713CE0CDB50B5CFE3BC44840989D7C749D832CCB48CEE82DAE977395197F",
+      "screenshotSha256": "F364D2F777B1DDECB493F0370F228CACAB8F65237EE5BFB6291EDDE93E4DE4D3"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "New-Garden-1080",
+      "passed": true,
+      "logSha256": "17666545245BBA0AEE61AA8BCF647B87D6896B29BE661FFAD44C106A20A2F73E",
+      "screenshotSha256": "FB7C5BC3F393FDE0BF1A654B85460CCFDA73AB0ED8327E0263BD2021C0BBED0A"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "New-Adv-720",
+      "passed": true,
+      "logSha256": "7753804DA327CB9ACDA5C341177951D645C6507E0BB4EB1531DC97FC66578F10",
+      "screenshotSha256": "8CE8DBA53FEC4675EDA3B05B2A892DF94A4748AB3D87B70E84DC5A594B4DC690"
+    },
+    {
+      "suite": "plan6-home-player-20261004012340-5f1dcb5246c24e518840606339be3648",
+      "case": "New-Adv-1080",
+      "passed": true,
+      "logSha256": "0B896FB0AF1636D9067DF56B848054B67846FC0F3BF81EBDC1CE283910B7451F",
+      "screenshotSha256": "F13C47308B42C087F800D393731A0CDC711138A4C14FD2518D7CFD6F2CD1E2A8"
+    },
+    {
+      "suite": "plan7-sample-20261004012513",
+      "case": "activecombat-1080",
+      "passed": true,
+      "logSha256": "9F207F1AD8ECEE4B79222B1D037772B2DCC372F5F2AF824BA9B662EC2B0D2AA0",
+      "screenshotSha256": "118D87D07CE18DED29C5BE9DCC92719FCD620B94449864AEFB51DE9CE306A285"
+    },
+    {
+      "suite": "plan7-sample-20261004012617",
+      "case": "settings-720",
+      "passed": true,
+      "logSha256": "CADA702D7107E1AAEF2E5FA133D50605E07B0FF7CC47413D5BDD25BEAAD45B54",
+      "screenshotSha256": "63358054E1C64352B669B154BCD14F41892F61A0ECF89CD4FFA8CC0A7BDB813D"
+    },
+    {
+      "suite": "plan7-sample-20261004012617",
+      "case": "settings-1080",
+      "passed": true,
+      "logSha256": "75692A8A5744D0D171A66D3CF2E2824303FF7FE997A325D0E4A480EB57C79C79",
+      "screenshotSha256": "C7658C1C1FD7F7785A581B8E77F8F1C11E7C59D1646227907A1A569D2EEEE1D4"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "closed-720",
+      "passed": true,
+      "logSha256": "7F7B33AAB1EFC2A1AC735ED5EC0F5E46F627FE64C7CA7ECA95998F39F98D63A0",
+      "screenshotSha256": "848F816B1F36DF3F4FC28CD428991531648DE7E1FE680E62B46AE47010BAC472"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "closed-1080",
+      "passed": true,
+      "logSha256": "39C2B1A1FBA865EF54D314395B1310CCD1B16D1F6ED942FA6FE3B9FE9E607A50",
+      "screenshotSha256": "76C54C7E75353C2724EE17CBDF1282AEC0F6292B2F54ADF177BFB0ABFA6D28B9"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "actions-720",
+      "passed": true,
+      "logSha256": "28E4AF6BE5FD9101935D848F8437295CF2D1C1D804F12FFEDFF46F49DEB11FCB",
+      "screenshotSha256": "51146E57136420AB6015A94F4C5F18D665EFC8505BB84FF8A056F17C614EA5D8"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "actions-1080",
+      "passed": true,
+      "logSha256": "EE2F8AF568187E83986CDBA3CF6A18BAFFCB7A4F8FA1E88387B2AD74EDE8E976",
+      "screenshotSha256": "F9CE42B036F237B4273A8DA5ADD0A5A7A2E174E5890789F7C221D5A99BF111D3"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "targets-720",
+      "passed": true,
+      "logSha256": "77D4B635841FBC0307D423F81414CE2220C45F4B2DD295C67664E239AD6C7B9E",
+      "screenshotSha256": "7AF818FC6A7C9D300E2F28DB1AEA447839627F236D32F75BFD85187123B8E45B"
+    },
+    {
+      "suite": "plan7-battle-menu-20261004012641",
+      "case": "targets-1080",
+      "passed": true,
+      "logSha256": "C833CA20B3BB4182722D37FE14B21439AD629DE1520681E14C711ADA91549A7F",
+      "screenshotSha256": "A7DC9A66B4A4F80CFB57A3016DA5BCD0BA3C308DF5F9834DB79E8D1212B23982"
+    }
+  ],
+  "performanceMeasured": false,
+  "focusMethod": "synthetic callbacks in player; not native AltTab",
+  "nativeMouseTested": false,
+  "listeningTested": false
+}

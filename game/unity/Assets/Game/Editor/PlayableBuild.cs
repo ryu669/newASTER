@@ -153,6 +153,7 @@ public static partial class PlayableBuild
         ValidateFormalSplitRecovery();
         ValidatePlan5();
         ValidatePlan6();
+        ValidatePlan8();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

@@ -54,6 +54,9 @@ namespace NewAster.Presentation
         private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
         private void Awake()
         {
+            // Exit before opening any ordinary save store or initializing gameplay.
+            if (TrialBaselineResources.RunDiagnostic(Environment.GetCommandLineArgs())) { enabled = false; return; }
+            InitializeTrialTelemetry();
             campaign = new CampaignState(WorldCatalog.ColossusIds);
             book = new BookNavigationState(new Dictionary<BookBookmark, IReadOnlyList<string>> {
                 [BookBookmark.Colossi] = WorldCatalog.ColossusIds,
@@ -69,6 +72,7 @@ namespace NewAster.Presentation
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
             illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
+            viewCamera.gameObject.AddComponent<AudioListener>();
             viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
             viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
             viewCamera.allowMSAA=true; QualitySettings.antiAliasing=4;
@@ -120,8 +124,10 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
+            if(capturePath!=null && args.Contains("-capturePlan8Story"))PreparePlan8StoryCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
             if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
+            if(capturePath!=null && args.Contains("-plan8Performance"))PreparePlan8Performance(args);
             if(capturePath!=null && args.Contains("-validatePlan7Playback"))PreparePlan7Playback();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
@@ -162,6 +168,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            UpdateTrialTelemetry();
             UpdateBookTransition();
             UpdateAdv();
             UpdateEngagement();
@@ -239,6 +246,7 @@ namespace NewAster.Presentation
             if(playback.Current==null || playback.Current.Sequence==shownEvent) playback.Tick(Time.unscaledDeltaTime*playbackRate,stopped);
             var e=playback.Current;
             if(e!=null && e.Sequence!=shownEvent) {
+                TrialObserve("battle","presentation",$"kind={e.Kind};actor={e.Actor};target={e.Target};damage={e.Damage};broken={e.PartBroken};major={e.Major};chain={e.Chain};actions={e.ChainActionCount};bossHp={e.BossHp};heroes={string.Join(",",e.HeroHp)};resources={string.Join(",",e.Resources)}",battleId+"/presentation/"+e.Sequence,e.Clock,BattleVisualCue.Duration(e.Kind,e.Major));
                 illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
                 if(stage!=null) {
                     stage.ClearActionEffects();
@@ -265,6 +273,11 @@ namespace NewAster.Presentation
             if(!playback.Busy) { SelectNextHero(); FinishCheck(); }
         }
         private void OnGUI()
+        {
+            double started=measureArt?MeasurementClock:0;
+            try{DrawGameGui();}finally{RecordMeasuredGui(started);}
+        }
+        private void DrawGameGui()
         {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
@@ -303,6 +316,7 @@ namespace NewAster.Presentation
             if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
             if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
             Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
+            if(Btn(1050,680,510,65,"計画8 ／ オリジナル試遊",BookInputAllowed))EnterPlan8StoryTrial();
             if(Btn(1050,770,510,65,"計画7 ／ 美術見本を見る",BookInputAllowed))OpenArtSample();
         }
         private void DrawBook()
@@ -313,7 +327,7 @@ namespace NewAster.Presentation
             if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
             if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"キンダーガーデン",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
+            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
             bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
@@ -469,12 +483,14 @@ namespace NewAster.Presentation
             if(Btn(32,635,920,58,"この対象の詩と章の一覧",BookInputAllowed && !book.IsTransitioning))OpenCollectionForBook();
             if(Btn(32,713,920,58,"オーパーツと素材を確認",BookInputAllowed && !book.IsTransitioning)){collectionOpen=true;collectionTab=1;}
         }
-        private void StartBattle(string colossus)
+        private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ColossusCombatCatalog.Get(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
+            TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
@@ -529,7 +545,9 @@ namespace NewAster.Presentation
         private void Act(int hero,int skill,int[] allies=null)
         {
             if(playback.Busy || paused || retreat || help) return;
-            if(encounter.ActWithAllies(hero,skill,target,allies)) {
+            bool accepted=encounter.ActWithAllies(hero,skill,target,allies);
+            TrialObserve("battle",accepted?"input-accepted":"input-rejected",$"hero={hero};skill={skill};target={target}",tick:encounter.Clock);
+            if(accepted) {
                 if(target!="body" && encounter.State.Parts.First(p=>p.Id==target).IsBroken) target="body";
                 QueueBattleEvents();
             }
@@ -610,8 +628,9 @@ namespace NewAster.Presentation
         {
             if(formalDiagnostic)return;
             if(formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending){status="保存待ちの操作を先に完了してください。";return;}
-            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),formalCampaignStore.Save))throw new System.IO.IOException("Save rejected");status=successMessage; }
-            catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);}
+            TrialObserve("save","start");
+            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }
+            catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);TrialObserve("save","failed",e.GetType().Name);}
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }
         private static void Panel(float x,float y,float w,float h,Texture2D t) => GUI.DrawTexture(new Rect(x,y,w,h),t);
@@ -624,8 +643,8 @@ namespace NewAster.Presentation
         private bool Btn(float x,float y,float w,float h,string value,bool enabled=true,GUIStyle style=null)
         {
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
-            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; return clicked;
+            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; if(clicked)TrialObserve("navigation","button",value);return clicked;
         }
-        private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){FlushActiveTime();Save();} }
+        private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){FlushActiveTime();Save();} FinishTrialTelemetry(); }
     }
 }

@@ -34,11 +34,13 @@ namespace NewAster.Core
         public string HeroineId {get;}
         public long Revision {get;}
         public RelicOperation Operation {get;}
-        public string Signature=>"relic|"+CollectionCatalog.FixtureVersion+"|"+Operation+"|"+RelicId+"|"+HeroineId;
-        public FormalRelicRequest(string id,string relicId,string heroineId,long revision,RelicOperation operation)
+        public string ContentVersion {get;}
+        public string Signature=>"relic|"+ContentVersion+"|"+Operation+"|"+RelicId+"|"+HeroineId;
+        public FormalRelicRequest(string id,string relicId,string heroineId,long revision,RelicOperation operation,string contentVersion=CollectionCatalog.FixtureVersion)
         {
             if(!CollectionCatalog.ValidId(id) || !CollectionCatalog.ValidId(relicId) || heroineId!=null && !CollectionCatalog.ValidId(heroineId) || revision<0 || !Enum.IsDefined(typeof(RelicOperation),operation))throw new ArgumentException("Invalid relic request.");
-            Id=id;RelicId=relicId;HeroineId=heroineId;Revision=revision;Operation=operation;
+            if(!CollectionCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Unknown relic request content.");
+            Id=id;RelicId=relicId;HeroineId=heroineId;Revision=revision;Operation=operation;ContentVersion=contentVersion;
         }
     }
     public sealed partial class FormalCampaignJournal
@@ -53,6 +55,7 @@ namespace NewAster.Core
                 if(pendingRelic==null || pendingRelic.Id!=request.Id || pendingRelic.Signature!=request.Signature || pendingRelic.Revision!=request.Revision)throw new InvalidOperationException("Retry same relic operation.");
             }else{
                 catalog.Validate();
+                if(catalog.contentVersion!=request.ContentVersion)throw new ArgumentException("Relic request content mismatch.");
                 current.collection?.ValidateContent(catalog);
                 if(request.Revision!=current.revision || current.collection==null)throw new ArgumentException("Stale or missing relic inventory.");
                 var next=Snapshot;var inventory=next.collection;

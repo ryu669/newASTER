@@ -48,6 +48,7 @@ namespace NewAster.Presentation
                 string future="{\"version\":1,\"saveId\":\"newaster.formal-campaign\",\"home\":{\"version\":2,\"contentVersion\":\"future\"}}";File.WriteAllText(recoveryPath,future);AcceptanceCheck(recoveryStore.Load(out _)==FormalLoadResult.Blocked && recoveryStore.InspectRecovery().Status==FormalRecoveryStatus.Unsupported && File.ReadAllText(recoveryPath)==future,"Windows future home blocks backup replacement");
             }
             var sceneCase=Array.IndexOf(args,"-homeCase");string display=sceneCase<0?"Garden":args[sceneCase+1];encounter=null;result=null;title=false;
+            BeginHomeMeasurement(display);
             int gardenUseArg=Array.IndexOf(args,"-inspectPlan7GardenUse");
             if(gardenUseArg>=0){
                 if(display!="Garden" || gardenUseArg+1>=args.Length)throw new ArgumentException("Garden use capture requires Garden and scenario");

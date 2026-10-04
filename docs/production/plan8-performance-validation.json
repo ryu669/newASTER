@@ -1,0 +1,788 @@
+{
+  "schemaVersion": 1,
+  "scope": "normal synchronized diagnostic player; measured failures retained",
+  "currentBuildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+  "currentResourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+  "hardware": {
+    "cpu": "Intel Core i7-13700F",
+    "gpu": "NVIDIA GeForce RTX 4070"
+  },
+  "frameGoal": {
+    "height": 1080,
+    "maxMilliseconds": 16.7,
+    "minimumFraction": 0.95
+  },
+  "sameRunTelemetryJoinPassed": true,
+  "frameGoalPassed": true,
+  "frame720Passed": true,
+  "homeSceneMatrixMeasured": false,
+  "gardenFurnitureMoveMeasured": false,
+  "coldOsCacheMeasured": false,
+  "humanInputMeasured": false,
+  "otherAppsClosed": false,
+  "readinessReusePolicy": {
+    "passed": true,
+    "logSha256": "13FBE45B3FF2F726562CF24DC8898481B161949A8B2193936BDFBDFC4EE8E631",
+    "sourceSha256": "A016E0C903B0AB00A9E794C1DFB116E39A1900C601DD8CC3D1EABAC804F098C1",
+    "sourceHashNormalization": "UTF-8 without BOM; LF newlines",
+    "methods": [
+      "UTC DateTime and ISO string age",
+      "120s/600s boundaries",
+      "expired/future/failed/invalid cache"
+    ],
+    "automaticRetries": 0,
+    "maximumGapSeconds": 120,
+    "maximumBatchSeconds": 600
+  },
+  "actualBatchReuse": {
+    "checks": 6,
+    "allBoundToRecordedFullChecks": true
+  },
+  "homeNormalSaveBoundary": {
+    "unchanged": true,
+    "beforeSha256": "3179756BEE2F8E8B9FC36B230B7524D0595DFEB8268914175397C6BF95A07A03",
+    "afterSha256": "3179756BEE2F8E8B9FC36B230B7524D0595DFEB8268914175397C6BF95A07A03",
+    "scope": "normal save and settings from the 720p battle exit through all home runs; player logs excluded"
+  },
+  "battleRuns": [
+    {
+      "source": "plan7-sample-20261004011155",
+      "sourceSha256": "BF81C179A1F01E47E71EE5DF0832B3A372E8EE836DFD3CC9F08A69DB609822BE",
+      "logSha256": "D76A2828251D0B4677D67CDD5970E353D8EFEC39C9B983DD8BB27B5C7D1E3725",
+      "height": 1080,
+      "runId": "telemetry-f8572294b2984ad8b3b5c18d96880b9f",
+      "profile": "colossus-plan8-2026-10-04",
+      "buildHash": "194230D3C91EB6273FA370A8CC8E043D0A80CCE2AF56E48F8BCCF4D479200519",
+      "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "result": "failed",
+      "environment": {
+        "sourceSha256": "753285772794D7D96288DF30FD6EF23CC8317639C50B8C134425E885C0DBA98F",
+        "timeUtc": "2026-10-04T01:12:11.9265030Z",
+        "clear": true,
+        "checkMode": "full-three-sample",
+        "fullClearAtUtc": null,
+        "fullCheckSha256": null,
+        "systemCpuPercent": [
+          15,
+          2,
+          8
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 16526,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 3485.0,
+        "meanMs": 16.748,
+        "p95Ms": 16.762,
+        "p99Ms": 17.878,
+        "maxMs": 33.417,
+        "under16_7ms": 0.7897,
+        "resourceValidationSeconds": 0.044
+      },
+      "memory": {
+        "case": "activecombat",
+        "height": 1080,
+        "peakWorkingBytes": 309993472,
+        "observedWorkingPeakBytes": 309952512,
+        "sampleIntervalMs": 250,
+        "processElapsedMs": 68667,
+        "uncapped": false,
+        "completeBattle": true,
+        "assemblySha256": "194230D3C91EB6273FA370A8CC8E043D0A80CCE2AF56E48F8BCCF4D479200519",
+        "resourceAssetsSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378"
+      },
+      "effects": [
+        "PLAN7_EFFECT_PERFORMANCE category=major frames=66 p95Ms=16.758 maxMs=16.838 under16_7ms=0.7121",
+        "PLAN7_EFFECT_PERFORMANCE category=break frames=199 p95Ms=16.759 maxMs=16.883 under16_7ms=0.7889"
+      ],
+      "guiCpu": [],
+      "firstRepaint": [],
+      "normalSaveUnchanged": true,
+      "renderedEquivalencePassed": true,
+      "sameRunTelemetryJoinPassed": true,
+      "instrumentationEnabled": true,
+      "normalVsync": 1,
+      "playbackSpeed": 1,
+      "startupSecondsFieldMeaning": "time at capture; not startup latency"
+    },
+    {
+      "source": "plan7-sample-20261004012824",
+      "sourceSha256": "65C12C5F76CEA549A9054488184DAC284FC4ED4EA72D9C0CDA17028516E1DFC3",
+      "logSha256": "4122AE54124C4BF17A18E948EBCBB10142D11EEAAAC31F66F9237E2019CEBD28",
+      "height": 1080,
+      "runId": "telemetry-743f5b9556684d11bdbbe658f63d251b",
+      "profile": "colossus-plan8-2026-10-04",
+      "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "result": "passed",
+      "environment": {
+        "sourceSha256": "96EFA944021603CA8297A0F16ABC2FB46E9329C298F1062FC80CA2F705F1D61D",
+        "timeUtc": "2026-10-04T01:28:30.4355215Z",
+        "clear": true,
+        "checkMode": "full-three-sample",
+        "fullClearAtUtc": "2026-10-04T01:28:30.4355215Z",
+        "fullCheckSha256": "51CEF2C54059A0131C1E1050E3A90205150E1924ED2D1D76E30213DEDD86EE98",
+        "systemCpuPercent": [
+          10,
+          7,
+          5
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17867,
+        "gpuMaxPercent": 6,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 3426.0,
+        "meanMs": 16.792,
+        "p95Ms": 16.697,
+        "p99Ms": 16.703,
+        "maxMs": 100.108,
+        "under16_7ms": 0.9883,
+        "resourceValidationSeconds": 0.041
+      },
+      "memory": {
+        "case": "activecombat",
+        "height": 1080,
+        "peakWorkingBytes": 317050880,
+        "observedWorkingPeakBytes": 317009920,
+        "sampleIntervalMs": 250,
+        "processElapsedMs": 67718,
+        "uncapped": false,
+        "completeBattle": true,
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+        "resourceAssetsSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378"
+      },
+      "effects": [
+        "PLAN7_EFFECT_PERFORMANCE category=major frames=66 p95Ms=16.696 maxMs=16.697 under16_7ms=1.0000",
+        "PLAN7_EFFECT_PERFORMANCE category=break frames=192 p95Ms=16.697 maxMs=67.050 under16_7ms=0.9740"
+      ],
+      "guiCpu": [
+        "PLAN8_GUI_CPU samples=3425 p95Ms=0.278 maxMs=2.783 scope=IMGUI-repaint-only-excludes-update-gpu-vsync"
+      ],
+      "firstRepaint": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=3.470 splashFinished=True"
+      ],
+      "normalSaveUnchanged": true,
+      "renderedEquivalencePassed": true,
+      "sameRunTelemetryJoinPassed": true,
+      "instrumentationEnabled": true,
+      "normalVsync": 1,
+      "playbackSpeed": 1,
+      "startupSecondsFieldMeaning": "time at capture; not startup latency"
+    },
+    {
+      "source": "plan7-sample-20261004015835",
+      "sourceSha256": "29FFB95425ABFE44AF488797F0359EC77E89787E0251DD74161D8E14F7005511",
+      "logSha256": "07D987739EC93826C8B5FF19966C1B408B411A8E653930CDA94F9643B4A7DDC4",
+      "height": 720,
+      "runId": "telemetry-7c52b003a7314c5593834a6be338874d",
+      "profile": "colossus-plan8-2026-10-04",
+      "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "result": "passed",
+      "environment": {
+        "sourceSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "timeUtc": "2026-10-04T01:58:43.0001106Z",
+        "clear": true,
+        "checkMode": "full-three-sample",
+        "fullClearAtUtc": null,
+        "fullCheckSha256": null,
+        "systemCpuPercent": [
+          0,
+          2,
+          10
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 18104,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 3449.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.698,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.041
+      },
+      "memory": {
+        "case": "activecombat",
+        "height": 720,
+        "peakWorkingBytes": 312205312,
+        "observedWorkingPeakBytes": 312160256,
+        "sampleIntervalMs": 250,
+        "processElapsedMs": 67738,
+        "uncapped": false,
+        "completeBattle": true,
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+        "resourceAssetsSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378"
+      },
+      "effects": [
+        "PLAN7_EFFECT_PERFORMANCE category=major frames=66 p95Ms=16.697 maxMs=16.698 under16_7ms=1.0000",
+        "PLAN7_EFFECT_PERFORMANCE category=break frames=196 p95Ms=16.697 maxMs=16.698 under16_7ms=1.0000"
+      ],
+      "guiCpu": [
+        "PLAN8_GUI_CPU samples=3448 p95Ms=0.303 maxMs=2.604 scope=IMGUI-repaint-only-excludes-update-gpu-vsync"
+      ],
+      "firstRepaint": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=3.468 splashFinished=True"
+      ],
+      "normalSaveUnchanged": true,
+      "renderedEquivalencePassed": true,
+      "sameRunTelemetryJoinPassed": true,
+      "instrumentationEnabled": true,
+      "normalVsync": 1,
+      "playbackSpeed": 1,
+      "startupSecondsFieldMeaning": "time at capture; not startup latency"
+    }
+  ],
+  "homeRuns": [
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "FCACE00C143D26A141287D4CA670EAAE36A1C827D3F85ACD6F7CE5D2EC756189",
+      "logSha256": "261E805A854063D3C22F26F4F81E80ED6F05E063E82CC0FEC37965E0FF819ACD",
+      "environment": {
+        "sourceSha256": "7CD73F82269189DF55401FD416908CA4919108C8C89581B8FAE4916D995D9F6E",
+        "timeUtc": "2026-10-04T02:01:29.3040832Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          9
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17896,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.698,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.04
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 736.438,
+        "firstGuiCpuMs": 94.308
+      },
+      "schemaVersion": 1,
+      "case": "Adv",
+      "gardenUse": "None",
+      "height": 1080,
+      "saveForm": "New",
+      "resumed": true,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 305139712,
+      "observedWorkingPeakBytes": 305102848,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 3449,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=2.979 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Adv prepareToFirstRepaintMs=736.438 firstGuiCpuMs=94.308 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=599 p95Ms=0.389 maxMs=0.980 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.698 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.040 vsync=1 targetFrameRate=-1 startupSeconds=18.001 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "CD9CBD25A0A8AE9F347917FA1D51514ADCB96F2018EEA42F74F94413F7CD6A66",
+      "logSha256": "6F9EB61E5617CD7E1782AC5C0C58E8039AD5FD4E5BECC445128B4F3B1BACABFA",
+      "environment": {
+        "sourceSha256": "08583A93B7E78DF338C88554EC2A7F9857B62F95A1E2C301ADD3ECE6C5CA27F2",
+        "timeUtc": "2026-10-04T02:01:07.7479661Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          0
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17895,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.699,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.04
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 721.535,
+        "firstGuiCpuMs": 94.021
+      },
+      "schemaVersion": 1,
+      "case": "Adv",
+      "gardenUse": "None",
+      "height": 720,
+      "saveForm": "New",
+      "resumed": true,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 303943680,
+      "observedWorkingPeakBytes": 303902720,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 3450,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=2.954 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Adv prepareToFirstRepaintMs=721.535 firstGuiCpuMs=94.021 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=599 p95Ms=0.490 maxMs=1.014 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.699 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.040 vsync=1 targetFrameRate=-1 startupSeconds=18.011 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "A67B504C06162B2F83EAAEC38301608A23A7571E1D0408F852042617BD5720D2",
+      "logSha256": "2F0D70EA0BD5F21EC0D84ABEEC017314AB10479B366B05352F17541D1F37CBDB",
+      "environment": {
+        "sourceSha256": "08106BD4F4A81633AAE2E2BD64353DC57C6E67D20E6439B2AA6658E12CD699AF",
+        "timeUtc": "2026-10-04T02:02:12.3999232Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          6
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17969,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.698,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.04
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 738.122,
+        "firstGuiCpuMs": 106.748
+      },
+      "schemaVersion": 1,
+      "case": "Cg",
+      "gardenUse": "None",
+      "height": 1080,
+      "saveForm": "New",
+      "resumed": true,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 303816704,
+      "observedWorkingPeakBytes": 303775744,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 3426,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=2.966 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Cg prepareToFirstRepaintMs=738.122 firstGuiCpuMs=106.748 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=599 p95Ms=0.386 maxMs=1.179 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.698 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.040 vsync=1 targetFrameRate=-1 startupSeconds=18.009 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "61F276DD3FF7C76812FDA05684026FBF7A1D8E91F1B6AACC45E83DCD00F27A2E",
+      "logSha256": "E02112A4A3D8EB7F8E8BA56324048B543C71D37529F5393E6456AE984F03A524",
+      "environment": {
+        "sourceSha256": "3E02ABAC4CF8D3D6EC997118FC9984AD6C20B7904A086A8C728ACF386D10B644",
+        "timeUtc": "2026-10-04T02:01:50.8758328Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          3
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17946,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.698,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.038
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 729.315,
+        "firstGuiCpuMs": 106.778
+      },
+      "schemaVersion": 1,
+      "case": "Cg",
+      "gardenUse": "None",
+      "height": 720,
+      "saveForm": "New",
+      "resumed": true,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 300806144,
+      "observedWorkingPeakBytes": 300769280,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 3443,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=2.971 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Cg prepareToFirstRepaintMs=729.315 firstGuiCpuMs=106.778 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=599 p95Ms=0.465 maxMs=0.864 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.698 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.038 vsync=1 targetFrameRate=-1 startupSeconds=18.001 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "EDEA3D04E8125A0D52960D9AFA1B101F8B25488391FCE625A0D435E4C8EDE383",
+      "logSha256": "2F77147789EDE407B05DFB6870A033235315A326BD8CF3329882D549FE4D3ABF",
+      "environment": {
+        "sourceSha256": "1340D6B42B1F805BA3882C4A87416011F992B8F9FE644D33573187CFF23EE8C3",
+        "timeUtc": "2026-10-04T02:00:46.209755Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          8
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17947,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.699,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.04
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 708.465,
+        "firstGuiCpuMs": 74.53
+      },
+      "schemaVersion": 1,
+      "case": "Garden",
+      "gardenUse": "None",
+      "height": 1080,
+      "saveForm": "New",
+      "resumed": true,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 302977024,
+      "observedWorkingPeakBytes": 302948352,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 3455,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=2.947 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Garden prepareToFirstRepaintMs=708.465 firstGuiCpuMs=74.530 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=599 p95Ms=6.647 maxMs=8.573 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.699 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.040 vsync=1 targetFrameRate=-1 startupSeconds=18.000 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "sourceSha256": "2E9E9D07B0801531EEFFB3DE87A7E365372AB917F530362CE446EC686618D247",
+      "logSha256": "82F550BEE11203AA3CCA1DF3FB94662162FC3BC4DF5351D381C8BFE1E506A484",
+      "environment": {
+        "sourceSha256": "5FAF3CFDA84908001CB89DF088AE5DB47381CA22E4E582322B0677F6415CDE5F",
+        "timeUtc": "2026-10-04T02:00:24.5983987Z",
+        "clear": true,
+        "checkMode": "batch-change-snapshot",
+        "fullClearAtUtc": "2026-10-04T01:58:43.0001106Z",
+        "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+        "systemCpuPercent": [
+          13
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 18104,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 600.0,
+        "meanMs": 16.68,
+        "p95Ms": 16.697,
+        "p99Ms": 16.698,
+        "maxMs": 16.698,
+        "under16_7ms": 1.0,
+        "resourceValidationSeconds": 0.044
+      },
+      "scenePreparation": {
+        "prepareToFirstRepaintMs": 704.995,
+        "firstGuiCpuMs": 76.125
+      },
+      "schemaVersion": 1,
+      "case": "Garden",
+      "gardenUse": "None",
+      "height": 720,
+      "saveForm": "New",
+      "resumed": false,
+      "fixture": "isolated-formal-home-acceptance",
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "peakWorkingBytes": 304418816,
+      "observedWorkingPeakBytes": 304418816,
+      "sampleIntervalMs": 250,
+      "processToFirstRepaintLogObservedMs": 6429,
+      "firstRepaintObservationIncludesPollingAndLogFlush": true,
+      "osCache": "uncontrolled",
+      "coldOsCacheMeasured": false,
+      "resourcePrevalidation": true,
+      "humanInput": false,
+      "performance": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=5.744 splashFinished=True\r",
+        "PLAN8_HOME_LOAD scene=Garden prepareToFirstRepaintMs=704.995 firstGuiCpuMs=76.125 assetsPrevalidated=true osCache=uncontrolled\r",
+        "PLAN8_GUI_CPU samples=600 p95Ms=6.824 maxMs=7.870 scope=IMGUI-repaint-only-excludes-update-gpu-vsync\r",
+        "PLAN7_PERFORMANCE scene=gameplay-idle frames=600 meanMs=16.680 p95Ms=16.697 p99Ms=16.698 maxMs=16.698 under16_7ms=1.0000 textureRgbaEstimateBytes=150980480 processWorkingBytes=-1 processPeakWorkingBytes=-1 resourceValidationSeconds=0.044 vsync=1 targetFrameRate=-1 startupSeconds=18.010 cpu=13th Gen Intel(R) Core(TM) i7-13700F gpu=NVIDIA GeForce RTX 4070\r"
+      ]
+    }
+  ],
+  "deferredAttempts": [
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-1.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "3A19F2C9BC34FCBED64AC9823057D6E618908B191BB7F64224A302DDD0B8024A",
+      "timeUtc": "2026-10-04T01:13:38.2612630Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        16,
+        18
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 15993,
+      "gpuMaxPercent": 39,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-2.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "53A461703AC9B0FE4F0C53EDEBF5DDF26B2A87D6509881E86DBEFE65281914CF",
+      "timeUtc": "2026-10-04T01:13:48.7993555Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        16,
+        1
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 16022,
+      "gpuMaxPercent": 22,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-3.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "145C148AD87FFBE6F6AB34569A83E9A88E605E8CF055150909860F4FE71FDEBA",
+      "timeUtc": "2026-10-04T01:13:59.3769017Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        10,
+        13
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 16014,
+      "gpuMaxPercent": 17,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004012204",
+      "file": "activecombat-1080-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "D77662960C3F460006CA452CD742BAFD5C1168BD01AB4D73496119D5094B2130",
+      "timeUtc": "2026-10-04T01:22:11.1126789Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": "2026-10-04T01:22:11.1126789Z",
+      "fullCheckSha256": "FE668F7B5EE1F6D02476287F757E9213DDB12D3EC791EA54008221F2663A2FA0",
+      "systemCpuPercent": [
+        9,
+        18,
+        11
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 18157,
+      "gpuMaxPercent": 0,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004012938",
+      "file": "activecombat-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "93BC5483B13D4BE9DF708125748C939BAB1C649DE89D64C23FC99993081C68E7",
+      "timeUtc": "2026-10-04T01:29:44.4908548Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        1,
+        19,
+        14
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17917,
+      "gpuMaxPercent": 7,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004013158",
+      "file": "activecombat-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "A4D0F60CF5F739A373543EF560ADAE04813D95E5DC51A5D209C1D596D7E8161E",
+      "timeUtc": "2026-10-04T01:32:05.1738021Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        18,
+        9,
+        6
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17739,
+      "gpuMaxPercent": 5,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan6-home-player-20261004020022-dad8343e644f47b7963488ab998b7d75",
+      "file": "New-Backlog-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "8D5AAA0E04E872B7941489459742547729F69FF90C481C337B3A1467332F8C61",
+      "timeUtc": "2026-10-04T02:02:33.9046251Z",
+      "clear": false,
+      "checkMode": "batch-change-snapshot",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": "8779E618651C4ABBEBD67E4E4379B1F61A81937B3FDFD00EE8F306AD7F24F59F",
+      "systemCpuPercent": [
+        23
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17955,
+      "gpuMaxPercent": 0,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan6-home-player-20261004020448-12f37335464e408494897f4386c4887b",
+      "file": "New-Backlog-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "1515E82EF036C6EDC95453DB3B2E5AE20B00FE89BB94828C5742241B98D43892",
+      "timeUtc": "2026-10-04T02:04:54.8474899Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        28,
+        19,
+        17
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17630,
+      "gpuMaxPercent": 0,
+      "otherAppsClosed": false
+    }
+  ],
+  "rejectedDiagnostics": [
+    {
+      "source": "plan7-sample-20261004010451",
+      "logSha256": "5E00F8E918E0F6A54F8F6A6AE25720B98780F74CD4DC45E84F423613DAFB7892",
+      "performanceAdopted": false,
+      "reason": "Diagnostic active-time flush mutated comparison save during prolonged playback.",
+      "fix": "Disable automatic engagement ticking in captures; preserve normal trial and explicit clock injection."
+    }
+  ],
+  "additionalFunctionalDisplays": [
+    {
+      "source": "plan6-home-player-20261004020551-a58de78b56ed451dbb14e71c31413ddd",
+      "case": "New-Backlog-1080",
+      "logSha256": "86FA4E1DA42D0386D73D57E219F95688338C43FEB96003E8F6984B6A42B525CE",
+      "screenshotSha256": "8DAFC289E0063E1A316A5A572AFE8A61410D0D9BCA41C55673E5CC6C2C37141A",
+      "passed": true,
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "performanceMeasured": false,
+      "humanInput": false
+    },
+    {
+      "source": "plan6-home-player-20261004020551-a58de78b56ed451dbb14e71c31413ddd",
+      "case": "New-Backlog-720",
+      "logSha256": "48CCD7352F4F2C0772580C9CA50A101039F7EFAC5220DFCE8E043A142B03BC58",
+      "screenshotSha256": "39FD955A2D46B106C185FA66E3AE506D5F6ED58D0CD12C78784E8B04A57120C2",
+      "passed": true,
+      "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "performanceMeasured": false,
+      "humanInput": false
+    }
+  ],
+  "limitations": [
+    "GUI CPU excludes Update, GPU work and synchronization waits.",
+    "Home preparation includes diagnostic navigation; assets are prevalidated before first repaint.",
+    "Process-to-first-repaint observation includes 250ms polling and log flush, and is not first displayed pixel latency.",
+    "Process restarts retain uncontrolled OS cache; no reboot or cache purge was performed.",
+    "RGBA byte estimate is not measured GPU VRAM.",
+    "External peak working set covers each process, including diagnostic setup and asset prevalidation."
+  ]
+}

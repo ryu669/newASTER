@@ -23,7 +23,14 @@ namespace NewAster.Presentation
             var c=HomeData();var s=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(c.contentVersion),collection=new FormalCollectionLedger{materials=c.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
             s.world.unlockedGardenIds=c.gardens.Take(2).Select(g=>g.id).ToArray();HomeConditions.Refresh(s,c);return s;
         }
-        private void ExitHomeTrial(){if(!BookInputAllowed || homeOriginal==null)return;ResetGardenMenu();formalDiagnostic=false;homeTrial=false;acceptanceStore=null;BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;}
+        private void ExitHomeTrial()
+        {
+            if(!BookInputAllowed || homeOriginal==null)return;
+            if(plan8StoryTrial && !FlushActiveTime()){status="試遊のプレイ時間を保存してから戻ってください。";return;}
+            ResetGardenMenu();formalDiagnostic=false;homeTrial=false;plan8StoryTrial=false;acceptanceStore=null;homeData=null;collectionCatalog=null;
+            unsavedActiveSeconds=0;engagementRequest=null;engagementOpen=false;
+            BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;
+        }
         private HomeExperienceCatalog HomeData()=>homeData??(homeData=HomeExperienceFixture.Create(combatDefinitions));
         private HomeOperation homeOperation;private FormalHomeRequest homeRequest;
         private string homeError,selectedFurniture,selectedResident,selectedNode;private float previewX=.5f,previewY=.65f;private bool placing;
@@ -31,7 +38,7 @@ namespace NewAster.Presentation
         private void ProposeHome(HomeOperation op){if(!formalDiagnostic){status="検証用の別セーブを開くと操作できます。";return;}if(homeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;homeOperation=op;homeRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),op.Kind=="equip"?"weapon":op.Kind=="remove"?"place":op.Kind=="use"?"occupant":op.Kind,formalCampaign.Snapshot.revision,HomeData().contentVersion,op.Key);homeError=null;}
         private void ConfirmHome()
         {
-            try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}homeRequest=null;homeOperation=null;placing=false;homeError=null;}
+            try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}homeRequest=null;homeOperation=null;placing=false;homeError=null;}
             catch(ArgumentException e){homeError=e.Message;}catch(InvalidOperationException e){homeError=e.Message;}
         }
         private void DrawHomeConfirmation(bool growth=false)
@@ -61,7 +68,7 @@ namespace NewAster.Presentation
             if(book.Face==BookFace.Details){
                 var heroesForEvents=snapshot.growth.heroines;for(int i=0;i<heroesForEvents.Length;i++){string hero=heroesForEvents[i].heroineId;if(Btn(32+i*187,355,178,45,combatDefinitions.Hero(hero).name))selectedResident=hero;}
                 string owner=selectedResident??heroesForEvents[0].heroineId;Label(32,415,920,50,$"好感度 {state.affections.SingleOrDefault(a=>a.heroineId==owner)?.value??0} ／ 恋人 {(state.loverHeroineIds.Contains(owner)?"成立":"未成立")} ／ 正式本文は未制作",text);
-                var events=HomeData().events.Where(e=>e.heroineId==owner).ToArray();for(int i=0;i<events.Length;i++){var ev=events[i];bool open=state.unlockedEventIds.Contains(ev.id),read=state.readEventIds.Contains(ev.id);Label(32,485+i*55,520,45,$"{(ev.kind=="affinity"?"好感度":"恋人")} {i+1} ／ {(read?"読了":open?"解放・未読":"前提イベントの読了待ち")}",small);if(Btn(565,480+i*55,210,45,"検証ADV",formalDiagnostic && open))BeginAdv(ev.id,false);if(Btn(790,480+i*55,170,45,"回想",formalDiagnostic && read))BeginAdv(ev.id,true);}return;
+                var events=HomeData().events.Where(e=>e.heroineId==owner && (!plan8StoryTrial || HasTrialText(e.id))).ToArray();for(int i=0;i<events.Length;i++){var ev=events[i];bool open=state.unlockedEventIds.Contains(ev.id),read=state.readEventIds.Contains(ev.id);Label(32,485+i*55,520,45,$"{(ev.kind=="affinity"?"好感度":"恋人")} {i+1} ／ {(read?"読了":open?"解放・未読":"前提イベントの読了待ち")}",small);if(Btn(565,480+i*55,210,45,plan8StoryTrial?"物語を読む":"検証ADV",formalDiagnostic && open))BeginAdv(ev.id,false);if(Btn(790,480+i*55,170,45,"回想",formalDiagnostic && read))BeginAdv(ev.id,true);}return;
             }
             var area=new Rect(32,355,930,235);GrowthFill(area.x,area.y,area.width,area.height,new Color(.17f,.28f,.24f));Label(48,364,890,30,"検証用静的2D素材 ／ 家具選択と人物名簿を分けて操作",small,Color.white);
             DrawGardenScene(area,state,garden,layout,true);

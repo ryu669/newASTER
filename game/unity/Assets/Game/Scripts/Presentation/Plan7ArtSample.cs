@@ -22,6 +22,20 @@ namespace NewAster.Presentation
         private readonly List<float> artFrameTimes=new List<float>();private readonly bool measureArt=Environment.GetCommandLineArgs().Contains("-measurePlan7");
         private readonly List<float> artMajorFrameTimes=new List<float>(),artBreakFrameTimes=new List<float>();
         private float artResourceValidationSeconds;
+        private readonly List<double> measuredGuiMilliseconds=new List<double>();
+        private string measuredHomeScene;private double measuredHomeStarted;private bool measuredFirstRepaint;
+        private static double MeasurementClock=>System.Diagnostics.Stopwatch.GetTimestamp()/(double)System.Diagnostics.Stopwatch.Frequency;
+        private void BeginHomeMeasurement(string scene)
+        {if(!measureArt)return;measuredHomeScene=scene;measuredHomeStarted=MeasurementClock;}
+        private void RecordMeasuredGui(double started)
+        {
+            if(!measureArt || Event.current.type!=EventType.Repaint)return;
+            double duration=(MeasurementClock-started)*1000;
+            if(Time.realtimeSinceStartup>8 && capturedAtFrame<0)measuredGuiMilliseconds.Add(duration);
+            if(measuredFirstRepaint)return;measuredFirstRepaint=true;
+            Debug.Log("PLAN8_FIRST_REPAINT engineElapsedSeconds="+Time.realtimeSinceStartup.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" splashFinished="+UnityEngine.Rendering.SplashScreen.isFinished);
+            if(measuredHomeScene!=null)Debug.Log("PLAN8_HOME_LOAD scene="+measuredHomeScene+" prepareToFirstRepaintMs="+((MeasurementClock-measuredHomeStarted)*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" firstGuiCpuMs="+duration.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" assetsPrevalidated=true osCache=uncontrolled");
+        }
         private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
         private Texture2D SampleImage(string name)
         {
@@ -35,7 +49,7 @@ namespace NewAster.Presentation
             if(!Environment.GetCommandLineArgs().Contains("-presentationCapture") && PlayerPrefs.HasKey("art.fullscreen"))Screen.fullScreenMode=PlayerPrefs.GetInt("art.fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;}
         private bool PlayArtSound(string name)
         {if(!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:encounter==null || paused || help || retreat))return false;
-            EnsureArtAudio();var clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(name));if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);return true;}
+            EnsureArtAudio();var clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource(name));if(clip==null)return false;artSe.PlayOneShot(clip,ArtSampleSettings.Se);TrialObserve("audio","se-requested",name);return true;}
         private void SetArtSamplePaused(bool value)
         {artSamplePaused=value || !artHasFocus || !Application.isFocused;if(artSamplePaused){artBgm?.Pause();artSe?.Pause();}}
         private void UpdateArtAudio()
@@ -56,7 +70,7 @@ namespace NewAster.Presentation
             PlayArtSound(e.BossHp==0?"victory":e.PartBroken?"break":e.Kind==BattlePresentationKind.Healing?"heal":e.Kind==BattlePresentationKind.Support?"shield":"hit");
         }
         private void OnApplicationFocus(bool focused)
-        {artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
+        {TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
             artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}
@@ -91,6 +105,8 @@ namespace NewAster.Presentation
             long rgbaBytes=artTextures.Values.Where(t=>t!=null).Sum(t=>(long)t.width*t.height*4);long working=-1,peak=-1;
             try{using(var process=System.Diagnostics.Process.GetCurrentProcess()){working=process.WorkingSet64;peak=process.PeakWorkingSet64;}}catch(Exception ex){Debug.Log("PLAN7_MEMORY_UNAVAILABLE "+ex.GetType().Name);}
             if(working<=0 || peak<=0){working=-1;peak=-1;}
+            if(measuredGuiMilliseconds.Count>0){var cpu=measuredGuiMilliseconds.OrderBy(x=>x).ToArray();Debug.Log("PLAN8_GUI_CPU samples="+cpu.Length+" p95Ms="+cpu[(int)((cpu.Length-1)*.95)].ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" maxMs="+cpu.Last().ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" scope=IMGUI-repaint-only-excludes-update-gpu-vsync");}
+            TrialObserve("performance","frame-sample","scene="+(plan7ActiveCombat?"scripted-active-combat":artTab)+";frames="+ordered.Length+";p95Ms="+(ordered[(int)((ordered.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+";under16_7ms="+ratio.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)+";workingBytes="+working+";peakWorkingBytes="+peak);
             foreach(var category in new[]{new{label="major",frames=artMajorFrameTimes},new{label="break",frames=artBreakFrameTimes}}){
                 if(category.frames.Count==0)continue;var times=category.frames.OrderBy(x=>x).ToArray();
                 Debug.Log("PLAN7_EFFECT_PERFORMANCE category="+category.label+" frames="+times.Length+" p95Ms="+(times[(int)((times.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" maxMs="+(times.Last()*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" under16_7ms="+(times.Count(x=>x<=.0167f)/(double)times.Length).ToString("F4",System.Globalization.CultureInfo.InvariantCulture));

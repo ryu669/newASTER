@@ -14,14 +14,15 @@ namespace NewAster.Presentation
         private string relicError;
         private string relicComparisonKey,relicComparisonText;
         private CollectionReceipt lastCollectionResult;
+        private int AvailableCollectionMaterials=>formalCampaign?.Snapshot.collection?.materials.Sum(m=>m.amount)??campaign.Progress.Materials;
         private CollectionCatalog CollectionData()=>collectionCatalog??(collectionCatalog=CollectionContractFixture.Create(combatDefinitions));
         private string CollectionOwnerName(CollectionOwnerDef owner)=>owner.kind=="colossus"?(campaign.ColossusUnlocks.IsUnlocked(owner.id)?WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName:"未解放の巨神獣"):combatDefinitions.Hero(owner.id).name;
-        private void CollectionBack(){if(formalCampaign.HasPending)return;if(relicRequest!=null){relicRequest=null;relicError=null;return;}collectionOpen=false;}
-        private void RelicSelect(CollectionRelic relic,RelicOperation operation,string heroineId=null){relicRequest=new FormalRelicRequest("relic."+Guid.NewGuid().ToString("N"),relic.id,heroineId,formalCampaign.Snapshot.revision,operation);relicError=null;}
+        private void CollectionBack(){if(formalCampaign.HasPending)return;if(relicRequest!=null){relicRequest=null;relicError=null;return;}trialPoemChapter=null;collectionOpen=false;}
+        private void RelicSelect(CollectionRelic relic,RelicOperation operation,string heroineId=null){relicRequest=new FormalRelicRequest("relic."+Guid.NewGuid().ToString("N"),relic.id,heroineId,formalCampaign.Snapshot.revision,operation,CollectionData().contentVersion);relicError=null;}
         private void RelicCommit()
         {
             try{
-                var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?SaveDiagnosticCampaign:formalCampaignStore.Save);
+                var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);
                 if(outcome==GrowthCommitResult.SaveFailed){relicError="保存待ちです。同じ強化・装備内容で再試行します。";return;}
                 formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);relicRequest=null;relicError="保存しました。能力は次の出撃から反映されます。";
             }catch(Exception e){relicError=e is ArgumentException?"素材数・80%条件・Lv上限・装備先を確認してください。":"保存できません。同じ内容で再試行してください。";Debug.LogException(e);}
@@ -42,6 +43,7 @@ namespace NewAster.Presentation
             GrowthStyles();GrowthFill(0,0,1600,900,ink);GrowthFrame(90,80,1420,745);
             Label(150,112,1050,65,"記憶とオーパーツ",growthTitleStyle);
             if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
+            if(plan8StoryTrial && trialPoemChapter!=null){DrawTrialPoemConditions();return;}
             if(GrowthButton(150,205,600,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
             if(GrowthButton(780,205,650,52,"オーパーツ・素材",relicRequest==null,collectionTab==1))collectionTab=1;
             if(relicRequest!=null){DrawRelicConfirmation();return;}
@@ -54,10 +56,15 @@ namespace NewAster.Presentation
                 for(int i=0;i<3;i++){
                     var c=CollectionData().chapters.Single(x=>x.id==o.chapterIds[i]);int count=c.poemIds.Count(world.poemIds.Contains);
                     GrowthLine(150,355+i*110,1430,355+i*110,gold);
-                    Label(180,375+i*110,1200,45,$"第{i+1}章   詩 {count}/{c.poemIds.Length}   {(world.unlockedStoryIds.Contains(c.id)?"章の条件達成":"未解放")}",growthTextStyle);
-                    Label(180,420+i*110,1200,36,o.kind=="colossus"?"条件：この巨神獣の詩を8つそろえる。本文は未制作です。":"条件：開始編成に参加し、対応する巨神獣の歌を聞く。本文未制作。",growthSmallStyle);
+                    bool authored=plan8StoryTrial && HasTrialText(c.id),open=world.unlockedStoryIds.Contains(c.id),read=world.readStoryIds.Contains(c.id);
+                    Label(180,375+i*110,authored?810:1200,45,$"第{i+1}章   詩 {count}/{c.poemIds.Length}   {(open?read?"読了":"章の条件達成":"未解放")}",growthTextStyle);
+                    Label(180,420+i*110,authored?810:1200,36,authored?"条件：この章の詩をそろえる。オリジナル試遊本文。":o.kind=="colossus"?"条件：この巨神獣の詩を8つそろえる。本文は未制作です。":"条件：開始編成に参加し、対応する巨神獣の歌を聞く。本文未制作。",growthSmallStyle);
+                    if(authored){
+                        if(GrowthButton(1015,405+i*110,180,44,"条件・詩対応")){trialPoemChapter=c.id;trialPoemScroll=Vector2.zero;}
+                        if(GrowthButton(1230,405+i*110,200,44,read?"回想":"読む／再開",open))BeginAdv(c.id,read);
+                    }
                 }
-                Label(150,710,1280,65,"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
+                Label(150,710,1280,65,(plan8StoryTrial?"詩対応はオリジナル本文に基づいています。歌唱率は調整中です。":"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。")+"\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
                 DrawBookTransition(true);
             }else DrawRelicInventory();
         }
@@ -90,7 +97,7 @@ namespace NewAster.Presentation
             else info=RelicEquipmentComparison(r,relicRequest);
             Label(170,375,1260,175,info,growthTextStyle);
             if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<5;i++){
-                var id=combatDefinitions.FormationIds[i];if(GrowthButton(170+i*250,565,230,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation);
+                var id=combatDefinitions.FormationIds[i];if(GrowthButton(170+i*250,565,230,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation,relicRequest.ContentVersion);
             }
             string unavailable=RelicUnavailable(r,relicRequest.Operation);
             if(relicError!=null || unavailable!=null)Label(170,635,1260,55,relicError??unavailable,growthSmallStyle);
@@ -113,7 +120,7 @@ namespace NewAster.Presentation
         private string ResultDetail()
         {
             if(lastCollectionResult==null || resultTab==0)return result;var r=lastCollectionResult;
-            if(resultTab==1)return $"聞いた巨神獣の詩 {r.battle.heardPoemIds.Length} ／ 新規 {r.acquiredPoemIds.Length}\n"+string.Join("\n",r.acquiredPoemIds.Select(id=>CollectionData().poems.Single(p=>p.id==id)).GroupBy(p=>p.ownerId).Select(g=>CollectionOwnerName(CollectionData().owners.Single(o=>o.id==g.Key))+"："+g.Count()+"詩"))+$"\n新しい章 {r.unlockedChapterIds.Length} ／ 本文未制作";
+            if(resultTab==1)return $"聞いた巨神獣の詩 {r.battle.heardPoemIds.Length} ／ 新規 {r.acquiredPoemIds.Length}\n"+string.Join("\n",r.acquiredPoemIds.Select(id=>CollectionData().poems.Single(p=>p.id==id)).GroupBy(p=>p.ownerId).Select(g=>CollectionOwnerName(CollectionData().owners.Single(o=>o.id==g.Key))+"："+g.Count()+"詩"))+$"\n新しい章 {r.unlockedChapterIds.Length} ／ "+(plan8StoryTrial?"8章のオリジナル試遊本文":"本文未制作");
             if(resultTab==2){
                 if(r.reason!=BattleEndReason.Victory)return "敗北・撤退では世界復元・素材・初回解放は発生しません。\n聞いた詩と対応する人物詩・章を保存しました。";
                 var source=WorldCatalog.Colossi.Single(c=>c.Id==r.battle.colossusId);var band=CollectionData().rewardBands.Single(b=>b.ownerId==source.Id && r.battle.level>=b.minLevel && r.battle.level<=b.maxLevel);

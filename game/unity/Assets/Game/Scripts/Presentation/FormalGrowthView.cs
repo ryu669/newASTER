@@ -25,7 +25,19 @@ namespace NewAster.Presentation
             if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
+            NormalizeKinderOptionalFields(value.growth);
             return value;
+        }
+        private static void NormalizeKinderOptionalFields(FormalGrowthSave growth)
+        {
+            // JsonUtility serializes nullable string fields as empty strings. Restore only optional absent fields.
+            if(growth?.receipts==null)return;
+            foreach(var receipt in growth.receipts){if(receipt?.kinderOutcomes==null)continue;
+                foreach(var outcome in receipt.kinderOutcomes){if(outcome==null)continue;
+                    if(outcome.kind!="heroine" && outcome.heroineId=="")outcome.heroineId=null;
+                    if(outcome.grantKind=="")outcome.grantKind=null;
+                }
+            }
         }
         public static FormalCampaignHeader DecodeHeader(string text)
         {
@@ -62,24 +74,26 @@ namespace NewAster.Presentation
                 if(growthLoad==FormalLoadResult.Blocked || growthLoad==FormalLoadResult.RecoveredBackup || worldLoad==FormalLoadResult.Blocked){BeginSplitSaveRecovery();return;}
                 if(growth==null)growth=new FormalGrowthSave {saveId="newaster.formal-growth",nectar=2940,awakeningCrystals=20,heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()};
                 unified=new FormalCampaignSave {growth=growth,world=world??new CampaignState(WorldCatalog.ColossusIds).CreateSave()};unified.Validate();
-                if(!formalDiagnostic)formalCampaignStore.Save(unified);
+                if(!formalDiagnostic)SaveTrialObservedCampaign(unified);
             }
             BindFormalCampaign(unified);
         }
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
-            unified.collection?.ValidateContent(CollectionContractFixture.Create(combatDefinitions));
-            unified.home?.ValidateContent(HomeExperienceFixture.Create(combatDefinitions),unified);
+            unified.collection?.ValidateContent(plan8StoryTrial?TrialStoryCatalog.Collection(combatDefinitions,StoryData()):CollectionContractFixture.Create(combatDefinitions));
+            unified.home?.ValidateContent(plan8StoryTrial?HomeData():HomeExperienceFixture.Create(combatDefinitions),unified);
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
             book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
+            TrialObserve("save","loaded","revision="+unified.revision);
+            TrialObserve("economy","opening-balance",$"nectar={unified.growth.nectar};crystals={unified.growth.awakeningCrystals};stones={unified.growth.stones}");
         }
         private bool SaveFormalGrowth(FormalGrowthSave next)
         {
             if(formalDiagnostic)return acceptanceStore!=null && formalCampaign.CommitGrowth(next,SaveDiagnosticCampaign);
-            return formalCampaign.CommitGrowth(next,formalCampaignStore.Save);
+            return formalCampaign.CommitGrowth(next,SaveTrialObservedCampaign);
         }
         private void DrawFormalGrowth() => DrawGrowthExperience();
     }

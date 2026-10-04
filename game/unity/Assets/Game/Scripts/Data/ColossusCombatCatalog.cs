@@ -24,6 +24,11 @@ namespace NewAster.Data
             }
         }
         public static bool CanSummon(string id)=>id==GreenReturnDragonVerticalSlice.ColossusId;
+        public static ColossusCombatDef GetPlan8Trial(string id)
+        {
+            var definition=Get(id);definition.contentVersion=ColossusCombatDef.Plan8Version;
+            definition.hpPerLevel=600;definition.damagePerLevel=8;definition.Validate();return definition;
+        }
         public static ColossusCombatDef Get(string id)
         {
             if(!CanSummon(id))throw new System.ArgumentException("This colossus combat definition has not been authored.");

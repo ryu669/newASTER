@@ -59,6 +59,12 @@ namespace NewAster.Core
         public void Pause(){Paused=true;Auto=false;Skip=false;autoElapsed=0;}
         public void Resume(){Paused=false;autoElapsed=0;}
         public void MarkCommitted(){if(!EndReached)throw new InvalidOperationException("Scene not at end.");Completed=true;}
+        public void ResumeAtFirstUnread()
+        {
+            if(Replay || Paused || NewlyRead.Count!=0)throw new InvalidOperationException("Resume requires a newly opened non-replay session.");
+            // Rebuild scene state and backlog from commands without creating read receipts.
+            while(!EndReached && LineId!=null && read.Contains(LineId)){transitionRemaining=0;RunCommands();}
+        }
     }
     public sealed partial class FormalCampaignJournal
     {

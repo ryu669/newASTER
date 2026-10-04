@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "stage": "8-4/8-5 technical adjustment",
+  "coreAssertions": 5705,
+  "csharpFiles": 102,
+  "unityAssertions": 1186,
+  "buildBytes": 293149046,
+  "buildLog": "tmp/plan8-balance-build.log",
+  "balanceReport": "docs/production/plan8-balance-measurements.json",
+  "balanceReportSha256": "11A1B082548CCF6A35F491EDFC916D4E704516C22223261503EA022C8A90CB0D",
+  "playerRuns": [
+    {
+      "output": "tmp/plan8-story-player/story-1eefc4dbacc441959610d33affcef001",
+      "result": {
+        "schemaVersion": 1,
+        "scope": "original-story-transactions-and-rendered-replay; automated-not-human-playtest",
+        "passed": true,
+        "runId": "story-1eefc4dbacc441959610d33affcef001",
+        "assemblySha256": "8DB6D90EDE30001B64F92FA40C38AC9D71535CEF9BE97C4850482C9EF3DF0EAD",
+        "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+        "height": 720,
+        "normalSaveUnchanged": true,
+        "performanceMeasured": false,
+        "cases": [
+          {
+            "case": "new",
+            "passed": true,
+            "saveSha256": "13D18B2B686D7E708F6EA518D03AFA359D043A602318736BC08555E339AC32D1",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": false
+          },
+          {
+            "case": "resume",
+            "passed": true,
+            "saveSha256": "13D18B2B686D7E708F6EA518D03AFA359D043A602318736BC08555E339AC32D1",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": true
+          }
+        ]
+      },
+      "actualCollectionBattles": 8,
+      "newAssertions": 117,
+      "resumeAssertions": 6
+    },
+    {
+      "output": "tmp/plan8-story-player/story-f936d2fbcdd04634bf6be136fa66dd31",
+      "result": {
+        "schemaVersion": 1,
+        "scope": "original-story-transactions-and-rendered-replay; automated-not-human-playtest",
+        "passed": true,
+        "runId": "story-f936d2fbcdd04634bf6be136fa66dd31",
+        "assemblySha256": "8DB6D90EDE30001B64F92FA40C38AC9D71535CEF9BE97C4850482C9EF3DF0EAD",
+        "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+        "height": 1080,
+        "normalSaveUnchanged": true,
+        "performanceMeasured": false,
+        "cases": [
+          {
+            "case": "new",
+            "passed": true,
+            "saveSha256": "0FB967F8B657BBF35311371ADEA2FFD2948BBA97860E56D1AB43CA2E0CF71923",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": false
+          },
+          {
+            "case": "resume",
+            "passed": true,
+            "saveSha256": "0FB967F8B657BBF35311371ADEA2FFD2948BBA97860E56D1AB43CA2E0CF71923",
+            "readChapters": 8,
+            "readEvents": 1,
+            "readLines": 77,
+            "replaySaveUnchanged": true
+          }
+        ]
+      },
+      "actualCollectionBattles": 8,
+      "newAssertions": 117,
+      "resumeAssertions": 6
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "humanPlaytest": false,
+  "realPlayDurationAccepted": false,
+  "plan8Complete": false
+}

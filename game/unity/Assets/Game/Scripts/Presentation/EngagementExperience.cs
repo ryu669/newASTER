@@ -24,17 +24,17 @@ namespace NewAster.Presentation
         {
             if(Application.isFocused && (Input.anyKey || (Input.mousePosition-lastEngagementMouse).sqrMagnitude>1 || Input.mouseScrollDelta.sqrMagnitude>0))lastEngagementInput=Time.unscaledTime;
             lastEngagementMouse=Input.mousePosition;
-            if(formalDiagnostic || artSample || adv!=null || collectionOpen || recoveryActive || combatDefinitionError!=null || formalCampaign==null || title || paused || help || retreat || modelViewer || result!=null || engagementOpen || !Application.isFocused || formalCampaign.HasPending || formalProgression.HasPending)return;
+            if(formalDiagnostic && (!plan8StoryTrial || capturePath!=null) || artSample || adv!=null || collectionOpen || recoveryActive || combatDefinitionError!=null || formalCampaign==null || title || paused || help || retreat || modelViewer || result!=null || engagementOpen || !Application.isFocused || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(Time.unscaledTime-lastEngagementInput>60 && !(encounter!=null && playback.Busy))return;
             float elapsed=Time.unscaledDeltaTime;if(elapsed>0 && elapsed<=2)unsavedActiveSeconds+=elapsed;
             if(unsavedActiveSeconds>=60 && Time.unscaledTime>=nextClockAttempt){FlushActiveTime();nextClockAttempt=Time.unscaledTime+60;}
         }
         private bool FlushActiveTime()
         {
-            if(formalDiagnostic || unsavedActiveSeconds<1)return true;
+            if(formalDiagnostic && !plan8StoryTrial || unsavedActiveSeconds<1)return true;
             if(formalCampaign.HasPending || formalProgression.HasPending)return false;
             int seconds=(int)Math.Min(3600,Math.Floor(unsavedActiveSeconds));
-            try{if(!formalCampaign.CommitActiveSeconds(seconds,formalCampaignStore.Save))return false;unsavedActiveSeconds-=seconds;return true;}
+            try{if(!formalCampaign.CommitActiveSeconds(seconds,plan8StoryTrial?SaveDiagnosticCampaign:SaveTrialObservedCampaign))return false;unsavedActiveSeconds-=seconds;return true;}
             catch(Exception e){Debug.LogException(e);engagementError="プレイ時間を保存できませんでした。再試行まで今回の時間を保持します。";return false;}
         }
         private void OpenEngagement()
@@ -56,7 +56,7 @@ namespace NewAster.Presentation
         {
             if(engagementRequest==null || engagementComplete)return;
             try {
-                Func<FormalCampaignSave,bool> writer=formalDiagnostic?(s=>true):formalCampaignStore.Save;
+                Func<FormalCampaignSave,bool> writer=plan8StoryTrial?SaveDiagnosticCampaign:formalDiagnostic?(s=>true):SaveTrialObservedCampaign;
                 if(formalCampaign.CommitEngagement(engagementRequest,engagementRules,DateTime.UtcNow,writer)==GrowthCommitResult.SaveFailed){engagementError="保存できませんでした。同じ報酬で再試行してください。";return;}
                 formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);engagementComplete=true;engagementError=null;
             }catch(Exception e){engagementError=formalCampaign.HasPending?"保存できませんでした。同じ報酬を保持しています。":"日付や保存状態が変わりました。戻って受取内容を再確認してください。";Debug.LogException(e);}
