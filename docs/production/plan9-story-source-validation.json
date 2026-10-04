@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "partial-source-not-connected",
-  "chapters": 17,
-  "poems": 126,
+  "chapters": 29,
+  "poems": 222,
   "events": 0,
   "required": {
     "chapters": 60,
@@ -16,9 +16,6 @@
     "colossus.black-smoke-citadel.collection.chapter.1",
     "colossus.black-smoke-citadel.collection.chapter.2",
     "colossus.black-smoke-citadel.collection.chapter.3",
-    "colossus.crystal-rose-princess.collection.chapter.1",
-    "colossus.crystal-rose-princess.collection.chapter.2",
-    "colossus.crystal-rose-princess.collection.chapter.3",
     "colossus.dead-king-megadeath.collection.chapter.1",
     "colossus.dead-king-megadeath.collection.chapter.2",
     "colossus.dead-king-megadeath.collection.chapter.3",
@@ -28,18 +25,9 @@
     "colossus.final-flame-ice-phoenix.collection.chapter.1",
     "colossus.final-flame-ice-phoenix.collection.chapter.2",
     "colossus.final-flame-ice-phoenix.collection.chapter.3",
-    "colossus.heaven-tree-orochi.collection.chapter.1",
-    "colossus.heaven-tree-orochi.collection.chapter.2",
-    "colossus.heaven-tree-orochi.collection.chapter.3",
     "colossus.newborn-asteria.collection.chapter.1",
     "colossus.newborn-asteria.collection.chapter.2",
     "colossus.newborn-asteria.collection.chapter.3",
-    "colossus.reenactment-yimir.collection.chapter.1",
-    "colossus.reenactment-yimir.collection.chapter.2",
-    "colossus.reenactment-yimir.collection.chapter.3",
-    "colossus.silver-sea-whale.collection.chapter.1",
-    "colossus.silver-sea-whale.collection.chapter.2",
-    "colossus.silver-sea-whale.collection.chapter.3",
     "colossus.white-divine-dragon-mother.collection.chapter.1",
     "colossus.white-divine-dragon-mother.collection.chapter.2",
     "colossus.white-divine-dragon-mother.collection.chapter.3",
@@ -56,6 +44,14 @@
   ],
   "sources": [
     {
+      "path": "game/story-source/plan9/crystal-rose-princess.json",
+      "sha256": "8326066b94f25b8160df8cd558821232004779521cec4cebbf09d7ad9200f01b"
+    },
+    {
+      "path": "game/story-source/plan9/heaven-tree-orochi.json",
+      "sha256": "7fb4e2b3ea49295ce6a7cd6c342d015bce4c3b73434a2056eb291d9f23bfc3a1"
+    },
+    {
       "path": "game/story-source/plan9/initial-authored-chapters.json",
       "sha256": "1d0f8f055b0741053a0a419b58daa6070f17d376b18720a1719dae0326a1800b"
     },
@@ -66,6 +62,14 @@
     {
       "path": "game/story-source/plan9/red-crystal-tyrant.json",
       "sha256": "aa786cbe6448c9f107dd6fc14c4cdbba51f483b90a73daba1213032c708de900"
+    },
+    {
+      "path": "game/story-source/plan9/reenactment-yimir.json",
+      "sha256": "759c0081c469b67565863a574f47033786dd1e543f8627a38e6c6abf89914823"
+    },
+    {
+      "path": "game/story-source/plan9/silver-sea-whale.json",
+      "sha256": "268171ce1870356704dc7c54b132a08efdbaf933c5e1aba157b20545db4e840b"
     },
     {
       "path": "game/story-source/plan9/sky-tower-machine.json",
