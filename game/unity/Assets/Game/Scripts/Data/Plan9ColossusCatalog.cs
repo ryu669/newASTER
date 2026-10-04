@@ -9,7 +9,26 @@ namespace NewAster.Data
         private static readonly Dictionary<string,Func<ColossusCombatDef>> AuthoredDefinitions=new Dictionary<string,Func<ColossusCombatDef>> {
             {GreenReturnDragonVerticalSlice.ColossusId,GreenReturnDragon},
             {"colossus.red-crystal-tyrant",RedCrystalTyrant},
-            {"colossus.memory-crystal-dragon",MemoryCrystalDragon}
+            {"colossus.memory-crystal-dragon",MemoryCrystalDragon},
+            {"colossus.sky-tower-machine",SkyTowerMachine}
+        };
+        private static ColossusCombatDef SkyTowerMachine()=>new ColossusCombatDef {
+            id="colossus.sky-tower-machine",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2100,hpPerLevel=165,gaugeMax=6,baseDamage=14,damagePerLevel=2,majorBonus=30,ultimateBonus=60,
+            normalAction="気圧弾",enragedAction="暴風圏",majorAction="大技：天圧解放",ultimateAction="極大技：天空崩流",
+            enemySpeed=88,enrageHpPercent=45,enrageDamagePercent=135,attackBreakDamagePercent=65,majorDamageType="magic",majorWaitPercent=180,
+            parts=new[]{
+                new ColossusPartCombatDef{id="sky.ring",role="gauge",breakEffect="gauge-down",baseHp=310,hpPerLevel=13},
+                new ColossusPartCombatDef{id="sky.cannon",role="attack",breakEffect="",baseHp=390,hpPerLevel=16},
+                new ColossusPartCombatDef{id="sky.barrier",role="armor",breakEffect="",baseHp=460,hpPerLevel=18},
+                new ColossusPartCombatDef{id="sky.turbine",role="drain",breakEffect="",baseHp=300,hpPerLevel=12}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="気圧弾",targetRule="single",requiredPartId="sky.cannon",damageType="physical",damagePercent=110,gaugeGain=1,drainAmount=0,waitPercent=100},
+                new ColossusActionCombatDef{name="圧力蓄積",targetRule="highest-resource",requiredPartId="sky.turbine",damageType="magic",damagePercent=55,gaugeGain=3,drainAmount=2,waitPercent=125},
+                new ColossusActionCombatDef{name="暴風放出",targetRule="all",requiredPartId="sky.cannon",damageType="magic",damagePercent=80,gaugeGain=2,drainAmount=0,waitPercent=140},
+                new ColossusActionCombatDef{name="塔影の衝撃",targetRule="single",damagePercent=85,gaugeGain=1,drainAmount=0,waitPercent=105}
+            }
         };
         private static ColossusCombatDef MemoryCrystalDragon()=>new ColossusCombatDef {
             id="colossus.memory-crystal-dragon",contentVersion=ColossusCombatDef.Plan9Version,

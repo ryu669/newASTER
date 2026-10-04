@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Original full assembled sky tower machine major attack sprite matching supplied five reference assets. Transparent SQUARE 1:1 canvas. Massive floating ivory marble antique gold architectural fortress tower on inverted pyramid, cobalt vertical crystal window; attach orbital blue sphere ring above spire, pressure cannon left side aiming right, cobalt octagonal barrier on lower front, gold ivory turbine wing on right. All four mechanisms recognizable. Charge a controlled cobalt pressure halo and gold wind arcs close around whole fortress. Entire tower, base, attachments and ALL glow fully within20percent transparent outer margins, artwork maximum60percent canvas width and height. Zoomed-out complete silhouette. Premium painterly Japanese fantasy machinery no creature humanoid scenery floor shadow words.",
+  "editPrompt": "Edit this exact sky tower major sprite. Preserve tower, all four mechanisms, materials and silhouette. Zoom OUT strongly: shrink entire artwork including all blue gold glow to70percent of its current width and height, centered on transparent square canvas. Leave wide clean transparent border on every side. Reconstruct any cut-off beam and halo so every glow and tower detail is completely inside canvas. Do not add background or objects. Preserve transparent alpha.",
+  "rejectedOutput": "exec-7a442169-45fb-421a-857e-d843700a7712.png",
+  "selectedOutput": "exec-1de2f398-1b58-4dfe-b7f3-a207d11c07b1.png",
+  "finalDeliveryApproved": false
+}

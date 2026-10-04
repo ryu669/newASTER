@@ -1,0 +1,120 @@
+{
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "height": 720,
+      "case": "sky-art-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-normal-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-normal-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-part1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part1-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part1-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-part2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part2-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part2-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-part3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part3-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part3-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-part4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part4-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part4-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-all",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-all-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-all-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-art-major",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-major-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-major-720.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-normal-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-normal-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-part1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part1-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part1-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-part2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part2-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part2-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-part3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part3-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part3-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-part4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part4-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-part4-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-all",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-all-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-all-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-art-major",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-major-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-art-major-1080.png"
+    }
+  ],
+  "assemblySha256": "2AD098A574B235DF72DD3FAC95C77482EC6CDC193A800B27A456CF017B9BF7CA",
+  "schemaVersion": 1,
+  "normalSaveUnchanged": true
+}

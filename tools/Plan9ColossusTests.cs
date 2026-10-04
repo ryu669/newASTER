@@ -57,6 +57,15 @@ public static class Plan9ColossusTests
         check(b.NextEnemyAction=="機殻の踏撃","Antenna destruction removes scan and its drain");
         b=memory();next(b);next(b);
         check(b.NextEnemyAction=="高速照射" && b.NextEnemyTargets.Length==5,"Memory fast beam targets all living heroes");
+        Func<PlayableBattle> sky=()=>new PlayableBattle(1,new PlayableProgress(),74,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.sky-tower-machine"));
+        b=sky();check(b.NextEnemyAction=="気圧弾" && b.NextEnemyTargets.Length==1,"Sky opens with pressure cannon");
+        next(b);check(b.NextEnemyAction=="圧力蓄積","Sky advances to pressure accumulation");
+        next(b);check(b.State.BossGauge==4 && b.NextAttackIsMajor,"Pressure accumulation adds three gauge and prepares release");
+        b=sky();next(b);b.State.BreakPart("sky.turbine",int.MaxValue);
+        check(b.NextEnemyAction=="塔影の衝撃","Broken turbine removes pressure accumulation");
+        b=sky();next(b);next(b);b.State.BreakPart("sky.ring",int.MaxValue);
+        check(!b.NextAttackIsMajor && b.NextEnemyAction=="暴風放出" && b.NextEnemyTargets.Length==5,"Broken ring interrupts major while retaining authored all-target release");
+        b.State.BreakPart("sky.cannon",int.MaxValue);check(b.NextEnemyAction=="塔影の衝撃","Broken sky cannon removes wind release");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

@@ -7240,6 +7240,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "highland-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/highland-far-candidate-v1.png",
+      "sha256": "358B1DFA66B82AF34A6A5E4AB7A0056927140FC781ED06FBE3CBA694B64254FF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "iconoclast-attack-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7527,6 +7537,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/red-tail-candidate-v1.png",
       "sha256": "DAD6F513F23F40ED771D8A5E415CDF39A22FEA0C46173F36F50011773AE58CD1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-barrier-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-barrier-candidate-v1.png",
+      "sha256": "DE5B7B0FFCFF0B1BED34A742EB5078F2BA3819F1F7F84591E018BA2466EA3061",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-body-candidate-v1.png",
+      "sha256": "C936E2374AFCD42A08D37B6852E3810FE78FE04A4B92D4825A462F7D4143DAA9",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-cannon-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-cannon-candidate-v1.png",
+      "sha256": "D8B121CC39DFEDF7D8BC98F1879BA2E877EF28066091DE6C3D8E99724C02F178",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-major-candidate-v1.png",
+      "sha256": "D9A85CF0A40A4B147003A5A5CAD35ACE56EA0D22CE2897D039DCF97D2F4FBC37",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-ring-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-ring-candidate-v1.png",
+      "sha256": "AF84CDC22172824BB5E8D7283B5C496E51F2D98A0D24627641D3B8F7C78700B1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "sky-turbine-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-turbine-candidate-v1.png",
+      "sha256": "23BA729E4C9C911534DF7D081E2B2431412AE17BAD5D8C94E1A32ECE989A4DAD",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

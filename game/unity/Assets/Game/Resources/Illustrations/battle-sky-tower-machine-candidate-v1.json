@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "placeholder": true,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": true,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": true
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": true
+    }
+  ],
+  "parts": [
+    {
+      "partId": "sky.ring",
+      "resourcePath": "Illustrations/sky-ring-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.4,
+        "y": 0.08,
+        "scale": 0.28
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2,
+      "x": 0.42,
+      "y": 0.1,
+      "width": 0.24,
+      "height": 0.23
+    },
+    {
+      "partId": "sky.cannon",
+      "resourcePath": "Illustrations/sky-cannon-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.285,
+        "y": 0.3,
+        "scale": 0.3
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 3,
+      "x": 0.3,
+      "y": 0.38,
+      "width": 0.27,
+      "height": 0.16
+    },
+    {
+      "partId": "sky.barrier",
+      "resourcePath": "Illustrations/sky-barrier-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.49,
+        "y": 0.415,
+        "scale": 0.25
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 1,
+      "inputPriority": 2,
+      "x": 0.53,
+      "y": 0.42,
+      "width": 0.17,
+      "height": 0.24
+    },
+    {
+      "partId": "sky.turbine",
+      "resourcePath": "Illustrations/sky-turbine-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.69,
+        "y": 0.28,
+        "scale": 0.3
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 1,
+      "x": 0.7,
+      "y": 0.32,
+      "width": 0.28,
+      "height": 0.23
+    }
+  ],
+  "backgroundResourcePath": "Illustrations/highland-far-candidate-v1",
+  "middleResourcePath": null,
+  "foregroundResourcePath": null,
+  "bodyResourcePath": "Illustrations/sky-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/sky-major-candidate-v1",
+  "bodyPlacement": {
+    "enabled": true,
+    "x": 0.2,
+    "y": 0.15,
+    "scale": 0.65
+  }
+}
