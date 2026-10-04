@@ -18,7 +18,63 @@ namespace NewAster.Data
             {"colossus.emerald-star-astal",EmeraldStarAstal},
             {"colossus.amber-king-serpent",AmberKingSerpent},
             {"colossus.white-divine-dragon-mother",WhiteDivineDragonMother},
-            {"colossus.black-smoke-citadel",BlackSmokeCitadel}
+            {"colossus.black-smoke-citadel",BlackSmokeCitadel},
+            {"colossus.dead-king-megadeath",DeadKingMegadeath},
+            {"colossus.final-flame-ice-phoenix",FinalFlameIcePhoenix},
+            {"colossus.newborn-asteria",NewbornAsteria}
+        };
+        private static ColossusCombatDef NewbornAsteria()=>new ColossusCombatDef {
+            id="colossus.newborn-asteria",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=4200,hpPerLevel=250,gaugeMax=6,baseDamage=19,damagePerLevel=2,majorBonus=48,ultimateBonus=80,
+            normalAction="星爪の選定",enragedAction="新世界の鼓動",majorAction="大技：七界星環",ultimateAction="極大技：万象新生",
+            enemySpeed=100,enrageHpPercent=50,enrageDamagePercent=145,attackBreakDamagePercent=55,majorDamageType="magic",majorWaitPercent=200,
+            parts=new[]{
+                new ColossusPartCombatDef{id="asteria.ring",role="gauge",breakEffect="gauge-down",baseHp=500,hpPerLevel=20},
+                new ColossusPartCombatDef{id="asteria.claw",role="attack",breakEffect="",baseHp=620,hpPerLevel=24},
+                new ColossusPartCombatDef{id="asteria.chest",role="armor",breakEffect="",baseHp=720,hpPerLevel=27},
+                new ColossusPartCombatDef{id="asteria.tail",role="drain",breakEffect="",baseHp=530,hpPerLevel=21}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="星爪の選定",targetRule="lowest-hp",requiredPartId="asteria.claw",damageType="physical",damagePercent=140,gaugeGain=1,waitPercent=100},
+                new ColossusActionCombatDef{name="七界の共鳴",targetRule="all",damageType="magic",damagePercent=85,gaugeGain=2,waitPercent=135},
+                new ColossusActionCombatDef{name="世界尾の収奪",targetRule="highest-resource",requiredPartId="asteria.tail",damageType="magic",damagePercent=90,gaugeGain=0,drainAmount=4,waitPercent=100},
+                new ColossusActionCombatDef{name="星獣の踏撃",targetRule="single",damageType="physical",damagePercent=110,gaugeGain=1,waitPercent=115}
+            }
+        };
+        private static ColossusCombatDef FinalFlameIcePhoenix()=>new ColossusCombatDef {
+            id="colossus.final-flame-ice-phoenix",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=3700,hpPerLevel=235,gaugeMax=6,baseDamage=18,damagePerLevel=2,majorBonus=45,ultimateBonus=75,
+            normalAction="焔翼の突撃",enragedAction="双極の羽化",majorAction="大技：焔氷交響",ultimateAction="極大技：終焔氷界",
+            enemySpeed=105,enrageHpPercent=50,enrageDamagePercent=140,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=180,
+            parts=new[]{
+                new ColossusPartCombatDef{id="phoenix.crown",role="gauge",breakEffect="gauge-down",baseHp=450,hpPerLevel=19},
+                new ColossusPartCombatDef{id="phoenix.flame",role="attack",breakEffect="",baseHp=570,hpPerLevel=23},
+                new ColossusPartCombatDef{id="phoenix.ice",role="armor",breakEffect="",baseHp=660,hpPerLevel=25},
+                new ColossusPartCombatDef{id="phoenix.tail",role="drain",breakEffect="",baseHp=480,hpPerLevel=20}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="焔翼の突撃",targetRule="single",requiredPartId="phoenix.flame",damageType="physical",damagePercent=140,gaugeGain=1,waitPercent=90},
+                new ColossusActionCombatDef{name="氷晶の吹雪",targetRule="all",damageType="magic",damagePercent=80,gaugeGain=2,waitPercent=130},
+                new ColossusActionCombatDef{name="焔尾の収束",targetRule="highest-resource",requiredPartId="phoenix.tail",damageType="magic",damagePercent=80,gaugeGain=1,drainAmount=3,waitPercent=105},
+                new ColossusActionCombatDef{name="氷晶の吹雪",targetRule="all",damageType="magic",damagePercent=80,gaugeGain=2,waitPercent=130}
+            }
+        };
+        private static ColossusCombatDef DeadKingMegadeath()=>new ColossusCombatDef {
+            id="colossus.dead-king-megadeath",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=3400,hpPerLevel=225,gaugeMax=6,baseDamage=17,damagePerLevel=2,majorBonus=43,ultimateBonus=73,
+            normalAction="夜剣の指名",enragedAction="亡王の覚醒",majorAction="大技：魂葬の夜",ultimateAction="極大技：死王の帰還",
+            enemySpeed=94,enrageHpPercent=45,enrageDamagePercent=140,attackBreakDamagePercent=55,majorDamageType="magic",majorWaitPercent=190,
+            parts=new[]{
+                new ColossusPartCombatDef{id="megadeath.crown",role="gauge",breakEffect="gauge-down",baseHp=420,hpPerLevel=18},
+                new ColossusPartCombatDef{id="megadeath.sword",role="attack",breakEffect="",baseHp=540,hpPerLevel=22},
+                new ColossusPartCombatDef{id="megadeath.armor",role="armor",breakEffect="",baseHp=620,hpPerLevel=24},
+                new ColossusPartCombatDef{id="megadeath.lantern",role="drain",breakEffect="",baseHp=450,hpPerLevel=19}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="夜剣の指名",targetRule="lowest-hp",requiredPartId="megadeath.sword",damageType="physical",damagePercent=135,gaugeGain=2,waitPercent=110},
+                new ColossusActionCombatDef{name="魂灯の収奪",targetRule="highest-resource",requiredPartId="megadeath.lantern",damageType="magic",damagePercent=85,gaugeGain=0,drainAmount=4,waitPercent=95},
+                new ColossusActionCombatDef{name="夜霧の王令",targetRule="all",damageType="magic",damagePercent=75,gaugeGain=2,waitPercent=145}
+            }
         };
         private static ColossusCombatDef BlackSmokeCitadel()=>new ColossusCombatDef {
             id="colossus.black-smoke-citadel",contentVersion=ColossusCombatDef.Plan9Version,

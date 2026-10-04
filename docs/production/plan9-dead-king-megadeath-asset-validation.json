@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.dead-king-megadeath",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "7ff3939ca363974970a4980052259da1234ebf2d414574aa0591ecf09b44ceae",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        177,
+        67,
+        1035,
+        1206
+      ],
+      "sha256": "01f52385e65fe96ff653b2f967bca50403001007954b3e9ae085bdc9d5208645",
+      "status": "candidate"
+    },
+    {
+      "purpose": "megadeath.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        76,
+        130,
+        1219,
+        1078
+      ],
+      "sha256": "5ec5bc0a19f70f99b1a9fa139874f6727cf3cb2ce60783fb78087b1702c4db36",
+      "status": "candidate"
+    },
+    {
+      "purpose": "megadeath.sword",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-sword-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        84,
+        48,
+        1207,
+        1216
+      ],
+      "sha256": "bb2c9a78a48aa85557f6bd49d4424da0bfdccaf0efe78a09d9f57b5a4cb4110b",
+      "status": "candidate"
+    },
+    {
+      "purpose": "megadeath.armor",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-armor-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        278,
+        26,
+        1028,
+        1223
+      ],
+      "sha256": "72f403827ed3d1a269971a39b16d334d938fe0e4ce0ae7f907701cc0f2ff1dca",
+      "status": "candidate"
+    },
+    {
+      "purpose": "megadeath.lantern",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-lantern-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        364,
+        53,
+        874,
+        1136
+      ],
+      "sha256": "a1ef3488917c47255c5514b9ffcf8dfe3edf502891f89419b47f52a7031ec91e",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        134,
+        24,
+        1141,
+        1210
+      ],
+      "sha256": "6aef8ff7361d075601a55e4f6cd7b07591d23adac57d9eee11365d62b33e5cf0",
+      "status": "candidate"
+    }
+  ]
+}

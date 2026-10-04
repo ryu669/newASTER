@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.final-flame-ice-phoenix",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "bff20352d680d3e84b67d3cb0ec83b274a09a1b7dcfc8f30808e69dc3af9506c",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        360,
+        153,
+        949,
+        1137
+      ],
+      "sha256": "fa9afab51383912b31e0265735894e0241aab8a3c488fcf75a6b40180252104e",
+      "status": "candidate"
+    },
+    {
+      "purpose": "phoenix.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        122,
+        201,
+        1149,
+        1034
+      ],
+      "sha256": "23b6d317155e117b9152648d8f43c8ce110862be592bf69d34f9eee3a90a7a8b",
+      "status": "candidate"
+    },
+    {
+      "purpose": "phoenix.flame",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-flame-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        69,
+        45,
+        1190,
+        1213
+      ],
+      "sha256": "1a74dc4155e84b7f8cf8a9d3a3d73ee0dc5526cdc6d464f07c80f05a1b3fe932",
+      "status": "candidate"
+    },
+    {
+      "purpose": "phoenix.ice",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-ice-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        53,
+        40,
+        1216,
+        1211
+      ],
+      "sha256": "a2921afb1101677a4c15521dab195a89cac36735b90812abcea345b9be639d9b",
+      "status": "candidate"
+    },
+    {
+      "purpose": "phoenix.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        87,
+        101,
+        1183,
+        1149
+      ],
+      "sha256": "faf2e03d7f52cd38e066bbea4c33d72e0f730bc6d583106a138a8b6da132e002",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        145,
+        151,
+        1119,
+        1091
+      ],
+      "sha256": "5cff971a067601f1965a6c74d026bc9ae2b690d2f967a7529de2e35184f73f5b",
+      "status": "candidate"
+    }
+  ]
+}

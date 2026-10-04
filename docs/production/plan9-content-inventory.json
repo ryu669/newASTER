@@ -6810,6 +6810,66 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "asteria-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-body-candidate-v1.png",
+      "sha256": "4433A1ACF87041016CA649E878B587C65445A917E859BB681F451B94B886F96C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "asteria-chest-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-chest-candidate-v1.png",
+      "sha256": "CACFA95DF451B9C5AC940D3674DABD7524D54217866EA519FEB129EA1B8DC4C3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "asteria-claw-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-claw-candidate-v1.png",
+      "sha256": "46C67DCB738982AFA9C9C9FCAEC53F1105E47B36EA821F3E54C36F93C1AD9065",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "asteria-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-major-candidate-v1.png",
+      "sha256": "640CA6756AB3352AC2E3B5A5B6FF9D53C65733E6440929CD7B790D14E980E856",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "asteria-ring-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-ring-candidate-v1.png",
+      "sha256": "90DE379A10A64C583C5037DD1A87C1D048DFF37352F20399EBDF023568360EB2",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "asteria-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-tail-candidate-v1.png",
+      "sha256": "ED0B5AD9E815C383DFDCD8229C1E449671B386996D45ABD371BF89443CD2C5C6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "black-wasteland-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7250,6 +7310,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "flame-ice-caldera-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/flame-ice-caldera-far-candidate-v1.png",
+      "sha256": "DD3106802B3837FBD1368A66C7A6FB71C9A3BD19AB91142F7F164A027C03206F",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "forest-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7580,6 +7650,66 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "megadeath-armor-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-armor-candidate-v1.png",
+      "sha256": "72F403827ED3D1A269971A39B16D334D938FE0E4CE0AE7F907701CC0F2FF1DCA",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "megadeath-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-body-candidate-v1.png",
+      "sha256": "01F52385E65FE96FF653B2F967BCA50403001007954B3E9AE085BDC9D5208645",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "megadeath-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-crown-candidate-v1.png",
+      "sha256": "5EC5BC0A19F70F99B1A9FA139874F6727CF3CB2CE60783FB78087B1702C4DB36",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "megadeath-lantern-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-lantern-candidate-v1.png",
+      "sha256": "A1EF3488917C47255C5514B9FFCF8DFE3EDF502891F89419B47F52A7031EC91E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "megadeath-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-major-candidate-v1.png",
+      "sha256": "6AEF8FF7361D075601A55E4F6CD7B07591D23ADAC57D9EEE11365D62B33E5CF0",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "megadeath-sword-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/megadeath-sword-candidate-v1.png",
+      "sha256": "BB2C9A78A48AA85557F6BD49D4424DA0BFDCCAF0EFE78A09D9F57B5A4CB4110B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "memory-antenna-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7700,6 +7830,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "night-forest-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/night-forest-far-candidate-v1.png",
+      "sha256": "BE7ED375ACF7FE4DE3829E3D09397B9D99E394651CDF1356BF7918ADEAE7A6FD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "orochi-body-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7757,6 +7897,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-shield-candidate-v1.png",
       "sha256": "60C478ED0B60CD548C6B0F2423A33CF99C37C208EFC54E189B771C3BCD9726CE",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-body-candidate-v1.png",
+      "sha256": "FA9AFAB51383912B31E0265735894E0241AAB8A3C488FCF75A6B40180252104E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-crown-candidate-v1.png",
+      "sha256": "23B6D317155E117B9152648D8F43C8CE110862BE592BF69D34F9EEE3A90A7A8B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-flame-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-flame-candidate-v1.png",
+      "sha256": "1A74DC4155E84B7F8CF8A9D3A3D73EE0DC5526CDC6D464F07C80F05A1B3FE932",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-ice-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-ice-candidate-v1.png",
+      "sha256": "A2921AFB1101677A4C15521DAB195A89CAC36735B90812ABCEA345B9BE639D9B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-major-candidate-v1.png",
+      "sha256": "5CFF971A067601F1965A6C74D026BC9AE2B690D2F967A7529DE2E35184F73F5B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "phoenix-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/phoenix-tail-candidate-v1.png",
+      "sha256": "FAF2E03D7F52CD38E066BBEA4C33D72E0F730BC6D583106A138A8B6DA132E002",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
@@ -8467,6 +8667,16 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/whale-tail-candidate-v1.png",
       "sha256": "1E103031030E53C796BA36D8403286C75BF30423B1B98B75E401872BB74BEAC3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "world-confluence-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/world-confluence-far-candidate-v1.png",
+      "sha256": "2A6F5BF651C67CBC7D94A531243BB766509EFB791572D5A7CE1D325967258EF1",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

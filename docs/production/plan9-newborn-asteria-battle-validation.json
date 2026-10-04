@@ -1,0 +1,152 @@
+{
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-1-720.png",
+      "case": "asteria-battle-1",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-1-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-44-720.png",
+      "case": "asteria-battle-44",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-44-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-45-720.png",
+      "case": "asteria-battle-45",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-45-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-49-720.png",
+      "case": "asteria-battle-49",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-49-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-50-720.png",
+      "case": "asteria-battle-50",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-50-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part1-720.png",
+      "case": "asteria-battle-part1",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part1-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part2-720.png",
+      "case": "asteria-battle-part2",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part2-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part3-720.png",
+      "case": "asteria-battle-part3",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part3-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part4-720.png",
+      "case": "asteria-battle-part4",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part4-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-1-1080.png",
+      "case": "asteria-battle-1",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-1-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-44-1080.png",
+      "case": "asteria-battle-44",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-44-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-45-1080.png",
+      "case": "asteria-battle-45",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-45-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-49-1080.png",
+      "case": "asteria-battle-49",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-49-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-50-1080.png",
+      "case": "asteria-battle-50",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-50-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part1-1080.png",
+      "case": "asteria-battle-part1",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part1-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part2-1080.png",
+      "case": "asteria-battle-part2",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part2-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part3-1080.png",
+      "case": "asteria-battle-part3",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part3-1080.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part4-1080.png",
+      "case": "asteria-battle-part4",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ec18b5cabd564efe95fa5955831a7c7a\\asteria-battle-part4-1080.log",
+      "state": "rendered-not-visually-approved"
+    }
+  ],
+  "assemblySha256": "7FE4AA01B18693FAFC034768E48885027507E8FD1374B579C00236717279CFEA",
+  "normalSaveUnchanged": true
+}

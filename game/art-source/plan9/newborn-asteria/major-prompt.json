@@ -1,0 +1,13 @@
+{
+  "prompt": "Create COMPLETE MAJOR ATTACK sprite of Asteria same referenced white celestial quadruped. EXACT SQUARE1254x1254 transparent, zoom entire figure out into15percent clear margins all sides. Dynamic majestic beast stepping forward right, FOUR LEGS natural intact, antlered lion wolf head, WHITE ivory fur dark sapphire star armor. ALL FOUR detachable parts present: seven colored gemstone WORLD RING behind shoulders, violet crystalline STAR CLAW on near front paw, seven-point violet star INTEGRATION CHEST armor fitted front, long WORLD TAIL with multi-color constellation fur ribbons. Restrained pale blue gold constellation aura within margins. No clipped horn claw tail ring, no extra limbs. Painterly premium JRPG richly detailed coherent material reference. No floor scenery UI text.",
+  "references": [
+    "asteria-body-candidate-v1.png",
+    "asteria-ring-candidate-v1.png",
+    "asteria-claw-candidate-v1.png",
+    "asteria-chest-candidate-v1.png",
+    "asteria-tail-candidate-v1.png"
+  ],
+  "generatedOutput": "exec-952109c4-f079-42d4-a5fb-7781165bcf63.png",
+  "status": "rejected-edge-clipping",
+  "transparentBackground": true
+}

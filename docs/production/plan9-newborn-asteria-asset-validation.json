@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.newborn-asteria",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "6596557361ca59c5b8f7b45584921f3321ab926389815905fbeeff49cb13ffd5",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        85,
+        10,
+        1185,
+        1240
+      ],
+      "sha256": "4433a1acf87041016ca649e878b587c65445a917e859bb681f451b94b886f96c",
+      "status": "candidate"
+    },
+    {
+      "purpose": "asteria.ring",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-ring-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        57,
+        23,
+        1199,
+        1184
+      ],
+      "sha256": "90de379a10a64c583c5037dd1a87c1d048dff37352f20399ebdf023568360eb2",
+      "status": "candidate"
+    },
+    {
+      "purpose": "asteria.claw",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-claw-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        171,
+        63,
+        1157,
+        1199
+      ],
+      "sha256": "46c67dcb738982afa9c9c9fcaec53f1105e47b36ea821f3e54c36f93c1ad9065",
+      "status": "candidate"
+    },
+    {
+      "purpose": "asteria.chest",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-chest-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        178,
+        115,
+        1140,
+        1154
+      ],
+      "sha256": "cacfa95df451b9c5ac940d3674dabd7524d54217866ea519feb129ea1b8dc4c3",
+      "status": "candidate"
+    },
+    {
+      "purpose": "asteria.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        45,
+        45,
+        1227,
+        1222
+      ],
+      "sha256": "ed0b5ad9e815c383dfdcd8229c1e449671b386996d45abd371bf89443cd2c5c6",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/asteria-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        201,
+        226,
+        1062,
+        1043
+      ],
+      "sha256": "640ca6756ab3352ac2e3b5a5b6ff9d53c65733e6440929cd7b790d14e980e856",
+      "status": "candidate"
+    }
+  ]
+}
