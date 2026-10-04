@@ -121,7 +121,7 @@
         "job.berserker"
       ],
       "state": "functional",
-      "artState": "missing",
+      "artState": "candidate",
       "acceptance": "P9-05; unique art + 3 skills + chain + equipment",
       "source": "Combat/battle-formal.json"
     },
@@ -6877,6 +6877,36 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/green-wing-right-candidate-v1.png",
       "sha256": "9D742DE3FCC93609078AA46B0DF68F3A7B8469150038763689E3A754E0324379",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-attack-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-attack-candidate-v1.png",
+      "sha256": "1C372A3ADD057603DCD1032646F7DDE4C1890A5243ED1EB544F72B73E0D95BBB",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-portrait-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-portrait-candidate-v1.png",
+      "sha256": "EFB9F6E49C191881E1DA7DE0BEBB83CD22949986F661EDAE3CFAEB6F7DF2A221",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "iconoclast-standing-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
+      "sha256": "1F6C05159CFE1C7903B9AB3E6680DD3EE27922041B9092AA15E176714532A77E",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

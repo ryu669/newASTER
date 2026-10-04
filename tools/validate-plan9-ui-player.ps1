@@ -33,6 +33,9 @@ foreach($height in $Heights){
    'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
    'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
+   'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
+   'iconoclast-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.iconoclast')}
+   'iconoclast-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.iconoclast')}
    'growth-large' {$flags+=@('-captureGrowth','-inspectLargeText')}
    'book-large' {$flags+=@('-captureBook','-inspectLargeText')}
    'battle' {$flags+=@('-captureBattleMenu','closed')}

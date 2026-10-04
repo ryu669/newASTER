@@ -13,6 +13,9 @@
     },
     {
       "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
       "placeholder": true
     },
     {

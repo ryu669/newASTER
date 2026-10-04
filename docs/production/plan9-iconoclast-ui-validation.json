@@ -1,0 +1,56 @@
+{
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-growth-720.log",
+      "case": "iconoclast-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-growth-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-standing-720.log",
+      "case": "iconoclast-standing",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-standing-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-attack-720.log",
+      "case": "iconoclast-attack",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-attack-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-growth-1080.log",
+      "case": "iconoclast-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-growth-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-standing-1080.log",
+      "case": "iconoclast-standing",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-standing-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-attack-1080.log",
+      "case": "iconoclast-attack",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-5276cdf80ab3478993f3d4780f79b3b0\\iconoclast-attack-1080.png",
+      "height": 1080
+    }
+  ],
+  "assemblySha256": "40D74A9D2FEFC961F8D7E75C8D129C1D0AB8C9EB46779961E84BAACB1EA2E803"
+}

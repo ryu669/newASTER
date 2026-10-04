@@ -11,7 +11,7 @@
 | UI-05 | 出撃・編成 | DrawColossus / StartBattle | 機能済み・量産待ち | 全敵定義とLv、P9-05 |
 | UI-06 | 戦闘 | BattleIllustrationView / BattleMenuExperience | 見本済み・量産待ち | 5人15体の美術と予兆、P9-05 |
 | UI-07 | 結果・保存待ち | FormalVictoryView | 共通枠見本あり・正式本文待ち | 全終了理由、保存原子性、P9-08 |
-| UI-08 | 人物・育成 | GrowthExperience | 共通枠見本あり・4人美術待ち | 操作／確認／結果、P9-07 |
+| UI-08 | 人物・育成 | GrowthExperience | 共通枠見本・アイコノクラスト肖像候補を接続。3人美術と全員の採用待ち | 操作／確認／結果、P9-07 |
 | UI-09 | 装備の樹・遺物 | HomeExperience / CollectionExperience | 機能済み・正式表示待ち | 固有樹、比較、80%境界、P9-07 |
 | UI-10 | ガチャ・交換・恵み | KinderExperience / EngagementExperience | 機能済み・正式素材待ち | 率・費用・保存、P9-07 |
 | UI-11 | 箱庭・家具 | GardenMenuExperience / GardenArtComposition | 見本済み・全環境待ち | 配置、制作、利用、P9-07 |

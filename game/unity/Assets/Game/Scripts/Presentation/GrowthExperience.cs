@@ -12,6 +12,7 @@ namespace NewAster.Presentation
         private int growthTargetLevel;
         private string growthOutcome,growthDelta;
         private Texture2D growthPortrait;
+        private Texture2D iconoclastPortrait;
         private readonly Color ink=new Color(.035f,.065f,.10f),navy=new Color(.06f,.11f,.16f),gold=new Color(.72f,.57f,.32f),ivory=new Color(.94f,.89f,.77f),muted=new Color(.67f,.71f,.73f);
         private GUIStyle growthTitleStyle,growthTextStyle,growthSmallStyle,growthButtonStyle;
         private void GrowthStyles()
@@ -22,6 +23,7 @@ namespace NewAster.Presentation
             growthSmallStyle=new GUIStyle(small){fontSize=ArtSampleSettings.LargeText?20:18};growthSmallStyle.normal.textColor=muted;
             growthButtonStyle=new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter,fontSize=22};
             growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+            iconoclastPortrait=Resources.Load<Texture2D>("Illustrations/iconoclast-portrait-candidate-v1");
         }
         private void GrowthFill(float x,float y,float w,float h,Color color)
         {var before=GUI.color;GUI.color=color;GUI.DrawTexture(new Rect(x,y,w,h),Texture2D.whiteTexture);GUI.color=before;}
@@ -83,8 +85,9 @@ namespace NewAster.Presentation
             bool previousGrowthEnabled=GUI.enabled;GUI.enabled=previousGrowthEnabled && !book.IsTransitioning && (!formalCampaign.HasPending || formalProgression.HasPending || homeRequest!=null);
             Label(92,194,425,56,definition.name,growthTitleStyle);Label(92,258,420,30,"★ ★ ★ ★ ★ ★   ／   Lv."+heroine.level,growthSmallStyle,gold);
             if(id=="heroine.slayer"&&growthPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),growthPortrait,ScaleMode.ScaleToFit,true);
+            else if(id=="heroine.iconoclast"&&iconoclastPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),iconoclastPortrait,ScaleMode.ScaleToFit,true);
             else{GrowthDiamond(300,470,100);GrowthDiamond(300,470,84);Label(193,435,220,55,"誓 女 の 記 憶",growthTextStyle);Label(177,520,260,35,"正式立ち絵は制作待ち",growthSmallStyle);}
-            Label(92,726,420,38,id=="heroine.slayer"?"比較用立ち絵 ／ 正式美術は未完成":"他人物の絵で代用しません",growthSmallStyle);
+            Label(92,726,420,38,id=="heroine.slayer"?"比較用立ち絵 ／ 正式美術は未完成":id=="heroine.iconoclast"?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
             string[] names={"誓女の記憶","ネクタル育成","覚醒の儀","誓いの強化","人物の記録","選択の確認","誓いの結実","装備の樹"};Label(605,204,860,55,names[(int)growthScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(growthScreen==GrowthScreen.Overview){
                 if(GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}

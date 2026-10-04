@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "assetId": "iconoclast-standing",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
+      "sha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        39,
+        134,
+        1007,
+        1412
+      ],
+      "transparentPixels": 867272,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-attack",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-attack-candidate-v1.png",
+      "sha256": "1c372a3add057603dcd1032646f7dde4c1890a5243ed1eb544f72b73e0d95bbb",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        24,
+        59,
+        1229,
+        1212
+      ],
+      "transparentPixels": 868909,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "assetId": "iconoclast-portrait",
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-portrait-candidate-v1.png",
+      "sha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "visibleAlphaBounds": [
+        14,
+        12,
+        1536,
+        1024
+      ],
+      "transparentPixels": 517929,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

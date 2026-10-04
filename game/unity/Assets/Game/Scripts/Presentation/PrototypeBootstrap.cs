@@ -111,6 +111,11 @@ namespace NewAster.Presentation
             if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
             if(capturePath!=null && args.Contains("-captureGrowth")) {
                 encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
+                int portraitIndex=Array.IndexOf(args,"-captureGrowthHero");
+                if(portraitIndex>=0 && portraitIndex+1<args.Length){
+                    if(!book.RequestSubject(BookBookmark.Heroines,args[portraitIndex+1]))throw new ArgumentException("Unknown growth capture heroine");
+                    book.CompleteTransition();
+                }
                 if(args.Contains("-captureGrowthNavigation")) ValidateGrowthScreenNavigation();
                 if(args.Contains("-captureGrowthLevel")) GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines[0]);
                 if(args.Contains("-captureGrowthAwakening")) GrowthSelect(GrowthScreen.Awakening,formalProgression.Snapshot.heroines[0]);

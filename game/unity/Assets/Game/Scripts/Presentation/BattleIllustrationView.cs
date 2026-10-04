@@ -78,7 +78,12 @@ namespace NewAster.Presentation
             int actor=DisplayActor(battle.AvailableHero,e);
             // Asset inspection only: never changes the engine's available actor or command target.
             bool inspectStanding=args.Contains("-inspectPlan7Standing") || Inspection!=null;
-            if(inspectStanding) actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
+            if(inspectStanding){
+                int inspectIndex=Array.IndexOf(args,"-inspectPlan9Hero");
+                string inspectId=inspectIndex>=0 && inspectIndex+1<args.Length?args[inspectIndex+1]:"heroine.slayer";
+                actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id==inspectId);
+                if(actor<0)throw new ArgumentException("Unknown illustration inspection heroine: "+inspectId);
+            }
             bool victim=e!=null && e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Contains("heroine.slayer");
             if(victim && !inspectStanding)actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
