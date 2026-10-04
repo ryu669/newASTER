@@ -20,6 +20,16 @@ assert not gate['overallComplete'] and not gate['technicalGateComplete'] and not
 deferred = read('plan8-performance-deferred.json')
 assert deferred['benchmarkPlayerLaunched'] is False and deferred['otherAppsClosed'] is False
 assert deferred['finalRecheck']['clear'] is False and deferred['finalRecheck']['benchmarkPlayerLaunched'] is False
+performance = read('plan8-performance-validation.json')
+assert performance['sameRunTelemetryJoinPassed']
+assert not performance['coldOsCacheMeasured'] and not performance['otherAppsClosed']
+assert any(run['result'] == 'failed' and run['height'] == 1080 for run in performance['battleRuns'])
+assert all(run['environment']['clear'] and run['normalSaveUnchanged'] and run['sameRunTelemetryJoinPassed'] for run in performance['battleRuns'])
+assert all(not attempt['clear'] and not attempt['benchmarkLaunchedOnThisAttempt'] for attempt in performance['deferredAttempts'])
+assert performance['frameGoalPassed'] == any(run['height'] == 1080 and run['result'] == 'passed' and run['buildHash'] == performance['currentBuildHash'] for run in performance['battleRuns'])
+assert performance['readinessReusePolicy']['passed'] and performance['readinessReusePolicy']['automaticRetries'] == 0
+assert performance['readinessReusePolicy']['sourceHashNormalization'] == 'UTF-8 without BOM; LF newlines'
+assert hashlib.sha256((root / 'tools/check-plan8-measurement-readiness.ps1').read_text(encoding='utf-8-sig').encode('utf-8')).hexdigest().upper() == performance['readinessReusePolicy']['sourceSha256']
 journey = read('plan8-journey-validation.json')
 regression = read('plan8-regression-validation.json')
 assert journey['passed'] and regression['passed'] and not journey['performanceMeasured'] and not regression['performanceMeasured']
@@ -35,4 +45,6 @@ economy = read('plan8-economy-measurements.json')
 assert economy['statisticalDraws'] == 200000 and economy['heroineRateBasisPoints'] == 300
 assert economy['budget']['fiveHeroNectarTo120'] == 77350 and economy['budget']['fiveHeroCrystalsTo120'] == 400
 assert economy['humanTimingMeasured'] is False and economy['performanceMeasured'] is False
-print('PLAN8_EVIDENCE_CONSISTENT 37 functional processes; overallComplete=False; performance/human acceptance pending')
+assert performance['currentBuildHash'] == regression['assemblySha256']
+assert performance['currentResourceHash'] == regression['resourceSha256']
+print('PLAN8_EVIDENCE_CONSISTENT 37 functional processes; overallComplete=False; 1080p frameGoalPassed=' + str(performance['frameGoalPassed']) + '; remaining performance/human acceptance pending')

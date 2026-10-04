@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "scope": "normal synchronized diagnostic player; measured failures retained",
+  "currentBuildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+  "currentResourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+  "hardware": {
+    "cpu": "Intel Core i7-13700F",
+    "gpu": "NVIDIA GeForce RTX 4070"
+  },
+  "frameGoal": {
+    "height": 1080,
+    "maxMilliseconds": 16.7,
+    "minimumFraction": 0.95
+  },
+  "sameRunTelemetryJoinPassed": true,
+  "frameGoalPassed": true,
+  "coldOsCacheMeasured": false,
+  "humanInputMeasured": false,
+  "otherAppsClosed": false,
+  "readinessReusePolicy": {
+    "passed": true,
+    "logSha256": "13FBE45B3FF2F726562CF24DC8898481B161949A8B2193936BDFBDFC4EE8E631",
+    "sourceSha256": "A016E0C903B0AB00A9E794C1DFB116E39A1900C601DD8CC3D1EABAC804F098C1",
+    "sourceHashNormalization": "UTF-8 without BOM; LF newlines",
+    "methods": [
+      "UTC DateTime and ISO string age",
+      "120s/600s boundaries",
+      "expired/future/failed/invalid cache"
+    ],
+    "automaticRetries": 0,
+    "maximumGapSeconds": 120,
+    "maximumBatchSeconds": 600
+  },
+  "battleRuns": [
+    {
+      "source": "plan7-sample-20261004011155",
+      "sourceSha256": "BF81C179A1F01E47E71EE5DF0832B3A372E8EE836DFD3CC9F08A69DB609822BE",
+      "logSha256": "D76A2828251D0B4677D67CDD5970E353D8EFEC39C9B983DD8BB27B5C7D1E3725",
+      "height": 1080,
+      "runId": "telemetry-f8572294b2984ad8b3b5c18d96880b9f",
+      "profile": "colossus-plan8-2026-10-04",
+      "buildHash": "194230D3C91EB6273FA370A8CC8E043D0A80CCE2AF56E48F8BCCF4D479200519",
+      "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "result": "failed",
+      "environment": {
+        "sourceSha256": "753285772794D7D96288DF30FD6EF23CC8317639C50B8C134425E885C0DBA98F",
+        "timeUtc": "2026-10-04T01:12:11.9265030Z",
+        "clear": true,
+        "checkMode": "full-three-sample",
+        "fullClearAtUtc": null,
+        "fullCheckSha256": null,
+        "systemCpuPercent": [
+          15,
+          2,
+          8
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 16526,
+        "gpuMaxPercent": 0,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 3485.0,
+        "meanMs": 16.748,
+        "p95Ms": 16.762,
+        "p99Ms": 17.878,
+        "maxMs": 33.417,
+        "under16_7ms": 0.7897,
+        "resourceValidationSeconds": 0.044
+      },
+      "memory": {
+        "case": "activecombat",
+        "height": 1080,
+        "peakWorkingBytes": 309993472,
+        "observedWorkingPeakBytes": 309952512,
+        "sampleIntervalMs": 250,
+        "processElapsedMs": 68667,
+        "uncapped": false,
+        "completeBattle": true,
+        "assemblySha256": "194230D3C91EB6273FA370A8CC8E043D0A80CCE2AF56E48F8BCCF4D479200519",
+        "resourceAssetsSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378"
+      },
+      "effects": [
+        "PLAN7_EFFECT_PERFORMANCE category=major frames=66 p95Ms=16.758 maxMs=16.838 under16_7ms=0.7121",
+        "PLAN7_EFFECT_PERFORMANCE category=break frames=199 p95Ms=16.759 maxMs=16.883 under16_7ms=0.7889"
+      ],
+      "guiCpu": [],
+      "firstRepaint": [],
+      "normalSaveUnchanged": true,
+      "renderedEquivalencePassed": true,
+      "sameRunTelemetryJoinPassed": true,
+      "instrumentationEnabled": true,
+      "normalVsync": 1,
+      "playbackSpeed": 1,
+      "startupSecondsFieldMeaning": "time at capture; not startup latency"
+    },
+    {
+      "source": "plan7-sample-20261004012824",
+      "sourceSha256": "65C12C5F76CEA549A9054488184DAC284FC4ED4EA72D9C0CDA17028516E1DFC3",
+      "logSha256": "4122AE54124C4BF17A18E948EBCBB10142D11EEAAAC31F66F9237E2019CEBD28",
+      "height": 1080,
+      "runId": "telemetry-743f5b9556684d11bdbbe658f63d251b",
+      "profile": "colossus-plan8-2026-10-04",
+      "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+      "resourceHash": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+      "result": "passed",
+      "environment": {
+        "sourceSha256": "96EFA944021603CA8297A0F16ABC2FB46E9329C298F1062FC80CA2F705F1D61D",
+        "timeUtc": "2026-10-04T01:28:30.4355215Z",
+        "clear": true,
+        "checkMode": "full-three-sample",
+        "fullClearAtUtc": "2026-10-04T01:28:30.4355215Z",
+        "fullCheckSha256": "51CEF2C54059A0131C1E1050E3A90205150E1924ED2D1D76E30213DEDD86EE98",
+        "systemCpuPercent": [
+          10,
+          7,
+          5
+        ],
+        "gpuCountersAvailable": true,
+        "availableMemoryMiB": 17867,
+        "gpuMaxPercent": 6,
+        "otherAppsClosed": false
+      },
+      "metrics": {
+        "frames": 3426.0,
+        "meanMs": 16.792,
+        "p95Ms": 16.697,
+        "p99Ms": 16.703,
+        "maxMs": 100.108,
+        "under16_7ms": 0.9883,
+        "resourceValidationSeconds": 0.041
+      },
+      "memory": {
+        "case": "activecombat",
+        "height": 1080,
+        "peakWorkingBytes": 317050880,
+        "observedWorkingPeakBytes": 317009920,
+        "sampleIntervalMs": 250,
+        "processElapsedMs": 67718,
+        "uncapped": false,
+        "completeBattle": true,
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+        "resourceAssetsSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378"
+      },
+      "effects": [
+        "PLAN7_EFFECT_PERFORMANCE category=major frames=66 p95Ms=16.696 maxMs=16.697 under16_7ms=1.0000",
+        "PLAN7_EFFECT_PERFORMANCE category=break frames=192 p95Ms=16.697 maxMs=67.050 under16_7ms=0.9740"
+      ],
+      "guiCpu": [
+        "PLAN8_GUI_CPU samples=3425 p95Ms=0.278 maxMs=2.783 scope=IMGUI-repaint-only-excludes-update-gpu-vsync"
+      ],
+      "firstRepaint": [
+        "PLAN8_FIRST_REPAINT engineElapsedSeconds=3.470 splashFinished=True"
+      ],
+      "normalSaveUnchanged": true,
+      "renderedEquivalencePassed": true,
+      "sameRunTelemetryJoinPassed": true,
+      "instrumentationEnabled": true,
+      "normalVsync": 1,
+      "playbackSpeed": 1,
+      "startupSecondsFieldMeaning": "time at capture; not startup latency"
+    }
+  ],
+  "homeRuns": [],
+  "deferredAttempts": [
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-1.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "3A19F2C9BC34FCBED64AC9823057D6E618908B191BB7F64224A302DDD0B8024A",
+      "timeUtc": "2026-10-04T01:13:38.2612630Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        16,
+        18
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 15993,
+      "gpuMaxPercent": 39,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-2.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "53A461703AC9B0FE4F0C53EDEBF5DDF26B2A87D6509881E86DBEFE65281914CF",
+      "timeUtc": "2026-10-04T01:13:48.7993555Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        16,
+        1
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 16022,
+      "gpuMaxPercent": 22,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004011332",
+      "file": "activecombat-720-environment-attempt-3.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "145C148AD87FFBE6F6AB34569A83E9A88E605E8CF055150909860F4FE71FDEBA",
+      "timeUtc": "2026-10-04T01:13:59.3769017Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        12,
+        10,
+        13
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 16014,
+      "gpuMaxPercent": 17,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004012204",
+      "file": "activecombat-1080-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "D77662960C3F460006CA452CD742BAFD5C1168BD01AB4D73496119D5094B2130",
+      "timeUtc": "2026-10-04T01:22:11.1126789Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": "2026-10-04T01:22:11.1126789Z",
+      "fullCheckSha256": "FE668F7B5EE1F6D02476287F757E9213DDB12D3EC791EA54008221F2663A2FA0",
+      "systemCpuPercent": [
+        9,
+        18,
+        11
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 18157,
+      "gpuMaxPercent": 0,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004012938",
+      "file": "activecombat-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "93BC5483B13D4BE9DF708125748C939BAB1C649DE89D64C23FC99993081C68E7",
+      "timeUtc": "2026-10-04T01:29:44.4908548Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        1,
+        19,
+        14
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17917,
+      "gpuMaxPercent": 7,
+      "otherAppsClosed": false
+    },
+    {
+      "source": "plan7-sample-20261004013158",
+      "file": "activecombat-720-environment-before.json",
+      "benchmarkLaunchedOnThisAttempt": false,
+      "sourceSha256": "A4D0F60CF5F739A373543EF560ADAE04813D95E5DC51A5D209C1D596D7E8161E",
+      "timeUtc": "2026-10-04T01:32:05.1738021Z",
+      "clear": false,
+      "checkMode": "full-three-sample",
+      "fullClearAtUtc": null,
+      "fullCheckSha256": null,
+      "systemCpuPercent": [
+        18,
+        9,
+        6
+      ],
+      "gpuCountersAvailable": true,
+      "availableMemoryMiB": 17739,
+      "gpuMaxPercent": 5,
+      "otherAppsClosed": false
+    }
+  ],
+  "rejectedDiagnostics": [
+    {
+      "source": "plan7-sample-20261004010451",
+      "logSha256": "5E00F8E918E0F6A54F8F6A6AE25720B98780F74CD4DC45E84F423613DAFB7892",
+      "performanceAdopted": false,
+      "reason": "Diagnostic active-time flush mutated comparison save during prolonged playback.",
+      "fix": "Disable automatic engagement ticking in captures; preserve normal trial and explicit clock injection."
+    }
+  ],
+  "limitations": [
+    "GUI CPU excludes Update, GPU work and synchronization waits.",
+    "Home preparation includes diagnostic navigation; assets are prevalidated before first repaint.",
+    "Process-to-first-repaint observation includes 250ms polling and log flush, and is not first displayed pixel latency.",
+    "Process restarts retain uncontrolled OS cache; no reboot or cache purge was performed.",
+    "RGBA byte estimate is not measured GPU VRAM.",
+    "External peak working set covers each process, including diagnostic setup and asset prevalidation."
+  ]
+}

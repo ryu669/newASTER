@@ -10,7 +10,7 @@
     {"id": "T8-01.baseline-boundary", "result": "passed", "method": "definition validation and isolated player", "evidence": "plan8-baseline-validation.json"},
     {"id": "T8-02.noninterference", "result": "passed", "method": "Core on/off/failing sink equivalence", "evidence": "plan8-telemetry-validation.json"},
     {"id": "T8-02.journey-nine-categories", "result": "passed", "method": "automated transactions; seed/hash/clock/ID verification", "evidence": "plan8-journey-validation.json"},
-    {"id": "T8-02.performance-join-runtime", "result": "not-run", "method": "low-load measured player required", "evidence": "plan8-performance-deferred.json"},
+    {"id": "T8-02.performance-join-runtime", "result": "passed", "method": "low-load rendered adjusted battle, same-run telemetry/build/resources/memory and unchanged normal save", "evidence": "plan8-performance-validation.json"},
     {"id": "T8-03.authored-content-read-save", "result": "passed", "method": "automated completed singing and 77 read lines", "evidence": "plan8-journey-validation.json"},
     {"id": "T8-03.human-reading", "result": "not-run", "method": "human reading required", "evidence": "plan8-operation-inventory.md"},
     {"id": "T8-04.curve-and-parts", "result": "passed", "method": "baseline/adopted 1500 battles each plus Core boundary tests", "evidence": "plan8-balance-measurements.json"},
@@ -26,7 +26,10 @@
     {"id": "T8-08.diagnostic-ui-font-pcm-focus", "result": "passed", "method": "720p/1080p diagnostic states; simulated focus; PCM inspection", "evidence": "plan8-regression-validation.json"},
     {"id": "T8-08.native-mouse-and-alt-tab", "result": "not-run", "method": "native Windows input required; available UI control is browser-only", "evidence": "plan8-operation-inventory.md"},
     {"id": "T8-08.listening-and-speed-readability", "result": "not-run", "method": "human listening and reading at four speeds required", "evidence": "plan8-operation-inventory.md"},
-    {"id": "T8-09.frame-memory-load-cold-start", "result": "not-run", "method": "preflight rejected other-game load; benchmark not launched", "evidence": "plan8-performance-deferred.json"},
+    {"id": "T8-09.frame-1080-and-memory", "result": "passed", "method": "latest build 1080p normal vsync/speed, 98.83% <=16.7ms and external peak; previous failed run retained", "evidence": "plan8-performance-validation.json"},
+    {"id": "T8-09.frame-720", "result": "not-run", "method": "batch stopped on load change; no automatic retry", "evidence": "plan8-performance-validation.json"},
+    {"id": "T8-09.scene-load-memory", "result": "not-run", "method": "home scene measurement implemented; low-load runtime measurement pending", "evidence": "plan8-performance-validation.json"},
+    {"id": "T8-09.os-cold-start", "result": "not-run", "method": "engine first repaint measured; OS cache uncontrolled and no cold reboot performed", "evidence": "plan8-performance-validation.json"},
     {"id": "T8-10.evidence-and-handoff-preparation", "result": "passed", "method": "documentation and bound automatic evidence", "evidence": "plan8-completion-gate.md"},
     {"id": "T8-10.final-acceptance", "result": "not-run", "method": "all required technical and experience conditions must pass", "evidence": "plan8-completion-gate.md"}
   ]

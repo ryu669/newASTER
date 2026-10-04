@@ -11,8 +11,8 @@
         "journey": true,
         "exchange": false,
         "telemetry": true,
-        "runId": "story-663f6022239349448f9da2a803d92160",
-        "assemblySha256": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+        "runId": "story-f324e504f0f646378bb0c8359b8d8570",
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
         "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
         "height": 720,
         "normalSaveUnchanged": true,
@@ -21,7 +21,7 @@
           {
             "case": "new",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -30,7 +30,7 @@
           {
             "case": "resume",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -39,7 +39,7 @@
           {
             "case": "progress",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -48,7 +48,7 @@
           {
             "case": "conditions",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -57,7 +57,7 @@
           {
             "case": "garden",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -66,7 +66,7 @@
           {
             "case": "events",
             "passed": true,
-            "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+            "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -74,8 +74,8 @@
           }
         ]
       },
-      "resultSha256": "9956DDFE2160FB609A9A2F75963207732B720BA4D07E924E728D58AB662906A1",
-      "saveSha256": "4D458ACECAC85CE5BB66179D9E3D1183EBB519305DFDF932CF9CAB5D73872B74",
+      "resultSha256": "57AC784EB3EDD07E8388A2DD0A363ED4ADA6A536FE63E4DC5001593EDFC9FAE4",
+      "saveSha256": "BA73C021775F7BF40E18D45D0F1DB61BB0EE1C2884F621858F9EF8FB749FBB0F",
       "journey": {
         "scope": "automated real transactions; active seconds injected for persistence contract, not elapsed play time",
         "diagnosticActiveSeconds": 60,
@@ -1896,8 +1896,8 @@
       "telemetry": [
         {
           "case": "new",
-          "runId": "journey-telemetry-f015e8d6bf9b421994171f33c10c0f42",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-7ca6fa39458b439fbb774b691761124c",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 5924,
           "categories": [
             {
@@ -1939,13 +1939,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "A8C154AB33E2EC29C755A85FD8660A311E4D8009F1097576E9E13177A160C8DD",
-          "summarySha256": "D87087B417BC24BBD262A693D7B040F2F47A3706E6A41EEB84CD02FC8F8DFDDB"
+          "eventsSha256": "06FDA3347CB54A3655410F71729AF68F4A2B76CAEFC6A6B529F1D401BE24B950",
+          "summarySha256": "DC9D278246B91A3438DD53AC3EE8BC1AD4EDCC93BB18B89CCF23A38705B40AC2"
         },
         {
           "case": "resume",
-          "runId": "journey-telemetry-6ae15e212f93464c8c6015b8776436d7",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-5bc7aace9bc448718424f14c1b68a419",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 13,
           "categories": [
             {
@@ -1979,13 +1979,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "32E5C4A5E1EE695F44E5B91929465B98C9408BF90389319A77DD449853D7F7CA",
-          "summarySha256": "6009185A28A1B2378CB89FD487FEC756B61AD74D9A06F40D4312793B13C5B160"
+          "eventsSha256": "25BA84F61DC6803C104F4ABFD318778F7A2BE59B5D3B0D3435EE9BD9D7640B6A",
+          "summarySha256": "089FFCC6FBFF027E4E1178E55743BCA4A99532E0CB97E654D5565F06FB659C59"
         },
         {
           "case": "progress",
-          "runId": "journey-telemetry-0efe1dc5a68440d6994891df075bc192",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-e84a8c7dd472406090fed557bdfe87ba",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -2019,13 +2019,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "A0ADD9B7C1BB58B4B0F0706105930195C0C392D3BBD7DF82EFA970D3A54B4486",
-          "summarySha256": "C5E9E4DA4F3173040EF2E17EAB35087244C50D0F3FC1F600786572887CEA7736"
+          "eventsSha256": "0D7C92DDA039A06E23A46D9C066A5C46F214E6CB59383184D1545A347B0CE0AB",
+          "summarySha256": "AFBAB85E7D57753B416E3FA0B5777E2298E61BF62DC3DD492388CCA2EF39064D"
         },
         {
           "case": "conditions",
-          "runId": "journey-telemetry-b3447caeb6c14494b0a3995ba0bc2ded",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-29b0a6470a0e4bda9cfeb3a6e67ba4a7",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -2059,13 +2059,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "F1166EDFB0EF372336FF7D8712A2FAE3EC964BCEF0D14273C8B1F9D88C839E3C",
-          "summarySha256": "2C5D9B653DC7AABDB5D4C28BBE942CA92C2F16216985D394DB45C99F4E88BB34"
+          "eventsSha256": "952C7B80A8041ED772D93F07C68A05DB6BC16C453C6B3B8ADBE5A1AE7B500280",
+          "summarySha256": "1FD8741D2B0491667987AA35A96D446AB038E100242E7172931F1C881045228D"
         },
         {
           "case": "garden",
-          "runId": "journey-telemetry-f82afa5f1b724435a6fd5c5b3f5fa0b1",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-9de4892676584428bf28f0fe0dababae",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -2099,13 +2099,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "D0D370E1D1FD27BE56E3D21C7926A3C715E2D0AC59D7FF6B2B26155AAE564EEC",
-          "summarySha256": "A62DFE7A1BB1D2B51601475F29F1A12D7A5C296107497E57BD58D57C0ADF572B"
+          "eventsSha256": "26E6B6853F59F1D6A6EA175381A10D827E2CFB483842260CE8109183E57DF677",
+          "summarySha256": "B2561047D89FDFB1C80F3D55F220CB1C650880E44423BB1970FF58BAB1D83923"
         },
         {
           "case": "events",
-          "runId": "journey-telemetry-a627157ccc594625ab539f6f9a603a8b",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-efa50567d66944bb842760add50f2ff9",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -2139,14 +2139,14 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "81306CF7780C6C5A879444C7B6985B0C38B43839C0AA9278CDF4CFDE82360926",
-          "summarySha256": "B20E0AE214FFDD534FDBE53D28AA70096E3AF14CF5EB6DCD69342999E61D0BAA"
+          "eventsSha256": "F41DDCFE3FF6C1570A3CE4DD94F89CD895E4725A0BBDC108856521EA01888EB1",
+          "summarySha256": "2B9E3E8971C8BA39B754C91E19AF26EDD6EB0DAE237103EBE906234A36A6AE10"
         }
       ],
       "screenshots": [
         {
           "case": "new",
-          "sha256": "C0C1FA15143B8F31ED2B450A57E8239CEF4B8F3204103337800F0EF0616951C5"
+          "sha256": "89CC17EE9C3F724DC6B8DBBE44EA3573B345B1A705BA3AC4ABED0AE1149DD8F1"
         },
         {
           "case": "resume",
@@ -2166,7 +2166,7 @@
         },
         {
           "case": "events",
-          "sha256": "0BA3F9B855A26008989431322BBC1BE5E28A48CB9568200561F6620DC50D672D"
+          "sha256": "3FC6655D14848C6E13020579AA98AD7254C64CE1708D694A4C66ED7AA81CAA47"
         }
       ]
     },
@@ -2178,8 +2178,8 @@
         "journey": true,
         "exchange": false,
         "telemetry": true,
-        "runId": "story-207b4b26865948d884949acc627067a8",
-        "assemblySha256": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+        "runId": "story-3b45851899484009bf20d3ff6e642f8e",
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
         "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
         "height": 1080,
         "normalSaveUnchanged": true,
@@ -2188,7 +2188,7 @@
           {
             "case": "new",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2197,7 +2197,7 @@
           {
             "case": "resume",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2206,7 +2206,7 @@
           {
             "case": "progress",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2215,7 +2215,7 @@
           {
             "case": "conditions",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2224,7 +2224,7 @@
           {
             "case": "garden",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2233,7 +2233,7 @@
           {
             "case": "events",
             "passed": true,
-            "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+            "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -2241,8 +2241,8 @@
           }
         ]
       },
-      "resultSha256": "2ECD6227FAE9DD4B47FC2E6662FFE835499D3A20C360CBB950D771A050CF1A12",
-      "saveSha256": "2D1E3C0511E2F4952BAF4A738E5671953E4180EC36A32BDAEB99BAC6A53B20BB",
+      "resultSha256": "15815A8784CCC574D006DEDCA1ED970E237AEB50A03BEAD083E664F46A968B64",
+      "saveSha256": "34F7060BA503CDD8396B6DC43826CBA627B75BEB309AF373873735F485F09BD2",
       "journey": {
         "scope": "automated real transactions; active seconds injected for persistence contract, not elapsed play time",
         "diagnosticActiveSeconds": 60,
@@ -4063,8 +4063,8 @@
       "telemetry": [
         {
           "case": "new",
-          "runId": "journey-telemetry-2a25f78706d347cdb98b9f12b9b5ecda",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-9d45a2ac898e40109b53be686d0fe3ee",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 5924,
           "categories": [
             {
@@ -4106,13 +4106,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "47FCE64ED096B758F0AFCB7CAF7854D660DC1DCF1D1C9180C9246F8046918603",
-          "summarySha256": "745E1447A489806C0DD2C4BA97A94AF85EAE5CDA607A297733E49BD575ADD2A6"
+          "eventsSha256": "D9BFA14D4ACEBAEA26B5404FC17251D0D982E769F5C62DFDA0471CBC5E5DC26C",
+          "summarySha256": "55ED632D9FA128EC606508193A218F16E9DC55A541EC3341A618954B01634F1E"
         },
         {
           "case": "resume",
-          "runId": "journey-telemetry-29513604624347bca2cd2467186c5a26",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-9304a31ad2074a8d996f02dc5f528eb1",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 13,
           "categories": [
             {
@@ -4146,13 +4146,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "54E545F59CA1FAA1D56DB60AD0769FB1E2DBC235B316694BDFB0FC84A2B4EDA4",
-          "summarySha256": "5DFF8012778B5EE897F672E9CA1D8AFFCBC01361457E19101413F61454B0E99B"
+          "eventsSha256": "D77A73579C59C9C95F9C1745C75149E1F2F6B0834B114EBB3CCA9387B50E8B8D",
+          "summarySha256": "393C8FEE45C5D0971C916AE28D39437865814892391B245204D50254813B6A22"
         },
         {
           "case": "progress",
-          "runId": "journey-telemetry-2616f2a903de449fbb1cc1c893593bc3",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-67ef8bd624fb4f47b554d5a7dddc9739",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -4186,13 +4186,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "8F51043F23FF55B940D4D1CC37B7C377BE4CC1AE5C3729A452F0138D383CA975",
-          "summarySha256": "A855198194A5AF038FD6914B30EDB283B17B19F764DD5C2D4258188342C67C4C"
+          "eventsSha256": "23E87934C99EF5C9783055498104F0DD37948E94D4344C69DDA2FF150341A7EE",
+          "summarySha256": "989DA231CE2B08A1DA03CFD53E5E726F2B862822491C16E04F37BAF51871606E"
         },
         {
           "case": "conditions",
-          "runId": "journey-telemetry-896c0559eb1846e3a5518851fc81d03c",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-15cc85ead62147e181990d46127a2c5a",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -4226,13 +4226,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "EF619BF16DC1C0158BFE25770FAB5B262844D5C418ED7CC2E1B6CAFD812BB8D1",
-          "summarySha256": "A962EB913386D21B09868FCC0D521B153DF1C6BC2D462CB18C3C74135CAE8205"
+          "eventsSha256": "54D4C4EEDA3FB947EA6E2210D69132D913FAC73ECA87688639C5186A0A53AA78",
+          "summarySha256": "10BD07A7A8BA9932319852BBA68865B9DCDF69E746A945C48FF03C3FC6115424"
         },
         {
           "case": "garden",
-          "runId": "journey-telemetry-fb2981824ded4aefb59e621a563af552",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-38634b9eccdb45e28406c9a40f4c0734",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -4266,13 +4266,13 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "D9E31A3BC65BA6F747095361029E46C7453C4A108B07535C538F7D2C41F831E6",
-          "summarySha256": "C286C6AF56E549FFCD2396554193B3E15D2926FAB5A96BF1BA954E826D8532A6"
+          "eventsSha256": "B95671E6B5F3B5A1D8937C2C7B3BEDC25E54736DD3F8124B3DE1E9216F01BE6C",
+          "summarySha256": "3544E8D05B24EC17E96701CFBCC6ED12C5FC667AF66328B9ADF3F34D73A2CD6F"
         },
         {
           "case": "events",
-          "runId": "journey-telemetry-336f27d0c44841d1858ecf9d2c38530c",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-11aab58497f14f40abb7915151b5f038",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 14,
           "categories": [
             {
@@ -4306,14 +4306,14 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "4E9EB12C03FA525E293989A5A54AF074AD1D7327503B3CBCB7DD6C7F97133D7E",
-          "summarySha256": "CCF719ADE8E94DB8AD1A2BD33B7C69B2639830BA01B8C3FD6D6B78202D7EFE88"
+          "eventsSha256": "35A7510C8D338870D28761B04C4DE2EBEB5C37CDEA160B51DB6A9B509448FDF2",
+          "summarySha256": "CAF1A8A5EB8E2281FDE0936976144A7FB187C3B0E4F48C5AEEE8801EF7DEE22F"
         }
       ],
       "screenshots": [
         {
           "case": "new",
-          "sha256": "A457FAB5AB423381A5C12DBC81761D944423B4DCA04802B59539533601A2F0C2"
+          "sha256": "77E4B02481EA6DD586D2FFB1C8C33F174F6808E3B3786A8BBE9DE41641F8ED23"
         },
         {
           "case": "resume",
@@ -4333,7 +4333,7 @@
         },
         {
           "case": "events",
-          "sha256": "29C1537491A195DAD51983D9ED05596BA549B8E961E63AB63EE1477C9D2E0323"
+          "sha256": "AB20A3D5A2EC43B76E74D287764A9B46BB4852A06B1E1EC9270559ABF9CDCBBC"
         }
       ]
     },
@@ -4345,8 +4345,8 @@
         "journey": true,
         "exchange": true,
         "telemetry": true,
-        "runId": "story-6f059d700f774368904d257d8f251b39",
-        "assemblySha256": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+        "runId": "story-04779ef044c6445890f69f4443f3a00e",
+        "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
         "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
         "height": 720,
         "normalSaveUnchanged": true,
@@ -4355,7 +4355,7 @@
           {
             "case": "new",
             "passed": true,
-            "saveSha256": "DD3D7119125175D06C40503F85CD621458A08668199CE46BD2F8DD34D3EC22D6",
+            "saveSha256": "41ED4D510C8136CB0D43AD538B90356E7D9BEA0BC2339D468D825F12C99B4635",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -4364,7 +4364,7 @@
           {
             "case": "resume",
             "passed": true,
-            "saveSha256": "DD3D7119125175D06C40503F85CD621458A08668199CE46BD2F8DD34D3EC22D6",
+            "saveSha256": "41ED4D510C8136CB0D43AD538B90356E7D9BEA0BC2339D468D825F12C99B4635",
             "readChapters": 8,
             "readEvents": 1,
             "readLines": 77,
@@ -4372,8 +4372,8 @@
           }
         ]
       },
-      "resultSha256": "B1B855CA32A11CAB4D2D4737821569F6F1E8DFF12A661A2095E62F7115BFF0F6",
-      "saveSha256": "DD3D7119125175D06C40503F85CD621458A08668199CE46BD2F8DD34D3EC22D6",
+      "resultSha256": "B4886520A0C33C140B01562528BA4A063ECB3B292A54B700E43387E0C3919619",
+      "saveSha256": "41ED4D510C8136CB0D43AD538B90356E7D9BEA0BC2339D468D825F12C99B4635",
       "journey": {
         "scope": "automated real transactions; active seconds injected for persistence contract, not elapsed play time",
         "diagnosticActiveSeconds": 60,
@@ -10524,9 +10524,9 @@
       "telemetry": [
         {
           "case": "new",
-          "runId": "journey-telemetry-4846e67ca8d24e688c0b2c8bda5e73dc",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
-          "events": 25850,
+          "runId": "journey-telemetry-78b8d3be7b9449bbae096bb9258ab11f",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
+          "events": 25851,
           "categories": [
             {
               "category": "audio",
@@ -10562,18 +10562,18 @@
             },
             {
               "category": "timing",
-              "events": 4
+              "events": 5
             }
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "6F164365A332ADF4EA57E69D15843B711B9E8F67C892E3637E30213289B3BED1",
-          "summarySha256": "F6FA33BBF2DB72D30D45D3B6DC9E7F20606F0902F283065F6345F07508F6E369"
+          "eventsSha256": "068087A7B355E948FE23C7FB8D459DD6231CA923B1F7BFF860D8D676EBCA4DA8",
+          "summarySha256": "C89BEEC894863A0723F09B6C09E618B658BF3039161F7DE1B93EE053E31BF9BA"
         },
         {
           "case": "resume",
-          "runId": "journey-telemetry-4cb9b76607a74ae1bd6555454a6070c1",
-          "buildHash": "E48E627FE79200DAB4143BE87551429B8200F8CEC980D271E49E44335E825C7D",
+          "runId": "journey-telemetry-b82d3fc578ca407bb584250334667f47",
+          "buildHash": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D",
           "events": 13,
           "categories": [
             {
@@ -10607,14 +10607,14 @@
           ],
           "performanceMeasured": false,
           "humanTimingMeasured": false,
-          "eventsSha256": "B72E28F762B2F27B7F3563B5C2BC9C3C6FBC10375FA107F907D18B1951E453F7",
-          "summarySha256": "806C28936D0AAB6EEF97E487BC4CEF76A9F75081D6637D69EFEEF2F4AE12758B"
+          "eventsSha256": "0CB002A30CFBC3F90DACCBB68ADCA40D69F2C41F150C53E7097990FE70229324",
+          "summarySha256": "C38A85AC62E6C46215DF7E13B60D9B7662CDED49A3BD1E5EBAA786C39ADF2379"
         }
       ],
       "screenshots": [
         {
           "case": "new",
-          "sha256": "89CC17EE9C3F724DC6B8DBBE44EA3573B345B1A705BA3AC4ABED0AE1149DD8F1"
+          "sha256": "B06EBA3A9A36CB247F90A632C069E0F5987B9AD65260AD46F52ADB136072E552"
         },
         {
           "case": "resume",

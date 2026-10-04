@@ -20,13 +20,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     if($height -ne 720 -and $height -ne 1080){throw 'Only 720p and 1080p supported'}
     $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
     if($Measure -or $Uncapped){
-        $ready=$false
-        for($attempt=1;$attempt -le 3;$attempt++){
-            $envPath=Join-Path $output ($name+'-environment-attempt-'+$attempt+'.json')
-            try{& (Join-Path $PSScriptRoot 'check-plan7-performance-environment.ps1') -Output $envPath;Copy-Item -LiteralPath $envPath -Destination (Join-Path $output ($name+'-environment-before.json'));$ready=$true;break}
-            catch{if($_.Exception.Message -notmatch 'PLAN7_PERFORMANCE_DEFERRED'){throw};Write-Output "PLAN7_PERFORMANCE_WAIT $name attempt=$attempt";if($attempt -lt 3){Start-Sleep -Seconds 5}}
-        }
-        if(-not $ready){throw "PLAN7_PERFORMANCE_DEFERRED: readiness never cleared for $name; no player launched."}
+        & (Join-Path $PSScriptRoot 'check-plan8-measurement-readiness.ps1') -Output (Join-Path $output ($name+'-environment-before.json'))
     }
     $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',('"'+$png+'"'),'-capturePlan7Sample','-artCase',$case,'-logFile',('"'+$log+'"'))
     if($case -in @('gameplay','activecombat')){$flags=$flags | Where-Object {$_ -notin @('-capturePlan7Sample','-artCase',$case)};$flags+='-validatePlan7Assets';if($case -eq 'gameplay'){$flags+='-capture2DActor0'}}
@@ -41,6 +35,7 @@ foreach($case in $Cases){foreach($height in $Heights){
     $watch=[Diagnostics.Stopwatch]::StartNew();$peakWorking=0L;$peakObserved=0L
     $process=Start-Process -FilePath $Player -ArgumentList $flags -WindowStyle Normal -PassThru
     while(-not $process.WaitForExit(250)){
+        if(Test-Path -LiteralPath $log){$pendingText=Get-Content -LiteralPath $log -Raw -ErrorAction SilentlyContinue;if($pendingText -match 'Exception:'){$process.Kill();$process.WaitForExit();throw "Own sample failed: $log"}}
         if($watch.ElapsedMilliseconds -gt $(if($CompleteBattle){180000}else{60000})){$process.Kill();throw "Sample timed out: $name"}
         try{$process.Refresh();$peakWorking=[Math]::Max($peakWorking,$process.PeakWorkingSet64);$peakObserved=[Math]::Max($peakObserved,$process.WorkingSet64)}catch [InvalidOperationException]{}
     }

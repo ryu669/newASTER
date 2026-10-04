@@ -12,7 +12,7 @@
 
 - [現行要求](docs/requirements/game.md)：最新の優先仕様。
 - [実装計画と完了条件](docs/production/implementation-plan.md)：番号ごとの検証済み範囲と残作業。
-- [計画8の詳細実装計画](docs/production/plan8-implementation-plan.md)：基準・計測・本文・難度・歌唱を接続し、8-6の実残高による育成・装備・家具・遺物・抽選／交換、8-7の保存一周を自動検証。8-8の表示と操作一覧、8-10の結果・引継ぎを整理。[完了ゲート](docs/production/plan8-completion-gate.md)に残件を明記。8-9性能は他ゲーム／OBSの動作で延期、実操作・聴取・人間の到達時間も未実施のため計画8全体は未完了。
+- [計画8の詳細実装計画](docs/production/plan8-implementation-plan.md)：基準・計測・本文・難度・歌唱を接続し、8-6の実残高による育成・装備・家具・遺物・抽選／交換、8-7の保存一周を自動検証。8-8の表示と操作一覧、8-10の結果・引継ぎを整理。[完了ゲート](docs/production/plan8-completion-gate.md)に残件を明記。8-9の最新1080pは16.7ms以内98.83%で合格。720p・場面別・冷起動は負荷変化等で未実施、実操作・聴取・人間の到達時間も未実施のため計画8全体は未完了。
 - [計画6の詳細実装計画](docs/production/plan6-implementation-plan.md)：万物の書・人物別装備の樹・2D箱庭・好感度・ADVを6-1〜6-10で接続。6-1〜6-10の機能ゲート完了。
 - [計画6の完了記録](docs/production/plan6-completion-gate.md)：Core 5,540・Unity 1,174・Windows通し保存／再起動、箱庭・ADVの720p／1080p検証と後続制作範囲。
 - [計画7の開発見本](docs/production/plan7-candidate-review.md)：人物1人・敵1体・背景・家具・CG・音を接続し、戦闘・箱庭は画像を大きく表示して必要時に操作を展開。2026-10-04の改訂条件で完了。

@@ -273,6 +273,11 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            double started=measureArt?MeasurementClock:0;
+            try{DrawGameGui();}finally{RecordMeasuredGui(started);}
+        }
+        private void DrawGameGui()
+        {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}

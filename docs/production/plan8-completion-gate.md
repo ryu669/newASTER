@@ -1,29 +1,33 @@
 # 計画8：完了ゲートと残件
 
-更新：2026-10-04。**計画8全体は未完了。技術ゲートも代表性能が未測定のため未完了、体験ゲートも未完了。** 実装・自動通し検証・経済接続・記録整備を進めたが、未実施を合格へ変更していない。[詳細計画](plan8-implementation-plan.md)と[受入ケース](acceptance.md#計画8縦切り通し試遊と調整)が条件の定義元。
+更新：2026-10-04。**計画8全体は未完了。1080pの代表性能は合格したが、720p・場面別・冷起動の残件で技術ゲートは未完了、体験ゲートも未完了。** 実装・自動通し検証・経済接続・記録整備を進めたが、未実施を合格へ変更していない。[詳細計画](plan8-implementation-plan.md)と[受入ケース](acceptance.md#計画8縦切り通し試遊と調整)が条件の定義元。
 
-[条件別JSON](plan8-completion-gate.json)も同じpassed／not-runを保持する。`tools/validate-plan8-evidence.py`は証拠・ビルドhash・未完了状態の整合を検査するコマンドであり、計画8の完了を認定するコマンドではない。
+[条件別JSON](plan8-completion-gate.json)も同じpassed／failed／not-runを保持する。`tools/validate-plan8-evidence.py`は証拠・ビルドhash・未完了状態の整合を検査するコマンドであり、計画8の完了を認定するコマンドではない。
 
 | 対象 | 自動確認 | 体験／未実施 | 証拠 |
 | --- | --- | --- | --- |
 | T8-01 基準・隔離・定義 | passed | 基準固定 | [基準検証](plan8-baseline-validation.json) |
-| T8-02 計測非干渉・run統合 | passed：ON/OFF/失敗の結果一致、通し9分類・単調時計・重複ID拒否 | not-run：性能分類の実測結合、人間の入力判断 | [計測](plan8-telemetry-validation.json)、[通し](plan8-journey-validation.json) |
+| T8-02 計測非干渉・run統合 | passed：ON/OFF/失敗の結果一致、通し9分類・単調時計・重複ID拒否、性能実測との同一run結合 | not-run：人間の入力判断 | [計測](plan8-telemetry-validation.json)、[通し](plan8-journey-validation.json)、[性能](plan8-performance-validation.json) |
 | T8-03 本文・取得・読書 | passed：8章54詩・明示30対応・イベント1本・77行・回想 | not-run：人間の読書・対応の理解 | [本文](plan8-story-content.md)、[通し](plan8-journey-validation.json) |
 | T8-04 難度・部位・再生 | passed：基準／採用各1500戦、Lv44／45、4部位、4再生方式 | not-run：初見3〜6分・周回2〜4分、実判断を含む難度 | [調整](plan8-adjustment.md)、[全分布](plan8-balance-measurements.json) |
 | T8-05 歌唱・章収集 | passed：80 runの戦数・重複・打ち切りと勝敗／撤退契約 | not-run：実時間中央値・p90、歌唱の聴感 | [全分布](plan8-balance-measurements.json) |
 | T8-06 育成・生活・経済 | passed：解放順65戦、実残高のLv30・装備・家具・遺物・10連。追加討伐で100pt交換と使用 | not-run：実到達時間・30分操作・Lv120実到達。Lv120算術は到達実測にしない | [経済](plan8-economy.md)、[通し](plan8-journey-validation.json)、[抽選・算術](plan8-economy-measurements.json) |
 | T8-07 保存一周・異常系 | passed：新規試遊と別プロセス再開、正式旧／現行形の回帰、失敗無変更・重複拒否、将来版・別ID・backup保全 | 実マウスの復旧導線はT8-08でnot-run | [通し](plan8-journey-validation.json)、[回帰](plan8-regression-validation.json)、Core5709 assertions |
 | T8-08 表示・操作・音 | passed：専用表示720p／1080p、文字／PCM／停止契約の自動回帰 | not-run：全マウス導線・速度別長文の可読性・実AltTab・聴取 | [操作一覧](plan8-operation-inventory.md)、[回帰](plan8-regression-validation.json) |
-| T8-09 性能・起動・メモリ | not-run：事前判定不適合、測定プレイヤーを起動しない | not-run：通常1080p／720p、95%≤16.7ms、場面別ロード／ピーク、冷起動 | [延期記録](plan8-performance-deferred.json) |
+| T8-09 性能・起動・メモリ | passed：最新1080p通し戦闘は16.7ms以内98.83%。外部ピーク約302MiB。以前の未達78.97%も保持 | not-run：720p・場面別のロード／ピーク・OS冷起動。負荷変化でバッチ停止 | [実測](plan8-performance-validation.json)、[以前の延期](plan8-performance-deferred.json) |
 | T8-10 結果固定・引継ぎ | passed：現在の証拠、採用値、手順、数量と残件を整理 | not-run：T8-01〜09の全対象条件成立後の最終完了判定 | 本書、[実装記録](plan8-progress.md) |
 
-## 性能を再開する条件と手順
+## 性能の実測と再開条件
 
-事前確認でangelica_rとOBSのGPU活動を検出した。ユーザーのアプリは終了せず、測定は延期した。機能検証の戦数・起動時間・メモリを性能の合格へ読み替えない。
+以前は他ゲームと録画アプリの負荷で延期した。最初の有効1080p測定は3485フレームの78.97%が16.7ms以内で未達だった。新しい測定ログを加えた最新ビルドでは3426フレーム、平均16.792ms・p95 16.697ms・p99 16.703ms・最大100.108ms、16.7ms以内98.83%で95%目標を達成した。最大値の停滞も隠さず保持する。コード計測追加と測定環境の差があり、結果改善を最適化の効果と断定しない。
 
-低負荷になった後、まず`tools/check-plan7-performance-environment.ps1`でCPU・GPU・RAMと他アプリを再確認する。通し戦闘は`tools/validate-plan8-telemetry-player.ps1 -AdjustedPerformance -Height 1080`、続いて720pを使用する。このwrapperは通常保存の前後hashを検査し、専用内容版・同じrunのフレーム値・外部ピークメモリ・ビルド／素材hashを照合する。目標未達はfailedの記録を残す。今回この実測結合のランタイム検証は未実施。
+i7-13700F／RTX4070、通常同期1・再生速度1、調整後の専用敵内容版を使用し、ビルド／素材hash・同じrunの175イベント・外部ピーク317050880 bytesを結合した。大技66フレームのp95 16.696ms・100%以内、部位破壊192フレームのp95 16.697ms・97.40%以内。GUI RepaintのみのCPU p95は0.278ms・最大2.783msで、他のCPU処理とGPU・同期待ちは含まない。エンジン起動基準の最初のRepaintは3.470秒、splash終了後。720pの続行時に負荷が変化したためバッチを止め、後の確認も不適合だった。
 
-追加の場面別ロード・庭移動・ADV／CG／バックログのピークと冷起動の条件も残る。プロセス再起動をOSキャッシュ未使用の冷起動と呼ばない。ユーザーのアプリ終了、OS時計変更、OSキャッシュ強制消去は行わない。
+通し戦闘は`tools/validate-plan8-telemetry-player.ps1 -AdjustedPerformance -Height 1080`、続いて720pを使用する。負荷確認はバッチ開始の3標本と、連続測定中の1標本による変化確認に整理した。直近から2分以上空く、バッチ開始から10分経過する、不適合を検出する場合は通常確認に戻す。不適合時の自動3回リトライは廃止し、そのバッチを止める。ユーザーの他アプリを終了しない。
+
+長い通し再生で自動診断のアクティブ計時が比較用保存を変える問題を検出し、自動captureの計時だけを止めた。通常試遊の計時と明示60秒の保存失敗診断を維持する。最初の失敗診断は性能値として採用しない。
+
+場面別は`tools/validate-plan6-home-player.ps1 -Cases Garden,Adv,Cg,Backlog -SaveForms New -Measure`を使用する。記録は既存の隔離正式home診断、素材事前検証後の描画、250ms間隔の外部ピーク、最初のRepaintログ観測までの時間を区別する。GUIのCPU値はUpdate・GPU・同期待ちを含まない。`startupSeconds`はcapture時刻で、起動遅延ではない。OSキャッシュは未制御で、プロセス再起動をOSキャッシュ未使用の冷起動と呼ばない。
 
 ## 通し試遊の手順
 
