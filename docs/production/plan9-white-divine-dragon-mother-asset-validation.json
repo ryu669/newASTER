@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.white-divine-dragon-mother",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "fbadf0ff3c184cd79fbb06f1d56da622b56d6deb765bf710dfd32853269c08a3",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        87,
+        22,
+        1178,
+        1229
+      ],
+      "sha256": "18de6a70038fbd77f03966166d1cb1a46ee3761d124a1f550692b0ace4b050a0",
+      "status": "candidate"
+    },
+    {
+      "purpose": "mother.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        128,
+        235,
+        1162,
+        1049
+      ],
+      "sha256": "759ff8d0d2a28f5cc7a0f2c3c71a90656686117cf9023f2909ade13a0905e9ef",
+      "status": "candidate"
+    },
+    {
+      "purpose": "mother.wing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-wing-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        30,
+        23,
+        1240,
+        1217
+      ],
+      "sha256": "26cf73ab9a395f77c097685e8d2bcf04c91733a01ef5df9d60b092279a51b1e8",
+      "status": "candidate"
+    },
+    {
+      "purpose": "mother.chest",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-chest-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        199,
+        122,
+        1094,
+        1132
+      ],
+      "sha256": "bf265d12eb3ab5c920e1b89f57497a418d5a3cf347e8e78de13e0fa4d4fb1c4f",
+      "status": "candidate"
+    },
+    {
+      "purpose": "mother.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        189,
+        81,
+        1098,
+        1115
+      ],
+      "sha256": "2fc944488fbb019088037ffacbc73338a9747c06d6446a3b150625b5aa9c05e4",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        214,
+        173,
+        1082,
+        1115
+      ],
+      "sha256": "0597bf8c302e42298de8ebdd28eede18cd3ebeca2110c8d98452efb86a952102",
+      "status": "candidate"
+    }
+  ]
+}

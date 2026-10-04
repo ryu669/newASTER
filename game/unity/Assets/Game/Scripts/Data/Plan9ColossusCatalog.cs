@@ -15,7 +15,61 @@ namespace NewAster.Data
             {"colossus.silver-sea-whale",SilverSeaWhale},
             {"colossus.heaven-tree-orochi",HeavenTreeOrochi},
             {"colossus.reenactment-yimir",ReenactmentYimir},
-            {"colossus.emerald-star-astal",EmeraldStarAstal}
+            {"colossus.emerald-star-astal",EmeraldStarAstal},
+            {"colossus.amber-king-serpent",AmberKingSerpent},
+            {"colossus.white-divine-dragon-mother",WhiteDivineDragonMother},
+            {"colossus.black-smoke-citadel",BlackSmokeCitadel}
+        };
+        private static ColossusCombatDef BlackSmokeCitadel()=>new ColossusCombatDef {
+            id="colossus.black-smoke-citadel",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=3600,hpPerLevel=230,gaugeMax=5,baseDamage=18,damagePerLevel=2,majorBonus=42,ultimateBonus=72,
+            normalAction="重鉄砲撃",enragedAction="城炉過熱",majorAction="大技：黒煙総砲",ultimateAction="極大技：灰の王都",
+            enemySpeed=66,enrageHpPercent=35,enrageDamagePercent=150,attackBreakDamagePercent=55,majorDamageType="physical",majorWaitPercent=230,
+            parts=new[]{
+                new ColossusPartCombatDef{id="citadel.core",role="gauge",breakEffect="gauge-down",baseHp=410,hpPerLevel=18},
+                new ColossusPartCombatDef{id="citadel.cannon",role="attack",breakEffect="",baseHp=530,hpPerLevel=21},
+                new ColossusPartCombatDef{id="citadel.gate",role="armor",breakEffect="",baseHp=650,hpPerLevel=25},
+                new ColossusPartCombatDef{id="citadel.exhaust",role="drain",breakEffect="",baseHp=440,hpPerLevel=19}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="重鉄砲撃",targetRule="single",requiredPartId="citadel.cannon",damageType="physical",damagePercent=145,gaugeGain=1,waitPercent=150},
+                new ColossusActionCombatDef{name="城脚地震",targetRule="all",damageType="physical",damagePercent=80,gaugeGain=2,waitPercent=180},
+                new ColossusActionCombatDef{name="排熱吸収",targetRule="highest-resource",requiredPartId="citadel.exhaust",damageType="magic",damagePercent=75,gaugeGain=0,drainAmount=3,waitPercent=130}
+            }
+        };
+        private static ColossusCombatDef WhiteDivineDragonMother()=>new ColossusCombatDef {
+            id="colossus.white-divine-dragon-mother",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=3200,hpPerLevel=215,gaugeMax=6,baseDamage=15,damagePerLevel=2,majorBonus=40,ultimateBonus=70,
+            normalAction="白翼の羽撃",enragedAction="母竜の祈り",majorAction="大技：生命光輪",ultimateAction="極大技：白き再生の空",
+            enemySpeed=86,enrageHpPercent=50,enrageDamagePercent=135,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=185,
+            parts=new[]{
+                new ColossusPartCombatDef{id="mother.crown",role="gauge",breakEffect="gauge-down",baseHp=390,hpPerLevel=17},
+                new ColossusPartCombatDef{id="mother.wing",role="attack",breakEffect="",baseHp=490,hpPerLevel=20},
+                new ColossusPartCombatDef{id="mother.chest",role="armor",breakEffect="",baseHp=580,hpPerLevel=23},
+                new ColossusPartCombatDef{id="mother.tail",role="drain",breakEffect="",baseHp=420,hpPerLevel=18}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="白翼の羽撃",targetRule="single",requiredPartId="mother.wing",damageType="physical",damagePercent=115,gaugeGain=1,waitPercent=105},
+                new ColossusActionCombatDef{name="白光の祈り",targetRule="all",damageType="magic",damagePercent=65,gaugeGain=2,waitPercent=125},
+                new ColossusActionCombatDef{name="生命走査",targetRule="highest-resource",requiredPartId="mother.tail",damageType="magic",damagePercent=80,gaugeGain=1,drainAmount=2,waitPercent=100}
+            }
+        };
+        private static ColossusCombatDef AmberKingSerpent()=>new ColossusCombatDef {
+            id="colossus.amber-king-serpent",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=3000,hpPerLevel=205,gaugeMax=5,baseDamage=16,damagePerLevel=2,majorBonus=39,ultimateBonus=69,
+            normalAction="砂牙の指名",enragedAction="琥珀王の憤怒",majorAction="大技：王砂嵐",ultimateAction="極大技：時砂の王域",
+            enemySpeed=80,enrageHpPercent=40,enrageDamagePercent=145,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=210,
+            parts=new[]{
+                new ColossusPartCombatDef{id="serpent.crown",role="gauge",breakEffect="gauge-down",baseHp=370,hpPerLevel=16},
+                new ColossusPartCombatDef{id="serpent.fang",role="attack",breakEffect="",baseHp=470,hpPerLevel=19},
+                new ColossusPartCombatDef{id="serpent.armor",role="armor",breakEffect="",baseHp=550,hpPerLevel=22},
+                new ColossusPartCombatDef{id="serpent.tail",role="drain",breakEffect="",baseHp=400,hpPerLevel=17}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="砂牙の指名",targetRule="lowest-hp",requiredPartId="serpent.fang",damageType="physical",damagePercent=120,gaugeGain=1,waitPercent=110},
+                new ColossusActionCombatDef{name="砂丘の波",targetRule="all",damageType="magic",damagePercent=75,gaugeGain=2,waitPercent=160},
+                new ColossusActionCombatDef{name="時砂吸収",targetRule="highest-resource",requiredPartId="serpent.tail",damageType="magic",damagePercent=80,gaugeGain=1,drainAmount=3,waitPercent=125}
+            }
         };
         private static ColossusCombatDef EmeraldStarAstal()=>new ColossusCombatDef {
             id="colossus.emerald-star-astal",contentVersion=ColossusCombatDef.Plan9Version,

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.black-smoke-citadel",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "bcb45182d1597943d8664f3d68be92d7da983698c983e34c6487cabb69328921",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        22,
+        105,
+        1238,
+        1133
+      ],
+      "sha256": "2ce97c8b0a91525a8d5fbbfead729b100dab3d1092ff2f9f965205a90e8235fd",
+      "status": "candidate"
+    },
+    {
+      "purpose": "citadel.core",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-core-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        339,
+        69,
+        917,
+        1148
+      ],
+      "sha256": "7afcf7765047cbebf78b074968f03e6ec0d0d1acd0f28fc1fe62ae6f3bb96431",
+      "status": "candidate"
+    },
+    {
+      "purpose": "citadel.cannon",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-cannon-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        37,
+        218,
+        1235,
+        1007
+      ],
+      "sha256": "9def418d104ea9e2d3bfaafb2fee15e796e5628e03906660e3a45a52ecab3103",
+      "status": "candidate"
+    },
+    {
+      "purpose": "citadel.gate",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-gate-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        284,
+        42,
+        1025,
+        1187
+      ],
+      "sha256": "60f4980bac34e80ffd95fa7b66f3a102510b93cf5140291f08ff9f1fa98872b7",
+      "status": "candidate"
+    },
+    {
+      "purpose": "citadel.exhaust",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-exhaust-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        406,
+        72,
+        970,
+        1095
+      ],
+      "sha256": "a3abc327699e9dbddba6c21cb9c500f1fd36f0a729ad7bf3187c2390af84b30d",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        158,
+        184,
+        1155,
+        1062
+      ],
+      "sha256": "0a3ebe14c9dcf11cc40f16866d601e650b17f061b3df1316a891162185285b80",
+      "status": "candidate"
+    }
+  ]
+}

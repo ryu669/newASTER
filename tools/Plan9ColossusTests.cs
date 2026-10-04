@@ -99,6 +99,28 @@ public static class Plan9ColossusTests
         foreach(var h in b.State.Heroes)h.SpendResource(h.JobResource);b.State.Heroes[2].GainResource(3);
         check(b.NextEnemyTargets.SequenceEqual(new[]{2}),"Astal satellite selects highest resource");
         b.State.BreakPart("astal.tail",int.MaxValue);check(b.NextEnemyAction=="翠星の瞬き" && b.NextEnemyTargets.Length==5,"Destroyed satellite tail removes drain");
+        Func<PlayableBattle> serpent=()=>new PlayableBattle(1,new PlayableProgress(),80,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.amber-king-serpent"));
+        b=serpent();b.State.Heroes[4].TakeDamage(b.State.Heroes[4].MaxHitPoints/2);
+        check(b.NextEnemyAction=="砂牙の指名" && b.NextEnemyTargets.SequenceEqual(new[]{4}),"Amber fang targets lowest HP ratio");
+        b.State.BreakPart("serpent.fang",int.MaxValue);check(b.NextEnemyAction=="砂丘の波" && b.NextEnemyTargets.Length==5,"Destroyed fang substitutes slow all-target wave");
+        b=serpent();next(b);next(b);check(b.State.BossGauge==3 && b.NextEnemyAction=="時砂吸収","Amber wave adds two gauge before time drain");
+        b.State.BreakPart("serpent.tail",int.MaxValue);check(b.NextAttackIsMajor,"Destroyed hourglass substitutes two-gauge wave and updates major telegraph");
+        b.State.ReduceBossGauge(3);check(b.NextEnemyAction=="砂丘の波","Destroyed hourglass removes time drain below threshold");
+        Func<PlayableBattle> mother=()=>new PlayableBattle(1,new PlayableProgress(),81,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.white-divine-dragon-mother"));
+        b=mother();check(b.NextEnemyAction=="白翼の羽撃" && b.NextEnemyTargets.Length==1,"Mother opens with single white wing strike");
+        b.State.BreakPart("mother.wing",int.MaxValue);check(b.NextEnemyAction=="白光の祈り" && b.NextEnemyTargets.Length==5,"Destroyed white wing substitutes all-target prayer");
+        b=mother();next(b);next(b);check(b.State.BossGauge==3 && b.NextEnemyAction=="生命走査","Mother prayer adds two gauge before life scan");
+        foreach(var h in b.State.Heroes)h.SpendResource(h.JobResource);b.State.Heroes[3].GainResource(3);
+        check(b.NextEnemyTargets.SequenceEqual(new[]{3}),"Life scan selects highest resource");
+        b.State.BreakPart("mother.tail",int.MaxValue);check(b.NextEnemyAction=="白光の祈り","Destroyed life tail removes scan");
+        Func<PlayableBattle> citadel=()=>new PlayableBattle(1,new PlayableProgress(),82,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.black-smoke-citadel"));
+        b=citadel();check(b.NextEnemyAction=="重鉄砲撃" && b.NextEnemyTargets.Length==1,"Citadel opens with heavy single cannon");
+        b.State.BreakPart("citadel.cannon",int.MaxValue);check(b.NextEnemyAction=="城脚地震" && b.NextEnemyTargets.Length==5,"Destroyed cannon substitutes slow all-target quake");
+        b=citadel();next(b);next(b);check(b.State.BossGauge==3 && b.NextEnemyAction=="排熱吸収","Citadel quake adds two gauge before heat drain");
+        next(b);check(b.State.BossGauge==3,"Heat drain preserves citadel gauge");
+        b=citadel();next(b);next(b);b.State.BreakPart("citadel.exhaust",int.MaxValue);
+        check(b.NextAttackIsMajor,"Destroyed exhaust substitutes two-gauge quake and updates major telegraph");
+        b.State.ReduceBossGauge(3);check(b.NextEnemyAction=="城脚地震","Destroyed exhaust removes heat drain below threshold");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

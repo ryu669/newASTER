@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-1-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-1",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-44-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-44",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-44-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-45-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-45",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-45-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-49-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-49",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-49-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-50-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-50",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-50-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part1-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-part1",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part2-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-part2",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part2-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part3-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-part3",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part3-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part4-720.png",
+      "humanInput": false,
+      "case": "citadel-battle-part4",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part4-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-1-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-1",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-44-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-44",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-44-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-45-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-45",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-45-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-49-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-49",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-49-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-50-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-50",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-50-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part1-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-part1",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part2-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-part2",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part2-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part3-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-part3",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part3-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part4-1080.png",
+      "humanInput": false,
+      "case": "citadel-battle-part4",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-battle-part4-1080.log"
+    }
+  ],
+  "assemblySha256": "BCD83F8D965CEEFEBEF59E4A624E818E2C220DBE597A760471AA2FC52A025522",
+  "normalSaveUnchanged": true
+}

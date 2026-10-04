@@ -15,6 +15,18 @@ namespace NewAster.Data
                 case "tyrant.claw":return "掘削の左爪";
                 case "tyrant.plate":return "黒曜胸甲";
                 case "tyrant.tail":return "鉱脈の尾";
+                case "citadel.core":return "煙突核";
+                case "citadel.cannon":return "大砲";
+                case "citadel.gate":return "城門装甲";
+                case "citadel.exhaust":return "排熱塔";
+                case "mother.crown":return "生命冠";
+                case "mother.wing":return "白翼";
+                case "mother.chest":return "母竜胸甲";
+                case "mother.tail":return "生命尾";
+                case "serpent.crown":return "琥珀冠";
+                case "serpent.fang":return "砂牙";
+                case "serpent.armor":return "黄金腹甲";
+                case "serpent.tail":return "砂時計尾";
                 case "astal.ring":return "星輪";
                 case "astal.claw":return "彗星爪";
                 case "astal.shield":return "翠晶盾";

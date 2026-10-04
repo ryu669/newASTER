@@ -6740,6 +6740,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "amber-desert-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/amber-desert-far-candidate-v1.png",
+      "sha256": "00045E4577C577895FB3927C78C9DD6D3C272B977182E650E053B366E055F0CF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "astal-body-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -6800,6 +6810,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "black-wasteland-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/black-wasteland-far-candidate-v1.png",
+      "sha256": "43C65E1995B29CDB4722D51A89E4FCA30093716E0112F2E6C4900EAA609D36A0",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "canyon-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -6810,6 +6830,66 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "citadel-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-body-candidate-v1.png",
+      "sha256": "2CE97C8B0A91525A8D5FBBFEAD729B100DAB3D1092FF2F9F965205A90E8235FD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "citadel-cannon-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-cannon-candidate-v1.png",
+      "sha256": "9DEF418D104EA9E2D3BFAAFB2FEE15E796E5628E03906660E3A45A52ECAB3103",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "citadel-core-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-core-candidate-v1.png",
+      "sha256": "7AFCF7765047CBEBF78B074968F03E6EC0D0D1ACD0F28FC1FE62AE6F3BB96431",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "citadel-exhaust-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-exhaust-candidate-v1.png",
+      "sha256": "A3ABC327699E9DBDDBA6C21CB9C500F1FD36F0A729AD7BF3187C2390AF84B30D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "citadel-gate-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-gate-candidate-v1.png",
+      "sha256": "60F4980BAC34E80FFD95FA7B66F3A102510B93CF5140291F08FF9F1FA98872B7",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "citadel-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/citadel-major-candidate-v1.png",
+      "sha256": "0A3EBE14C9DCF11CC40F16866D601E650B17F061B3DF1316A891162185285B80",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "crystal-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -6817,6 +6897,16 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/crystal-far-candidate-v1.png",
       "sha256": "AC3ABF67F69519A287CA960FF7C576569F5558311B4AE92B14B155CA4EA3E5D3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "divine-sanctuary-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/divine-sanctuary-far-candidate-v1.png",
+      "sha256": "EA331E3830F95C8E8BF7773D7DE57D8801AE09BD9A84AD666AF0CA05826B7750",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
@@ -7550,6 +7640,66 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "mother-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-body-candidate-v1.png",
+      "sha256": "18DE6A70038FBD77F03966166D1CB1A46EE3761D124A1F550692B0ACE4B050A0",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "mother-chest-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-chest-candidate-v1.png",
+      "sha256": "BF265D12EB3AB5C920E1B89F57497A418D5A3CF347E8E78DE13E0FA4D4FB1C4F",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "mother-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-crown-candidate-v1.png",
+      "sha256": "759FF8D0D2A28F5CC7A0F2C3C71A90656686117CF9023F2909ADE13A0905E9EF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "mother-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-major-candidate-v1.png",
+      "sha256": "0597BF8C302E42298DE8EBDD28EEDE18CD3EBECA2110C8D98452EFB86A952102",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "mother-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-tail-candidate-v1.png",
+      "sha256": "2FC944488FBB019088037FFACBC73338A9747C06D6446A3B150625B5AA9C05E4",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "mother-wing-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/mother-wing-candidate-v1.png",
+      "sha256": "26CF73AB9A395F77C097685E8D2BCF04C91733A01EF5DF9D60B092279A51B1E8",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "orochi-body-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7737,6 +7887,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/rose-whip-candidate-v1.png",
       "sha256": "5951CE5145F3BF5AA7614D372D6BF5D4B4460B41B30AB427E898587554E2A2D6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-armor-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-armor-candidate-v1.png",
+      "sha256": "3F52867CE57D1E641E3EB23C74FCFF13DC2E19AF4AAC36A987FBB8D97694B221",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-body-candidate-v1.png",
+      "sha256": "793DCCB8E7C2AFC9EEFCBDAE2012D444FE94205D9EEEB28CBE45A90213B687D1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-crown-candidate-v1.png",
+      "sha256": "EE4C20E4BABCA42C125A70373C1D344FC37D17F218993A2AF5F4A09653CCB581",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-fang-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-fang-candidate-v1.png",
+      "sha256": "01AD94BAC6183FBAB36F1EDADE45E8415CA354D6309C8A682BBA310E1A419924",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-major-candidate-v1.png",
+      "sha256": "A47891D5ACED630ACBC82E1AC17255CCDB65042ADF45C876B3A2873D89D07585",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "serpent-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-tail-candidate-v1.png",
+      "sha256": "0E4C498B39CAB4143B86EEB84C6C02138382FEDD8246DD1821B2CEF8F6CF75B4",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
