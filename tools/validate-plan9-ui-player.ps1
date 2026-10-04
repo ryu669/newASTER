@@ -22,7 +22,7 @@ foreach($height in $Heights){
  foreach($case in $Cases){
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)
-  if($case -in @('title','intro','settings','credits','exit','help','startup-error','settings-cancel','settings-large')){$flags+='-capturePlan9ProductionEntry'}
+  if($case -in @('title','intro','settings','credits','exit','help','startup-error','settings-cancel','settings-large','book','growth','battle','victory','victory-pending','victory-retry','recovery','recovery-confirm','recovery-blocked')){$flags+='-capturePlan9ProductionEntry'}
   $expectedEnemy=$null;$expectedEnemyKind=$null
   switch($case){
    'title' {$flags+='-capturePlan9Title'}
@@ -99,6 +99,11 @@ foreach($height in $Heights){
    'battle' {$flags+=@('-captureBattleMenu','closed')}
    'victory' {$flags+='-captureVictory'}
    'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
+   'victory-retry' {$flags+=@('-captureVictory','-captureVictoryRetry')}
+   'recovery' {$flags+='-captureRecovery'}
+   'recovery-confirm' {$flags+=@('-captureRecovery','-captureRecoveryConfirm')}
+   'recovery-blocked' {$flags+=@('-captureRecovery','-captureRecoveryBlocked')}
+   'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
    {$_ -in @('garden','adv')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase',([Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case)))}
    default {
     $segments=$case.Split('-')
@@ -138,6 +143,7 @@ foreach($height in $Heights){
   if($case.StartsWith('story-') -and $text -notmatch ('PLAN9_STORY_PLAYER_PASS.*events=25 lover=5 view='+[regex]::Escape($case.Substring(6)))){throw 'Wrong production story view or incomplete event progression'}
   if($case -eq 'story-garden.audio' -and $text -notmatch 'PLAN9_PRODUCTION_AUDIO_PASS'){throw 'Production audio functional diagnostic incomplete'}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
+  if($case -eq 'victory-retry' -and $text -notmatch 'FORMAL_VICTORY_NAVIGATION_PASS 4 assertions'){throw 'Victory retry diagnostic missing'}
   if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}
   if($case.StartsWith('red-battle-') -and ($text -notmatch 'PLAN9_COLOSSUS_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy combat capture unavailable'}
   if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}

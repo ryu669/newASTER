@@ -89,7 +89,7 @@ namespace NewAster.Presentation
             var detail=ResultDetail();float contentHeight=Math.Max(190,growthSmallStyle.CalcHeight(new GUIContent(detail),1080)+12);
             resultScroll=GUI.BeginScrollView(new Rect(240,405,1120,190),resultScroll,new Rect(0,0,1080,contentHeight));
             GUI.Label(new Rect(0,0,1080,contentHeight),detail,growthSmallStyle);GUI.EndScrollView();
-            Label(240,608,1120,65,(plan8StoryTrial?"取得結果を専用保存に確定しました。開いた章は物語から読めます。":"取得結果は一つの正式保存に確定しました。詩の本文は未制作です。")+"\n世界・育成・歌唱の数値は調整中です。",growthSmallStyle);
+            Label(240,608,1120,65,ProductionStoryActive?"取得結果を保存しました。開いた章は物語のしおりから読めます。\n世界の記憶・人物の詩・好感度は、それぞれの進捗で確かめられます。":(plan8StoryTrial?"取得結果を専用保存に確定しました。開いた章は物語から読めます。":"取得結果は一つの正式保存に確定しました。詩の本文は未制作です。")+"\n世界・育成・歌唱の数値は調整中です。",growthSmallStyle);
             if(GrowthButton(240,680,260,65,"万物の書へ")){result=null;encounter=null;}
             if(GrowthButton(520,680,260,65,"人物を育てる",true,true)){result=null;encounter=null;book.ChangeBookmark(BookBookmark.Heroines);}
             if(GrowthButton(800,680,260,65,"記憶・遺物")){result=null;encounter=null;collectionOpen=true;}

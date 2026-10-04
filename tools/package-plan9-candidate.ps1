@@ -14,7 +14,11 @@ Copy-Item -LiteralPath (Join-Path $taskRepo 'docs/production/plan9-distribution-
 Copy-Item -LiteralPath (Join-Path $taskRepo 'docs/production/plan9-credits.txt') -Destination (Join-Path $taskOutput 'CREDITS.txt')
 Copy-Item -LiteralPath (Join-Path $taskRepo 'docs/production/plan9-asset-adoption.json') -Destination (Join-Path $taskOutput 'ASSET-ADOPTION.json')
 $taskFiles=@(Get-ChildItem -LiteralPath $taskOutput -File -Recurse | Sort-Object FullName | ForEach-Object {[ordered]@{path=$_.FullName.Substring($taskOutput.Length+1).Replace('\','/');bytes=$_.Length;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant()}})
-$taskManifest=[ordered]@{schemaVersion=1;version=$Version;platform='windows-x64';scope='initial-five-distribution-candidate';performanceMeasured=$false;physicalInputCount=0;listeningSeconds=0;files=$taskFiles}
+$taskInput=Get-Content -LiteralPath (Join-Path $taskRepo 'docs/production/plan9-minimal-input-validation.json') -Raw | ConvertFrom-Json
+$taskAssemblyHash=(Get-FileHash -LiteralPath (Join-Path $taskOutput 'newASTER_Data/Managed/Assembly-CSharp.dll')).Hash.ToLowerInvariant()
+$taskAdvHash=(Get-FileHash -LiteralPath (Join-Path $taskRepo 'game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs')).Hash.ToLowerInvariant()
+if($taskInput.observedAdvSourceSha256 -ne $taskAdvHash){throw 'ADV changed after the limited input smoke; do not reuse that evidence'}
+$taskManifest=[ordered]@{schemaVersion=1;version=$Version;platform='windows-x64';scope='initial-five-distribution-candidate';assemblySha256=$taskAssemblyHash;minimalInputAssemblySha256=$taskInput.assemblySha256;minimalInputAdvSourceUnchanged=$true;performanceMeasured=$false;physicalInputCount=$taskInput.physicalInputCount;listeningSeconds=$taskInput.listeningSeconds;files=$taskFiles}
 $taskManifest | ConvertTo-Json -Depth 6 | Set-Content (Join-Path $taskOutput 'PACKAGE-MANIFEST.json') -Encoding utf8
 foreach($taskFile in $taskFiles){$taskPath=Join-Path $taskOutput $taskFile.path;if((Get-FileHash -LiteralPath $taskPath).Hash.ToLowerInvariant() -ne $taskFile.sha256){throw "Candidate hash mismatch: $($taskFile.path)"}}
 $taskManifest | ConvertTo-Json -Depth 6 | Set-Content (Join-Path $taskRepo 'docs/production/plan9-package-validation.json') -Encoding utf8

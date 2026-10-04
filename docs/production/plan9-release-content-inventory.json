@@ -1,0 +1,1320 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-10-05",
+  "scope": "initial-five-rc1",
+  "homeContentVersion": "home-initial-five-rc1-2026-10-05",
+  "storyContentVersion": "production-story-2026-10-04",
+  "counts": {
+    "heroines": 5,
+    "implementedJobs": 5,
+    "continuationJobs": 8,
+    "colossi": 15,
+    "worlds": 7,
+    "chapters": 60,
+    "poems": 450,
+    "events": 25,
+    "gardens": 9,
+    "furniture": 10,
+    "adoptedImageAudioResources": 233
+  },
+  "heroines": [
+    {
+      "id": "heroine.slayer",
+      "name": "スレイヤー",
+      "jobId": "job.fighter"
+    },
+    {
+      "id": "heroine.iconoclast",
+      "name": "アイコノクラスト",
+      "jobId": "job.berserker"
+    },
+    {
+      "id": "heroine.undermine",
+      "name": "アンダーマイン",
+      "jobId": "job.defender"
+    },
+    {
+      "id": "heroine.echidna",
+      "name": "エキドナ",
+      "jobId": "job.blaster"
+    },
+    {
+      "id": "heroine.excalipan",
+      "name": "エクスカリパン",
+      "jobId": "job.gunner"
+    }
+  ],
+  "colossusIds": [
+    "colossus.green-return-dragon",
+    "colossus.red-crystal-tyrant",
+    "colossus.memory-crystal-dragon",
+    "colossus.sky-tower-machine",
+    "colossus.crystal-rose-princess",
+    "colossus.silver-sea-whale",
+    "colossus.heaven-tree-orochi",
+    "colossus.reenactment-yimir",
+    "colossus.emerald-star-astal",
+    "colossus.amber-king-serpent",
+    "colossus.white-divine-dragon-mother",
+    "colossus.black-smoke-citadel",
+    "colossus.dead-king-megadeath",
+    "colossus.final-flame-ice-phoenix",
+    "colossus.newborn-asteria"
+  ],
+  "chapters": [
+    {
+      "id": "colossus.amber-king-serpent.collection.chapter.1",
+      "ownerId": "colossus.amber-king-serpent",
+      "title": "砂時計の王",
+      "poemIds": [
+        "colossus.amber-king-serpent.collection.poem.01",
+        "colossus.amber-king-serpent.collection.poem.02",
+        "colossus.amber-king-serpent.collection.poem.03",
+        "colossus.amber-king-serpent.collection.poem.04",
+        "colossus.amber-king-serpent.collection.poem.05",
+        "colossus.amber-king-serpent.collection.poem.06",
+        "colossus.amber-king-serpent.collection.poem.07",
+        "colossus.amber-king-serpent.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.amber-king-serpent.collection.chapter.2",
+      "ownerId": "colossus.amber-king-serpent",
+      "title": "水を分ける器",
+      "poemIds": [
+        "colossus.amber-king-serpent.collection.poem.09",
+        "colossus.amber-king-serpent.collection.poem.10",
+        "colossus.amber-king-serpent.collection.poem.11",
+        "colossus.amber-king-serpent.collection.poem.12",
+        "colossus.amber-king-serpent.collection.poem.13",
+        "colossus.amber-king-serpent.collection.poem.14",
+        "colossus.amber-king-serpent.collection.poem.15",
+        "colossus.amber-king-serpent.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.amber-king-serpent.collection.chapter.3",
+      "ownerId": "colossus.amber-king-serpent",
+      "title": "黄金の畑",
+      "poemIds": [
+        "colossus.amber-king-serpent.collection.poem.17",
+        "colossus.amber-king-serpent.collection.poem.18",
+        "colossus.amber-king-serpent.collection.poem.19",
+        "colossus.amber-king-serpent.collection.poem.20",
+        "colossus.amber-king-serpent.collection.poem.21",
+        "colossus.amber-king-serpent.collection.poem.22",
+        "colossus.amber-king-serpent.collection.poem.23",
+        "colossus.amber-king-serpent.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.black-smoke-citadel.collection.chapter.1",
+      "ownerId": "colossus.black-smoke-citadel",
+      "title": "炉の中の町",
+      "poemIds": [
+        "colossus.black-smoke-citadel.collection.poem.01",
+        "colossus.black-smoke-citadel.collection.poem.02",
+        "colossus.black-smoke-citadel.collection.poem.03",
+        "colossus.black-smoke-citadel.collection.poem.04",
+        "colossus.black-smoke-citadel.collection.poem.05",
+        "colossus.black-smoke-citadel.collection.poem.06",
+        "colossus.black-smoke-citadel.collection.poem.07",
+        "colossus.black-smoke-citadel.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.black-smoke-citadel.collection.chapter.2",
+      "ownerId": "colossus.black-smoke-citadel",
+      "title": "止めた大砲",
+      "poemIds": [
+        "colossus.black-smoke-citadel.collection.poem.09",
+        "colossus.black-smoke-citadel.collection.poem.10",
+        "colossus.black-smoke-citadel.collection.poem.11",
+        "colossus.black-smoke-citadel.collection.poem.12",
+        "colossus.black-smoke-citadel.collection.poem.13",
+        "colossus.black-smoke-citadel.collection.poem.14",
+        "colossus.black-smoke-citadel.collection.poem.15",
+        "colossus.black-smoke-citadel.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.black-smoke-citadel.collection.chapter.3",
+      "ownerId": "colossus.black-smoke-citadel",
+      "title": "湯けむりの窓",
+      "poemIds": [
+        "colossus.black-smoke-citadel.collection.poem.17",
+        "colossus.black-smoke-citadel.collection.poem.18",
+        "colossus.black-smoke-citadel.collection.poem.19",
+        "colossus.black-smoke-citadel.collection.poem.20",
+        "colossus.black-smoke-citadel.collection.poem.21",
+        "colossus.black-smoke-citadel.collection.poem.22",
+        "colossus.black-smoke-citadel.collection.poem.23",
+        "colossus.black-smoke-citadel.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.crystal-rose-princess.collection.chapter.1",
+      "ownerId": "colossus.crystal-rose-princess",
+      "title": "傷のない花",
+      "poemIds": [
+        "colossus.crystal-rose-princess.collection.poem.01",
+        "colossus.crystal-rose-princess.collection.poem.02",
+        "colossus.crystal-rose-princess.collection.poem.03",
+        "colossus.crystal-rose-princess.collection.poem.04",
+        "colossus.crystal-rose-princess.collection.poem.05",
+        "colossus.crystal-rose-princess.collection.poem.06",
+        "colossus.crystal-rose-princess.collection.poem.07",
+        "colossus.crystal-rose-princess.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.crystal-rose-princess.collection.chapter.2",
+      "ownerId": "colossus.crystal-rose-princess",
+      "title": "棘を選ぶ指",
+      "poemIds": [
+        "colossus.crystal-rose-princess.collection.poem.09",
+        "colossus.crystal-rose-princess.collection.poem.10",
+        "colossus.crystal-rose-princess.collection.poem.11",
+        "colossus.crystal-rose-princess.collection.poem.12",
+        "colossus.crystal-rose-princess.collection.poem.13",
+        "colossus.crystal-rose-princess.collection.poem.14",
+        "colossus.crystal-rose-princess.collection.poem.15",
+        "colossus.crystal-rose-princess.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.crystal-rose-princess.collection.chapter.3",
+      "ownerId": "colossus.crystal-rose-princess",
+      "title": "散って育つ庭",
+      "poemIds": [
+        "colossus.crystal-rose-princess.collection.poem.17",
+        "colossus.crystal-rose-princess.collection.poem.18",
+        "colossus.crystal-rose-princess.collection.poem.19",
+        "colossus.crystal-rose-princess.collection.poem.20",
+        "colossus.crystal-rose-princess.collection.poem.21",
+        "colossus.crystal-rose-princess.collection.poem.22",
+        "colossus.crystal-rose-princess.collection.poem.23",
+        "colossus.crystal-rose-princess.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.dead-king-megadeath.collection.chapter.1",
+      "ownerId": "colossus.dead-king-megadeath",
+      "title": "灯に縛る名",
+      "poemIds": [
+        "colossus.dead-king-megadeath.collection.poem.01",
+        "colossus.dead-king-megadeath.collection.poem.02",
+        "colossus.dead-king-megadeath.collection.poem.03",
+        "colossus.dead-king-megadeath.collection.poem.04",
+        "colossus.dead-king-megadeath.collection.poem.05",
+        "colossus.dead-king-megadeath.collection.poem.06",
+        "colossus.dead-king-megadeath.collection.poem.07",
+        "colossus.dead-king-megadeath.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.dead-king-megadeath.collection.chapter.2",
+      "ownerId": "colossus.dead-king-megadeath",
+      "title": "王冠を置く",
+      "poemIds": [
+        "colossus.dead-king-megadeath.collection.poem.09",
+        "colossus.dead-king-megadeath.collection.poem.10",
+        "colossus.dead-king-megadeath.collection.poem.11",
+        "colossus.dead-king-megadeath.collection.poem.12",
+        "colossus.dead-king-megadeath.collection.poem.13",
+        "colossus.dead-king-megadeath.collection.poem.14",
+        "colossus.dead-king-megadeath.collection.poem.15",
+        "colossus.dead-king-megadeath.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.dead-king-megadeath.collection.chapter.3",
+      "ownerId": "colossus.dead-king-megadeath",
+      "title": "眠れる森",
+      "poemIds": [
+        "colossus.dead-king-megadeath.collection.poem.17",
+        "colossus.dead-king-megadeath.collection.poem.18",
+        "colossus.dead-king-megadeath.collection.poem.19",
+        "colossus.dead-king-megadeath.collection.poem.20",
+        "colossus.dead-king-megadeath.collection.poem.21",
+        "colossus.dead-king-megadeath.collection.poem.22",
+        "colossus.dead-king-megadeath.collection.poem.23",
+        "colossus.dead-king-megadeath.collection.poem.24"
+      ]
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.2",
+      "ownerId": "heroine.echidna",
+      "title": "怖さを話す",
+      "poemIds": [
+        "heroine.echidna.collection.poem.07",
+        "heroine.echidna.collection.poem.08",
+        "heroine.echidna.collection.poem.09",
+        "heroine.echidna.collection.poem.10",
+        "heroine.echidna.collection.poem.11",
+        "heroine.echidna.collection.poem.12"
+      ]
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.3",
+      "ownerId": "heroine.echidna",
+      "title": "育てる手",
+      "poemIds": [
+        "heroine.echidna.collection.poem.13",
+        "heroine.echidna.collection.poem.14",
+        "heroine.echidna.collection.poem.15",
+        "heroine.echidna.collection.poem.16",
+        "heroine.echidna.collection.poem.17",
+        "heroine.echidna.collection.poem.18"
+      ]
+    },
+    {
+      "id": "colossus.emerald-star-astal.collection.chapter.1",
+      "ownerId": "colossus.emerald-star-astal",
+      "title": "届かない星",
+      "poemIds": [
+        "colossus.emerald-star-astal.collection.poem.01",
+        "colossus.emerald-star-astal.collection.poem.02",
+        "colossus.emerald-star-astal.collection.poem.03",
+        "colossus.emerald-star-astal.collection.poem.04",
+        "colossus.emerald-star-astal.collection.poem.05",
+        "colossus.emerald-star-astal.collection.poem.06",
+        "colossus.emerald-star-astal.collection.poem.07",
+        "colossus.emerald-star-astal.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.emerald-star-astal.collection.chapter.2",
+      "ownerId": "colossus.emerald-star-astal",
+      "title": "暗がりの歩幅",
+      "poemIds": [
+        "colossus.emerald-star-astal.collection.poem.09",
+        "colossus.emerald-star-astal.collection.poem.10",
+        "colossus.emerald-star-astal.collection.poem.11",
+        "colossus.emerald-star-astal.collection.poem.12",
+        "colossus.emerald-star-astal.collection.poem.13",
+        "colossus.emerald-star-astal.collection.poem.14",
+        "colossus.emerald-star-astal.collection.poem.15",
+        "colossus.emerald-star-astal.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.emerald-star-astal.collection.chapter.3",
+      "ownerId": "colossus.emerald-star-astal",
+      "title": "夜を渡す",
+      "poemIds": [
+        "colossus.emerald-star-astal.collection.poem.17",
+        "colossus.emerald-star-astal.collection.poem.18",
+        "colossus.emerald-star-astal.collection.poem.19",
+        "colossus.emerald-star-astal.collection.poem.20",
+        "colossus.emerald-star-astal.collection.poem.21",
+        "colossus.emerald-star-astal.collection.poem.22",
+        "colossus.emerald-star-astal.collection.poem.23",
+        "colossus.emerald-star-astal.collection.poem.24"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.2",
+      "ownerId": "heroine.excalipan",
+      "title": "食卓の欠片",
+      "poemIds": [
+        "heroine.excalipan.collection.poem.07",
+        "heroine.excalipan.collection.poem.08",
+        "heroine.excalipan.collection.poem.09",
+        "heroine.excalipan.collection.poem.10",
+        "heroine.excalipan.collection.poem.11",
+        "heroine.excalipan.collection.poem.12"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.3",
+      "ownerId": "heroine.excalipan",
+      "title": "分け合う明日",
+      "poemIds": [
+        "heroine.excalipan.collection.poem.13",
+        "heroine.excalipan.collection.poem.14",
+        "heroine.excalipan.collection.poem.15",
+        "heroine.excalipan.collection.poem.16",
+        "heroine.excalipan.collection.poem.17",
+        "heroine.excalipan.collection.poem.18"
+      ]
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix.collection.chapter.1",
+      "ownerId": "colossus.final-flame-ice-phoenix",
+      "title": "焼ける雪",
+      "poemIds": [
+        "colossus.final-flame-ice-phoenix.collection.poem.01",
+        "colossus.final-flame-ice-phoenix.collection.poem.02",
+        "colossus.final-flame-ice-phoenix.collection.poem.03",
+        "colossus.final-flame-ice-phoenix.collection.poem.04",
+        "colossus.final-flame-ice-phoenix.collection.poem.05",
+        "colossus.final-flame-ice-phoenix.collection.poem.06",
+        "colossus.final-flame-ice-phoenix.collection.poem.07",
+        "colossus.final-flame-ice-phoenix.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix.collection.chapter.2",
+      "ownerId": "colossus.final-flame-ice-phoenix",
+      "title": "溶ける境",
+      "poemIds": [
+        "colossus.final-flame-ice-phoenix.collection.poem.09",
+        "colossus.final-flame-ice-phoenix.collection.poem.10",
+        "colossus.final-flame-ice-phoenix.collection.poem.11",
+        "colossus.final-flame-ice-phoenix.collection.poem.12",
+        "colossus.final-flame-ice-phoenix.collection.poem.13",
+        "colossus.final-flame-ice-phoenix.collection.poem.14",
+        "colossus.final-flame-ice-phoenix.collection.poem.15",
+        "colossus.final-flame-ice-phoenix.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix.collection.chapter.3",
+      "ownerId": "colossus.final-flame-ice-phoenix",
+      "title": "二つの季節",
+      "poemIds": [
+        "colossus.final-flame-ice-phoenix.collection.poem.17",
+        "colossus.final-flame-ice-phoenix.collection.poem.18",
+        "colossus.final-flame-ice-phoenix.collection.poem.19",
+        "colossus.final-flame-ice-phoenix.collection.poem.20",
+        "colossus.final-flame-ice-phoenix.collection.poem.21",
+        "colossus.final-flame-ice-phoenix.collection.poem.22",
+        "colossus.final-flame-ice-phoenix.collection.poem.23",
+        "colossus.final-flame-ice-phoenix.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.heaven-tree-orochi.collection.chapter.1",
+      "ownerId": "colossus.heaven-tree-orochi",
+      "title": "根の縄",
+      "poemIds": [
+        "colossus.heaven-tree-orochi.collection.poem.01",
+        "colossus.heaven-tree-orochi.collection.poem.02",
+        "colossus.heaven-tree-orochi.collection.poem.03",
+        "colossus.heaven-tree-orochi.collection.poem.04",
+        "colossus.heaven-tree-orochi.collection.poem.05",
+        "colossus.heaven-tree-orochi.collection.poem.06",
+        "colossus.heaven-tree-orochi.collection.poem.07",
+        "colossus.heaven-tree-orochi.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.heaven-tree-orochi.collection.chapter.2",
+      "ownerId": "colossus.heaven-tree-orochi",
+      "title": "山の道しるべ",
+      "poemIds": [
+        "colossus.heaven-tree-orochi.collection.poem.09",
+        "colossus.heaven-tree-orochi.collection.poem.10",
+        "colossus.heaven-tree-orochi.collection.poem.11",
+        "colossus.heaven-tree-orochi.collection.poem.12",
+        "colossus.heaven-tree-orochi.collection.poem.13",
+        "colossus.heaven-tree-orochi.collection.poem.14",
+        "colossus.heaven-tree-orochi.collection.poem.15",
+        "colossus.heaven-tree-orochi.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.heaven-tree-orochi.collection.chapter.3",
+      "ownerId": "colossus.heaven-tree-orochi",
+      "title": "八つの木陰",
+      "poemIds": [
+        "colossus.heaven-tree-orochi.collection.poem.17",
+        "colossus.heaven-tree-orochi.collection.poem.18",
+        "colossus.heaven-tree-orochi.collection.poem.19",
+        "colossus.heaven-tree-orochi.collection.poem.20",
+        "colossus.heaven-tree-orochi.collection.poem.21",
+        "colossus.heaven-tree-orochi.collection.poem.22",
+        "colossus.heaven-tree-orochi.collection.poem.23",
+        "colossus.heaven-tree-orochi.collection.poem.24"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.2",
+      "ownerId": "heroine.iconoclast",
+      "title": "名前のない誓い",
+      "poemIds": [
+        "heroine.iconoclast.collection.poem.07",
+        "heroine.iconoclast.collection.poem.08",
+        "heroine.iconoclast.collection.poem.09",
+        "heroine.iconoclast.collection.poem.10",
+        "heroine.iconoclast.collection.poem.11",
+        "heroine.iconoclast.collection.poem.12"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.3",
+      "ownerId": "heroine.iconoclast",
+      "title": "新しい印",
+      "poemIds": [
+        "heroine.iconoclast.collection.poem.13",
+        "heroine.iconoclast.collection.poem.14",
+        "heroine.iconoclast.collection.poem.15",
+        "heroine.iconoclast.collection.poem.16",
+        "heroine.iconoclast.collection.poem.17",
+        "heroine.iconoclast.collection.poem.18"
+      ]
+    },
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.1",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "空の底の種",
+      "poemIds": [
+        "colossus.green-return-dragon.collection.poem.01",
+        "colossus.green-return-dragon.collection.poem.02",
+        "colossus.green-return-dragon.collection.poem.03",
+        "colossus.green-return-dragon.collection.poem.04",
+        "colossus.green-return-dragon.collection.poem.05",
+        "colossus.green-return-dragon.collection.poem.06",
+        "colossus.green-return-dragon.collection.poem.07",
+        "colossus.green-return-dragon.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.2",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "雨のない約束",
+      "poemIds": [
+        "colossus.green-return-dragon.collection.poem.09",
+        "colossus.green-return-dragon.collection.poem.10",
+        "colossus.green-return-dragon.collection.poem.11",
+        "colossus.green-return-dragon.collection.poem.12",
+        "colossus.green-return-dragon.collection.poem.13",
+        "colossus.green-return-dragon.collection.poem.14",
+        "colossus.green-return-dragon.collection.poem.15",
+        "colossus.green-return-dragon.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.green-return-dragon.collection.chapter.3",
+      "ownerId": "colossus.green-return-dragon",
+      "title": "次の木陰",
+      "poemIds": [
+        "colossus.green-return-dragon.collection.poem.17",
+        "colossus.green-return-dragon.collection.poem.18",
+        "colossus.green-return-dragon.collection.poem.19",
+        "colossus.green-return-dragon.collection.poem.20",
+        "colossus.green-return-dragon.collection.poem.21",
+        "colossus.green-return-dragon.collection.poem.22",
+        "colossus.green-return-dragon.collection.poem.23",
+        "colossus.green-return-dragon.collection.poem.24"
+      ]
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.1",
+      "ownerId": "heroine.slayer",
+      "title": "置いた刃の向こう",
+      "poemIds": [
+        "heroine.slayer.collection.poem.01",
+        "heroine.slayer.collection.poem.02",
+        "heroine.slayer.collection.poem.03",
+        "heroine.slayer.collection.poem.04",
+        "heroine.slayer.collection.poem.05",
+        "heroine.slayer.collection.poem.06"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.1",
+      "ownerId": "heroine.iconoclast",
+      "title": "折れたものの仕事",
+      "poemIds": [
+        "heroine.iconoclast.collection.poem.01",
+        "heroine.iconoclast.collection.poem.02",
+        "heroine.iconoclast.collection.poem.03",
+        "heroine.iconoclast.collection.poem.04",
+        "heroine.iconoclast.collection.poem.05",
+        "heroine.iconoclast.collection.poem.06"
+      ]
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.1",
+      "ownerId": "heroine.undermine",
+      "title": "重さを分ける盾",
+      "poemIds": [
+        "heroine.undermine.collection.poem.01",
+        "heroine.undermine.collection.poem.02",
+        "heroine.undermine.collection.poem.03",
+        "heroine.undermine.collection.poem.04",
+        "heroine.undermine.collection.poem.05",
+        "heroine.undermine.collection.poem.06"
+      ]
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.1",
+      "ownerId": "heroine.echidna",
+      "title": "まだ知らない芽",
+      "poemIds": [
+        "heroine.echidna.collection.poem.01",
+        "heroine.echidna.collection.poem.02",
+        "heroine.echidna.collection.poem.03",
+        "heroine.echidna.collection.poem.04",
+        "heroine.echidna.collection.poem.05",
+        "heroine.echidna.collection.poem.06"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.1",
+      "ownerId": "heroine.excalipan",
+      "title": "余白の星図",
+      "poemIds": [
+        "heroine.excalipan.collection.poem.01",
+        "heroine.excalipan.collection.poem.02",
+        "heroine.excalipan.collection.poem.03",
+        "heroine.excalipan.collection.poem.04",
+        "heroine.excalipan.collection.poem.05",
+        "heroine.excalipan.collection.poem.06"
+      ]
+    },
+    {
+      "id": "colossus.memory-crystal-dragon.collection.chapter.1",
+      "ownerId": "colossus.memory-crystal-dragon",
+      "title": "消えない記録",
+      "poemIds": [
+        "colossus.memory-crystal-dragon.collection.poem.01",
+        "colossus.memory-crystal-dragon.collection.poem.02",
+        "colossus.memory-crystal-dragon.collection.poem.03",
+        "colossus.memory-crystal-dragon.collection.poem.04",
+        "colossus.memory-crystal-dragon.collection.poem.05",
+        "colossus.memory-crystal-dragon.collection.poem.06",
+        "colossus.memory-crystal-dragon.collection.poem.07",
+        "colossus.memory-crystal-dragon.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.memory-crystal-dragon.collection.chapter.2",
+      "ownerId": "colossus.memory-crystal-dragon",
+      "title": "間違いの余白",
+      "poemIds": [
+        "colossus.memory-crystal-dragon.collection.poem.09",
+        "colossus.memory-crystal-dragon.collection.poem.10",
+        "colossus.memory-crystal-dragon.collection.poem.11",
+        "colossus.memory-crystal-dragon.collection.poem.12",
+        "colossus.memory-crystal-dragon.collection.poem.13",
+        "colossus.memory-crystal-dragon.collection.poem.14",
+        "colossus.memory-crystal-dragon.collection.poem.15",
+        "colossus.memory-crystal-dragon.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.memory-crystal-dragon.collection.chapter.3",
+      "ownerId": "colossus.memory-crystal-dragon",
+      "title": "忘れるための頁",
+      "poemIds": [
+        "colossus.memory-crystal-dragon.collection.poem.17",
+        "colossus.memory-crystal-dragon.collection.poem.18",
+        "colossus.memory-crystal-dragon.collection.poem.19",
+        "colossus.memory-crystal-dragon.collection.poem.20",
+        "colossus.memory-crystal-dragon.collection.poem.21",
+        "colossus.memory-crystal-dragon.collection.poem.22",
+        "colossus.memory-crystal-dragon.collection.poem.23",
+        "colossus.memory-crystal-dragon.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.newborn-asteria.collection.chapter.1",
+      "ownerId": "colossus.newborn-asteria",
+      "title": "七つの岸",
+      "poemIds": [
+        "colossus.newborn-asteria.collection.poem.01",
+        "colossus.newborn-asteria.collection.poem.02",
+        "colossus.newborn-asteria.collection.poem.03",
+        "colossus.newborn-asteria.collection.poem.04",
+        "colossus.newborn-asteria.collection.poem.05",
+        "colossus.newborn-asteria.collection.poem.06",
+        "colossus.newborn-asteria.collection.poem.07",
+        "colossus.newborn-asteria.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.newborn-asteria.collection.chapter.2",
+      "ownerId": "colossus.newborn-asteria",
+      "title": "一つにしない環",
+      "poemIds": [
+        "colossus.newborn-asteria.collection.poem.09",
+        "colossus.newborn-asteria.collection.poem.10",
+        "colossus.newborn-asteria.collection.poem.11",
+        "colossus.newborn-asteria.collection.poem.12",
+        "colossus.newborn-asteria.collection.poem.13",
+        "colossus.newborn-asteria.collection.poem.14",
+        "colossus.newborn-asteria.collection.poem.15",
+        "colossus.newborn-asteria.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.newborn-asteria.collection.chapter.3",
+      "ownerId": "colossus.newborn-asteria",
+      "title": "生まれる世界",
+      "poemIds": [
+        "colossus.newborn-asteria.collection.poem.17",
+        "colossus.newborn-asteria.collection.poem.18",
+        "colossus.newborn-asteria.collection.poem.19",
+        "colossus.newborn-asteria.collection.poem.20",
+        "colossus.newborn-asteria.collection.poem.21",
+        "colossus.newborn-asteria.collection.poem.22",
+        "colossus.newborn-asteria.collection.poem.23",
+        "colossus.newborn-asteria.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.red-crystal-tyrant.collection.chapter.1",
+      "ownerId": "colossus.red-crystal-tyrant",
+      "title": "岩の内の灯",
+      "poemIds": [
+        "colossus.red-crystal-tyrant.collection.poem.01",
+        "colossus.red-crystal-tyrant.collection.poem.02",
+        "colossus.red-crystal-tyrant.collection.poem.03",
+        "colossus.red-crystal-tyrant.collection.poem.04",
+        "colossus.red-crystal-tyrant.collection.poem.05",
+        "colossus.red-crystal-tyrant.collection.poem.06",
+        "colossus.red-crystal-tyrant.collection.poem.07",
+        "colossus.red-crystal-tyrant.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.red-crystal-tyrant.collection.chapter.2",
+      "ownerId": "colossus.red-crystal-tyrant",
+      "title": "掘られた道",
+      "poemIds": [
+        "colossus.red-crystal-tyrant.collection.poem.09",
+        "colossus.red-crystal-tyrant.collection.poem.10",
+        "colossus.red-crystal-tyrant.collection.poem.11",
+        "colossus.red-crystal-tyrant.collection.poem.12",
+        "colossus.red-crystal-tyrant.collection.poem.13",
+        "colossus.red-crystal-tyrant.collection.poem.14",
+        "colossus.red-crystal-tyrant.collection.poem.15",
+        "colossus.red-crystal-tyrant.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.red-crystal-tyrant.collection.chapter.3",
+      "ownerId": "colossus.red-crystal-tyrant",
+      "title": "峡谷の橋",
+      "poemIds": [
+        "colossus.red-crystal-tyrant.collection.poem.17",
+        "colossus.red-crystal-tyrant.collection.poem.18",
+        "colossus.red-crystal-tyrant.collection.poem.19",
+        "colossus.red-crystal-tyrant.collection.poem.20",
+        "colossus.red-crystal-tyrant.collection.poem.21",
+        "colossus.red-crystal-tyrant.collection.poem.22",
+        "colossus.red-crystal-tyrant.collection.poem.23",
+        "colossus.red-crystal-tyrant.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.reenactment-yimir.collection.chapter.1",
+      "ownerId": "colossus.reenactment-yimir",
+      "title": "同じ春",
+      "poemIds": [
+        "colossus.reenactment-yimir.collection.poem.01",
+        "colossus.reenactment-yimir.collection.poem.02",
+        "colossus.reenactment-yimir.collection.poem.03",
+        "colossus.reenactment-yimir.collection.poem.04",
+        "colossus.reenactment-yimir.collection.poem.05",
+        "colossus.reenactment-yimir.collection.poem.06",
+        "colossus.reenactment-yimir.collection.poem.07",
+        "colossus.reenactment-yimir.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.reenactment-yimir.collection.chapter.2",
+      "ownerId": "colossus.reenactment-yimir",
+      "title": "違う足跡",
+      "poemIds": [
+        "colossus.reenactment-yimir.collection.poem.09",
+        "colossus.reenactment-yimir.collection.poem.10",
+        "colossus.reenactment-yimir.collection.poem.11",
+        "colossus.reenactment-yimir.collection.poem.12",
+        "colossus.reenactment-yimir.collection.poem.13",
+        "colossus.reenactment-yimir.collection.poem.14",
+        "colossus.reenactment-yimir.collection.poem.15",
+        "colossus.reenactment-yimir.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.reenactment-yimir.collection.chapter.3",
+      "ownerId": "colossus.reenactment-yimir",
+      "title": "四季の約束",
+      "poemIds": [
+        "colossus.reenactment-yimir.collection.poem.17",
+        "colossus.reenactment-yimir.collection.poem.18",
+        "colossus.reenactment-yimir.collection.poem.19",
+        "colossus.reenactment-yimir.collection.poem.20",
+        "colossus.reenactment-yimir.collection.poem.21",
+        "colossus.reenactment-yimir.collection.poem.22",
+        "colossus.reenactment-yimir.collection.poem.23",
+        "colossus.reenactment-yimir.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.silver-sea-whale.collection.chapter.1",
+      "ownerId": "colossus.silver-sea-whale",
+      "title": "雨のない海",
+      "poemIds": [
+        "colossus.silver-sea-whale.collection.poem.01",
+        "colossus.silver-sea-whale.collection.poem.02",
+        "colossus.silver-sea-whale.collection.poem.03",
+        "colossus.silver-sea-whale.collection.poem.04",
+        "colossus.silver-sea-whale.collection.poem.05",
+        "colossus.silver-sea-whale.collection.poem.06",
+        "colossus.silver-sea-whale.collection.poem.07",
+        "colossus.silver-sea-whale.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.silver-sea-whale.collection.chapter.2",
+      "ownerId": "colossus.silver-sea-whale",
+      "title": "岸辺の返事",
+      "poemIds": [
+        "colossus.silver-sea-whale.collection.poem.09",
+        "colossus.silver-sea-whale.collection.poem.10",
+        "colossus.silver-sea-whale.collection.poem.11",
+        "colossus.silver-sea-whale.collection.poem.12",
+        "colossus.silver-sea-whale.collection.poem.13",
+        "colossus.silver-sea-whale.collection.poem.14",
+        "colossus.silver-sea-whale.collection.poem.15",
+        "colossus.silver-sea-whale.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.silver-sea-whale.collection.chapter.3",
+      "ownerId": "colossus.silver-sea-whale",
+      "title": "流れを分ける",
+      "poemIds": [
+        "colossus.silver-sea-whale.collection.poem.17",
+        "colossus.silver-sea-whale.collection.poem.18",
+        "colossus.silver-sea-whale.collection.poem.19",
+        "colossus.silver-sea-whale.collection.poem.20",
+        "colossus.silver-sea-whale.collection.poem.21",
+        "colossus.silver-sea-whale.collection.poem.22",
+        "colossus.silver-sea-whale.collection.poem.23",
+        "colossus.silver-sea-whale.collection.poem.24"
+      ]
+    },
+    {
+      "id": "colossus.sky-tower-machine.collection.chapter.1",
+      "ownerId": "colossus.sky-tower-machine",
+      "title": "風を閉じた塔",
+      "poemIds": [
+        "colossus.sky-tower-machine.collection.poem.01",
+        "colossus.sky-tower-machine.collection.poem.02",
+        "colossus.sky-tower-machine.collection.poem.03",
+        "colossus.sky-tower-machine.collection.poem.04",
+        "colossus.sky-tower-machine.collection.poem.05",
+        "colossus.sky-tower-machine.collection.poem.06",
+        "colossus.sky-tower-machine.collection.poem.07",
+        "colossus.sky-tower-machine.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.sky-tower-machine.collection.chapter.2",
+      "ownerId": "colossus.sky-tower-machine",
+      "title": "窓を開く手",
+      "poemIds": [
+        "colossus.sky-tower-machine.collection.poem.09",
+        "colossus.sky-tower-machine.collection.poem.10",
+        "colossus.sky-tower-machine.collection.poem.11",
+        "colossus.sky-tower-machine.collection.poem.12",
+        "colossus.sky-tower-machine.collection.poem.13",
+        "colossus.sky-tower-machine.collection.poem.14",
+        "colossus.sky-tower-machine.collection.poem.15",
+        "colossus.sky-tower-machine.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.sky-tower-machine.collection.chapter.3",
+      "ownerId": "colossus.sky-tower-machine",
+      "title": "空の往復",
+      "poemIds": [
+        "colossus.sky-tower-machine.collection.poem.17",
+        "colossus.sky-tower-machine.collection.poem.18",
+        "colossus.sky-tower-machine.collection.poem.19",
+        "colossus.sky-tower-machine.collection.poem.20",
+        "colossus.sky-tower-machine.collection.poem.21",
+        "colossus.sky-tower-machine.collection.poem.22",
+        "colossus.sky-tower-machine.collection.poem.23",
+        "colossus.sky-tower-machine.collection.poem.24"
+      ]
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.2",
+      "ownerId": "heroine.slayer",
+      "title": "傷の向こうの道",
+      "poemIds": [
+        "heroine.slayer.collection.poem.07",
+        "heroine.slayer.collection.poem.08",
+        "heroine.slayer.collection.poem.09",
+        "heroine.slayer.collection.poem.10",
+        "heroine.slayer.collection.poem.11",
+        "heroine.slayer.collection.poem.12"
+      ]
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.3",
+      "ownerId": "heroine.slayer",
+      "title": "守る手の休息",
+      "poemIds": [
+        "heroine.slayer.collection.poem.13",
+        "heroine.slayer.collection.poem.14",
+        "heroine.slayer.collection.poem.15",
+        "heroine.slayer.collection.poem.16",
+        "heroine.slayer.collection.poem.17",
+        "heroine.slayer.collection.poem.18"
+      ]
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.2",
+      "ownerId": "heroine.undermine",
+      "title": "隠した声",
+      "poemIds": [
+        "heroine.undermine.collection.poem.07",
+        "heroine.undermine.collection.poem.08",
+        "heroine.undermine.collection.poem.09",
+        "heroine.undermine.collection.poem.10",
+        "heroine.undermine.collection.poem.11",
+        "heroine.undermine.collection.poem.12"
+      ]
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.3",
+      "ownerId": "heroine.undermine",
+      "title": "地上の約束",
+      "poemIds": [
+        "heroine.undermine.collection.poem.13",
+        "heroine.undermine.collection.poem.14",
+        "heroine.undermine.collection.poem.15",
+        "heroine.undermine.collection.poem.16",
+        "heroine.undermine.collection.poem.17",
+        "heroine.undermine.collection.poem.18"
+      ]
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother.collection.chapter.1",
+      "ownerId": "colossus.white-divine-dragon-mother",
+      "title": "白いゆりかご",
+      "poemIds": [
+        "colossus.white-divine-dragon-mother.collection.poem.01",
+        "colossus.white-divine-dragon-mother.collection.poem.02",
+        "colossus.white-divine-dragon-mother.collection.poem.03",
+        "colossus.white-divine-dragon-mother.collection.poem.04",
+        "colossus.white-divine-dragon-mother.collection.poem.05",
+        "colossus.white-divine-dragon-mother.collection.poem.06",
+        "colossus.white-divine-dragon-mother.collection.poem.07",
+        "colossus.white-divine-dragon-mother.collection.poem.08"
+      ]
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother.collection.chapter.2",
+      "ownerId": "colossus.white-divine-dragon-mother",
+      "title": "離れる翼",
+      "poemIds": [
+        "colossus.white-divine-dragon-mother.collection.poem.09",
+        "colossus.white-divine-dragon-mother.collection.poem.10",
+        "colossus.white-divine-dragon-mother.collection.poem.11",
+        "colossus.white-divine-dragon-mother.collection.poem.12",
+        "colossus.white-divine-dragon-mother.collection.poem.13",
+        "colossus.white-divine-dragon-mother.collection.poem.14",
+        "colossus.white-divine-dragon-mother.collection.poem.15",
+        "colossus.white-divine-dragon-mother.collection.poem.16"
+      ]
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother.collection.chapter.3",
+      "ownerId": "colossus.white-divine-dragon-mother",
+      "title": "帰れる空",
+      "poemIds": [
+        "colossus.white-divine-dragon-mother.collection.poem.17",
+        "colossus.white-divine-dragon-mother.collection.poem.18",
+        "colossus.white-divine-dragon-mother.collection.poem.19",
+        "colossus.white-divine-dragon-mother.collection.poem.20",
+        "colossus.white-divine-dragon-mother.collection.poem.21",
+        "colossus.white-divine-dragon-mother.collection.poem.22",
+        "colossus.white-divine-dragon-mother.collection.poem.23",
+        "colossus.white-divine-dragon-mother.collection.poem.24"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.echidna.event.0",
+      "ownerId": "heroine.echidna",
+      "title": "庭の影に名前を",
+      "cgResourcePath": "Illustrations/echidna-event-0-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.echidna.event.1",
+      "ownerId": "heroine.echidna",
+      "title": "声になる前の歌",
+      "cgResourcePath": "Illustrations/echidna-event-1-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.echidna.event.2",
+      "ownerId": "heroine.echidna",
+      "title": "呼んでくれる名前",
+      "cgResourcePath": "Illustrations/echidna-event-2-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.echidna.event.3",
+      "ownerId": "heroine.echidna",
+      "title": "同じ灯の下",
+      "cgResourcePath": "Illustrations/echidna-event-3-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.echidna.event.4",
+      "ownerId": "heroine.echidna",
+      "title": "影も連れて帰る",
+      "cgResourcePath": "Illustrations/echidna-event-4-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.event.0",
+      "ownerId": "heroine.excalipan",
+      "title": "まだ温かい包み",
+      "cgResourcePath": "Illustrations/excalipan-event-0-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.event.1",
+      "ownerId": "heroine.excalipan",
+      "title": "焦げ目の約束",
+      "cgResourcePath": "Illustrations/excalipan-event-1-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.event.2",
+      "ownerId": "heroine.excalipan",
+      "title": "食卓のあなたの席",
+      "cgResourcePath": "Illustrations/excalipan-event-2-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.event.3",
+      "ownerId": "heroine.excalipan",
+      "title": "雨と膨らむ時間",
+      "cgResourcePath": "Illustrations/excalipan-event-3-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.excalipan.event.4",
+      "ownerId": "heroine.excalipan",
+      "title": "帰り道の包み",
+      "cgResourcePath": "Illustrations/excalipan-event-4-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.event.0",
+      "ownerId": "heroine.iconoclast",
+      "title": "壊れた羅針盤",
+      "cgResourcePath": "Illustrations/iconoclast-event-0-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.event.1",
+      "ownerId": "heroine.iconoclast",
+      "title": "菓子の半分",
+      "cgResourcePath": "Illustrations/iconoclast-event-1-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.event.2",
+      "ownerId": "heroine.iconoclast",
+      "title": "帰り道の旗",
+      "cgResourcePath": "Illustrations/iconoclast-event-2-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.event.3",
+      "ownerId": "heroine.iconoclast",
+      "title": "雨の日の休戦",
+      "cgResourcePath": "Illustrations/iconoclast-event-3-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.iconoclast.event.4",
+      "ownerId": "heroine.iconoclast",
+      "title": "北を指さない針",
+      "cgResourcePath": "Illustrations/iconoclast-event-4-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.event.0",
+      "ownerId": "heroine.slayer",
+      "title": "苗を持つ朝",
+      "cgResourcePath": "Illustrations/slayer-event-0-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.event.1",
+      "ownerId": "heroine.slayer",
+      "title": "剣を置ける場所",
+      "cgResourcePath": "Illustrations/slayer-event-1-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.event.2",
+      "ownerId": "heroine.slayer",
+      "title": "隣へ帰る約束",
+      "cgResourcePath": "Illustrations/slayer-event-2-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.event.3",
+      "ownerId": "heroine.slayer",
+      "title": "雨の向こうの春",
+      "cgResourcePath": "Illustrations/slayer-event-3-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.slayer.event.4",
+      "ownerId": "heroine.slayer",
+      "title": "夜明けの門",
+      "cgResourcePath": "Illustrations/slayer-event-4-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.event.0",
+      "ownerId": "heroine.undermine",
+      "title": "ほつれた飾り",
+      "cgResourcePath": "Illustrations/undermine-event-0-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.event.1",
+      "ownerId": "heroine.undermine",
+      "title": "二人の見張り",
+      "cgResourcePath": "Illustrations/undermine-event-1-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.event.2",
+      "ownerId": "heroine.undermine",
+      "title": "空けておく席",
+      "cgResourcePath": "Illustrations/undermine-event-2-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.event.3",
+      "ownerId": "heroine.undermine",
+      "title": "雨に預ける午後",
+      "cgResourcePath": "Illustrations/undermine-event-3-cg-candidate-v1"
+    },
+    {
+      "id": "heroine.undermine.event.4",
+      "ownerId": "heroine.undermine",
+      "title": "背中を預ける朝",
+      "cgResourcePath": "Illustrations/undermine-event-4-cg-candidate-v1"
+    }
+  ],
+  "gardens": [
+    {
+      "id": "garden.grassland-forest",
+      "backgroundAssetId": "art.production.garden.Illustrations.forest-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-forest-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.forest-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.crystal-highland",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-crystal-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-crystal-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-crystal-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.flower-water",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-water-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-water-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-water-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.bamboo-waterfall",
+      "backgroundAssetId": "art.production.garden.Illustrations.heaven-forest-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-water-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-water-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.sakura-stargazing",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-stars-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-stars-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-stars-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.oasis",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-oasis-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-oasis-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-oasis-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.hot-spring",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-spring-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-spring-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-spring-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.snowfield",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-snow-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-snow-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-snow-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "garden.integrated-world",
+      "backgroundAssetId": "art.production.garden.Illustrations.world-confluence-far-candidate-v1",
+      "middleAssetIds": [
+        "art.production.garden.Illustrations.world-stars-mid-candidate-v1"
+      ],
+      "foregroundAssetIds": [
+        "art.production.garden.Illustrations.world-stars-front-candidate-v1"
+      ],
+      "schemaVersion": 1,
+      "unmade": false,
+      "zones": [
+        {
+          "id": "zone.ground",
+          "order": 0,
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 1
+          }
+        }
+      ]
+    }
+  ],
+  "furnitureIds": [
+    "furniture.fixture.0",
+    "furniture.fixture.1",
+    "furniture.fixture.2",
+    "furniture.production.planter",
+    "furniture.production.obelisk",
+    "furniture.production.birdbath",
+    "furniture.production.telescope",
+    "furniture.production.well",
+    "furniture.production.lantern",
+    "furniture.production.brazier"
+  ],
+  "assetAcceptance": "plan9-asset-adoption.json",
+  "futureRoster": "post-plan9-jobs.md"
+}
