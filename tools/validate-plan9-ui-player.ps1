@@ -16,11 +16,13 @@ $before=Fingerprint
 $assembly=Join-Path (Split-Path $player -Parent) 'newASTER_Data/Managed/Assembly-CSharp.dll'
 $buildHash=(Get-FileHash $assembly).Hash
 $results=@()
+$enemyAliases=@{'memory'='memory-crystal-dragon';'sky'='sky-tower-machine';'rose'='crystal-rose-princess';'whale'='silver-sea-whale';'orochi'='heaven-tree-orochi';'yimir'='reenactment-yimir';'astal'='emerald-star-astal';'serpent'='amber-king-serpent';'mother'='white-divine-dragon-mother';'citadel'='black-smoke-citadel';'megadeath'='dead-king-megadeath';'phoenix'='final-flame-ice-phoenix';'asteria'='newborn-asteria'}
 foreach($height in $Heights){
  if($height -notin @(720,1080)){throw 'Unsupported height'}
  foreach($case in $Cases){
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)
+  $expectedEnemy=$null;$expectedEnemyKind=$null
   switch($case){
    'title' {$flags+='-capturePlan9Title'}
    'intro' {$flags+=@('-capturePlan9Title','-capturePlan9Intro')}
@@ -96,12 +98,40 @@ foreach($height in $Heights){
    'victory' {$flags+='-captureVictory'}
    'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
    {$_ -in @('garden','adv')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase',([Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case)))}
-   default {throw ('Unknown case '+$case)}
+   default {
+    $segments=$case.Split('-')
+    if($segments.Length -ne 3 -or !$enemyAliases.ContainsKey($segments[0]) -or $segments[1] -notin @('art','battle')){throw ('Unknown case '+$case)}
+    $slug=$enemyAliases[$segments[0]];$expectedEnemy='colossus.'+$slug;$expectedEnemyKind=$segments[1]
+    $manifest=Get-Content (Join-Path $repo ('game/unity/Assets/Game/Resources/Illustrations/battle-'+$slug+'-candidate-v1.json')) -Raw | ConvertFrom-Json
+    $detail=$segments[2]
+    if($segments[1] -eq 'art'){
+     $mask=0
+     if($detail -eq 'all'){$mask=(1 -shl $manifest.parts.Count)-1}
+     elseif($detail -match '^part([1-6])$'){$index=[int]$Matches[1]-1;if($index -ge $manifest.parts.Count){throw 'Unknown enemy art part'};$mask=1 -shl $index}
+     elseif($detail -notin @('normal','major')){throw 'Unknown enemy art state'}
+     $flags+=@('-capturePlan9Title','-inspectPlan9Enemy',$slug,'-inspectPlan9EnemyBroken',"$mask")
+     if($detail -eq 'major'){$flags+='-inspectPlan9EnemyMajor'}
+    }else{
+     $flags+=@('-captureBattleMenu','closed','-inspectPlan9Colossus',$expectedEnemy)
+     if($detail -match '^part([1-6])$'){$index=[int]$Matches[1]-1;if($index -ge $manifest.parts.Count){throw 'Unknown enemy battle part'};$flags+=@('-inspectPlan9ColossusLevel','45','-inspectPlan9ColossusBreak',$manifest.parts[$index].partId)}
+     elseif($detail -in @('1','44','45','49','50')){$flags+=@('-inspectPlan9ColossusLevel',$detail)}
+     else{throw 'Unknown enemy combat state'}
+    }
+   }
   }
   # A piped GUI executable waits for its own process; no physical input is injected.
-  & $player @flags | Out-Null
+  $watchdog=Start-Job -ArgumentList $player,$log -ScriptBlock {
+   param($taskPlayer,$taskLog)
+   Start-Sleep -Seconds 120
+   Get-CimInstance Win32_Process -Filter "Name='newASTER.exe'" | Where-Object {$_.ExecutablePath -eq $taskPlayer -and $_.CommandLine.Contains($taskLog)} | ForEach-Object {Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue}
+  }
+  try {& $player @flags | Out-Null} finally {Stop-Job $watchdog;Remove-Job $watchdog}
   $text=Get-Content -LiteralPath $log -Raw
   if($LASTEXITCODE -ne 0 -or $text -match 'Exception:|error CS' -or -not(Test-Path $png)){throw ('Capture failed: '+$name+' '+$log)}
+  if($expectedEnemy){
+   $marker=if($expectedEnemyKind -eq 'art'){'PLAN9_ENEMY_ART_CAPTURE'}else{'PLAN9_COLOSSUS_CAPTURE'}
+   if($text -notmatch ($marker+' id='+[regex]::Escape($expectedEnemy)) -or $text -match 'ILLUSTRATION_MANIFEST_WARNING'){throw 'Wrong enemy or missing independent artwork'}
+  }
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
   if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}

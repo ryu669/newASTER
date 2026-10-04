@@ -45,5 +45,26 @@ public static class Plan9ColossusTests
         source=ColossusCombatCatalog.Get("colossus.red-crystal-tyrant");source.actionCycle[0].requiredPartId="unknown.part";reject(source.Validate,"Unresolved dependency is rejected");
         source=ColossusCombatCatalog.Get("colossus.red-crystal-tyrant");source.actionCycle[0].requiredPartId="tyrant.crown";reject(source.Validate,"A cycle without unconditional fallback is rejected");
         source=ColossusCombatCatalog.Get("colossus.red-crystal-tyrant");source.actionCycle[0].gaugeGain=4;reject(source.Validate,"Invalid gauge increments are rejected");
+        Func<PlayableBattle> memory=()=>new PlayableBattle(1,new PlayableProgress(),72,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.memory-crystal-dragon"));
+        b=memory();b.State.Heroes[3].TakeDamage(b.State.Heroes[3].MaxHitPoints/2);
+        check(b.NextEnemyAction=="結晶砲撃" && b.NextEnemyTargets.SequenceEqual(new[]{3}),"Memory cannon selects lowest HP ratio");
+        b.State.BreakPart("memory.cannon",int.MaxValue);
+        check(b.NextEnemyAction=="機殻の踏撃","Destroyed memory cannon substitutes its own fallback");
+        b=memory();next(b);check(b.NextEnemyAction=="記憶走査","Memory cycle advances to resource scan");
+        b.State.AdvanceBossGauge(2);check(b.State.BossGauge==3 && !b.NextAttackIsMajor,"Zero-gain scan does not prematurely trigger major");
+        next(b);check(b.State.BossGauge==3 && b.NextAttackIsMajor,"Scan preserves gauge and next fast step telegraphs major");
+        b=memory();next(b);b.State.BreakPart("memory.antenna",int.MaxValue);
+        check(b.NextEnemyAction=="機殻の踏撃","Antenna destruction removes scan and its drain");
+        b=memory();next(b);next(b);
+        check(b.NextEnemyAction=="高速照射" && b.NextEnemyTargets.Length==5,"Memory fast beam targets all living heroes");
+        foreach(string id in ColossusCombatCatalog.AuthoredIds){
+            var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
+            check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");
+            if(definition.contentVersion==ColossusCombatDef.Plan9Version)foreach(int level in new[]{44,45,49,50}){
+                b=new PlayableBattle(level,new PlayableProgress(),73,combatDefinitions:combat,colossusDefinition:definition);
+                b.State.AdvanceBossGauge(definition.gaugeMax-1);
+                check(b.NextAttackIsMajor && b.NextEnemyAction==(level>=45?definition.ultimateAction:definition.majorAction),"Every new enemy retains its own level-boundary telegraph");
+            }
+        }
     }
 }

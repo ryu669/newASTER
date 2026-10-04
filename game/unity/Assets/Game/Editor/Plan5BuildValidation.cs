@@ -60,7 +60,7 @@ public static partial class PlayableBuild
             battle.State.AdvanceBossGauge(3);Check(battle.NextAttackIsMajor && battle.State.UltimateUnlocked==(level>=45),"Unity major ultimate level boundary");
             Check(battle.State.BreakPart("crystal-horn-crown",int.MaxValue) && !battle.NextAttackIsMajor,"Unity destruction cancels imminent major");
         }
-        Check(ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]) && WorldCatalog.ColossusIds.Skip(2).All(id=>!ColossusCombatCatalog.CanSummon(id)),"Unity authored tyrant can summon and remaining unmade enemies cannot");
+        Check(ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]) && !ColossusCombatCatalog.CanSummon("colossus.unmade-fixture"),"Unity authored tyrant can summon; unknown enemies cannot");
         foreach(int level in new[]{44,45,49,50}){
             var definition=JsonUtility.FromJson<ColossusCombatDef>(JsonUtility.ToJson(ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[1])));definition.Validate();
             Check(definition.actionCycle.Length==3 && definition.actionCycle[1].requiredPartId=="tyrant.claw" && definition.actionCycle[2].drainAmount==2,"Unity tyrant action cycle survives serialization");

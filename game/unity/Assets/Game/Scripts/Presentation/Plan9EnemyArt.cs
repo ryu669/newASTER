@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using NewAster.Data;
 using UnityEngine;
 namespace NewAster.Presentation
 {
@@ -13,13 +14,16 @@ namespace NewAster.Presentation
         {
             int index=Array.IndexOf(args,"-inspectPlan9Enemy");
             if(index<0)return;
-            if(index+1>=args.Length || args[index+1]!="red-crystal-tyrant")throw new ArgumentException("Unknown enemy art review");
-            plan9EnemyName="赤晶暴竜";
-            plan9EnemyPreview=new BattleIllustrationView("Illustrations/battle-red-crystal-tyrant-candidate-v1");
+            if(index+1>=args.Length)throw new ArgumentException("Missing enemy art review ID");
+            string id="colossus."+args[index+1];var definition=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==id);
+            if(definition==null)throw new ArgumentException("Unknown enemy art review");
+            plan9EnemyName=definition.DisplayName;
+            plan9EnemyPreview=new BattleIllustrationView("Illustrations/battle-"+args[index+1]+"-candidate-v1");
+            if(!plan9EnemyPreview.Ready)throw new InvalidOperationException("Enemy art manifest unavailable");
             int mask=Array.IndexOf(args,"-inspectPlan9EnemyBroken");
-            if(mask>=0 && (mask+1>=args.Length || !int.TryParse(args[mask+1],out plan9EnemyBrokenMask) || plan9EnemyBrokenMask<0 || plan9EnemyBrokenMask>15))throw new ArgumentException("Invalid enemy break review mask");
+            if(mask>=0 && (mask+1>=args.Length || !int.TryParse(args[mask+1],out plan9EnemyBrokenMask) || plan9EnemyBrokenMask<0 || plan9EnemyBrokenMask>((1<<plan9EnemyPreview.PartCount)-1)))throw new ArgumentException("Invalid enemy break review mask");
             plan9EnemyMajor=args.Contains("-inspectPlan9EnemyMajor");
-            Debug.Log("PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant mask="+plan9EnemyBrokenMask+" major="+plan9EnemyMajor);
+            Debug.Log("PLAN9_ENEMY_ART_CAPTURE id="+id+" mask="+plan9EnemyBrokenMask+" major="+plan9EnemyMajor);
         }
         private void DrawPlan9EnemyArt()
         {
@@ -28,7 +32,7 @@ namespace NewAster.Presentation
             var canvas=new Rect(350,95,720,720);
             if(plan9EnemyMajor && plan9EnemyBrokenMask==0)plan9EnemyPreview.DrawEnemyMajorPreview(canvas);
             else plan9EnemyPreview.DrawEnemyPreview(canvas,plan9EnemyBrokenMask);
-            Label(40,830,1520,45,"候補：角冠・爪・胸甲・尾を独立合成 ／ 破壊マスク "+plan9EnemyBrokenMask,small,Color.white);
+            Label(40,830,1520,45,"候補：独立部位を合成 ／ 破壊マスク "+plan9EnemyBrokenMask,small,Color.white);
         }
         private void PreparePlan9ColossusCapture(string[] args)
         {

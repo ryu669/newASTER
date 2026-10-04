@@ -11,6 +11,8 @@ namespace NewAster.Presentation
         private BattleIllustrationManifest manifest;
         private Texture2D[] portraits;
         private string warning;
+        public bool Ready=>manifest!=null && body!=null;
+        public int PartCount=>manifest?.parts.Length??0;
         private Texture2D background,body,middle,foreground,enemyMajor;
         private readonly string[] args=Environment.GetCommandLineArgs();
         private string Inspection { get {int i=Array.IndexOf(args,"-inspectPlan7Battle");return i>=0 && i+1<args.Length?args[i+1]:null;} }

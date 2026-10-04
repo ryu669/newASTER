@@ -154,6 +154,7 @@ public static partial class PlayableBuild
         ValidatePlan5();
         ValidatePlan6();
         ValidatePlan8();
+        ValidatePlan9Colossi();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();

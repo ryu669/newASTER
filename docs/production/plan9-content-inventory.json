@@ -6750,6 +6750,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "crystal-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/crystal-far-candidate-v1.png",
+      "sha256": "AC3ABF67F69519A287CA960FF7C576569F5558311B4AE92B14B155CA4EA3E5D3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "echidna-attack-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7397,6 +7407,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
       "sha256": "1F6C05159CFE1C7903B9AB3E6680DD3EE27922041B9092AA15E176714532A77E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-antenna-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-antenna-candidate-v1.png",
+      "sha256": "E02A1CDC3FEF940E7A6169C586EBE0A53EC91B7C62281C3EF7B846CC196B8AE8",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-body-candidate-v1.png",
+      "sha256": "89BF36FCA5FB5E72A1F2B0CB6296B4720CD5FE688462BEF943600E76C8045935",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-cannon-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-cannon-candidate-v1.png",
+      "sha256": "6FB95937F583D1F21FCE87FA73D9A0E76D14F5149B956419E9F15E7E75ABF206",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-core-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-core-candidate-v1.png",
+      "sha256": "2848DBC4AB5CABCB3E6114076F3AB74E45A316301272D711ECE79919CB72F30B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-major-candidate-v1.png",
+      "sha256": "99E7C07480CEDD52573E195197CD702CC462047E687B1D5E6AEEDAB2B69764C7",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "memory-shield-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-shield-candidate-v1.png",
+      "sha256": "FC255E59572D0AB66FED529E16B6631ED9917B95D1102C60D91D99A31DF59AED",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

@@ -1,7 +1,8 @@
 using NewAster.Core;
+using System.Linq;
 namespace NewAster.Data
 {
-    public static class ColossusCombatCatalog
+    public static partial class ColossusCombatCatalog
     {
         public static string PartName(BattlePart part,int index)
         {
@@ -14,6 +15,10 @@ namespace NewAster.Data
                 case "tyrant.claw":return "掘削の左爪";
                 case "tyrant.plate":return "黒曜胸甲";
                 case "tyrant.tail":return "鉱脈の尾";
+                case "memory.core":return "記録核";
+                case "memory.cannon":return "結晶砲";
+                case "memory.shield":return "鏡面装甲";
+                case "memory.antenna":return "記憶アンテナ";
                 default:return "補助部位 "+(index+1);
             }
         }
@@ -27,11 +32,12 @@ namespace NewAster.Data
                 default:return "追加効果なし";
             }
         }
-        public static bool CanSummon(string id)=>id==GreenReturnDragonVerticalSlice.ColossusId || id=="colossus.red-crystal-tyrant";
+        public static bool CanSummon(string id)=>id!=null && AuthoredDefinitions.ContainsKey(id);
+        public static System.Collections.Generic.IReadOnlyList<string> AuthoredIds=>WorldCatalog.ColossusIds.Where(CanSummon).ToArray();
         public static string IllustrationResource(string id)
         {
             if(!CanSummon(id))throw new System.ArgumentException("Unauthored enemy illustration");
-            return id=="colossus.red-crystal-tyrant"?"Illustrations/battle-red-crystal-tyrant-candidate-v1":"Illustrations/battle-formal";
+            return id==GreenReturnDragonVerticalSlice.ColossusId?"Illustrations/battle-formal":"Illustrations/battle-"+id.Substring("colossus.".Length)+"-candidate-v1";
         }
         public static ColossusCombatDef GetPlan8Trial(string id)
         {
@@ -41,9 +47,12 @@ namespace NewAster.Data
         public static ColossusCombatDef Get(string id)
         {
             if(!CanSummon(id))throw new System.ArgumentException("This colossus combat definition has not been authored.");
-            if(id=="colossus.red-crystal-tyrant")return RedCrystalTyrant();
+            var result=AuthoredDefinitions[id]();result.Validate();return result;
+        }
+        private static ColossusCombatDef GreenReturnDragon()
+        {
             var result=new ColossusCombatDef {
-                id=id,baseHp=1500,hpPerLevel=120,gaugeMax=4,baseDamage=12,damagePerLevel=2,majorBonus=20,ultimateBonus=45,
+                id=GreenReturnDragonVerticalSlice.ColossusId,baseHp=1500,hpPerLevel=120,gaugeMax=4,baseDamage=12,damagePerLevel=2,majorBonus=20,ultimateBonus=45,
                 normalAction="翼撃",enragedAction="怒りの翼撃",majorAction="大技：緑晶の嵐",ultimateAction="極大技：星還の奔流",
                 parts=new[]{
                     new ColossusPartCombatDef {id="crystal-horn-crown",role="gauge",breakEffect="gauge-down",baseHp=300,hpPerLevel=12},
