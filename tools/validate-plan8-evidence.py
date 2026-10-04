@@ -56,9 +56,23 @@ assert all(run['result']['resourceSha256'] == regression['resourceSha256'] for r
 garden_sha = next(screenshot['sha256'] for run in journey['runs'] if run['result']['height'] == 720 and not run['result']['exchange'] for screenshot in run['screenshots'] if screenshot['case'] == 'garden')
 assert hashlib.sha256((documents / 'plan8-journey-garden-720.png').read_bytes()).hexdigest().upper() == garden_sha
 assert sum(len(run['result']['cases']) for run in journey['runs']) == 14 and len(regression['cases']) == 23
+smoke = read('plan8-minimal-smoke.json')
+assert smoke['native']['result'] == 'passed' and smoke['native']['textReadable']
+assert not smoke['native']['diagnosticStateInjection']
+assert smoke['native']['actualActions'] == len(smoke['native']['actions']) <= policy['nativeSmokeMaximumActions']
+assert smoke['native']['assemblySha256'] == regression['assemblySha256']
+assert smoke['listening']['result'] == 'passed' and smoke['listening']['retestResult'] == 'passed'
+assert smoke['listening']['maximumSeconds'] <= policy['listeningSmokeMaximumSeconds']
+assert not smoke['listening']['pcmOrPlaybackLogCountedAsListening']
+assert smoke['listening']['finalResponse'] == 'BGM・ヒット音が聞こえ、音割れなし'
+assert not smoke['performanceMeasured'] and not smoke['audioFix']['performanceMeasured']
+assert smoke['audioFix']['focusAudioPassed'] and smoke['audioFix']['buildAssertions'] == 1187
+assert smoke['audioFix']['resourceSha256'] == regression['resourceSha256']
+for source, digest in smoke['audioFix']['sourceSha256'].items():
+    assert hashlib.sha256((root / source).read_text(encoding='utf-8-sig').encode('utf-8')).hexdigest().upper() == digest
 data = root / 'game/Builds/playable/newASTER_Data'
 for field, path in [('assemblySha256', data / 'Managed/Assembly-CSharp.dll'), ('resourceSha256', data / 'resources.assets')]:
-    assert hashlib.sha256(path.read_bytes()).hexdigest().upper() == regression[field]
+    assert hashlib.sha256(path.read_bytes()).hexdigest().upper() == smoke['audioFix'][field]
 economy = read('plan8-economy-measurements.json')
 assert economy['statisticalDraws'] == 200000 and economy['heroineRateBasisPoints'] == 300
 assert economy['budget']['fiveHeroNectarTo120'] == 77350 and economy['budget']['fiveHeroCrystalsTo120'] == 400

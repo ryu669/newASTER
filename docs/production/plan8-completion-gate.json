@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-04",
-  "overallComplete": false,
+  "overallComplete": true,
   "technicalGateComplete": true,
-  "experienceGateComplete": false,
+  "experienceGateComplete": true,
   "requirementsChanged": true,
   "scope": "development vertical slice; condition results distinguish automatic diagnostics, human acceptance and performance",
   "conditions": [
@@ -233,24 +233,24 @@
     },
     {
       "id": "T8-08.minimal-native-smoke",
-      "result": "not-run",
+      "result": "passed",
       "requiredForCompletion": true,
       "gate": "experience",
-      "method": "At most five actual actions: open/close one menu and inspect one short text line; no full route, AltTab matrix or timing study",
-      "evidence": "plan8-verification-scope.md"
+      "method": "Five actual native actions; help open/close, one book line, battle entered, own player closed for audio repair",
+      "evidence": "plan8-minimal-smoke.json"
     },
     {
       "id": "T8-08.minimal-listening-smoke",
-      "result": "not-run",
+      "result": "passed",
       "requiredForCompletion": true,
       "gate": "experience",
-      "method": "At most 15 seconds: one BGM sample and one effect for obvious silence/distortion; no full loop or volume comparison",
-      "evidence": "plan8-verification-scope.md"
+      "method": "User confirmed BGM and one hit effect audible with no obvious distortion after AudioListener repair; brief audio-settings check",
+      "evidence": "plan8-minimal-smoke.json"
     },
     {
       "id": "T8-10.final-acceptance",
-      "result": "not-run",
-      "method": "All required conditions under the revised user scope, including two minimal smoke checks",
+      "result": "passed",
+      "method": "All required revised-scope conditions passed; historical unmeasured optional items retained as not-run",
       "evidence": "plan8-completion-gate.md",
       "requiredForCompletion": true,
       "gate": "final"

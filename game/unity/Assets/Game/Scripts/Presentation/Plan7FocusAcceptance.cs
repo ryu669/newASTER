@@ -12,6 +12,8 @@ namespace NewAster.Presentation
         {if(!condition)throw new InvalidOperationException("PLAN7_FOCUS_FAIL "+message);}
         private IEnumerator ValidatePlan7Focus()
         {
+            var listeners=UnityEngine.Object.FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
+            FocusCheck(listeners.Length==1 && listeners[0].isActiveAndEnabled && !AudioListener.pause && AudioListener.volume>0,"exactly one active output listener, unpaused and audible");
             string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);
             artSample=true;artSamplePaused=false;UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
             FocusCheck(artBgm.isPlaying && PlayArtSound("hit"),"sample audio starts");

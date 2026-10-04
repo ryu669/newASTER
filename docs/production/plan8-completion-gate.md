@@ -1,10 +1,10 @@
 # 計画8：完了ゲートと残件
 
-現行判定：ユーザー指示による[検証範囲の変更](plan8-verification-scope.md)を適用。技術ゲート完了。最小の実操作・聴取の2項目は未実施で全体は未完了。以下の従来の残件のうち、追加性能と広範な体験測定は必須から外した。
+現行判定：**計画8完了。技術ゲート・最小実操作・修正後の聴取がすべて合格。** [検証範囲の変更](plan8-verification-scope.md)を適用し、追加性能と広範な体験測定を必須から外した。未実施項目を合格へ変更していない。
 
-更新：2026-10-04。**改訂した技術ゲートは完了。最小の実操作・聴取は未実施で、体験ゲートと全体は未完了。** 追加性能測定を実行せず、取得済みの証拠と未実施の記録を保持する。
+更新：2026-10-04。音声修正版の最終ビルドと最小確認は[証拠JSON](plan8-minimal-smoke.json)へ固定。従来の37プロセスと性能値は修正前ビルドの履歴として保持し、最終ビルドの性能を再測定・保証しない。
 
-[条件別JSON](plan8-completion-gate.json)も同じpassed／failed／not-runを保持する。`tools/validate-plan8-evidence.py`は証拠・ビルドhash・未完了状態の整合を検査するコマンドであり、計画8の完了を認定するコマンドではない。
+[条件別JSON](plan8-completion-gate.json)も同じpassed／failed／not-runを保持する。`tools/validate-plan8-evidence.py`は証拠・履歴と最終ビルドhash・条件別状態の整合を検査するコマンドであり、計画8の完了を認定するコマンドではない。
 
 | 対象 | 自動確認 | 体験／未実施 | 証拠 |
 | --- | --- | --- | --- |
@@ -15,9 +15,9 @@
 | T8-05 歌唱・章収集 | passed：80 runの戦数・重複・打ち切りと勝敗／撤退契約 | not-run：実時間中央値・p90、歌唱の聴感 | [全分布](plan8-balance-measurements.json) |
 | T8-06 育成・生活・経済 | passed：解放順65戦、実残高のLv30・装備・家具・遺物・10連。追加討伐で100pt交換と使用 | not-run：実到達時間・30分操作・Lv120実到達。Lv120算術は到達実測にしない | [経済](plan8-economy.md)、[通し](plan8-journey-validation.json)、[抽選・算術](plan8-economy-measurements.json) |
 | T8-07 保存一周・異常系 | passed：新規試遊と別プロセス再開、正式旧／現行形の回帰、失敗無変更・重複拒否、将来版・別ID・backup保全 | 実マウスの復旧導線はT8-08でnot-run | [通し](plan8-journey-validation.json)、[回帰](plan8-regression-validation.json)、Core5709 assertions |
-| T8-08 表示・操作・音 | passed：専用表示720p／1080p、文字／PCM／停止契約の自動回帰 | not-run：全マウス導線・速度別長文の可読性・実AltTab・聴取 | [操作一覧](plan8-operation-inventory.md)、[回帰](plan8-regression-validation.json) |
+| T8-08 表示・操作・音 | passed：専用表示720p／1080p、文字／PCM／停止契約の自動回帰 | passed：最小5操作と修正後BGM・ヒット音のユーザー聴取。not-run：全導線・速度別長文・実AltTab・全音源聴取 | [操作一覧](plan8-operation-inventory.md)、[回帰](plan8-regression-validation.json) |
 | T8-09 性能・起動・メモリ | passed：最新1080pは98.83%、720pは100%が16.7ms以内。箱庭・ADV・CGの両解像度のロード／ピークを測定 | not-run：バックログ・家具移動の性能、通常導線の庭遷移・冷起動。負荷変化でバッチ停止 | [測定表](plan8-performance-results.md)、[実測](plan8-performance-validation.json)、[以前の延期](plan8-performance-deferred.json) |
-| T8-10 結果固定・引継ぎ | passed：現在の証拠、採用値、手順、数量と残件を整理 | not-run：T8-01〜09の全対象条件成立後の最終完了判定 | 本書、[実装記録](plan8-progress.md) |
+| T8-10 結果固定・引継ぎ | passed：現在の証拠、採用値、手順、数量と残件を整理 | passed：改訂範囲の全必須条件成立による最終完了判定 | 本書、[実装記録](plan8-progress.md) |
 
 ## 取得済みの性能記録
 
@@ -41,7 +41,7 @@ i7-13700F／RTX4070、通常同期1・再生速度1、調整後の専用敵内�
 4. 召喚Lvを順に解放し、不足した育成費を既討伐Lvの再戦で集める。上位Lvとハント遺物を試す。
 5. ログイン／時間報酬、抽選・提供割合・100pt交換・チケットの費用を確認する。全費用・成果は保存確定で一度だけ反映する。
 6. 保存して終了し、再起動で残高・装備・家具位置・人物利用・詩・章・既読・receiptを比較する。回想を読んでも変更しない。
-7. 実マウス導線、停止／実AltTab／手動復帰、BGMループと5効果を確認し、実入力・判断・読書時間を記録する。自動診断の時間を代入しない。
+7. 現行の受入れは最大5操作と15秒以内のBGM一箇所・効果音一つ。上記の全導線を人間が繰り返すことや、時間計測・全音源比較を要求しない。
 
 ## 量産に渡す現状
 

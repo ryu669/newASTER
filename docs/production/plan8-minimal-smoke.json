@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-04",
+  "method": "computer-use @oai/sky; actual targeted Windows input and immediate screenshots",
+  "native": {
+    "result": "passed",
+    "actualActions": 5,
+    "maximumActions": 5,
+    "actions": [
+      "Enter original trial",
+      "Open help",
+      "Close help",
+      "Enter battle",
+      "Close own player for audio rebuild"
+    ],
+    "observations": [
+      "Trial book visible",
+      "Help modal visible with close button",
+      "Modal removed and same book restored",
+      "Large battle artwork visible; controls initially collapsed"
+    ],
+    "shortText": "巨神獣の体に残った呪歌は、失われた世界の記憶。",
+    "textReadable": true,
+    "diagnosticStateInjection": false,
+    "scope": "One menu and one book line only; not full ADV reading or full route acceptance",
+    "rejectedActionsDelivered": false,
+    "assemblySha256": "3101C1E98733E019A06FD5B48693B8EC58C3F1EB7FCC179B0E8937D4E4CC273D"
+  },
+  "listening": {
+    "result": "passed",
+    "maximumSeconds": 15,
+    "observer": "user directly reported via in-thread question response",
+    "initialResponse": "無音または音割れあり",
+    "initialResponseContext": "Book screen; code intentionally stops audio outside battle/ADV/art sample. This was an invalid listening setup, not evidence of battle audio failure.",
+    "correctedTarget": "Foreground battle BGM and one attack effect; user response pending",
+    "pcmOrPlaybackLogCountedAsListening": false,
+    "correctedTargetResponse": "戦闘中も無音",
+    "diagnosedCause": "Runtime camera had no AudioListener; scene contains no listener. Added one to camera.",
+    "retestResult": "passed",
+    "finalResponse": "BGM・ヒット音が聞こえ、音割れなし",
+    "finalTarget": "Rebuilt player art sample / audio settings; BGM and one hit button, foreground"
+  },
+  "performanceMeasured": false,
+  "audioFix": {
+    "assemblySha256": "41663C9DE4A6658FBA5FB64B53FDAAE349EA531F629F247DD74D18C796B63ACF",
+    "resourceSha256": "3432D30612E520A02E12FEEADFA29AE8D63CB0E72A4C45B085671A99B611E378",
+    "buildLogSha256": "7931865B15F94A52B3E80AABCF61126830845BA5E4F1220452FCF2E7D99E542D",
+    "focusLogSha256": "C8163D65C116EECC80B8AAD695F6C79DDAD8E4E2F7D0D0555C9018C9CCBDFFF6",
+    "buildAssertions": 1187,
+    "focusAudioPassed": true,
+    "performanceMeasured": false,
+    "scope": "Add camera output listener and verify exactly one active, unpaused, nonzero-volume listener before existing source/focus tests",
+    "sourceSha256": {
+      "game/unity/Assets/Game/Scripts/Presentation/PrototypeBootstrap.cs": "23A4BF3269466C2B6F08829377F675B3ABE61B846A1B110DB91B8DAA6CB768BB",
+      "game/unity/Assets/Game/Scripts/Presentation/Plan7FocusAcceptance.cs": "68C66D138DD9AEAE6E8813323CA4CE9E1F837E4A8248FE085DCD01CCD1326382"
+    },
+    "sourceHashNormalization": "UTF-8 without BOM; LF newlines"
+  }
+}
