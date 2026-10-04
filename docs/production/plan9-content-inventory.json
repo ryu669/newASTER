@@ -323,7 +323,7 @@
         "job.blaster"
       ],
       "state": "functional",
-      "artState": "missing",
+      "artState": "candidate",
       "acceptance": "P9-05; unique art + 3 skills + chain + equipment",
       "source": "Combat/battle-formal.json"
     },
@@ -6737,6 +6737,176 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Audio/candidate-victory.wav",
       "sha256": "9F7C53FA008CDE62C8BE6542097000F0B38930AE8C0108CD19EEA1C703F199E8",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-attack-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-attack-candidate-v1.png",
+      "sha256": "FB60CEBAB61E9ECB8022A9DD88CD584EBC3A4B4869B05B3C315983A9F6373391",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-cutin-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-cutin-candidate-v1.png",
+      "sha256": "C8517C9CE8804775F4EAB9BD1F3A5DC03229581207B0F3471C76138B6BF23567",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-event-0-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-0-cg-candidate-v1.png",
+      "sha256": "B921E9E9C69BA83182237707627DDCBA06FA7897AF15FA793EA7C3735FC8E79E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-event-1-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-1-cg-candidate-v1.png",
+      "sha256": "9A4D74F78F8BE8C839555A443C33D94ECD42F33EC67A0BFF493C08625C5BD0F2",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-event-2-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-2-cg-candidate-v1.png",
+      "sha256": "AF432BA39CEBF70DF8FCB3D713BBD6D6BE4512EB145D25DF4A0F027347A88CF1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-event-3-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-3-cg-candidate-v1.png",
+      "sha256": "AED759F3F61209DC48BC02FAA5D434C38DA42DE98B97799BAED8B5C12985596C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-event-4-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-4-cg-candidate-v1.png",
+      "sha256": "D5B2CE175FA0490511410E52E1C46256EA220D79B00A9D4307B09193CDF4E0D0",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-expression-determined-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-determined-source-v1.png",
+      "sha256": "95ECD4AF5AC7D45EA9928963412FC64FA2320FA2D0509256D77F15D97B8938E0",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-expression-joy-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-joy-source-v1.png",
+      "sha256": "77ABDDFDF2F71BA507038324F86D82A4D1A611805C980AE8549E05FDD6322B68",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-expression-puzzled-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-puzzled-source-v1.png",
+      "sha256": "17E9176D068733712E24102102EDF732D1A47BC9BDBFD97DB4961599FA5E0C28",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-hit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-hit-candidate-v1.png",
+      "sha256": "16417A5F61C9BDDAA99D749474D6D4D6F38FAF71D8F8BB24AC4EFE16535309B9",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-portrait-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-portrait-candidate-v1.png",
+      "sha256": "0E4BF905B73E71240B59666AE4483AC6218440092DC9F13FF1C166FE90244464",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-sd-idle-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-idle-candidate-v1.png",
+      "sha256": "17E882445DAEDC424B3C4E9343606CF20879444D5E4E012A0E8EC721A5B95F6D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-sd-look-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-look-candidate-v1.png",
+      "sha256": "76E773F1511E77CC7197DD48B213918169AB17C0BEA5636EAE3D011C829C30A5",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-sd-sit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-sit-candidate-v1.png",
+      "sha256": "77BD4D069306CBAF14605EF7306CBA0C72FC758183A7F773E848DA4E4060DEDF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-sd-work-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-work-candidate-v1.png",
+      "sha256": "2072EC4BE3026CE449EE0DE835D2C7C1A83D1F855C6B1817BEBD98EDB1222A3D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "echidna-standing-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-standing-candidate-v1.png",
+      "sha256": "DF935565EB9F0422359797A9B5D36DC9A83695E63D9582E52F6F61B67C59FB50",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

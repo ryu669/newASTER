@@ -35,6 +35,15 @@ foreach($height in $Heights){
    'growth' {$flags+='-captureGrowth'}
    'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
    'undermine-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.undermine')}
+   'echidna-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.echidna')}
+   {$_ -in @('echidna-normal','echidna-joy','echidna-puzzled','echidna-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(8),'-inspectPlan9ArtEchidna')}
+   {$_ -in @('echidna-adv-normal','echidna-adv-joy','echidna-adv-puzzled','echidna-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvEchidna',$case.Substring(12))}
+   {$_ -in @('echidna-cg-0','echidna-cg-1','echidna-cg-2','echidna-cg-3','echidna-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(11),'-inspectPlan9ArtEchidna')}
+   {$_ -in @('echidna-garden-idle','echidna-garden-sit','echidna-garden-work','echidna-garden-look','echidna-garden-move','echidna-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(15),'-inspectPlan9GardenEchidna')}
+   'echidna-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.echidna')}
    'undermine-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.undermine')}
    'undermine-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.undermine')}
    'undermine-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.undermine')}
@@ -72,6 +81,9 @@ foreach($height in $Heights){
   if($case.StartsWith('iconoclast-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.iconoclast event='+$case.Substring(14))){throw 'Wrong CG heroine or stale build'}
   if($case.StartsWith('iconoclast-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong garden heroine'}
   if($case.StartsWith('undermine-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('echidna-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('echidna-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('echidna-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.echidna event='+$case.Substring(11))){throw 'Wrong CG heroine or stale build'}
   if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
   $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}
   Write-Output ('PLAN9_UI_CAPTURE_PASS '+$name)

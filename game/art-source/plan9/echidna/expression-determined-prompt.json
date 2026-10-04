@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached Echidna standing for DETERMINED conversation expression source. Preserve SAME 1024x1536 full standing composition pose scale framing and all outfit/hair/horns/wings pixels as faithfully as possible. Change ONLY exposed face: violet eye clear focused gaze, slightly lowered visible brow, small firmly closed mouth with subtle resolute confidence; no anger, no smile, no tears. Preserve fringe over hidden eye. Adult restrained determination. No extra effects, no zoom, no redesign. Transparent alpha. Source for native face-only runtime composition.",
+  "reference": "echidna-standing-candidate-v1.png",
+  "output": "exec-70ac3be1-50d0-4ec5-9282-05c148af0756.png",
+  "usage": "Native face-only overlay; full generated source not adopted",
+  "finalDeliveryApproved": false
+}

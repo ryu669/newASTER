@@ -8,16 +8,20 @@ from PIL import Image
 parser = argparse.ArgumentParser()
 parser.add_argument('gallery')
 parser.add_argument('--output', required=True)
-parser.add_argument('--hero', default='iconoclast', choices=('iconoclast','undermine'))
+parser.add_argument('--hero', default='iconoclast', choices=('iconoclast','undermine','echidna'))
 args = parser.parse_args()
 gallery = Path(args.gallery)
 face = (466/1024, 280/1536, 110/1024, 83/1536)
 if args.hero == 'undermine':
     face = (473/1024,302/1536,100/1024,82/1536)
+if args.hero == 'echidna':
+    face = (466/1024,210/1536,113/1024,76/1536)
 boxes = []
 for destination, crop in [((65,180,540,560),(0,0,1,1)),((650,260,460,300),(.39,.155,.235,.12))]:
     if args.hero == 'undermine' and destination[0] == 650:
         crop = (.40,.18,.22,.12)
+    if args.hero == 'echidna' and destination[0] == 650:
+        crop = (.40,.115,.22,.12)
     x,y,w,h = destination
     cx,cy,cw,ch = crop
     scale = min(w/(1024*cw),h/(1536*ch))

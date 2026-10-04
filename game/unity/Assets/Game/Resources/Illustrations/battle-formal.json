@@ -31,6 +31,11 @@
     },
     {
       "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
       "placeholder": true
     },
     {

@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Create one transparent garden SD look sprite matching attached Echidna SD idle identity and style. Adult compact 3.5-head proportions, silver bob covering one eye, other violet eye, two ivory curled horns, gold/cyan jewelry, opaque white petal dress and dark boots, dark violet petal wings gold branching edges/cyan gems folded compact. Full body three-quarter facing left, head turned slightly down attentively at an invisible low flower planter to her left, one open hand gently extended toward it at hip height, other relaxed, soft interested expression. No planter or other object drawn. Complete horns wings boots fully inside square canvas, extra blank alpha margin ABOVE horns, no cut tips, no floor no shadow no words. Polished anime garden sprite single character.",
+  "reference": "echidna-sd-idle-candidate-v1.png",
+  "output": "exec-21a1ede0-a5f0-46aa-84db-e334848cd244.png",
+  "finalDeliveryApproved": false
+}
