@@ -15,6 +15,7 @@ namespace NewAster.Presentation
             if(value.home==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"home");
             if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
             if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
+            if(value.previousNarrative==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"previousNarrative");
             return text;
         }
         public static FormalCampaignSave Decode(string text)
@@ -22,6 +23,7 @@ namespace NewAster.Presentation
             var value=new FormalCampaignSave{version=0,saveId=null};JsonUtility.FromJsonOverwrite(text,value);
             if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"previousNarrative") || FormalCampaignJsonShape.RootMemberIsNull(text,"previousNarrative"))value.previousNarrative=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;

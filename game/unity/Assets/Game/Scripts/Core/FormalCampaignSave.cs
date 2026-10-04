@@ -7,6 +7,20 @@ namespace NewAster.Core
     // Read the stable envelope header without interpreting future payload fields.
     [Serializable] public sealed class FormalCollectionHeader { public int version; public string contentVersion; }
     [Serializable] public sealed class FormalEngagementHeader {public int version;}
+    [Serializable] public sealed class ProductionNarrativeArchive
+    {
+        public int version=1;
+        public string homeVersion;
+        public string[] readStoryIds=Array.Empty<string>(),unlockedEventIds=Array.Empty<string>(),readEventIds=Array.Empty<string>(),loverHeroineIds=Array.Empty<string>(),claimedRewardIds=Array.Empty<string>();
+        public HomeReadLine[] readLineKeys=Array.Empty<HomeReadLine>();
+        public void Validate()
+        {
+            if(version!=1 || homeVersion!="none" && homeVersion!=HomeExperienceCatalog.FixtureVersion)throw new ArgumentException("Unknown archived narrative version.");
+            foreach(var ids in new[]{readStoryIds,unlockedEventIds,readEventIds,loverHeroineIds,claimedRewardIds})
+                if(ids==null || ids.Any(id=>!CollectionCatalog.ValidId(id)) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid archived narrative flags.");
+            if(readLineKeys==null || readLineKeys.Any(l=>l==null || !CollectionCatalog.ValidId(l.sceneId) || !CollectionCatalog.ValidId(l.lineId) || l.scriptVersion<1))throw new ArgumentException("Invalid archived read lines.");
+        }
+    }
     [Serializable] public sealed class FormalCampaignHeader
     {public int version;public string saveId;public FormalWorldHeader world;public FormalGrowthHeader growth;public FormalEngagementHeader engagement;public FormalCollectionHeader collection;public FormalHomeHeader home;}
     [Serializable] public sealed class FormalCampaignSave
@@ -23,6 +37,8 @@ namespace NewAster.Core
         public FormalCollectionLedger collection;
         // Missing or explicit null means no Plan 6 state; never infer from legacy arrays.
         public FormalHomeProgress home;
+        // Keep prior diagnostic narrative flags without treating them as authored read completion.
+        public ProductionNarrativeArchive previousNarrative;
         public void Validate()
         {
             if(version!=1 || saveId!=Identity || revision<0 || world==null || growth==null)throw new ArgumentException("Unsupported formal campaign.");
@@ -32,6 +48,7 @@ namespace NewAster.Core
             engagement?.Validate();
             collection?.Validate();
             home?.Validate();
+            previousNarrative?.Validate();
             if(home!=null && home.receipts.Any(r=>growth.receipts.Any(g=>g.transactionId==r.transactionId) || world.claimedBattleIds.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
             if(collection!=null)foreach(var r in collection.receipts)
                 if(!growth.receipts.Any(g=>g.transactionId==r.battle.battleId && g.signature==new FormalBattleEndRequest(r,0).Signature))throw new ArgumentException("Collection transaction receipt mismatch.");

@@ -65,7 +65,8 @@ namespace NewAster.Core
     [Serializable] public sealed partial class HomeExperienceCatalog
     {
         public const string TrialVersion="home-trial-story-2026-10-04";
-        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion;
+        public const string ProductionVersion="home-production-story-2026-10-04";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==ProductionVersion;
         public const string FixtureVersion="home-fixture-2026-10-03";
         public int schemaVersion; public string contentVersion,status;
         public string[] heroineIds=Array.Empty<string>(),colossusIds=Array.Empty<string>(),poemIds=Array.Empty<string>(),resourceIds=Array.Empty<string>(),abilityIds=Array.Empty<string>(),skillIds=Array.Empty<string>(),speakerIds=Array.Empty<string>();
@@ -108,7 +109,7 @@ namespace NewAster.Core
         public void Validate(bool release=false)
         {
             if(schemaVersion!=1)Fail("UNKNOWN_SCHEMA","/schemaVersion",null,"未対応の定義版です。");
-            if(!Id(contentVersion) || status!="fixture" && status!="release" && !(status=="development-trial" && contentVersion==TrialVersion))Fail("UNRESOLVED_RULE","/contentVersion",contentVersion,"内容版と状態を指定してください。");
+            if(!Id(contentVersion) || status!="fixture" && status!="release" && !(status=="development-trial" && contentVersion==TrialVersion) && !(status=="production-candidate" && contentVersion==ProductionVersion))Fail("UNRESOLVED_RULE","/contentVersion",contentVersion,"内容版と状態を指定してください。");
             if(release && status!="release")Fail("PLACEHOLDER_IN_RELEASE","/status",null,"検証パックを正式版へ採用できません。");
             if(status=="release" && SupportedVersion(contentVersion))Fail("PLACEHOLDER_IN_RELEASE","/contentVersion",contentVersion,"検証・試遊用内容版を正式版へ改名できません。");
             var hs=Set(heroineIds,"/heroineIds");var cs=Set(colossusIds,"/colossusIds");var ps=Set(poemIds,"/poemIds");var rs=Set(resourceIds,"/resourceIds");var abs=Set(abilityIds,"/abilityIds");var sks=Set(skillIds,"/skillIds");Set(speakerIds,"/speakerIds");

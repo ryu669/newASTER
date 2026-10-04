@@ -37,7 +37,8 @@ namespace NewAster.Core
     [Serializable] public sealed class CollectionCatalog
     {
         public const string TrialVersion="collection-trial-story-2026-10-04";
-        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion;
+        public const string ProductionVersion="collection-production-story-2026-10-04";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==ProductionVersion;
         public const string FixtureVersion="collection-fixture-2026-10-03";
         public int schemaVersion=1;
         public string contentVersion=FixtureVersion,status="fixture";
@@ -63,7 +64,7 @@ namespace NewAster.Core
         }
         public void Validate()
         {
-            if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial"))
+            if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial" || contentVersion==ProductionVersion && status=="production-candidate"))
                 throw new ArgumentException("Unsupported collection content.");
             var os=Index(owners,x=>x.id);var ps=Index(poems,x=>x.id);var cs=Index(chapters,x=>x.id);
             var rs=Index(resources,x=>x.id);var relicIndex=Index(relics,x=>x.id);
@@ -77,7 +78,7 @@ namespace NewAster.Core
                 if(o.poemIds.Length!=total || o.chapterIds.Length!=3)throw new ArgumentException("Invalid poem or chapter count.");
                 foreach(var id in o.poemIds)if(!ps.TryGetValue(id,out var p) || p.ownerId!=o.id || !o.chapterIds.Contains(p.chapterId))throw new ArgumentException("Poem owner or chapter mismatch.");
                 foreach(var id in o.chapterIds){
-                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || (contentVersion==FixtureVersion?!string.IsNullOrEmpty(c.textId):!string.IsNullOrEmpty(c.textId) && !c.textId.StartsWith("text.trial.plan8.",StringComparison.Ordinal)))throw new ArgumentException("Invalid or unapproved fixture chapter.");
+                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || (contentVersion==FixtureVersion?!string.IsNullOrEmpty(c.textId):contentVersion==ProductionVersion?c.textId!="text.production."+c.id+".intro":!string.IsNullOrEmpty(c.textId) && !c.textId.StartsWith("text.trial.plan8.",StringComparison.Ordinal)))throw new ArgumentException("Invalid or unapproved chapter text.");
                     IdSet(c.poemIds);
                     if(c.poemIds.Length!=perChapter || c.poemIds.Any(p=>!o.poemIds.Contains(p) || ps[p].chapterId!=id))throw new ArgumentException("Invalid chapter membership.");
                 }
