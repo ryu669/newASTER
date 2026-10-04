@@ -7430,6 +7430,56 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "slayer-event-0-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-0-cg-candidate-v1.png",
+      "sha256": "A204E2D4DE4FD391BDB0CE2CF8672225FC1F1A4DF3CF379DB3028BF1593E9FA4",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "slayer-event-1-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-1-cg-candidate-v1.png",
+      "sha256": "14AE1386B006CDDC16C1DEEA87106A37A19BB84A0AD1C592FD614FC09D4F4375",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "slayer-event-2-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-2-cg-candidate-v1.png",
+      "sha256": "76B9DF60F59D18BAE1D23AC53E96DFFFF59407703D6338D04E15862D424187A3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "slayer-event-3-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-3-cg-candidate-v1.png",
+      "sha256": "93243EEAF17AE1315A94F70C69FE68FE449A5C014061A4193780294AD07F395B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "slayer-event-4-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-4-cg-candidate-v1.png",
+      "sha256": "AF3C94D4D50819B5776063B2E2C63E12EFAFFD6817DF975D2803771A43273015",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "slayer-expression-determined-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7477,6 +7527,16 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
       "sha256": "40BA73F690EF7D94BDA811699AA6907900B2225EB67AB96845BCB3A11361F0C4",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "slayer-portrait-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-portrait-candidate-v1.png",
+      "sha256": "C9A478C61E0CC1369330208D85E1E3940BE2A7AB314D2986599331C736132D0C",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

@@ -25,7 +25,7 @@ namespace NewAster.Presentation
             growthTextStyle=new GUIStyle(text){fontSize=ArtSampleSettings.LargeText?26:23};growthTextStyle.normal.textColor=ivory;
             growthSmallStyle=new GUIStyle(small){fontSize=ArtSampleSettings.LargeText?20:18};growthSmallStyle.normal.textColor=muted;
             growthButtonStyle=new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter,fontSize=22};
-            growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+            growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-portrait-candidate-v1");
             iconoclastPortrait=Resources.Load<Texture2D>("Illustrations/iconoclast-portrait-candidate-v1");
             underminePortrait=Resources.Load<Texture2D>("Illustrations/undermine-portrait-candidate-v1");
             echidnaPortrait=Resources.Load<Texture2D>("Illustrations/echidna-portrait-candidate-v1");
@@ -96,7 +96,7 @@ namespace NewAster.Presentation
             else if(id=="heroine.echidna"&&echidnaPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),echidnaPortrait,ScaleMode.ScaleToFit,true);
             else if(id=="heroine.excalipan"&&excalipanPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),excalipanPortrait,ScaleMode.ScaleToFit,true);
             else{GrowthDiamond(300,470,100);GrowthDiamond(300,470,84);Label(193,435,220,55,"誓 女 の 記 憶",growthTextStyle);Label(177,520,260,35,"正式立ち絵は制作待ち",growthSmallStyle);}
-            Label(92,726,420,38,id=="heroine.slayer"?"比較用立ち絵 ／ 正式美術は未完成":(id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
+            Label(92,726,420,38,(id=="heroine.slayer" || id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
             string[] names={"誓女の記憶","ネクタル育成","覚醒の儀","誓いの強化","人物の記録","選択の確認","誓いの結実","装備の樹"};Label(605,204,860,55,names[(int)growthScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(growthScreen==GrowthScreen.Overview){
                 if(GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}

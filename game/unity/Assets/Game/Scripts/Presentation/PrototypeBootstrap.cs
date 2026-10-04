@@ -96,6 +96,7 @@ namespace NewAster.Presentation
             InitializeFormalEntrance(args);
             int expressionIndex=Array.IndexOf(args,"-inspectPlan9Expression");
             if(expressionIndex>=0 && expressionIndex+1<args.Length)plan9Expression=args[expressionIndex+1];
+            if(args.Contains("-inspectPlan9ArtSlayer"))plan9ArtHero="heroine.slayer";
             if(args.Contains("-inspectPlan9ArtUndermine"))plan9ArtHero="heroine.undermine";
             if(args.Contains("-inspectPlan9ArtEchidna"))plan9ArtHero="heroine.echidna";
             if(args.Contains("-inspectPlan9ArtExcalipan"))plan9ArtHero="heroine.excalipan";
@@ -121,7 +122,9 @@ namespace NewAster.Presentation
                 encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
                 int portraitIndex=Array.IndexOf(args,"-captureGrowthHero");
                 if(portraitIndex>=0 && portraitIndex+1<args.Length){
-                    if(!book.RequestSubject(BookBookmark.Heroines,args[portraitIndex+1]))throw new ArgumentException("Unknown growth capture heroine");
+                    string requestedHero=args[portraitIndex+1];
+                    if(!combatDefinitions.FormationIds.Contains(requestedHero))throw new ArgumentException("Unknown growth capture heroine");
+                    if(book.SubjectId!=requestedHero && !book.RequestSubject(BookBookmark.Heroines,requestedHero))throw new InvalidOperationException("Growth capture navigation failed");
                     book.CompleteTransition();
                 }
                 if(args.Contains("-captureGrowthNavigation")) ValidateGrowthScreenNavigation();

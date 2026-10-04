@@ -12,7 +12,8 @@ args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 rows = []
 for pose in args.poses:
-    name = f'{args.hero}-{pose}-candidate-v1.png'
+    version = 3 if args.hero == 'slayer' and pose == 'cutin' else 1
+    name = f'{args.hero}-{pose}-candidate-v{version}.png'
     original = root / 'game/art-source/plan9' / args.hero / name
     resource = root / 'game/unity/Assets/Game/Resources/Illustrations' / name
     if original.read_bytes() != resource.read_bytes():

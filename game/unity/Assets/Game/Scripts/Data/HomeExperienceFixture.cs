@@ -37,7 +37,7 @@ namespace NewAster.Data
             c.scripts=c.scripts.Concat(c.events.Select(e=>new HomeAdvScript{id=e.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).Concat(c.chapters.Select(ch=>new HomeAdvScript{id=ch.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).ToArray();
             // Candidate art is explicitly bound to Slayer only; the fixture remains non-release content.
             var candidateAssets=new[]{new HomeAssetDef{id="art.candidate.slayer.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/slayer-standing-candidate-v1",fullFrame=true}}
-                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",regionalOverlay=true,overlayRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536}})).ToArray();
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",regionalOverlay=true,mappedOverlay=true,overlayRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536},overlaySourceRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536}})).ToArray();
             c.assets=c.assets.Concat(candidateAssets).ToArray();
             c.assets.Single(a=>a.id=="asset.fixture.background").resourcePath="Illustrations/forest-far-candidate-v1";
             c.assets.Single(a=>a.id=="asset.fixture.foreground").resourcePath="Illustrations/forest-front-candidate-v1";
@@ -49,7 +49,7 @@ namespace NewAster.Data
                 f.slots[0].actionIds=actions[i]=="sit"?new[]{"action.sit"}:new[]{"action."+actions[i],"action.sit"};
                 c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=f.assetId,kind="furniture",placeholder=true,resourcePath="Illustrations/garden-"+furnitureArt[i]+"-candidate-v1"}}).ToArray();
             }
-            var slayerDisplay=c.displays.Single(d=>d.heroineId=="heroine.slayer");slayerDisplay.standingAssetId=candidateAssets[0].id;
+            var slayerDisplay=c.displays.Single(d=>d.heroineId=="heroine.slayer");slayerDisplay.standingAssetId=candidateAssets[0].id;slayerDisplay.usePortraitCrop=true;slayerDisplay.portraitCrop01=new HomeRect{x=0,y=0,width=1,height=.48f};
             slayerDisplay.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}
                 .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeDisplayVariant{id="expression."+expression,assetId="art.candidate.slayer.expression."+expression+".v1"})).ToArray();
             c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.slayer",schemaVersion=1,scriptVersion=1,

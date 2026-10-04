@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Use case: stylized-concept. Original game event CG, wide16:9 opaque painted illustration, target2048x1152. Reference1 Slayer identity, reference2 restored forest atmosphere. Adult blondebob blueeyes loopingforelock pinkflowers pinkknitdress detachedsleeves whiteboots whitefeather floweredwings. One heroine sitting peacefully on ornate creamstone wooden gardenbench amid blooming pink flowers, holding a small newly sprouted plant, warmgentle smile. Dawnlight, emeraldforestvalley distant, delicate gold architectural details. Waist-up to knees composition, readableface offcenterleft, broad picturesque garden. Premium Japanese fantasy CG, no text, UI, logo, watermark or othercharacters. Do not invent story text; image only.",
+  "selectedOutput": "exec-b2232b31-5246-47b4-9d90-82a8bdb4f16b.png",
+  "originRecord": "docs/production/plan7-art-prompts.md",
+  "aliasPurpose": "event0 only; original retained",
+  "finalDeliveryApproved": false
+}

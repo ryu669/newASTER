@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-standing-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-standing-720.log",
+      "case": "slayer-standing",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-attack-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-attack-720.log",
+      "case": "slayer-attack",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-hit-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-hit-720.log",
+      "case": "slayer-hit",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-cutin-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-cutin-720.log",
+      "case": "slayer-cutin",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-standing-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-standing-1080.log",
+      "case": "slayer-standing",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-attack-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-attack-1080.log",
+      "case": "slayer-attack",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-hit-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-hit-1080.log",
+      "case": "slayer-hit",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-cutin-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-cutin-1080.log",
+      "case": "slayer-cutin",
+      "state": "rendered-not-visually-approved"
+    }
+  ],
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "BFFE059F3F5806A77A93D639A6D4103E16F6D24FAB94A6F13A76DE2B760D55B3",
+  "schemaVersion": 1,
+  "sourceResults": "tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\results.json"
+}

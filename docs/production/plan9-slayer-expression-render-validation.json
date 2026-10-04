@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.slayer",
+  "performanceMeasured": false,
+  "scope": "art-stage-comparison; visual seam acceptance separate",
+  "cases": [
+    {
+      "expression": "joy",
+      "height": 720,
+      "changedInside": 12497,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 720,
+      "changedInside": 12501,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 720,
+      "changedInside": 12539,
+      "changedOutside": 0
+    },
+    {
+      "expression": "joy",
+      "height": 1080,
+      "changedInside": 28175,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 1080,
+      "changedInside": 28192,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 1080,
+      "changedInside": 28285,
+      "changedOutside": 0
+    }
+  ]
+}
