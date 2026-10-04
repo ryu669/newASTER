@@ -56,8 +56,8 @@ namespace NewAster.Presentation
         {
             if(measureArt && Time.realtimeSinceStartup>8 && capturedAtFrame<0){artFrameTimes.Add(Time.unscaledDeltaTime);var visual=playback.Current;if(visual!=null && visual.Major)artMajorFrameTimes.Add(Time.unscaledDeltaTime);if(visual!=null && visual.PartBroken)artBreakFrameTimes.Add(Time.unscaledDeltaTime);}
             EnsureArtAudio();artBgm.volume=ArtSampleSettings.Bgm;artSe.volume=1;
-            bool active=artSample || encounter!=null && adv==null;
-            bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
+            bool active=artSample || title && (!formalDiagnostic || plan7FocusStarted) && adv==null && !recoveryActive && combatDefinitionError==null || encounter!=null && adv==null;
+            bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:title?false:paused || help || retreat);
             if(!active){artBgm.Stop();artSe.Stop();return;}
             if(artBgm.clip==null)artBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));
             if(stop){artBgm.Pause();artSe.Pause();return;}

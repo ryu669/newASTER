@@ -93,6 +93,7 @@ namespace NewAster.Presentation
                 if(recoveryActive)return;
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
+            InitializeFormalEntrance(args);
             slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureSixParts")) PrepareSixPartCapture(args);
@@ -125,6 +126,8 @@ namespace NewAster.Presentation
                 encounter=null;title=true;
                 int panel=Array.IndexOf(args,"-plan9TitlePanel");
                 if(panel>=0 && panel+1<args.Length)titlePanel=args[panel+1];
+                if(args.Contains("-validatePlan9SettingsCancel"))ValidateTitleSettingsCancel();
+                if(args.Contains("-capturePlan9StartupError"))combatDefinitionError="保存形式を確認できません。対応するゲーム版と保存ファイルをご確認ください。（診断用表示）";
             }
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
@@ -163,9 +166,9 @@ namespace NewAster.Presentation
         private void Styles()
         {
             if(text!=null) return;
-            text=new GUIStyle(GUI.skin.label) { font=font, fontSize=21, wordWrap=true }; text.normal.textColor=new Color(.18f,.22f,.21f);
+            text=new GUIStyle(GUI.skin.label) { font=font, fontSize=ArtSampleSettings.LargeText?24:21, wordWrap=true }; text.normal.textColor=new Color(.18f,.22f,.21f);
             heading=new GUIStyle(text) { fontSize=31, fontStyle=FontStyle.Bold };
-            small=new GUIStyle(text) { fontSize=17 };
+            small=new GUIStyle(text) { fontSize=ArtSampleSettings.LargeText?20:17 };
             button=new GUIStyle(GUI.skin.button) { font=font, fontSize=19, wordWrap=true, padding=new RectOffset(10,10,6,6) };
             button.normal.background=teal; button.normal.textColor=new Color(.97f,.94f,.83f);
             button.hover.background=teal; button.hover.textColor=Color.white; button.active.background=dark; button.active.textColor=Color.white;
@@ -174,6 +177,7 @@ namespace NewAster.Presentation
         private void Update()
         {
             UpdateTrialTelemetry();
+            UpdateFormalEntrance();
             UpdateBookTransition();
             UpdateAdv();
             UpdateEngagement();
@@ -196,8 +200,9 @@ namespace NewAster.Presentation
                 else if(kinderGarden) kinderGarden=false;
                 else if(retreat) { retreat=false; paused=false; }
                 else if(CloseBattleMenuLayer()){}
-                else if(title && titlePanel!=null){titlePanel=null;PlayerPrefs.Save();}
-                else if(title){titlePanel="exit";}
+                else if(title && titlePanel!=null)CloseTitlePanel();
+                else if(title && FormalEntranceVisible)formalEntranceComplete=true;
+                else if(title)OpenTitlePanel("exit");
                 else if(encounter!=null && result==null) paused=!paused;
                 else if(result==null) help=true;
             }
@@ -237,7 +242,7 @@ namespace NewAster.Presentation
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
                 int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
-                bool ready=plan7FullCombat?plan7FullCombatComplete:captureFrame==captureAt;
+                bool ready=plan7FullCombat?plan7FullCombatComplete:Environment.GetCommandLineArgs().Contains("-validatePlan7Focus")?captureFrame>=captureAt && plan7FocusComplete:captureFrame==captureAt;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && captureFrame==capturedAtFrame+60) Application.Quit();
             }
@@ -293,7 +298,7 @@ namespace NewAster.Presentation
             if(adv!=null){DrawAdv();return;}
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
-            if(combatDefinitionError!=null) { Panel(0,0,1600,900,dark);Label(60,120,1480,220,"定義または正式保存を読み込めません。元ファイルを上書きせず停止しました。\n"+combatDefinitionError,heading,Color.white);return; }
+            if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }

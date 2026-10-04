@@ -23,11 +23,21 @@ foreach($height in $Heights){
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)
   switch($case){
    'title' {$flags+='-capturePlan9Title'}
-   {$_ -in @('settings','credits','exit','development')} {$flags+=@('-capturePlan9Title','-plan9TitlePanel',$case)}
+   'intro' {$flags+=@('-capturePlan9Title','-capturePlan9Intro')}
+   'startup-error' {$flags+=@('-capturePlan9Title','-capturePlan9StartupError')}
+   'settings-cancel' {$flags+=@('-capturePlan9Title','-validatePlan9SettingsCancel')}
+   'settings-large' {$flags+=@('-capturePlan9Title','-plan9TitlePanel','settings','-inspectLargeText')}
+   'audio-focus' {$flags+=@('-capturePlan7Sample','-artCase','settings','-validatePlan7Focus')}
+   {$_ -in @('settings','credits','exit','development','help')} {$flags+=@('-capturePlan9Title','-plan9TitlePanel',$case)}
    'book' {$flags+='-captureBook'}
+   'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
+   'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
+   'growth-large' {$flags+=@('-captureGrowth','-inspectLargeText')}
+   'book-large' {$flags+=@('-captureBook','-inspectLargeText')}
    'battle' {$flags+=@('-captureBattleMenu','closed')}
    'victory' {$flags+='-captureVictory'}
+   'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
    {$_ -in @('garden','adv')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase',([Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case)))}
    default {throw ('Unknown case '+$case)}
   }
@@ -36,6 +46,8 @@ foreach($height in $Heights){
   $text=Get-Content -LiteralPath $log -Raw
   if($LASTEXITCODE -ne 0 -or $text -match 'Exception:|error CS' -or -not(Test-Path $png)){throw ('Capture failed: '+$name+' '+$log)}
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
+  if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
+  if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}
   if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
   $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}
   Write-Output ('PLAN9_UI_CAPTURE_PASS '+$name)

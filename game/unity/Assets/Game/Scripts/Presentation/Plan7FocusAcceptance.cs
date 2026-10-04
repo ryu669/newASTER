@@ -7,7 +7,7 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
-        private bool plan7FocusStarted;
+        private bool plan7FocusStarted,plan7FocusComplete;
         private static void FocusCheck(bool condition,string message)
         {if(!condition)throw new InvalidOperationException("PLAN7_FOCUS_FAIL "+message);}
         private IEnumerator ValidatePlan7Focus()
@@ -15,6 +15,11 @@ namespace NewAster.Presentation
             var listeners=UnityEngine.Object.FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
             FocusCheck(listeners.Length==1 && listeners[0].isActiveAndEnabled && !AudioListener.pause && AudioListener.volume>0,"exactly one active output listener, unpaused and audible");
             string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);
+            artSample=false;title=true;UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
+            FocusCheck(artBgm.isPlaying,"formal title BGM starts");
+            OnApplicationFocus(false);FocusCheck(!artBgm.isPlaying,"title focus loss stops BGM");
+            OnApplicationFocus(true);UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
+            FocusCheck(artBgm.isPlaying,"title focus regain resumes decorative BGM");
             artSample=true;artSamplePaused=false;UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
             FocusCheck(artBgm.isPlaying && PlayArtSound("hit"),"sample audio starts");
             OnApplicationFocus(false);
@@ -24,7 +29,7 @@ namespace NewAster.Presentation
             OnApplicationFocus(true);UpdateArtAudio();FocusCheck(artSamplePaused && !artBgm.isPlaying,"regaining focus does not resume sample");
             SetArtSamplePaused(false);UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);FocusCheck(artBgm.isPlaying,"manual sample resume");
             SetArtSamplePaused(true);FocusCheck(!PlayArtSound("heal") && !artBgm.isPlaying,"manual pause rejects new sounds immediately");
-            artSample=false;artSamplePaused=false;StartBattle(NewAster.Data.WorldCatalog.ColossusIds[0]);UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
+            artSample=false;artSamplePaused=false;title=false;StartBattle(NewAster.Data.WorldCatalog.ColossusIds[0]);UpdateArtAudio();yield return new WaitForSecondsRealtime(.1f);
             FocusCheck(artBgm.isPlaying,"battle audio starts after leaving paused sample");
             int hp=encounter.State.BossHitPoints;OnApplicationFocus(false);FocusCheck(paused && !artBgm.isPlaying,"battle focus loss pauses immediately");
             yield return new WaitForSecondsRealtime(.1f);OnApplicationFocus(true);UpdateArtAudio();FocusCheck(paused && !artBgm.isPlaying && encounter.State.BossHitPoints==hp,"battle waits for manual resume without damage");
@@ -39,6 +44,7 @@ namespace NewAster.Presentation
             CloseAdv();artSample=true;artTab="settings";artSamplePaused=false;
             FocusCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"diagnostic does not change durable progress");
             Debug.Log("PLAN7_FOCUS_AUDIO_PASS sample battle ADV / simulated Unity focus callbacks / isolated");
+            Debug.Log("PLAN9_TITLE_AUDIO_PASS title start stop resume / isolated");plan7FocusComplete=true;
         }
     }
 }

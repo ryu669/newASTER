@@ -274,7 +274,7 @@ Core 3,462 assertions、Unity 1,104 assertions、全C#64ファイル、Windows�
 
 ## 計画9：正式量産と全画面UI
 
-状態：計画策定／未実施。[詳細計画](plan9-implementation-plan.md)を適用する。追加性能測定は実施しない。実操作最大5操作、聴取合計15秒以内という[現行検証範囲](plan8-verification-scope.md)を維持する。
+状態：9-1対象照合完了、9-2見本審査と9-3起動／設定の実装検証を進行中。[進捗と証跡](plan9-progress.md)を参照。[詳細計画](plan9-implementation-plan.md)を適用する。追加性能測定は実施しない。実操作最大5操作、聴取合計15秒以内という[現行検証範囲](plan8-verification-scope.md)を維持する。
 
 | ID | 受入対象 | 合格条件 |
 | --- | --- | --- |

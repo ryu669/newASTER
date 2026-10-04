@@ -18,8 +18,8 @@ namespace NewAster.Presentation
         {
             if(growthTitleStyle!=null)return;
             growthTitleStyle=new GUIStyle(heading){fontSize=34};growthTitleStyle.normal.textColor=ivory;
-            growthTextStyle=new GUIStyle(text){fontSize=23};growthTextStyle.normal.textColor=ivory;
-            growthSmallStyle=new GUIStyle(small){fontSize=18};growthSmallStyle.normal.textColor=muted;
+            growthTextStyle=new GUIStyle(text){fontSize=ArtSampleSettings.LargeText?26:23};growthTextStyle.normal.textColor=ivory;
+            growthSmallStyle=new GUIStyle(small){fontSize=ArtSampleSettings.LargeText?20:18};growthSmallStyle.normal.textColor=muted;
             growthButtonStyle=new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter,fontSize=22};
             growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
         }

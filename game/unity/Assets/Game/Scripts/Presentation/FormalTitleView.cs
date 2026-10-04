@@ -9,6 +9,44 @@ namespace NewAster.Presentation
         private readonly Color titleGold = new Color(.79f, .65f, .37f);
         private readonly Color titleInk = new Color(.035f, .05f, .10f);
         private GUIStyle titleLogo, titleSubtitle;
+        private bool titleSettingsDraftReady;
+        private float titleDraftBgm, titleDraftSe;
+        private bool titleDraftShortened, titleDraftMotion, titleDraftFlash,titleDraftLargeText,titleDraftFullscreen;
+        private Vector2 titleCreditsScroll;
+        private string titleSettingsError;
+
+        private void OpenTitlePanel(string panel)
+        {
+            titlePanel=panel;titleCreditsScroll=Vector2.zero;titleSettingsDraftReady=false;titleSettingsError=null;
+        }
+
+        private void BeginTitleSettings()
+        {
+            titleDraftBgm=ArtSampleSettings.Bgm;titleDraftSe=ArtSampleSettings.Se;
+            titleDraftShortened=ArtSampleSettings.Shortened;titleDraftMotion=ArtSampleSettings.ReducedMotion;
+            titleDraftFlash=ArtSampleSettings.ReducedFlash;titleDraftLargeText=ArtSampleSettings.LargeText;
+            titleDraftFullscreen=PlayerPrefs.GetInt("art.fullscreen",Screen.fullScreenMode==FullScreenMode.FullScreenWindow?1:0)==1;
+            titleSettingsDraftReady=true;
+        }
+
+        private void CloseTitlePanel()
+        {titlePanel=null;titleSettingsDraftReady=false;titleSettingsError=null;}
+
+        private void ApplyTitleSettings()
+        {
+            try {
+                PlayerPrefs.SetFloat("art.bgm",titleDraftBgm);PlayerPrefs.SetFloat("art.se",titleDraftSe);
+                PlayerPrefs.SetInt("art.shortened",titleDraftShortened?1:0);
+                PlayerPrefs.SetInt("art.motion",titleDraftMotion?1:0);PlayerPrefs.SetInt("art.flash",titleDraftFlash?1:0);
+                PlayerPrefs.SetInt("art.large-text",titleDraftLargeText?1:0);PlayerPrefs.SetInt("art.fullscreen",titleDraftFullscreen?1:0);
+                PlayerPrefs.Save();
+                if(!formalDiagnostic)Screen.fullScreenMode=titleDraftFullscreen?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
+                text=null;heading=null;small=null;button=null;skillButton=null;
+                growthTitleStyle=null;growthTextStyle=null;growthSmallStyle=null;growthButtonStyle=null;
+                titleLogo=null;titleSubtitle=null;entranceLogoStyle=null;entranceCaptionStyle=null;
+                CloseTitlePanel();
+            } catch(Exception e){titleSettingsError="設定を保存できません。もう一度お試しください。";Debug.LogWarning("TITLE_SETTINGS_SAVE_FAILED "+e.GetType().Name);}
+        }
 
         private void TitleFill(Rect rect, Color color)
         {
@@ -38,6 +76,8 @@ namespace NewAster.Presentation
             bool previousEnabled = GUI.enabled;
             GUI.enabled = previousEnabled && titlePanel == null;
             TitleFill(new Rect(0, 0, 1600, 900), titleInk);
+            DrawTitleAtmosphere();
+            if(FormalEntranceVisible){DrawFormalEntrance();GUI.enabled=previousEnabled;return;}
             SampleImage(new Rect(700, 0, 900, 900), "slayer-standing");
             TitleFill(new Rect(0, 0, 775, 900), new Color(.035f, .05f, .10f, .96f));
             TitleFill(new Rect(775, 0, 825, 900), new Color(.035f, .05f, .10f, .12f));
@@ -55,13 +95,14 @@ namespace NewAster.Presentation
             Label(105, 404, 600, 72, "失われた世界の記憶が、\nあなたの開く一頁から芽吹く。", titleSubtitle, Color.white);
             if (TitleButton(140, 510, 530, 68, "万物の書をひらく", BookInputAllowed))
             {
-                book.Reenter(); title = false; titlePanel = null;
+                book.Reenter(); title = false; CloseTitlePanel();
             }
-            if (TitleButton(140, 594, 255, 50, "設定")) titlePanel = "settings";
-            if (TitleButton(415, 594, 255, 50, "クレジット")) titlePanel = "credits";
-            if (TitleButton(140, 660, 530, 50, "ゲームを終了")) titlePanel = "exit";
+            if (TitleButton(140, 594, 255, 50, "設定")) OpenTitlePanel("settings");
+            if (TitleButton(415, 594, 255, 50, "クレジット")) OpenTitlePanel("credits");
+            if (TitleButton(140, 660, 255, 50, "操作説明")) OpenTitlePanel("help");
+            if (TitleButton(415, 660, 255, 50, "ゲームを終了")) OpenTitlePanel("exit");
             Label(105, 771, 600, 38, "記憶は、ここから新しい世界になる。", titleSubtitle, titleGold);
-            if (TitleButton(1320, 805, 220, 42, "制作・試遊メニュー")) titlePanel = "development";
+            if (TitleButton(1320, 805, 220, 42, "制作・試遊メニュー")) OpenTitlePanel("development");
             GUI.enabled = previousEnabled;
             if (titlePanel != null) DrawTitlePanel();
         }
@@ -88,22 +129,35 @@ namespace NewAster.Presentation
             TitleBorder(new Rect(360, 150, 880, 600), 2);
             if (titlePanel == "settings")
             {
+                if(!titleSettingsDraftReady)BeginTitleSettings();
                 Label(400, 185, 750, 60, "設定", heading, titleGold);
                 Label(400, 280, 240, 40, "BGM音量", text, Color.white);
-                float bgm = GUI.HorizontalSlider(new Rect(650, 295, 470, 30), ArtSampleSettings.Bgm, 0, 1);
-                if (Math.Abs(bgm-ArtSampleSettings.Bgm) > .001) PlayerPrefs.SetFloat("art.bgm", bgm);
+                titleDraftBgm=GUI.HorizontalSlider(new Rect(650, 295, 400, 30),titleDraftBgm,0,1);
+                Label(1070,280,90,40,Mathf.RoundToInt(titleDraftBgm*100)+"%",small,Color.white);
                 Label(400, 365, 240, 40, "効果音量", text, Color.white);
-                float se = GUI.HorizontalSlider(new Rect(650, 380, 470, 30), ArtSampleSettings.Se, 0, 1);
-                if (Math.Abs(se-ArtSampleSettings.Se) > .001) PlayerPrefs.SetFloat("art.se", se);
-                if (TitleButton(400, 470, 720, 52, "演出短縮："+(ArtSampleSettings.Shortened ? "ON" : "OFF")))
-                    PlayerPrefs.SetInt("art.shortened", ArtSampleSettings.Shortened ? 0 : 1);
-                if (TitleButton(400, 540, 720, 52, "揺れ軽減："+(ArtSampleSettings.ReducedMotion ? "ON" : "OFF")))
-                    PlayerPrefs.SetInt("art.motion", ArtSampleSettings.ReducedMotion ? 0 : 1);
+                titleDraftSe=GUI.HorizontalSlider(new Rect(650, 380, 400, 30),titleDraftSe,0,1);
+                Label(1070,365,90,40,Mathf.RoundToInt(titleDraftSe*100)+"%",small,Color.white);
+                if (TitleButton(400, 440, 720, 45, "演出短縮："+(titleDraftShortened ? "ON" : "OFF")))titleDraftShortened=!titleDraftShortened;
+                if (TitleButton(400, 497, 350, 45, "揺れ軽減："+(titleDraftMotion ? "ON" : "OFF")))titleDraftMotion=!titleDraftMotion;
+                if (TitleButton(770, 497, 350, 45, "フラッシュ軽減："+(titleDraftFlash ? "ON" : "OFF")))titleDraftFlash=!titleDraftFlash;
+                if(TitleButton(400,554,350,45,"文字："+(titleDraftLargeText?"大きめ":"標準")))titleDraftLargeText=!titleDraftLargeText;
+                if(TitleButton(770,554,350,45,"表示："+(titleDraftFullscreen?"全画面":"ウィンドウ")))titleDraftFullscreen=!titleDraftFullscreen;
+                Label(400,610,750,32,titleSettingsError??"適用すると保存されます。取消では元の設定を保ちます。",small,titleSettingsError==null?Color.white:titleGold);
+                if(TitleButton(400,655,350,52,"取消"))CloseTitlePanel();
+                if(TitleButton(770,655,350,52,"適用して閉じる"))ApplyTitleSettings();
+                return;
             }
             else if (titlePanel == "credits")
             {
                 Label(400, 185, 750, 60, "クレジット", heading, titleGold);
-                Label(400, 285, 750, 260, "newASTER / 巨神と誓女2\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices にライセンス全文を収録。\n制作素材の最終クレジットは正式採用時に追記します。", text, Color.white);
+                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n制作素材の最終クレジットは正式採用時に追記します。";
+                float height=Math.Max(320,text.CalcHeight(new GUIContent(credits),700));
+                titleCreditsScroll=GUI.BeginScrollView(new Rect(400,275,750,320),titleCreditsScroll,new Rect(0,0,700,height));
+                Label(0,0,700,height,credits,text,Color.white);GUI.EndScrollView();
+            }
+            else if(titlePanel=="help"){
+                Label(400,185,750,60,"万物の書の読み方",heading,titleGold);
+                Label(400,280,750,290,"しおり：巨神獣・誓女・庭・物語の分類を選ぶ。\nめくり：同じ分類の中で、次の対象へ移る。\n裏返し：同じ対象の能力・部位・記憶を読む。\n\n戦闘と庭は「操作を開く」からメニューを展開。\nEscapeでパネルを閉じ、一つ前の状態へ戻ります。\n\n育成・召喚・交換は費用を確認し、確定後に保存。\n本文は一度の入力で全文表示、次の入力で進みます。",text,Color.white);
             }
             else if (titlePanel == "exit")
             {
@@ -118,7 +172,7 @@ namespace NewAster.Presentation
                 if (TitleButton(400, 385, 720, 56, "計画7 ／ 美術見本", BookInputAllowed)) {titlePanel=null; OpenArtSample();}
                 if (TitleButton(400, 470, 720, 56, "星の恵み", BookInputAllowed)) {titlePanel=null; OpenEngagement();}
             }
-            if (TitleButton(400, 655, 720, 52, "閉じる")) {PlayerPrefs.Save(); titlePanel=null;}
+            if (TitleButton(400, 655, 720, 52, "閉じる")) CloseTitlePanel();
         }
     }
 }
