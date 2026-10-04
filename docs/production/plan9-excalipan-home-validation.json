@@ -1,0 +1,232 @@
+{
+  "cases": [
+    {
+      "humanInput": false,
+      "case": "excalipan-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-normal-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-normal-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-joy-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-joy-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-puzzled-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-puzzled-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-determined-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-determined-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-normal-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-normal-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-joy-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-joy-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-puzzled-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-puzzled-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-determined-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-determined-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-idle",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-idle-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-idle-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-sit",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-sit-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-sit-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-work",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-work-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-work-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-look",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-look-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-look-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-move",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-move-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-move-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-remove",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-remove-720.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-remove-720.png",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-normal-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-normal-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-joy-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-joy-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-puzzled-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-puzzled-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-determined-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-determined-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-normal-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-normal-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-joy-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-joy-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-puzzled-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-puzzled-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-adv-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-determined-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-adv-determined-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-idle",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-idle-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-idle-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-sit",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-sit-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-sit-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-work",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-work-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-work-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-look",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-look-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-look-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-move",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-move-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-move-1080.png",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "case": "excalipan-garden-remove",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-remove-1080.log",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6a427df26fa647b5a4caf00b8df4199b\\excalipan-garden-remove-1080.png",
+      "height": 1080
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "assemblySha256": "30DDAF097DB7203A495325ED93DE1A5D13A25FCA69CE6BFA1D64B60331047A81"
+}

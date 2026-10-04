@@ -424,7 +424,7 @@
         "job.gunner"
       ],
       "state": "functional",
-      "artState": "missing",
+      "artState": "candidate",
       "acceptance": "P9-05; unique art + 3 skills + chain + equipment",
       "source": "Combat/battle-formal.json"
     },
@@ -6907,6 +6907,176 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-standing-candidate-v1.png",
       "sha256": "DF935565EB9F0422359797A9B5D36DC9A83695E63D9582E52F6F61B67C59FB50",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-attack-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-attack-candidate-v1.png",
+      "sha256": "F89D783A8AF5F75FF64E758485A93D0429944CD62811704793DF8361FCF787FD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-cutin-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-cutin-candidate-v1.png",
+      "sha256": "43CF4BC985CF99B7B19664CCDB4663EDCEF6715B9334C3918EB93596DB1701C1",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-event-0-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-0-cg-candidate-v1.png",
+      "sha256": "CF2ABF53C1AC03907840A1FF8F3CA99D638B4571F94520F2001141BC2A9D2843",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-event-1-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-1-cg-candidate-v1.png",
+      "sha256": "75ED7CA7F984DBC5365DF099647BA2CE734E316629EBF5853A5F1FC7D6F22410",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-event-2-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-2-cg-candidate-v1.png",
+      "sha256": "7CFF75D46DA7969580E07153D3FDA6581B44101AF52ED22CEADBCFDA304A401E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-event-3-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-3-cg-candidate-v1.png",
+      "sha256": "1D0DBF590626D19CFAFEC63387A0A065B0C0FE42C7386A70FBCB9F87730526AE",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-event-4-cg-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-4-cg-candidate-v1.png",
+      "sha256": "D7C5ED2D554525687D43BC7E4E1EC69C8DAE4543797179F962C42564953D0485",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-expression-determined-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-determined-source-v1.png",
+      "sha256": "97B32491A51205415C967AD005B63742FACF27A56EE560AD7997CDD02BEE466B",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-expression-joy-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-joy-source-v1.png",
+      "sha256": "92D92813A029448384D063F3A904CBAB0459B4DEF29CCB2280E87BB13A90C172",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-expression-puzzled-source-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-puzzled-source-v1.png",
+      "sha256": "A55C611B3DE3107AD87A68C283B7234CEE7D7BB0F600FA32A6BB7BF9F03D11FD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-hit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-hit-candidate-v1.png",
+      "sha256": "167B40198E09D5D37FEAE50FA863F66DD56B7415CF83A41EC040F19E564892AF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-portrait-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-portrait-candidate-v1.png",
+      "sha256": "53DA7A669234EE6B591BB5AB3C48073A65A8EA11C20E90A5354BCF87481801D6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-sd-idle-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-idle-candidate-v1.png",
+      "sha256": "7B48285BD8FFE2B4E5344639BFBA74DB6FF6181141E84E003954CC8CB0C743E9",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-sd-look-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-look-candidate-v1.png",
+      "sha256": "F71748E816AD412DC565BA5A0915506917CC4C76250E8496A0F4C075476C6398",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-sd-sit-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-sit-candidate-v1.png",
+      "sha256": "F62F9A593DF2A8F134892074B966CC84E79D4517F4B16141ED697E1D56DB655D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-sd-work-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-work-candidate-v1.png",
+      "sha256": "C6CD353D62AC4CCC1C22B53D5982288BB850F5C4E6D69DA2B8CF6C30E4229FE6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "excalipan-standing-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-standing-candidate-v1.png",
+      "sha256": "26C88FAE9ACF458A02599DD28CD5CA3F72CB77D23ACDDC9F3D90000109AD3B1F",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

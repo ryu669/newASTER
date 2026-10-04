@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached Excalipan standing expression to PUZZLED. Exact reference1024x1536 framing pose scale and head angle required, do not rotate or reposition head, cap hair braid rifle bread parcel wings outfit legs remain same. Change ONLY eyes eyebrows mouth inside face: amber eyes slightly widened, brows gently raised uncertain, tiny softly parted mouth, thoughtful confusion without tears fear or exaggerated grimace. Adult warm baker. No symbols no zoom no pose changes. Genuine transparent alpha single full standing source for native face-region overlay.",
+  "reference": "excalipan-standing-candidate-v1.png",
+  "selectedOutput": "exec-31b3aac6-5362-4eb5-a52e-9ed07a4eef75.png",
+  "usage": "native face-only runtime overlay; not whole frame",
+  "finalDeliveryApproved": false
+}

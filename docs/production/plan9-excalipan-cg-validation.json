@@ -1,0 +1,88 @@
+{
+  "assemblySha256": "30DDAF097DB7203A495325ED93DE1A5D13A25FCA69CE6BFA1D64B60331047A81",
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-0-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-0-720.png",
+      "case": "excalipan-cg-0",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-1-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-1-720.png",
+      "case": "excalipan-cg-1",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-2-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-2-720.png",
+      "case": "excalipan-cg-2",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-3-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-3-720.png",
+      "case": "excalipan-cg-3",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-4-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-4-720.png",
+      "case": "excalipan-cg-4",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-0-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-0-1080.png",
+      "case": "excalipan-cg-0",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-1-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-1-1080.png",
+      "case": "excalipan-cg-1",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-2-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-2-1080.png",
+      "case": "excalipan-cg-2",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-3-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-3-1080.png",
+      "case": "excalipan-cg-3",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-4-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3a35220e361b40c29cac81cd0215b42e\\excalipan-cg-4-1080.png",
+      "case": "excalipan-cg-4",
+      "state": "rendered-not-visually-approved"
+    }
+  ]
+}

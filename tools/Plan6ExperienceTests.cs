@@ -42,6 +42,8 @@ public static class Plan6ExperienceTests
         c.furniture[1].supportedHeroineIds=supportedDesk;
         commit(new HomeOperation("occupant",combat.FormationIds[3],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[3],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[3]).actionId=="action.work","Echidna candidate supports own work pose");
         commit(new HomeOperation("occupant",combat.FormationIds[3],garden:garden,x:.6f,y:.6f));
+        commit(new HomeOperation("occupant",combat.FormationIds[4],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[4],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[4]).actionId=="action.work","Excalipan candidate supports own work pose");
+        commit(new HomeOperation("occupant",combat.FormationIds[4],garden:garden,x:.6f,y:.6f));
         commit(new HomeOperation("use",combat.FormationIds[0],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[0]).actionId=="action.work","desk uses supported work pose");
         commit(new HomeOperation("use",combat.FormationIds[0],"instance.a"));
         string originalGarden=encode(journal.Snapshot);var fountainSample=new FormalCampaignJournal(decode(originalGarden),encode,decode);

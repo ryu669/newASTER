@@ -98,6 +98,7 @@ namespace NewAster.Presentation
             if(expressionIndex>=0 && expressionIndex+1<args.Length)plan9Expression=args[expressionIndex+1];
             if(args.Contains("-inspectPlan9ArtUndermine"))plan9ArtHero="heroine.undermine";
             if(args.Contains("-inspectPlan9ArtEchidna"))plan9ArtHero="heroine.echidna";
+            if(args.Contains("-inspectPlan9ArtExcalipan"))plan9ArtHero="heroine.excalipan";
             int cgIndex=Array.IndexOf(args,"-inspectPlan9Cg");
             if(cgIndex>=0 && cgIndex+1<args.Length)plan9Cg=args[cgIndex+1];
             if(plan9Cg!=null)Debug.Log("PLAN9_CG_CAPTURE heroine="+plan9ArtHero+" event="+plan9Cg);

@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Create Excalipan UI portrait transparent bust waist-up for formal heroine growth screen, based on attached standing identity. Adult cheerful amber eyes orange-red long hair side braid, white bakery cap blue trim, blue shoulder capelet, white modest high-neck frilled blouse dark brown bodice and gold fasteners, white feather wings gold mechanical roots. Three-quarter facing left, softly friendly closed-mouth smile, cradling paper bread parcel near waist with one hand while other hand rests lightly on parcel. Rifle absent in portrait. Landscape 1536x1024 requested. Complete cap with extra transparent air above, face and hands central, outer wing feathers can be intentionally cropped at sides, waist crop intentional. Premium polished anime RPG rendering consistent identity. Transparent alpha, no text logo background or glow, single character only.",
+  "reference": "excalipan-standing-candidate-v1.png",
+  "selectedOutput": "exec-81695093-fc67-42da-8dbb-34f34f4757fa.png",
+  "finalDeliveryApproved": false
+}

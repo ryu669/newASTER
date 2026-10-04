@@ -36,6 +36,15 @@ foreach($height in $Heights){
    'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
    'undermine-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.undermine')}
    'echidna-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.echidna')}
+   'excalipan-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.excalipan')}
+   {$_ -in @('excalipan-normal','excalipan-joy','excalipan-puzzled','excalipan-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(10),'-inspectPlan9ArtExcalipan')}
+   {$_ -in @('excalipan-adv-normal','excalipan-adv-joy','excalipan-adv-puzzled','excalipan-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvExcalipan',$case.Substring(14))}
+   {$_ -in @('excalipan-cg-0','excalipan-cg-1','excalipan-cg-2','excalipan-cg-3','excalipan-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(13),'-inspectPlan9ArtExcalipan')}
+   {$_ -in @('excalipan-garden-idle','excalipan-garden-sit','excalipan-garden-work','excalipan-garden-look','excalipan-garden-move','excalipan-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(17),'-inspectPlan9GardenExcalipan')}
+   'excalipan-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.excalipan')}
    {$_ -in @('echidna-normal','echidna-joy','echidna-puzzled','echidna-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(8),'-inspectPlan9ArtEchidna')}
    {$_ -in @('echidna-adv-normal','echidna-adv-joy','echidna-adv-puzzled','echidna-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvEchidna',$case.Substring(12))}
    {$_ -in @('echidna-cg-0','echidna-cg-1','echidna-cg-2','echidna-cg-3','echidna-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(11),'-inspectPlan9ArtEchidna')}
@@ -82,7 +91,10 @@ foreach($height in $Heights){
   if($case.StartsWith('iconoclast-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong garden heroine'}
   if($case.StartsWith('undermine-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong garden heroine'}
   if($case.StartsWith('echidna-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('excalipan-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.excalipan'){throw 'Wrong garden heroine'}
   if($case.StartsWith('echidna-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('excalipan-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.excalipan'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('excalipan-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.excalipan event='+$case.Substring(13))){throw 'Wrong CG heroine or stale build'}
   if($case.StartsWith('echidna-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.echidna event='+$case.Substring(11))){throw 'Wrong CG heroine or stale build'}
   if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
   $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}

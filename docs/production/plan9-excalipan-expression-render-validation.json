@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.excalipan",
+  "performanceMeasured": false,
+  "scope": "art-stage-comparison; visual seam acceptance separate",
+  "cases": [
+    {
+      "expression": "joy",
+      "height": 720,
+      "changedInside": 15808,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 720,
+      "changedInside": 15643,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 720,
+      "changedInside": 15629,
+      "changedOutside": 0
+    },
+    {
+      "expression": "joy",
+      "height": 1080,
+      "changedInside": 35694,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 1080,
+      "changedInside": 35266,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 1080,
+      "changedInside": 35179,
+      "changedOutside": 0
+    }
+  ]
+}

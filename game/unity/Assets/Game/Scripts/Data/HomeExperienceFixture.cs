@@ -45,7 +45,7 @@ namespace NewAster.Data
             c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal-v2";
             var furnitureArt=new[]{"bench","desk","fountain"};var actions=new[]{"sit","work","look"};
             for(int i=0;i<3;i++){
-                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna"};
+                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=combat.FormationIds.ToArray();
                 f.slots[0].actionIds=actions[i]=="sit"?new[]{"action.sit"}:new[]{"action."+actions[i],"action.sit"};
                 c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=f.assetId,kind="furniture",placeholder=true,resourcePath="Illustrations/garden-"+furnitureArt[i]+"-candidate-v1"}}).ToArray();
             }
@@ -78,6 +78,7 @@ namespace NewAster.Data
                 .Concat(new[]{new HomeAdvCommand{commandId="iconoclast.end",kind="end"}}).ToArray()}}).ToArray();
             AddUndermineCandidate(c);
             AddEchidnaCandidate(c);
+            AddExcalipanCandidate(c);
             c.Validate();return c;
         }
         private static void AddUndermineCandidate(HomeExperienceCatalog c)
@@ -97,6 +98,22 @@ namespace NewAster.Data
                     new HomeAdvCommand{commandId="undermine.line."+e,kind="line",lineId="undermine.line."+e,textId="text.fixture.line",speakerId=hero}})).Concat(new[]{new HomeAdvCommand{commandId="undermine.end",kind="end"}}).ToArray()}}).ToArray();
         }
         private static HomeCondition Always()=>new HomeCondition{kind="always"};
+        private static void AddExcalipanCandidate(HomeExperienceCatalog c)
+        {
+            const string hero="heroine.excalipan",prefix="art.candidate.excalipan.";
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=prefix+"standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/excalipan-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeAssetDef{id=prefix+"expression."+e+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/excalipan-expression-"+e+"-source-v1",
+                    overlayRegion01=new HomeRect{x=432f/1024,y=182f/1536,width=130f/1024,height=104f/1536},
+                    overlaySourceRegion01=new HomeRect{x=432f/1024,y=(e=="joy"?174f:182f)/1536,width=130f/1024,height=104f/1536}})).ToArray();
+            var display=c.displays.Single(d=>d.heroineId==hero);display.standingAssetId=prefix+"standing.v1";display.usePortraitCrop=true;
+            display.portraitCrop01=new HomeRect{x=0,y=.02f,width=1,height=.48f};
+            display.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}.Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeDisplayVariant{id="expression."+e,assetId=prefix+"expression."+e+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.excalipan",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="excalipan.background",kind="background",assetId="asset.fixture.background",transition="instant"}}.Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(e=>new[]{
+                    new HomeAdvCommand{commandId="excalipan.actor."+e,kind="actor",heroineId=hero,slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+e,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="excalipan.line."+e,kind="line",lineId="excalipan.line."+e,textId="text.fixture.line",speakerId=hero}})).Concat(new[]{new HomeAdvCommand{commandId="excalipan.end",kind="end"}}).ToArray()}}).ToArray();
+        }
         private static void AddEchidnaCandidate(HomeExperienceCatalog c)
         {
             const string hero="heroine.echidna",prefix="art.candidate.echidna.";

@@ -40,6 +40,11 @@
     },
     {
       "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
       "placeholder": true
     }
   ],

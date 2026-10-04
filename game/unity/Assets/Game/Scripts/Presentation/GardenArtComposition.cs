@@ -61,6 +61,11 @@ namespace NewAster.Presentation
         {
             var original=gardenArtUses.SingleOrDefault(a=>a.furnitureId==furnitureId);
             if(original==null || heroineId=="heroine.slayer")return original;
+            if(heroineId=="heroine.excalipan")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.52f,.60f):original.action=="work"?new Vector2(.41f,.49f):new Vector2(.5f,.97f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.29f,.46f,.52f,.46f,.53f,.52f,.29f,.52f)}:Array.Empty<Vector2[]>()};
             if(heroineId=="heroine.echidna")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
                 actorContact=original.action=="sit"?new Vector2(.55f,.59f):original.action=="work"?new Vector2(.64f,.51f):new Vector2(.5f,.97f),

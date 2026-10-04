@@ -26,6 +26,7 @@ namespace NewAster.Presentation
             string prefix=plan9ArtHero.Substring("heroine.".Length);
             bool undermine=prefix=="undermine";
             bool echidna=prefix=="echidna";
+            bool excalipan=prefix=="excalipan";
             var standing=Resources.Load<Texture2D>("Illustrations/"+prefix+"-standing-candidate-v1");
             var source=plan9Expression=="normal"?null:Resources.Load<Texture2D>("Illustrations/"+prefix+"-expression-"+plan9Expression+"-source-v1");
             var sourceRegion=plan9Expression=="joy"?new Rect(461f/1024,230f/1536,110f/1024,83f/1536):
@@ -33,8 +34,9 @@ namespace NewAster.Presentation
             var face=undermine?new Rect(473f/1024,302f/1536,100f/1024,82f/1536):IconoclastFace;
             if(undermine)sourceRegion=face;
             if(echidna){face=new Rect(466f/1024,210f/1536,113f/1024,76f/1536);sourceRegion=face;}
+            if(excalipan){face=new Rect(432f/1024,182f/1536,130f/1024,104f/1536);sourceRegion=new Rect(face.x,(plan9Expression=="joy"?174f:182f)/1536,face.width,face.height);}
             DrawMappedExpression(new Rect(65,180,540,560),standing,source,face,sourceRegion,new Rect(0,0,1,1));
-            DrawMappedExpression(new Rect(650,260,460,300),standing,source,face,sourceRegion,echidna?new Rect(.40f,.115f,.22f,.12f):undermine?new Rect(.40f,.18f,.22f,.12f):new Rect(.39f,.155f,.235f,.12f));
+            DrawMappedExpression(new Rect(650,260,460,300),standing,source,face,sourceRegion,excalipan?new Rect(.39f,.10f,.23f,.13f):echidna?new Rect(.40f,.115f,.22f,.12f):undermine?new Rect(.40f,.18f,.22f,.12f):new Rect(.39f,.155f,.235f,.12f));
             string[] variants={"normal","joy","puzzled","determined"};string[] captions={"通常","喜び","困惑","決意"};
             for(int i=0;i<4;i++)if(TitleButton(1200,250+i*60,340,48,captions[i]))plan9Expression=variants[i];
             Label(40,800,1510,65,"元の立ち絵を保持し、顔の領域のみ重ねます。\n顔以外の不変と、顔の自然さを別に審査します。",small,Color.white);
