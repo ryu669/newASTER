@@ -66,6 +66,12 @@ public static class Plan9ColossusTests
         b=sky();next(b);next(b);b.State.BreakPart("sky.ring",int.MaxValue);
         check(!b.NextAttackIsMajor && b.NextEnemyAction=="暴風放出" && b.NextEnemyTargets.Length==5,"Broken ring interrupts major while retaining authored all-target release");
         b.State.BreakPart("sky.cannon",int.MaxValue);check(b.NextEnemyAction=="塔影の衝撃","Broken sky cannon removes wind release");
+        Func<PlayableBattle> rose=()=>new PlayableBattle(1,new PlayableProgress(),75,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.crystal-rose-princess"));
+        b=rose();b.State.Heroes[2].TakeDamage(b.State.Heroes[2].MaxHitPoints/2);
+        check(b.NextEnemyAction=="荊の指名" && b.NextEnemyTargets.SequenceEqual(new[]{2}),"Rose whip selects lowest HP ratio");
+        b.State.BreakPart("rose.whip",int.MaxValue);check(b.NextEnemyAction=="花弁の輪舞" && b.NextEnemyTargets.Length==5,"Destroyed whip falls back to petal dance");
+        b=rose();next(b);next(b);check(b.NextEnemyAction=="根脈吸収","Rose third step drains resources");
+        b.State.BreakPart("rose.root",int.MaxValue);check(b.NextEnemyAction=="花弁の輪舞","Broken root removes drain action");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

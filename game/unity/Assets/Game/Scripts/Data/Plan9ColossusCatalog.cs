@@ -10,7 +10,25 @@ namespace NewAster.Data
             {GreenReturnDragonVerticalSlice.ColossusId,GreenReturnDragon},
             {"colossus.red-crystal-tyrant",RedCrystalTyrant},
             {"colossus.memory-crystal-dragon",MemoryCrystalDragon},
-            {"colossus.sky-tower-machine",SkyTowerMachine}
+            {"colossus.sky-tower-machine",SkyTowerMachine},
+            {"colossus.crystal-rose-princess",CrystalRosePrincess}
+        };
+        private static ColossusCombatDef CrystalRosePrincess()=>new ColossusCombatDef {
+            id="colossus.crystal-rose-princess",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2200,hpPerLevel=170,gaugeMax=5,baseDamage=13,damagePerLevel=2,majorBonus=32,ultimateBonus=62,
+            normalAction="荊の指名",enragedAction="紅晶開花",majorAction="大技：水晶花嵐",ultimateAction="極大技：永遠の薔薇園",
+            enemySpeed=92,enrageHpPercent=50,enrageDamagePercent=135,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=165,
+            parts=new[]{
+                new ColossusPartCombatDef{id="rose.crown",role="gauge",breakEffect="gauge-down",baseHp=300,hpPerLevel=13},
+                new ColossusPartCombatDef{id="rose.whip",role="attack",breakEffect="",baseHp=360,hpPerLevel=15},
+                new ColossusPartCombatDef{id="rose.shield",role="armor",breakEffect="",baseHp=440,hpPerLevel=18},
+                new ColossusPartCombatDef{id="rose.root",role="drain",breakEffect="",baseHp=330,hpPerLevel=14}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="荊の指名",targetRule="lowest-hp",requiredPartId="rose.whip",damageType="physical",damagePercent=105,gaugeGain=1,drainAmount=0,waitPercent=100},
+                new ColossusActionCombatDef{name="花弁の輪舞",targetRule="all",damageType="magic",damagePercent=65,gaugeGain=1,drainAmount=0,waitPercent=115},
+                new ColossusActionCombatDef{name="根脈吸収",targetRule="highest-resource",requiredPartId="rose.root",damageType="magic",damagePercent=80,gaugeGain=2,drainAmount=3,waitPercent=125}
+            }
         };
         private static ColossusCombatDef SkyTowerMachine()=>new ColossusCombatDef {
             id="colossus.sky-tower-machine",contentVersion=ColossusCombatDef.Plan9Version,

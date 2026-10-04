@@ -7540,6 +7540,76 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "rose-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-body-candidate-v1.png",
+      "sha256": "7E08CEBFE755D337634F0750701E82670AF6BEE1F93A8953100034B6CCC9AB89",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-crown-candidate-v1.png",
+      "sha256": "92E03367D16CDE8438B08583E09D0F8D8D94F17C6824E18CF60A1CD0237D630A",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-garden-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-garden-far-candidate-v1.png",
+      "sha256": "25074959CB44396FFA6A426EB18CF1AADF536EAC39D8FD6F1C2A585CBBE24A21",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-major-candidate-v1.png",
+      "sha256": "10405BC8E8F40AF1EA724D538E4F39E9E9B2A3BCD3046606281C3B040F15E4BD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-root-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-root-candidate-v1.png",
+      "sha256": "F557CC598FC25AD10465A9C1319B1EEA5DD6198F8A78EF53CA3B5DEE73F16C40",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-shield-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-shield-candidate-v1.png",
+      "sha256": "CD77F3BA59E6181E3B4D0111B1E398E8C6E73ECAC85A1890595847262A0F4D5E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "rose-whip-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-whip-candidate-v1.png",
+      "sha256": "5951CE5145F3BF5AA7614D372D6BF5D4B4460B41B30AB427E898587554E2A2D6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "sky-barrier-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",

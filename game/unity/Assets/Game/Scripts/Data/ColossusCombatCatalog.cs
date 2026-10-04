@@ -15,6 +15,10 @@ namespace NewAster.Data
                 case "tyrant.claw":return "掘削の左爪";
                 case "tyrant.plate":return "黒曜胸甲";
                 case "tyrant.tail":return "鉱脈の尾";
+                case "rose.crown":return "花冠";
+                case "rose.whip":return "荊鞭";
+                case "rose.shield":return "花弁盾";
+                case "rose.root":return "根の宝珠";
                 case "sky.ring":return "天球環";
                 case "sky.cannon":return "気圧砲";
                 case "sky.barrier":return "浮遊障壁";
