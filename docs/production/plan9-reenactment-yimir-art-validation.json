@@ -1,0 +1,120 @@
+{
+  "cases": [
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-normal-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-normal-720.png",
+      "case": "yimir-art-normal"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part1-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part1-720.png",
+      "case": "yimir-art-part1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part2-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part2-720.png",
+      "case": "yimir-art-part2"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part3-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part3-720.png",
+      "case": "yimir-art-part3"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part4-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part4-720.png",
+      "case": "yimir-art-part4"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-all-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-all-720.png",
+      "case": "yimir-art-all"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-major-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-major-720.png",
+      "case": "yimir-art-major"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-normal-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-normal-1080.png",
+      "case": "yimir-art-normal"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part1-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part1-1080.png",
+      "case": "yimir-art-part1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part2-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part2-1080.png",
+      "case": "yimir-art-part2"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part3-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part3-1080.png",
+      "case": "yimir-art-part3"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part4-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-part4-1080.png",
+      "case": "yimir-art-part4"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-all-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-all-1080.png",
+      "case": "yimir-art-all"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-major-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-art-major-1080.png",
+      "case": "yimir-art-major"
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "assemblySha256": "656DE680EB340EE84BD1FB0B1CECDDA446F45429718BD3077F6A6FAD70153E0F"
+}

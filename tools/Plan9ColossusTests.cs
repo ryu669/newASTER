@@ -83,6 +83,14 @@ public static class Plan9ColossusTests
         b.State.BreakPart("orochi.branch",int.MaxValue);check(b.NextEnemyAction=="天葉の光" && b.NextEnemyTargets.Length==1,"Destroyed snake branch removes sweep");
         b=orochi();next(b);check(b.State.BossGauge==2 && b.NextEnemyAction=="吸水根の収奪","Orochi sweep adds two gauge then root drains");
         b.State.BreakPart("orochi.root",int.MaxValue);check(b.NextEnemyAction=="天葉の光","Destroyed water root removes drain");
+        Func<PlayableBattle> yimir=()=>new PlayableBattle(1,new PlayableProgress(),78,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.reenactment-yimir"));
+        b=yimir();check(b.NextEnemyAction=="石腕の再演" && b.NextEnemyTargets.Length==1,"Yimir opens with heavy single stone arm");
+        b.State.BreakPart("yimir.arm",int.MaxValue);check(b.NextEnemyAction=="四季の波紋" && b.NextEnemyTargets.Length==5,"Destroyed arm replaces heavy hit with seasonal wave");
+        b=yimir();next(b);next(b);check(b.State.BossGauge==3 && b.NextEnemyAction=="記録輪走査","Yimir wave adds two gauge before scan");
+        next(b);check(b.State.BossGauge==3,"Memory wheel scan preserves boss gauge");
+        b=yimir();next(b);next(b);b.State.BreakPart("yimir.wheel",int.MaxValue);
+        check(b.NextAttackIsMajor,"Destroyed wheel substitutes two-gauge wave and updates major telegraph");
+        b.State.ReduceBossGauge(3);check(b.NextEnemyAction=="四季の波紋","Destroyed wheel removes scan when below major threshold");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

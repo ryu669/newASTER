@@ -13,7 +13,25 @@ namespace NewAster.Data
             {"colossus.sky-tower-machine",SkyTowerMachine},
             {"colossus.crystal-rose-princess",CrystalRosePrincess},
             {"colossus.silver-sea-whale",SilverSeaWhale},
-            {"colossus.heaven-tree-orochi",HeavenTreeOrochi}
+            {"colossus.heaven-tree-orochi",HeavenTreeOrochi},
+            {"colossus.reenactment-yimir",ReenactmentYimir}
+        };
+        private static ColossusCombatDef ReenactmentYimir()=>new ColossusCombatDef {
+            id="colossus.reenactment-yimir",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2800,hpPerLevel=195,gaugeMax=5,baseDamage=16,damagePerLevel=2,majorBonus=38,ultimateBonus=68,
+            normalAction="石腕の再演",enragedAction="季節重奏",majorAction="大技：四季再演",ultimateAction="極大技：時環の終幕",
+            enemySpeed=74,enrageHpPercent=45,enrageDamagePercent=140,attackBreakDamagePercent=60,majorDamageType="physical",majorWaitPercent=200,
+            parts=new[]{
+                new ColossusPartCombatDef{id="yimir.crown",role="gauge",breakEffect="gauge-down",baseHp=350,hpPerLevel=15},
+                new ColossusPartCombatDef{id="yimir.arm",role="attack",breakEffect="",baseHp=480,hpPerLevel=19},
+                new ColossusPartCombatDef{id="yimir.chest",role="armor",breakEffect="",baseHp=520,hpPerLevel=21},
+                new ColossusPartCombatDef{id="yimir.wheel",role="drain",breakEffect="",baseHp=380,hpPerLevel=16}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="石腕の再演",targetRule="single",requiredPartId="yimir.arm",damageType="physical",damagePercent=135,gaugeGain=1,drainAmount=0,waitPercent=140},
+                new ColossusActionCombatDef{name="四季の波紋",targetRule="all",damageType="magic",damagePercent=65,gaugeGain=2,drainAmount=0,waitPercent=130},
+                new ColossusActionCombatDef{name="記録輪走査",targetRule="highest-resource",requiredPartId="yimir.wheel",damageType="magic",damagePercent=70,gaugeGain=0,drainAmount=3,waitPercent=100}
+            }
         };
         private static ColossusCombatDef HeavenTreeOrochi()=>new ColossusCombatDef {
             id="colossus.heaven-tree-orochi",contentVersion=ColossusCombatDef.Plan9Version,

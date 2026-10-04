@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.reenactment-yimir",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "500214247de6277988b67dc5497400ab727678a4dc3f6b9f4b27ab7d122a2f15",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        268,
+        54,
+        962,
+        1200
+      ],
+      "sha256": "350caa54af667c9466b9b3f874d170bd5da183cddd9bd4c33ea5f05d96d1e37e",
+      "status": "candidate"
+    },
+    {
+      "purpose": "yimir.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        36,
+        302,
+        1217,
+        914
+      ],
+      "sha256": "34cfe2b3a9066ed451a0d91d7a9237cf76ff643c4bfe036c66ddea7a9e8f628d",
+      "status": "candidate"
+    },
+    {
+      "purpose": "yimir.arm",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-arm-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        191,
+        63,
+        1076,
+        1180
+      ],
+      "sha256": "d8ac8c9a9f7e6f3d7b0a786f0b055bbe1fa3a4dd5ca8ec1b067cc7f5d706f6b6",
+      "status": "candidate"
+    },
+    {
+      "purpose": "yimir.chest",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-chest-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        164,
+        154,
+        1085,
+        1015
+      ],
+      "sha256": "ec323b3917ffc28e086081d305658e36875b0ca138cacc989ea227f3941dd319",
+      "status": "candidate"
+    },
+    {
+      "purpose": "yimir.wheel",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-wheel-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        194,
+        125,
+        1112,
+        1125
+      ],
+      "sha256": "87c1013630dbc995b353b16d3719273ac61150c326f290021f14a98b256eb004",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        212,
+        79,
+        1069,
+        1137
+      ],
+      "sha256": "43f6ecdefdbe2300e1bfd070a90b88e842c34d59cb2a464a9e8f3006e9a42bd6",
+      "status": "candidate"
+    }
+  ]
+}

@@ -7950,6 +7950,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "spring-plain-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/spring-plain-far-candidate-v1.png",
+      "sha256": "D1395EEA5A39024A49572FE8488B173BF7E34F94749C3AD6EAD32C573A22F12E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "undermine-attack-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -8177,6 +8187,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/whale-tail-candidate-v1.png",
       "sha256": "1E103031030E53C796BA36D8403286C75BF30423B1B98B75E401872BB74BEAC3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-arm-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-arm-candidate-v1.png",
+      "sha256": "D8AC8C9A9F7E6F3D7B0A786F0B055BBE1FA3A4DD5CA8EC1B067CC7F5D706F6B6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-body-candidate-v1.png",
+      "sha256": "350CAA54AF667C9466B9B3F874D170BD5DA183CDDD9BD4C33EA5F05D96D1E37E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-chest-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-chest-candidate-v1.png",
+      "sha256": "EC323B3917FFC28E086081D305658E36875B0CA138CACC989EA227F3941DD319",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-crown-candidate-v1.png",
+      "sha256": "34CFE2B3A9066ED451A0D91D7A9237CF76FF643C4BFE036C66DDEA7A9E8F628D",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-major-candidate-v1.png",
+      "sha256": "43F6ECDEFDBE2300E1BFD070A90B88E842C34D59CB2A464A9E8F3006E9A42BD6",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "yimir-wheel-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/yimir-wheel-candidate-v1.png",
+      "sha256": "87C1013630DBC995B353B16D3719273AC61150C326F290021F14A98B256EB004",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     }
   ]

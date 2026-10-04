@@ -15,6 +15,10 @@ namespace NewAster.Data
                 case "tyrant.claw":return "掘削の左爪";
                 case "tyrant.plate":return "黒曜胸甲";
                 case "tyrant.tail":return "鉱脈の尾";
+                case "yimir.crown":return "季節冠";
+                case "yimir.arm":return "石腕";
+                case "yimir.chest":return "桜胸甲";
+                case "yimir.wheel":return "記録輪";
                 case "orochi.bud":return "天樹芽";
                 case "orochi.branch":return "攻撃蛇枝";
                 case "orochi.shield":return "樹皮枝";
