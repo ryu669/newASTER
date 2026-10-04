@@ -18,7 +18,8 @@ namespace NewAster.Core
         public const string Version="colossus-trial-2026-10-03";
         public const string Plan8Version="colossus-plan8-2026-10-04";
         public const string Plan9Version="colossus-plan9-2026-10-04";
-        public static bool SupportedVersion(string value)=>value==Version || value==Plan8Version || value==Plan9Version;
+        public const string ProductionVersion="colossus-production-2026-10-05";
+        public static bool SupportedVersion(string value)=>value==Version || value==Plan8Version || value==Plan9Version || value==ProductionVersion;
         public int schemaVersion=1;
         public string contentVersion=Version,status="trial",id;
         public int baseHp,hpPerLevel,gaugeMax,baseDamage,damagePerLevel,majorBonus,ultimateBonus;
@@ -29,7 +30,7 @@ namespace NewAster.Core
         public string majorDamageType="magic";
         public void Validate()
         {
-            if(schemaVersion!=1 || !SupportedVersion(contentVersion) || status!="trial" || !CollectionCatalog.ValidId(id) || baseHp<1 || hpPerLevel<0 || gaugeMax<2 || baseDamage<1 || damagePerLevel<0 || majorBonus<1 || ultimateBonus<majorBonus ||
+            if(schemaVersion!=1 || !SupportedVersion(contentVersion) || !(status=="trial" || contentVersion==ProductionVersion && status=="production-candidate") || !CollectionCatalog.ValidId(id) || baseHp<1 || hpPerLevel<0 || gaugeMax<2 || baseDamage<1 || damagePerLevel<0 || majorBonus<1 || ultimateBonus<majorBonus ||
                new[]{normalAction,enragedAction,majorAction,ultimateAction}.Any(string.IsNullOrWhiteSpace) ||
                parts==null || parts.Length<4 || parts.Length>6 || parts.Any(p=>p==null || !CollectionCatalog.ValidId(p.id) || p.baseHp<1 || p.hpPerLevel<0 ||
                    !new[]{"gauge","attack","armor","drain","auxiliary"}.Contains(p.role) || p.breakEffect!=(p.role=="gauge"?"gauge-down":"")) ||

@@ -1,0 +1,2770 @@
+{
+  "schemaVersion": 1,
+  "version": "plan9-initial-five-rc1-2026-10-05",
+  "scope": "individually bound initial-five assets; excludes rejected unused alternatives",
+  "physicalInputCount": 0,
+  "listeningSeconds": 0,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "resourcePath": "Audio/candidate-break-v2",
+      "file": "game/unity/Assets/Game/Resources/Audio/candidate-break-v2.wav",
+      "sha256": "f21e24e44297c7d2487f37d160993eb903649465a15b094389fe304a4203421a",
+      "bytes": 57374,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan7-audio-v2.md"
+      ]
+    },
+    {
+      "resourcePath": "Audio/candidate-heal-v2",
+      "file": "game/unity/Assets/Game/Resources/Audio/candidate-heal-v2.wav",
+      "sha256": "19307c3f0fa3706bd92cdb8def5e676ff947f4595d9a32040820edbfd1c8039a",
+      "bytes": 105884,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan7-audio-v2.md"
+      ]
+    },
+    {
+      "resourcePath": "Audio/candidate-hit-v2",
+      "file": "game/unity/Assets/Game/Resources/Audio/candidate-hit-v2.wav",
+      "sha256": "5022ab7d249750a29da7844c1a9fee4aac618be33b804bc0bf72c0d87be8534f",
+      "bytes": 57374,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan7-audio-v2.md"
+      ]
+    },
+    {
+      "resourcePath": "Audio/candidate-shield-v2",
+      "file": "game/unity/Assets/Game/Resources/Audio/candidate-shield-v2.wav",
+      "sha256": "6e2c515f4a07d2b9562918377bd083d72b6fd2de384a7e1cd3ac21a5f74fbeae",
+      "bytes": 57374,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan7-audio-v2.md"
+      ]
+    },
+    {
+      "resourcePath": "Audio/candidate-victory-v2",
+      "file": "game/unity/Assets/Game/Resources/Audio/candidate-victory-v2.wav",
+      "sha256": "50238758656a64e1e5e27415a054f664ed9ce0f65aa0f708f94d6dea997dc6c7",
+      "bytes": 211724,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan7-audio-v2.md"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-adv-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-adv-candidate-v1.wav",
+      "sha256": "ef922a470217f1d033770b9515327958b76c09ebc439fa99d6b21479d0bd4dc5",
+      "bytes": 8467244,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-battle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-battle-candidate-v1.wav",
+      "sha256": "142f4cca9e9e8fd22ec9f6eb2a251b652b4df7ec221d17f1b25cbbebdb7c34d5",
+      "bytes": 4233644,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-garden-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-garden-candidate-v1.wav",
+      "sha256": "8dcf35772578e4843ed490aa8fa3ab7afd723e0f569662948c820fffe524f6f4",
+      "bytes": 7056044,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-title-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-title-candidate-v1.wav",
+      "sha256": "074ff73409ea87eebaa6cb0b82d5ef7b6df89f208c5079806e4a0e25a6bbd508",
+      "bytes": 5644844,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-se-cancel-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-cancel-candidate-v1.wav",
+      "sha256": "ec533235a9f2093b4d77be9b25b415420761bfb711e5c06dded25c7087e42917",
+      "bytes": 91772,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-se-confirm-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-confirm-candidate-v1.wav",
+      "sha256": "8e33989147e3ea990b67da063d230a2897722e637563c39740031afc9c3a887d",
+      "bytes": 91772,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-se-page-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-page-candidate-v1.wav",
+      "sha256": "980718e3ac97a7d9f3ec73f6bcfff8150c593b888d30bb25eeb8c8cb90aa0f11",
+      "bytes": 123524,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Audio/plan9-se-unlock-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-unlock-candidate-v1.wav",
+      "sha256": "85b3b43a9a1a85f2721cdfcb1d07bbea466d104bc99af383ced7bebf9f426cff",
+      "bytes": 155276,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-original-procedural-audio",
+      "evidence": [
+        "docs/production/plan9-audio-source-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/amber-desert-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/amber-desert-far-candidate-v1.png",
+      "sha256": "00045e4577c577895fb3927c78c9dd6d3c272b977182e650e053b366e055f0cf",
+      "bytes": 2448077,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-body-candidate-v1.png",
+      "sha256": "acde08e466c878adbf570b4316c196d5947c017a9434cb56da7ff873112c63ff",
+      "bytes": 1492168,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-claw-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-claw-candidate-v1.png",
+      "sha256": "b576582903525fd857eabc96f5118a1daf83c6f32fe485ab6df9ad7701527607",
+      "bytes": 921619,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-major-candidate-v1.png",
+      "sha256": "e2d521224ffb301c06cc0e7db75fd75f3c93961dd17db6cebbc27991c9da2027",
+      "bytes": 1621637,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-ring-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-ring-candidate-v1.png",
+      "sha256": "1d72579fb7e29a18583b3f13bf13921a6bf30cab846f137299924476f114ddd2",
+      "bytes": 1288395,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-shield-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-shield-candidate-v1.png",
+      "sha256": "3a17ddcc926a8086e5e5d914a0d6275f4c8b9d9aa5b44c76e6262792681e8c7f",
+      "bytes": 946739,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/astal-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/astal-tail-candidate-v1.png",
+      "sha256": "175d24bf42fee6ba32f67e1bbc621d415ffb10fdb5c55dd0cfd45ccc2e0981a3",
+      "bytes": 1117419,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-body-candidate-v1.png",
+      "sha256": "4433a1acf87041016ca649e878b587c65445a917e859bb681f451b94b886f96c",
+      "bytes": 1860058,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-chest-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-chest-candidate-v1.png",
+      "sha256": "cacfa95df451b9c5ac940d3674dabd7524d54217866ea519feb129ea1b8dc4c3",
+      "bytes": 1440042,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-claw-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-claw-candidate-v1.png",
+      "sha256": "46c67dcb738982afa9c9c9fcaec53f1105e47b36ea821f3e54c36f93c1ad9065",
+      "bytes": 1598827,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-major-candidate-v1.png",
+      "sha256": "640ca6756ab3352ac2e3b5a5b6ff9d53c65733e6440929cd7b790d14e980e856",
+      "bytes": 1373453,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-ring-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-ring-candidate-v1.png",
+      "sha256": "90de379a10a64c583c5037dd1a87c1d048dff37352f20399ebdf023568360eb2",
+      "bytes": 1419770,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/asteria-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/asteria-tail-candidate-v1.png",
+      "sha256": "ed0b5ad9e815c383dfdcd8229c1e449671b386996d45abd371bf89443cd2c5c6",
+      "bytes": 1742338,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-newborn-asteria-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/black-wasteland-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/black-wasteland-far-candidate-v1.png",
+      "sha256": "43c65e1995b29cdb4722d51a89e4fca30093716e0112f2e6c4900eaa609d36a0",
+      "bytes": 2547227,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/canyon-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/canyon-far-candidate-v1.png",
+      "sha256": "6425f57787a0576abc56579d4abf54eb87046ca538f523d10d04697ff9ac44ad",
+      "bytes": 3150120,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-body-candidate-v1.png",
+      "sha256": "2ce97c8b0a91525a8d5fbbfead729b100dab3d1092ff2f9f965205a90e8235fd",
+      "bytes": 1807105,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-cannon-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-cannon-candidate-v1.png",
+      "sha256": "9def418d104ea9e2d3bfaafb2fee15e796e5628e03906660e3a45a52ecab3103",
+      "bytes": 1487263,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-core-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-core-candidate-v1.png",
+      "sha256": "7afcf7765047cbebf78b074968f03e6ec0d0d1acd0f28fc1fe62ae6f3bb96431",
+      "bytes": 778102,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-exhaust-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-exhaust-candidate-v1.png",
+      "sha256": "a3abc327699e9dbddba6c21cb9c500f1fd36f0a729ad7bf3187c2390af84b30d",
+      "bytes": 1000050,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-gate-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-gate-candidate-v1.png",
+      "sha256": "60f4980bac34e80ffd95fa7b66f3a102510b93cf5140291f08ff9f1fa98872b7",
+      "bytes": 1605595,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/citadel-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/citadel-major-candidate-v1.png",
+      "sha256": "0a3ebe14c9dcf11cc40f16866d601e650b17f061b3df1316a891162185285b80",
+      "bytes": 1237137,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-black-smoke-citadel-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/crystal-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/crystal-far-candidate-v1.png",
+      "sha256": "ac3abf67f69519a287ca960ff7c576569f5558311b4ae92b14b155ca4ea3e5d3",
+      "bytes": 3011307,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/divine-sanctuary-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/divine-sanctuary-far-candidate-v1.png",
+      "sha256": "ea331e3830f95c8e8bf7773d7de57d8801ae09bd9a84ad666af0ca05826b7750",
+      "bytes": 2852814,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-attack-candidate-v1.png",
+      "sha256": "fb60cebab61e9ecb8022a9dd88cd584ebc3a4b4869b05b3c315983a9f6373391",
+      "bytes": 1713075,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-cutin-candidate-v1.png",
+      "sha256": "c8517c9ce8804775f4eab9bd1f3a5dc03229581207b0f3471c76138b6bf23567",
+      "bytes": 2872918,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-event-0-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-0-cg-candidate-v1.png",
+      "sha256": "b921e9e9c69ba83182237707627ddcba06fa7897af15fa793ea7c3735fc8e79e",
+      "bytes": 3068782,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-event-1-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-1-cg-candidate-v1.png",
+      "sha256": "9a4d74f78f8be8c839555a443c33d94ecd42f33ec67a0bff493c08625c5bd0f2",
+      "bytes": 2864073,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-event-2-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-2-cg-candidate-v1.png",
+      "sha256": "af432ba39cebf70df8fcb3d713bbd6d6be4512eb145d25df4a0f027347a88cf1",
+      "bytes": 3189068,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-event-3-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-3-cg-candidate-v1.png",
+      "sha256": "aed759f3f61209dc48bc02faa5d434c38da42de98b97799baed8b5c12985596c",
+      "bytes": 3120149,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-event-4-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-4-cg-candidate-v1.png",
+      "sha256": "d5b2ce175fa0490511410e52e1c46256ea220d79b00a9d4307b09193cdf4e0d0",
+      "bytes": 2976727,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-expression-determined-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-determined-source-v1.png",
+      "sha256": "95ecd4af5ac7d45ea9928963412fc64fa2320fa2d0509256d77f15d97b8938e0",
+      "bytes": 2332953,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-expression-joy-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-joy-source-v1.png",
+      "sha256": "77abddfdf2f71ba507038324f86d82a4d1a611805c980ae8549e05fdd6322b68",
+      "bytes": 2361913,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-expression-puzzled-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-expression-puzzled-source-v1.png",
+      "sha256": "17e9176d068733712e24102102edf732d1a47bc9bdbfd97db4961599fa5e0c28",
+      "bytes": 2333884,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-hit-candidate-v1.png",
+      "sha256": "16417a5f61c9bddaa99d749474d6d4d6f38faf71d8f8bb24ac4efe16535309b9",
+      "bytes": 1605211,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-portrait-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-portrait-candidate-v1.png",
+      "sha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "bytes": 2727497,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-sd-idle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-idle-candidate-v1.png",
+      "sha256": "17e882445daedc424b3c4e9343606cf20879444d5e4e012a0e8ec721a5b95f6d",
+      "bytes": 1448014,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-sd-look-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-look-candidate-v1.png",
+      "sha256": "76e773f1511e77cc7197dd48b213918169ab17c0bea5636eae3d011c829c30a5",
+      "bytes": 1321233,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-sd-sit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-sit-candidate-v1.png",
+      "sha256": "77bd4d069306cbaf14605ef7306cba0c72fc758183a7f773e848da4e4060dedf",
+      "bytes": 1346213,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-sd-work-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-work-candidate-v1.png",
+      "sha256": "2072ec4be3026ce449ee0de835d2c7c1a83d1f855c6b1817bebd98edb1222a3d",
+      "bytes": 1564363,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/echidna-standing-candidate-v1.png",
+      "sha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "bytes": 2380195,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-echidna-asset-validation.json",
+        "docs/production/plan9-echidna-expression-render-validation.json",
+        "docs/production/plan9-echidna-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-attack-candidate-v1.png",
+      "sha256": "f89d783a8af5f75ff64e758485a93d0429944cd62811704793df8361fcf787fd",
+      "bytes": 1114983,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-cutin-candidate-v1.png",
+      "sha256": "43cf4bc985cf99b7b19664ccdb4663edcef6715b9334c3918eb93596db1701c1",
+      "bytes": 2830856,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-event-0-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-0-cg-candidate-v1.png",
+      "sha256": "cf2abf53c1ac03907840a1ff8f3ca99d638b4571f94520f2001141bc2a9d2843",
+      "bytes": 2987139,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-event-1-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-1-cg-candidate-v1.png",
+      "sha256": "75ed7ca7f984dbc5365df099647ba2ce734e316629ebf5853a5f1fc7d6f22410",
+      "bytes": 2639329,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-event-2-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-2-cg-candidate-v1.png",
+      "sha256": "7cff75d46da7969580e07153d3fda6581b44101af52ed22ceadbcfda304a401e",
+      "bytes": 2980755,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-event-3-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-3-cg-candidate-v1.png",
+      "sha256": "1d0dbf590626d19cfafec63387a0a065b0c0fe42c7386a70fbcb9f87730526ae",
+      "bytes": 2887278,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-event-4-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-4-cg-candidate-v1.png",
+      "sha256": "d7c5ed2d554525687d43bc7e4e1ec69c8dae4543797179f962c42564953d0485",
+      "bytes": 2911892,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-expression-determined-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-determined-source-v1.png",
+      "sha256": "97b32491a51205415c967ad005b63742facf27a56ee560ad7997cdd02bee466b",
+      "bytes": 2310313,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-expression-joy-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-joy-source-v1.png",
+      "sha256": "92d92813a029448384d063f3a904cbab0459b4def29ccb2280e87bb13a90c172",
+      "bytes": 2290978,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-expression-puzzled-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-expression-puzzled-source-v1.png",
+      "sha256": "a55c611b3de3107ad87a68c283b7234cee7d7bb0f600fa32a6bb7bf9f03d11fd",
+      "bytes": 2315531,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-hit-candidate-v1.png",
+      "sha256": "167b40198e09d5d37feae50fa863f66dd56b7415cf83a41ec040f19e564892af",
+      "bytes": 1549239,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-portrait-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-portrait-candidate-v1.png",
+      "sha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "bytes": 2732144,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-sd-idle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-idle-candidate-v1.png",
+      "sha256": "7b48285bd8ffe2b4e5344639bfba74db6ff6181141e84e003954cc8cb0c743e9",
+      "bytes": 1286471,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-sd-look-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-look-candidate-v1.png",
+      "sha256": "f71748e816ad412dc565ba5a0915506917cc4c76250e8496a0f4c075476c6398",
+      "bytes": 1516365,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-sd-sit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-sit-candidate-v1.png",
+      "sha256": "f62f9a593df2a8f134892074b966cc84e79d4517f4b16141ed697e1d56db655d",
+      "bytes": 1232100,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-sd-work-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-work-candidate-v1.png",
+      "sha256": "c6cd353d62ac4ccc1c22b53d5982288bb850f5c4e6d69da2b8cf6c30e4229fe6",
+      "bytes": 1489867,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/excalipan-standing-candidate-v1.png",
+      "sha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "bytes": 2346235,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-excalipan-asset-validation.json",
+        "docs/production/plan9-excalipan-expression-render-validation.json",
+        "docs/production/plan9-excalipan-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/flame-ice-caldera-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/flame-ice-caldera-far-candidate-v1.png",
+      "sha256": "dd3106802b3837fbd1368a66c7a6fb71c9a3bd19ab91142f7f164a027c03206f",
+      "bytes": 2866083,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/forest-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/forest-far-candidate-v1.png",
+      "sha256": "d0cbbb0959163f8cbc47cc6a6b995b53c7b69aaa572d07db37b7f89a7bb337b3",
+      "bytes": 2941651,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/forest-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/forest-front-candidate-v1.png",
+      "sha256": "ea8568edbdc39f0e4f1ab23635efd49784a883c30354510d699fd45a07e76139",
+      "bytes": 503722,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-bench-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-bench-candidate-v1.png",
+      "sha256": "b387425fcc2292b8c298a4f3c379c8b55bf987a26606f67e5e5e0460d96765a1",
+      "bytes": 1519511,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-birdbath-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-birdbath-candidate-v1.png",
+      "sha256": "3e46c82379783494fb1d18a77cf0e3d363656cfbd9286d3df43135121020e9a5",
+      "bytes": 1295125,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-brazier-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-brazier-candidate-v1.png",
+      "sha256": "fe5014676b4765fb3da1ceb9af11e50a41aa0248c80340d4b880c73d30932b17",
+      "bytes": 1946561,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-desk-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-desk-candidate-v1.png",
+      "sha256": "0e3eb4776ce5f624529857387ab6a2814bb223155b765bfa6dee401dbe009882",
+      "bytes": 1722594,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-fountain-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-fountain-candidate-v1.png",
+      "sha256": "66d6ced10e25a7ab0a59e81519d2746113f6531121f517c046a996ac1f65c480",
+      "bytes": 1611553,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-lantern-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-lantern-candidate-v1.png",
+      "sha256": "20a460ac97ea2e7e916e956f9a675e1d074d06a5eab048b3163cb9ce10428304",
+      "bytes": 1575268,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-obelisk-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-obelisk-candidate-v1.png",
+      "sha256": "0464684ae4bb8f002cf4fd7713486df463201dfb632979022c4eecae06dee993",
+      "bytes": 908614,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-planter-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-planter-candidate-v1.png",
+      "sha256": "f1291c3786b935b920ae917dd95f4b904b4eb86f7f05da18393bd27f77411a17",
+      "bytes": 1965482,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-telescope-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-telescope-candidate-v1.png",
+      "sha256": "e5d79c39ffcb26088bd225f5142e988cc1875c9625bb7de0385ed4c7e9033992",
+      "bytes": 1138654,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/garden-well-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/garden-well-candidate-v1.png",
+      "sha256": "6490eb3f7a36a4089a100eb9a4985b19413d948da80f536c7487c9cc6632dcb9",
+      "bytes": 1805789,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-body-candidate-v1.png",
+      "sha256": "ad318e67391d58ab06b21068a4b2dfdd8538b9d30f13071fe3a21b54395c8d88",
+      "bytes": 1464227,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-crown-candidate-v2",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-crown-candidate-v2.png",
+      "sha256": "1f66fd4e06a466148bee19b3b75ffe035476a90712e945b2051781573110d15e",
+      "bytes": 480892,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-major-candidate-v3",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-major-candidate-v3.png",
+      "sha256": "7fd538d404e402cbff67b57d26c2a40d1f8a52c6894ba1d84794b5d8c13059fa",
+      "bytes": 1436885,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-tail-candidate-v1.png",
+      "sha256": "bfb7df6fafdd29b29c87e43bc46a28dfc7435dd6c4fc2d6d257caf9e355ea9a9",
+      "bytes": 636514,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-wing-left-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-wing-left-candidate-v1.png",
+      "sha256": "f4a51f0e2ebe5c75b215835f996d136f03f3e782d7cf84cc749bcc3208e6d478",
+      "bytes": 1140075,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/green-wing-right-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/green-wing-right-candidate-v1.png",
+      "sha256": "9d742de3fcc93609078aa46b0df68f3a7b8469150038763689e3a754e0324379",
+      "bytes": 1215106,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan7-validation.md"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/heaven-forest-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/heaven-forest-far-candidate-v1.png",
+      "sha256": "4543ae373ac972f86c36fedf261ef66bbcf4f05663f25b51147db8cfc12ec307",
+      "bytes": 3188410,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/highland-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/highland-far-candidate-v1.png",
+      "sha256": "358b1dfa66b82af34a6a5e4ab7a0056927140fc781ed06fbe3cba694b64254ff",
+      "bytes": 2854951,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-attack-candidate-v1.png",
+      "sha256": "1c372a3add057603dcd1032646f7dde4c1890a5243ed1eb544f72b73e0d95bbb",
+      "bytes": 1687293,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-cutin-candidate-v1.png",
+      "sha256": "64407717d5cd0897c61cd3a6574309c15884dbcaa05155a82c99369e92517b85",
+      "bytes": 2855550,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-event-0-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-0-cg-candidate-v1.png",
+      "sha256": "6a51f7f1a3476fca2c55f3b1901afe1f5ae800469a4960a7c505f128fa9062ea",
+      "bytes": 2562586,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-event-1-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-1-cg-candidate-v1.png",
+      "sha256": "bc54876865d93e51997dcb9951b14367eaec5cb48f1b9f8d919e85641ca99dfe",
+      "bytes": 2614507,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-event-2-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-2-cg-candidate-v1.png",
+      "sha256": "1e97dcaea3b818ec0179a8d0e1dea720b1306c358296865bdb67f3f33664947d",
+      "bytes": 2756431,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-event-3-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-3-cg-candidate-v1.png",
+      "sha256": "37916e96dd5472e6315ee697c71c640259d558d1bdf9d7ccdc2631b46ed32890",
+      "bytes": 2982031,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-event-4-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-4-cg-candidate-v1.png",
+      "sha256": "2641623d1512a1e09af9833d5a1fb60f4e2f8d9141bc07ada6d6e61467dc6b46",
+      "bytes": 2808351,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-expression-determined-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-determined-source-v1.png",
+      "sha256": "9ac2078cf802a9c31996e0d2d31a2a38a10e3d3f5490aa2d9c8875dbbaedca90",
+      "bytes": 1897975,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-expression-joy-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-joy-source-v1.png",
+      "sha256": "f2032e377cf10aa58adf4900a839d5fe705a86bd5b00381f08f333f2dde9ac02",
+      "bytes": 2359901,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-expression-puzzled-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-expression-puzzled-source-v1.png",
+      "sha256": "9ad7e5a2dfcbdca8d8191470e272ebacf1dcf6e6b7bc0108d74b50abd1a55531",
+      "bytes": 2497739,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-hit-candidate-v1.png",
+      "sha256": "62617515ff4c65d8eed321f87b3d6ef7f2f7b3ad56e1134406ff598dcf5d56b8",
+      "bytes": 1639425,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-portrait-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-portrait-candidate-v1.png",
+      "sha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "bytes": 2461473,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-sd-idle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-idle-candidate-v1.png",
+      "sha256": "340816723e8464ab320f3a03ce659733e310b954c8654c7003155f705e885ca4",
+      "bytes": 1411134,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-sd-look-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-look-candidate-v1.png",
+      "sha256": "2650a21f7a960038cc731b44ca95bfc643fd71ff9805c9d2f8906867bf18243c",
+      "bytes": 1415175,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-sd-sit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-sit-candidate-v1.png",
+      "sha256": "5489bb2b12a8c34cf9b328f0b0d0225aaae8b3d2e0c7cd82186b3ddf2ed7b1d2",
+      "bytes": 1579104,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-sd-work-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-work-candidate-v1.png",
+      "sha256": "a26830bc891c1a10c6eebc476cab3dabc860e1801b37135158de984475f08ba5",
+      "bytes": 1691814,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
+      "sha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "bytes": 2217812,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-iconoclast-asset-validation.json",
+        "docs/production/plan9-iconoclast-expression-render-validation.json",
+        "docs/production/plan9-iconoclast-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-armor-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-armor-candidate-v1.png",
+      "sha256": "72f403827ed3d1a269971a39b16d334d938fe0e4ce0ae7f907701cc0f2ff1dca",
+      "bytes": 1521296,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-body-candidate-v1.png",
+      "sha256": "01f52385e65fe96ff653b2f967bca50403001007954b3e9ae085bdc9d5208645",
+      "bytes": 1566836,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-crown-candidate-v1.png",
+      "sha256": "5ec5bc0a19f70f99b1a9fa139874f6727cf3cb2ce60783fb78087b1702c4db36",
+      "bytes": 1559696,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-lantern-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-lantern-candidate-v1.png",
+      "sha256": "a1ef3488917c47255c5514b9ffcf8dfe3edf502891f89419b47f52a7031ec91e",
+      "bytes": 940536,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-major-candidate-v1.png",
+      "sha256": "6aef8ff7361d075601a55e4f6cd7b07591d23adac57d9eee11365d62b33e5cf0",
+      "bytes": 2142276,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/megadeath-sword-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/megadeath-sword-candidate-v1.png",
+      "sha256": "bb2c9a78a48aa85557f6bd49d4424da0bfdccaf0efe78a09d9f57b5a4cb4110b",
+      "bytes": 803810,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-antenna-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-antenna-candidate-v1.png",
+      "sha256": "e02a1cdc3fef940e7a6169c586ebe0a53ec91b7c62281c3ef7b846cc196b8ae8",
+      "bytes": 719932,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-body-candidate-v1.png",
+      "sha256": "89bf36fca5fb5e72a1f2b0cb6296b4720cd5fe688462bef943600e76c8045935",
+      "bytes": 1479104,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-cannon-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-cannon-candidate-v1.png",
+      "sha256": "6fb95937f583d1f21fce87fa73d9a0e76d14f5149b956419e9f15e7e75abf206",
+      "bytes": 875365,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-core-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-core-candidate-v1.png",
+      "sha256": "2848dbc4ab5cabcb3e6114076f3ab74e45a316301272d711ece79919cb72f30b",
+      "bytes": 982671,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-major-candidate-v1.png",
+      "sha256": "99e7c07480cedd52573e195197cd702cc462047e687b1d5e6aeedab2b69764c7",
+      "bytes": 2021615,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/memory-shield-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/memory-shield-candidate-v1.png",
+      "sha256": "fc255e59572d0ab66fed529e16b6631ed9917b95d1102c60d91d99a31df59aed",
+      "bytes": 1101709,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-memory-crystal-dragon-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-body-candidate-v1.png",
+      "sha256": "18de6a70038fbd77f03966166d1cb1a46ee3761d124a1f550692b0ace4b050a0",
+      "bytes": 1376788,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-chest-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-chest-candidate-v1.png",
+      "sha256": "bf265d12eb3ab5c920e1b89f57497a418d5a3cf347e8e78de13e0fa4d4fb1c4f",
+      "bytes": 1468067,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-crown-candidate-v1.png",
+      "sha256": "759ff8d0d2a28f5cc7a0f2c3c71a90656686117cf9023f2909ade13a0905e9ef",
+      "bytes": 1167241,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-major-candidate-v1.png",
+      "sha256": "0597bf8c302e42298de8ebdd28eede18cd3ebeca2110c8d98452efb86a952102",
+      "bytes": 1480054,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-tail-candidate-v1.png",
+      "sha256": "2fc944488fbb019088037ffacbc73338a9747c06d6446a3b150625b5aa9c05e4",
+      "bytes": 943016,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/mother-wing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/mother-wing-candidate-v1.png",
+      "sha256": "26cf73ab9a395f77c097685e8d2bcf04c91733a01ef5df9d60b092279a51b1e8",
+      "bytes": 1461123,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-white-divine-dragon-mother-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/night-forest-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/night-forest-far-candidate-v1.png",
+      "sha256": "be7ed375acf7fe4de3829e3d09397b9d99e394651cdf1356bf7918adeae7a6fd",
+      "bytes": 2671863,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-dead-king-megadeath-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-body-candidate-v1.png",
+      "sha256": "de4dba030d66d00dec85e4fd93977559eaac9a57f0f43ed749c51441f8c9b8ea",
+      "bytes": 2408977,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-branch-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-branch-candidate-v1.png",
+      "sha256": "d5b446a7794a010c506d13c48c23e2e3bb3d6b5443c8211a1a3c2bd138482b72",
+      "bytes": 1665313,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-bud-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-bud-candidate-v1.png",
+      "sha256": "5cb5619c6d9a5b537bb8009442b82137405f01d1f24e137db9c0b4a1e5be5d9c",
+      "bytes": 1396732,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-major-candidate-v1.png",
+      "sha256": "4b3cf7070d584b79f5a5f121956b4075a4d26164f4cf711a120dcd086bb4353e",
+      "bytes": 2711242,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-root-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-root-candidate-v1.png",
+      "sha256": "6464a806a3acdd58cf5693c568635b673e1ee8ede39e20b0c78b30cd9bd9a1d7",
+      "bytes": 1650974,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/orochi-shield-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/orochi-shield-candidate-v1.png",
+      "sha256": "60c478ed0b60cd548c6b0f2423a33cf99c37c208efc54e189b771c3bcd9726ce",
+      "bytes": 1905045,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-heaven-tree-orochi-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-body-candidate-v1.png",
+      "sha256": "fa9afab51383912b31e0265735894e0241aab8a3c488fcf75a6b40180252104e",
+      "bytes": 859021,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-crown-candidate-v1.png",
+      "sha256": "23b6d317155e117b9152648d8f43c8ce110862be592bf69d34f9eee3a90a7a8b",
+      "bytes": 1220603,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-flame-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-flame-candidate-v1.png",
+      "sha256": "1a74dc4155e84b7f8cf8a9d3a3d73ee0dc5526cdc6d464f07c80f05a1b3fe932",
+      "bytes": 1470842,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-ice-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-ice-candidate-v1.png",
+      "sha256": "a2921afb1101677a4c15521dab195a89cac36735b90812abcea345b9be639d9b",
+      "bytes": 1596040,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-major-candidate-v1.png",
+      "sha256": "5cff971a067601f1965a6c74d026bc9ae2b690d2f967a7529de2e35184f73f5b",
+      "bytes": 1906721,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/phoenix-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/phoenix-tail-candidate-v1.png",
+      "sha256": "faf2e03d7f52cd38e066bbea4c33d72e0f730bc6d583106a138a8b6da132e002",
+      "bytes": 1586244,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-final-flame-ice-phoenix-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-body-candidate-v1.png",
+      "sha256": "1fc72cde7280bbc9ec65399740ceb0a268b9c4e7ebefdeb0a3ec8f3bd083e7dd",
+      "bytes": 1521541,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-claw-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-claw-candidate-v1.png",
+      "sha256": "2e31a3d102c8b5e57710155982fa428367ec666f252c408898d2119dd45376a2",
+      "bytes": 1389174,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-crown-candidate-v1.png",
+      "sha256": "2a722696d57eab6a23dbc7fee7c6ee025651e1957710141ef1fa7814de6b14d5",
+      "bytes": 1201036,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-major-candidate-v1.png",
+      "sha256": "2c4c294823dd80926f719f7829983245c689a36e87f7e9cf2ab69a965a4ee2ab",
+      "bytes": 2443456,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-plate-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-plate-candidate-v1.png",
+      "sha256": "2b03c67507fec0eecfaa396b5d22a1a1bc0d4038d2aaa87176a30f4dec8ab824",
+      "bytes": 1278769,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/red-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/red-tail-candidate-v1.png",
+      "sha256": "dad6f513f23f40ed771d8a5e415cdf39a22fea0c46173f36f50011773ae58cd1",
+      "bytes": 1214026,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-red-crystal-tyrant-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-body-candidate-v1.png",
+      "sha256": "7e08cebfe755d337634f0750701e82670af6bee1f93a8953100034b6ccc9ab89",
+      "bytes": 2048601,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-crown-candidate-v1.png",
+      "sha256": "92e03367d16cde8438b08583e09d0f8d8d94f17c6824e18cf60a1cd0237d630a",
+      "bytes": 1395057,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-garden-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-garden-far-candidate-v1.png",
+      "sha256": "25074959cb44396ffa6a426eb18cf1aadf536eac39d8fd6f1c2a585cbbe24a21",
+      "bytes": 2644597,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-major-candidate-v1.png",
+      "sha256": "10405bc8e8f40af1ea724d538e4f39e9e9b2a3bcd3046606281c3b040f15e4bd",
+      "bytes": 2116409,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-root-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-root-candidate-v1.png",
+      "sha256": "f557cc598fc25ad10465a9c1319b1eea5dd6198f8a78ef53ca3b5dee73f16c40",
+      "bytes": 1562499,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-shield-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-shield-candidate-v1.png",
+      "sha256": "cd77f3ba59e6181e3b4d0111b1e398e8c6e73ecac85a1890595847262a0f4d5e",
+      "bytes": 1809471,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/rose-whip-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/rose-whip-candidate-v1.png",
+      "sha256": "5951ce5145f3bf5aa7614d372d6bf5d4b4460b41b30ab427e898587554e2a2d6",
+      "bytes": 760446,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-crystal-rose-princess-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-armor-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-armor-candidate-v1.png",
+      "sha256": "3f52867ce57d1e641e3eb23c74fcff13dc2e19af4aac36a987fbb8d97694b221",
+      "bytes": 1241364,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-body-candidate-v1.png",
+      "sha256": "793dccb8e7c2afc9eefcbdae2012d444fe94205d9eeeb28cbe45a90213b687d1",
+      "bytes": 857913,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-crown-candidate-v1.png",
+      "sha256": "ee4c20e4babca42c125a70373c1d344fc37d17f218993a2af5f4a09653ccb581",
+      "bytes": 889072,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-fang-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-fang-candidate-v1.png",
+      "sha256": "01ad94bac6183fbab36f1edade45e8415ca354d6309c8a682bba310e1a419924",
+      "bytes": 583427,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-major-candidate-v1.png",
+      "sha256": "a47891d5aced630acbc82e1ac17255ccdb65042adf45c876b3a2873d89d07585",
+      "bytes": 2091349,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/serpent-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/serpent-tail-candidate-v1.png",
+      "sha256": "0e4c498b39cab4143b86eeb84c6c02138382fedd8246dd1821b2cef8f6cf75b4",
+      "bytes": 690155,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-amber-king-serpent-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/silver-sea-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/silver-sea-far-candidate-v1.png",
+      "sha256": "e4dbfd2c5ae5e3255d0c1c904a01827d246aa6619444714319628cbe4b55902c",
+      "bytes": 2837242,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-barrier-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-barrier-candidate-v1.png",
+      "sha256": "de5b7b0ffcff0b1bed34a742eb5078f2ba3819f1f7f84591e018ba2466ea3061",
+      "bytes": 1442077,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-body-candidate-v1.png",
+      "sha256": "c936e2374afcd42a08d37b6852e3810fe78fe04a4b92d4825a462f7d4143daa9",
+      "bytes": 1524281,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-cannon-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-cannon-candidate-v1.png",
+      "sha256": "d8b121cc39dfedf7d8bc98f1879ba2e877ef28066091de6c3d8e99724c02f178",
+      "bytes": 1083198,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-major-candidate-v1.png",
+      "sha256": "d9a85cf0a40a4b147003a5a5cad35ace56ea0d22ce2897d039dcf97d2f4fbc37",
+      "bytes": 1439527,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-ring-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-ring-candidate-v1.png",
+      "sha256": "af84cdc22172824bb5e8d7283b5c496e51f2d98a0d24627641d3b8f7c78700b1",
+      "bytes": 1419634,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/sky-turbine-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/sky-turbine-candidate-v1.png",
+      "sha256": "23ba729e4c9c911534df7d081e2b2431412ae17bad5d8c94e1a32ece989a4dad",
+      "bytes": 1404352,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-sky-tower-machine-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-attack-candidate-v1.png",
+      "sha256": "74a28016733166f07f30cfb75c1933b94ef62dfb7e747c363291077450214ab7",
+      "bytes": 1410791,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-cutin-candidate-v3",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-cutin-candidate-v3.png",
+      "sha256": "2a7bf6bde5e55348a47163b78592e53f8e790b9626080dc24ed92e4fe4084dbf",
+      "bytes": 1110125,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-event-0-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-0-cg-candidate-v1.png",
+      "sha256": "a204e2d4de4fd391bdb0ce2cf8672225fc1f1a4df3cf379db3028bf1593e9fa4",
+      "bytes": 2749943,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-event-1-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-1-cg-candidate-v1.png",
+      "sha256": "14ae1386b006cddc16c1deea87106a37a19bb84a0ad1c592fd614fc09d4f4375",
+      "bytes": 2952452,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-event-2-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-2-cg-candidate-v1.png",
+      "sha256": "76b9df60f59d18bae1d23ac53e96dffff59407703d6338d04e15862d424187a3",
+      "bytes": 3024197,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-event-3-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-3-cg-candidate-v1.png",
+      "sha256": "93243eeaf17ae1315a94f70c69fe68fe449a5c014061a4193780294ad07f395b",
+      "bytes": 2967624,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-event-4-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-4-cg-candidate-v1.png",
+      "sha256": "af3c94d4d50819b5776063b2e2c63e12efaffd6817df975d2803771a43273015",
+      "bytes": 3031102,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-expression-determined-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-determined-candidate-v1.png",
+      "sha256": "ed196a2c97a7ea5493db6bf3ae17c00c8f5912e3d7e2acb2fa429020bf5f462e",
+      "bytes": 1958549,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-expression-joy-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-joy-candidate-v1.png",
+      "sha256": "2987cbb053e8bb9fd14e7827a3cdbeebb89f218ce9e0939bf26ffa01ac2a6482",
+      "bytes": 1947005,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-expression-puzzled-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-puzzled-candidate-v1.png",
+      "sha256": "3c16f5f284362573e3bec717af93aeb3c500f1e9d1174bc10d90aab86e189d02",
+      "bytes": 1947327,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
+      "sha256": "40ba73f690ef7d94bda811699aa6907900b2225eb67ab96845bcb3a11361f0c4",
+      "bytes": 1130258,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-portrait-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-portrait-candidate-v1.png",
+      "sha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "bytes": 2315035,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-sd-idle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-idle-candidate-v1.png",
+      "sha256": "ead29e6a676c906b500ad63aff351d7e1718017cd0362b05eb355e7f2ca535b6",
+      "bytes": 1166188,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-sd-look-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-look-candidate-v1.png",
+      "sha256": "a7c0ff1f4809bce4171d5983fe3b8d8271be64f6a584b6d0b3c8a09a2ce0835b",
+      "bytes": 961172,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-sd-sit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-sit-candidate-v1.png",
+      "sha256": "3c64ebbc9d1b26010085e05be2b942f7439d5aa6334b04719a41fe5ed42460b0",
+      "bytes": 1108140,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-sd-work-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-work-candidate-v1.png",
+      "sha256": "fab3b3fa2f984065aebc60c5b89bc6791d2de4d2aad5f79142bfea43317f2119",
+      "bytes": 1052783,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
+      "sha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "bytes": 1980789,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-slayer-asset-validation.json",
+        "docs/production/plan9-slayer-expression-render-validation.json",
+        "docs/production/plan9-slayer-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/spring-plain-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/spring-plain-far-candidate-v1.png",
+      "sha256": "d1395eea5a39024a49572fe8488b173bf7e34f94749c3ad6ead32c573a22f12e",
+      "bytes": 3102570,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/star-prairie-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/star-prairie-far-candidate-v1.png",
+      "sha256": "a4cfeb0bf96395419f9d1f46049b26c96aee958d827f7a14951a291aa3574b2a",
+      "bytes": 2790093,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-emerald-star-astal-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-attack-candidate-v1.png",
+      "sha256": "827da44ab34a2262e960a4d4736ef7b42a5135ff63709db04c9c8607c548bb00",
+      "bytes": 1563136,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-cutin-candidate-v1.png",
+      "sha256": "c0c913e10af0b3e2b5878367e9e675310b941e1b621819a9e4c3d259e7b5197c",
+      "bytes": 2888993,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-event-0-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-0-cg-candidate-v1.png",
+      "sha256": "086a8929a5ea8aed9f90a449317ba4085c4a78a4659cf7feb42a93d36cfa0a91",
+      "bytes": 2807990,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-event-1-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-1-cg-candidate-v1.png",
+      "sha256": "6adc350116406855fc2bdd52a4c4d8d36c158a0509deeaea7b1a8e150b8ce3a1",
+      "bytes": 2951692,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-event-2-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-2-cg-candidate-v1.png",
+      "sha256": "ab1b043b6a141f0bf0aaa97a147545ca3eb41157bd618f963a3f338dd455c762",
+      "bytes": 2982650,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-event-3-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-3-cg-candidate-v1.png",
+      "sha256": "97c48e5a73143114bc21cd5ed64c5f428afb3556769264cd32df8649f1afdf9f",
+      "bytes": 3080960,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-event-4-cg-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-4-cg-candidate-v1.png",
+      "sha256": "dffdf9c3ad27e3a9de3f0ebe5c4e0d8a2b5feb25aab6f27d1b40ed0176c1ffb5",
+      "bytes": 3155405,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-expression-determined-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-determined-source-v1.png",
+      "sha256": "329222d115645530c63c5082a56732f4c7f0bb927e1bbe1ea0f6be20be37216c",
+      "bytes": 2394525,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-expression-joy-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-joy-source-v1.png",
+      "sha256": "3b6827a9fc11e506828d6ef6a540d978e88aad64ab51d13354028a2893141bbb",
+      "bytes": 2394913,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-expression-puzzled-source-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-expression-puzzled-source-v1.png",
+      "sha256": "d7386db4a9d580376238373a865f9274e59da9da395a02c24196e3bbde26e53c",
+      "bytes": 2387853,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-hit-candidate-v1.png",
+      "sha256": "a139ac3234a0f5e9bf98967a42ad03230668e8d6e76fda9ce050b118fc0130a4",
+      "bytes": 1764547,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-portrait-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-portrait-candidate-v1.png",
+      "sha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "bytes": 2573624,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-sd-idle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-idle-candidate-v1.png",
+      "sha256": "1bd5dbe2fb368b482f8db68fef4996107f16c995425492c9345ee74a45035f2f",
+      "bytes": 2083543,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-sd-look-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-look-candidate-v1.png",
+      "sha256": "e778049021642ec0a8d5fa8b78887128a05d807cf3650976c86cf33740af58f6",
+      "bytes": 1488071,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-sd-sit-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-sit-candidate-v1.png",
+      "sha256": "0e19fb95911f793ad8f8cf258c00d3cfbca0c7e054f4e5f15de824d7dfea383c",
+      "bytes": 1528561,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-sd-work-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-work-candidate-v1.png",
+      "sha256": "626b6c47d8b10aaf3b95805ef4bbea2a6031695b387ae3e0beb8505c465e8762",
+      "bytes": 1630230,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/undermine-standing-candidate-v1.png",
+      "sha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "bytes": 2416743,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-undermine-asset-validation.json",
+        "docs/production/plan9-undermine-expression-render-validation.json",
+        "docs/production/plan9-undermine-cg-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-armor-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-armor-candidate-v1.png",
+      "sha256": "2cc47a8898c4980606cf7b2ddc9a30b68f72ffcacfa70c41cd6c14b2cef7ab39",
+      "bytes": 656860,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-body-candidate-v1.png",
+      "sha256": "ac2337061ef48eb15404439afeeb61e2783a9d3d546ffb36e15b5513c12d2399",
+      "bytes": 644383,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-core-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-core-candidate-v1.png",
+      "sha256": "1a5fd4c1cc7f36c5ba65fe6d4790bc73ac5b57dff46930e77eb564dd2507c49d",
+      "bytes": 1148813,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-fin-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-fin-candidate-v1.png",
+      "sha256": "0e7de69df8749bf1eee9057994d2c60e8e79fcf3b52436a9230b51f0b3c115ec",
+      "bytes": 862276,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-major-candidate-v1.png",
+      "sha256": "0584d9aab6005a0b4f32b2fbe67b1d4fd6de65126f900d9d9e5f49e84619a4ae",
+      "bytes": 1498231,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/whale-tail-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/whale-tail-candidate-v1.png",
+      "sha256": "1e103031030e53c796ba36d8403286c75bf30423b1b98b75e401872bb74beac3",
+      "bytes": 983553,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-silver-sea-whale-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-confluence-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-confluence-far-candidate-v1.png",
+      "sha256": "2a6f5bf651c67cbc7d94a531243bb766509efb791572d5a7ce1d325967258ef1",
+      "bytes": 2764453,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-crystal-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-crystal-far-candidate-v1.png",
+      "sha256": "53449aaba23c7bf52487ee62d23f74444e1edabe3481ed83772f61f338f2e3cc",
+      "bytes": 2811064,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-crystal-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-crystal-front-candidate-v1.png",
+      "sha256": "c4bbe0076f8b987aa8295ca473a465725d6e49e7b0ca2dbad8d41a7bf88bfa5f",
+      "bytes": 728818,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-crystal-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-crystal-mid-candidate-v1.png",
+      "sha256": "fe47defa44c35b69a83a3f20d509866ec26d1cb4730c526c22c68b8ba6172a21",
+      "bytes": 1149445,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-forest-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-forest-mid-candidate-v1.png",
+      "sha256": "b8c5738fe179e79f8cdb99d312b4df6030394e293a35f1dcf4e78b4276430889",
+      "bytes": 1646368,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-oasis-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-oasis-far-candidate-v1.png",
+      "sha256": "a901b2e8ab464f84e215181de6e1a5df0511b712d2c3dd06873b6063bf7c9941",
+      "bytes": 2621532,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-oasis-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-oasis-front-candidate-v1.png",
+      "sha256": "45e98cff8b53b8f28d4a160f6cfa2814db7a015bcce3dce723ced7cb813b0822",
+      "bytes": 1339524,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-oasis-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-oasis-mid-candidate-v1.png",
+      "sha256": "678d44003ece31bcdd4f488ff8f2efd0a308112e9da0f442950424096050d49b",
+      "bytes": 994084,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-snow-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-snow-far-candidate-v1.png",
+      "sha256": "54a4349f28fb43e88b1beb6e42bbfc16a1afdf117dbbbf764dca4a9e395abe01",
+      "bytes": 2414768,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-snow-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-snow-front-candidate-v1.png",
+      "sha256": "9a47d2e09681db7060666325663e7dbf009fa880043806eb758173dd0793b101",
+      "bytes": 1086130,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-snow-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-snow-mid-candidate-v1.png",
+      "sha256": "98e07f9d816cdef08a4c7e7ed7098cdd8c14dd950db21f625b9db1e8dbf2f7eb",
+      "bytes": 1091998,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-spring-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-spring-far-candidate-v1.png",
+      "sha256": "16ab01e32d2f199914e023f13b4ee972da7efd02d2a2b7fdfb73286871b6aed7",
+      "bytes": 2661480,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-spring-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-spring-front-candidate-v1.png",
+      "sha256": "6730e03fa155c4534bfa8befd8f13f2615a40e0666cc0d9539e19d1091385f18",
+      "bytes": 1212211,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-spring-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-spring-mid-candidate-v1.png",
+      "sha256": "6f6764577f747a52d8b6495673aa8c12a7ba1f57d22a4f7341020952ea667d8c",
+      "bytes": 1184689,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-stars-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-stars-far-candidate-v1.png",
+      "sha256": "257da60081f38820ca2acbb20f23c8dde9f08a8397c0bbb5795620d36f220203",
+      "bytes": 2904673,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-stars-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-stars-front-candidate-v1.png",
+      "sha256": "2d7555f6071af7c63b741bc52ae9e9e58994fbbbbf17f84d93ea598c0ed86306",
+      "bytes": 747927,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-stars-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-stars-mid-candidate-v1.png",
+      "sha256": "c65c832267cb31f57c40c38bc125cff42847755ba7ce8805cdee956d1ea2f10e",
+      "bytes": 971202,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-water-far-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-water-far-candidate-v1.png",
+      "sha256": "d2d2215233c13240cbe4e32358c75ab46f23dc649c4c8eb20d28d7eeea8e56ac",
+      "bytes": 2937755,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-water-front-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-water-front-candidate-v1.png",
+      "sha256": "d7a5c7255bcc8a053a3323e089ac2b2c096cd0040e01234ff5755f654407228b",
+      "bytes": 872682,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/world-water-mid-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/world-water-mid-candidate-v1.png",
+      "sha256": "2bdf3fc6a7b6d5fbb20313b64ee5bef84244f4dd654a8937c27883c30e26aee3",
+      "bytes": 1067084,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-garden-art-source-validation.json",
+        "docs/production/plan9-garden-runtime-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-arm-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-arm-candidate-v1.png",
+      "sha256": "d8ac8c9a9f7e6f3d7b0a786f0b055bbe1fa3a4dd5ca8ec1b067cc7f5d706f6b6",
+      "bytes": 1252700,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-body-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-body-candidate-v1.png",
+      "sha256": "350caa54af667c9466b9b3f874d170bd5da183cddd9bd4c33ea5f05d96d1e37e",
+      "bytes": 1395970,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-chest-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-chest-candidate-v1.png",
+      "sha256": "ec323b3917ffc28e086081d305658e36875b0ca138cacc989ea227f3941dd319",
+      "bytes": 1348932,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-crown-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-crown-candidate-v1.png",
+      "sha256": "34cfe2b3a9066ed451a0d91d7a9237cf76ff643c4bfe036c66ddea7a9e8f628d",
+      "bytes": 1408514,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-major-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-major-candidate-v1.png",
+      "sha256": "43f6ecdefdbe2300e1bfd070a90b88e842c34d59cb2a464a9e8f3006e9a42bd6",
+      "bytes": 1879176,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    },
+    {
+      "resourcePath": "Illustrations/yimir-wheel-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Illustrations/yimir-wheel-candidate-v1.png",
+      "sha256": "87c1013630dbc995b353b16d3719273ac61150c326f290021f14a98b256eb004",
+      "bytes": 1899264,
+      "adoption": "initial-five-distribution-candidate",
+      "origin": "newaster-imagegen-original",
+      "evidence": [
+        "docs/production/plan9-reenactment-yimir-art-validation.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "assemblySha256": "38F44F6561F692F22408044096472AD46BDAA817ACB417D19520D67A076C3EB6",
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.0-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.0-720.png",
+      "case": "story-garden.0",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "1c869fefde445f14073bbfb0a343c3c3587252617182e66e5092449175e31da1"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.1-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.1-720.png",
+      "case": "story-garden.1",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "68549e4b7fcaed85461675dd4d3dba1330d5a568f91115c61d60ab77a70fc65c"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.2-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.2-720.png",
+      "case": "story-garden.2",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "541b28de6ecb2a5038c2e28fbca3878f8ddbf544fdb152bf26439c49bcbf4210"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.3-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.3-720.png",
+      "case": "story-garden.3",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "67b9f2e4aabc8c547820fce7252627d8f9a32fa5ead2cfac5613752323b87191"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.4-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.4-720.png",
+      "case": "story-garden.4",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "723b88882b165c6dac9db75333ab13f77fd441cb3cea0d1ae93081c792ebce8b"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.5-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.5-720.png",
+      "case": "story-garden.5",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "4da5151e7733024a23429b1c3fe8a2d1dc06c7d37aaf1f9bf7bd7983612ab14d"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.6-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.6-720.png",
+      "case": "story-garden.6",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "f0f31f49ec92472ae74189bd0e16d4012eb126859d58f6cba8aa8c7822940e7f"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.7-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.7-720.png",
+      "case": "story-garden.7",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "bbe0385d2732545fbfb442d6ac923c3744177f9968bb777ca9fa0097eb3183e9"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.8-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.8-720.png",
+      "case": "story-garden.8",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "86d2ee2ba2041c5d995bb27a54618efcf695ec642828477e562b78ec0da47b0d"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.furniture-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.furniture-720.png",
+      "case": "story-garden.furniture",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "bcc2e35fec604171c262056faccc4575de8fbeba627997ea0138e629c50db2d2"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.residents-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.residents-720.png",
+      "case": "story-garden.residents",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "f9a28bdb2f25c4e69c7de8c6544d2d80e8677490c683330a929e3020fe6c86e7"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.placement-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.placement-720.png",
+      "case": "story-garden.placement",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "6fbc37a84bb79e11c07650821ee35660a8d650e4a36bb0ee523298fe27936570"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.confirmation-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.confirmation-720.png",
+      "case": "story-garden.confirmation",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "effce1dc2039fbb72d591079d78449657afda0859514671bd7952d16645b7d62"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.audio-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.audio-720.png",
+      "case": "story-garden.audio",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "a8eab687859fa053704759e429fefd44e77e058c28cee6f87634bed77b99ad76"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-book-720.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-book-720.png",
+      "case": "story-book",
+      "height": 720,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "60742ccfa02560990375e2beaddd6ea4253f60b6a319c6cf3f5bbb3cc8f2ee92"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.0-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.0-1080.png",
+      "case": "story-garden.0",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "ac9e8123b9ba9e6ab4f644a6d88a6ddd8224e91826b56d3fa1a0827c41b36100"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.1-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.1-1080.png",
+      "case": "story-garden.1",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "ae04f0b1ac0fb9ca83b2a9fc56937f7b65537578d9e2189620543fe43680be97"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.2-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.2-1080.png",
+      "case": "story-garden.2",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "cff195363218c23e312ace58f4778c4b24b25b3dd834c146f21ddb85337e434a"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.3-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.3-1080.png",
+      "case": "story-garden.3",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "de997c49a932cd736211fe25dee671cb424e0493ae050da9dd4dd91187508dd7"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.4-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.4-1080.png",
+      "case": "story-garden.4",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "d3b847b71506214f4da367d5913f61bf0a66ba49518b18bbe3e691686de47a94"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.5-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.5-1080.png",
+      "case": "story-garden.5",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "ab2d8dcb28ffeec3fc71b25083de30cb4d7b11e1e00094a85a2f0e47209b1ebc"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.6-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.6-1080.png",
+      "case": "story-garden.6",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "3945ed4a2b2d242b97d18d9044b12c059eaeac2be2d8efb35a6a88787f7eba83"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.7-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.7-1080.png",
+      "case": "story-garden.7",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "da8813225ce720be767b1ebf0d806f61c74667b63fcbb459d5aebc24c438b303"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.8-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.8-1080.png",
+      "case": "story-garden.8",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "68d24ecb36e267a06333323c96e90fad610246cbf357553ec313325faa3cbdc2"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.furniture-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.furniture-1080.png",
+      "case": "story-garden.furniture",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "9a48bc903dd143d5a2394e5a97e082ee032e26eaf10033657560b72654027f15"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.residents-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.residents-1080.png",
+      "case": "story-garden.residents",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "133ebed5957dda68eda2afcdf993b31f19f2f437b9ef3e08cbd27dfba0e4e392"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.placement-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.placement-1080.png",
+      "case": "story-garden.placement",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "ea4b502aaacfaedba569b131288d6ed79f847972c9083b158163046fc29aeaf6"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.confirmation-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.confirmation-1080.png",
+      "case": "story-garden.confirmation",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "f0d0b30b454e0f312d2d10ac91761ab7fd591ff38326fd39aa30ca6a52da9ea5"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.audio-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-garden.audio-1080.png",
+      "case": "story-garden.audio",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "9e514172f5e989c5f026a46855529fc6889da52275f3bebf287e007e6adbbad6"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-book-1080.log",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-335b4c54f7e841ca910f8b94971ed041\\story-book-1080.png",
+      "case": "story-book",
+      "height": 1080,
+      "state": "visually-reviewed-candidate",
+      "imageSha256": "5d0bb9aad13becadd80d6f97e373e6b83d1874cb11fea21cd40355a6e74cf77e"
+    }
+  ],
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "scope": "9 gardens, furniture, residents, placement, confirmation, four-scene audio callbacks and production book",
+  "artAdoption": "separate final gate",
+  "physicalInput": 0,
+  "listeningSeconds": 0,
+  "buildAssertions": 1484
+}

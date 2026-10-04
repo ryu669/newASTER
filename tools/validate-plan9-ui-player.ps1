@@ -22,6 +22,7 @@ foreach($height in $Heights){
  foreach($case in $Cases){
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)
+  if($case -in @('title','intro','settings','credits','exit','help','startup-error','settings-cancel','settings-large')){$flags+='-capturePlan9ProductionEntry'}
   $expectedEnemy=$null;$expectedEnemyKind=$null
   switch($case){
    'title' {$flags+='-capturePlan9Title'}
@@ -32,7 +33,7 @@ foreach($height in $Heights){
    'audio-focus' {$flags+=@('-capturePlan7Sample','-artCase','settings','-validatePlan7Focus')}
    {$_ -in @('settings','credits','exit','development','help')} {$flags+=@('-capturePlan9Title','-plan9TitlePanel',$case)}
    'book' {$flags+='-captureBook'}
-   {$_ -match '^story-(chapters|conditions|chapter|events|book|event\.(slayer|iconoclast|undermine|echidna|excalipan)\.[0-4])$'} {$flags+=@('-capturePlan9Story','-plan9RepositoryRoot',$repo,'-plan9StoryRunId',([Guid]::NewGuid().ToString('N')),'-plan9StoryView',$case.Substring(6))}
+   {$_ -match '^story-(chapters|conditions|chapter|events|book|economy\.(tree|growth|relics|engagement|kinder-(entrance|draw|rates|exchange|tickets|confirm|result))|garden\.([0-8]|audio|furniture|residents|placement|confirmation)|event\.(slayer|iconoclast|undermine|echidna|excalipan)\.[0-4])$'} {$flags+=@('-capturePlan9Story','-plan9RepositoryRoot',$repo,'-plan9StoryRunId',([Guid]::NewGuid().ToString('N')),'-plan9StoryView',$case.Substring(6));if($case -eq 'story-garden.audio'){$flags+='-validatePlan9Audio'}}
    'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
    'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
@@ -135,6 +136,7 @@ foreach($height in $Heights){
   }
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
   if($case.StartsWith('story-') -and $text -notmatch ('PLAN9_STORY_PLAYER_PASS.*events=25 lover=5 view='+[regex]::Escape($case.Substring(6)))){throw 'Wrong production story view or incomplete event progression'}
+  if($case -eq 'story-garden.audio' -and $text -notmatch 'PLAN9_PRODUCTION_AUDIO_PASS'){throw 'Production audio functional diagnostic incomplete'}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
   if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}
   if($case.StartsWith('red-battle-') -and ($text -notmatch 'PLAN9_COLOSSUS_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy combat capture unavailable'}

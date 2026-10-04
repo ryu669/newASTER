@@ -37,7 +37,11 @@ public static class Plan9StoryTests
         reject(p=>p.events[0].cgResourcePath=p.events[1].cgResourcePath);reject(p=>p.events[0].backgroundResourcePath="");
         bool invalidOwners=false;try{pack.Validate(new[]{Heroes[0],Heroes[0],Heroes[2],Heroes[3],Heroes[4]},WorldCatalog.ColossusIds.ToArray());}catch(ArgumentException){invalidOwners=true;}
         check(invalidOwners,"Duplicated production roster is rejected");
+        check(HeroineRosterCatalog.InitialFive(combat).Page(0,20).Select(e=>e.id).OrderBy(id=>id).SequenceEqual(combat.FormationIds.OrderBy(id=>id)),"The production roster exposes exactly the five completed heroines while reserving eight jobs");
         var collection=ProductionStoryCatalog.Collection(combat,pack);var home=ProductionStoryCatalog.Home(combat,pack);
+        System.IO.Directory.CreateDirectory("tmp");System.IO.File.WriteAllText("tmp/plan9-home-catalog.json",JsonSerializer.Serialize(home,new JsonSerializerOptions{IncludeFields=true}));
+        ValidateGardens(check,combat,collection,home);
+        ValidateEconomy(check,combat,collection,home);
         var legacy=CollectionContractFixture.Create(combat);
         check(collection.poems.Select(p=>p.id).SequenceEqual(legacy.poems.Select(p=>p.id)) && collection.chapters.Select(c=>c.id).SequenceEqual(legacy.chapters.Select(c=>c.id)),"Production collection preserves every existing canonical poem and chapter ID");
         check(collection.links.Length==90 && collection.chapters.All(c=>c.textId.StartsWith("text.production.")),"All ninety authored correspondences and sixty chapter texts are connected");
@@ -60,8 +64,8 @@ public static class Plan9StoryTests
             var script=home.scripts.Single(s=>s.id==target.sceneId);
             check(script.commands.Count(c=>c.kind=="cg")==1 && script.commands.Count(c=>c.kind=="hideCg")==1 && script.commands.Where(c=>c.kind=="actor").Select(c=>c.expressionId).SequenceEqual(e.expressions.Select(x=>"expression."+x)),"Each event owns one CG and preserves all expression cues and return");
         }
-        bool releaseRejected=false;try{home.Validate(true);}catch(HomeDefinitionException){releaseRejected=true;}
-        check(releaseRejected,"Narrative completeness cannot promote candidate art and unmade gardens to release acceptance");
+        home.Validate(true);var unaccepted=JsonSerializer.Deserialize<HomeExperienceCatalog>(JsonSerializer.Serialize(home,new JsonSerializerOptions{IncludeFields=true}),new JsonSerializerOptions{IncludeFields=true});unaccepted.assets[0].placeholder=true;bool releaseRejected=false;try{unaccepted.Validate(true);}catch(HomeDefinitionException){releaseRejected=true;}
+        check(releaseRejected,"An individually unaccepted asset blocks the otherwise complete release catalog");
         var options=new JsonSerializerOptions{IncludeFields=true};
         Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);
         Func<FormalCampaignSave,FormalCampaignSave> clone=s=>JsonSerializer.Deserialize<FormalCampaignSave>(encode(s),options);
@@ -137,5 +141,51 @@ public static class Plan9StoryTests
             foreach(string file in System.IO.Directory.GetFiles(directory))System.IO.File.Delete(file);
             System.IO.Directory.Delete(directory);
         }
+    }
+    private static void ValidateEconomy(Action<bool,string> check,CombatDefinitionCatalog combat,CollectionCatalog collection,HomeExperienceCatalog home)
+    {
+        var banner=ProductionEconomyCatalog.Kinder(Heroes);banner.Validate(Heroes);
+        for(int i=0;i<5;i++){int call=0;var outcome=banner.Draw(max=>call++==0?299:i);check(outcome.kind=="heroine" && outcome.heroineId==Heroes[i],"All five equally weighted heroine outcomes resolve");}
+        int draw=0;check(banner.Draw(max=>draw++==0?300:8999).kind=="nectar","Production category boundary grants nectar");
+        draw=0;check(banner.Draw(max=>draw++==0?9999:9000).kind=="crystal","Production material boundary grants crystal");
+        var growth=new FormalGrowthSave{saveId="newaster.formal-growth",stones=3000,heroines=Heroes.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()};
+        var journal=new FormalProgression(growth,Heroes);var request=new KinderRequest("production.draw",0,KinderOperation.StoneDraw,10,bannerVersion:banner.contentVersion);int calls=0;
+        check(journal.CommitKinder(request,banner,max=>{calls++;return max==10000?9999:0;},s=>false)==GrowthCommitResult.SaveFailed && journal.Snapshot.stones==3000,"Production ten-draw save failure retains wallet");int once=calls;
+        check(journal.CommitKinder(request,banner,max=>{throw new Exception("Retry must not draw again");},s=>true)==GrowthCommitResult.Committed && calls==once && journal.Snapshot.stones==0 && journal.Snapshot.kinderPoints==10 && journal.Snapshot.nectar==2000,"Production ten-draw retry persists the same outcomes and exact cost");
+        foreach(string hero in Heroes){var nodes=home.weaponNodes.Where(n=>n.heroineId==hero).ToArray();check(nodes.Length==4 && nodes.All(n=>n.abilityId=="ability.production.weapon-attack") && nodes.Where(n=>!n.initial).Select(n=>n.terminal).Distinct().Count()==3,"Every heroine owns an authored four-node tree");check(nodes.Where(n=>!n.initial).All(n=>n.costs.All(c=>collection.resources.Any(r=>r.id==c.resourceId && r.kind=="material"))),"Tree materials come from reachable colossi");}
+        var ledger=new FormalCollectionLedger{contentVersion=collection.contentVersion};
+        var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth);
+        var heroDef=combat.Hero(Heroes[0]);var job=combat.Job(heroDef.jobId);int rawAttack=FormalGrowthMath.Stat(job.attack,heroDef.attackBp,1,0),rawHp=FormalGrowthMath.Stat(job.hp,heroDef.hpBp,1,0);
+        foreach(var relic in collection.relics){
+            ledger.relics=new[]{new CollectionRelic{id=relic.id,contentVersion=collection.contentVersion,attackRoll=100,hpRoll=1000}};ledger.equipment=new[]{new CollectionEquipment{heroineId=Heroes[0],relicId=relic.id}};
+            var battle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth,collectionGrowth:ledger,relicCatalog:collection);
+            check(battle.State.Heroes[0].Attack==((rawAttack+110)*(100+relic.attackPercent)/100)*(100+heroDef.traitAttackPercent)/100,"Own relic attack ability reaches battle projection before own trait");
+            check(battle.State.Heroes[0].MaxHitPoints==((rawHp+1050)*(100+relic.hpPercent)/100)*(100+heroDef.traitHpPercent)/100,"Own relic HP ability reaches battle projection before own trait");
+            check(Enumerable.Range(0,5).All(i=>battle.ChainRate(i)==baseline.ChainRate(i)),"Production equipment preserves common chain probability");
+        }
+        var copy=collection.Copy();check(copy.relics.Select(r=>r.attackPercent+":"+r.hpPercent).SequenceEqual(collection.relics.Select(r=>r.attackPercent+":"+r.hpPercent)),"Catalog copy preserves every own relic ability");
+        copy.relics[0].hpPercent=21;bool rejected=false;try{copy.Validate();}catch(ArgumentException){rejected=true;}check(rejected,"Unsupported production relic percentage is rejected");
+        ProductionEconomyCatalog.Engagement().Validate();
+    }
+    private static void ValidateGardens(Action<bool,string> check,CombatDefinitionCatalog combat,CollectionCatalog collection,HomeExperienceCatalog home)
+    {
+        check(home.gardens.Length==9 && home.gardens.All(g=>!g.unmade && g.middleAssetIds.Length==1 && g.foregroundAssetIds.Length==1),"All nine production garden layouts have ordered three-layer scenery");
+        check(home.furniture.Length==10 && home.furniture.Take(3).Select(f=>f.id).SequenceEqual(new[]{"furniture.fixture.0","furniture.fixture.1","furniture.fixture.2"}),"Ten production recipes preserve all preexisting furniture identities");
+        var options=new JsonSerializerOptions{IncludeFields=true};Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
+        var save=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion),collection=new FormalCollectionLedger{contentVersion=collection.contentVersion,materials=home.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
+        save.world.unlockedGardenIds=home.gardens.Select(g=>g.id).ToArray();HomeConditions.Refresh(save,home);var journal=new FormalCampaignJournal(save,encode,decode);
+        Action<HomeOperation> commit=op=>{string kind=op.Kind=="use"?"occupant":op.Kind=="remove"?"place":op.Kind;var request=new FormalHomeRequest("garden-"+journal.Snapshot.revision,kind,journal.Snapshot.revision,home.contentVersion,op.Key);string before=encode(journal.Snapshot);check(journal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==before,"Production home operation is atomic on save failure");check(journal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed,"Production home retries the exact prepared operation");};
+        for(int i=0;i<home.furniture.Length;i++){
+            var f=home.furniture[i];string instance="production-furniture-"+i;int before=HomeRules.Balance(journal.Snapshot,f.costs[0].resourceId);
+            commit(new HomeOperation("craft",f.id,instance));check(HomeRules.Balance(journal.Snapshot,f.costs[0].resourceId)==before-f.costs[0].amount,"Production recipe consumes its own world material exactly once");
+            commit(new HomeOperation("place",instance,garden:home.gardens[0].id,zone:"zone.ground",x:.13f+.23f*(i%4),y:.5f+.14f*(i/4)));
+            string hero=combat.FormationIds[i%5];commit(new HomeOperation("occupant",hero,garden:home.gardens[0].id,x:.5f,y:.7f));commit(new HomeOperation("use",hero,instance));
+            check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==hero).furnitureInstanceId==instance,"Every production furniture item supports real heroine use");
+        }
+        var snapshot=decode(encode(journal.Snapshot));snapshot.Validate();snapshot.home.ValidateContent(home,snapshot);snapshot.collection.ValidateContent(collection);
+        check(snapshot.home.furnitureInstances.Length==10 && snapshot.home.furniturePlacements.Length==10,"All ten furniture items and placements survive roundtrip");
+        string bytes=encode(snapshot);bool overlap=false;try{HomeRules.Apply(snapshot,home,new HomeOperation("place","production-furniture-1",garden:home.gardens[0].id,zone:"zone.ground",x:.13f,y:.5f));}catch(ArgumentException){overlap=true;}check(overlap && encode(snapshot)==bytes,"Colliding production placement is rejected without changing inventory");
+        bool locked=false;snapshot.world.unlockedGardenIds=Array.Empty<string>();bytes=encode(snapshot);try{HomeRules.Apply(snapshot,home,new HomeOperation("place","production-furniture-0",garden:home.gardens[0].id,zone:"zone.ground",x:.5f,y:.5f));}catch(ArgumentException){locked=true;}check(locked && encode(snapshot)==bytes,"Production furniture cannot be placed into a locked garden");
+        var poor=decode(encode(save));poor.collection.materials=Array.Empty<CollectionMaterial>();bytes=encode(poor);bool insufficient=false;try{HomeRules.Apply(poor,home,new HomeOperation("craft",home.furniture[9].id,"poor-furniture"));}catch(ArgumentException){insufficient=true;}check(insufficient && encode(poor)==bytes,"Unavailable world materials never create a production furniture item");
     }
 }

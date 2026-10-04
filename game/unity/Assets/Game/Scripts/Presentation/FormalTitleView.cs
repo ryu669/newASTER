@@ -11,6 +11,7 @@ namespace NewAster.Presentation
         private GUIStyle titleLogo, titleSubtitle;
         private bool titleSettingsDraftReady;
         private float titleDraftBgm, titleDraftSe;
+        private int titleDraftTextSpeed;
         private bool titleDraftShortened, titleDraftMotion, titleDraftFlash,titleDraftLargeText,titleDraftFullscreen;
         private Vector2 titleCreditsScroll;
         private string titleSettingsError;
@@ -23,6 +24,7 @@ namespace NewAster.Presentation
         private void BeginTitleSettings()
         {
             titleDraftBgm=ArtSampleSettings.Bgm;titleDraftSe=ArtSampleSettings.Se;
+            titleDraftTextSpeed=PlayerPrefs.GetInt("plan6.text-speed",30);
             titleDraftShortened=ArtSampleSettings.Shortened;titleDraftMotion=ArtSampleSettings.ReducedMotion;
             titleDraftFlash=ArtSampleSettings.ReducedFlash;titleDraftLargeText=ArtSampleSettings.LargeText;
             titleDraftFullscreen=PlayerPrefs.GetInt("art.fullscreen",Screen.fullScreenMode==FullScreenMode.FullScreenWindow?1:0)==1;
@@ -36,6 +38,7 @@ namespace NewAster.Presentation
         {
             try {
                 PlayerPrefs.SetFloat("art.bgm",titleDraftBgm);PlayerPrefs.SetFloat("art.se",titleDraftSe);
+                PlayerPrefs.SetInt("plan6.text-speed",titleDraftTextSpeed);
                 PlayerPrefs.SetInt("art.shortened",titleDraftShortened?1:0);
                 PlayerPrefs.SetInt("art.motion",titleDraftMotion?1:0);PlayerPrefs.SetInt("art.flash",titleDraftFlash?1:0);
                 PlayerPrefs.SetInt("art.large-text",titleDraftLargeText?1:0);PlayerPrefs.SetInt("art.fullscreen",titleDraftFullscreen?1:0);
@@ -102,7 +105,7 @@ namespace NewAster.Presentation
             if (TitleButton(140, 660, 255, 50, "操作説明")) OpenTitlePanel("help");
             if (TitleButton(415, 660, 255, 50, "ゲームを終了")) OpenTitlePanel("exit");
             Label(105, 771, 600, 38, "記憶は、ここから新しい世界になる。", titleSubtitle, titleGold);
-            if (TitleButton(1320, 805, 220, 42, "制作・試遊メニュー")) OpenTitlePanel("development");
+            if (!ProductionStoryActive && TitleButton(1320, 805, 220, 42, "制作・試遊メニュー")) OpenTitlePanel("development");
             GUI.enabled = previousEnabled;
             if (titlePanel != null) DrawTitlePanel();
         }
@@ -142,7 +145,8 @@ namespace NewAster.Presentation
                 if (TitleButton(770, 497, 350, 45, "フラッシュ軽減："+(titleDraftFlash ? "ON" : "OFF")))titleDraftFlash=!titleDraftFlash;
                 if(TitleButton(400,554,350,45,"文字："+(titleDraftLargeText?"大きめ":"標準")))titleDraftLargeText=!titleDraftLargeText;
                 if(TitleButton(770,554,350,45,"表示："+(titleDraftFullscreen?"全画面":"ウィンドウ")))titleDraftFullscreen=!titleDraftFullscreen;
-                Label(400,610,750,32,titleSettingsError??"適用すると保存されます。取消では元の設定を保ちます。",small,titleSettingsError==null?Color.white:titleGold);
+                if(TitleButton(400,605,350,40,"文章速度："+titleDraftTextSpeed+"字／秒")){int[] speeds={15,30,60,120};titleDraftTextSpeed=speeds[(Array.IndexOf(speeds,titleDraftTextSpeed)+1)%4];}
+                Label(770,605,350,40,titleSettingsError??"適用して保存 ／ 取消で元に戻す",small,titleSettingsError==null?Color.white:titleGold);
                 if(TitleButton(400,655,350,52,"取消"))CloseTitlePanel();
                 if(TitleButton(770,655,350,52,"適用して閉じる"))ApplyTitleSettings();
                 return;
@@ -150,7 +154,7 @@ namespace NewAster.Presentation
             else if (titlePanel == "credits")
             {
                 Label(400, 185, 750, 60, "クレジット", heading, titleGold);
-                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n制作素材の最終クレジットは正式採用時に追記します。";
+                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n初期5人 配布候補 RC1\n人物・巨神獣・背景・家具・CG：\nnewASTER用に制作したAI生成美術\n本文・戦闘ルール・UI・音：独自制作\nBGM4曲と操作音4種、戦闘音5種を収録。\n\n参考ゲーム映像は制作上の観察資料です。\n原作の画像・音声を本配布物へ収録しません。\n\n素材ごとの採用記録と既知の制限は\n同梱のCREDITS・READMEを参照してください。";
                 float height=Math.Max(320,text.CalcHeight(new GUIContent(credits),700));
                 titleCreditsScroll=GUI.BeginScrollView(new Rect(400,275,750,320),titleCreditsScroll,new Rect(0,0,700,height));
                 Label(0,0,700,height,credits,text,Color.white);GUI.EndScrollView();

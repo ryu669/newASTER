@@ -15,8 +15,9 @@ namespace NewAster.Core
     [Serializable] public sealed class CollectionEquipment {public string heroineId,relicId;}
     public static class FormalRelicRules
     {
-        // Explicit fixture tuning, never copied from the old trial inventory.
+        // Versioned independent inventory tuning; historical receipt costs stay unchanged.
         public const int AttackMaximum=100,HpMaximum=1000;
+        public static int UpgradeCost(CollectionRelic r,RelicOperation operation,string contentVersion) => contentVersion==CollectionCatalog.ProductionVersion ? (operation==RelicOperation.LevelUp?r.level:30) : (operation==RelicOperation.LevelUp?checked(10*r.level):1000);
         public static int Attack(CollectionRelic r)=>checked(10+2*(r.level-1)+r.attackRoll);
         public static int Hp(CollectionRelic r)=>checked(50+5*(r.level-1)+r.hpRoll);
         public static bool DirectEligible(int value,int maximum)=>(long)value*5 >= (long)maximum*4;
@@ -72,7 +73,7 @@ namespace NewAster.Core
                         inventory.equipment=inventory.equipment.Where(x=>x.heroineId!=request.HeroineId).ToArray();
                     }
                 }else{
-                    int cost=request.Operation==RelicOperation.LevelUp?checked(10*relic.level):1000;
+                    int cost=FormalRelicRules.UpgradeCost(relic,request.Operation,catalog.contentVersion);
                     if(request.Operation==RelicOperation.LevelUp && relic.level>=120 ||
                        request.Operation==RelicOperation.AttackUp && (!FormalRelicRules.DirectEligible(relic.attackRoll,100) || relic.attackRoll>=100) ||
                        request.Operation==RelicOperation.HpUp && (!FormalRelicRules.DirectEligible(relic.hpRoll,1000) || relic.hpRoll>=1000))throw new ArgumentException("Relic upgrade unavailable.");

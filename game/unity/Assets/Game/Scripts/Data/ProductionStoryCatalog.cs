@@ -5,14 +5,14 @@ using NewAster.Core;
 
 namespace NewAster.Data
 {
-    // Production narrative with candidate art and economy; release acceptance remains separate.
+    // Initial-five production narrative, authored economy and individually adopted art.
     public static class ProductionStoryCatalog
     {
         public static CollectionCatalog Collection(CombatDefinitionCatalog combat,ProductionStoryContent story)
         {
             story.Validate(combat.FormationIds,WorldCatalog.ColossusIds.ToArray());
             var catalog=CollectionContractFixture.Create(combat);
-            catalog.contentVersion=CollectionCatalog.ProductionVersion;catalog.status="production-candidate";
+            catalog.contentVersion=CollectionCatalog.ProductionVersion;catalog.status="release";
             foreach(var chapter in story.chapters){
                 var target=catalog.chapters.Single(c=>c.id==chapter.id);
                 if(!target.poemIds.SequenceEqual(chapter.poems.Select(p=>p.id)))throw new ArgumentException("Production poem membership differs from preserved IDs.");
@@ -20,14 +20,14 @@ namespace NewAster.Data
             }
             catalog.links=story.chapters.Where(c=>combat.FormationIds.Contains(c.ownerId)).SelectMany(c=>c.poems.Select(p=>new CollectionLinkDef{
                 id="link.production."+p.id,ownerId=c.ownerId,sourcePoemId=p.sourcePoemId,targetPoemId=p.id})).ToArray();
-            catalog.Validate();return catalog;
+            ProductionEconomyCatalog.ApplyCollection(catalog);catalog.Validate();return catalog;
         }
         public static HomeExperienceCatalog Home(CombatDefinitionCatalog combat,ProductionStoryContent story)
         {
             var collection=Collection(combat,story);
             // Reuse candidate art layout contracts, replace every fixture narrative and scene.
             var home=HomeExperienceFixture.Create(combat);
-            home.contentVersion=HomeExperienceCatalog.ProductionVersion;home.status="production-candidate";
+            home.contentVersion=HomeExperienceCatalog.ProductionVersion;home.status="release";
             home.texts=Array.Empty<HomeTextDef>();home.scripts=Array.Empty<HomeAdvScript>();
             var assets=home.assets.ToList();var texts=new List<HomeTextDef>();var scripts=new List<HomeAdvScript>();
             foreach(var chapter in story.chapters){
@@ -46,7 +46,19 @@ namespace NewAster.Data
                 AddScript(target.sceneId,authored.ownerId,authored.backgroundResourcePath,authored.cgResourcePath,authored.paragraphs,authored.expressions,assets,texts,scripts);
             }
             home.assets=assets.ToArray();home.texts=texts.ToArray();home.scripts=scripts.ToArray();
-            home.Validate();return home;
+            ProductionGardenCatalog.Apply(home,combat,collection);
+            ProductionEconomyCatalog.ApplyHome(home,combat,collection);
+            foreach(var display in home.displays){
+                var standing=home.assets.Single(a=>a.id==display.standingAssetId);
+                string normal="art.production."+display.heroineId+".normal",pose="art.production."+display.heroineId+".idle";
+                home.assets=home.assets.Concat(new[]{new HomeAssetDef{id=normal,kind="expression",resourcePath=standing.resourcePath,fullFrame=true,placeholder=true},new HomeAssetDef{id=pose,kind="pose",resourcePath=standing.resourcePath,fullFrame=true,placeholder=true}}).ToArray();
+                display.expressions.Single(e=>e.id=="expression.normal").assetId=normal;display.poses.Single(p=>p.id=="pose.idle").assetId=pose;
+            }
+            var used=new HashSet<string>(home.displays.SelectMany(d=>new[]{d.standingAssetId}.Concat(d.expressions.Select(e=>e.assetId)).Concat(d.poses.Select(p=>p.assetId)))
+                .Concat(home.gardens.SelectMany(g=>new[]{g.backgroundAssetId}.Concat(g.middleAssetIds).Concat(g.foregroundAssetIds)))
+                .Concat(home.furniture.Select(f=>f.assetId)).Concat(home.scripts.SelectMany(s=>s.commands).SelectMany(c=>new[]{c.assetId,c.audioId}).Where(id=>id!=null)));
+            home.assets=home.assets.Where(a=>used.Contains(a.id)).ToArray();
+            ProductionAssetAcceptance.Adopt(home);home.Validate(true);return home;
         }
         private static void AddScript(string scene,string hero,string background,string cg,string[] paragraphs,string[] expressions,List<HomeAssetDef> assets,List<HomeTextDef> texts,List<HomeAdvScript> scripts)
         {

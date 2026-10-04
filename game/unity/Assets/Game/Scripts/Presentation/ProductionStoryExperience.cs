@@ -9,7 +9,7 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private ProductionStoryContent productionStory;
-        private bool ProductionStoryActive=>!homeTrial && !plan8StoryTrial && (!formalDiagnostic || Environment.GetCommandLineArgs().Contains("-capturePlan9Story"));
+        private bool ProductionStoryActive=>!homeTrial && !plan8StoryTrial && (!formalDiagnostic || (Environment.GetCommandLineArgs().Contains("-capturePlan9Story") || Environment.GetCommandLineArgs().Contains("-capturePlan9ProductionEntry")));
         private bool HomeOperationsAllowed=>formalDiagnostic || ProductionStoryActive;
         private ProductionStoryContent ProductionStoryData()
         {
@@ -74,6 +74,10 @@ namespace NewAster.Presentation
             if(view=="chapters" || view=="conditions"){
                 collectionOpen=true;collectionOwner=view=="conditions"?15:0;collectionTab=0;
                 if(view=="conditions"){trialPoemChapter="heroine.slayer.poem-chapter.2";trialPoemScroll=Vector2.zero;}
+            }else if(view.StartsWith("economy.",StringComparison.Ordinal)){
+                PrepareProductionEconomyCapture(view.Substring(8));
+            }else if(view.StartsWith("garden.",StringComparison.Ordinal)){
+                PrepareProductionGardenCapture(view);
             }else if(view=="events"){
                 book.ChangeBookmark(BookBookmark.Gardens);selectedResident="heroine.slayer";OpenGardenPanel(GardenPanel.Events);
             }else if(view=="book"){
@@ -95,6 +99,26 @@ namespace NewAster.Presentation
             AcceptanceCheck(adv.EndReached && steps<100,"production scene reaches end through normal presentation commands");
             if(failOnce){string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);formalVictoryDiagnosticFailure=true;CompleteAdv();AcceptanceCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot) && formalCampaign.HasPending,"failed production completion leaves original snapshot intact");formalVictoryDiagnosticFailure=false;}
             CompleteAdv();AcceptanceCheck(adv.Completed,"production end is durably committed");CloseAdv();
+        }
+        private void PrepareProductionEconomyCapture(string view)
+        {
+            var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
+            save.growth.stones=3000;save.growth.kinderPoints=200;save.growth.tickets=new[]{new HeroineTicket{heroineId=combatDefinitions.FormationIds[0],count=1}};
+            save.collection.materials=CollectionData().resources.Where(r=>r.kind=="material").Select(r=>new CollectionMaterial{id=r.id,sourceColossusId=r.ownerId,amount=10000}).ToArray();
+            save.collection.relics=CollectionData().relics.Select(r=>new CollectionRelic{id=r.id,contentVersion=CollectionData().contentVersion,attackRoll=80,hpRoll=800}).ToArray();save.revision++;
+            AcceptanceCheck(acceptanceStore.Save(save),"production economy UI fixture is isolated");BindFormalCampaign(save);InitializeKinder();InitializeEngagement();
+            book.RequestSubject(BookBookmark.Heroines,combatDefinitions.FormationIds[0]);book.CompleteTransition();growthScreen=GrowthScreen.Overview;
+            if(view=="tree")growthScreen=GrowthScreen.Weapons;
+            else if(view=="growth"){}
+            else if(view=="relics"){collectionOpen=true;collectionTab=1;}
+            else if(view=="engagement")OpenEngagement();
+            else if(view.StartsWith("kinder-")){
+                kinderGarden=true;string page=view.Substring(7);kinderScreen=page=="draw"?KinderScreen.Draw:page=="rates"?KinderScreen.Rates:page=="exchange"?KinderScreen.Exchange:page=="tickets"?KinderScreen.Tickets:KinderScreen.Entrance;
+                if(page=="confirm" || page=="result"){kinderCount=10;kinderScreen=KinderScreen.Draw;ConfirmKinder(KinderOperation.StoneDraw,formalProgression.Snapshot);
+                    if(page=="result"){int count=0;var committed=formalProgression.CommitKinder(kinderRequest,kinderBanner,max=>max==10000?(count++==0?0:9999):0,SaveFormalGrowth);AcceptanceCheck(committed==GrowthCommitResult.Committed,"production result uses atomic draw save");kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=KinderScreen.Result;}
+                }
+            }else throw new ArgumentException("Unknown production economy UI view");
+            Debug.Log("PLAN9_ECONOMY_UI_PASS view="+view+" rules="+ProductionEconomyCatalog.Version+" fixture-not-earned-progression");
         }
     }
 }

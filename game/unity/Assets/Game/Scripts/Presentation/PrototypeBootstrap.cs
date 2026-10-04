@@ -201,6 +201,7 @@ namespace NewAster.Presentation
             UpdateAdv();
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
+            if(capturePath!=null && ProductionStoryActive)TryStartProductionAudioCapture();
             if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
@@ -257,11 +258,12 @@ namespace NewAster.Presentation
             if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
-            if(capturePath!=null && Time.realtimeSinceStartup>=8) {
+            if(capturePath!=null && !Environment.GetCommandLineArgs().Contains("-plan9ManualSmoke") && Time.realtimeSinceStartup>=8) {
                 captureFrame++;
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
                 int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
                 bool ready=plan7FullCombat?plan7FullCombatComplete:Environment.GetCommandLineArgs().Contains("-validatePlan7Focus")?captureFrame>=captureAt && plan7FocusComplete:captureFrame==captureAt;
+                if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && captureFrame==capturedAtFrame+60) Application.Quit();
             }
@@ -335,11 +337,12 @@ namespace NewAster.Presentation
             Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
             Panel(1024,80,576,118,dark);
             Label(1050,100,510,70,encounter==null?"記憶が、新しい世界を育てる。":"巨神獣との空中戦",heading,Color.white);
-            if(encounter==null && book.HasSubject && book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0]) {
+            if(ProductionStoryActive)DrawBookSubjectArt();
+            else if(encounter==null && book.HasSubject && book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0]) {
                 SampleImage(new Rect(1024,198,576,459),"forest-far",true);
                 SampleImage(new Rect(1050,208,510,430),"green-body");
             }
-            if(encounter==null && (!book.HasSubject || book.Bookmark!=BookBookmark.Colossi || book.SubjectId!=WorldCatalog.ColossusIds[0]))Label(1050,275,510,100,book.HasSubject?"この対象の絵は制作待ちです。":"表示する対象はありません。",text,Color.white);
+            if(!ProductionStoryActive && encounter==null && (!book.HasSubject || book.Bookmark!=BookBookmark.Colossi || book.SubjectId!=WorldCatalog.ColossusIds[0]))Label(1050,275,510,100,book.HasSubject?"この対象の絵は制作待ちです。":"表示する対象はありません。",text,Color.white);
             Panel(1024,657,576,243,dark);
             if(encounter==null) DrawBook(); else DrawBattle();
             Panel(0,812,1024,88,dark);if(encounter!=null || !book.IsTransitioning)Label(28,826,970,60,encounter==null?"しおりで分類、めくりで対象、裏返しで同じ対象の情報へ。":status,small,Color.white);
@@ -368,7 +371,7 @@ namespace NewAster.Presentation
             GUI.enabled=previousBookEnabled;
             DrawHomeConfirmation();
             if(homeTrial){if(Btn(1050,740,510,48,"検証用の別セーブ ／ 通常へ戻る",BookInputAllowed))ExitHomeTrial();}
-            else if(Btn(1050,740,510,48,"制作メニュー ／ 機能検証用セーブ",BookInputAllowed))EnterHomeTrial();
+            else if(!ProductionStoryActive && Btn(1050,740,510,48,"制作メニュー ／ 機能検証用セーブ",BookInputAllowed))EnterHomeTrial();
         }
         private void DrawColossus()
         {
@@ -522,7 +525,7 @@ namespace NewAster.Presentation
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
@@ -681,7 +684,7 @@ namespace NewAster.Presentation
             bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button);
             Color edge=GUI.enabled?gold:new Color(.23f,.25f,.25f);
             TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
-            GUI.enabled=old; if(clicked)TrialObserve("navigation","button",value);return clicked;
+            GUI.enabled=old; if(clicked){TrialObserve("navigation","button",value);PlayProductionUiSound(value);}return clicked;
         }
         private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){FlushActiveTime();Save();} FinishTrialTelemetry(); }
     }

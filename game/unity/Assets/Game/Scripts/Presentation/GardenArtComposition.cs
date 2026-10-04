@@ -60,6 +60,7 @@ namespace NewAster.Presentation
         private static GardenArtUse GardenUse(string furnitureId,string heroineId="heroine.slayer")
         {
             var original=gardenArtUses.SingleOrDefault(a=>a.furnitureId==furnitureId);
+            if(original==null && furnitureId.StartsWith("furniture.production.",StringComparison.Ordinal))return new GardenArtUse{furnitureId=furnitureId,action="look",ground=new Vector2(.5f,.95f),contact=new Vector2(1.1f,.95f),actorContact=new Vector2(.5f,.98f),actorScale=.9f};
             if(original==null || heroineId=="heroine.slayer")return original;
             if(heroineId=="heroine.excalipan")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,

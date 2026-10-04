@@ -34,7 +34,7 @@ namespace NewAster.Presentation
             int value=operation==RelicOperation.AttackUp?relic.attackRoll:relic.hpRoll,maximum=operation==RelicOperation.AttackUp?100:1000;
             if(operation!=RelicOperation.LevelUp && value>=maximum)return "抽選値が上限に到達しています。";
             if(operation!=RelicOperation.LevelUp && !FormalRelicRules.DirectEligible(value,maximum))return "直接強化には、この項目が上限の80%以上必要です。";
-            int cost=operation==RelicOperation.LevelUp?10*relic.level:1000;
+            int cost=FormalRelicRules.UpgradeCost(relic,operation,CollectionData().contentVersion);
             var def=CollectionData().relics.Single(d=>d.id==relic.id);var materials=formalCampaign.Snapshot.collection.materials;
             return def.materialIds.Any(id=>(materials.SingleOrDefault(m=>m.id==id)?.amount??0)<cost)?"素材が不足しています。必要数：各 "+cost+"。":null;
         }
@@ -74,12 +74,12 @@ namespace NewAster.Presentation
         private void DrawRelicInventory()
         {
             var ledger=formalCampaign.Snapshot.collection;var items=ledger?.relics??Array.Empty<CollectionRelic>();int pages=Math.Max(1,(items.Length+2)/3);collectionRelicPage=Math.Max(0,Math.Min(collectionRelicPage,pages-1));
-            Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。固有能力：攻撃 +5%。Lv上限120。\n同名は項目ごとの高値を保持。素材・能力・費用は検証用です。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
+            Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。巨神獣ごとの固有能力。Lv上限120。\n同名は項目ごとの高値を保持。強化は対応する巨神獣の素材を使います。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
             if(items.Length==0)Label(180,395,1200,100,"オーパーツ未所持。勝利時のレリックハントで獲得します。\n敗北・撤退は詩のみ取得します。",growthTextStyle);
             foreach(var pair in items.Skip(collectionRelicPage*3).Take(3).Select((r,i)=>new{r,i})){
                 var r=pair.r;int y=380+pair.i*112;string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=ledger.materials.SingleOrDefault(x=>x.sourceColossusId==owner)?.amount??0;
                 Label(170,y,730,48,$"{name}の遺物  Lv{r.level}  攻撃 {r.attackRoll}/100  HP {r.hpRoll}/1000",growthSmallStyle);
-                Label(170,y+50,730,40,$"素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
+                Label(170,y+50,730,40,(ProductionStoryActive?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==r.id))+" ／ ":"")+$"素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
                 string lv=RelicUnavailable(r,RelicOperation.LevelUp),attack=RelicUnavailable(r,RelicOperation.AttackUp),hp=RelicUnavailable(r,RelicOperation.HpUp);
                 if(GrowthButton(910,y,150,40,lv==null?"Lv強化":r.level>=120?"Lv上限":"Lv素材不足",lv==null))RelicSelect(r,RelicOperation.LevelUp);
                 if(GrowthButton(1080,y,150,40,attack==null?"攻撃強化":r.attackRoll>=100?"攻撃上限":r.attackRoll<80?"攻撃条件未達":"攻撃素材不足",attack==null))RelicSelect(r,RelicOperation.AttackUp);
@@ -94,9 +94,9 @@ namespace NewAster.Presentation
         private void DrawRelicConfirmation()
         {
             var r=formalCampaign.Snapshot.collection.relics.Single(x=>x.id==relicRequest.RelicId);Label(170,290,1260,65,"オーパーツの変更を確認",growthTitleStyle);string info;
-            if(relicRequest.Operation==RelicOperation.LevelUp)info=$"Lv {r.level} → {Math.Min(120,r.level+1)}\n攻撃固定成長 +2 ／ HP固定成長 +5\n対応する巨神獣素材 {10*r.level} を消費します。";
-            else if(relicRequest.Operation==RelicOperation.AttackUp)info=$"攻撃抽選値 {r.attackRoll} → {Math.Min(100,r.attackRoll+1)} / 100\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 1000 を消費します。";
-            else if(relicRequest.Operation==RelicOperation.HpUp)info=$"HP抽選値 {r.hpRoll} → {Math.Min(1000,r.hpRoll+10)} / 1000\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 1000 を消費します。";
+            if(relicRequest.Operation==RelicOperation.LevelUp)info=$"Lv {r.level} → {Math.Min(120,r.level+1)}\n攻撃固定成長 +2 ／ HP固定成長 +5\n対応する巨神獣素材 {FormalRelicRules.UpgradeCost(r,RelicOperation.LevelUp,CollectionData().contentVersion)} を消費します。";
+            else if(relicRequest.Operation==RelicOperation.AttackUp)info=$"攻撃抽選値 {r.attackRoll} → {Math.Min(100,r.attackRoll+1)} / 100\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 {FormalRelicRules.UpgradeCost(r,relicRequest.Operation,CollectionData().contentVersion)} を消費します。";
+            else if(relicRequest.Operation==RelicOperation.HpUp)info=$"HP抽選値 {r.hpRoll} → {Math.Min(1000,r.hpRoll+10)} / 1000\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 {FormalRelicRules.UpgradeCost(r,relicRequest.Operation,CollectionData().contentVersion)} を消費します。";
             else info=RelicEquipmentComparison(r,relicRequest);
             Label(170,375,1260,175,info,growthTextStyle);
             if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<5;i++){
@@ -134,7 +134,7 @@ namespace NewAster.Presentation
                 var saved=formalCampaign.Snapshot;int amount=saved.collection.materials.Where(m=>m.sourceColossusId==source.Id).Sum(m=>m.amount);
                 return $"記憶元：{source.WorldLineId??"世界統合"} ／ 環境：{string.Join("・",source.EnvironmentTags)}\n世界復元 +{band.terraforming} ／ 累積 {saved.world.terraformingExperience}\n巨神獣別素材 +{10+r.battle.level} ／ 保存後所持 {amount}\nページ・環境・庭の初回解放は一度だけ。再戦でも世界復元と素材を得られます。";
             }
-            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。提供率は検証用です。";
+            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。抽選1回の提供率は75%です。";
         }
         private void PrepareCollectionCapture(string[] args)
         {

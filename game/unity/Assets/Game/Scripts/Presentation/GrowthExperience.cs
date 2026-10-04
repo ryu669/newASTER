@@ -56,7 +56,7 @@ namespace NewAster.Presentation
             GrowthFill(x,y,w,h,enabled?(primary?new Color(.19f,.32f,.31f):hover?new Color(.13f,.22f,.26f):new Color(.075f,.145f,.20f)):new Color(.085f,.10f,.12f));
             GrowthLine(x,y,x+w,y,enabled?gold:new Color(.23f,.25f,.25f));GrowthLine(x,y+h,x+w,y+h,enabled?gold:new Color(.23f,.25f,.25f));
             var color=growthButtonStyle.normal.textColor;growthButtonStyle.normal.textColor=enabled?ivory:muted;
-            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked)TrialObserve("navigation","button",caption);return clicked;
+            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
         }
         private void GrowthBack()
         {
@@ -96,10 +96,10 @@ namespace NewAster.Presentation
             else if(id=="heroine.echidna"&&echidnaPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),echidnaPortrait,ScaleMode.ScaleToFit,true);
             else if(id=="heroine.excalipan"&&excalipanPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),excalipanPortrait,ScaleMode.ScaleToFit,true);
             else{GrowthDiamond(300,470,100);GrowthDiamond(300,470,84);Label(193,435,220,55,"誓 女 の 記 憶",growthTextStyle);Label(177,520,260,35,"正式立ち絵は制作待ち",growthSmallStyle);}
-            Label(92,726,420,38,(id=="heroine.slayer" || id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
+            Label(92,726,420,38,ProductionStoryActive?"誓いと記憶を育てる":(id=="heroine.slayer" || id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
             string[] names={"誓女の記憶","ネクタル育成","覚醒の儀","誓いの強化","人物の記録","選択の確認","誓いの結実","装備の樹"};Label(605,204,860,55,names[(int)growthScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(growthScreen==GrowthScreen.Overview){
-                if(GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
+                if(!ProductionStoryActive && GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
                 Label(605,295,860,38,"いま、この誓女にしてあげたいことを選ぶ。",growthSmallStyle);
                 var entries=new[]{GrowthScreen.Level,GrowthScreen.Awakening,GrowthScreen.Duplicate};string[] captions={"01    ネクタルで育てる","02    覚醒して可能性をひらく","03    重複した誓いを力にする"};
                 for(int i=0;i<3;i++)if(GrowthButton(605,363+i*104,885,78,captions[i]))GrowthSelect(entries[i],heroine);

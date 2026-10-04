@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "provenance": "newaster-original-procedural-composition",
+  "seed": "deterministic-no-random",
+  "tracks": [
+    {
+      "resourcePath": "Audio/plan9-bgm-title-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-title-candidate-v1.wav",
+      "sha256": "074ff73409ea87eebaa6cb0b82d5ef7b6df89f208c5079806e4a0e25a6bbd508",
+      "durationSeconds": 32.0,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.11927037609716647,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-battle-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-battle-candidate-v1.wav",
+      "sha256": "142f4cca9e9e8fd22ec9f6eb2a251b652b4df7ec221d17f1b25cbbebdb7c34d5",
+      "durationSeconds": 24.0,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.13241131627185818,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-garden-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-garden-candidate-v1.wav",
+      "sha256": "8dcf35772578e4843ed490aa8fa3ab7afd723e0f569662948c820fffe524f6f4",
+      "durationSeconds": 40.0,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.11336752433460072,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-bgm-adv-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-bgm-adv-candidate-v1.wav",
+      "sha256": "ef922a470217f1d033770b9515327958b76c09ebc439fa99d6b21479d0bd4dc5",
+      "durationSeconds": 48.0,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.11043253248880812,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-se-confirm-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-confirm-candidate-v1.wav",
+      "sha256": "8e33989147e3ea990b67da063d230a2897722e637563c39740031afc9c3a887d",
+      "durationSeconds": 0.52,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.13869083885101238,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-se-cancel-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-cancel-candidate-v1.wav",
+      "sha256": "ec533235a9f2093b4d77be9b25b415420761bfb711e5c06dded25c7087e42917",
+      "durationSeconds": 0.52,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.1357529659022876,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-se-page-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-page-candidate-v1.wav",
+      "sha256": "980718e3ac97a7d9f3ec73f6bcfff8150c593b888d30bb25eeb8c8cb90aa0f11",
+      "durationSeconds": 0.7,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.13713115899346426,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    },
+    {
+      "resourcePath": "Audio/plan9-se-unlock-candidate-v1",
+      "file": "game/unity/Assets/Game/Resources/Audio/plan9-se-unlock-candidate-v1.wav",
+      "sha256": "85b3b43a9a1a85f2721cdfcb1d07bbea466d104bc99af383ced7bebf9f426cff",
+      "durationSeconds": 0.88,
+      "channels": 2,
+      "sampleRate": 44100,
+      "peak": 0.1375520977000137,
+      "source": "tools/generate-plan9-audio.py",
+      "status": "candidate-awaiting-functional-and-limited-listening-review",
+      "externalSamples": false
+    }
+  ],
+  "listeningSeconds": 0,
+  "performanceMeasured": false
+}

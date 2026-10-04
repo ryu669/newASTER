@@ -73,7 +73,7 @@ namespace NewAster.Presentation
             if(!unlocked || replay && !read)return;
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
             if((plan8StoryTrial || ProductionStoryActive) && !replay)adv.ResumeAtFirstUnread();
-            advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
+            advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();if(!ProductionStoryActive){advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();}
             if(advBgm.clip!=null)TrialObserve("audio","adv-bgm-requested",advBgm.clip.name+";loop=true");
             TrialObserve("reading",replay?"replay-start":"start",source);
             if(ch!=null && book.Bookmark==BookBookmark.Stories)book.BeginReading(ch.id,3);
@@ -121,7 +121,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(1085,790,160,58,"操作説明")){advHelp=true;adv.Pause();}if(GrowthButton(1260,790,285,58,"中断して本へ",!formalCampaign.HasPending && advRequest==null)){CloseAdv();return;}}
             if(advRequest!=null){GrowthFill(40,470,1520,55,navy);Label(55,480,1000,40,advError??"保存待ち",growthSmallStyle);if(GrowthButton(1100,475,440,45,"同じ内容で保存を再試行")){if(advPendingLine!=null)PersistAdvLine();else CompleteAdv();}}
             GUI.enabled=previousAdvEnabled;
-            if(advBacklog || advHelp){GrowthFrame(180,140,1240,610);if(advHelp)Label(220,225,1150,340,"一回目は全文表示、次の入力で行を送ります。\n既読skipは最初の未読で停止します。\nバックログ・説明・非アクティブ中はタイマーを停止します。\n閉じた後は手動で再開してください。\n"+(plan8StoryTrial?"中断後は保存済みの最初の未読行から再開します。回想は先頭からです。":"中断後の再開はsceneの先頭。保存済みの行既読だけを保持します。"),growthTextStyle);
+            if(advBacklog || advHelp){GrowthFrame(180,140,1240,610);if(advHelp)Label(220,225,1150,340,"一回目は全文表示、次の入力で行を送ります。\n既読skipは最初の未読で停止します。\nバックログ・説明・非アクティブ中はタイマーを停止します。\n閉じた後は手動で再開してください。\n"+((plan8StoryTrial || ProductionStoryActive)?"中断後は保存済みの最初の未読行から再開します。回想は先頭からです。":"中断後の再開はsceneの先頭。保存済みの行既読だけを保持します。"),growthTextStyle);
                 else{advScroll=GUI.BeginScrollView(new Rect(220,210,1150,430),advScroll,new Rect(0,0,1110,Math.Max(430,adv.Backlog.Count*180)));for(int i=0;i<adv.Backlog.Count;i++)Label(10,i*180,1080,175,adv.Backlog[i],bodyStyle);GUI.EndScrollView();}
                 if(GrowthButton(220,675,1150,50,"閉じる ／ 本文は停止したまま")){advBacklog=false;advHelp=false;}}
         }

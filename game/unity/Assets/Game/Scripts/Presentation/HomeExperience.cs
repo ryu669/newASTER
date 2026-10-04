@@ -40,6 +40,7 @@ namespace NewAster.Presentation
         {
             try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}homeRequest=null;homeOperation=null;placing=false;homeError=null;}
             catch(ArgumentException e){homeError=e.Message;}catch(InvalidOperationException e){homeError=e.Message;}
+            if(homeRequest==null)PlayProductionUnlock();
         }
         private void DrawHomeConfirmation(bool growth=false)
         {
@@ -51,9 +52,9 @@ namespace NewAster.Presentation
         private void DrawFormalWeaponTree(string hero)
         {
             var h=HomeState;var nodes=HomeData().weaponNodes.Where(n=>n.heroineId==hero).ToArray();
-            Label(605,295,890,42,"人物別の装備の樹 ／ 検証用4ノード",growthSmallStyle);
+            Label(605,295,890,42,ProductionStoryActive?combatDefinitions.Hero(hero).name+"の装備の樹": "人物別の装備の樹 ／ 検証用4ノード",growthSmallStyle);
             foreach(var n in nodes)foreach(var parent in n.parentIds){var p=nodes.Single(x=>x.id==parent);GrowthLine(680+p.treePosition.x*640,340+p.treePosition.y*250,680+n.treePosition.x*640,340+n.treePosition.y*250,gold,3);}
-            foreach(var n in nodes){float x=680+n.treePosition.x*640,y=340+n.treePosition.y*250;bool acquired=h.weaponNodeIds.Contains(n.id);if(GrowthButton(x-65,y-25,130,50,(acquired?"✿ ":"○ ")+(n.terminal??"初期"),homeRequest==null))selectedNode=n.id;}
+            foreach(var n in nodes){float x=680+n.treePosition.x*640,y=340+n.treePosition.y*250;bool acquired=h.weaponNodeIds.Contains(n.id);if(GrowthButton(x-100,y-25,200,50,(acquired?"✿ ":"○ ")+(n.terminal??"初期"),homeRequest==null))selectedNode=n.id;}
             var selected=nodes.SingleOrDefault(n=>n.id==selectedNode)??nodes[0];selectedNode=selected.id;bool owned=h.weaponNodeIds.Contains(selected.id);
             Label(605,630,890,60,$"攻撃＋{selected.attackBonus} ／ 通常攻撃枠の倍率 {selected.skillPower:0.00}\n"+string.Join(" / ",selected.costs.Select(c=>$"素材 必要{c.amount}・所持{HomeRules.Balance(formalCampaign.Snapshot,c.resourceId)}")),growthSmallStyle);
             if(GrowthButton(605,710,420,58,owned?"装備する":"素材で取得する",homeRequest==null))ProposeHome(new HomeOperation(owned?"equip":"weapon",selected.id,owned?hero:null));
@@ -93,6 +94,7 @@ namespace NewAster.Presentation
             try{
                 var localArea=new Rect(0,0,area.width,area.height);
                 var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
+                foreach(var asset in layout.middleAssetIds){var layer=AdvTexture(asset);if(layer!=null)GUI.DrawTexture(localArea,layer,ScaleMode.StretchToFill,true);}
                 var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
                 foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
                 foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.StretchToFill,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}

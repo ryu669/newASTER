@@ -26,6 +26,7 @@ namespace NewAster.Core
         public string id,abilityId;
         public string[] materialIds;
         public int maxLevel=120;
+        public int attackPercent=5,hpPercent;
     }
     [Serializable] public sealed class CollectionRewardBandDef
     {
@@ -37,8 +38,9 @@ namespace NewAster.Core
     [Serializable] public sealed class CollectionCatalog
     {
         public const string TrialVersion="collection-trial-story-2026-10-04";
-        public const string ProductionVersion="collection-production-story-2026-10-04";
-        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==ProductionVersion;
+        public const string CandidateVersion="collection-production-story-2026-10-04";
+        public const string ProductionVersion="collection-initial-five-rc1-2026-10-05";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==CandidateVersion || version==ProductionVersion;
         public const string FixtureVersion="collection-fixture-2026-10-03";
         public int schemaVersion=1;
         public string contentVersion=FixtureVersion,status="fixture";
@@ -64,7 +66,7 @@ namespace NewAster.Core
         }
         public void Validate()
         {
-            if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial" || contentVersion==ProductionVersion && status=="production-candidate"))
+            if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial" || contentVersion==CandidateVersion && status=="production-candidate" || contentVersion==ProductionVersion && status=="release"))
                 throw new ArgumentException("Unsupported collection content.");
             var os=Index(owners,x=>x.id);var ps=Index(poems,x=>x.id);var cs=Index(chapters,x=>x.id);
             var rs=Index(resources,x=>x.id);var relicIndex=Index(relics,x=>x.id);
@@ -78,7 +80,7 @@ namespace NewAster.Core
                 if(o.poemIds.Length!=total || o.chapterIds.Length!=3)throw new ArgumentException("Invalid poem or chapter count.");
                 foreach(var id in o.poemIds)if(!ps.TryGetValue(id,out var p) || p.ownerId!=o.id || !o.chapterIds.Contains(p.chapterId))throw new ArgumentException("Poem owner or chapter mismatch.");
                 foreach(var id in o.chapterIds){
-                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || (contentVersion==FixtureVersion?!string.IsNullOrEmpty(c.textId):contentVersion==ProductionVersion?c.textId!="text.production."+c.id+".intro":!string.IsNullOrEmpty(c.textId) && !c.textId.StartsWith("text.trial.plan8.",StringComparison.Ordinal)))throw new ArgumentException("Invalid or unapproved chapter text.");
+                    if(!cs.TryGetValue(id,out var c) || c.ownerId!=o.id || (contentVersion==FixtureVersion?!string.IsNullOrEmpty(c.textId):(contentVersion==ProductionVersion || contentVersion==CandidateVersion)?c.textId!="text.production."+c.id+".intro":!string.IsNullOrEmpty(c.textId) && !c.textId.StartsWith("text.trial.plan8.",StringComparison.Ordinal)))throw new ArgumentException("Invalid or unapproved chapter text.");
                     IdSet(c.poemIds);
                     if(c.poemIds.Length!=perChapter || c.poemIds.Any(p=>!o.poemIds.Contains(p) || ps[p].chapterId!=id))throw new ArgumentException("Invalid chapter membership.");
                 }
@@ -110,7 +112,7 @@ namespace NewAster.Core
                    os[source.ownerId].kind!="colossus" || os[target.ownerId].kind!="heroine" || l.ownerId!=target.ownerId)throw new ArgumentException("Invalid poem correspondence.");
             foreach(var r in relics){
                 IdSet(r.materialIds);
-                if(r.maxLevel!=120 || r.abilityId!="ability.fixture.attack" || r.materialIds.Length==0 || r.materialIds.Any(id=>!rs.TryGetValue(id,out var m) || m.kind!="material"))throw new ArgumentException("Invalid relic definition.");
+                if(r.maxLevel!=120 || !(contentVersion!=ProductionVersion && r.abilityId=="ability.fixture.attack" || (contentVersion==ProductionVersion || contentVersion==CandidateVersion) && r.abilityId.StartsWith("ability.production.relic.")) || r.attackPercent<0 || r.attackPercent>20 || r.hpPercent<0 || r.hpPercent>20 || r.materialIds.Length==0 || r.materialIds.Any(id=>!rs.TryGetValue(id,out var m) || m.kind!="material"))throw new ArgumentException("Invalid relic definition.");
             }
             if(rewardBands==null || rewardBands.Any(x=>x==null))throw new ArgumentException("Missing reward bands.");
             foreach(var o in colossi){
@@ -137,7 +139,7 @@ namespace NewAster.Core
                 chapters=chapters.Select(c=>new CollectionChapterDef {id=c.id,ownerId=c.ownerId,poemIds=(string[])c.poemIds.Clone(),textId=c.textId}).ToArray(),
                 links=links.Select(l=>new CollectionLinkDef {id=l.id,ownerId=l.ownerId,sourcePoemId=l.sourcePoemId,targetPoemId=l.targetPoemId}).ToArray(),
                 resources=resources.Select(r=>new CollectionResourceDef {id=r.id,kind=r.kind,ownerId=r.ownerId}).ToArray(),
-                relics=relics.Select(r=>new CollectionRelicDef {id=r.id,abilityId=r.abilityId,maxLevel=r.maxLevel,materialIds=(string[])r.materialIds.Clone()}).ToArray(),
+                relics=relics.Select(r=>new CollectionRelicDef {id=r.id,abilityId=r.abilityId,maxLevel=r.maxLevel,attackPercent=r.attackPercent,hpPercent=r.hpPercent,materialIds=(string[])r.materialIds.Clone()}).ToArray(),
                 rewardBands=rewardBands.Select(b=>new CollectionRewardBandDef {ownerId=b.ownerId,minLevel=b.minLevel,maxLevel=b.maxLevel,draws=b.draws,terraforming=b.terraforming,allowEmpty=b.allowEmpty,relicIds=(string[])b.relicIds.Clone()}).ToArray()
                 ,weaponNodes=weaponNodes.Select(n=>new CollectionWeaponNodeDef {id=n.id,ownerId=n.ownerId,materialIds=(string[])n.materialIds.Clone(),prerequisiteIds=(string[])n.prerequisiteIds.Clone()}).ToArray()
             };

@@ -1,0 +1,18 @@
+newASTER / 初期5人 配布候補 RC1
+
+企画・独自ゲームルール・本文・UI・実装：newASTER制作
+人物・巨神獣・戦場・庭・家具・交流CG：newASTER専用のAI生成美術
+生成プロンプト、個別審査、元ファイル・hashはリポジトリの game/art-source と docs/production に記録。
+採用ファイル一覧：ASSET-ADOPTION.json。未採用の旧美術案は制作保管領域へ分離。
+BGM4曲、操作音4種、戦闘音5種：独自の手続き生成音。外部サンプル・既存楽曲の旋律を使用しません。
+3D開発モデル、シェーダーと演出：newASTER用に独自制作。
+
+参考資料：ANGELICA ASTER・巨神と誓女のプレイ映像と人物資料を観察資料として使用。
+原作の画像・映像・音声は本配布物へ転載していません。観察値と独自補完ルールを分けて記録。
+これら作品の名称・商標は各権利者に帰属します。
+
+日本語フォント：Noto Sans CJK JP / SIL Open Font License 1.1
+著作権表示とライセンス全文：ThirdPartyNotices/NotoSansCJKjp/NOTICE.txt、OFL.txt。
+ゲーム実行環境：Unity 6 / Unity Technologies。実行に必要なプレイヤー依存物を同梱。
+
+本記録は制作・採用・同梱物の説明です。素材の第三者による改変・再配布許諾を追加するものではありません。

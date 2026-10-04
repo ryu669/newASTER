@@ -15,6 +15,7 @@ public static partial class PlayableBuild
     public static void ValidateAndBuild()
     {
         Validate();
+        PlayerSettings.bundleVersion="0.9.0-rc.1";
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
             scenes=new[] { "Assets/Game/Scenes/Bootstrap.unity" },
             locationPathName="../Builds/playable/newASTER.exe",
@@ -288,7 +289,7 @@ public static partial class PlayableBuild
         Check(artSource!=null,"Illustration manifest must exist");
         var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
         Check(battle.State.Heroes.All(h=>art.HeroIndex(h.Id)>=0) && battle.State.Parts.All(p=>art.parts.Any(a=>a.partId==p.Id)),"Art bindings match combat heroine and part IDs");
-        var texture=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/ArtCandidates/RetiredResources/slayer-bust-preview.png");
         Check(texture!=null && texture.width==1672 && texture.height==941,"UI illustration keeps native aspect and dimensions");
     }
     private static void ValidateFormalCombat()
