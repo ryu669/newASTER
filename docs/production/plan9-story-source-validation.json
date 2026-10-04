@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "status": "partial-source-not-connected",
+  "status": "full-source-awaiting-core-validation",
   "chapters": 60,
   "poems": 450,
-  "events": 0,
+  "events": 25,
   "required": {
     "chapters": 60,
     "poems": 450,
@@ -28,12 +28,20 @@
       "sha256": "9cadacf6c090e45cddf772e35ebe2d81e2fd28d6e0cf4fd0661af435ee0f0244"
     },
     {
+      "path": "game/story-source/plan9/echidna-events.json",
+      "sha256": "f63cd7b82755f27ca3d3cbab535ab94ef694f504e85a614622f12186531c8679"
+    },
+    {
       "path": "game/story-source/plan9/echidna-later-chapters.json",
       "sha256": "a77296397bb0b704e2fed2241d146fe21485bbc0621f9b5eae8e959048739bc5"
     },
     {
       "path": "game/story-source/plan9/emerald-star-astal.json",
       "sha256": "3560c348ce95c0403ccc0f10e5464d566e31f7bb19b3644f58ac3e0ce9893a72"
+    },
+    {
+      "path": "game/story-source/plan9/excalipan-events.json",
+      "sha256": "e967e4bad502d68720ea17dc8bcbdc9b39ea54a300b187c712b80f156843147c"
     },
     {
       "path": "game/story-source/plan9/excalipan-later-chapters.json",
@@ -46,6 +54,10 @@
     {
       "path": "game/story-source/plan9/heaven-tree-orochi.json",
       "sha256": "7fb4e2b3ea49295ce6a7cd6c342d015bce4c3b73434a2056eb291d9f23bfc3a1"
+    },
+    {
+      "path": "game/story-source/plan9/iconoclast-events.json",
+      "sha256": "c96e4446347d69207cb64fb051dcc6bb29ba7e849a30769cc108663429dafc17"
     },
     {
       "path": "game/story-source/plan9/iconoclast-later-chapters.json",
@@ -80,8 +92,16 @@
       "sha256": "276fffd82f7b32df77a4d90472c26774455f60adbe63c65a8620067d29157b3b"
     },
     {
+      "path": "game/story-source/plan9/slayer-events.json",
+      "sha256": "11445829b7bd59c1143f9a0ae5b663072b67ca88f8fc313330b3b4233be05fa4"
+    },
+    {
       "path": "game/story-source/plan9/slayer-later-chapters.json",
       "sha256": "5ed653009bdb74e242966efc491124e6cda807e1888a03edcc4296e393621ea2"
+    },
+    {
+      "path": "game/story-source/plan9/undermine-events.json",
+      "sha256": "40f635081676dde981742d6670ec9f5e189bb70ef6b53a506ea595f632e29141"
     },
     {
       "path": "game/story-source/plan9/undermine-later-chapters.json",

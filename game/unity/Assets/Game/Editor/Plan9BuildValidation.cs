@@ -4,6 +4,20 @@ using NewAster.Data;
 using UnityEngine;
 public static partial class PlayableBuild
 {
+    private static void ValidatePlan9Story()
+    {
+        var asset=Resources.Load<TextAsset>("Story/plan9-story-content");
+        Check(asset!=null,"Unity production narrative resource exists");
+        var content=JsonUtility.FromJson<ProductionStoryContent>(asset.text);
+        var combat=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>("Combat/battle-formal").text);
+        content.Validate(combat.formation,WorldCatalog.ColossusIds.ToArray());
+        var copy=JsonUtility.FromJson<ProductionStoryContent>(JsonUtility.ToJson(content));
+        copy.Validate(combat.formation,WorldCatalog.ColossusIds.ToArray());
+        Check(copy.chapters.Length==60 && copy.chapters.Sum(c=>c.poems.Length)==450 && copy.events.Length==25,"Unity preserves the complete production narrative through JSON roundtrip");
+        foreach(string path in content.chapters.Select(c=>c.backgroundResourcePath).Concat(content.events.Select(e=>e.backgroundResourcePath)).Concat(content.events.Select(e=>e.cgResourcePath)).Distinct())
+            Check(Resources.Load<Texture2D>(path)!=null,"Unity production story background and CG binding exists");
+        Debug.Log("PLAN9_STORY_SOURCE_PASS full authored resource; gameplay catalog connection still pending");
+    }
     private static void ValidatePlan9Colossi()
     {
         foreach(string id in ColossusCombatCatalog.AuthoredIds){

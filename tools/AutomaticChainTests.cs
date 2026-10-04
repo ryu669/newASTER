@@ -25,6 +25,7 @@ public static class AutomaticChainTests
         Plan5WorldRelicTests.Run(Check,formal());
         Plan9ColossusTests.Run(Check,formal());
         Plan9ColossusEndTests.Run(Check,formal());
+        Plan9StoryTests.Run(Check,File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
         Plan6HomeTests.Run(Check,formal());
         Plan6BookTests.Run(Check);
         Plan6ExperienceTests.Run(Check,formal());

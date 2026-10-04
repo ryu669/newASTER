@@ -47,6 +47,24 @@ for p in poems:
 for hero in heroes:
     links=[p['sourcePoemId'] for c in chapters if c['ownerId']==hero for p in c['poems']]
     assert len(set(links))==len(links),f'Duplicate heroine correspondence: {hero}'
+event_art=[]
+event_lines=[]
+for e in events:
+    hero=e.get('ownerId')
+    assert hero in heroes,f'Unknown event owner: {hero}'
+    match=re.fullmatch(re.escape(hero)+r'\.event\.([0-4])',e['id'])
+    assert match,f'Invalid event ID: {e["id"]}'
+    index=int(match[1])
+    assert e.get('title') and e.get('affectionRequired')==[1,5,10,15,20][index] and e.get('establishesLover')==(index==2),f'Invalid event progression: {e["id"]}'
+    lines=e.get('paragraphs',[]);expressions=e.get('expressions',[])
+    assert len(lines)>=8 and all(isinstance(x,str) and x.strip() for x in lines),f'Missing event narrative: {e["id"]}'
+    assert len(expressions)==len(lines) and all(x in ['normal','joy','puzzled','determined'] for x in expressions),f'Invalid event expression: {e["id"]}'
+    for key in ['cgResourcePath','backgroundResourcePath']:
+        assert e.get(key) and (resource/(e[key]+'.png')).is_file(),f'Missing event art {key}: {e["id"]}'
+    assert e['cgResourcePath']=='Illustrations/'+hero.split('.')[1]+f'-event-{index}-cg-candidate-v1',f'Event CG identity mismatch: {e["id"]}'
+    event_art.append(e['cgResourcePath']);event_lines.extend(lines)
+assert len(set(event_art))==len(event_art),'Duplicate event CG binding'
+assert len(set(event_lines))==len(event_lines),'Duplicate authored event narrative'
 expected={owner+('.collection.chapter.' if owner in colossi else '.poem-chapter.')+str(i) for owner in owners for i in range(1,4)}
 missing=sorted(expected-{c['id'] for c in chapters})
 full=not missing and len(poems)==450 and len(events)==25
