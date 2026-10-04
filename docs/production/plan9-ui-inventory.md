@@ -1,22 +1,22 @@
 # 計画9：全画面台帳
 
-更新：2026-10-04。各画面は9-2で共通見本に揃え、9-7で全適用を完了する。画像確認と機能診断を分け、未確認を合格にしない。
+更新：2026-10-05。初期5人RC1の14画面群を正式入口へ接続。最終42ケースを720p／1080pで描画し84画像を個別に確認済み。[画像・ログ・hash](plan9-final-runtime-validation.json)と[完了記録](plan9-completion-status.md)。
 
-| ID | 画面群 | 現行の主実装 | 状態 | 依存／完了条件 |
-| --- | --- | --- | --- | --- |
-| UI-01 | 起動・読込 | PrototypeBootstrap.Awake / FormalEntranceView | 導入・失敗画面を接続、描画診断済み | 素材・保存読込、失敗、設定反映、P9-02 |
-| UI-02 | タイトル | FormalTitleView | 接続・描画検証中 | 正式書導線、設定、クレジット、終了、P9-02 |
-| UI-03 | 導入・ホーム | HomeExperience | 機能済み・正式美術待ち | 初回導入、通知、P9-03 |
-| UI-04 | 万物の書・図鑑 | BookExperience / PrototypeBootstrap.DrawBook | 機能済み・共通枠刷新待ち | 分類／対象／面、遷移、P9-04 |
-| UI-05 | 出撃・編成 | DrawColossus / StartBattle | 機能済み・量産待ち | 全敵定義とLv、P9-05 |
-| UI-06 | 戦闘 | BattleIllustrationView / BattleMenuExperience | 見本済み・量産待ち | 5人15体の美術と予兆、P9-05 |
-| UI-07 | 結果・保存待ち | FormalVictoryView | 共通枠見本あり・正式本文待ち | 全終了理由、保存原子性、P9-08 |
-| UI-08 | 人物・育成 | GrowthExperience | 共通枠見本・アイコノクラスト肖像候補を接続。3人美術と全員の採用待ち | 操作／確認／結果、P9-07 |
-| UI-09 | 装備の樹・遺物 | HomeExperience / CollectionExperience | 機能済み・正式表示待ち | 固有樹、比較、80%境界、P9-07 |
-| UI-10 | ガチャ・交換・恵み | KinderExperience / EngagementExperience | 機能済み・正式素材待ち | 率・費用・保存、P9-07 |
-| UI-11 | 箱庭・家具 | GardenMenuExperience / GardenArtComposition | 見本済み・全環境待ち | 配置、制作、利用、P9-07 |
-| UI-12 | 交流・ADV・詩・回想 | AdvExperience / Plan8StoryExperience | 機能済み・正式本文待ち | 60章25イベント、P9-06 |
-| UI-13 | 設定・ヘルプ・クレジット | FormalTitleView / DrawHelp / DrawArtSettings | タイトル設定の適用／取消、説明を接続・検証。他画面統一と最終採用待ち | 永続設定、操作説明、採用素材権利、P9-03 |
-| UI-14 | 復旧・エラー | SaveRecoveryView / FormalVictoryView | 機能済み・共通枠確認待ち | 原本保全、未知版停止、P9-08 |
+| ID | 画面群 | 主実装 | 最終確認ケース・内容 |
+| --- | --- | --- | --- |
+| UI-01 | 起動・読込 | FormalEntranceView | intro、startup-error：導入と読込失敗 |
+| UI-02 | タイトル | FormalTitleView | title、exit：正式入口・終了確認・開発入口非表示 |
+| UI-03 | 導入・ホーム | ProductionStoryExperience | title、book、story-book：書と物語への通常導線 |
+| UI-04 | 万物の書・図鑑 | BookExperience | book、story-book：金装飾・分類・章進行 |
+| UI-05 | 出撃・編成 | DrawColossus / StartBattle | battle：初期5人と固有敵。各15体のLv／部位診断も継承 |
+| UI-06 | 戦闘 | BattleIllustrationView / BattleMenuExperience | battle：本体・独立部位・人物・予兆。全15体の各32描画の制作審査も継承 |
+| UI-07 | 結果・保存待ち | FormalVictoryView | victory／pending／retry：保存完了・待ち・再試行・正式章の案内 |
+| UI-08 | 人物・育成 | GrowthExperience | story-economy.growth：肖像・育成。5人の個別素材審査も継承 |
+| UI-09 | 装備の樹・遺物 | HomeExperience / CollectionExperience | tree、relics：固有樹・80%境界・装備／強化 |
+| UI-10 | ガチャ・交換・恵み | KinderExperience / EngagementExperience | engagement、kinder-entrance／draw／rates／exchange／tickets／confirm／result：率・費用・対象・結果 |
+| UI-11 | 箱庭・家具 | GardenMenuExperience / GardenArtComposition | story-garden.0／8／furniture／residents／placement／confirmation／audio：家具・5住人・配置・確定 |
+| UI-12 | 交流・ADV・詩・回想 | AdvExperience / ProductionStoryExperience | story-chapter、初期5人のstory-event：本文・CG・回想。全25交流は自動読了／再読の契約検査 |
+| UI-13 | 設定・ヘルプ・クレジット | FormalTitleView / DrawHelp | settings／cancel／large、help、credits：取消・大文字・音量・速度・操作説明・権利 |
+| UI-14 | 復旧・エラー | SaveRecoveryView | recovery／confirm／blocked：復旧確認・原本保護・未知版停止 |
 
-全画面で720p／1080p、通常／無効／不足／空／未解放／確認／保存待ち／保存失敗の該当状態を自動描画で検査する。対象外状態は理由を記録する。実操作は最大5操作、性能測定は実施しない。
+通常／無効／確認／保存待ち／保存失敗の代表表示を含む。全状態の組合せを人が操作した保証ではない。不足・未解放・空・衝突・原子保存はCore／Unity契約検査と各制作記録で補う。実入力はエージェント5操作、聴取0秒、追加性能測定なし。

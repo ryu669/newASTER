@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "version": "0.9.0-rc.1",
+  "scope": "packaged-player-isolated-production-title",
+  "assemblySha256": "dff32aeb88809b195ce320cff86292e4acf5cc1f8e5c69b4ac410bc7cd332b0f",
+  "package": "dist/newASTER-0.9.0-rc.1-windows-x64",
+  "fileCount": 161,
+  "dependenciesPresent": true,
+  "exitedSuccessfully": true,
+  "image": "tmp\\plan9-package-title-accepted.png",
+  "imageSha256": "bee35eba04dfcbf904b32dfd636deaab8ca407bef8e5e104e28a0d557efdad3b",
+  "visuallyReviewedByAgent": true,
+  "log": "tmp\\plan9-package-smoke-accepted.log",
+  "logSha256": "888de6da51b94408a11fae8d58cb079a7d05fa97657ae1870427b7091778b275",
+  "normalSaveUnchanged": true,
+  "physicalInputCount": 0,
+  "listeningSeconds": 0,
+  "performanceMeasured": false
+}

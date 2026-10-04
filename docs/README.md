@@ -1,6 +1,6 @@
 # newASTER 仕様体系
 
-更新：2026-10-02。現行ブランチ：`docs/kyoshin-requirements-v2`。このページを実装の入口とします。文書名の版番号を廃止し、変更版はGitコミットで管理します。実装・素材・セーブは今回変更しません。
+更新：2026-10-05。現行ブランチ：`codex/plan9-production`。初期5人の正式配布候補RC1を実装・検証済み。[計画9の完了記録](production/plan9-completion-status.md)と[配布内容台帳](production/plan9-release-content-inventory.json)を参照。残り8ジョブと200人超の制作は[継続計画](production/post-plan9-jobs.md)。変更版はGitコミットで管理します。
 
 ## 読む順序と唯一の定義元
 
