@@ -22,6 +22,8 @@
 | 表示 | [箱庭・ADV表示](presentation/garden-and-adv.md) | 背景・人物・家具絵・CG・欠落時表示 |
 | 素材 | [素材契約](presentation/assets.md) | 制作・書き出し・差分・採用・権利確認 |
 | 制作 | [実装計画](production/implementation-plan.md) | 着手順・完了条件 |
+| 制作 | [計画9の実装記録](production/plan9-progress.md) | 内容・全画面台帳、UI実装と検証結果、量産不足 |
+| 制作 | [計画9の詳細計画](production/plan9-implementation-plan.md) | 正式量産・起動から全画面の豪華UI・保存互換・配布候補、9-1〜9-10の順序 |
 | 制作 | [計画8の詳細計画](production/plan8-implementation-plan.md) | 通し試遊・計測・本文・難度・経済・操作・性能、8-1〜8-10の順序 |
 | 制作 | [計画7の完了記録](production/plan7-completion-status.md) | 開発見本の改訂条件・検証範囲・量産／公開受入れへの引継ぎ |
 | 制作 | [縦切り](production/vertical-slice.md) | 最初の完成範囲・測る内容 |

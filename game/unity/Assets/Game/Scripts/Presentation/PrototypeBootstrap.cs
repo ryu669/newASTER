@@ -69,7 +69,7 @@ namespace NewAster.Presentation
             foreach (char glyph in "庭戦闘部位破壊設定喜困決意帰還図鑑0123456789！？")
                 if (!font.HasCharacter(glyph)) throw new InvalidOperationException("Bundled font is missing glyph: " + glyph);
             Debug.Log("PLAN7_BUNDLED_FONT_PASS NotoSansCJKjp-Regular");
-            paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.09f,.28f,.28f));
+            paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.075f,.145f,.20f));
             illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
             viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
             viewCamera.gameObject.AddComponent<AudioListener>();
@@ -121,6 +121,11 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureCollection")) PrepareCollectionCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan5Acceptance")) PreparePlan5Acceptance(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
+            if(capturePath!=null && args.Contains("-capturePlan9Title")) {
+                encounter=null;title=true;
+                int panel=Array.IndexOf(args,"-plan9TitlePanel");
+                if(panel>=0 && panel+1<args.Length)titlePanel=args[panel+1];
+            }
             if(capturePath!=null && args.Contains("-captureEngagement")) PrepareEngagementCapture(args);
             if(capturePath!=null && args.Contains("-captureBook"))PrepareBookCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan6Home"))PreparePlan6Acceptance(args);
@@ -191,6 +196,8 @@ namespace NewAster.Presentation
                 else if(kinderGarden) kinderGarden=false;
                 else if(retreat) { retreat=false; paused=false; }
                 else if(CloseBattleMenuLayer()){}
+                else if(title && titlePanel!=null){titlePanel=null;PlayerPrefs.Save();}
+                else if(title){titlePanel="exit";}
                 else if(encounter!=null && result==null) paused=!paused;
                 else if(result==null) help=true;
             }
@@ -296,11 +303,15 @@ namespace NewAster.Presentation
                 return;
             }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens && book.HasSubject){DrawGardenHome();return;}
-            Panel(0,0,1024,900,paper); Panel(0,0,1600,80,dark);
+            if(title) { DrawFormalTitle(); return; }
+            DrawFormalBookSurface(); Panel(0,0,1600,80,dark);
             Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
-            if(title) { DrawTitle(); return; }
             Panel(1024,80,576,118,dark);
             Label(1050,100,510,70,encounter==null?"記憶が、新しい世界を育てる。":"巨神獣との空中戦",heading,Color.white);
+            if(encounter==null && book.HasSubject && book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0]) {
+                SampleImage(new Rect(1024,198,576,459),"forest-far",true);
+                SampleImage(new Rect(1050,208,510,430),"green-body");
+            }
             if(encounter==null && (!book.HasSubject || book.Bookmark!=BookBookmark.Colossi || book.SubjectId!=WorldCatalog.ColossusIds[0]))Label(1050,275,510,100,book.HasSubject?"この対象の絵は制作待ちです。":"表示する対象はありません。",text,Color.white);
             Panel(1024,657,576,243,dark);
             if(encounter==null) DrawBook(); else DrawBattle();
@@ -309,16 +320,6 @@ namespace NewAster.Presentation
             drawingModal=true;
             if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(kinderGarden) DrawKinderGarden(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
         }
-        private void DrawTitle()
-        {
-            Label(75,160,860,70,"万物の書をひらく",heading);
-            Label(75,260,850,160,"巨神獣の記憶を集め、失われた森を新しい星へ。\n5人の誓女と戦い、武器の樹を育て、庭で物語を紡ぐ。",text);
-            if(Btn(75,470,650,64,"冒険をはじめる / 続きから")) {book.Reenter();title=false;}
-            if(Btn(75,746,650,56,"星の恵み ／ ログイン・時間報酬"))OpenEngagement();
-            Label(75,560,880,170,"戦闘編成："+string.Join(" / ",heroineReferences.formation.Select(id=>heroineReferences.Hero(id).name))+"\n正式5人の育成が戦闘へ反映されます。旧試遊データは引き継ぎません。\n検証用初期配布：ネクタル2940・覚醒結晶20。育成は確認して保存後に確定します。",small);
-            if(Btn(1050,680,510,65,"計画8 ／ オリジナル試遊",BookInputAllowed))EnterPlan8StoryTrial();
-            if(Btn(1050,770,510,65,"計画7 ／ 美術見本を見る",BookInputAllowed))OpenArtSample();
-        }
         private void DrawBook()
         {
             string[] tabs={"巨神獣","誓女・育成","庭","物語"};
@@ -326,7 +327,7 @@ namespace NewAster.Presentation
             if(Btn(28,160,180,42,"‹ 前のページ",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
             if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
-            if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"キンダーガーデン",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
+            if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"召喚・交換",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
             Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
@@ -339,8 +340,8 @@ namespace NewAster.Presentation
             }
             GUI.enabled=previousBookEnabled;
             DrawHomeConfirmation();
-            if(homeTrial){if(Btn(1050,85,510,48,"検証用の別セーブ ／ 通常へ戻る",BookInputAllowed))ExitHomeTrial();}
-            else if(Btn(1050,85,510,48,"計画6の機能検証用セーブを開く",BookInputAllowed))EnterHomeTrial();
+            if(homeTrial){if(Btn(1050,740,510,48,"検証用の別セーブ ／ 通常へ戻る",BookInputAllowed))ExitHomeTrial();}
+            else if(Btn(1050,740,510,48,"制作メニュー ／ 機能検証用セーブ",BookInputAllowed))EnterHomeTrial();
         }
         private void DrawColossus()
         {
@@ -643,7 +644,10 @@ namespace NewAster.Presentation
         private bool Btn(float x,float y,float w,float h,string value,bool enabled=true,GUIStyle style=null)
         {
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
-            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button); GUI.enabled=old; if(clicked)TrialObserve("navigation","button",value);return clicked;
+            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button);
+            Color edge=GUI.enabled?gold:new Color(.23f,.25f,.25f);
+            TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
+            GUI.enabled=old; if(clicked)TrialObserve("navigation","button",value);return clicked;
         }
         private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){FlushActiveTime();Save();} FinishTrialTelemetry(); }
     }

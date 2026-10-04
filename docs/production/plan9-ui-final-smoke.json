@@ -1,0 +1,40 @@
+{
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "case": "title",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\title-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\title-720.png"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "case": "book",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\book-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\book-720.png"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "case": "title",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\title-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\title-1080.png"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "case": "book",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\book-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3d4919bb3fb2436187a2fd9ca87bef70\\book-1080.png"
+    }
+  ],
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "assemblySha256": "722A07AD85CFF0AFD21070B3C98DC9BD3948D1C4831CFA4DC513552474862F73"
+}
