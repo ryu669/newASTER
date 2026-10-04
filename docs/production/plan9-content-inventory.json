@@ -6740,6 +6740,66 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "astal-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-body-candidate-v1.png",
+      "sha256": "ACDE08E466C878ADBF570B4316C196D5947C017A9434CB56DA7FF873112C63FF",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "astal-claw-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-claw-candidate-v1.png",
+      "sha256": "B576582903525FD857EABC96F5118A1DAF83C6F32FE485AB6DF9AD7701527607",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "astal-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-major-candidate-v1.png",
+      "sha256": "E2D521224FFB301C06CC0E7DB75FD75F3C93961DD17DB6CEBBC27991C9DA2027",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "astal-ring-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-ring-candidate-v1.png",
+      "sha256": "1D72579FB7E29A18583B3F13BF13921A6BF30CAB846F137299924476F114DDD2",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "astal-shield-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-shield-candidate-v1.png",
+      "sha256": "3A17DDCC926A8086E5E5D914A0D6275F4C8B9D9AA5B44C76E6262792681E8C7F",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "astal-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-tail-candidate-v1.png",
+      "sha256": "175D24BF42FEE6BA32F67E1BBC621D415FFB10FDB5C55DD0CFD45CCC2E0981A3",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "canyon-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7957,6 +8017,16 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/spring-plain-far-candidate-v1.png",
       "sha256": "D1395EEA5A39024A49572FE8488B173BF7E34F94749C3AD6EAD32C573A22F12E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "star-prairie-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/star-prairie-far-candidate-v1.png",
+      "sha256": "A4CFEB0BF96395419F9D1F46049B26C96AEE958D827F7A14951A291AA3574B2A",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

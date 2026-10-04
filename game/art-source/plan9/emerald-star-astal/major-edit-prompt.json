@@ -1,0 +1,6 @@
+{
+  "prompt": "Edit this exact Astal major sprite. Preserve creature identity, four paws, complete attached satellite tail, halo and chest shield and style. ZOOM OUT to80percent current size centered on same SQUARE transparent canvas so ALL creature outline and ALL teal orbit glows are inside with at least10percent empty transparent margin on ALL four sides. In particular right paw and glow must not touch edge. Connect halo bottom peg to shoulder pad with short silver stem, no empty mounting pad. No new objects, no ground shadow or text. Real transparent background.",
+  "reference": "exec-56cf8d5e-8aee-494c-9059-867189aea3fc.png",
+  "generatedOutput": "exec-d5161a91-8a90-40b9-8c09-f167ae3580aa.png",
+  "transparent_background": true
+}

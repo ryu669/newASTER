@@ -91,6 +91,14 @@ public static class Plan9ColossusTests
         b=yimir();next(b);next(b);b.State.BreakPart("yimir.wheel",int.MaxValue);
         check(b.NextAttackIsMajor,"Destroyed wheel substitutes two-gauge wave and updates major telegraph");
         b.State.ReduceBossGauge(3);check(b.NextEnemyAction=="四季の波紋","Destroyed wheel removes scan when below major threshold");
+        Func<PlayableBattle> astal=()=>new PlayableBattle(1,new PlayableProgress(),79,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.emerald-star-astal"));
+        b=astal();b.State.Heroes[1].TakeDamage(b.State.Heroes[1].MaxHitPoints/2);
+        check(b.NextEnemyAction=="彗星爪撃" && b.NextEnemyTargets.SequenceEqual(new[]{1}),"Astal comet claw targets lowest HP ratio");
+        b.State.BreakPart("astal.claw",int.MaxValue);check(b.NextEnemyAction=="翠星の瞬き" && b.NextEnemyTargets.Length==5,"Destroyed comet claw substitutes all-target magic");
+        b=astal();next(b);next(b);check(b.State.BossGauge==3 && b.NextEnemyAction=="衛星吸光","Astal gains three gauge before satellite absorption");
+        foreach(var h in b.State.Heroes)h.SpendResource(h.JobResource);b.State.Heroes[2].GainResource(3);
+        check(b.NextEnemyTargets.SequenceEqual(new[]{2}),"Astal satellite selects highest resource");
+        b.State.BreakPart("astal.tail",int.MaxValue);check(b.NextEnemyAction=="翠星の瞬き" && b.NextEnemyTargets.Length==5,"Destroyed satellite tail removes drain");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

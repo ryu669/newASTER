@@ -14,7 +14,25 @@ namespace NewAster.Data
             {"colossus.crystal-rose-princess",CrystalRosePrincess},
             {"colossus.silver-sea-whale",SilverSeaWhale},
             {"colossus.heaven-tree-orochi",HeavenTreeOrochi},
-            {"colossus.reenactment-yimir",ReenactmentYimir}
+            {"colossus.reenactment-yimir",ReenactmentYimir},
+            {"colossus.emerald-star-astal",EmeraldStarAstal}
+        };
+        private static ColossusCombatDef EmeraldStarAstal()=>new ColossusCombatDef {
+            id="colossus.emerald-star-astal",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2700,hpPerLevel=190,gaugeMax=6,baseDamage=15,damagePerLevel=2,majorBonus=37,ultimateBonus=67,
+            normalAction="彗星爪撃",enragedAction="翠星共鳴",majorAction="大技：星輪降雨",ultimateAction="極大技：翠星創世",
+            enemySpeed=110,enrageHpPercent=50,enrageDamagePercent=135,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=155,
+            parts=new[]{
+                new ColossusPartCombatDef{id="astal.ring",role="gauge",breakEffect="gauge-down",baseHp=340,hpPerLevel=14},
+                new ColossusPartCombatDef{id="astal.claw",role="attack",breakEffect="",baseHp=430,hpPerLevel=18},
+                new ColossusPartCombatDef{id="astal.shield",role="armor",breakEffect="",baseHp=510,hpPerLevel=21},
+                new ColossusPartCombatDef{id="astal.tail",role="drain",breakEffect="",baseHp=360,hpPerLevel=15}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="彗星爪撃",targetRule="lowest-hp",requiredPartId="astal.claw",damageType="physical",damagePercent=115,gaugeGain=1,waitPercent=80},
+                new ColossusActionCombatDef{name="翠星の瞬き",targetRule="all",damageType="magic",damagePercent=60,gaugeGain=2,waitPercent=90},
+                new ColossusActionCombatDef{name="衛星吸光",targetRule="highest-resource",requiredPartId="astal.tail",damageType="magic",damagePercent=75,gaugeGain=1,drainAmount=2,waitPercent=100}
+            }
         };
         private static ColossusCombatDef ReenactmentYimir()=>new ColossusCombatDef {
             id="colossus.reenactment-yimir",contentVersion=ColossusCombatDef.Plan9Version,
