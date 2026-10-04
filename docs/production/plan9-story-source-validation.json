@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "partial-source-not-connected",
-  "chapters": 29,
-  "poems": 222,
+  "chapters": 41,
+  "poems": 318,
   "events": 0,
   "required": {
     "chapters": 60,
@@ -10,27 +10,15 @@
     "events": 25
   },
   "missingChapterIds": [
-    "colossus.amber-king-serpent.collection.chapter.1",
-    "colossus.amber-king-serpent.collection.chapter.2",
-    "colossus.amber-king-serpent.collection.chapter.3",
-    "colossus.black-smoke-citadel.collection.chapter.1",
-    "colossus.black-smoke-citadel.collection.chapter.2",
-    "colossus.black-smoke-citadel.collection.chapter.3",
     "colossus.dead-king-megadeath.collection.chapter.1",
     "colossus.dead-king-megadeath.collection.chapter.2",
     "colossus.dead-king-megadeath.collection.chapter.3",
-    "colossus.emerald-star-astal.collection.chapter.1",
-    "colossus.emerald-star-astal.collection.chapter.2",
-    "colossus.emerald-star-astal.collection.chapter.3",
     "colossus.final-flame-ice-phoenix.collection.chapter.1",
     "colossus.final-flame-ice-phoenix.collection.chapter.2",
     "colossus.final-flame-ice-phoenix.collection.chapter.3",
     "colossus.newborn-asteria.collection.chapter.1",
     "colossus.newborn-asteria.collection.chapter.2",
     "colossus.newborn-asteria.collection.chapter.3",
-    "colossus.white-divine-dragon-mother.collection.chapter.1",
-    "colossus.white-divine-dragon-mother.collection.chapter.2",
-    "colossus.white-divine-dragon-mother.collection.chapter.3",
     "heroine.echidna.poem-chapter.2",
     "heroine.echidna.poem-chapter.3",
     "heroine.excalipan.poem-chapter.2",
@@ -44,8 +32,20 @@
   ],
   "sources": [
     {
+      "path": "game/story-source/plan9/amber-king-serpent.json",
+      "sha256": "279f4fa5496146c998a55e7fbd3e15848f588276a64152912464b6ee0dd0a06c"
+    },
+    {
+      "path": "game/story-source/plan9/black-smoke-citadel.json",
+      "sha256": "5faaabc73ef0c4f35965f1d568a40556d2875baf4be9fa9718a190f44644a0dd"
+    },
+    {
       "path": "game/story-source/plan9/crystal-rose-princess.json",
       "sha256": "8326066b94f25b8160df8cd558821232004779521cec4cebbf09d7ad9200f01b"
+    },
+    {
+      "path": "game/story-source/plan9/emerald-star-astal.json",
+      "sha256": "3560c348ce95c0403ccc0f10e5464d566e31f7bb19b3644f58ac3e0ce9893a72"
     },
     {
       "path": "game/story-source/plan9/heaven-tree-orochi.json",
@@ -74,6 +74,10 @@
     {
       "path": "game/story-source/plan9/sky-tower-machine.json",
       "sha256": "276fffd82f7b32df77a4d90472c26774455f60adbe63c65a8620067d29157b3b"
+    },
+    {
+      "path": "game/story-source/plan9/white-divine-dragon-mother.json",
+      "sha256": "3a0869b0d230d21de46777ebf6903fddb526a47fbbf4c99ccdfe0e2e2becbb6e"
     }
   ]
 }
