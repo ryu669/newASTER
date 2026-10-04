@@ -23,6 +23,7 @@ public static class AutomaticChainTests
         FormalProgressionTests.Battle(Check,formal());
         BattleEndTests.Run(Check,formal());
         Plan5WorldRelicTests.Run(Check,formal());
+        Plan9ColossusTests.Run(Check,formal());
         Plan6HomeTests.Run(Check,formal());
         Plan6BookTests.Run(Check);
         Plan6ExperienceTests.Run(Check,formal());

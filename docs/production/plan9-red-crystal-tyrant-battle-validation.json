@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "case": "red-battle-1",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-1-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-1-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-44",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-44-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-44-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-45",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-45-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-45-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-49",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-49-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-49-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-50",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-50-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-50-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-crown",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-crown-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-crown-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-claw",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-claw-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-claw-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-plate",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-plate-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-plate-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-tail",
+      "state": "rendered-not-visually-approved",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-tail-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-tail-720.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-1",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-1-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-1-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-44",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-44-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-44-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-45",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-45-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-45-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-49",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-49-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-49-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-50",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-50-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-50-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-crown",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-crown-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-crown-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-claw",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-claw-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-claw-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-plate",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-plate-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-plate-1080.log",
+      "humanInput": false
+    },
+    {
+      "case": "red-battle-tail",
+      "state": "rendered-not-visually-approved",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-tail-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\red-battle-tail-1080.log",
+      "humanInput": false
+    }
+  ],
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "2BF899F8CE34789412B4D0C548DEDFA372B726B7AA05C63E9FAC2E6D451F3237",
+  "sourceResults": "tmp\\plan9-ui-acc6a94d6e634f9a8ad056843a68c5de\\results.json"
+}

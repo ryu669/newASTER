@@ -94,6 +94,7 @@ namespace NewAster.Presentation
             } catch(Exception e) { combatDefinitionError=e.Message;Debug.LogError("COMBAT_DEFINITIONS_ERROR "+combatDefinitionError);return; }
             var args=Environment.GetCommandLineArgs();
             InitializeFormalEntrance(args);
+            InitializePlan9EnemyReview(args);
             int expressionIndex=Array.IndexOf(args,"-inspectPlan9Expression");
             if(expressionIndex>=0 && expressionIndex+1<args.Length)plan9Expression=args[expressionIndex+1];
             if(args.Contains("-inspectPlan9ArtSlayer"))plan9ArtHero="heroine.slayer";
@@ -158,6 +159,7 @@ namespace NewAster.Presentation
                 encounter.DrainPresentationEvents(); SelectNextHero();
             }
             int battleMenuIndex=Array.IndexOf(args,"-captureBattleMenu");
+            PreparePlan9ColossusCapture(args);
             if(capturePath!=null && battleMenuIndex>=0 && battleMenuIndex+1<args.Length)PrepareBattleMenuCapture(args[battleMenuIndex+1]);
             if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
                 while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
@@ -310,6 +312,7 @@ namespace NewAster.Presentation
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
+            if(plan9EnemyPreview!=null){DrawPlan9EnemyArt();return;}
             if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
             if(plan9Cg!=null){DrawPlan9EventCg();return;}
             if(artSample){DrawArtSample();return;}
@@ -374,7 +377,11 @@ namespace NewAster.Presentation
             if(!unlocked) { Label(32,365,920,120,"前の巨神獣を初めて討伐すると、このページが開きます。\n最後の巨神獣には、14体すべての初回討伐が必要です。",text); return; }
             if(book.Face==BookFace.Details) {
                 Label(32,365,920,100,"初回討伐で世界へ定着する環境："+string.Join("・",c.EnvironmentTags),text);
-                Label(32,490,920,195,"角冠：大技ゲージ / 左翼：攻撃 / 右翼：装甲 / 尾：資源妨害\n部位を破壊してから本体を攻めると安全に戦えます。\n緑還竜の戦闘定義のみ試遊できます。他の敵の戦闘は未制作です。詩本文は未制作です。",text);
+                if(ColossusCombatCatalog.CanSummon(c.Id)){
+                    var definition=ColossusCombatCatalog.Get(c.Id);
+                    string parts=string.Join(" / ",definition.parts.Select((p,i)=>ColossusCombatCatalog.PartName(new BattlePart(p.id,p.baseHp,p.breakEffect,role:p.role),i)));
+                    Label(32,490,920,195,parts+"\n部位を破壊してから本体を攻めると安全に戦えます。\n大技："+definition.majorAction+" / Lv45以上："+definition.ultimateAction,text);
+                }else Label(32,490,920,195,"この巨神獣の戦闘は制作中です。",text);
             } else {
                 Label(32,363,925,110,"巨神獣の体に残った呪歌は、失われた世界の記憶。\n討伐して環境を取り戻し、詩を集めると物語の章が開きます。",text);
                 Label(32,485,900,45,$"挑戦 Lv.{selectedLevel}  /  選択可能 1〜{campaign.Playable.HighestLevel}",heading);
@@ -513,6 +520,7 @@ namespace NewAster.Presentation
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
+            illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();

@@ -33,6 +33,18 @@ foreach($height in $Heights){
    'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
    'book-last' {$flags+=@('-captureBook','-bookLast')}
    'growth' {$flags+='-captureGrowth'}
+   {$_ -in @('red-battle-1','red-battle-44','red-battle-45','red-battle-49','red-battle-50','red-battle-crown','red-battle-claw','red-battle-plate','red-battle-tail')} {
+    $flags+=@('-captureBattleMenu','closed','-inspectPlan9Colossus','colossus.red-crystal-tyrant')
+    $detail=$case.Substring(11)
+    if($detail -in @('crown','claw','plate','tail')){$flags+=@('-inspectPlan9ColossusLevel','45','-inspectPlan9ColossusBreak',('tyrant.'+$detail))}
+    else{$flags+=@('-inspectPlan9ColossusLevel',$detail)}
+   }
+   {$_ -in @('red-art-normal','red-art-crown','red-art-claw','red-art-plate','red-art-tail','red-art-all','red-art-major')} {
+    $flags+=@('-capturePlan9Title','-inspectPlan9Enemy','red-crystal-tyrant')
+    $mask=@{'red-art-normal'=0;'red-art-crown'=1;'red-art-claw'=2;'red-art-plate'=4;'red-art-tail'=8;'red-art-all'=15;'red-art-major'=0}[$case]
+    $flags+=@('-inspectPlan9EnemyBroken',"$mask")
+    if($case -eq 'red-art-major'){$flags+='-inspectPlan9EnemyMajor'}
+   }
    'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
    'undermine-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.undermine')}
    'echidna-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.echidna')}
@@ -92,6 +104,8 @@ foreach($height in $Heights){
   if($LASTEXITCODE -ne 0 -or $text -match 'Exception:|error CS' -or -not(Test-Path $png)){throw ('Capture failed: '+$name+' '+$log)}
   if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
   if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
+  if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}
+  if($case.StartsWith('red-battle-') -and ($text -notmatch 'PLAN9_COLOSSUS_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy combat capture unavailable'}
   if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}
   if($case.StartsWith('slayer-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.slayer'){throw 'Wrong ADV heroine'}
   if($case.StartsWith('slayer-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.slayer'){throw 'Wrong garden heroine'}

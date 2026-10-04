@@ -6740,6 +6740,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "canyon-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/canyon-far-candidate-v1.png",
+      "sha256": "6425F57787A0576ABC56579D4ABF54EB87046CA538F523D10D04697FF9AC44AD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "echidna-attack-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7387,6 +7397,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
       "sha256": "1F6C05159CFE1C7903B9AB3E6680DD3EE27922041B9092AA15E176714532A77E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-body-candidate-v1.png",
+      "sha256": "1FC72CDE7280BBC9EC65399740CEB0A268B9C4E7EBEFDEB0A3EC8F3BD083E7DD",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-claw-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-claw-candidate-v1.png",
+      "sha256": "2E31A3D102C8B5E57710155982FA428367EC666F252C408898D2119DD45376A2",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-crown-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-crown-candidate-v1.png",
+      "sha256": "2A722696D57EAB6A23DBC7FEE7C6EE025651E1957710141EF1FA7814DE6B14D5",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-major-candidate-v1.png",
+      "sha256": "2C4C294823DD80926F719F7829983245C689A36E87F7E9CF2AB69A965A4EE2AB",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-plate-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-plate-candidate-v1.png",
+      "sha256": "2B03C67507FEC0EECFAA396B5D22A1A1BC0D4038D2AAA87176A30F4DEC8AB824",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "red-tail-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-tail-candidate-v1.png",
+      "sha256": "DAD6F513F23F40ED771D8A5E415CDF39A22FEA0C46173F36F50011773AE58CD1",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {

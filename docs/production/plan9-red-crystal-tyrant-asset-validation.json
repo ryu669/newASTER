@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.red-crystal-tyrant",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "4caa4bb1db807e795bbc6c67fd2c3fb53584449617386479fe6cde4503e91668",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        165,
+        17,
+        1139,
+        1235
+      ],
+      "sha256": "1fc72cde7280bbc9ec65399740ceb0a268b9c4e7ebefdeb0a3ec8f3bd083e7dd",
+      "status": "candidate"
+    },
+    {
+      "purpose": "tyrant.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        135,
+        132,
+        1119,
+        1068
+      ],
+      "sha256": "2a722696d57eab6a23dbc7fee7c6ee025651e1957710141ef1fa7814de6b14d5",
+      "status": "candidate"
+    },
+    {
+      "purpose": "tyrant.claw",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-claw-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        151,
+        57,
+        1185,
+        1194
+      ],
+      "sha256": "2e31a3d102c8b5e57710155982fa428367ec666f252c408898d2119dd45376a2",
+      "status": "candidate"
+    },
+    {
+      "purpose": "tyrant.plate",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-plate-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        245,
+        169,
+        1038,
+        1085
+      ],
+      "sha256": "2b03c67507fec0eecfaa396b5d22a1a1bc0d4038d2aaa87176a30f4dec8ab824",
+      "status": "candidate"
+    },
+    {
+      "purpose": "tyrant.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        73,
+        107,
+        1195,
+        1088
+      ],
+      "sha256": "dad6f513f23f40ed771d8a5e415cdf39a22fea0c46173f36f50011773ae58cd1",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/red-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        27,
+        45,
+        1228,
+        1220
+      ],
+      "sha256": "2c4c294823dd80926f719f7829983245c689a36e87f7e9cf2ab69a965a4ee2ab",
+      "status": "candidate"
+    }
+  ]
+}

@@ -67,7 +67,7 @@ namespace NewAster.Core
         private void InitializeTimeline()
         {
             for(int i=0;i<5;i++) readyAt[i]=SkillTimingDefinition.Delay(State.Heroes[i].Speed,100);
-            bossAt=SkillTimingDefinition.Delay(90,100);
+            bossAt=SkillTimingDefinition.Delay(colossusDefinition?.enemySpeed??90,100);
             AdvanceTimeline();
         }
         public IReadOnlyList<BattleOrderEntry> UpcomingOrder()
@@ -115,7 +115,7 @@ namespace NewAster.Core
                 if(next.Actor<0) {
                     ResolveEnemyAction(); EnemyActionCount++; Turn++;
                     Guarded=false; Chain=0; chainPending=false; chainMembers.Clear();
-                    bossAt=Clock+SkillTimingDefinition.Delay(90,lastEnemyWasMajor?150:100);
+                    bossAt=Clock+SkillTimingDefinition.Delay(colossusDefinition?.enemySpeed??90,EnemyWaitPercent);
                     continue;
                 }
                 int actor=next.Actor;

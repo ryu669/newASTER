@@ -54,7 +54,9 @@ namespace NewAster.Presentation
             if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);
         }
         public static Rect PartCanvas(Rect canvas,PartIllustrationBinding part)
-        {var p=part.placement;return p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);}
+        =>LayerCanvas(canvas,part.placement);
+        public static Rect LayerCanvas(Rect canvas,IllustrationLayerPlacement p)
+        =>p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);
         public static int DisplayActor(int available,BattlePresentationEvent e) => e!=null?e.Actor:available;
         public static int DisplayVictim(string[] heroineIds,BattlePresentationEvent e)
         {return e!=null && e.Kind==BattlePresentationKind.Enemy?Array.FindIndex(heroineIds,id=>e.TargetIds.Contains(id)):-1;}
@@ -62,7 +64,7 @@ namespace NewAster.Presentation
         {
             if(manifest==null || body==null)return;
             foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal))DrawPreviewPart(part,canvas,brokenMask);
-            GUI.DrawTexture(canvas,body,ScaleMode.ScaleToFit,true);
+            GUI.DrawTexture(LayerCanvas(canvas,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
             foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal))DrawPreviewPart(part,canvas,brokenMask);
         }
         public void DrawEnemyMajorPreview(Rect canvas){if(enemyMajor!=null)GUI.DrawTexture(canvas,enemyMajor,ScaleMode.ScaleToFit,true);}
@@ -112,7 +114,7 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
             } else if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.Major && e.PartHp.All(hp=>hp>0) && enemyMajor!=null){GUI.DrawTexture(enemy,enemyMajor,ScaleMode.ScaleToFit,true);} else {
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
-                GUI.DrawTexture(enemy,body,ScaleMode.ScaleToFit,true);
+                GUI.DrawTexture(LayerCanvas(enemy,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
             if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.StretchToFill,true);

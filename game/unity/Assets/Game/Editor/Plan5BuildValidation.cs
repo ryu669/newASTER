@@ -60,6 +60,13 @@ public static partial class PlayableBuild
             battle.State.AdvanceBossGauge(3);Check(battle.NextAttackIsMajor && battle.State.UltimateUnlocked==(level>=45),"Unity major ultimate level boundary");
             Check(battle.State.BreakPart("crystal-horn-crown",int.MaxValue) && !battle.NextAttackIsMajor,"Unity destruction cancels imminent major");
         }
-        Check(WorldCatalog.ColossusIds.Skip(1).All(id=>!ColossusCombatCatalog.CanSummon(id)),"Unity all unmade enemies cannot summon");
+        Check(ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]) && WorldCatalog.ColossusIds.Skip(2).All(id=>!ColossusCombatCatalog.CanSummon(id)),"Unity authored tyrant can summon and remaining unmade enemies cannot");
+        foreach(int level in new[]{44,45,49,50}){
+            var definition=JsonUtility.FromJson<ColossusCombatDef>(JsonUtility.ToJson(ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[1])));definition.Validate();
+            Check(definition.actionCycle.Length==3 && definition.actionCycle[1].requiredPartId=="tyrant.claw" && definition.actionCycle[2].drainAmount==2,"Unity tyrant action cycle survives serialization");
+            var battle=new PlayableBattle(level,new PlayableProgress(),4,combatDefinitions:combat,colossusDefinition:definition);
+            battle.State.AdvanceBossGauge(4);Check(battle.NextAttackIsMajor && battle.NextEnemyAction==(level>=45?"極大技：渓谷断裂":"大技：鉱晶崩落"),"Unity tyrant own major boundary");
+            Check(battle.State.BreakPart("tyrant.crown",int.MaxValue) && !battle.NextAttackIsMajor,"Unity tyrant crown interrupts major");
+        }
     }
 }

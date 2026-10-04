@@ -14,12 +14,12 @@ namespace NewAster.Core
         public bool Guarded { get; private set; }
         public const decimal BaseChainRate = .50m;
         public int Seed { get; }
-        public bool NextAttackIsMajor => !RolePart("gauge",0).IsBroken && !RolePart("gauge",0).Status.Active("stun") && State.BossGauge + 1 >= State.BossGaugeMax;
+        public bool NextAttackIsMajor => !RolePart("gauge",0).IsBroken && !RolePart("gauge",0).Status.Active("stun") && State.BossGauge + NextColossusGaugeGain >= State.BossGaugeMax;
         // Temporary encounter tuning; final per-colossus action tables remain TBD.
-        public bool IsEnraged => !State.IsVictory && (long)State.BossHitPoints * 2 <= State.BossMaxHitPoints;
+        public bool IsEnraged => !State.IsVictory && (long)State.BossHitPoints*100 <= (long)State.BossMaxHitPoints*(colossusDefinition?.enrageHpPercent??50);
         public string NextEnemyAction => NextAttackIsMajor
             ? (State.UltimateUnlocked ? colossusDefinition?.ultimateAction??"極大技：星還の奔流" : colossusDefinition?.majorAction??"大技：緑晶の嵐")
-            : (IsEnraged ? colossusDefinition?.enragedAction??"怒りの翼撃" : colossusDefinition?.normalAction??"翼撃");
+            : (NextColossusStep!=null?NextColossusStep.name+(IsEnraged?"・"+colossusDefinition.enragedAction:""):(IsEnraged ? colossusDefinition?.enragedAction??"怒りの翼撃" : colossusDefinition?.normalAction??"翼撃"));
         public bool Ended => State.IsVictory || !State.Heroes.Any(h => h.IsAlive);
         public string Log { get; private set; } = "行動者のスキルを選択。速度・待機・詠唱で行動順が変わります。";
         private readonly int[] defense;
@@ -218,12 +218,13 @@ namespace NewAster.Core
         {
             if (heroIndex < 0 || heroIndex >= 5) return 0;
             int damage = (colossusDefinition?.baseDamage??12) + State.SelectedLevel * (colossusDefinition?.damagePerLevel??2) + (NextAttackIsMajor ? (State.UltimateUnlocked ? colossusDefinition?.ultimateBonus??45 : colossusDefinition?.majorBonus??20) : 0);
-            if (IsEnraged) damage = damage * 5 / 4;
-            if (RolePart("attack",1).IsBroken || RolePart("attack",1).Status.Active("stun")) damage = damage * 3 / 4;
+            if(!NextAttackIsMajor && NextColossusStep!=null)damage=(int)Math.Min(int.MaxValue,(long)damage*NextColossusStep.damagePercent/100);
+            if (IsEnraged) damage=(int)Math.Min(int.MaxValue,(long)damage*(colossusDefinition?.enrageDamagePercent??125)/100);
+            if (RolePart("attack",1).IsBroken || RolePart("attack",1).Status.Active("stun")) damage=(int)((long)damage*(colossusDefinition?.attackBreakDamagePercent??75)/100);
             if (Guarded) damage = damage * Math.Max(20, 50 - support[2] * 8) / 100;
             if(IsFormal) {
                 // The preview encounter's major move is magic; normal wing attacks are physical.
-                bool magic=NextAttackIsMajor;
+                bool magic=NextAttackIsMajor?(colossusDefinition?.majorDamageType??"magic")=="magic":NextColossusStep?.damageType=="magic";
                 if(State.BossStatus.Active("sickness") || RolePart("attack",1).Status.Active("sickness")) damage=damage*80/100;
                 int protection=magic?State.Heroes[heroIndex].MagicDefense:State.Heroes[heroIndex].PhysicalDefense;
                 damage=(int)((long)damage*1000/(1000L+protection));
@@ -346,6 +347,7 @@ namespace NewAster.Core
         {
             if(UsesTimeline) {LastFullChain=false;LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();}
             lastEnemyWasMajor=false;
+            lastColossusWaitPercent=100;
             if(IsFormal) {
                 long dot=0;bool dotBroken=false;var dotTargets=new List<string>();
                 int bodyDot=State.BossStatus.Dot(State.BossMaxHitPoints);if(bodyDot>0) {dot+=State.ApplyBossDamage(bodyDot);dotTargets.Add("body");}
@@ -355,16 +357,17 @@ namespace NewAster.Core
                 if(State.BossStatus.Active("stun")) {TickEnemyStatuses();Log+="\n巨神獣はスタンで行動不能。";RecordPresentation(BattlePresentationKind.Enemy,-1,"body","スタン：巨神獣行動を一回阻止",standalone:true);return;}
             }
             bool major=NextAttackIsMajor;string action=NextEnemyAction;lastEnemyWasMajor=major;
+            var step=NextColossusStep;int gaugeGain=NextColossusGaugeGain;lastColossusWaitPercent=step?.waitPercent??100;
             long actualDamage=0;var damagedHeroes=new List<string>();
-            foreach(int i in EnemyTargetSelector.Resolve(State,!IsFormal || major,EnemyActionCount%5)) {
+            foreach(int i in NextEnemyTargets) {
                 int beforeHp=State.Heroes[i].HitPoints;
                 int damage=PreviewEnemyDamage(i);State.Heroes[i].TakeDamage(damage);
                 int lost=beforeHp-State.Heroes[i].HitPoints;if(lost>0){actualDamage+=lost;damagedHeroes.Add(State.Heroes[i].Id);}
                 if(IsFormal && damage>0 && State.Heroes[i].IsAlive) State.Heroes[i].GainResource(jobProfiles[i].gainOnHit);
             }
-            State.AdvanceBossGauge(RolePart("gauge",0).IsBroken || RolePart("gauge",0).Status.Active("stun") ? 0 : 1);
+            State.AdvanceBossGauge(RolePart("gauge",0).IsBroken || RolePart("gauge",0).Status.Active("stun") ? 0 : gaugeGain);
             if (major) State.TryConsumeMajorGauge();
-            if (!RolePart("drain",3).IsBroken && !RolePart("drain",3).Status.Active("stun")) foreach (var hero in State.Heroes.Where(h=>h.IsAlive)) hero.SpendResource(Math.Min(1, hero.JobResource));
+            if (!RolePart("drain",3).IsBroken && !RolePart("drain",3).Status.Active("stun")) foreach (var hero in State.Heroes.Where(h=>h.IsAlive)) hero.SpendResource(Math.Min(step?.drainAmount??1, hero.JobResource));
             if(IsFormal) TickEnemyStatuses();
             Log += "\n巨神獣の" + action + "！";
             RecordPresentation(BattlePresentationKind.Enemy,-1,"body","巨神獣の"+action+"！",major:major,damage:(int)Math.Min(int.MaxValue,actualDamage),targetIds:damagedHeroes);
