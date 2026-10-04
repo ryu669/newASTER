@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-1-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-44-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-44",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-44-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-45-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-45",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-45-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-49-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-49",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-49-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-50-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-50",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-50-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part1-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part2-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part2",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part2-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part3-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part3",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part3-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part4-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part4",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part4-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-1-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-44-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-44",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-44-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-45-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-45",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-45-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-49-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-49",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-49-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-50-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-50",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-50-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part1-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part2-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part2",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part2-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part3-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part3",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part3-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part4-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-battle-part4",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-battle-part4-1080.log"
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "assemblySha256": "ACC0812782AD8BA44E04913506A24B78F0534EE5DDAA66567B70DF521079A2D1"
+}

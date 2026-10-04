@@ -78,6 +78,11 @@ public static class Plan9ColossusTests
         b.State.BreakPart("whale.fin",int.MaxValue);check(b.NextEnemyAction=="銀潮の波","Destroyed fin removes dive");
         b=whale();next(b);next(b);check(b.NextEnemyAction=="潮流吸収","Whale third step is tidal drain");
         b.State.BreakPart("whale.tail",int.MaxValue);check(b.NextEnemyAction=="銀潮の波","Destroyed whale tail removes tidal drain");
+        Func<PlayableBattle> orochi=()=>new PlayableBattle(1,new PlayableProgress(),77,combatDefinitions:combat,colossusDefinition:ColossusCombatCatalog.Get("colossus.heaven-tree-orochi"));
+        b=orochi();check(b.NextEnemyAction=="蛇枝掃射" && b.NextEnemyTargets.Length==5,"Orochi opens with sweeping snake branch");
+        b.State.BreakPart("orochi.branch",int.MaxValue);check(b.NextEnemyAction=="天葉の光" && b.NextEnemyTargets.Length==1,"Destroyed snake branch removes sweep");
+        b=orochi();next(b);check(b.State.BossGauge==2 && b.NextEnemyAction=="吸水根の収奪","Orochi sweep adds two gauge then root drains");
+        b.State.BreakPart("orochi.root",int.MaxValue);check(b.NextEnemyAction=="天葉の光","Destroyed water root removes drain");
         foreach(string id in ColossusCombatCatalog.AuthoredIds){
             var definition=ColossusCombatCatalog.Get(id);check(definition.id==id && definition.parts.Select(p=>p.id).Distinct().Count()==definition.parts.Length,"Every authored ID owns its combat and parts");
             check(!string.IsNullOrEmpty(ColossusCombatCatalog.IllustrationResource(id)),"Every authored enemy owns an illustration binding");

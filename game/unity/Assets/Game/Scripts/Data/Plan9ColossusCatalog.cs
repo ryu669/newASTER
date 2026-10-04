@@ -12,7 +12,25 @@ namespace NewAster.Data
             {"colossus.memory-crystal-dragon",MemoryCrystalDragon},
             {"colossus.sky-tower-machine",SkyTowerMachine},
             {"colossus.crystal-rose-princess",CrystalRosePrincess},
-            {"colossus.silver-sea-whale",SilverSeaWhale}
+            {"colossus.silver-sea-whale",SilverSeaWhale},
+            {"colossus.heaven-tree-orochi",HeavenTreeOrochi}
+        };
+        private static ColossusCombatDef HeavenTreeOrochi()=>new ColossusCombatDef {
+            id="colossus.heaven-tree-orochi",contentVersion=ColossusCombatDef.Plan9Version,
+            baseHp=2600,hpPerLevel=185,gaugeMax=6,baseDamage=14,damagePerLevel=2,majorBonus=36,ultimateBonus=66,
+            normalAction="蛇枝掃射",enragedAction="天樹繁茂",majorAction="大技：八岐翠嵐",ultimateAction="極大技：世界樹回生",
+            enemySpeed=84,enrageHpPercent=50,enrageDamagePercent=135,attackBreakDamagePercent=60,majorDamageType="magic",majorWaitPercent=175,
+            parts=new[]{
+                new ColossusPartCombatDef{id="orochi.bud",role="gauge",breakEffect="gauge-down",baseHp=330,hpPerLevel=14},
+                new ColossusPartCombatDef{id="orochi.branch",role="attack",breakEffect="",baseHp=450,hpPerLevel=18},
+                new ColossusPartCombatDef{id="orochi.shield",role="armor",breakEffect="",baseHp=490,hpPerLevel=20},
+                new ColossusPartCombatDef{id="orochi.root",role="drain",breakEffect="",baseHp=390,hpPerLevel=16}
+            },
+            actionCycle=new[]{
+                new ColossusActionCombatDef{name="蛇枝掃射",targetRule="all",requiredPartId="orochi.branch",damageType="physical",damagePercent=70,gaugeGain=2,drainAmount=0,waitPercent=125},
+                new ColossusActionCombatDef{name="吸水根の収奪",targetRule="highest-resource",requiredPartId="orochi.root",damageType="magic",damagePercent=70,gaugeGain=1,drainAmount=3,waitPercent=120},
+                new ColossusActionCombatDef{name="天葉の光",targetRule="lowest-hp",damageType="magic",damagePercent=100,gaugeGain=1,drainAmount=0,waitPercent=100}
+            }
         };
         private static ColossusCombatDef SilverSeaWhale()=>new ColossusCombatDef {
             id="colossus.silver-sea-whale",contentVersion=ColossusCombatDef.Plan9Version,

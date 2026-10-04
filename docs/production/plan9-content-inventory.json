@@ -7240,6 +7240,16 @@
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
+      "id": "heaven-forest-far-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heaven-forest-far-candidate-v1.png",
+      "sha256": "4543AE373AC972F86C36FEDF261EF66BBCF4F05663F25B51147DB8CFC12EC307",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
       "id": "highland-far-candidate-v1",
       "kind": "asset",
       "owner": "art/audio",
@@ -7477,6 +7487,66 @@
       "state": "candidate-review-required",
       "path": "game/unity/Assets/Game/Resources/Illustrations/memory-shield-candidate-v1.png",
       "sha256": "FC255E59572D0AB66FED529E16B6631ED9917B95D1102C60D91D99A31DF59AED",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-body-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-body-candidate-v1.png",
+      "sha256": "DE4DBA030D66D00DEC85E4FD93977559EAAC9A57F0F43ED749C51441F8C9B8EA",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-branch-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-branch-candidate-v1.png",
+      "sha256": "D5B446A7794A010C506D13C48C23E2E3BB3D6B5443C8211A1A3C2BD138482B72",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-bud-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-bud-candidate-v1.png",
+      "sha256": "5CB5619C6D9A5B537BB8009442B82137405F01D1F24E137DB9C0B4A1E5BE5D9C",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-major-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-major-candidate-v1.png",
+      "sha256": "4B3CF7070D584B79F5A5F121956B4075A4D26164F4CF711A120DCD086BB4353E",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-root-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-root-candidate-v1.png",
+      "sha256": "6464A806A3ACDD58CF5693C568635B673E1EE8EDE39E20B0C78B30CD9BD9A1D7",
+      "acceptance": "P9-01; rights/source/hash/visual-review"
+    },
+    {
+      "id": "orochi-shield-candidate-v1",
+      "kind": "asset",
+      "owner": "art/audio",
+      "dependencies": [],
+      "state": "candidate-review-required",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-shield-candidate-v1.png",
+      "sha256": "60C478ED0B60CD548C6B0F2423A33CF99C37C208EFC54E189B771C3BCD9726CE",
       "acceptance": "P9-01; rights/source/hash/visual-review"
     },
     {
