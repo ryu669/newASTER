@@ -91,6 +91,7 @@ namespace NewAster.Presentation
             long rgbaBytes=artTextures.Values.Where(t=>t!=null).Sum(t=>(long)t.width*t.height*4);long working=-1,peak=-1;
             try{using(var process=System.Diagnostics.Process.GetCurrentProcess()){working=process.WorkingSet64;peak=process.PeakWorkingSet64;}}catch(Exception ex){Debug.Log("PLAN7_MEMORY_UNAVAILABLE "+ex.GetType().Name);}
             if(working<=0 || peak<=0){working=-1;peak=-1;}
+            TrialObserve("performance","frame-sample","scene="+(plan7ActiveCombat?"scripted-active-combat":artTab)+";frames="+ordered.Length+";p95Ms="+(ordered[(int)((ordered.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+";under16_7ms="+ratio.ToString("F4",System.Globalization.CultureInfo.InvariantCulture)+";workingBytes="+working+";peakWorkingBytes="+peak);
             foreach(var category in new[]{new{label="major",frames=artMajorFrameTimes},new{label="break",frames=artBreakFrameTimes}}){
                 if(category.frames.Count==0)continue;var times=category.frames.OrderBy(x=>x).ToArray();
                 Debug.Log("PLAN7_EFFECT_PERFORMANCE category="+category.label+" frames="+times.Length+" p95Ms="+(times[(int)((times.Length-1)*.95)]*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" maxMs="+(times.Last()*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" under16_7ms="+(times.Count(x=>x<=.0167f)/(double)times.Length).ToString("F4",System.Globalization.CultureInfo.InvariantCulture));

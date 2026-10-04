@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "scope": "seeded statistical draws and arithmetic supply bounds; no simulated currency grants, not actual Lv120 arrival",
+  "bannerVersion": "kinder-trial-2026-10-02",
+  "stoneCost": 300,
+  "tenDrawCost": 3000,
+  "heroineRateBasisPoints": 300,
+  "perHeroineRateBasisPoints": 60,
+  "exchangePoints": 100,
+  "pointsPerPaidDraw": 1,
+  "statisticalDraws": 200000,
+  "observedHeroineRate": 0.030365,
+  "approximate95PercentSamplingInterval": [
+    0.029612975727908865,
+    0.031117024272091134
+  ],
+  "heroes": {
+    "heroine.slayer": 1259,
+    "heroine.iconoclast": 1141,
+    "heroine.undermine": 1272,
+    "heroine.echidna": 1214,
+    "heroine.excalipan": 1187
+  },
+  "nectarOutcomes": 179930,
+  "crystalOutcomes": 13997,
+  "samples": [
+    {
+      "seed": 0,
+      "draws": 10000,
+      "heroCount": 284,
+      "heroes": {
+        "heroine.slayer": 64,
+        "heroine.iconoclast": 55,
+        "heroine.undermine": 61,
+        "heroine.echidna": 57,
+        "heroine.excalipan": 47
+      }
+    },
+    {
+      "seed": 1,
+      "draws": 10000,
+      "heroCount": 323,
+      "heroes": {
+        "heroine.slayer": 78,
+        "heroine.iconoclast": 65,
+        "heroine.undermine": 55,
+        "heroine.echidna": 61,
+        "heroine.excalipan": 64
+      }
+    },
+    {
+      "seed": 2,
+      "draws": 10000,
+      "heroCount": 296,
+      "heroes": {
+        "heroine.slayer": 62,
+        "heroine.iconoclast": 46,
+        "heroine.undermine": 62,
+        "heroine.echidna": 61,
+        "heroine.excalipan": 65
+      }
+    },
+    {
+      "seed": 3,
+      "draws": 10000,
+      "heroCount": 299,
+      "heroes": {
+        "heroine.slayer": 63,
+        "heroine.iconoclast": 59,
+        "heroine.undermine": 56,
+        "heroine.echidna": 74,
+        "heroine.excalipan": 47
+      }
+    },
+    {
+      "seed": 4,
+      "draws": 10000,
+      "heroCount": 290,
+      "heroes": {
+        "heroine.slayer": 58,
+        "heroine.iconoclast": 68,
+        "heroine.undermine": 57,
+        "heroine.echidna": 60,
+        "heroine.excalipan": 47
+      }
+    },
+    {
+      "seed": 5,
+      "draws": 10000,
+      "heroCount": 327,
+      "heroes": {
+        "heroine.slayer": 63,
+        "heroine.iconoclast": 73,
+        "heroine.undermine": 60,
+        "heroine.echidna": 71,
+        "heroine.excalipan": 60
+      }
+    },
+    {
+      "seed": 6,
+      "draws": 10000,
+      "heroCount": 295,
+      "heroes": {
+        "heroine.slayer": 66,
+        "heroine.iconoclast": 58,
+        "heroine.undermine": 62,
+        "heroine.echidna": 52,
+        "heroine.excalipan": 57
+      }
+    },
+    {
+      "seed": 7,
+      "draws": 10000,
+      "heroCount": 306,
+      "heroes": {
+        "heroine.slayer": 57,
+        "heroine.iconoclast": 60,
+        "heroine.undermine": 69,
+        "heroine.echidna": 52,
+        "heroine.excalipan": 68
+      }
+    },
+    {
+      "seed": 8,
+      "draws": 10000,
+      "heroCount": 272,
+      "heroes": {
+        "heroine.slayer": 53,
+        "heroine.iconoclast": 54,
+        "heroine.undermine": 57,
+        "heroine.echidna": 54,
+        "heroine.excalipan": 54
+      }
+    },
+    {
+      "seed": 9,
+      "draws": 10000,
+      "heroCount": 332,
+      "heroes": {
+        "heroine.slayer": 75,
+        "heroine.iconoclast": 58,
+        "heroine.undermine": 68,
+        "heroine.echidna": 52,
+        "heroine.excalipan": 79
+      }
+    },
+    {
+      "seed": 10,
+      "draws": 10000,
+      "heroCount": 319,
+      "heroes": {
+        "heroine.slayer": 78,
+        "heroine.iconoclast": 67,
+        "heroine.undermine": 54,
+        "heroine.echidna": 65,
+        "heroine.excalipan": 55
+      }
+    },
+    {
+      "seed": 11,
+      "draws": 10000,
+      "heroCount": 292,
+      "heroes": {
+        "heroine.slayer": 66,
+        "heroine.iconoclast": 47,
+        "heroine.undermine": 59,
+        "heroine.echidna": 64,
+        "heroine.excalipan": 56
+      }
+    },
+    {
+      "seed": 12,
+      "draws": 10000,
+      "heroCount": 301,
+      "heroes": {
+        "heroine.slayer": 58,
+        "heroine.iconoclast": 49,
+        "heroine.undermine": 68,
+        "heroine.echidna": 66,
+        "heroine.excalipan": 60
+      }
+    },
+    {
+      "seed": 13,
+      "draws": 10000,
+      "heroCount": 296,
+      "heroes": {
+        "heroine.slayer": 59,
+        "heroine.iconoclast": 56,
+        "heroine.undermine": 63,
+        "heroine.echidna": 51,
+        "heroine.excalipan": 67
+      }
+    },
+    {
+      "seed": 14,
+      "draws": 10000,
+      "heroCount": 313,
+      "heroes": {
+        "heroine.slayer": 70,
+        "heroine.iconoclast": 61,
+        "heroine.undermine": 59,
+        "heroine.echidna": 62,
+        "heroine.excalipan": 61
+      }
+    },
+    {
+      "seed": 15,
+      "draws": 10000,
+      "heroCount": 312,
+      "heroes": {
+        "heroine.slayer": 66,
+        "heroine.iconoclast": 53,
+        "heroine.undermine": 69,
+        "heroine.echidna": 60,
+        "heroine.excalipan": 64
+      }
+    },
+    {
+      "seed": 16,
+      "draws": 10000,
+      "heroCount": 312,
+      "heroes": {
+        "heroine.slayer": 55,
+        "heroine.iconoclast": 60,
+        "heroine.undermine": 64,
+        "heroine.echidna": 78,
+        "heroine.excalipan": 55
+      }
+    },
+    {
+      "seed": 17,
+      "draws": 10000,
+      "heroCount": 272,
+      "heroes": {
+        "heroine.slayer": 48,
+        "heroine.iconoclast": 36,
+        "heroine.undermine": 71,
+        "heroine.echidna": 55,
+        "heroine.excalipan": 62
+      }
+    },
+    {
+      "seed": 18,
+      "draws": 10000,
+      "heroCount": 323,
+      "heroes": {
+        "heroine.slayer": 59,
+        "heroine.iconoclast": 55,
+        "heroine.undermine": 82,
+        "heroine.echidna": 63,
+        "heroine.excalipan": 64
+      }
+    },
+    {
+      "seed": 19,
+      "draws": 10000,
+      "heroCount": 309,
+      "heroes": {
+        "heroine.slayer": 61,
+        "heroine.iconoclast": 61,
+        "heroine.undermine": 76,
+        "heroine.echidna": 56,
+        "heroine.excalipan": 55
+      }
+    }
+  ],
+  "budget": {
+    "fiveHeroNectarTo120": 77350,
+    "fiveHeroCrystalsTo120": 400,
+    "initialNectar": 2940,
+    "initialCrystals": 20,
+    "oneLevelHeroTo120": 15470,
+    "bounds": [
+      {
+        "enemyLevel": 1,
+        "nectarPerVictory": 70,
+        "crystalsPerVictory": 1,
+        "stonesPerVictory": 32,
+        "materialPerVictory": 11,
+        "nectarOnlyWinsWithoutGacha": 1063,
+        "crystalOnlyWinsWithoutGacha": 380,
+        "hundredPaidDrawsWinsAfterOptional3000Intro": 844
+      },
+      {
+        "enemyLevel": 10,
+        "nectarPerVictory": 160,
+        "crystalsPerVictory": 2,
+        "stonesPerVictory": 50,
+        "materialPerVictory": 20,
+        "nectarOnlyWinsWithoutGacha": 466,
+        "crystalOnlyWinsWithoutGacha": 190,
+        "hundredPaidDrawsWinsAfterOptional3000Intro": 540
+      },
+      {
+        "enemyLevel": 50,
+        "nectarPerVictory": 560,
+        "crystalsPerVictory": 5,
+        "stonesPerVictory": 130,
+        "materialPerVictory": 60,
+        "nectarOnlyWinsWithoutGacha": 133,
+        "crystalOnlyWinsWithoutGacha": 76,
+        "hundredPaidDrawsWinsAfterOptional3000Intro": 208
+      }
+    ],
+    "qualification": "constant enemy-level arithmetic bounds exclude access, combat survival, intermediate costs and real time; actual progression is the separately saved journey"
+  },
+  "humanTimingMeasured": false,
+  "performanceMeasured": false
+}

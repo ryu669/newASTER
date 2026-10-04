@@ -11,6 +11,15 @@ namespace NewAster.Presentation
     {
         private bool plan8StoryTrial;
         private ColossusCombatDef ActiveColossusDefinition(string id)=>plan8StoryTrial?ColossusCombatCatalog.GetPlan8Trial(id):ColossusCombatCatalog.Get(id);
+        private void PreparePlan8Performance(string[] args)
+        {
+            if(!formalDiagnostic || capturePath==null || !args.Contains("-validatePlan7Playback") || !args.Contains("-measurePlan7"))throw new ArgumentException("Plan8 performance requires isolated measured playback.");
+            Func<string,string> option=key=>{int at=Array.IndexOf(args,key);if(at<0 || at+1>=args.Length || args.Count(v=>v==key)!=1)throw new ArgumentException("Missing performance option: "+key);return args[at+1];};
+            var boundary=TrialDiagnosticBoundary.Create(option("-plan8RepositoryRoot"),Application.persistentDataPath,option("-plan8ProfileRunId"));
+            Directory.CreateDirectory(boundary.DirectoryPath);EnterPlan8StoryTrial(boundary.SavePath);
+            if(!plan8StoryTrial)throw new InvalidOperationException("Original performance profile not opened.");
+            Debug.Log("PLAN8_PERFORMANCE_PROFILE_PASS "+ColossusCombatDef.Plan8Version+" / isolated");
+        }
         private TrialStoryContent plan8Story;
         private string trialPoemChapter;
         private Vector2 trialPoemScroll;
@@ -47,17 +56,22 @@ namespace NewAster.Presentation
             if(!formalDiagnostic || capturePath==null)throw new InvalidOperationException("Story acceptance requires capture isolation.");
             Func<string,string> option=key=>{int at=Array.IndexOf(args,key);if(at<0 || at+1>=args.Length || args.Count(v=>v==key)!=1)throw new ArgumentException("Missing story option: "+key);return args[at+1];};
             bool resume=args.Contains("-plan8StoryResume");
+            plan8JourneyCapture=args.Contains("-plan8Journey");
+            plan8JourneyExchange=args.Contains("-plan8JourneyExchange");
+            if(plan8JourneyExchange && !plan8JourneyCapture)throw new ArgumentException("Journey exchange requires earned journey.");
             var boundary=resume?TrialDiagnosticBoundary.OpenExisting(option("-plan8RepositoryRoot"),Application.persistentDataPath,option("-plan8StoryRunId")):
                 TrialDiagnosticBoundary.Create(option("-plan8RepositoryRoot"),Application.persistentDataPath,option("-plan8StoryRunId"));
             if(!resume)Directory.CreateDirectory(boundary.DirectoryPath);
             EnterPlan8StoryTrial(boundary.SavePath);
             if(!plan8StoryTrial || acceptanceStore==null)throw new InvalidOperationException("Authored trial entry failed.");
             acceptanceChecks=0;var story=StoryData();string chapter=TrialStoryCatalog.Id(story.chapters[0].id);
+            if(plan8JourneyCapture && !resume)RecordTrialJourney("start");
             if(resume){
                 AcceptanceCheck(formalCampaign.Snapshot.home.readEventIds.Contains(TrialStoryCatalog.Id(story.events[0].id)),"original affection event survives separate process restart");
                 AcceptanceCheck(formalCampaign.Snapshot.world.readStoryIds.Contains(chapter),"original chapter read survives separate process restart");
                 AcceptanceCheck(formalCampaign.Snapshot.world.readStoryIds.Count(HasTrialText)==8,"all eight original read chapters survive restart");
                 AcceptanceCheck(!formalCampaign.Snapshot.home.loverHeroineIds.Any(),"original affection event does not establish lover");
+                if(plan8JourneyCapture)ValidateTrialJourneyRestart();
                 book.ChangeBookmark(BookBookmark.Stories);encounter=null;result=null;
                 string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);BeginAdv(chapter,true);
                 AcceptanceCheck(adv!=null && adv.Replay,"original chapter replay opens read only");
@@ -94,14 +108,29 @@ namespace NewAster.Presentation
                 before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);BeginAdv(ev,true);steps=0;
                 while(!adv.EndReached && steps++<100){AdvanceAdv();AdvanceAdv();}CompleteAdv();CloseAdv();
                 AcceptanceCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"original event replay changes no affection, rewards or read state");
+                if(plan8JourneyCapture)RunTrialJourney(boundary.DirectoryPath);
                 BeginAdv(chapter,true);
                 Debug.Log("PLAN8_STORY_ACTUAL_COLLECTION battles="+battles+" scope=automated-contract-not-human-timing");
             }
             Debug.Log("PLAN8_STORY_PLAYER_PASS assertions="+acceptanceChecks+" resume="+resume+" originalChapters=8 poems=54 lover=False");
+            int view=Array.IndexOf(args,"-plan8StoryView");if(view>=0){if(!resume || view+1>=args.Length)throw new ArgumentException("Story views require a saved trial resume.");PrepareTrialStoryView(args[view+1]);}
+        }
+        private void PrepareTrialStoryView(string view)
+        {
+            CloseAdv();ResetGardenMenu();collectionOpen=false;
+            if(view=="progress" || view=="conditions"){
+                collectionOpen=true;collectionOwner=view=="conditions"?1:0;collectionTab=0;
+                if(view=="conditions"){trialPoemChapter=TrialStoryCatalog.Id(StoryData().chapters[3].id);trialPoemScroll=Vector2.zero;}
+            }else if(view=="garden" || view=="events"){
+                book.ChangeBookmark(BookBookmark.Gardens);selectedResident="heroine.slayer";
+                if(view=="events")OpenGardenPanel(GardenPanel.Events);
+            }else throw new ArgumentException("Unknown original trial view.");
+            Debug.Log("PLAN8_STORY_VIEW_PASS "+view+" mode=diagnostic-state-not-mouse-input");
         }
         private void EnterPlan8StoryTrial(string diagnosticPath=null)
         {
             if(!BookInputAllowed || homeTrial || plan8StoryTrial)return;
+            if(!FlushActiveTime()){status="現在のプレイ時間を保存してから試遊を開始してください。";return;}
             var original=formalCampaign.Snapshot;
             // A sibling directory keeps the authored trial outside the ordinary save root.
             string path=diagnosticPath??Path.Combine(Application.persistentDataPath+"-plan8","original-story-v1.json");
@@ -117,8 +146,10 @@ namespace NewAster.Presentation
                 save.collection.ValidateContent(collection);save.home.ValidateContent(home,save);
                 homeOriginal=original;homeData=home;collectionCatalog=collection;acceptanceStore=store;
                 plan8StoryTrial=true;homeTrial=true;formalDiagnostic=true;BindFormalCampaign(save);
+                unsavedActiveSeconds=0;engagementRequest=null;engagementOpen=false;
                 title=false;encounter=null;ResetGardenMenu();book.ChangeBookmark(BookBookmark.Colossi);
                 status="オリジナル試遊：戦闘で詩を聞き、物語の章を開きましょう。進行は専用保存です。";
+                TrialObserve("navigation","original-trial-enter","colossi");
             }catch(Exception e){status="オリジナル試遊を開始できません。保存を保持しています。";Debug.LogException(e);}
         }
     }

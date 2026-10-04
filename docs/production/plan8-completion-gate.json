@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-04",
+  "overallComplete": false,
+  "technicalGateComplete": false,
+  "experienceGateComplete": false,
+  "requirementsChanged": false,
+  "scope": "development vertical slice; condition results distinguish automatic diagnostics, human acceptance and performance",
+  "conditions": [
+    {"id": "T8-01.baseline-boundary", "result": "passed", "method": "definition validation and isolated player", "evidence": "plan8-baseline-validation.json"},
+    {"id": "T8-02.noninterference", "result": "passed", "method": "Core on/off/failing sink equivalence", "evidence": "plan8-telemetry-validation.json"},
+    {"id": "T8-02.journey-nine-categories", "result": "passed", "method": "automated transactions; seed/hash/clock/ID verification", "evidence": "plan8-journey-validation.json"},
+    {"id": "T8-02.performance-join-runtime", "result": "not-run", "method": "low-load measured player required", "evidence": "plan8-performance-deferred.json"},
+    {"id": "T8-03.authored-content-read-save", "result": "passed", "method": "automated completed singing and 77 read lines", "evidence": "plan8-journey-validation.json"},
+    {"id": "T8-03.human-reading", "result": "not-run", "method": "human reading required", "evidence": "plan8-operation-inventory.md"},
+    {"id": "T8-04.curve-and-parts", "result": "passed", "method": "baseline/adopted 1500 battles each plus Core boundary tests", "evidence": "plan8-balance-measurements.json"},
+    {"id": "T8-04.rendered-equivalence", "result": "passed", "method": "four playback policies and rendered ordinary battle", "evidence": "plan8-regression-validation.json"},
+    {"id": "T8-04.human-first-repeat-duration", "result": "not-run", "method": "human judgment and input timing required", "evidence": "plan8-completion-gate.md"},
+    {"id": "T8-05.collection-battle-distribution", "result": "passed", "method": "80 seeded collection runs including duplicates and censoring", "evidence": "plan8-balance-measurements.json"},
+    {"id": "T8-05.human-duration-and-listening", "result": "not-run", "method": "real time median/p90 and listening required", "evidence": "plan8-completion-gate.md"},
+    {"id": "T8-06.earned-progression-and-exchange", "result": "passed", "method": "ordered 65-battle progression; independent 235-battle exchange journey", "evidence": "plan8-journey-validation.json"},
+    {"id": "T8-06.statistics-and-arithmetic-budget", "result": "passed", "method": "200000 seeded draws and arithmetic Lv120 budget", "evidence": "plan8-economy-measurements.json"},
+    {"id": "T8-06.human-arrival-and-active-thirty-minutes", "result": "not-run", "method": "real elapsed active play; injected 60 seconds is not acceptance", "evidence": "plan8-economy.md"},
+    {"id": "T8-07.new-trial-physical-restart", "result": "passed", "method": "separate processes, same save hashes, failed retry and duplicate rejection", "evidence": "plan8-journey-validation.json"},
+    {"id": "T8-07.formal-old-current-and-recovery", "result": "passed", "method": "Windows payload regressions and Core original backup/foreign/future file tests", "evidence": "plan8-regression-validation.json"},
+    {"id": "T8-08.diagnostic-ui-font-pcm-focus", "result": "passed", "method": "720p/1080p diagnostic states; simulated focus; PCM inspection", "evidence": "plan8-regression-validation.json"},
+    {"id": "T8-08.native-mouse-and-alt-tab", "result": "not-run", "method": "native Windows input required; available UI control is browser-only", "evidence": "plan8-operation-inventory.md"},
+    {"id": "T8-08.listening-and-speed-readability", "result": "not-run", "method": "human listening and reading at four speeds required", "evidence": "plan8-operation-inventory.md"},
+    {"id": "T8-09.frame-memory-load-cold-start", "result": "not-run", "method": "preflight rejected other-game load; benchmark not launched", "evidence": "plan8-performance-deferred.json"},
+    {"id": "T8-10.evidence-and-handoff-preparation", "result": "passed", "method": "documentation and bound automatic evidence", "evidence": "plan8-completion-gate.md"},
+    {"id": "T8-10.final-acceptance", "result": "not-run", "method": "all required technical and experience conditions must pass", "evidence": "plan8-completion-gate.md"}
+  ]
+}

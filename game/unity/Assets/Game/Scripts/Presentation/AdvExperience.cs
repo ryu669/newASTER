@@ -61,6 +61,7 @@ namespace NewAster.Presentation
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
             if(plan8StoryTrial && !replay)adv.ResumeAtFirstUnread();
             advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();
+            if(advBgm.clip!=null)TrialObserve("audio","adv-bgm-requested",advBgm.clip.name+";loop=true");
             TrialObserve("reading",replay?"replay-start":"start",source);
             if(ch!=null && book.Bookmark==BookBookmark.Stories)book.BeginReading(ch.id,3);
         }

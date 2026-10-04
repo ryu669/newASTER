@@ -14,6 +14,7 @@ namespace NewAster.Presentation
         private string relicError;
         private string relicComparisonKey,relicComparisonText;
         private CollectionReceipt lastCollectionResult;
+        private int AvailableCollectionMaterials=>formalCampaign?.Snapshot.collection?.materials.Sum(m=>m.amount)??campaign.Progress.Materials;
         private CollectionCatalog CollectionData()=>collectionCatalog??(collectionCatalog=CollectionContractFixture.Create(combatDefinitions));
         private string CollectionOwnerName(CollectionOwnerDef owner)=>owner.kind=="colossus"?(campaign.ColossusUnlocks.IsUnlocked(owner.id)?WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName:"未解放の巨神獣"):combatDefinitions.Hero(owner.id).name;
         private void CollectionBack(){if(formalCampaign.HasPending)return;if(relicRequest!=null){relicRequest=null;relicError=null;return;}trialPoemChapter=null;collectionOpen=false;}

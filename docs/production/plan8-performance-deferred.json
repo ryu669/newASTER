@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "timeUtc": "2026-10-04T00:08:30.0590155Z",
+  "stage": "8-9",
+  "status": "not-run-environment-busy",
+  "benchmarkPlayerLaunched": false,
+  "otherAppsClosed": false,
+  "systemCpuPercent": [
+    10,
+    1,
+    38
+  ],
+  "availableMemoryMiB": 14979,
+  "gpuCountersAvailable": true,
+  "observedGpu": [
+    {
+      "sample": 0,
+      "owner": "capture-application",
+      "percent": 6
+    },
+    {
+      "sample": 0,
+      "owner": "capture-application",
+      "percent": 32
+    },
+    {
+      "sample": 0,
+      "owner": "other-game",
+      "percent": 11
+    },
+    {
+      "sample": 1,
+      "owner": "capture-application",
+      "percent": 6
+    },
+    {
+      "sample": 1,
+      "owner": "capture-application",
+      "percent": 34
+    },
+    {
+      "sample": 1,
+      "owner": "other-game",
+      "percent": 10
+    },
+    {
+      "sample": 2,
+      "owner": "capture-application",
+      "percent": 5
+    },
+    {
+      "sample": 2,
+      "owner": "capture-application",
+      "percent": 23
+    }
+  ],
+  "reason": "Other game and capture application GPU load exceeded preflight thresholds. No benchmark player launched; no user apps closed.",
+  "finalRecheck": {
+    "timeUtc": "2026-10-04T00:36:31.3041078Z",
+    "clear": false,
+    "systemCpuPercent": [
+      14,
+      9,
+      20
+    ],
+    "availableMemoryMiB": 15607,
+    "gpuCountersAvailable": true,
+    "otherGameGpuPercent": [
+      76,
+      76,
+      63
+    ],
+    "benchmarkPlayerLaunched": false,
+    "otherAppsClosed": false,
+    "reason": "Another game uses 63-76 percent GPU; final total CPU sample also exceeds the preflight threshold."
+  }
+}

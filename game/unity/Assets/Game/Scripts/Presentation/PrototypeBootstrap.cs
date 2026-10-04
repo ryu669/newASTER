@@ -126,6 +126,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-capturePlan8Story"))PreparePlan8StoryCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan7Sample"))PrepareArtSample(args);
             if(capturePath!=null && (args.Contains("-measurePlan7") || args.Contains("-validatePlan7Assets")) && !artSample)ValidateArtSampleResources();
+            if(capturePath!=null && args.Contains("-plan8Performance"))PreparePlan8Performance(args);
             if(capturePath!=null && args.Contains("-validatePlan7Playback"))PreparePlan7Playback();
             if(capturePath!=null && args.Contains("-capture2DActor0")) {
                 while(encounter.AvailableHero!=0 && !encounter.Ended) encounter.Pass();
@@ -320,7 +321,7 @@ namespace NewAster.Presentation
             if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
             if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"キンダーガーデン",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
-            Label(30,220,950,34,$"素材 {campaign.Progress.Materials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
+            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
             bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
@@ -476,11 +477,12 @@ namespace NewAster.Presentation
             if(Btn(32,635,920,58,"この対象の詩と章の一覧",BookInputAllowed && !book.IsTransitioning))OpenCollectionForBook();
             if(Btn(32,713,920,58,"オーパーツと素材を確認",BookInputAllowed && !book.IsTransitioning)){collectionOpen=true;collectionTab=1;}
         }
-        private void StartBattle(string colossus)
+        private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();

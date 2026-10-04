@@ -84,7 +84,7 @@ namespace NewAster.Presentation
         {
             if(trialTelemetry==null || trialReference)return;
             string op="op-"+(++trialOperation);
-            trialTelemetry.Record(eventId??op,category,action,detail,battleId??"",encounter==null?0:encounter.Seed,operationId??op,tick,duration);
+            trialTelemetry.Record(eventId??op,category,action,detail,encounter==null?"":battleId??"",encounter==null?0:encounter.Seed,operationId??op,tick,duration);
         }
 
         private void UpdateTrialTelemetry()

@@ -30,6 +30,10 @@ public static partial class PlayableBuild
         Check(story.chapters.Sum(c=>c.poems.Length)==54 && story.events.Length==1,"Unity imports original trial text and explicit poem correspondences; original trial catalog adapter validated below");
         var originalCollection=TrialStoryCatalog.Collection(combat,story);var originalHome=TrialStoryCatalog.Home(combat,story);
         Check(originalCollection.links.Length==30 && originalCollection.chapters.Count(c=>c.textId!=null)==8,"Original trial has 30 authored correspondences and eight text chapters only");
+        var emptyWorld=new CampaignState(WorldCatalog.ColossusIds).CreateSave();
+        var materialSave=new FormalCampaignSave{world=emptyWorld,growth=new FormalGrowthSave{saveId="newaster.formal-growth",receipts=new[]{new GrowthReceipt{transactionId="unity-material",signature="material",kinderOutcomes=new[]{new KinderOutcome{kind="nectar",amount=10}}}}}};
+        var materialRoundtrip=NewAster.Presentation.UnityFormalCampaignJson.Decode(NewAster.Presentation.UnityFormalCampaignJson.Encode(materialSave));materialRoundtrip.Validate();
+        Check(materialRoundtrip.growth.receipts[0].kinderOutcomes[0].heroineId==null && materialRoundtrip.growth.receipts[0].kinderOutcomes[0].grantKind==null,"Unity optional material reward fields retain absent semantics on physical campaign clone");
         Check(originalHome.scripts.Count(s=>s.id.StartsWith("scene.trial.plan8."))==9,"Original trial adds eight chapter scripts and one distinct event script");
         Debug.Log("PLAN8_BUILD_BASELINE_PASS trial-only, no authored-content acceptance");
     }

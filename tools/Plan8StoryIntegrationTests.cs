@@ -17,7 +17,8 @@ public static class Plan8StoryIntegrationTests
         var initial=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion)};
         initial.world.unlockedStoryIds=new[]{story.chapters[0].id};initial.world.readStoryIds=new[]{story.chapters[0].id};
         Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);
-        Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
+        Func<string,FormalCampaignSave> decode=s=>{try{return JsonSerializer.Deserialize<FormalCampaignSave>(s,options);}catch(JsonException e){throw new ArgumentException("JSON",e);}};
+        Func<string,FormalCampaignHeader> header=s=>{try{return JsonSerializer.Deserialize<FormalCampaignHeader>(s,options);}catch(JsonException e){throw new ArgumentException("Header JSON",e);}};
         var journal=new FormalCampaignJournal(initial,encode,decode);
         var session=new BattleCollectionSession(collection,"story-integration",story.colossusId,1,0,combat.FormationIds,8);
         foreach(var poem in story.chapters.Take(3).SelectMany(c=>c.poems))session.RecordCompletedSinging(poem.id);
@@ -49,9 +50,19 @@ public static class Plan8StoryIntegrationTests
         string directory=System.IO.Path.Combine(System.IO.Path.GetTempPath(),"newaster-story-store-"+Guid.NewGuid().ToString("N"));
         System.IO.Directory.CreateDirectory(directory);string path=System.IO.Path.Combine(directory,"campaign.json");
         try{
-            var store=new FormalCampaignStore(path,encode,decode,text=>JsonSerializer.Deserialize<FormalCampaignHeader>(text,options));
+            var store=new FormalCampaignStore(path,encode,decode,header);
             check(store.Save(initial) && store.Save(decode(battleSaved)) && store.Save(journal.Snapshot),"Original trial writes ordered revisions through physical formal store");
             check(store.Load(out var loaded)==FormalLoadResult.Loaded && encode(loaded)==saved,"Known original versions pass physical save header and payload gates");
+            string invalidIdentity=saved.Replace(FormalCampaignSave.Identity,"foreign.original-trial");System.IO.File.WriteAllText(path,invalidIdentity);
+            check(store.Load(out loaded)==FormalLoadResult.Blocked && System.IO.File.ReadAllText(path)==invalidIdentity,"Original trial foreign identity cannot fall back to an earlier valid backup");
+            string futureCollection=saved.Replace(CollectionCatalog.TrialVersion,"collection-trial-future");System.IO.File.WriteAllText(path,futureCollection);
+            check(store.Load(out loaded)==FormalLoadResult.Blocked && System.IO.File.ReadAllText(path)==futureCollection,"Original trial future collection version keeps primary bytes and blocks backup fallback");
+            System.IO.File.WriteAllText(path,"damaged-original-trial");
+            string backup=System.IO.File.ReadAllText(path+".bak");
+            check(store.Load(out loaded)==FormalLoadResult.RecoveredBackup && encode(loaded)==backup && System.IO.File.ReadAllText(path)=="damaged-original-trial","Known original backup loads read only without discarding corrupt primary");
+            var recovered=store.RestoreConfirmed(store.InspectRecovery(),out string preserved);
+            recovered.collection.ValidateContent(collection);recovered.home.ValidateContent(home,recovered);
+            check(encode(recovered)==backup && System.IO.File.ReadAllText(preserved)=="damaged-original-trial","Confirmed original recovery retains damaged bytes and exact backup progression");
             string future=saved.Replace(HomeExperienceCatalog.TrialVersion,"home-trial-future");System.IO.File.WriteAllText(path,future);
             check(store.Load(out loaded)==FormalLoadResult.Blocked && System.IO.File.ReadAllText(path)==future,"Unknown future trial header remains blocked and byte-preserved");
         }finally{

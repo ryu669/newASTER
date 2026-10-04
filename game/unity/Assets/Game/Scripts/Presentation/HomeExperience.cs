@@ -23,7 +23,14 @@ namespace NewAster.Presentation
             var c=HomeData();var s=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combatDefinitions.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(c.contentVersion),collection=new FormalCollectionLedger{materials=c.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
             s.world.unlockedGardenIds=c.gardens.Take(2).Select(g=>g.id).ToArray();HomeConditions.Refresh(s,c);return s;
         }
-        private void ExitHomeTrial(){if(!BookInputAllowed || homeOriginal==null)return;ResetGardenMenu();formalDiagnostic=false;homeTrial=false;plan8StoryTrial=false;acceptanceStore=null;homeData=null;collectionCatalog=null;BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;}
+        private void ExitHomeTrial()
+        {
+            if(!BookInputAllowed || homeOriginal==null)return;
+            if(plan8StoryTrial && !FlushActiveTime()){status="試遊のプレイ時間を保存してから戻ってください。";return;}
+            ResetGardenMenu();formalDiagnostic=false;homeTrial=false;plan8StoryTrial=false;acceptanceStore=null;homeData=null;collectionCatalog=null;
+            unsavedActiveSeconds=0;engagementRequest=null;engagementOpen=false;
+            BindFormalCampaign(homeOriginal);homeOriginal=null;title=true;encounter=null;
+        }
         private HomeExperienceCatalog HomeData()=>homeData??(homeData=HomeExperienceFixture.Create(combatDefinitions));
         private HomeOperation homeOperation;private FormalHomeRequest homeRequest;
         private string homeError,selectedFurniture,selectedResident,selectedNode;private float previewX=.5f,previewY=.65f;private bool placing;

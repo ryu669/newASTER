@@ -25,7 +25,19 @@ namespace NewAster.Presentation
             if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
+            NormalizeKinderOptionalFields(value.growth);
             return value;
+        }
+        private static void NormalizeKinderOptionalFields(FormalGrowthSave growth)
+        {
+            // JsonUtility serializes nullable string fields as empty strings. Restore only optional absent fields.
+            if(growth?.receipts==null)return;
+            foreach(var receipt in growth.receipts){if(receipt?.kinderOutcomes==null)continue;
+                foreach(var outcome in receipt.kinderOutcomes){if(outcome==null)continue;
+                    if(outcome.kind!="heroine" && outcome.heroineId=="")outcome.heroineId=null;
+                    if(outcome.grantKind=="")outcome.grantKind=null;
+                }
+            }
         }
         public static FormalCampaignHeader DecodeHeader(string text)
         {

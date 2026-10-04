@@ -1,6 +1,6 @@
 # 計画8：縦切り通し試遊・難度と経済調整の詳細計画
 
-更新：2026-10-04。状態：8-1の基準定義・診断境界を実装・検証済み。8-2の計測接続と8-3の本文・詩対応・専用試遊のゲーム接続を実装・検証。8-4の難度曲線・8-5の歌唱候補を比較・接続済み。全分類統合・体験受入れと8-6〜8-10は未完了。実施結果は[実装記録](plan8-progress.md)。基点は最新mainの`d83cc95`。計画7の開発見本完了を引き継ぎ、量産へ進める一周の体験と測定結果を作る。
+更新：2026-10-04。状態：基準・計測・本文・難度・歌唱を接続し、8-6の実残高による育成・生活・抽選／交換、8-7の保存一周を自動検証。8-8の表示と操作一覧、8-10の結果・引継ぎを整理した。8-9性能は他ゲーム／OBSの動作で延期。実操作・聴取・人間の到達時間も未実施のため全体は未完了。[完了ゲート](plan8-completion-gate.md)と[実装記録](plan8-progress.md)に根拠を記録する。基点はmainの`d83cc95`。
 
 親は[現行要求](../requirements/game.md)、対象は[縦切り](vertical-slice.md)、試験の定義元は[受入試験](acceptance.md)。[計画5の測定](plan5-trial-measurements.md)、[計画6の引継ぎ](plan6-completion-gate.md)、[計画7の完了条件](plan7-completion-status.md)を使用する。以下の数値は本作の試遊目標・測定設計であり、原作の内部値や量産版の確定値ではない。
 
@@ -131,6 +131,6 @@ PCM検査とは別に、BGMループ・5効果・音量差を実際に聴いた�
 
 ## 検証手段とGit運用
 
-既存の`validate-automatic-chain.ps1`、`compile-unity-scripts.ps1`、計画5〜6の保存／本／home検証、`validate-plan7-sample-player.ps1`、素材完了検査を必要な差分へ再利用する。計画8用のrun集約と一周を再現するスクリプトは追加予定であり、現時点で存在・合格済みとは扱わない。文書だけの変更でUnityビルド・負荷測定は行わない。
+既存の`validate-automatic-chain.ps1`、`compile-unity-scripts.ps1`、計画5〜6の保存／本／home検証、`validate-plan7-sample-player.ps1`を再利用する。計画8の一周は`validate-plan8-story-player.ps1 -Journey -Telemetry`、交換は`-Exchange`、表示は`-Views progress,conditions,garden,events`を追加する。`summarize-plan8-journey.py`は保存履歴の敵Lv解放順・各battleのseed・9分類・通常保存不変・同じビルドを照合する。`summarize-plan8-regression.py`は最終ビルドの回帰を固定する。性能は`validate-plan8-telemetry-player.ps1 -AdjustedPerformance`で同じrunへ結ぶ実装を追加したが、実測結合は未検証。文書だけの変更でUnityビルド・負荷測定は行わない。
 
 新規ブランチはfetchした最新mainから`codex/`接頭辞で作成し、PRのbaseは必ずmainにする。別の計画ブランチを親にしてマージを積み重ねない。ユーザーの未コミット設定と保存は保持する。実装と受入れを終えた単位を順次コミットし、PR説明をその最終範囲と検証結果へ合わせる。

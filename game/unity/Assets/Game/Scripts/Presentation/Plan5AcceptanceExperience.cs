@@ -28,14 +28,17 @@ namespace NewAster.Presentation
             AcceptanceCheck(acceptanceStore.Load(out var loaded)==FormalLoadResult.Loaded && JsonUtility.ToJson(loaded)==expected,"physical file restart matches complete ledger");
             BindFormalCampaign(loaded);
         }
-        private void PlayedAcceptanceEnding(BattleEndReason reason,int seed,int songs)
+        private void PlayedAcceptanceEnding(BattleEndReason reason,int seed,int songs,int level=0)
         {
-            selectedLevel=reason==BattleEndReason.Defeat?50:1;StartBattle(WorldCatalog.ColossusIds[0]);
-            encounter=new PlayableBattle(selectedLevel,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(activeColossus),collectionGrowth:formalCampaign.Snapshot.collection);StartCollection();
+            selectedLevel=level>0?level:reason==BattleEndReason.Defeat?50:1;
+            AcceptanceCheck(!plan8JourneyCapture || selectedLevel<=campaign.Playable.HighestLevel,"journey respects the real unlocked enemy level");
+            StartBattle(WorldCatalog.ColossusIds[0],seed);
             int completions=0,steps=0;var record=encounter.CompletedEnemyAction;encounter.CompletedEnemyAction=()=>{record();completions++;};
-            while(!encounter.Ended && completions<songs && steps++<20000)encounter.Pass();
+            while(!encounter.Ended && completions<songs && steps++<20000){encounter.Pass();TrialObserve("battle","diagnostic-pass",tick:encounter.Clock);}
             while(reason!=BattleEndReason.Retreat && !encounter.Ended && steps++<20000) {
-                if(reason==BattleEndReason.Defeat || !encounter.Act(encounter.AvailableHero,0,"body"))encounter.Pass();
+                bool accepted=reason!=BattleEndReason.Defeat && encounter.Act(encounter.AvailableHero,0,"body");
+                if(reason!=BattleEndReason.Defeat)TrialObserve("battle",accepted?"diagnostic-input-accepted":"diagnostic-input-rejected","skill=0;target=body",tick:encounter.Clock);
+                if(!accepted){encounter.Pass();TrialObserve("battle","diagnostic-pass",tick:encounter.Clock);}
                 encounter.DrainPresentationEvents();
             }
             AcceptanceCheck(steps<20000 && completions>0,"bounded real commands and completed singing");
@@ -48,6 +51,7 @@ namespace NewAster.Presentation
             AcceptanceCheck(formalCampaign.CommitBattleEnd(request,null,null,s=>throw new Exception("duplicate write"))==GrowthCommitResult.AlreadyCommitted,"restart excludes replay");
             for(int tab=0;tab<4;tab++){resultTab=tab;AcceptanceCheck(!string.IsNullOrEmpty(ResultDetail()),"result tab resolves after reload");}
             Debug.Log("PLAN5_PLAYED_END reason="+reason+" seed="+seed+" commands="+steps+" singing="+completions);
+            if(plan8JourneyCapture)RecordTrialJourney("battle."+formalCampaign.Snapshot.collection.receipts.Length);
         }
         private void PreparePlan5Acceptance(string[] args)
         {

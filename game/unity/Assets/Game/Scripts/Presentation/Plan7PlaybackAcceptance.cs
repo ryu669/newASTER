@@ -18,6 +18,7 @@ namespace NewAster.Presentation
         private readonly StringBuilder plan7RenderedTrace=new StringBuilder();
         private readonly HashSet<long> plan7RepaintedEvents=new HashSet<long>();
         private int plan7QueuedEvents;
+        private int plan7ReferenceCommands,plan7ReferenceEvents;
         private void RecordPlan7RenderedEvent()
         {if(plan7FullCombat && Event.current.type==EventType.Repaint && playback.Current!=null)plan7RepaintedEvents.Add(playback.Current.Sequence);}
         private string PlaybackSignature(PlayableBattle battle,StringBuilder trace)
@@ -39,7 +40,7 @@ namespace NewAster.Presentation
         private PlayableBattle PlaybackFixture(int seed)
         {
             var growth=formalProgression.Snapshot;foreach(var hero in growth.heroines){hero.level=30;hero.awakeningStage=0;}
-            return new PlayableBattle(1,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:growth,colossusDefinition:ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[0]),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
+            return new PlayableBattle(1,campaign.Playable,seed,combatDefinitions:combatDefinitions,formalGrowth:growth,colossusDefinition:ActiveColossusDefinition(WorldCatalog.ColossusIds[0]),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData());
         }
         private void PlaybackCommand(PlayableBattle battle,int index)
         {
@@ -67,8 +68,9 @@ namespace NewAster.Presentation
                     FocusCheck(PlaybackState(encounter)==state,"presentation does not change combat state");
                 }
                 FocusCheck(encounter.Ended && commands<20000 && events>0 && major>0 && broken>0,"complete scripted battle includes major and break");
+                FocusCheck(plan8StoryTrial || commands==32 && events==66,"ordinary playback preserves the known 32-command, 66-event baseline");
                 string signature=PlaybackSignature(encounter,trace);
-                if(reference==null)reference=signature;else FocusCheck(reference==signature,"same seed/input HP, timeline, events, poems and reward receipt: "+mode);
+                if(reference==null){reference=signature;plan7ReferenceCommands=commands;plan7ReferenceEvents=events;}else FocusCheck(reference==signature,"same seed/input HP, timeline, events, poems and reward receipt: "+mode);
                 Debug.Log("PLAN7_PLAYBACK_MODE_PASS "+mode+" commands="+commands+" events="+events+" major="+major+" breaks="+broken+" victory="+encounter.State.IsVictory);
             }} finally { trialReference=false; }
             FocusCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"replay validation leaves durable save unchanged");
@@ -83,8 +85,8 @@ namespace NewAster.Presentation
             if(plan7ActiveCombat && !paused && Application.isFocused && Time.realtimeSinceStartup>8 && playback.Busy){plan7ActiveFrames++;if(playback.Current.Major)plan7MajorFrames++;if(playback.Current.PartBroken)plan7BreakFrames++;}
             if(!plan7ActiveCombat || paused || help || retreat || playback.Busy || !Application.isFocused || plan7FullCombatComplete || plan7FullCombat && Time.realtimeSinceStartup<=8)return;
             if(plan7FullCombat && encounter.Ended){
-                FocusCheck(encounter.State.IsVictory && plan7ScriptCommands==32,"rendered fixture reaches victory after all presentation events");
-                FocusCheck(plan7QueuedEvents==66 && plan7RepaintedEvents.Count==plan7QueuedEvents,"every queued event reaches a battle GUI repaint");
+                FocusCheck(encounter.State.IsVictory && plan7ScriptCommands==plan7ReferenceCommands,"rendered fixture reaches victory after all presentation events");
+                FocusCheck(plan7QueuedEvents==plan7ReferenceEvents && plan7RepaintedEvents.Count==plan7QueuedEvents,"every queued event reaches a battle GUI repaint");
                 FocusCheck(PlaybackSignature(encounter,plan7RenderedTrace)==plan7ReferenceSignature,"fully rendered battle matches four playback modes including rewards");
                 FocusCheck(plan7SaveBefore==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"rendered battle leaves durable save unchanged");
                 plan7ScriptRuns=1;plan7FullCombatComplete=true;
