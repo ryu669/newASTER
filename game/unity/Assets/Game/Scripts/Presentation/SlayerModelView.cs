@@ -69,10 +69,10 @@ namespace NewAster.Presentation
             foreach(var r in training) r.enabled=id=="training";
             return true;
         }
-        public void PlayEvent(BattlePresentationEvent e)
+        public void PlayEvent(BattlePresentationEvent e,int actor=0)
         {
-            if(e.Kind==BattlePresentationKind.Enemy) { if(e.HeroHp[0]>0) Play("Hit"); return; }
-            if(e.Actor!=0) return;
+            if(e.Kind==BattlePresentationKind.Enemy) { if(e.HeroHp[actor]>0) Play("Hit"); return; }
+            if(e.Actor!=actor) return;
             Play(e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease?"Attack":e.Kind==BattlePresentationKind.CastStart || e.Kind==BattlePresentationKind.Support?"Cast":"Idle");
             if(e.Kind==BattlePresentationKind.Support) transientRemaining=.6f;
         }

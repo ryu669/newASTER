@@ -17,13 +17,13 @@ namespace NewAster.Presentation
         private void StartCollection()
         {
             collectionCatalog=SelectCollectionCatalog();
-            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,combatDefinitions.FormationIds,encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
+            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.
             // No presentation callback or battle RNG participates in collection.
             encounter.CompletedEnemyAction=()=>{
                 var songs=collectionCatalog.owners.Single(o=>o.id==activeColossus).poemIds;
-                var id=TrialSingingSelector.Select(collectionCatalog,activeColossus,combatDefinitions.FormationIds,formalCampaign.Snapshot.world.poemIds,collectionSession.Snapshot.heardPoemIds,singingRandom,plan8StoryTrial);
+                var id=TrialSingingSelector.Select(collectionCatalog,activeColossus,collectionSession.Snapshot.formationIds,formalCampaign.Snapshot.world.poemIds,collectionSession.Snapshot.heardPoemIds,singingRandom,plan8StoryTrial);
                 collectionSession.RecordCompletedSinging(id);
                 TrialObserve("collection","singing-completed",id);
                 var poem=plan8StoryTrial?StoryData().chapters.SelectMany(c=>c.poems).SingleOrDefault(p=>p.id==id):null;

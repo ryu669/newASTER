@@ -7,6 +7,8 @@ namespace NewAster.Core
     {
         public string Id { get; }
         public decimal Power { get; }
+        private readonly string[] attributes;
+        public string[] Attributes => attributes.ToArray();
         public int ResourceCost { get; }
         public int SelfHealingBaseAttackPercent { get; }
         public int SelfDamageMaxHpPercent { get; }
@@ -22,9 +24,10 @@ namespace NewAster.Core
         private readonly EnemyStatusDef[] statusEffects;
         public System.Collections.Generic.IReadOnlyList<EnemyStatusDef> StatusEffects => Array.AsReadOnly(statusEffects.Select(e=>e.Copy()).ToArray());
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false,string[] attributes=null)
         {
             if(perTargetPartScale<=0 || perTargetPartScale>100) throw new ArgumentOutOfRangeException(nameof(perTargetPartScale));
+            CombatAttributeRules.Validate(attributes);this.attributes=(attributes??Array.Empty<string>()).ToArray();
             PerTargetPartScale=perTargetPartScale;BodyPartProtection=bodyPartProtection;
             if(targetRule!="target.selected-enemy" && targetRule!="target.enemy-range" && targetRule!="target.all-enemies") throw new ArgumentException("Unknown attack target rule.");
             var effects=(statusEffects??Array.Empty<EnemyStatusDef>()).ToArray();
@@ -86,8 +89,9 @@ namespace NewAster.Core
             if(targetId!="body" && (part==null || part.IsBroken)) throw new ArgumentException("Invalid damage target.");
             int defense=skill.DamageType=="magic"?(part?.MagicDefense??battle.BossMagicDefense):(part?.PhysicalDefense??battle.BossPhysicalDefense);
             decimal effectiveDefense=(decimal)defense*(10000-skill.IgnoreDefenseBp)/10000m;
-            if(battle.EnemyStatus(targetId).Active("fracture")) effectiveDefense*=.7m;
-            decimal raw=(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
+            if(!battle.ReferenceStatusRules && battle.EnemyStatus(targetId).Active("fracture")) effectiveDefense*=.7m;
+            decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,battle.AttributeResistances)*(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
+            if(battle.ReferenceStatusRules){var status=battle.EnemyStatus(targetId);if(status.Active("sickness"))raw*=1.25m;if(status.Active("electrified") && skill.Attributes.Contains("雷"))raw*=1.25m;}
             if(part!=null) raw*=skill.PerTargetPartScale;
             else if(skill.BodyPartProtection) {
                 var armor=battle.Parts.Any(p=>!string.IsNullOrEmpty(p.Role))
@@ -97,6 +101,7 @@ namespace NewAster.Core
             return (int)Math.Max(1m,Math.Min(skill.DamageCap>0?skill.DamageCap:int.MaxValue,Math.Floor(raw)));
         }
 
+        private static int partHp(BattleState battle,string target)=>battle.Parts.Single(p=>p.Id==target).MaxHitPoints;
         public static BattleActionResult Resolve(BattleState battle, string heroId, BattleSkill skill, string targetId,Func<int,int> draw=null)
         {
             if (battle == null) throw new ArgumentNullException(nameof(battle));
@@ -111,10 +116,11 @@ namespace NewAster.Core
                 return new BattleActionResult(false, 0, false, false, "invalid-part");
 
             if(hero.JobResource<skill.ResourceCost) return new BattleActionResult(false,0,false,false,"insufficient-resource");
-            if(skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000 && draw==null) throw new ArgumentException("Probabilistic critical requires an explicit RNG.");
-            int roll=skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000?draw(10000):-1;
-            if(roll<-1 || roll>=10000 || (skill.CriticalChanceBp>0 && skill.CriticalChanceBp<10000 && roll<0)) throw new ArgumentException("Invalid critical RNG result.");
-            bool critical=skill.CriticalChanceBp==10000 || roll>=0 && roll<skill.CriticalChanceBp;
+            int chance=Math.Min(10000,skill.CriticalChanceBp+(battle.ReferenceStatusRules && targets.Any(t=>battle.EnemyStatus(t).Active("absent"))?2500:0));
+            if(chance>0 && chance<10000 && draw==null) throw new ArgumentException("Probabilistic critical requires an explicit RNG.");
+            int roll=chance>0 && chance<10000?draw(10000):-1;
+            if(roll<-1 || roll>=10000 || (chance>0 && chance<10000 && roll<0)) throw new ArgumentException("Invalid critical RNG result.");
+            bool critical=chance==10000 || roll>=0 && roll<chance;
             hero.SpendResource(skill.ResourceCost);
             // Precompute the entire simultaneous hit before mutation; one cost and one critical draw.
             var damages=targets.Select(t=>CalculateDamage(battle,hero,skill,t,critical)).ToArray();
@@ -124,7 +130,8 @@ namespace NewAster.Core
                 if(t=="body") total+=battle.ApplyBossDamage(damage);
                 else {var part=battle.Parts.Single(p=>p.Id==t);total+=Math.Min(part.HitPoints,damage);broken=battle.BreakPart(t,damage)||broken;}
                 bool alive=t=="body"?!battle.IsVictory:!battle.Parts.Single(p=>p.Id==t).IsBroken;
-                if(alive) foreach(var effect in skill.StatusEffects) battle.EnemyStatus(t).Add(effect);
+                if(battle.ReferenceStatusRules && damage>0)battle.EnemyStatus(t).Remove("absent");
+                if(alive) foreach(var effect in skill.StatusEffects) {bool active=battle.EnemyStatus(t).Add(effect);if(active && battle.ReferenceStatusRules){if(effect.kind=="electrified")battle.EnemyWaitPenalty+=20;int dot=battle.EnemyStatus(t).ActivationDamage(effect.kind,t=="body"?battle.BossMaxHitPoints:partHp(battle,t));if(t=="body")total+=battle.ApplyBossDamage(dot);else {var p=battle.Parts.Single(p=>p.Id==t);total+=Math.Min(p.HitPoints,dot);broken=battle.BreakPart(t,dot)||broken;}}}
             }
             int appliedDamage=(int)Math.Min(int.MaxValue,total);
             // One accepted command: enemy damage, self healing, then self recoil.

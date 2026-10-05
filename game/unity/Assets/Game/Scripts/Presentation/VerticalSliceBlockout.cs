@@ -18,12 +18,20 @@ namespace NewAster.Presentation
         private BattleStageEffects effects;
         private SlayerModelView slayer;
         private bool portrait;
+        private Transform[] originalParty;
+        private int slayerActor;
+        public void SetFormation(string[] defaults,string[] ids)
+        {
+            if(originalParty==null)originalParty=party.ToArray();party.Clear();
+            foreach(var id in ids)party.Add(originalParty[System.Array.IndexOf(defaults,id)]);
+            slayerActor=System.Array.IndexOf(ids,defaults[0]);
+        }
         public void SetPortraitView(bool value)
         {
             portrait=value;
             if(!value) return;
             dragon.gameObject.SetActive(false); garden.gameObject.SetActive(false); ground.SetActive(false);
-            for(int i=0;i<party.Count;i++) party[i].gameObject.SetActive(i==0);
+            for(int i=0;i<party.Count;i++) party[i].gameObject.SetActive(i==slayerActor);
             foreach(var item in placedFurniture) item.SetActive(false);
             effects.Clear();
         }
@@ -37,7 +45,7 @@ namespace NewAster.Presentation
                 if(e.Target.Contains("horn") && part.name.Contains("Horn") || e.Target.Contains("left") && part.name.Contains("Left") || e.Target.Contains("right") && part.name.Contains("Right") || e.Target.Contains("tail") && part.name.Contains("Tail")) destination=part.position;
             }
             effects.Begin(e,e.Actor>=0?party[e.Actor].position:dragon.position,destination);
-            if(slayer!=null) slayer.PlayEvent(e);
+            if(slayer!=null) slayer.PlayEvent(e,slayerActor);
         }
         private LineRenderer attackTrail;
         private float trailUntil;
@@ -86,7 +94,7 @@ namespace NewAster.Presentation
         {
             frozen=pause;
             if(effects!=null) effects.Synchronize(party,battle,visual,pause);
-            if(slayer!=null) slayer.Synchronize(pause,battle!=null && (visual?.Casting[0]??battle.IsCasting(0)));
+            if(slayer!=null) slayer.Synchronize(pause,battle!=null && (visual?.Casting[slayerActor]??battle.IsCasting(slayerActor)));
             if(ground!=null) ground.SetActive(battle==null);
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);

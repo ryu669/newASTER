@@ -35,6 +35,30 @@ public static class HeroineSanctuaryTests
             for(int slot=0;slot<3;slot++){var s=combat.Skill(id,slot);var upgraded=HeroineSkillRules.AtLevel(s,7);check(upgraded.powerScale>=s.powerScale && upgraded.recoveryPercent==s.recoveryPercent && upgraded.castPercent==s.castPercent && upgraded.resourceCost==s.resourceCost && HeroineSkillRules.Description(s,7,combat.Job(job)).Length>25,"Every skill has live effect text and capped scaling without timing/resource changes");}
             check(HeroineIdentityCatalog.Traits(combat.Hero(id),after.heroines[actor]).Length==3,"Each heroine has three authored trait cards");
         }
+        var partyJournal=new FormalCampaignJournal(save,encode,decode);
+        for(int slot=0;slot<5;slot++){
+            var before=partyJournal.Snapshot;string target=combat.FormationIds[(slot+1)%5];var op=new HomeOperation("formation",target,slot.ToString());var request=new FormalHomeRequest("party.slot."+slot,"formation",before.revision,home.contentVersion,op.Key);
+            check(partyJournal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(partyJournal.Snapshot)==encode(before),"Formation failed persistence never changes the active party or wallets");
+            check(partyJournal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed && partyJournal.Snapshot.home.formationIds[slot]==target && partyJournal.Snapshot.home.formationIds.Distinct().Count()==5,"Each of the five slots swaps without duplicate members");
+            var restarted=new FormalCampaignJournal(decode(encode(partyJournal.Snapshot)),encode,decode);
+            check(restarted.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.AlreadyCommitted && JsonSerializer.Serialize(restarted.Snapshot.growth,options)==JsonSerializer.Serialize(before.growth,options),"Saved formation replays once without costs after restart");
+        }
+        foreach(var op in new[]{new HomeOperation("formation",combat.FormationIds[0],"5"),new HomeOperation("formation","heroine.unowned","0"),new HomeOperation("formation",combat.FormationIds[0],"invalid")}){
+            string before=encode(partyJournal.Snapshot);bool rejected=false;try{partyJournal.CommitHomeOperation(new FormalHomeRequest("invalid.party."+op.Target+"."+op.Owner,"formation",partyJournal.Snapshot.revision,home.contentVersion,op.Key),home,op,s=>true);}catch(ArgumentException){rejected=true;}check(rejected && encode(partyJournal.Snapshot)==before,"Invalid or unowned formation selections preserve active party and durable save");
+        }
+        Func<string[],System.Collections.Generic.IEnumerable<string[]>> permutations=null;
+        permutations=ids=>ids.Length==0?new[]{Array.Empty<string>()}:ids.SelectMany((id,index)=>permutations(ids.Where((_,i)=>i!=index).ToArray()).Select(tail=>new[]{id}.Concat(tail).ToArray()));
+        foreach(var ids in permutations(combat.FormationIds)){
+            var reordered=combat.WithFormation(ids);reordered.Validate();var battle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:reordered,formalGrowth:save.growth);
+            check(battle.State.Heroes.Select(h=>h.Id).SequenceEqual(ids) && Enumerable.Range(0,5).All(i=>battle.SkillName(i,1)==combat.Skill(ids[i],1).name),"All120 party orders bind battle identity and skills to selected members");
+        }
+        check(combat.FormationIds.SequenceEqual(home.heroineIds),"Battle formation copies never reorder canonical production/story catalogs");
+        foreach(var owner in collection.owners.Where(o=>o.kind=="colossus")){
+            var resources=owner.materialIds.Select(id=>collection.resources.Single(r=>r.id==id)).ToArray();
+            check(resources.Length==4 && resources.Select(r=>r.rarity).SequenceEqual(new[]{1,2,3,4}),"Each giant beast has four distinct named material rarities");
+            foreach(var r in resources){check(r.DropAmount(r.minDropLevel)>0 && (r.rarity==1 || r.DropAmount(r.minDropLevel-1)==0),"Rare drops begin exactly at their authored victory level");check(collection.Copy().resources.Single(x=>x.id==r.id).name==r.name && collection.Copy().resources.Single(x=>x.id==r.id).rarity==r.rarity,"Snapshot copies retain material rarity and source metadata");}
+        }
+        foreach(var n in home.weaponNodes.Where(n=>n.id.EndsWith("tier4")))check(n.costs.Select(c=>collection.resources.Single(r=>r.id==c.resourceId).ownerId).Distinct().Count()==3 && n.costs.Count(c=>collection.resources.Single(r=>r.id==c.resourceId).rarity==4)==2,"Final weapons require SSR from two beasts plus SR from a third");
         var state=journal.Snapshot;
         foreach(var n in home.weaponNodes.Where(n=>n.heroineId==hero)){
             var op=new HomeOperation("weapon",n.id);var request=new FormalHomeRequest("tree.acquire."+n.id,"weapon",journal.Snapshot.revision,home.contentVersion,op.Key);
@@ -45,6 +69,7 @@ public static class HeroineSanctuaryTests
             var before=journal.Snapshot;var op=new HomeOperation("weapon-level",node,lv.ToString());var request=new FormalHomeRequest("tree.level."+lv,"weapon-level",before.revision,home.contentVersion,op.Key);var cost=WeaponGrowthRules.Costs(home.weaponNodes.Single(n=>n.id==node),lv-1,home)[0];
             check(journal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==encode(before),"Weapon upgrade failure is atomic across materials and level");
             check(journal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed && journal.Snapshot.home.WeaponLevel(node)==lv && HomeRules.Balance(journal.Snapshot,cost.resourceId)==HomeRules.Balance(before,cost.resourceId)-cost.amount,"Weapon upgrade retry consumes its displayed materials once");
+            check(WeaponGrowthRules.Costs(home.weaponNodes.Single(n=>n.id==node),lv-1,home).All(c=>HomeRules.Balance(journal.Snapshot,c.resourceId)==HomeRules.Balance(before,c.resourceId)-c.amount),"Weapon Lv upgrade consumes all three source beasts atomically");
         }
         var equip=new HomeOperation("equip",node,hero);journal.CommitHomeOperation(new FormalHomeRequest("tree.equip","weapon",journal.Snapshot.revision,home.contentVersion,equip.Key),home,equip,s=>true);
         var armed=journal.Snapshot;var baseBattle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:armed.growth);var armedBattle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:armed.growth,homeCatalog:home,homeProgress:armed.home);

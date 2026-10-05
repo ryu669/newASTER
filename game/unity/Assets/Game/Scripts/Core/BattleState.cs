@@ -6,6 +6,11 @@ namespace NewAster.Core
 {
     public sealed partial class BattleHero
     {
+        public EnemyStatusState Status {get;}
+        public int StatusWaitPenalty {get;private set;}
+        public int ConsumeStatusActivationWait(){int n=StatusWaitPenalty;StatusWaitPenalty=0;return n;}
+        public bool AddStatus(EnemyStatusDef effect){bool activated=Status.Add(effect);if(activated){TakeDamage(Status.ActivationDamage(effect.kind,MaxHitPoints));if(effect.kind=="electrified")StatusWaitPenalty+=20;}return activated;}
+        public int FinishStatusAction(bool attacked){int wait=StatusWaitPenalty+(Status.Active("electrified")?20:0);StatusWaitPenalty=0;if(Status.Active("absent"))Heal((int)((long)MaxHitPoints*5/100));TakeDamage(Status.Dot(MaxHitPoints)+(attacked && Status.Active("fracture")?(int)((long)MaxHitPoints*5/100):0));Status.Tick();return wait;}
         public string Id { get; }
         public int HitPoints { get; private set; }
         public int MaxHitPoints { get; }
@@ -15,21 +20,22 @@ namespace NewAster.Core
         public int MagicDefense { get; }
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100);
-        public int Speed { get; }
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        private readonly int baseSpeed;
+        public int Speed => Math.Max(1,baseSpeed*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
 
-        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0)
+        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0,EnemyStatusResistanceDef[] statusResistances=null)
         {
-            TraitId=traitId;WeaponCriticalDamageBonus=weaponCriticalDamageBonus;
+            Status=new EnemyStatusState(statusResistances);TraitId=traitId;WeaponCriticalDamageBonus=weaponCriticalDamageBonus;
             if(weaponCriticalDamageBonus<0)throw new ArgumentOutOfRangeException(nameof(weaponCriticalDamageBonus));
             if(hitPoints<=0 || attack<=0 || jobResourceMax<0 || physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Invalid heroine stats.");
             PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
             if(speed<=0) throw new ArgumentOutOfRangeException(nameof(speed));
             if(criticalChanceBp<0 || criticalChanceBp>10000) throw new ArgumentOutOfRangeException(nameof(criticalChanceBp));
             BaseCriticalChanceBp=criticalChanceBp;
-            Speed=speed;
+            baseSpeed=speed;
             Id = id ?? throw new ArgumentNullException(nameof(id));
             MaxHitPoints = hitPoints;
             HitPoints = hitPoints;
@@ -45,8 +51,8 @@ namespace NewAster.Core
             return true;
         }
         public bool IsAlive => HitPoints > 0;
-        public void TakeDamage(int amount) { HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount)); if(!IsAlive) timedEffects.Clear(); }
-        public void Heal(int amount) { if (IsAlive) HitPoints = (int)Math.Min(MaxHitPoints, (long)HitPoints + Math.Max(0, amount)); }
+        public void TakeDamage(int amount) { if(amount>0)Status.Remove("absent"); HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount)); if(!IsAlive) timedEffects.Clear(); }
+        public void Heal(int amount) { if (IsAlive && !Status.Active("bleed")) HitPoints = (int)Math.Min(MaxHitPoints, (long)HitPoints + Math.Max(0, amount)); }
     }
 
     public sealed class BattlePart
@@ -54,6 +60,7 @@ namespace NewAster.Core
         public string Id { get; }
         public int HitPoints { get; private set; }
         public bool IsBroken => HitPoints == 0;
+        public void Heal(int amount){if(!IsBroken && !Status.Active("bleed"))HitPoints=(int)Math.Min(MaxHitPoints,(long)HitPoints+Math.Max(0,amount));}
         public string BreakEffectId { get; }
         public string Role { get; }
         public int PhysicalDefense { get; }
@@ -107,6 +114,10 @@ namespace NewAster.Core
         public int BossPhysicalDefense { get; }
         public int BossMagicDefense { get; }
         public EnemyStatusState BossStatus { get; }
+        public bool ReferenceStatusRules {get;set;}
+        public int EnemyWaitPenalty {get;set;}
+        public void HealBoss(int amount){if(!IsVictory && !BossStatus.Active("bleed"))BossHitPoints=(int)Math.Min(BossMaxHitPoints,(long)BossHitPoints+Math.Max(0,amount));}
+        public AttributeResistanceDef[] AttributeResistances {get;set;}=Array.Empty<AttributeResistanceDef>();
         public EnemyStatusState EnemyStatus(string target) => target=="body"?BossStatus:Parts.Single(p=>p.Id==target).Status;
         public bool IsVictory => BossHitPoints == 0;
         public IReadOnlyList<BattleHero> Heroes { get; }
@@ -153,6 +164,7 @@ namespace NewAster.Core
         public int ApplyBossDamage(int damage)
         {
             var applied = Math.Min(BossHitPoints, Math.Max(0, damage));
+            if(ReferenceStatusRules && applied>0)BossStatus.Remove("absent");
             BossHitPoints -= applied;
             return applied;
         }

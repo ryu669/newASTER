@@ -35,8 +35,8 @@ namespace NewAster.Presentation
             if(operation!=RelicOperation.LevelUp && value>=maximum)return "抽選値が上限に到達しています。";
             if(operation!=RelicOperation.LevelUp && !FormalRelicRules.DirectEligible(value,maximum))return "直接強化には、この項目が上限の80%以上必要です。";
             int cost=FormalRelicRules.UpgradeCost(relic,operation,CollectionData().contentVersion);
-            var def=CollectionData().relics.Single(d=>d.id==relic.id);var materials=formalCampaign.Snapshot.collection.materials;
-            return def.materialIds.Any(id=>(materials.SingleOrDefault(m=>m.id==id)?.amount??0)<cost)?"素材が不足しています。必要数：各 "+cost+"。":null;
+            var def=CollectionData().relics.Single(d=>d.id==relic.id);
+            return FormalRelicRules.MaterialBalance(formalCampaign.Snapshot.collection,def)<cost?"素材が不足しています。必要数：各 "+cost+"。":null;
         }
         private void DrawCollectionExperience()
         {
@@ -45,8 +45,9 @@ namespace NewAster.Presentation
             if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
             if(plan8StoryTrial && trialPoemChapter!=null){DrawTrialPoemConditions();return;}
             if(ProductionStoryActive && trialPoemChapter!=null){DrawProductionPoemConditions();return;}
-            if(GrowthButton(150,205,600,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
-            if(GrowthButton(780,205,650,52,"オーパーツ・素材",relicRequest==null,collectionTab==1))collectionTab=1;
+            if(GrowthButton(150,205,400,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
+            if(GrowthButton(590,205,400,52,"オーパーツ",relicRequest==null,collectionTab==1))collectionTab=1;
+            if(GrowthButton(1030,205,400,52,"素材図鑑",relicRequest==null,collectionTab==2))collectionTab=2;
             if(relicRequest!=null){DrawRelicConfirmation();return;}
             if(collectionTab==0){
                 var owners=CollectionData().owners;collectionOwner=Math.Max(0,Math.Min(collectionOwner,owners.Length-1));var o=owners[collectionOwner];
@@ -69,7 +70,7 @@ namespace NewAster.Presentation
                 }
                 Label(150,710,1280,65,(ProductionStoryActive?"詩と章の進捗は、好感度とは別に記録します。":plan8StoryTrial?"詩対応はオリジナル本文に基づいています。歌唱率は調整中です。":"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。")+"\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
                 DrawBookTransition(true);
-            }else DrawRelicInventory();
+            }else if(collectionTab==1)DrawRelicInventory();else DrawMaterialInventory();
         }
         private void DrawRelicInventory()
         {
@@ -77,9 +78,9 @@ namespace NewAster.Presentation
             Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。巨神獣ごとの固有能力。Lv上限120。\n同名は項目ごとの高値を保持。強化は対応する巨神獣の素材を使います。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
             if(items.Length==0)Label(180,395,1200,100,"オーパーツ未所持。勝利時のレリックハントで獲得します。\n敗北・撤退は詩のみ取得します。",growthTextStyle);
             foreach(var pair in items.Skip(collectionRelicPage*3).Take(3).Select((r,i)=>new{r,i})){
-                var r=pair.r;int y=380+pair.i*112;GrowthFill(151,y-5,1278,105,new Color(.095f,.17f,.21f));GrowthLine(151,y+101,1429,y+101,gold);string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=ledger.materials.SingleOrDefault(x=>x.sourceColossusId==owner)?.amount??0;
+                var r=pair.r;int y=380+pair.i*112;GrowthFill(151,y-5,1278,105,new Color(.095f,.17f,.21f));GrowthLine(151,y+101,1429,y+101,gold);string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=FormalRelicRules.MaterialBalance(ledger,CollectionData().relics.Single(d=>d.id==r.id));
                 Label(170,y,730,48,$"{name}の遺物  Lv{r.level}  攻撃 {r.attackRoll}/100  HP {r.hpRoll}/1000",growthSmallStyle);
-                Label(170,y+50,730,40,(ProductionStoryActive?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==r.id))+" ／ ":"")+$"素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
+                Label(170,y+50,730,40,(ProductionStoryActive?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==r.id))+" ／ ":"")+$"強化素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
                 string lv=RelicUnavailable(r,RelicOperation.LevelUp),attack=RelicUnavailable(r,RelicOperation.AttackUp),hp=RelicUnavailable(r,RelicOperation.HpUp);
                 if(GrowthButton(910,y,150,40,lv==null?"Lv強化":r.level>=120?"Lv上限":"Lv素材不足",lv==null))RelicSelect(r,RelicOperation.LevelUp);
                 if(GrowthButton(1080,y,150,40,attack==null?"攻撃強化":r.attackRoll>=100?"攻撃上限":r.attackRoll<80?"攻撃条件未達":"攻撃素材不足",attack==null))RelicSelect(r,RelicOperation.AttackUp);

@@ -11,7 +11,7 @@ namespace NewAster.Core
         public string Signature=>"home|"+Kind+"|"+ContentVersion+"|"+OperationKey;
         public FormalHomeRequest(string id,string kind,long revision,string contentVersion,string operationKey)
         {
-            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit","weapon","weapon-level","craft","place","occupant","talk","sceneEnd"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Invalid home request.");
+            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit","weapon","weapon-level","formation","craft","place","occupant","talk","sceneEnd"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Invalid home request.");
             Id=id;Kind=kind;Revision=revision;ContentVersion=contentVersion;OperationKey=operationKey;
         }
     }

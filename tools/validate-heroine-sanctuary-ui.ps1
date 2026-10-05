@@ -1,4 +1,4 @@
-param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('roster','empty','detail.slayer','detail.iconoclast','detail.undermine','detail.echidna','detail.excalipan','trait','skill','skillmax','skill-pending','tree.slayer','tree.iconoclast','tree.undermine','tree.echidna','tree.excalipan','tree-grown','tree-confirm','level','level-confirm','large'),[string]$PlayerPath='game/Builds/playable/newASTER.exe')
+﻿param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('roster','empty','detail.slayer','detail.iconoclast','detail.undermine','detail.echidna','detail.excalipan','trait','skill','skillmax','skill-pending','tree.slayer','tree.iconoclast','tree.undermine','tree.echidna','tree.excalipan','tree-grown','tree-confirm','level','level-confirm','large'),[string]$PlayerPath='game/Builds/playable/newASTER.exe')
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
 $output=Join-Path $repo ('tmp/heroine-sanctuary-ui-'+[Guid]::NewGuid().ToString('N'));New-Item -ItemType Directory -Path $output | Out-Null
@@ -13,7 +13,7 @@ foreach($height in $Heights){if($height -notin @(720,1080)){throw 'Unsupported h
  foreach($case in $Cases){
   $parts=$case.Split('.');$view=$parts[0];$hero=if($parts.Length -gt 1){'heroine.'+$parts[1]}else{'heroine.slayer'}
   if($view -eq 'relics-populated'){$view='relics'}
-  if($view -notin @('roster','empty','detail','trait','skill','skillmax','skill-pending','tree','tree-grown','tree-confirm','level','level-confirm','large','tree-alpha','tree-beta','tree-gamma','kinder','kinder-draw','kinder-exchange','kinder-tickets','kinder-rates','collection','relics','engagement')){throw 'Unknown view'}
+  if($view -notin @('roster','empty','detail','trait','skill','skillmax','skill-pending','tree','tree-grown','tree-confirm','level','level-confirm','large','tree-alpha','tree-beta','tree-gamma','kinder','kinder-draw','kinder-exchange','kinder-tickets','kinder-rates','collection','relics','engagement','formation','formation-confirm','formation-swapped','formation-pending','formation-battle','materials','train-arrival','train-doors','train-disembark','battle-idle','battle-boost','battle-status','battle-attack','battle-targets')){throw 'Unknown view'}
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log,'-capturePlan9ProductionEntry','-captureHeroineSanctuary','-heroineView',$(if($view -eq 'large'){'detail'}else{$view}),'-heroineId',$hero)
   if($view -eq 'large'){$flags+='-inspectLargeText'}

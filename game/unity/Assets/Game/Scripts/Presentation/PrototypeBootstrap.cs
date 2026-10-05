@@ -527,7 +527,8 @@ namespace NewAster.Presentation
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions,formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
+            if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);

@@ -65,8 +65,8 @@ namespace NewAster.Presentation
                 Label(94,y,413,33,"Lv."+lv+"  "+effects,new GUIStyle(sanctuarySmall){fontSize=14,wordWrap=false});
             }
             var costs=owned && level<7?WeaponGrowthRules.Costs(selected,level,catalog):selected.costs;
-            string cost=owned && level==7?"最大Lvです。":costs.Length==0?"初期神器は素材なしで取得できます。":string.Join("\n",costs.Select(c=>{var m=catalog.materials.Single(x=>x.id==c.resourceId);return NewAster.Data.WorldCatalog.Colossi.Single(x=>x.Id==m.colossusId).DisplayName+"素材  "+c.amount+" / 所持 "+HomeRules.Balance(snapshot,c.resourceId);}));
-            Label(90,649,418,72,cost,sanctuarySmall);
+            string cost=owned && level==7?"最大Lvです。":costs.Length==0?"初期神器は素材なしで取得できます。":string.Join("\n",costs.Select(c=>{var m=catalog.materials.Single(x=>x.id==c.resourceId);return (m.rarity>=4?"SSR":m.rarity==3?"SR":m.rarity==2?"R":"N")+" "+(m.name??NewAster.Data.WorldCatalog.Colossi.Single(x=>x.Id==m.colossusId).DisplayName+"素材")+"  "+c.amount+" / 所持 "+HomeRules.Balance(snapshot,c.resourceId);}));
+            Label(90,646,418,78,cost,new GUIStyle(sanctuarySmall){fontSize=14});
             bool sufficient=costs.All(c=>HomeRules.Balance(snapshot,c.resourceId)>=c.amount);
             if(GrowthButton(83,728,430,55,owned?level==7?"Lv.7  MAX":"神器をLv."+(level+1)+"へ強化":!parents?"親の神器を解放してください":sufficient?"素材で神器を解放":"素材が不足しています",homeRequest==null && !formalCampaign.HasPending && (owned?level<7 && sufficient:parents && sufficient),true))ProposeHome(new HomeOperation(owned?"weapon-level":"weapon",selected.id,owned?(level+1).ToString():null));
             var treeRect=new Rect(571,173,965,640);GrowthFrame(treeRect.x,treeRect.y,treeRect.width,treeRect.height);GUI.DrawTexture(new Rect(610,166,875,637),SanctuaryTree(hero,nodes),ScaleMode.StretchToFill,true);
@@ -84,8 +84,8 @@ namespace NewAster.Presentation
         }
         private void DrawSanctuaryHomeConfirmation(string cost)
         {
-            GrowthFill(0,0,1600,900,new Color(0,0,0,.65f));GrowthFrame(374,262,852,390);Label(412,289,770,48,"神器の変更を確認",growthTitleStyle,gold);
-            Label(412,351,772,138,HomeOperationSummary()+"\n"+(homeOperation.Kind=="equip"?"装備変更は無消費です。":cost)+"\n"+(homeError??"保存成功後に確定。取消では素材を消費しません。"),growthTextStyle);
+            GrowthFill(0,0,1600,900,new Color(0,0,0,.65f));GrowthFrame(374,262,852,390);Label(412,289,770,48,homeOperation.Kind=="formation"?"編成の変更を確認":"神器の変更を確認",growthTitleStyle,gold);
+            Label(412,351,772,180,HomeOperationSummary()+"\n"+(homeOperation.Kind=="equip"?"装備変更は無消費です。":cost)+"\n"+(homeError??"保存成功後に確定。取消では素材を消費しません。"),new GUIStyle(growthTextStyle){fontSize=18});
             if(GrowthButton(412,548,500, sixty,formalCampaign.HasPending?"同じ内容で保存を再試行":"この内容で確定する",true,true))ConfirmHome();
             if(GrowthButton(930,548,256, sixty,"取消",!formalCampaign.HasPending)){homeRequest=null;homeOperation=null;homeError=null;}
         }

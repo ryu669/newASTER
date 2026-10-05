@@ -2,7 +2,7 @@
 
 計画9の初期5人・5ジョブを実装したWindows正式配布候補です。15巨神獣、7世界、60章450詩、25交流、9庭10家具、人物固有神器、15遺物、ガチャ・交換・星の恵みを通常入口から利用できます。起動・タイトル・万物の書・戦闘・結果・ADV・育成・庭・設定を正式版用の美術へ統一しました。計画9 RC1の内容と検証履歴は[完了記録](docs/production/plan9-completion-status.md)に保存しています。
 
-最新の追加改修は `0.9.2-rc.1`。ヒロインは名前と顔のカード一覧、名前検索・ジョブ絞り込み・12人ごとのページで選びます。能力欄のLvをクリックして育成、スキルをクリックして説明全文とLv1〜7強化、特性アイコンをクリックして効果を確認できます。神器は人物ごとの精細な木に13ノード、各神器Lv1〜7を実装。旧RC1の育成・所持素材・取得神器・装備を引き継ぎます。[設計](docs/production/heroine-sanctuary-design.md)と[検証記録](docs/production/heroine-sanctuary-validation.json)に詳細をまとめました。
+最新の追加改修は `0.9.4-rc.2`。5枠の編成入替、巨神獣ごとの4段階素材と複数巨神獣の希少素材を使う神器を追加しました。ガチャは到着・開扉・降車の3枚のオリジナル一枚絵で演出します。戦闘のスキル選択はヒロインを隠さず表示し続け、リソースは任意消費で効果を強化。12属性、巨神獣の弱点・耐性、10種類の蓄積型状態異常も実装しました。ヒロインカード一覧、Lv1〜7のスキル・神器強化、枝別能力・最終特性も収録。[追加設計と画像制作](docs/production/combat-expansion-design.md)、[検証](docs/production/combat-expansion-validation.json)、[配布案内](docs/production/combat-expansion-readme.txt)。
 
 神器のαは攻撃・会心、βは物理防御・魔法防御、γは速度・会心威力へ分化し、最終形に能力アップ特性を追加しました。ガチャ・交換・チケット・星の恵み・詩・オーパーツの装飾も改訂。[枝の設計](docs/production/heroine-branches-design.md)と[今回の検証](docs/production/heroine-branches-validation.json)を参照。
 

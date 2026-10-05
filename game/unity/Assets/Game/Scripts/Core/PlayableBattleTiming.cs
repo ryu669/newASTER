@@ -67,7 +67,7 @@ namespace NewAster.Core
         private void InitializeTimeline()
         {
             for(int i=0;i<5;i++) readyAt[i]=SkillTimingDefinition.Delay(State.Heroes[i].Speed,100);
-            bossAt=SkillTimingDefinition.Delay(colossusDefinition?.enemySpeed??90,100);
+            bossAt=SkillTimingDefinition.Delay(EffectiveEnemySpeed,100);
             AdvanceTimeline();
         }
         public IReadOnlyList<BattleOrderEntry> UpcomingOrder()
@@ -85,6 +85,8 @@ namespace NewAster.Core
             LastFullChain=false; LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();
             int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
             State.Heroes[actor].CompleteOwnerCommand();
+            if(optionalResourceBoost)readyAt[actor]+=FinishHeroStatusAction(actor,false);
+            ResourceBoostSelected=false;
             Chain=0; chainPending=false; chainMembers.Clear(); LastHealingTargets=Array.Empty<int>();
             Log="味方"+(actor+1)+"はパス。次回まで待機。";
             RecordPresentation(BattlePresentationKind.Pass,actor,"body",Log);
@@ -96,6 +98,7 @@ namespace NewAster.Core
             int cost=SkillResourceCost(actor,slot);
             var reservedSkill=AttackDefinition(actor,slot,AttackPower(actor,slot,target,1),0,State.Heroes[actor].Attack);
             if(!State.Heroes[actor].SpendResource(cost)) return false;
+            ResourceBoostSelected=false;
             casting[actor]=new PendingCast { Slot=slot,Target=target,Skill=reservedSkill,ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
             State.Heroes[actor].CompleteOwnerCommand();
             readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
@@ -115,10 +118,11 @@ namespace NewAster.Core
                 if(next.Actor<0) {
                     ResolveEnemyAction(); EnemyActionCount++; Turn++;
                     Guarded=false; Chain=0; chainPending=false; chainMembers.Clear();
-                    bossAt=Clock+SkillTimingDefinition.Delay(colossusDefinition?.enemySpeed??90,EnemyWaitPercent);
+                    bossAt=Clock+SkillTimingDefinition.Delay(EffectiveEnemySpeed,EnemyWaitPercent)+State.EnemyWaitPenalty;State.EnemyWaitPenalty=0;
                     continue;
                 }
                 int actor=next.Actor;
+                if(optionalResourceBoost && (State.Heroes[actor].Status.Active("stun") || State.Heroes[actor].Status.Active("absent"))){var h=State.Heroes[actor];bool canceled=casting[actor]!=null;casting[actor]=null;int wait=FinishHeroStatusAction(actor,false);readyAt[actor]=Clock+RecoveryDelay(actor,0)+wait;RecordPresentation(canceled?BattlePresentationKind.CastCanceled:BattlePresentationKind.Pass,actor,"body","状態異常により行動をスキップ。",standalone:true);continue;}
                 var pending=casting[actor];
                 if(pending!=null) {
                     casting[actor]=null;
@@ -132,7 +136,7 @@ namespace NewAster.Core
                     if(outcome.Accepted) ApplyAttackTimedEffects(actor,pending.Slot,false);
                     if(outcome.Accepted) ApplyCommandAttackEffects(actor,pending.Slot);
                     if(outcome.Accepted && ChainEligible(actor,pending.Slot)) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
-                    readyAt[actor]=Clock+CommandRecoveryDelay(actor,pending.Slot);
+                    readyAt[actor]=Clock+CommandRecoveryDelay(actor,pending.Slot)+(optionalResourceBoost?FinishHeroStatusAction(actor,outcome.Accepted):0);
                     Chain=0; chainPending=false; chainMembers.Clear();
                     continue;
                 }

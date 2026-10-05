@@ -392,7 +392,10 @@
           "referenceId": "heroine.slayer.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
     },
     {
       "id": "heroine.slayer.2",
@@ -439,7 +442,8 @@
           "threshold": 1,
           "referenceId": "heroine.slayer.trait"
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "id": "heroine.slayer.3",
@@ -471,7 +475,10 @@
           "referenceId": "heroine.slayer.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
     },
     {
       "id": "heroine.iconoclast.1",
@@ -505,7 +512,10 @@
       ],
       "damageType": "physical",
       "enemyWaitAdd": 30,
-      "selfWaitReductionPercent": 50
+      "selfWaitReductionPercent": 50,
+      "attributes": [
+        "斬撃"
+      ]
     },
     {
       "id": "heroine.iconoclast.2",
@@ -538,7 +548,10 @@
         }
       ],
       "damageType": "magic",
-      "selfDamageMaxHpPercent": 10
+      "selfDamageMaxHpPercent": 10,
+      "attributes": [
+        "斬撃"
+      ]
     },
     {
       "id": "heroine.iconoclast.3",
@@ -575,7 +588,10 @@
           "referenceId": "heroine.iconoclast.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
     },
     {
       "id": "heroine.undermine.1",
@@ -617,7 +633,10 @@
         }
       ],
       "damageType": "physical",
-      "selfDamageMaxHpPercent": 10
+      "selfDamageMaxHpPercent": 10,
+      "attributes": [
+        "打撃"
+      ]
     },
     {
       "id": "heroine.undermine.2",
@@ -669,7 +688,8 @@
           "threshold": 1,
           "referenceId": "heroine.undermine.trait"
         }
-      ]
+      ],
+      "attributes": []
     },
     {
       "id": "heroine.undermine.3",
@@ -703,7 +723,10 @@
       ],
       "damageType": "physical",
       "chargeConsumeMax": 9,
-      "chargeBonusPercent": 10
+      "chargeBonusPercent": 10,
+      "attributes": [
+        "打撃"
+      ]
     },
     {
       "id": "heroine.echidna.1",
@@ -736,7 +759,11 @@
         }
       ],
       "damageType": "physical",
-      "ignoreDefenseBp": 10000
+      "ignoreDefenseBp": 10000,
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
     },
     {
       "id": "heroine.echidna.2",
@@ -777,7 +804,11 @@
           "referenceId": "heroine.echidna.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
     },
     {
       "id": "heroine.echidna.3",
@@ -818,7 +849,11 @@
           "referenceId": "heroine.echidna.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
     },
     {
       "id": "heroine.excalipan.1",
@@ -855,7 +890,10 @@
           "referenceId": "heroine.excalipan.trait"
         }
       ],
-      "damageType": "physical"
+      "damageType": "physical",
+      "attributes": [
+        "銃弾"
+      ]
     },
     {
       "id": "heroine.excalipan.2",
@@ -894,7 +932,10 @@
         }
       ],
       "damageType": "physical",
-      "selfHealingBaseAttackPercent": 70
+      "selfHealingBaseAttackPercent": 70,
+      "attributes": [
+        "銃弾"
+      ]
     },
     {
       "id": "heroine.excalipan.3",
@@ -932,7 +973,10 @@
         }
       ],
       "damageType": "physical",
-      "specialWeaponBonusPercent": 200
+      "specialWeaponBonusPercent": 200,
+      "attributes": [
+        "銃弾"
+      ]
     }
   ],
   "chainActions": [
@@ -1853,5 +1897,6 @@
       "kind": "lover-event",
       "status": "reserved"
     }
-  ]
+  ],
+  "optionalResourceBoost": true
 }

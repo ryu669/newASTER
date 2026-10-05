@@ -47,6 +47,10 @@ namespace NewAster.Data
             foreach(var n in expanded.Where(n=>!n.initial)){
                 int route=n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;
                 int tier=n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;
+                int heroIndex=Array.IndexOf(combat.FormationIds,n.heroineId);
+                int sourceIndex=Array.FindIndex(WorldCatalog.Colossi.ToArray(),c=>c.WorldLineId=="W0"+(heroIndex+1));
+                var sources=Enumerable.Range(0,3).Select(i=>WorldCatalog.Colossi[(sourceIndex+i)%WorldCatalog.Colossi.Count]).ToArray();
+                if(tier>=2)n.costs=Enumerable.Range(0,tier==2?2:3).Select(i=>new HomeCost{resourceId=collection.owners.Single(o=>o.id==sources[i%sources.Length].Id).materialIds[tier==2?1:tier==3?2:i<2?3:2],amount=tier==2?4:tier==3?5:6}).ToArray();
                 n.attackBonus=route==0?8+tier*4:route==1?2+tier:4+tier*2;
                 n.skillPower=route==0?1.12f+tier*.06f:route==1?1.02f+tier*.025f:1.06f+tier*.04f;
                 n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1?10+tier*6:0;
@@ -61,6 +65,15 @@ namespace NewAster.Data
         }
         public static void ApplyCollection(CollectionCatalog catalog)
         {
+            var resources=catalog.resources.ToList();
+            foreach(var owner in catalog.owners.Where(o=>o.kind=="colossus")){
+                string common=owner.materialIds[0],name=WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName;
+                var baseMaterial=resources.Single(r=>r.id==common);baseMaterial.name=name+"の鱗片";baseMaterial.rarity=1;baseMaterial.minDropLevel=1;
+                string[] suffix={"rare","epic","legendary"},names={"結晶","心核","星髄"};int[] levels={5,15,30};
+                for(int i=0;i<3;i++)resources.Add(new CollectionResourceDef{id=common+"."+suffix[i],kind="material",ownerId=owner.id,name=name+"の"+names[i],rarity=i+2,minDropLevel=levels[i]});
+                owner.materialIds=new[]{common,common+".rare",common+".epic",common+".legendary"};
+            }
+            catalog.resources=resources.ToArray();
             for(int i=0;i<catalog.relics.Length;i++){
                 var relic=catalog.relics[i];relic.abilityId="ability.production.relic."+i;
                 relic.attackPercent=i%3==0?6+i/3:i%3==1?0:3+i/3;

@@ -92,11 +92,7 @@ namespace NewAster.Presentation
                 }
                 if(GrowthButton(1190,719,300,62,"取消",!formalProgression.HasPending))KinderBack();
             }else if(kinderScreen==KinderScreen.Revealing){
-                float progress=Mathf.Clamp01((Time.unscaledTime-kinderRevealStarted)/1.8f);
-                float radius=30+90*progress;
-                for(int i=0;i<8;i++){float angle=(i*45+Time.unscaledTime*12)*Mathf.Deg2Rad;GrowthDiamond(1050+Mathf.Cos(angle)*radius,460+Mathf.Sin(angle)*radius,12+18*progress);}
-                GrowthDiamond(1050,460,45);Label(790,625,600,50,"新しい誓いが、記憶の庭へ。",growthTextStyle,gold);
-                if(progress>=1 || GrowthButton(605,727,885,62,"演出をスキップ ／ 結果を見る"))kinderScreen=KinderScreen.Result;
+                DrawKinderTrain();
             }else{
                 if(kinderReceipt.kinderOutcomes.Length==0)Label(605,327,885,130,kinderRequest.Operation==KinderOperation.Exchange?"専用チケット1枚を保存しました。\nチケット使用画面で誓女を迎えられます。":"初回3000石を保存しました。",growthTextStyle,gold);
                 else for(int i=0;i<kinderReceipt.kinderOutcomes.Length;i++){
@@ -118,8 +114,9 @@ namespace NewAster.Presentation
             if(args.Contains("-captureKinderRates"))kinderScreen=KinderScreen.Rates;
             if(args.Contains("-captureKinderConfirm")){kinderScreen=KinderScreen.Draw;kinderCount=10;ConfirmKinder(KinderOperation.StoneDraw,save);}
             if(args.Contains("-captureKinderResult")){
-                kinderRequest=new KinderRequest("capture.kinder-result",save.revision,KinderOperation.StoneDraw,10);int draws=0;
-                formalProgression.CommitKinder(kinderRequest,kinderBanner,max=>max==10000?(draws++==0?0:300):0,s=>true);
+                kinderRequest=new KinderRequest("capture.kinder-result",save.revision,KinderOperation.StoneDraw,10,bannerVersion:kinderBanner.contentVersion);int draws=0;
+                int selected=Array.IndexOf(args,"-heroineId");int actor=selected>=0 && selected+1<args.Length?Array.IndexOf(kinderBanner.heroineIds,args[selected+1]):0;actor=Math.Max(0,actor);kinderSelection=actor;
+                formalProgression.CommitKinder(kinderRequest,kinderBanner,max=>max==10000?(draws++==0?0:300):max==kinderBanner.heroineIds.Length?actor:0,s=>true);
                 kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=KinderScreen.Result;
             }
         }

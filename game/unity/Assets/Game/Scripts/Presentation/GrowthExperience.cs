@@ -71,6 +71,7 @@ namespace NewAster.Presentation
         {
             if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}return;}
             if(formalProgression.HasPending || formalCampaign.HasPending)return;
+            if(formationOpen){formationOpen=false;return;}
             if(heroineRosterOpen){book.Close();book.Reenter();return;}
             if(growthScreen==GrowthScreen.Overview){heroineRosterOpen=true;selectedTrait=-1;return;}
             if(growthScreen==GrowthScreen.Confirmation){growthRequest=null;growthPreview=null;growthScreen=growthOrigin;return;}

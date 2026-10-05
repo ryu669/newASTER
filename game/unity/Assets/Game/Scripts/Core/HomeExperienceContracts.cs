@@ -7,7 +7,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HomePoint { public float x,y; }
     [Serializable] public sealed class HomeRect { public float x,y,width,height; }
     [Serializable] public sealed class HomeCost { public string resourceId; public int amount; }
-    [Serializable] public sealed class HomeMaterialDef { public string id,colossusId; }
+    [Serializable] public sealed class HomeMaterialDef { public string id,colossusId,name; public int rarity; }
     [Serializable] public sealed class HomeTalkDef { public string id,heroineId; public int affectionGain; public HomeCost[] costs; }
     [Serializable] public sealed class HomeCondition
     { public string kind,domain,id,ownerId; public int value; public HomeCondition[] items=Array.Empty<HomeCondition>(); }

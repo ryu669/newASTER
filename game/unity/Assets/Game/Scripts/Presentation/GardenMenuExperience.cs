@@ -18,6 +18,7 @@ namespace NewAster.Presentation
         private string HomeOperationSummary()
         {
             string kind=homeOperation.Kind;
+            if(kind=="formation")return "編成枠"+(int.Parse(homeOperation.Owner)+1)+"へ "+combatDefinitions.Hero(homeOperation.Target).name+"を配置します。";
             if(kind=="craft")return GardenFurnitureName(homeOperation.Target)+"を作ります。";
             if(kind=="place" || kind=="remove"){
                 var item=HomeState.furnitureInstances.SingleOrDefault(f=>f.instanceId==homeOperation.Target);

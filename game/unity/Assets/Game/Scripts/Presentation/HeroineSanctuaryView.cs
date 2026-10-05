@@ -35,6 +35,7 @@ namespace NewAster.Presentation
         private void DrawGrowthExperience()
         {
             SanctuaryStyles();
+            if(formationOpen){DrawFormation();return;}
             if(heroineRosterOpen){DrawHeroineRoster();return;}
             if(!book.HasSubject){heroineRosterOpen=true;DrawHeroineRoster();return;}
             if(growthScreen==GrowthScreen.Overview || growthScreen==GrowthScreen.Information){DrawHeroineDetail();return;}
@@ -70,6 +71,7 @@ namespace NewAster.Presentation
             }
             if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"条件に合う誓女がいません。検索やジョブを変更してください。",growthTextStyle);}
             if(GrowthButton(62,808,210,52,"‹ 前の12人",heroinePage>0 && BookInputAllowed))heroinePage--;
+            if(GrowthButton(320,808,280,52,"編成 ／ 5人を入れ替える",BookInputAllowed)){formationOpen=true;formationSlot=0;}
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
         }

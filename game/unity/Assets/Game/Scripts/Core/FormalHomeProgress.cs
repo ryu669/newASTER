@@ -17,6 +17,7 @@ namespace NewAster.Core
     [Serializable] public sealed class FormalHomeProgress
     {
         public int version; public string contentVersion;
+        public string[] formationIds=Array.Empty<string>();
         public HomeFurnitureInstance[] furnitureInstances=Array.Empty<HomeFurnitureInstance>();
         public HomePlacement[] furniturePlacements=Array.Empty<HomePlacement>();
         public HomeOccupant[] occupants=Array.Empty<HomeOccupant>();
@@ -33,6 +34,7 @@ namespace NewAster.Core
         public void Validate()
         {
             if(version!=1 || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Unsupported home progress.");
+            if(formationIds!=null && formationIds.Length>0){Set(formationIds);if(formationIds.Length!=5)throw new ArgumentException("編成は異なる5人です。");}
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
             Index(weaponEquipment,x=>x.heroineId);if(weaponEquipment.Any(e=>!weaponNodeIds.Contains(e.nodeId)))throw new ArgumentException("Weapon must be acquired.");
             if(weaponLevels!=null){Index(weaponLevels,x=>x.nodeId);if(weaponLevels.Any(w=>w.level<1 || w.level>7 || !weaponNodeIds.Contains(w.nodeId)))throw new ArgumentException("神器Lvは取得済みノードの1〜7です。");}
@@ -54,6 +56,7 @@ namespace NewAster.Core
         {
             Validate();catalog.Validate();if(catalog.contentVersion!=contentVersion)throw new ArgumentException("Home content version mismatch.");
             var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();
+            if(formationIds!=null && formationIds.Any(id=>!heroes.Contains(id) || !catalog.heroineIds.Contains(id)))throw new ArgumentException("未所持の誓女は編成できません。");
             foreach(var e in weaponEquipment)if(!heroes.Contains(e.heroineId) || !catalog.weaponNodes.Any(n=>n.id==e.nodeId && n.heroineId==e.heroineId))throw new ArgumentException("Invalid weapon owner.");
             foreach(var instance in furnitureInstances)if(!catalog.furniture.Any(f=>f.id==instance.defId))throw new ArgumentException("Unknown furniture definition.");
             foreach(var p in furniturePlacements)if(!campaign.world.unlockedGardenIds.Contains(p.gardenId) || !catalog.gardens.Any(g=>g.id==p.gardenId && g.zones.Any(z=>z.id==p.zoneId)))throw new ArgumentException("Unknown or locked placement garden.");

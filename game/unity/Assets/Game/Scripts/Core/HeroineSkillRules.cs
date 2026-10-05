@@ -11,7 +11,7 @@ namespace NewAster.Core
         public static SkillCombatDef AtLevel(SkillCombatDef s,int level)
         {
             if(s==null)throw new ArgumentNullException(nameof(s));float scale=Multiplier(level);
-            return new SkillCombatDef{id=s.id,ownerId=s.ownerId,name=s.name,effectRuleId=s.effectRuleId,targetRuleId=s.targetRuleId,resourceCost=s.resourceCost,recoveryPercent=s.recoveryPercent,castPercent=s.castPercent,targetCount=s.targetCount,baseHealing=(int)Math.Floor(s.baseHealing*scale),powerScale=s.powerScale*scale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,damageType=s.damageType,ignoreDefenseBp=s.ignoreDefenseBp,enemyWaitAdd=s.enemyWaitAdd,selfWaitReductionPercent=s.selfWaitReductionPercent,chargeConsumeMax=s.chargeConsumeMax,chargeBonusPercent=s.chargeBonusPercent,specialWeaponBonusPercent=s.specialWeaponBonusPercent,conditions=s.conditions?.Select(x=>x.Copy()).ToArray(),statusEffects=s.statusEffects?.Select(x=>x.Copy()).ToArray(),selfEffects=s.selfEffects?.Select(x=>new TimedSelfEffectDef{kind=x.kind,turns=x.turns,percent=x.kind=="forced-target"?x.percent:Math.Min(x.kind=="critical" || x.kind=="physical-protection"?100:1000,(int)Math.Floor(x.percent*scale))}).ToArray()};
+            return new SkillCombatDef{id=s.id,ownerId=s.ownerId,name=s.name,effectRuleId=s.effectRuleId,targetRuleId=s.targetRuleId,resourceCost=s.resourceCost,recoveryPercent=s.recoveryPercent,castPercent=s.castPercent,targetCount=s.targetCount,baseHealing=(int)Math.Floor(s.baseHealing*scale),powerScale=s.powerScale*scale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,damageType=s.damageType,attributes=s.attributes?.ToArray(),ignoreDefenseBp=s.ignoreDefenseBp,enemyWaitAdd=s.enemyWaitAdd,selfWaitReductionPercent=s.selfWaitReductionPercent,chargeConsumeMax=s.chargeConsumeMax,chargeBonusPercent=s.chargeBonusPercent,specialWeaponBonusPercent=s.specialWeaponBonusPercent,conditions=s.conditions?.Select(x=>x.Copy()).ToArray(),statusEffects=s.statusEffects?.Select(x=>x.Copy()).ToArray(),selfEffects=s.selfEffects?.Select(x=>new TimedSelfEffectDef{kind=x.kind,turns=x.turns,percent=x.kind=="forced-target"?x.percent:Math.Min(x.kind=="critical" || x.kind=="physical-protection"?100:1000,(int)Math.Floor(x.percent*scale))}).ToArray()};
         }
         public static string Description(SkillCombatDef source,int level,JobCombatDef job)
         {
@@ -26,13 +26,13 @@ namespace NewAster.Core
             if(s.enemyWaitAdd>0)result+="敵の次行動を"+s.enemyWaitAdd+"延期。";
             if(s.selfDamageMaxHpPercent>0)result+="自身の最大HP"+s.selfDamageMaxHpPercent+"%を消費。";
             if(s.selfHealingBaseAttackPercent>0)result+="自身を基礎攻撃力"+s.selfHealingBaseAttackPercent+"%回復。";
-            if(s.chargeConsumeMax>0)result+="チャージを最大"+s.chargeConsumeMax+"消費し、1個につき威力＋"+s.chargeBonusPercent+"%。";
+            if(s.chargeConsumeMax>0)result+="任意の強化ではチャージを最大"+s.chargeConsumeMax+"消費し、1個につき威力＋"+s.chargeBonusPercent+"%。";
             if(s.specialWeaponBonusPercent>0)result+="特殊兵装時に威力＋"+s.specialWeaponBonusPercent+"%。";
             if(s.selfWaitReductionPercent>0)result+="自身の次の待機を"+s.selfWaitReductionPercent+"%短縮。";
-            if(s.statusEffects!=null && s.statusEffects.Length>0)result+="状態蓄積："+string.Join("、",s.statusEffects.Select(e=>(e.kind=="burn"?"火傷":e.kind=="bleed"?"出血":e.kind=="poison"?"毒":e.kind=="stun"?"気絶":e.kind=="sickness"?"病気":"骨折")+e.amount))+"。";
+            if(s.statusEffects!=null && s.statusEffects.Length>0)result+="状態蓄積："+string.Join("、",s.statusEffects.Select(e=>EnemyStatusState.Label(e.kind)+e.amount))+"。";
             if(s.effectRuleId=="effect.damage" && s.selfEffects!=null && s.selfEffects.Length>0)result+="自身に"+string.Join("、",s.selfEffects.Select(e=>TimedSelfEffectDef.Label(e.kind)+e.percent+"%（"+e.turns+"行動）"))+"。";
             if(s.conditions!=null && s.conditions.Length>0)result+="発動条件："+string.Join("、",s.conditions.Select(c=>c.kind=="job-resource-at-least" || c.kind=="resource-at-least"?job.resourceName+c.threshold+"以上":c.kind=="trait-equipped"?"固有特性を所持":c.kind=="hp-at-most-percent"?"HP"+c.threshold+"%以下":c.kind=="broken-parts-at-least"?"破壊済み部位"+c.threshold+"以上":c.kind=="boss-status-active"?"敵に指定の状態異常が有効":"固有条件"))+"。";
-            return result+"\n"+job.resourceName+"消費 "+s.resourceCost+" ／ 待機 "+s.recoveryPercent+"%"+(s.castPercent>0?" ／ 詠唱 "+s.castPercent+"%":"");
+            return result+"\n属性："+CombatAttributeRules.Labels(s.attributes)+"\n"+job.resourceName+"は任意消費で効果強化（1個+10%）。標準発動は消費なし"+" ／ 待機 "+s.recoveryPercent+"%"+(s.castPercent>0?" ／ 詠唱 "+s.castPercent+"%":"");
         }
     }
 }

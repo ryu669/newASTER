@@ -31,6 +31,10 @@ namespace NewAster.Core
         {
             var h=s.home;
             switch(op.Kind){
+                case "formation": {
+                    Owned(s,op.Target);if(!c.heroineIds.Contains(op.Target) || !int.TryParse(op.Owner,out int slot) || slot<0 || slot>=5)throw new ArgumentException("編成枠を選択してください。");
+                    var ids=h.formationIds==null || h.formationIds.Length==0?c.heroineIds.Take(5).ToArray():(string[])h.formationIds.Clone();
+                    if(ids.Length!=5)throw new ArgumentException("編成には5人が必要です。");int previous=Array.IndexOf(ids,op.Target);if(previous>=0)ids[previous]=ids[slot];ids[slot]=op.Target;h.formationIds=ids;break;}
                 case "weapon": {
                     var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
                     if(!(n.abilityId=="ability.home-fixture.attack" && n.skillId=="skill.home-fixture.preview" || c.contentVersion==HomeExperienceCatalog.ProductionVersion && n.abilityId=="ability.production.weapon-attack" && n.skillId=="skill.production.weapon-basic"))throw new ArgumentException("この武器効果は未対応です。");
