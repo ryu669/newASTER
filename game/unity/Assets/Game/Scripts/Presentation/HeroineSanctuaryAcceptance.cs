@@ -1,0 +1,37 @@
+using System;
+using System.IO;
+using System.Linq;
+using NewAster.Core;
+using UnityEngine;
+namespace NewAster.Presentation
+{
+    public sealed partial class PrototypeBootstrap
+    {
+        private void PrepareHeroineSanctuaryCapture(string[] args)
+        {
+            string Arg(string key,string fallback){int index=Array.IndexOf(args,key);return index>=0 && index+1<args.Length?args[index+1]:fallback;}
+            if(!ProductionStoryActive)throw new ArgumentException("Sanctuary capture requires production entry and isolated profile.");
+            string view=Arg("-heroineView","roster"),id=Arg("-heroineId","heroine.slayer");if(!combatDefinitions.FormationIds.Contains(id))throw new ArgumentException("Unknown heroine capture target.");
+            acceptanceStore=new FormalCampaignStore(Path.Combine(Path.GetDirectoryName(capturePath),"heroine-"+Guid.NewGuid().ToString("N")+".json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
+            var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
+            save.growth.nectar=20000;save.collection.materials=HomeData().materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray();
+            if(view=="skillmax" || view=="tree-grown")foreach(var h in save.growth.heroines)h.skillLevels=new[]{7,7,7};
+            if(view=="tree-grown") {save.home.weaponNodeIds=HomeData().weaponNodes.Select(n=>n.id).ToArray();save.home.weaponLevels=HomeData().weaponNodes.Select(n=>new HomeWeaponLevel{nodeId=n.id,level=7}).ToArray();save.home.weaponEquipment=new[]{new HomeWeaponEquipment{heroineId=id,nodeId=id+".weapon.alpha.tier4"}};}
+            save.revision=0;AcceptanceCheck(acceptanceStore.Save(save),"sanctuary fixture uses separate durable profile");BindFormalCampaign(save);
+            encounter=null;title=false;book.RequestSubject(BookBookmark.Heroines,id);book.CompleteTransition();heroineRosterOpen=view=="roster" || view=="empty";growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;selectedSkillSlot=0;
+            if(view=="empty")heroineQuery="該当なし";
+            else if(view=="trait")selectedTrait=0;
+            else if(view=="skill" || view=="skillmax" || view=="skill-pending")growthScreen=GrowthScreen.Skill;
+            else if(view.StartsWith("tree"))growthScreen=GrowthScreen.Weapons;
+            else if(view=="level")GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));
+            else if(view=="level-confirm"){growthScreen=GrowthScreen.Level;GrowthConfirm(GrowthOperation.Level,id,formalProgression.Snapshot,11);}
+            else if(view!="detail" && view!="roster" && view!="empty")throw new ArgumentException("Unknown sanctuary UI case");
+            if(view=="tree-confirm")ProposeHome(new HomeOperation("weapon",id+".weapon.root"));
+            if(view=="skill-pending"){
+                growthRequest=new GrowthRequest("sanctuary.pending",id,formalProgression.Snapshot.revision,GrowthOperation.Skill,2,skillSlot:0);
+                AcceptanceCheck(formalProgression.Commit(growthRequest,s=>false)==GrowthCommitResult.SaveFailed && formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id).SkillLevel(0)==1,"skill pending leaves current level unchanged");growthOutcome="保存できませんでした。Lvと費用は変更していません。";
+            }
+            Debug.Log("HEROINE_SANCTUARY_CAPTURE_PASS view="+view+" heroine="+id+" isolated=true fixture-not-earned-progression physicalInput=0");
+        }
+    }
+}

@@ -45,5 +45,11 @@ namespace NewAster.Core
             if(ids==null || ids.Length!=5 || ids.Distinct().Count()!=5 || ids.Any(id=>id==null || !owned.Contains(id) || !entries.TryGetValue(id,out var e) || e.stage!="available" || !implementedJobs.Contains(e.jobId))) throw new ArgumentException("Formation requires five distinct owned available heroines.");
             return (string[])ids.Clone();
         }
+        public HeroineRosterEntry[] Search(string query,string jobId,IEnumerable<string> ownedIds)
+        {
+            var owned=ownedIds==null?null:new HashSet<string>(ownedIds);query=(query??"").Trim();
+            if(owned!=null && owned.Any(id=>!entries.ContainsKey(id)))throw new ArgumentException("Unknown owned heroine ID.");
+            return entries.Values.Where(e=>e.stage=="available" && (jobId==null || e.jobId==jobId) && (owned==null || owned.Contains(e.id)) && (query.Length==0 || e.name.IndexOf(query,StringComparison.OrdinalIgnoreCase)>=0 || e.id.IndexOf(query,StringComparison.OrdinalIgnoreCase)>=0)).OrderBy(e=>e.name,StringComparer.Ordinal).ThenBy(e=>e.id,StringComparer.Ordinal).Select(Copy).ToArray();
+        }
     }
 }

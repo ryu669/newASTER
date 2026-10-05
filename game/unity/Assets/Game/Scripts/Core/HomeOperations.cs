@@ -33,8 +33,13 @@ namespace NewAster.Core
             switch(op.Kind){
                 case "weapon": {
                     var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
-                    if(n.abilityId!="ability.home-fixture.attack" || n.skillId!="skill.home-fixture.preview")throw new ArgumentException("この武器効果は未対応です。");
+                    if(!(n.abilityId=="ability.home-fixture.attack" && n.skillId=="skill.home-fixture.preview" || c.contentVersion==HomeExperienceCatalog.ProductionVersion && n.abilityId=="ability.production.weapon-attack" && n.skillId=="skill.production.weapon-basic"))throw new ArgumentException("この武器効果は未対応です。");
                     if(!h.weaponNodeIds.Contains(n.id)){if(n.parentIds.Any(id=>!h.weaponNodeIds.Contains(id)))throw new ArgumentException("すべての親ノードが必要です。");Spend(s,n.costs);h.weaponNodeIds=h.weaponNodeIds.Concat(new[]{n.id}).ToArray();}break;}
+                case "weapon-level": {
+                    var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
+                    if(c.contentVersion!=HomeExperienceCatalog.ProductionVersion || !h.weaponNodeIds.Contains(n.id) || !int.TryParse(op.Owner,out int next) || next!=h.WeaponLevel(n.id)+1 || next>7)throw new ArgumentException("取得済み神器を次のLvへ強化してください。");
+                    Spend(s,WeaponGrowthRules.Costs(n,h.WeaponLevel(n.id),c));
+                    h.weaponLevels=(h.weaponLevels??Array.Empty<HomeWeaponLevel>()).Where(w=>w.nodeId!=n.id).Concat(new[]{new HomeWeaponLevel{nodeId=n.id,level=next}}).ToArray();break;}
                 case "equip": {
                     Owned(s,op.Owner);h.weaponEquipment=h.weaponEquipment.Where(e=>e.heroineId!=op.Owner).ToArray();
                     if(op.Target!="unequip"){var n=c.weaponNodes.Single(n0=>n0.id==op.Target);if(n.heroineId!=op.Owner || !h.weaponNodeIds.Contains(n.id))throw new ArgumentException("Unowned weapon.");h.weaponEquipment=h.weaponEquipment.Concat(new[]{new HomeWeaponEquipment{heroineId=op.Owner,nodeId=n.id}}).ToArray();}break;}

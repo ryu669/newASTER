@@ -66,8 +66,9 @@ namespace NewAster.Core
     {
         public const string TrialVersion="home-trial-story-2026-10-04";
         public const string CandidateVersion="home-production-story-2026-10-04";
-        public const string ProductionVersion="home-initial-five-rc1-2026-10-05";
-        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==CandidateVersion || version==ProductionVersion;
+        public const string PreviousProductionVersion="home-initial-five-rc1-2026-10-05";
+        public const string ProductionVersion="home-heroine-sanctuary-2026-10-05";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==CandidateVersion || version==PreviousProductionVersion || version==ProductionVersion;
         public const string FixtureVersion="home-fixture-2026-10-03";
         public int schemaVersion; public string contentVersion,status;
         public string[] heroineIds=Array.Empty<string>(),colossusIds=Array.Empty<string>(),poemIds=Array.Empty<string>(),resourceIds=Array.Empty<string>(),abilityIds=Array.Empty<string>(),skillIds=Array.Empty<string>(),speakerIds=Array.Empty<string>();

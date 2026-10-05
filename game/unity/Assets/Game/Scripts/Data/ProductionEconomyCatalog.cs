@@ -28,6 +28,23 @@ namespace NewAster.Data
                 node.terminal=stage==0?"誓いの根":BranchNames[hero*3+stage-1];node.attackBonus=stage==0?0:Attacks[hero*3+stage-1];node.skillPower=stage==0?1:Powers[hero*3+stage-1];
                 if(stage>0){var source=WorldCatalog.Colossi.First(c=>c.WorldLineId=="W0"+(hero+1));node.costs=new[]{new HomeCost{resourceId=collection.owners.Single(o=>o.id==source.Id).materialIds[0],amount=stage==3?24:stage==2?16:12}};}
             }
+            // Preserve the four RC1 IDs and dependencies, then grow each branch upwards.
+            var expanded=home.weaponNodes.ToList();
+            foreach(string heroId in combat.FormationIds){
+                int hero=Array.IndexOf(combat.FormationIds,heroId);
+                var root=expanded.Single(n=>n.heroineId==heroId && n.initial);root.treePosition=new HomePoint{x=.5f,y=.96f};
+                string[] routes={"alpha","beta","gamma"};
+                for(int route=0;route<3;route++){
+                    var first=expanded.Single(n=>n.id==heroId+".weapon."+routes[route]);first.treePosition=new HomePoint{x=.2f+route*.3f,y=.72f};
+                    string parent=first.id;
+                    for(int step=2;step<=4;step++){
+                        float bend=(hero%2==0?1:-1)*.025f*step;
+                        var n=new HomeWeaponNode{id=first.id+".tier"+step,heroineId=heroId,abilityId=first.abilityId,skillId=first.skillId,parentIds=new[]{parent},terminal=first.terminal+" "+(step==4?routes[route]=="alpha"?"α":routes[route]=="beta"?"β":"γ":step==2?"II":"III"),attackBonus=first.attackBonus+step*4,skillPower=first.skillPower+.08f*step,treePosition=new HomePoint{x=Math.Max(.08f,Math.Min(.92f,.2f+route*.3f+bend)),y=.72f-(step-1)*.2f},costs=first.costs.Select(c=>new HomeCost{resourceId=c.resourceId,amount=c.amount+step*4}).ToArray()};
+                        expanded.Add(n);parent=n.id;
+                    }
+                }
+            }
+            home.weaponNodes=expanded.ToArray();
         }
         public static void ApplyCollection(CollectionCatalog catalog)
         {

@@ -82,6 +82,7 @@ namespace NewAster.Core
         public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null, ColossusCombatDef colossusDefinition = null, FormalCollectionLedger collectionGrowth = null, FormalHomeProgress homeProgress=null,HomeExperienceCatalog homeCatalog=null,CollectionCatalog relicCatalog=null)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
+            formalGrowth?.Validate();
             this.homeCatalog=homeCatalog;this.homeProgress=homeProgress;
             relicCatalog?.Validate();this.relicCatalog=relicCatalog?.Copy();
             if(homeProgress!=null){homeProgress.Validate();if(homeCatalog==null)throw new ArgumentException("Weapon definitions required.");homeCatalog.Validate();}
@@ -99,10 +100,11 @@ namespace NewAster.Core
                 }
                 commandDefinitions=new SkillCombatDef[5,3];
                 for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {
-                    var s=combatDefinitions.Skill(formationIds[i],slot);
+                    var baseSkill=combatDefinitions.Skill(formationIds[i],slot);var growth=formalGrowth?.heroines.SingleOrDefault(h=>h.heroineId==formationIds[i]);var s=HeroineSkillRules.AtLevel(baseSkill,growth?.SkillLevel(slot)??1);
                     commandDefinitions[i,slot]=new SkillCombatDef {id=s.id,name=s.name,effectRuleId=s.effectRuleId,targetRuleId=s.targetRuleId,resourceCost=s.resourceCost,powerScale=s.powerScale,partScale=s.partScale,chainEligible=s.chainEligible,selfHealingBaseAttackPercent=s.selfHealingBaseAttackPercent,selfDamageMaxHpPercent=s.selfDamageMaxHpPercent,selfEffects=s.selfEffects?.Select(e=>e.Copy()).ToArray(),criticalBonusBp=s.criticalBonusBp,damageCap=s.damageCap,conditions=s.conditions?.Select(c=>c.Copy()).ToArray(),damageType=s.damageType,ignoreDefenseBp=s.ignoreDefenseBp,statusEffects=s.statusEffects?.Select(e=>e.Copy()).ToArray(),enemyWaitAdd=s.enemyWaitAdd,selfWaitReductionPercent=s.selfWaitReductionPercent,chargeConsumeMax=s.chargeConsumeMax,chargeBonusPercent=s.chargeBonusPercent,specialWeaponBonusPercent=s.specialWeaponBonusPercent};
                 }
-                if(homeProgress!=null)for(int i=0;i<5;i++){var e=homeProgress.weaponEquipment.SingleOrDefault(w=>w.heroineId==formationIds[i]);if(e==null)continue;var n=homeCatalog.weaponNodes.Single(w=>w.id==e.nodeId && w.heroineId==formationIds[i]);if(!(n.abilityId=="ability.home-fixture.attack" && n.skillId=="skill.home-fixture.preview" || homeCatalog.contentVersion==HomeExperienceCatalog.ProductionVersion && n.abilityId=="ability.production.weapon-attack" && n.skillId=="skill.production.weapon-basic") || n.attackBonus<0 || float.IsNaN(n.skillPower) || n.skillPower<=0)throw new ArgumentException("Unsupported weapon effect.");commandDefinitions[i,0].powerScale=n.skillPower;commandDefinitions[i,0].name=(n.terminal??"誓いの根");}
+                if(homeProgress!=null)for(int i=0;i<5;i++){var e=homeProgress.weaponEquipment.SingleOrDefault(w=>w.heroineId==formationIds[i]);if(e==null)continue;var n=homeCatalog.weaponNodes.Single(w=>w.id==e.nodeId && w.heroineId==formationIds[i]);if(!(n.abilityId=="ability.home-fixture.attack" && n.skillId=="skill.home-fixture.preview" || homeCatalog.contentVersion==HomeExperienceCatalog.ProductionVersion && n.abilityId=="ability.production.weapon-attack" && n.skillId=="skill.production.weapon-basic") || n.attackBonus<0 || float.IsNaN(n.skillPower) || n.skillPower<=0)throw new ArgumentException("Unsupported weapon effect.");commandDefinitions[i,0].powerScale=WeaponGrowthRules.Power(n,homeProgress.WeaponLevel(n.id))*HeroineSkillRules.Multiplier(formalGrowth?.heroines.Single(h=>h.heroineId==formationIds[i]).SkillLevel(0)??1);commandDefinitions[i,0].name=(n.terminal??"誓いの根");}
+                healingDefinitions=combatDefinitions.Healing().Select(d=>{var g=formalGrowth?.heroines.Single(h=>h.heroineId==formationIds[d.Actor]);float m=HeroineSkillRules.Multiplier(g?.SkillLevel(d.Slot)??1);return new HealingSkillDefinition(d.Actor,d.Slot,d.Name,d.TargetRule,d.TargetCount,d.ResourceCost,(int)Math.Floor(d.BaseHealing*m),d.AttackScale*(decimal)m);}).ToArray();
             }
             healingSkills=(healingDefinitions??DefaultHealingSkills()).ToArray();
             if(healingSkills.Any(d=>d==null) || healingSkills.GroupBy(d=>new {d.Actor,d.Slot}).Any(g=>g.Count()>1)) throw new ArgumentException("Duplicate or null healing definition.");
@@ -139,12 +141,15 @@ namespace NewAster.Core
                 var g=growth.heroines.Single(x=>x.heroineId==h.id);
                 int hp=FormalGrowthMath.Stat(j.hp,h.hpBp,g.level,g.duplicateRank);
                 int attack=FormalGrowthMath.Stat(j.attack,h.attackBp,g.level,g.duplicateRank);
-                var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);if(weapon!=null)attack=checked(attack+homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId).attackBonus);
+                var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);if(weapon!=null)attack=checked(attack+WeaponGrowthRules.Attack(homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId),homeProgress.WeaponLevel(weapon.nodeId)));
                 var relic=FormalRelicRules.Equipped(collectionGrowth,h.id);
                 if(relic!=null){var def=relicCatalog?.relics.Single(r=>r.id==relic.id);hp=checked((int)((long)(hp+FormalRelicRules.Hp(relic))*(100+(def?.hpPercent??0))/100));attack=checked((int)((long)(attack+FormalRelicRules.Attack(relic))*(100+(def?.attackPercent??5))/100));}
                 int hpTrait=h.traitHpPercent==0?0:FormalGrowthMath.TraitAmount(h.traitHpPercent*100,g.duplicateRank);
                 int attackTrait=h.traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(h.traitAttackPercent*100,g.duplicateRank);
-                return new BattleHero(h.id,(int)((long)hp*(10000+hpTrait)/10000),(int)((long)attack*(10000+attackTrait)/10000),j.resourceMax,FormalGrowthMath.Speed(j.speed,h.speedBp),j.criticalBp,j.defense==0?0:FormalGrowthMath.Stat(j.defense,h.defenseBp,g.level,g.duplicateRank),j.magicDefense==0?0:FormalGrowthMath.Stat(j.magicDefense,h.defenseBp,g.level,g.duplicateRank),h.traitId);
+                hp=(int)((long)hp*(100+HeroineTraitRules.MasteryBonus(j.id,"hp",g))/100);attack=(int)((long)attack*(100+HeroineTraitRules.MasteryBonus(j.id,"attack",g))/100);
+                int physical=j.defense==0?0:FormalGrowthMath.Stat(j.defense,h.defenseBp,g.level,g.duplicateRank),magic=j.magicDefense==0?0:FormalGrowthMath.Stat(j.magicDefense,h.defenseBp,g.level,g.duplicateRank);
+                physical=(int)((long)physical*(100+HeroineTraitRules.MasteryBonus(j.id,"physical-defense",g))/100);magic=(int)((long)magic*(100+HeroineTraitRules.MasteryBonus(j.id,"magic-defense",g))/100);
+                return new BattleHero(h.id,(int)((long)hp*(10000+hpTrait)/10000),(int)((long)attack*(10000+attackTrait)/10000),j.resourceMax,FormalGrowthMath.Speed(j.speed,h.speedBp),j.criticalBp+HeroineTraitRules.MasteryBonus(j.id,"critical",g),physical,magic,h.traitId);
             }
             // Lv1 without growth is reserved for definition regression tests.
             return new BattleHero(h.id,(int)((long)j.hp*h.hpBp*(100+h.traitHpPercent)/1000000),(int)((long)j.attack*h.attackBp*(100+h.traitAttackPercent)/1000000),j.resourceMax,(int)((long)j.speed*h.speedBp/10000),j.criticalBp,(int)((long)j.defense*h.defenseBp/10000),j.magicDefense,h.traitId);

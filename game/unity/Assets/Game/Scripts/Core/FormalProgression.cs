@@ -7,8 +7,11 @@ namespace NewAster.Core
     {
         public string heroineId;
         public int level = 1, awakeningStage, duplicateRank, fragments;
+        // Missing in RC1 saves means Lv1; an explicit invalid array is never repaired.
+        public int[] skillLevels = new[]{1,1,1};
+        public int SkillLevel(int slot) { if(slot<0 || slot>2)throw new ArgumentOutOfRangeException(nameof(slot));return skillLevels==null?1:skillLevels[slot]; }
         public int LevelCap => awakeningStage == 0 ? 50 : awakeningStage == 1 ? 80 : 120;
-        public FormalHeroineGrowth Copy() => (FormalHeroineGrowth)MemberwiseClone();
+        public FormalHeroineGrowth Copy() {var h=(FormalHeroineGrowth)MemberwiseClone();h.skillLevels=skillLevels==null?new[]{1,1,1}:(int[])skillLevels.Clone();return h;}
     }
     [Serializable] public sealed class GrowthReceipt
     {
@@ -42,6 +45,7 @@ namespace NewAster.Core
                 throw new ArgumentException("Invalid formal heroine growth.");
             if(receipts==null || receipts.Any(r=>r==null || string.IsNullOrWhiteSpace(r.transactionId) || string.IsNullOrEmpty(r.signature)) || receipts.Select(r=>r.transactionId).Distinct().Count()!=receipts.Length)
                 throw new ArgumentException("Invalid growth receipts.");
+            if(heroines.Any(h=>h.skillLevels!=null && (h.skillLevels.Length!=3 || h.skillLevels.Any(l=>l<1 || l>7))))throw new ArgumentException("Invalid skill levels; expected three levels in 1..7.");
             foreach(var receipt in receipts) foreach(var reward in receipt.kinderOutcomes??Array.Empty<KinderOutcome>()) {
                 if(reward==null)throw new ArgumentException("Missing reward.");reward.Validate();
                 if(reward.kind=="heroine" && reward.grantKind==null || reward.kind!="heroine" && reward.grantKind!=null)throw new ArgumentException("Missing or invalid conversion result.");
@@ -54,7 +58,7 @@ namespace NewAster.Core
             tickets=Array.Empty<HeroineTicket>();version=2;
         }
     }
-    public enum GrowthOperation { Level, Awaken, Strengthen, ReceiveHeroine }
+    public enum GrowthOperation { Level, Awaken, Strengthen, ReceiveHeroine, Skill }
     public sealed class GrowthRequest
     {
         public string TransactionId { get; }
@@ -62,13 +66,14 @@ namespace NewAster.Core
         public string ContentVersion { get; }
         public long BaseRevision { get; }
         public int TargetLevel { get; }
+        public int SkillSlot { get; }
         public GrowthOperation Operation { get; }
-        public GrowthRequest(string transactionId,string heroineId,long baseRevision,GrowthOperation operation,int targetLevel=0,string contentVersion=FormalGrowthSave.ContentVersion)
+        public GrowthRequest(string transactionId,string heroineId,long baseRevision,GrowthOperation operation,int targetLevel=0,string contentVersion=FormalGrowthSave.ContentVersion,int skillSlot=-1)
         {
             if(string.IsNullOrWhiteSpace(transactionId) || string.IsNullOrWhiteSpace(heroineId) || transactionId.Contains("|") || heroineId.Contains("|")) throw new ArgumentException("Operation IDs required.");
-            TransactionId=transactionId;HeroineId=heroineId;BaseRevision=baseRevision;Operation=operation;TargetLevel=targetLevel;ContentVersion=contentVersion;
+            TransactionId=transactionId;HeroineId=heroineId;BaseRevision=baseRevision;Operation=operation;TargetLevel=targetLevel;ContentVersion=contentVersion;SkillSlot=skillSlot;
         }
-        public string Signature => ContentVersion+"|"+HeroineId+"|"+(int)Operation+"|"+TargetLevel+"|"+BaseRevision;
+        public string Signature => ContentVersion+"|"+HeroineId+"|"+(int)Operation+"|"+TargetLevel+"|"+BaseRevision+(Operation==GrowthOperation.Skill?"|skill-slot="+SkillSlot:"");
     }
     public sealed class GrowthPreview
     {
@@ -111,7 +116,7 @@ namespace NewAster.Core
         private GrowthPreview Prepare(GrowthRequest r,out FormalGrowthSave candidate)
         {
             if(r==null) throw new ArgumentNullException(nameof(r));
-            if(r.ContentVersion!=current.contentVersion || r.BaseRevision!=current.revision || !knownIds.Contains(r.HeroineId) || !Enum.IsDefined(typeof(GrowthOperation),r.Operation) || r.Operation!=GrowthOperation.Level && r.TargetLevel!=0)
+            if(r.ContentVersion!=current.contentVersion || r.BaseRevision!=current.revision || !knownIds.Contains(r.HeroineId) || !Enum.IsDefined(typeof(GrowthOperation),r.Operation) || r.Operation!=GrowthOperation.Level && r.Operation!=GrowthOperation.Skill && r.TargetLevel!=0 || r.Operation!=GrowthOperation.Skill && r.SkillSlot!=-1)
                 throw new ArgumentException("Stale or unsupported growth request.");
             candidate=current.Copy();var h=candidate.heroines.SingleOrDefault(x=>x.heroineId==r.HeroineId);var p=new GrowthPreview();
             if(r.Operation==GrowthOperation.ReceiveHeroine) {
@@ -121,6 +126,11 @@ namespace NewAster.Core
             } else {
                 if(h==null) throw new ArgumentException("Heroine not owned.");
                 switch(r.Operation) {
+                    case GrowthOperation.Skill:
+                        if(r.SkillSlot<0 || r.SkillSlot>2 || r.TargetLevel!=h.SkillLevel(r.SkillSlot)+1 || r.TargetLevel>7)throw new ArgumentException("スキルは次のLvへ、最大7まで強化できます。");
+                        p.NectarCost=HeroineSkillRules.UpgradeCost(h.SkillLevel(r.SkillSlot));
+                        if(candidate.nectar<p.NectarCost)throw new ArgumentException("ネクタルが不足しています。");
+                        candidate.nectar-=p.NectarCost;h.skillLevels[r.SkillSlot]=r.TargetLevel;break;
                     case GrowthOperation.Level:
                         if(r.TargetLevel>h.LevelCap) throw new ArgumentException("Awakening cap exceeded.");
                         p.NectarCost=LevelCost(h.level,r.TargetLevel);

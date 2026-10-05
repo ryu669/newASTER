@@ -120,6 +120,7 @@ namespace NewAster.Presentation
             }
             if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
             if(capturePath!=null && args.Contains("-captureGrowth")) {
+                heroineRosterOpen=false;
                 encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
                 int portraitIndex=Array.IndexOf(args,"-captureGrowthHero");
                 if(portraitIndex>=0 && portraitIndex+1<args.Length){
@@ -139,6 +140,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && args.Contains("-captureCollection")) PrepareCollectionCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan5Acceptance")) PreparePlan5Acceptance(args);
             if(capturePath!=null && args.Contains("-captureRecovery")) PrepareRecoveryCapture(args);
+            if(capturePath!=null && args.Contains("-captureHeroineSanctuary"))PrepareHeroineSanctuaryCapture(args);
             if(capturePath!=null && args.Contains("-capturePlan9Title")) {
                 encounter=null;title=true;
                 int panel=Array.IndexOf(args,"-plan9TitlePanel");

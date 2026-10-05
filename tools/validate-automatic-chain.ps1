@@ -34,6 +34,7 @@ $lines+='"'+(Join-Path $PSScriptRoot 'Plan8TelemetryTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan8StoryTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan8StoryIntegrationTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'HeroineRosterTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'HeroineSanctuaryTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan9EconomySupplyTests.cs')+'"'
 $response=Join-Path $output 'compile.rsp'
 [IO.File]::WriteAllLines($response,$lines,[Text.UTF8Encoding]::new($false))

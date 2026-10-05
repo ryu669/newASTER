@@ -11,6 +11,7 @@ namespace NewAster.Core
     { public string heroineId,gardenId,slotId,furnitureInstanceId,actionId; public float x=.5f,y=.5f; }
     [Serializable] public sealed class HomeAffection { public string heroineId; public int value; }
     [Serializable] public sealed class HomeWeaponEquipment { public string heroineId,nodeId; }
+    [Serializable] public sealed class HomeWeaponLevel { public string nodeId; public int level=1; }
     [Serializable] public sealed class HomeReadLine { public string sceneId,lineId; public int scriptVersion; }
     [Serializable] public sealed class HomeReceipt { public string transactionId,kind,signature,resultHash; }
     [Serializable] public sealed class FormalHomeProgress
@@ -23,6 +24,8 @@ namespace NewAster.Core
         public HomeAffection[] affections=Array.Empty<HomeAffection>(); public HomeReadLine[] readLineKeys=Array.Empty<HomeReadLine>();
         public HomeReceipt[] receipts=Array.Empty<HomeReceipt>();
         public HomeWeaponEquipment[] weaponEquipment=Array.Empty<HomeWeaponEquipment>();
+        public HomeWeaponLevel[] weaponLevels=Array.Empty<HomeWeaponLevel>();
+        public int WeaponLevel(string nodeId)=>weaponLevels?.SingleOrDefault(w=>w.nodeId==nodeId)?.level??1;
         public static FormalHomeProgress Empty(string contentVersion)=>new FormalHomeProgress{version=1,contentVersion=contentVersion};
         private static void Set(string[] ids){if(ids==null || ids.Any(id=>!HomeExperienceCatalog.Id(id)) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid home ID set.");}
         private static void Index<T>(T[] entries,Func<T,string> key) where T:class
@@ -32,6 +35,7 @@ namespace NewAster.Core
             if(version!=1 || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Unsupported home progress.");
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
             Index(weaponEquipment,x=>x.heroineId);if(weaponEquipment.Any(e=>!weaponNodeIds.Contains(e.nodeId)))throw new ArgumentException("Weapon must be acquired.");
+            if(weaponLevels!=null){Index(weaponLevels,x=>x.nodeId);if(weaponLevels.Any(w=>w.level<1 || w.level>7 || !weaponNodeIds.Contains(w.nodeId)))throw new ArgumentException("神器Lvは取得済みノードの1〜7です。");}
             foreach(var ids in new[]{weaponNodeIds,loverHeroineIds,unlockedEventIds,readEventIds,claimedRewardIds})Set(ids);
             if(readEventIds.Any(id=>!unlockedEventIds.Contains(id)) || affections.Any(a=>a.value<0) || furnitureInstances.Any(x=>!HomeExperienceCatalog.Id(x.defId)))throw new ArgumentException("Invalid home progression.");
             foreach(var p in furniturePlacements){

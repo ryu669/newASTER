@@ -6,7 +6,7 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
-        private enum GrowthScreen { Overview, Level, Awakening, Duplicate, Information, Confirmation, Complete, Weapons }
+        private enum GrowthScreen { Overview, Level, Awakening, Duplicate, Information, Confirmation, Complete, Weapons, Skill }
         private GrowthScreen growthScreen,growthOrigin;
         private GrowthPreview growthPreview;
         private int growthTargetLevel;
@@ -62,7 +62,8 @@ namespace NewAster.Presentation
         {
             if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}return;}
             if(formalProgression.HasPending || formalCampaign.HasPending)return;
-            if(growthScreen==GrowthScreen.Overview){book.Close();book.Reenter();return;}
+            if(heroineRosterOpen){book.Close();book.Reenter();return;}
+            if(growthScreen==GrowthScreen.Overview){heroineRosterOpen=true;selectedTrait=-1;return;}
             if(growthScreen==GrowthScreen.Confirmation){growthRequest=null;growthPreview=null;growthScreen=growthOrigin;return;}
             if(book.Face==BookFace.Details)book.FlipPage();growthScreen=GrowthScreen.Overview;growthRequest=null;
         }
@@ -72,13 +73,13 @@ namespace NewAster.Presentation
         {
             growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,snapshot.revision,operation,target);growthPreview=formalProgression.Preview(growthRequest);
             var after=snapshot.Copy();int index=Array.FindIndex(after.heroines,h=>h.heroineId==id);after.heroines[index]=growthPreview.HeroineAfter.Copy();
-            var before=new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions,formalGrowth:snapshot).State.Heroes[book.SubjectIndex];
-            var result=new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions,formalGrowth:after).State.Heroes[book.SubjectIndex];
+            int actorIndex=Array.IndexOf(combatDefinitions.FormationIds,id);var before=HeroinePreview(snapshot).State.Heroes[actorIndex];
+            var result=HeroinePreview(after).State.Heroes[actorIndex];
             growthDelta=$"HP  {before.MaxHitPoints} → {result.MaxHitPoints}     攻撃  {before.Attack} → {result.Attack}\n防御  {before.PhysicalDefense} → {result.PhysicalDefense}     魔法防御  {before.MagicDefense} → {result.MagicDefense}";
             if(operation==GrowthOperation.Awaken) growthDelta=$"育成上限  Lv.{snapshot.heroines[index].LevelCap} → Lv.{growthPreview.HeroineAfter.LevelCap}\n現在のLvと能力はそのまま、新しい成長の余地がひらきます。";
             growthOrigin=growthScreen;growthScreen=GrowthScreen.Confirmation;growthOutcome=null;
         }
-        private void DrawGrowthExperience()
+        private void DrawLegacyGrowthExperience()
         {
             GrowthStyles();if(!book.HasSubject)return;string id=book.SubjectId;var definition=combatDefinitions.Hero(id);
             var snapshot=formalProgression.Snapshot;var heroine=snapshot.heroines.Single(h=>h.heroineId==id);
