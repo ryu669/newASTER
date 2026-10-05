@@ -1,7 +1,7 @@
-param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('title','settings','credits','exit','development','book','growth','battle','victory','garden','adv'))
+param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('title','settings','credits','exit','development','book','growth','battle','victory','garden','adv'),[string]$PlayerPath='game/Builds/playable/newASTER.exe')
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
-$player=Join-Path $repo 'game/Builds/playable/newASTER.exe'
+$player=Join-Path $repo $PlayerPath
 $output=Join-Path $repo ('tmp/plan9-ui-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $output | Out-Null
 $settings=Get-Content (Join-Path $repo 'game/unity/ProjectSettings/ProjectSettings.asset')

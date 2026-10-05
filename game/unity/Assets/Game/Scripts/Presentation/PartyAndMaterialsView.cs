@@ -24,7 +24,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(x+12,398,254,38,"編成枠 "+(i+1)+(formationSlot==i?"  選択中":""),homeRequest==null && BookInputAllowed,formationSlot==i))formationSlot=i;
             }
             Label(65,465,260,38,"入れ替える誓女を選択",growthSmallStyle,gold);
-            string query=GUI.TextField(new Rect(345,462,680,45),formationQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=22});
+            string query=ImageUiSkin.TextField(new Rect(345,462,680,45),formationQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=22});
             if(query!=formationQuery){formationQuery=query;formationPage=0;}
             var heroes=formalProgression.Snapshot.heroines.Where(h=>combatDefinitions.Hero(h.heroineId).name.Contains(formationQuery)).ToArray();
             int pages=Math.Max(1,(heroes.Length+9)/10);formationPage=Mathf.Clamp(formationPage,0,pages-1);

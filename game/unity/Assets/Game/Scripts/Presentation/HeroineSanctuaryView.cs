@@ -49,7 +49,7 @@ namespace NewAster.Presentation
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
             if(GrowthButton(58,108,190,48,"万物の書へ",BookInputAllowed)){book.Close();book.Reenter();return;}
             Label(278,111,110,38,"名前検索",growthSmallStyle);
-            string query=GUI.TextField(new Rect(383,108,455,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
+            string query=ImageUiSkin.TextField(new Rect(383,108,455,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
             if(query!=heroineQuery){heroineQuery=query;heroinePage=0;}
             if(GrowthButton(853,108,95,48,"クリア",heroineQuery.Length>0)){heroineQuery="";heroinePage=0;}
             var jobs=combatDefinitions.jobs.Select(j=>j.id).OrderBy(id=>id,StringComparer.Ordinal).ToArray();
@@ -67,7 +67,7 @@ namespace NewAster.Presentation
                 Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
                 Label(x+134,y+119,204,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
                 if(hover)GrowthLine(x+124,y+156,x+338,y+156,gold,2);
-                if(GUI.Button(rect,"",GUIStyle.none) && BookInputAllowed){if(book.SubjectId!=entry.id)book.RequestSubject(BookBookmark.Heroines,entry.id);heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;bookTransitionElapsed=0;PlayProductionUiSound("決定");}
+                if(ImageUiSkin.Button(rect,"",GUIStyle.none) && BookInputAllowed){if(book.SubjectId!=entry.id)book.RequestSubject(BookBookmark.Heroines,entry.id);heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;bookTransitionElapsed=0;PlayProductionUiSound("決定");}
             }
             if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"条件に合う誓女がいません。検索やジョブを変更してください。",growthTextStyle);}
             if(GrowthButton(62,808,210,52,"‹ 前の12人",heroinePage>0 && BookInputAllowed))heroinePage--;
@@ -110,14 +110,14 @@ namespace NewAster.Presentation
                 description+="\n全文・消費・強化はクリック ›";
                 Label(869,y+51,633,86,description,sanctuarySmall);
                 Label(1361,y+12,145,32,"Lv."+level+" / 7  "+(level==7?"MAX":"＋"),sanctuaryBody);
-                if(GUI.Button(new Rect(762,y,765,140),"",GUIStyle.none) && BookInputAllowed){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
+                if(ImageUiSkin.Button(new Rect(762,y,765,140),"",GUIStyle.none) && BookInputAllowed){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
             }
             var traits=HeroineIdentityCatalog.Traits(definition,growth);
             GrowthFill(84,531,596,74,new Color(.035f,.065f,.10f,.94f));
             for(int i=0;i<traits.Length;i++){
                 var rect=new Rect(102+i*184,538,74,63);DrawSanctuaryIcon(rect,traits[i].icon,traits[i].active?gold:muted);
                 Label(rect.x+82,rect.y+2,95,59,traits[i].active?"特性\n詳細 ›":"熟達\n未解放",growthSmallStyle);
-                if(GUI.Button(new Rect(rect.x,rect.y,174,63),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
+                if(ImageUiSkin.Button(new Rect(rect.x,rect.y,174,63),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
             if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}

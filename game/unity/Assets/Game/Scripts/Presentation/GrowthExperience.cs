@@ -32,7 +32,7 @@ namespace NewAster.Presentation
             excalipanPortrait=Resources.Load<Texture2D>("Illustrations/excalipan-portrait-candidate-v1");
         }
         private void GrowthFill(float x,float y,float w,float h,Color color)
-        {var before=GUI.color;GUI.color=color;GUI.DrawTexture(new Rect(x,y,w,h),Texture2D.whiteTexture);GUI.color=before;}
+        {ImageUiSkin.Surface(new Rect(x,y,w,h),color);}
         private void GrowthLine(float x1,float y1,float x2,float y2,Color color,float width=1)
         {
             float dx=x2-x1,dy=y2-y1;
@@ -46,11 +46,7 @@ namespace NewAster.Presentation
         {GrowthLine(x,y-size,x+size,y,gold);GrowthLine(x+size,y,x,y+size,gold);GrowthLine(x,y+size,x-size,y,gold);GrowthLine(x-size,y,x,y-size,gold);}
         private void GrowthFrame(float x,float y,float w,float h)
         {
-            GrowthFill(x,y,w,h,navy);GrowthLine(x+14,y,x+w-14,y,gold);GrowthLine(x+14,y+h,x+w-14,y+h,gold);
-            GrowthLine(x,y+14,x,y+h-14,gold);GrowthLine(x+w,y+14,x+w,y+h-14,gold);
-            foreach(float a in new[]{x,x+w})foreach(float b in new[]{y,y+h})GrowthDiamond(a,b,8);
-            GrowthLine(x+10,y+10,x+w-10,y+10,new Color(.72f,.57f,.32f,.25f));GrowthLine(x+10,y+h-10,x+w-10,y+h-10,new Color(.72f,.57f,.32f,.25f));
-            foreach(float a in new[]{x+21,x+w-21})foreach(float b in new[]{y+21,y+h-21}){GrowthDiamond(a,b,5);GrowthDiamond(a,b,11);}
+            ImageUiSkin.Frame(new Rect(x,y,w,h));
         }
         private void PalaceBackdrop(string emblem)
         {
@@ -61,11 +57,9 @@ namespace NewAster.Presentation
         }
         private bool GrowthButton(float x,float y,float w,float h,string caption,bool enabled=true,bool primary=false)
         {
-            var rect=new Rect(x,y,w,h);bool hover=enabled&&rect.Contains(Event.current.mousePosition);
-            GrowthFill(x,y,w,h,enabled?(primary?new Color(.19f,.32f,.31f):hover?new Color(.13f,.22f,.26f):new Color(.075f,.145f,.20f)):new Color(.085f,.10f,.12f));
-            GrowthLine(x,y,x+w,y,enabled?gold:new Color(.23f,.25f,.25f));GrowthLine(x,y+h,x+w,y+h,enabled?gold:new Color(.23f,.25f,.25f));
+            var rect=new Rect(x,y,w,h);
             var color=growthButtonStyle.normal.textColor;growthButtonStyle.normal.textColor=enabled?ivory:muted;
-            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
+            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=ImageUiSkin.Button(rect,caption,growthButtonStyle,primary);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
         }
         private void GrowthBack()
         {

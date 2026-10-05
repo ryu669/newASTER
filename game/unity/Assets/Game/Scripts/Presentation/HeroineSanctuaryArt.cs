@@ -74,7 +74,7 @@ namespace NewAster.Presentation
             foreach(var n in nodes){float x=644+n.treePosition.x*794,y=199+n.treePosition.y*536;bool acquired=state.weaponNodeIds.Contains(n.id),selectedNow=n.id==selected.id;var rect=new Rect(x-31,y-31,62,62);
                 GrowthFill(x-36,y-36,72,72,new Color(.04f,.11f,.13f,.80f));DrawSanctuaryIcon(rect,n.initial?"leaf":n.id.EndsWith("tier4")?"crown":"sword",selectedNow?ivory:acquired?gold:muted);
                 if(selectedNow)GrowthDiamond(x,y,43);GrowthFill(x-58,y+34,116,30,new Color(.025f,.05f,.075f,.94f));Label(x-58,y+36,116,27,acquired?state.WeaponLevel(n.id)==7?"MAX":"Lv."+state.WeaponLevel(n.id):"未解放",new GUIStyle(growthSmallStyle){fontSize=16,alignment=TextAnchor.MiddleCenter},acquired?gold:ivory);
-                if(GUI.Button(new Rect(x-38,y-38,76,100),"",GUIStyle.none) && homeRequest==null && BookInputAllowed){selectedNode=n.id;PlayProductionUiSound("決定");}
+                if(ImageUiSkin.Button(new Rect(x-38,y-38,76,100),"",GUIStyle.none) && homeRequest==null && BookInputAllowed){selectedNode=n.id;PlayProductionUiSound("決定");}
             }
             bool equipped=state.weaponEquipment.Any(e=>e.heroineId==hero && e.nodeId==selected.id);
             if(GrowthButton(1014,829,245,48,equipped?"装備中":"選択した神器を装備",owned && homeRequest==null && BookInputAllowed))ProposeHome(new HomeOperation("equip",selected.id,hero));

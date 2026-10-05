@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "heroineId": "heroine.slayer",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-ae50fa30-f942-4556-b45c-edc43fcaf21b.png",
+      "sha256": "388e76372060eeb9bc12a2f2f242f2d509a4a6ac31f1e3c01e81ad519eba4186",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-d6ba5edc-9cea-4010-91b4-2b754c74ebe2.png",
+      "sha256": "998ca06212bc78fa4fdee6798ac8f0c26ae7638872bf5288bde6ce061dce8819",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-13c5172e-b909-41fd-9c96-b74654f519bf.png",
+      "sha256": "a60b73b7c1146b4749e02d1a1536c7130a7a77bc2e222959808f4dbc84a33058",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-67cc1b19-81d9-460c-9221-9bb26d98ff6d.png",
+      "sha256": "0aa12efc3ffe2b020f79d4746f3984e44309de4c142891b3278b5a065c83ac3c",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-699bd728-acc4-45cb-92f4-f9c73c2875aa.png",
+      "sha256": "af71c0480acc81e0aeafb797cda1adf2e1427989e33edec2b55d43e95c156f9a",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/KinderTrain/arrival.png",
+      "sha256": "da6855c115d4bbcce9927c680a94dec1f07b2fd43a1c4842661188c4d2a6a107",
+      "generator": "built-in imagegen",
+      "type": "original fantasy train cutscene keyframe",
+      "promptSet": "docs/production/combat-expansion-design.md",
+      "visualReview": "approved generated illustration; runtime review tracked separately"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/KinderTrain/disembark.png",
+      "sha256": "2ce641b67700135d3a02fa40d00bb25c78c4941bb66e0b7bc5d7e78b77f1b8a8",
+      "generator": "built-in imagegen",
+      "type": "original fantasy train cutscene keyframe",
+      "promptSet": "docs/production/combat-expansion-design.md",
+      "visualReview": "approved generated illustration; runtime review tracked separately"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/KinderTrain/doors.png",
+      "sha256": "7f6e31037cb664f532c8ed95d201c6f6fd346d1c8515401dddfe4c2b00618b25",
+      "generator": "built-in imagegen",
+      "type": "original fantasy train cutscene keyframe",
+      "promptSet": "docs/production/combat-expansion-design.md",
+      "visualReview": "approved generated illustration; runtime review tracked separately"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UiImages/panel-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-f7bc97ab-bc11-47a1-bc2b-1bfcc3dcfa6f.png",
+      "sha256": "ccb1bc319310b144c197f93916aa45e22c74b28999f1f2381c5b3753bc8fdcf1",
+      "width": 1536,
+      "height": 1024,
+      "visualReview": "approved by agent: original game UI art, no text, quiet readable centre",
+      "mode": "built-in image_gen"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UiImages/parchment-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-1191b223-ded5-43b3-8ab2-ff15d7e3588b.png",
+      "sha256": "368cd5e4bc5eb90d2101c15b217128a934ab8218bbd3d739975bec4657043e70",
+      "width": 1536,
+      "height": 1024,
+      "visualReview": "approved by agent: original game UI art, no text, quiet readable centre",
+      "mode": "built-in image_gen"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UiImages/button-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-cd92eafb-968e-4ef4-a1e7-10dde1a26c5a.png",
+      "sha256": "2653142371310096052fab5c2b794a7357db6380bd88f5ba1436753b5499d9b7",
+      "width": 1536,
+      "height": 1024,
+      "visualReview": "approved by agent: original game UI art, no text, quiet readable centre",
+      "mode": "built-in image_gen"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UiImages/library-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-97049501-2e8a-4847-a94b-4f1e119b6858.png",
+      "sha256": "66f46c151ffc926c79e4477ada0f8a461e297445190709983a6f27f7af4aa78a",
+      "width": 1672,
+      "height": 941,
+      "visualReview": "approved by agent: original game UI art, no text, quiet readable centre",
+      "mode": "built-in image_gen"
+    }
+  ]
+}

@@ -53,13 +53,10 @@ namespace NewAster.Presentation
 
         private void TitleFill(Rect rect, Color color)
         {
-            var previous = GUI.color;
-            GUI.color = color;
-            GUI.DrawTexture(rect, Texture2D.whiteTexture);
-            GUI.color = previous;
+            ImageUiSkin.Surface(rect,color);
         }
 
-        // Code-native ornament: no additional bitmap or borrowed logo is required.
+        // Thin rules complement the image frames.
         private void TitleBorder(Rect rect, float weight = 1)
         {
             TitleFill(new Rect(rect.x, rect.y, rect.width, weight), titleGold);
@@ -135,10 +132,10 @@ namespace NewAster.Presentation
                 if(!titleSettingsDraftReady)BeginTitleSettings();
                 Label(400, 185, 750, 60, "設定", heading, titleGold);
                 Label(400, 280, 240, 40, "BGM音量", text, Color.white);
-                titleDraftBgm=GUI.HorizontalSlider(new Rect(650, 295, 400, 30),titleDraftBgm,0,1);
+                titleDraftBgm=ImageUiSkin.HorizontalSlider(new Rect(650, 295, 400, 30),titleDraftBgm,0,1);
                 Label(1070,280,90,40,Mathf.RoundToInt(titleDraftBgm*100)+"%",small,Color.white);
                 Label(400, 365, 240, 40, "効果音量", text, Color.white);
-                titleDraftSe=GUI.HorizontalSlider(new Rect(650, 380, 400, 30),titleDraftSe,0,1);
+                titleDraftSe=ImageUiSkin.HorizontalSlider(new Rect(650, 380, 400, 30),titleDraftSe,0,1);
                 Label(1070,365,90,40,Mathf.RoundToInt(titleDraftSe*100)+"%",small,Color.white);
                 if (TitleButton(400, 440, 720, 45, "演出短縮："+(titleDraftShortened ? "ON" : "OFF")))titleDraftShortened=!titleDraftShortened;
                 if (TitleButton(400, 497, 350, 45, "揺れ軽減："+(titleDraftMotion ? "ON" : "OFF")))titleDraftMotion=!titleDraftMotion;

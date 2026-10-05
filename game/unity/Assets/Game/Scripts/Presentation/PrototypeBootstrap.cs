@@ -315,7 +315,7 @@ namespace NewAster.Presentation
         private void DrawGameGui()
         {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
-            Styles(); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            Styles(); ImageUiSkin.ApplyControls(GUI.skin); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
             if(plan9EnemyPreview!=null){DrawPlan9EnemyArt();return;}
             if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
@@ -674,7 +674,7 @@ namespace NewAster.Presentation
             catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);TrialObserve("save","failed",e.GetType().Name);}
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }
-        private static void Panel(float x,float y,float w,float h,Texture2D t) => GUI.DrawTexture(new Rect(x,y,w,h),t);
+        private static void Panel(float x,float y,float w,float h,Texture2D t) {if(t.width==1 && t.height==1)ImageUiSkin.Surface(new Rect(x,y,w,h),t.GetPixel(0,0));else GUI.DrawTexture(new Rect(x,y,w,h),t);}
         private static void Meter(float x,float y,float width,float height,int current,int maximum,Color fill)
         {
             var old=GUI.color; GUI.color=new Color(.2f,.23f,.22f); GUI.DrawTexture(new Rect(x,y,width,height),Texture2D.whiteTexture);
@@ -684,7 +684,7 @@ namespace NewAster.Presentation
         private bool Btn(float x,float y,float w,float h,string value,bool enabled=true,GUIStyle style=null)
         {
             bool old=GUI.enabled; GUI.enabled=old && enabled && (drawingModal || !(storyText!=null || help || kinderGarden || retreat || result!=null));
-            bool clicked=GUI.Button(new Rect(x,y,w,h),value,style??button);
+            bool clicked=ImageUiSkin.Button(new Rect(x,y,w,h),value,style??button);
             Color edge=GUI.enabled?gold:new Color(.23f,.25f,.25f);
             TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
             GUI.enabled=old; if(clicked){TrialObserve("navigation","button",value);PlayProductionUiSound(value);}return clicked;
