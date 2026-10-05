@@ -17,5 +17,5 @@ events = ['回想本文（現在のゲーム収録分）', '編集用書き出�
 for event in content['events']:
     events += ['=' * 60, event['title'], 'ID: ' + event['id'], '人物ID: ' + event['ownerId'], '', *event['paragraphs'], '']
 for name, lines in [('物語本文.txt', chapters), ('回想本文.txt', events)]:
-    (output / name).write_text('\n'.join(lines) + '\n', encoding='utf-8-sig')
+    (output / name).write_text('\n'.join(lines).rstrip() + '\n', encoding='utf-8-sig')
 print(f"STORY_TEXT_EXPORT_PASS {len(content['chapters'])} chapters / {len(content['events'])} recollections")
