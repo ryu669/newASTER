@@ -17,7 +17,7 @@ namespace NewAster.Presentation
         {
             var slot=HomeData().actorSlots.Single(s=>s.id==actor.SlotId);
             float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
-            var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,525-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
+            var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,615-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
             if(expression!=null && standing!=null && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;
@@ -104,21 +104,21 @@ namespace NewAster.Presentation
         {
             bool previousAdvEnabled=GUI.enabled;GUI.enabled=previousAdvEnabled && !advBacklog && !advHelp;
             drawingModal=true;GrowthStyles();GrowthFill(0,0,1600,900,new Color(.09f,.17f,.22f));
-            var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,425),background,ScaleMode.ScaleAndCrop);
+            var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,515),background,ScaleMode.ScaleAndCrop);
             if(ProductionStoryActive && adv.CgId!=null){var scene=AdvTexture(adv.CgId);if(scene!=null)GUI.DrawTexture(new Rect(0,100,1600,900),scene,ScaleMode.ScaleToFit);}
             Label(45,25,1490,50,(ProductionStoryActive?ProductionStoryTitle(adv.SourceId):plan8StoryTrial?"オリジナル試遊 ／ "+OriginalStoryTitle(adv.SourceId):"機能検証用ADV ／ 正式本文未制作・美術候補")+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
             GrowthFill(0,80,1600,40,navy);
             Label(45,85,1490,35,ProductionStoryActive?"万物の書 ／ 物語":plan8StoryTrial?"試遊本文 ／ 美術・音は開発用見本です。":"背景："+adv.BackgroundId+" ／ BGM・SE：見本用の合成音候補",growthSmallStyle);
-            if(adv.CgId!=null && !ProductionStoryActive){var cg=AdvTexture(adv.CgId);if(cg!=null)GUI.DrawTexture(new Rect(280,115,1040,410),cg,ScaleMode.ScaleToFit);else{GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);}}
+            if(adv.CgId!=null && !ProductionStoryActive){var cg=AdvTexture(adv.CgId);if(cg!=null)GUI.DrawTexture(new Rect(280,115,1040,500),cg,ScaleMode.ScaleToFit);else{GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);}}
             if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder))DrawAdvActor(actor);
             var bodyStyle=new GUIStyle(growthTextStyle){fontSize=ArtSampleSettings.LargeText?27:23};
-            GrowthFrame(40,525,1520,245);Label(70,540,1440,45,adv.SpeakerId==null?"地の文":combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,600,1440,150,adv.VisibleText,bodyStyle);
-            if(adv.EndReached){Label(70,605,1440,80,adv.Completed?(adv.Replay?"回想が終了しました。進行は変更していません。":"読了の保存が完了しました。"):advError??"endに到達しました。読了は保存成功後に確定します。",growthTextStyle);
-                if(GrowthButton(55,790,730,58,adv.Completed?"本へ戻る":adv.Replay?"回想を終了する":"読了を保存する",true,true)){if(adv.Completed){CloseAdv();return;}else CompleteAdv();}}
-            else if(GrowthButton(55,790,300,58,adv.Paused?"手動で再開":adv.FullyVisible?"次の行へ":"全文を表示",!formalCampaign.HasPending && advRequest==null,true)){if(adv.Paused)adv.Resume();else AdvanceAdv();}
-            if(!adv.EndReached){if(GrowthButton(375,790,180,58,"バックログ")){advBacklog=true;adv.Pause();}if(GrowthButton(570,790,140,58,adv.Auto?"auto停止":"auto")){if(adv.Paused)adv.Resume();adv.SetAuto(!adv.Auto);}if(GrowthButton(725,790,150,58,"既読skip")){if(adv.Paused)adv.Resume();adv.SetSkip(!adv.Skip);}
-                if(GrowthButton(890,790,180,58,"速度 "+adv.CharactersPerSecond)){int[] speeds={15,30,60,120};int speed=speeds[(Array.IndexOf(speeds,adv.CharactersPerSecond)+1)%4];adv.SetSpeed(speed);PlayerPrefs.SetInt("plan6.text-speed",speed);}
-                if(GrowthButton(1085,790,160,58,"操作説明")){advHelp=true;adv.Pause();}if(GrowthButton(1260,790,285,58,"中断して本へ",!formalCampaign.HasPending && advRequest==null)){CloseAdv();return;}}
+            GrowthFrame(40,615,1520,205);if(adv.SpeakerId!=null)Label(70,630,1440,40,combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,adv.SpeakerId==null?635:675,1440,adv.SpeakerId==null?165:125,adv.VisibleText,bodyStyle);
+            if(adv.EndReached){if(advError!=null)Label(70,675,1440,80,advError,growthTextStyle);
+                if(GrowthButton(55,840,730,48,adv.Completed?"本へ戻る":adv.Replay?"回想を終了する":"読了を保存する",true,true)){if(adv.Completed){CloseAdv();return;}else CompleteAdv();}}
+            else if(GrowthButton(55,840,300,48,adv.Paused?"手動で再開":adv.FullyVisible?"次の行へ":"全文を表示",!formalCampaign.HasPending && advRequest==null,true)){if(adv.Paused)adv.Resume();else AdvanceAdv();}
+            if(!adv.EndReached){if(GrowthButton(375,840,180,48,"バックログ")){advBacklog=true;adv.Pause();}if(GrowthButton(570,840,140,48,adv.Auto?"auto停止":"auto")){if(adv.Paused)adv.Resume();adv.SetAuto(!adv.Auto);}if(GrowthButton(725,840,150,48,"既読skip")){if(adv.Paused)adv.Resume();adv.SetSkip(!adv.Skip);}
+                if(GrowthButton(890,840,180,48,"速度 "+adv.CharactersPerSecond)){int[] speeds={15,30,60,120};int speed=speeds[(Array.IndexOf(speeds,adv.CharactersPerSecond)+1)%4];adv.SetSpeed(speed);PlayerPrefs.SetInt("plan6.text-speed",speed);}
+                if(GrowthButton(1085,840,160,48,"操作説明")){advHelp=true;adv.Pause();}if(GrowthButton(1260,840,285,48,"中断して本へ",!formalCampaign.HasPending && advRequest==null)){CloseAdv();return;}}
             if(advRequest!=null){GrowthFill(40,470,1520,55,navy);Label(55,480,1000,40,advError??"保存待ち",growthSmallStyle);if(GrowthButton(1100,475,440,45,"同じ内容で保存を再試行")){if(advPendingLine!=null)PersistAdvLine();else CompleteAdv();}}
             GUI.enabled=previousAdvEnabled;
             if(advBacklog || advHelp){GrowthFrame(180,140,1240,610);if(advHelp)Label(220,225,1150,340,"一回目は全文表示、次の入力で行を送ります。\n既読skipは最初の未読で停止します。\nバックログ・説明・非アクティブ中はタイマーを停止します。\n閉じた後は手動で再開してください。\n"+((plan8StoryTrial || ProductionStoryActive)?"中断後は保存済みの最初の未読行から再開します。回想は先頭からです。":"中断後の再開はsceneの先頭。保存済みの行既読だけを保持します。"),growthTextStyle);
