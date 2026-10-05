@@ -37,12 +37,14 @@ namespace NewAster.Presentation
         private void DrawKinderExperience()
         {
             GrowthStyles();var state=formalProgression.Snapshot;
-            GrowthFill(0,0,1600,900,ink);GrowthFill(30,103,1540,732,new Color(.16f,.14f,.12f));GrowthFill(38,95,1524,732,new Color(.27f,.23f,.18f));GrowthFrame(46,87,1508,732);
+            PalaceBackdrop("leaf");GrowthFill(30,103,1540,732,new Color(.16f,.14f,.12f));GrowthFill(38,95,1524,732,new Color(.27f,.23f,.18f));GrowthFrame(46,87,1508,732);
             GrowthLine(555,105,555,800,gold,2);GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);
-            Label(680,25,250,40,"万 物 の 書",growthTextStyle,gold);
             if(GrowthButton(80,118,180,48,"‹ 戻る",!formalProgression.HasPending))KinderBack();
             Label(92,214,420,72,"キンダーガーデン",growthTitleStyle);
-            GrowthDiamond(300,455,100);GrowthDiamond(300,455,70);GrowthDiamond(300,455,28);
+            GrowthDiamond(300,455,165);GrowthDiamond(300,455,145);
+            var featured=HeroPortrait(kinderBanner.heroineIds[Mathf.Clamp(kinderSelection,0,kinderBanner.heroineIds.Length-1)]);
+            if(featured!=null)GUI.DrawTexture(new Rect(130,300,338,285),featured,ScaleMode.ScaleToFit,true);
+            for(int i=0;i<5;i++){float x=105+i*78;DrawSanctuaryIcon(new Rect(x,671,46,46),i==0?"sword":i==1?"flame":i==2?"leaf":i==3?"star":"moon",gold);}
             Label(160,593,345,74,"新しい誓いが\nここから芽吹く。",growthTextStyle);
             Label(92,737,420,40,ProductionStoryActive?"初期5人の誓い ／ 育成素材": "育成素材のみの検証用テーブル",growthSmallStyle);
             string[] titles={"誓いの入口","石で誓女を迎える","ポイント交換","専用チケット","提供割合","選択の確認","新しい誓い","誓いが芽吹く"};
@@ -55,7 +57,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(1060,600,430,55,"星の恵み ／ 石を受け取る"))OpenEngagement();
                 if(GrowthButton(605,700,885,62,ProductionStoryActive?"旅立ちの祝福 ／ 初回3000石": "検証用・初回3000石を受け取る",formalProgression.KinderReceipt("grant.plan4-kinder-introduction")==null,true))ConfirmKinder(KinderOperation.IntroGrant,state);
             }else if(kinderScreen==KinderScreen.Draw){
-                Label(605,317,880,48,$"所持石  {state.stones}",growthTitleStyle);
+                GrowthFill(605,299,885,85,new Color(.12f,.22f,.26f));DrawSanctuaryIcon(new Rect(1406,313,54,54),"star",gold);Label(625,317,770,48,$"所持石  {state.stones}",growthTitleStyle);
                 if(GrowthButton(605,411,427,68,(kinderCount==1?"◆ ":"")+"1回 ／ 300石"))kinderCount=1;
                 if(GrowthButton(1062,411,427,68,(kinderCount==10?"◆ ":"")+"10回 ／ 3000石"))kinderCount=10;
                 Label(605,535,880,100,$"付与ポイント  {kinderCount}\n★6合計3% ／ 対象5人は均等 ／ 10回に確定枠はありません。",growthTextStyle);

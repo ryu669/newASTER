@@ -44,6 +44,19 @@ namespace NewAster.Data
                     }
                 }
             }
+            foreach(var n in expanded.Where(n=>!n.initial)){
+                int route=n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;
+                int tier=n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;
+                n.attackBonus=route==0?8+tier*4:route==1?2+tier:4+tier*2;
+                n.skillPower=route==0?1.12f+tier*.06f:route==1?1.02f+tier*.025f:1.06f+tier*.04f;
+                n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1?10+tier*6:0;
+                n.speedBonus=route==2?3+tier*2:0;n.criticalBonusBp=route==0?200+tier*100:route==2?100+tier*50:0;
+                n.criticalDamageBonus=route==2?5+tier*3:0;
+                if(tier==4){int hero=Array.IndexOf(combat.FormationIds,n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈"};
+                    n.weaponTraitName=motifs[hero]+(route==0?"の鋭刃":route==1?"の結界":"の疾風");
+                    n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
+                }
+            }
             home.weaponNodes=expanded.ToArray();
         }
         public static void ApplyCollection(CollectionCatalog catalog)

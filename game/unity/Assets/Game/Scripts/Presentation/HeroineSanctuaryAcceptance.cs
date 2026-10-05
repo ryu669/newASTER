@@ -22,7 +22,10 @@ namespace NewAster.Presentation
             if(view=="empty")heroineQuery="該当なし";
             else if(view=="trait")selectedTrait=0;
             else if(view=="skill" || view=="skillmax" || view=="skill-pending")growthScreen=GrowthScreen.Skill;
-            else if(view.StartsWith("tree"))growthScreen=GrowthScreen.Weapons;
+            else if(view.StartsWith("tree")){growthScreen=GrowthScreen.Weapons;if(view=="tree-alpha" || view=="tree-beta" || view=="tree-gamma")selectedNode=id+".weapon."+view.Substring(5)+".tier4";}
+            else if(view.StartsWith("kinder")){PrepareKinderCapture(args);kinderScreen=view=="kinder-draw"?KinderScreen.Draw:view=="kinder-exchange"?KinderScreen.Exchange:view=="kinder-tickets"?KinderScreen.Tickets:view=="kinder-rates"?KinderScreen.Rates:KinderScreen.Entrance;}
+            else if(view=="collection" || view=="relics"){collectionOpen=true;collectionTab=view=="relics"?1:0;}
+            else if(view=="engagement")engagementOpen=true;
             else if(view=="level")GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));
             else if(view=="level-confirm"){growthScreen=GrowthScreen.Level;GrowthConfirm(GrowthOperation.Level,id,formalProgression.Snapshot,11);}
             else if(view!="detail" && view!="roster" && view!="empty")throw new ArgumentException("Unknown sanctuary UI case");

@@ -1,6 +1,6 @@
 # 計画9：初期5人の正式配布候補 完了記録
 
-追補：現行配布候補は `0.9.1-rc.1`。顔カード選択・スキルLv1〜7・特性アイコン・詳細な神器の木を追加。[追補完了記録](heroine-sanctuary-completion.md)と[42画面検証](heroine-sanctuary-validation.json)を参照。以下は0.9.0の完了履歴。
+追補：現行配布候補は `0.9.2-rc.1`。[神器の枝・周辺画面の改訂](heroine-branches-design.md)と[今回の26画面検証](heroine-branches-validation.json)を追加。`0.9.1-rc.1`では顔カード選択・スキルLv1〜7・特性アイコン・詳細な神器の木を追加。[追補完了記録](heroine-sanctuary-completion.md)と[42画面検証](heroine-sanctuary-validation.json)を参照。以下は0.9.0の完了履歴。
 
 更新：2026-10-05。`0.9.0-rc.1` の初期5人範囲について9-1〜9-10の実装・素材採用・機能受入れ・Windows配布候補の作成が完了。[GitHub PR #10](https://github.com/ryu669/newASTER/pull/10)を作成しレビューへ提出。一般公開Release・マージは別工程。
 

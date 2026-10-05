@@ -37,7 +37,7 @@ namespace NewAster.Core
         public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.ToArray());
         private int EffectPercent(string kind) => timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0;
         public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp+EffectPercent("critical")*100);
-        public int CriticalMultiplierPercent => 150+EffectPercent("critical-damage");
+        public int CriticalMultiplierPercent => 150+WeaponCriticalDamageBonus+EffectPercent("critical-damage");
         public bool ForcedTarget => IsAlive && EffectPercent("forced-target")>0;
         public bool ApplySelfEffects(IEnumerable<TimedSelfEffectDef> definitions)
         {

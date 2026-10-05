@@ -92,7 +92,7 @@ namespace NewAster.Presentation
             GrowthFill(69,606,612,194,new Color(.045f,.095f,.135f,.97f));
             string[] stats={"HP  "+state.MaxHitPoints,"攻撃  "+state.Attack,"物理防御  "+state.PhysicalDefense,"魔法防御  "+state.MagicDefense,"速度  "+state.Speed,"会心  "+(state.CriticalChanceBp/100f).ToString("0.#")+"%"};
             for(int i=0;i<stats.Length;i++)Label(90+(i%2)*303,615+(i/2)*43,292,39,stats[i],growthTextStyle);
-            Label(90,753,530,32,"神器・遺物・特性を含む次回出撃の能力",growthSmallStyle);
+            Label(90,753,530,32,"会心威力 "+state.CriticalMultiplierPercent+"% ／ 神器・遺物・特性込み",growthSmallStyle);
             GrowthFill(737,104,811,715,parchment);GrowthLine(754,118,1531,118,gold,2);GrowthLine(754,801,1531,801,gold,2);
             if(GrowthButton(771,140,240,71,"Lv. "+growth.level+" / "+growth.LevelCap+"  ＋",BookInputAllowed,true))GrowthSelect(GrowthScreen.Level,growth);
             if(GrowthButton(1027,140,225,71,"覚醒  "+growth.awakeningStage+" / 2  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Awakening,growth);
@@ -102,7 +102,7 @@ namespace NewAster.Presentation
                 var skill=DisplayHeroineSkill(id,slot);int level=growth.SkillLevel(slot);float y=253+slot*150;
                 GrowthFill(762,y,765,140,new Color(.985f,.955f,.86f));GrowthLine(771,y+138,1511,y+138,new Color(.67f,.55f,.33f));
                 DrawSanctuaryIcon(new Rect(782,y+27,69,69),skill.effectRuleId=="effect.self-buff"?"star":skill.damageType=="magic"?"moon":"sword",slot==1?new Color(.35f,.32f,.60f):new Color(.65f,.26f,.30f));
-                Label(869,y+9,490,36,skill.name,sanctuaryHeading);
+                Label(869,y+9,490,36,skill.name,new GUIStyle(sanctuaryHeading){fontSize=24,wordWrap=false});
                 string description=HeroineSkillRules.Description(skill,level,job).Split('\n')[0];
                 if(description.Length>55)description=description.Substring(0,55)+"…";
                 description+="\n全文・消費・強化はクリック ›";

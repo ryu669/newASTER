@@ -40,7 +40,7 @@ namespace NewAster.Presentation
         }
         private void DrawCollectionExperience()
         {
-            GrowthStyles();GrowthFill(0,0,1600,900,ink);GrowthFrame(90,80,1420,745);
+            GrowthStyles();PalaceBackdrop("crown");GrowthFrame(90,80,1420,745);
             Label(150,112,1050,65,"記憶とオーパーツ",growthTitleStyle);
             if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
             if(plan8StoryTrial && trialPoemChapter!=null){DrawTrialPoemConditions();return;}
@@ -77,7 +77,7 @@ namespace NewAster.Presentation
             Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。巨神獣ごとの固有能力。Lv上限120。\n同名は項目ごとの高値を保持。強化は対応する巨神獣の素材を使います。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
             if(items.Length==0)Label(180,395,1200,100,"オーパーツ未所持。勝利時のレリックハントで獲得します。\n敗北・撤退は詩のみ取得します。",growthTextStyle);
             foreach(var pair in items.Skip(collectionRelicPage*3).Take(3).Select((r,i)=>new{r,i})){
-                var r=pair.r;int y=380+pair.i*112;string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=ledger.materials.SingleOrDefault(x=>x.sourceColossusId==owner)?.amount??0;
+                var r=pair.r;int y=380+pair.i*112;GrowthFill(151,y-5,1278,105,new Color(.095f,.17f,.21f));GrowthLine(151,y+101,1429,y+101,gold);string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=ledger.materials.SingleOrDefault(x=>x.sourceColossusId==owner)?.amount??0;
                 Label(170,y,730,48,$"{name}の遺物  Lv{r.level}  攻撃 {r.attackRoll}/100  HP {r.hpRoll}/1000",growthSmallStyle);
                 Label(170,y+50,730,40,(ProductionStoryActive?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==r.id))+" ／ ":"")+$"素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
                 string lv=RelicUnavailable(r,RelicOperation.LevelUp),attack=RelicUnavailable(r,RelicOperation.AttackUp),hp=RelicUnavailable(r,RelicOperation.HpUp);

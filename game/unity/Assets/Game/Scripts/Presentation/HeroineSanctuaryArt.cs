@@ -57,10 +57,12 @@ namespace NewAster.Presentation
             Label(324,113,1140,38,"枝を選び、神器を解放・強化・装備する。全13ノード、各神器Lv1〜7。",growthSmallStyle);
             GrowthFill(62,176,473,632,parchment);Label(90,197,414,55,selected.terminal,sanctuaryHeading);
             DrawSanctuaryIcon(new Rect(92,265,78,78),"sword",new Color(.50f,.39f,.23f));
-            Label(188,267,315,82,(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7\n攻撃＋"+WeaponGrowthRules.Attack(selected,level)+"  ·  通常攻撃 "+(WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
+            Label(188,255,315,96,(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7\n通常攻撃 "+(WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
+            Label(90,340,418,65,WeaponGrowthRules.Trait(selected),sanctuarySmall);
             for(int lv=1;lv<=7;lv++){
-                float y=362+(lv-1)*39;GrowthFill(84,y,429,36,owned && level>=lv?new Color(.84f,.80f,.66f):new Color(.90f,.87f,.78f));
-                Label(99,y+1,405,35,"Lv."+lv+"    攻撃＋"+WeaponGrowthRules.Attack(selected,lv)+"    通常 "+(WeaponGrowthRules.Power(selected,lv)*100).ToString("0.#")+"%",sanctuarySmall);
+                float y=405+(lv-1)*34;GrowthFill(84,y,429,32,owned && level>=lv?new Color(.84f,.80f,.66f):new Color(.90f,.87f,.78f));
+                string effects=WeaponGrowthRules.Summary(selected,lv);if(selected.speedBonus>0)effects=effects.Replace("攻撃","攻").Replace("速度","速").Replace(" ／ ","  ");
+                Label(94,y,413,33,"Lv."+lv+"  "+effects,new GUIStyle(sanctuarySmall){fontSize=14,wordWrap=false});
             }
             var costs=owned && level<7?WeaponGrowthRules.Costs(selected,level,catalog):selected.costs;
             string cost=owned && level==7?"最大Lvです。":costs.Length==0?"初期神器は素材なしで取得できます。":string.Join("\n",costs.Select(c=>{var m=catalog.materials.Single(x=>x.id==c.resourceId);return NewAster.Data.WorldCatalog.Colossi.Single(x=>x.Id==m.colossusId).DisplayName+"素材  "+c.amount+" / 所持 "+HomeRules.Balance(snapshot,c.resourceId);}));

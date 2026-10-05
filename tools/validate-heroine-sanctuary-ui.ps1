@@ -12,10 +12,12 @@ $before=Fingerprint;$results=@()
 foreach($height in $Heights){if($height -notin @(720,1080)){throw 'Unsupported height'}
  foreach($case in $Cases){
   $parts=$case.Split('.');$view=$parts[0];$hero=if($parts.Length -gt 1){'heroine.'+$parts[1]}else{'heroine.slayer'}
-  if($view -notin @('roster','empty','detail','trait','skill','skillmax','skill-pending','tree','tree-grown','tree-confirm','level','level-confirm','large')){throw 'Unknown view'}
+  if($view -eq 'relics-populated'){$view='relics'}
+  if($view -notin @('roster','empty','detail','trait','skill','skillmax','skill-pending','tree','tree-grown','tree-confirm','level','level-confirm','large','tree-alpha','tree-beta','tree-gamma','kinder','kinder-draw','kinder-exchange','kinder-tickets','kinder-rates','collection','relics','engagement')){throw 'Unknown view'}
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log,'-capturePlan9ProductionEntry','-captureHeroineSanctuary','-heroineView',$(if($view -eq 'large'){'detail'}else{$view}),'-heroineId',$hero)
   if($view -eq 'large'){$flags+='-inspectLargeText'}
+  if($case -eq 'relics-populated'){$flags+=@('-captureCollection','-collectionMany','-collectionInventory')}
   $watchdog=Start-Job -ArgumentList $player,$log -ScriptBlock {param($p,$l) Start-Sleep -Seconds 90;Get-CimInstance Win32_Process -Filter "Name='newASTER.exe'" | Where-Object {$_.ExecutablePath -eq $p -and $_.CommandLine.Contains($l)} | ForEach-Object {Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue}}
   try{& $player @flags | Out-Null}finally{Stop-Job $watchdog;Remove-Job $watchdog}
   $text=Get-Content -LiteralPath $log -Raw

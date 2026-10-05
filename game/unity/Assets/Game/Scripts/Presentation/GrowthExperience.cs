@@ -49,6 +49,15 @@ namespace NewAster.Presentation
             GrowthFill(x,y,w,h,navy);GrowthLine(x+14,y,x+w-14,y,gold);GrowthLine(x+14,y+h,x+w-14,y+h,gold);
             GrowthLine(x,y+14,x,y+h-14,gold);GrowthLine(x+w,y+14,x+w,y+h-14,gold);
             foreach(float a in new[]{x,x+w})foreach(float b in new[]{y,y+h})GrowthDiamond(a,b,8);
+            GrowthLine(x+10,y+10,x+w-10,y+10,new Color(.72f,.57f,.32f,.25f));GrowthLine(x+10,y+h-10,x+w-10,y+h-10,new Color(.72f,.57f,.32f,.25f));
+            foreach(float a in new[]{x+21,x+w-21})foreach(float b in new[]{y+21,y+h-21}){GrowthDiamond(a,b,5);GrowthDiamond(a,b,11);}
+        }
+        private void PalaceBackdrop(string emblem)
+        {
+            GrowthFill(0,0,1600,900,ink);
+            for(int i=0;i<9;i++){float x=95+i*180;GrowthLine(x,0,x+170,900,new Color(.3f,.45f,.48f,.06f));GrowthDiamond(x,50,16);}
+            GrowthLine(52,54,1548,54,gold);GrowthLine(52,847,1548,847,gold);
+            DrawSanctuaryIcon(new Rect(747,13,106,82),emblem,new Color(.93f,.78f,.46f,.85f));
         }
         private bool GrowthButton(float x,float y,float w,float h,string caption,bool enabled=true,bool primary=false)
         {

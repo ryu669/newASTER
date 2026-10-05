@@ -13,15 +13,17 @@ namespace NewAster.Core
         public int BaseCriticalChanceBp { get; }
         public int PhysicalDefense { get; }
         public int MagicDefense { get; }
+        public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
         public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100);
         public int Speed { get; }
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
 
-        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null)
+        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0)
         {
-            TraitId=traitId;
+            TraitId=traitId;WeaponCriticalDamageBonus=weaponCriticalDamageBonus;
+            if(weaponCriticalDamageBonus<0)throw new ArgumentOutOfRangeException(nameof(weaponCriticalDamageBonus));
             if(hitPoints<=0 || attack<=0 || jobResourceMax<0 || physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Invalid heroine stats.");
             PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
             if(speed<=0) throw new ArgumentOutOfRangeException(nameof(speed));
@@ -56,6 +58,7 @@ namespace NewAster.Core
         public string Role { get; }
         public int PhysicalDefense { get; }
         public int MagicDefense { get; }
+        public int WeaponCriticalDamageBonus { get; }
         public int MaxHitPoints { get; }
         public EnemyStatusState Status { get; }
 

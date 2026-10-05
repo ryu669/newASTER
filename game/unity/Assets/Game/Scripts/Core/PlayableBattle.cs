@@ -141,7 +141,7 @@ namespace NewAster.Core
                 var g=growth.heroines.Single(x=>x.heroineId==h.id);
                 int hp=FormalGrowthMath.Stat(j.hp,h.hpBp,g.level,g.duplicateRank);
                 int attack=FormalGrowthMath.Stat(j.attack,h.attackBp,g.level,g.duplicateRank);
-                var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);if(weapon!=null)attack=checked(attack+WeaponGrowthRules.Attack(homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId),homeProgress.WeaponLevel(weapon.nodeId)));
+                var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);var node=weapon==null?null:homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId);int weaponLevel=weapon==null?1:homeProgress.WeaponLevel(weapon.nodeId);if(node!=null)attack=checked(attack+WeaponGrowthRules.Attack(node,weaponLevel));
                 var relic=FormalRelicRules.Equipped(collectionGrowth,h.id);
                 if(relic!=null){var def=relicCatalog?.relics.Single(r=>r.id==relic.id);hp=checked((int)((long)(hp+FormalRelicRules.Hp(relic))*(100+(def?.hpPercent??0))/100));attack=checked((int)((long)(attack+FormalRelicRules.Attack(relic))*(100+(def?.attackPercent??5))/100));}
                 int hpTrait=h.traitHpPercent==0?0:FormalGrowthMath.TraitAmount(h.traitHpPercent*100,g.duplicateRank);
@@ -149,7 +149,9 @@ namespace NewAster.Core
                 hp=(int)((long)hp*(100+HeroineTraitRules.MasteryBonus(j.id,"hp",g))/100);attack=(int)((long)attack*(100+HeroineTraitRules.MasteryBonus(j.id,"attack",g))/100);
                 int physical=j.defense==0?0:FormalGrowthMath.Stat(j.defense,h.defenseBp,g.level,g.duplicateRank),magic=j.magicDefense==0?0:FormalGrowthMath.Stat(j.magicDefense,h.defenseBp,g.level,g.duplicateRank);
                 physical=(int)((long)physical*(100+HeroineTraitRules.MasteryBonus(j.id,"physical-defense",g))/100);magic=(int)((long)magic*(100+HeroineTraitRules.MasteryBonus(j.id,"magic-defense",g))/100);
-                return new BattleHero(h.id,(int)((long)hp*(10000+hpTrait)/10000),(int)((long)attack*(10000+attackTrait)/10000),j.resourceMax,FormalGrowthMath.Speed(j.speed,h.speedBp),j.criticalBp+HeroineTraitRules.MasteryBonus(j.id,"critical",g),physical,magic,h.traitId);
+                int speed=FormalGrowthMath.Speed(j.speed,h.speedBp),critical=j.criticalBp+HeroineTraitRules.MasteryBonus(j.id,"critical",g),criticalDamage=0;
+                if(node!=null){attack=(int)((long)attack*(100+node.traitAttackPercent)/100);physical=(int)((long)(physical+WeaponGrowthRules.Physical(node,weaponLevel))*(100+node.traitDefensePercent)/100);magic=(int)((long)(magic+WeaponGrowthRules.Magic(node,weaponLevel))*(100+node.traitDefensePercent)/100);speed=(int)((long)(speed+WeaponGrowthRules.Speed(node,weaponLevel))*(100+node.traitSpeedPercent)/100);critical=Math.Min(10000,critical+WeaponGrowthRules.Critical(node,weaponLevel));criticalDamage=WeaponGrowthRules.CriticalDamage(node,weaponLevel);}
+                return new BattleHero(h.id,(int)((long)hp*(10000+hpTrait)/10000),(int)((long)attack*(10000+attackTrait)/10000),j.resourceMax,speed,critical,physical,magic,h.traitId,criticalDamage);
             }
             // Lv1 without growth is reserved for definition regression tests.
             return new BattleHero(h.id,(int)((long)j.hp*h.hpBp*(100+h.traitHpPercent)/1000000),(int)((long)j.attack*h.attackBp*(100+h.traitAttackPercent)/1000000),j.resourceMax,(int)((long)j.speed*h.speedBp/10000),j.criticalBp,(int)((long)j.defense*h.defenseBp/10000),j.magicDefense,h.traitId);
