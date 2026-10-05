@@ -81,8 +81,6 @@ namespace NewAster.Presentation
             SampleImage(new Rect(700, 0, 900, 900), "slayer-standing");
             TitleFill(new Rect(0, 0, 775, 900), new Color(.035f, .05f, .10f, .96f));
             TitleFill(new Rect(775, 0, 825, 900), new Color(.035f, .05f, .10f, .12f));
-            TitleBorder(new Rect(28, 28, 1544, 844));
-            TitleBorder(new Rect(48, 48, 720, 804));
             if (titleLogo == null)
             {
                 titleLogo = new GUIStyle(heading) {fontSize = 78, alignment = TextAnchor.MiddleCenter};
@@ -110,13 +108,8 @@ namespace NewAster.Presentation
         private void DrawFormalBookSurface()
         {
             TitleFill(new Rect(0, 0, 1600, 900), titleInk);
-            // Layered paper and a shaded binding preserve the book's information layout.
-            TitleFill(new Rect(6, 92, 1018, 720), new Color(.52f, .43f, .30f));
-            TitleFill(new Rect(3, 87, 1015, 718), new Color(.79f, .72f, .59f));
+            // The image owns its complete border; legacy paper layers and straight outlines are removed.
             Panel(0, 80, 1010, 720, paper);
-            TitleFill(new Rect(996, 80, 3, 720), new Color(.70f, .59f, .40f));
-            TitleFill(new Rect(1000, 80, 10, 720), new Color(.38f, .30f, .23f));
-            TitleBorder(new Rect(12, 90, 976, 710));
         }
 
         private void DrawTitlePanel()
@@ -126,7 +119,6 @@ namespace NewAster.Presentation
             { Event.current.Use(); return; }
             TitleFill(new Rect(0, 0, 1600, 900), new Color(0, 0, 0, .7f));
             TitleFill(new Rect(350, 140, 900, 620), titleInk);
-            TitleBorder(new Rect(360, 150, 880, 600), 2);
             if (titlePanel == "settings")
             {
                 if(!titleSettingsDraftReady)BeginTitleSettings();

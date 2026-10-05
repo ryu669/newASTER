@@ -9,7 +9,7 @@ $company=($settings | Select-String '^  companyName: (.+)$').Matches[0].Groups[1
 $normal=Join-Path ([Environment]::GetFolderPath('UserProfile')) ('AppData/LocalLow/'+$company+'/'+$product)
 function Fingerprint { $files=@();if(Test-Path $normal){$files=@(Get-ChildItem -LiteralPath $normal -File | Where-Object Name -notin @('Player.log','Player-prev.log') | Sort-Object Name | ForEach-Object { @{name=$_.Name;hash=(Get-FileHash -LiteralPath $_.FullName).Hash} })};ConvertTo-Json -InputObject @($files) -Compress }
 $before=Fingerprint;$results=@()
-foreach($height in $Heights){if($height -notin @(720,1080)){throw 'Unsupported height'}
+foreach($height in $Heights){if($height -notin @(720,1080,1440)){throw 'Unsupported height'}
  foreach($case in $Cases){
   $parts=$case.Split('.');$view=$parts[0];$hero=if($parts.Length -gt 1){'heroine.'+$parts[1]}else{'heroine.slayer'}
   if($view -eq 'relics-populated'){$view='relics'}

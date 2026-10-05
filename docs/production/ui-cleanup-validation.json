@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "assemblySha256": "0a7ff0f79ec769d9f8bfbbb6da1094a3fe535621814ff4fd6f1883d0314635f5",
+  "unityAssertions": 2002,
+  "compiledSourceFiles": 136,
+  "normalSaveUnchanged": true,
+  "physicalInputCount": 0,
+  "performanceMeasured": false,
+  "storyExport": {
+    "chapters": 60,
+    "recollections": 25,
+    "completeProseCoverage": true
+  },
+  "cases": [
+    {
+      "case": "title-720",
+      "image": "docs/production/ui-cleanup-preview/title-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "07d3dc26318f83332582b9556f22f51a5128a394aca9eaf3252f5636fe7be052"
+    },
+    {
+      "case": "settings-720",
+      "image": "docs/production/ui-cleanup-preview/settings-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "5d203ee83ad9b3341bbbc4c7e475245e51916634a97c319667762d7fb663311a"
+    },
+    {
+      "case": "story-book-720",
+      "image": "docs/production/ui-cleanup-preview/story-book-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "679c152221b579c8439ca0534577472d650aad49e4401342aff3d2193353a71c"
+    },
+    {
+      "case": "story-event.slayer.0-720",
+      "image": "docs/production/ui-cleanup-preview/story-event.slayer.0-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "8cfe0a9dddafa4d6555cbcceedb73a687ee23c49d0f3e7de15a9a36bb4c2f840"
+    },
+    {
+      "case": "title-1080",
+      "image": "docs/production/ui-cleanup-preview/title-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "6de3098f2d103394164d131d7f12292ad338a10f7c47626c85453d96b4395c3c"
+    },
+    {
+      "case": "settings-1080",
+      "image": "docs/production/ui-cleanup-preview/settings-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "7fcc4dfd1d3cc490adccdea78f89add510d20be4b091dad57d3ec24fa55f9288"
+    },
+    {
+      "case": "story-book-1080",
+      "image": "docs/production/ui-cleanup-preview/story-book-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "202a5fe4fb2d66818748af6839bdc03fde711b8b30c4ae477d04549eaae9bc89"
+    },
+    {
+      "case": "story-event.slayer.0-1080",
+      "image": "docs/production/ui-cleanup-preview/story-event.slayer.0-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "e6b25fc837b77fced8569262d2a1398d665f640fba24c753420c4dac6f2e976a"
+    },
+    {
+      "case": "title-1440",
+      "image": "docs/production/ui-cleanup-preview/title-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "b94239b24b4de81ea684304b817f36a161d6fabc606ad3c651b4699bdaa79aca"
+    },
+    {
+      "case": "settings-1440",
+      "image": "docs/production/ui-cleanup-preview/settings-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "860a165fd2d2729e52831ac66f0dcd0fc7526644e013dea41116b861b04ccfe9"
+    },
+    {
+      "case": "story-book-1440",
+      "image": "docs/production/ui-cleanup-preview/story-book-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "8a4e2b520c4c34cf3ec1e60ede293dbac68e9c9f47cd0164295f9574f9a68161"
+    },
+    {
+      "case": "story-event.slayer.0-1440",
+      "image": "docs/production/ui-cleanup-preview/story-event.slayer.0-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "1d6a30f12f1e8506ee1b830f120ca43b338182344bb25d002dd2ab76872a7262"
+    },
+    {
+      "case": "detail-720",
+      "image": "docs/production/ui-cleanup-preview/detail-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "0b54cd8ff623e1f18d57cdb2a006499a4ccaf38900a8e27e6d8c5ca4ce06c764"
+    },
+    {
+      "case": "kinder-720",
+      "image": "docs/production/ui-cleanup-preview/kinder-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "190ca7c71a041cb4d029dd3aca53ca329dbf58799f82e03a752c4ffb6d27fa59"
+    },
+    {
+      "case": "battle-idle-720",
+      "image": "docs/production/ui-cleanup-preview/battle-idle-720.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "f6c955a0d7cf03adce292391b154bcafd9333b70d13eca217077c78121f22302"
+    },
+    {
+      "case": "detail-1080",
+      "image": "docs/production/ui-cleanup-preview/detail-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "43d3e9273b00c2757bc48f0cefe7af4a916c46e716e9663ea63424f3c1dcdb20"
+    },
+    {
+      "case": "kinder-1080",
+      "image": "docs/production/ui-cleanup-preview/kinder-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "ef24362ac074417e8d26a5097928212114080bab21416f20ee7c4886b0e8acaa"
+    },
+    {
+      "case": "battle-idle-1080",
+      "image": "docs/production/ui-cleanup-preview/battle-idle-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "15d848068acb2b6dec26f394a25976ba22c718162153b330dc3c2d0e67e3af04"
+    },
+    {
+      "case": "detail-1440",
+      "image": "docs/production/ui-cleanup-preview/detail-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "db1775430a93c4a73ffff319c9be29c8a44bc61366a1d9e6e852a80b10d6962a"
+    },
+    {
+      "case": "kinder-1440",
+      "image": "docs/production/ui-cleanup-preview/kinder-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "c972d1d446d9a0f01e4112a229746b6a85e7e0f4e4cc0e9ce7058c56def8292f"
+    },
+    {
+      "case": "battle-idle-1440",
+      "image": "docs/production/ui-cleanup-preview/battle-idle-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "sha256": "7bb112c5c512d62ae5b62827549babe45f9aa50b626f805188efb0d4bc66e7ac"
+    }
+  ]
+}

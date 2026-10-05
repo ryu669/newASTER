@@ -45,8 +45,9 @@ namespace NewAster.Presentation
             if(textButtons.TryGetValue(source,out var result))return result;
             // Screens also pass short-lived styles; never retain an unbounded per-frame cache.
             if(textButtons.Count>=128)textButtons.Clear();
-            result=new GUIStyle(source){border=new RectOffset(0,0,0,0)};
-            foreach(var state in new[]{result.normal,result.hover,result.active,result.focused,result.onNormal,result.onHover,result.onActive,result.onFocused})state.background=null;
+            result=new GUIStyle {font=source.font,fontSize=source.fontSize,fontStyle=source.fontStyle,alignment=source.alignment,wordWrap=source.wordWrap,richText=source.richText,clipping=source.clipping,contentOffset=source.contentOffset,padding=new RectOffset(source.padding.left,source.padding.right,source.padding.top,source.padding.bottom),margin=new RectOffset(source.margin.left,source.margin.right,source.margin.top,source.margin.bottom),fixedWidth=source.fixedWidth,fixedHeight=source.fixedHeight,stretchWidth=source.stretchWidth,stretchHeight=source.stretchHeight};
+            result.normal.textColor=source.normal.textColor;result.hover.textColor=source.hover.textColor;result.active.textColor=source.active.textColor;result.focused.textColor=source.focused.textColor;result.onNormal.textColor=source.onNormal.textColor;result.onHover.textColor=source.onHover.textColor;result.onActive.textColor=source.onActive.textColor;result.onFocused.textColor=source.onFocused.textColor;
+            foreach(var state in new[]{result.normal,result.hover,result.active,result.focused,result.onNormal,result.onHover,result.onActive,result.onFocused}){state.background=null;}
             textButtons.Add(source,result);return result;
         }
         public static bool Button(Rect rect,string caption,GUIStyle style=null,bool primary=false)
@@ -94,6 +95,10 @@ namespace NewAster.Presentation
         {
             if(Event.current.type!=EventType.Repaint)return;
             dx=Mathf.Min(dx,rect.width*.5f);dy=Mathf.Min(dy,rect.height*.5f);
+            // Every adjacent patch shares exact screen-pixel edges, including fractional GUI scaling.
+            var matrix=GUI.matrix;
+            float SnapX(float x)=>Mathf.Abs(matrix.m00)<.001f?x:(Mathf.Round(x*matrix.m00+matrix.m03)-matrix.m03)/matrix.m00;
+            float SnapY(float y)=>Mathf.Abs(matrix.m11)<.001f?y:(Mathf.Round(y*matrix.m11+matrix.m13)-matrix.m13)/matrix.m11;
             var saved=GUI.color;GUI.color=saved*tint;
             for(int row=0;row<3;row++)for(int col=0;col<3;col++){
                 float x=col==0?rect.x:col==1?rect.x+dx:rect.xMax-dx;
@@ -102,7 +107,8 @@ namespace NewAster.Presentation
                 float u=uv.x+uv.width*(col==0?0:col==1?sx:1-sx);
                 float v=uv.y+uv.height*(row==0?1-sy:row==1?sy:0);
                 float uw=uv.width*(col==1?1-2*sx:sx),vh=uv.height*(row==1?1-2*sy:sy);
-                if(w>0 && h>0)GUI.DrawTextureWithTexCoords(new Rect(x,y,w,h),image,new Rect(u,v,uw,vh),true);
+                float right=SnapX(x+w),bottom=SnapY(y+h);x=SnapX(x);y=SnapY(y);
+                if(right>x && bottom>y)GUI.DrawTextureWithTexCoords(new Rect(x,y,right-x,bottom-y),image,new Rect(u,v,uw,vh),true);
             }
             GUI.color=saved;
         }
