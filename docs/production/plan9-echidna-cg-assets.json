@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "eventId": "heroine.echidna.event.0",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-0-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "b921e9e9c69ba83182237707627ddcba06fa7897af15fa793ea7c3735fc8e79e",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.echidna.event.1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-1-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "9a4d74f78f8be8c839555a443c33d94ecd42f33ec67a0bff493c08625c5bd0f2",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.echidna.event.2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-2-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "af432ba39cebf70df8fcb3d713bbd6d6be4512eb145d25df4a0f027347a88cf1",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.echidna.event.3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-3-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "aed759f3f61209dc48bc02faa5d434c38da42de98b97799baed8b5c12985596c",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.echidna.event.4",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-4-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "d5b2ce175fa0490511410e52e1c46256ea220d79b00a9d4307b09193cdf4e0d0",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

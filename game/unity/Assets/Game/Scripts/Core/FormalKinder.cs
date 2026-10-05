@@ -17,6 +17,7 @@ namespace NewAster.Core
     [Serializable] public sealed class FormalKinderBanner
     {
         public const int StoneCost=300,ExchangeCost=100;
+        public const string ProductionVersion="kinder-production-2026-10-05";
         public string id,contentVersion,status;
         public string[] heroineIds;
         public KinderMaterialEntry[] materials;
@@ -24,7 +25,7 @@ namespace NewAster.Core
         public FormalKinderBanner Copy()=>new FormalKinderBanner {id=id,contentVersion=contentVersion,status=status,ticketPoints=ticketPoints,heroineIds=(string[])heroineIds.Clone(),materials=materials.Select(m=>new KinderMaterialEntry {kind=m.kind,weight=m.weight,amount=m.amount}).ToArray()};
         public void Validate(string[] known)
         {
-            if(id!="kinder.initial-five" || contentVersion!="kinder-trial-2026-10-02" || status!="trial" || heroineIds==null || heroineIds.Length!=5 || heroineIds.Any(id=>!known.Contains(id)) || heroineIds.Distinct().Count()!=5 || ticketPoints)throw new ArgumentException("Incomplete kinder rules.");
+            if(id!="kinder.initial-five" || !(contentVersion=="kinder-trial-2026-10-02" && status=="trial" || contentVersion==ProductionVersion && status=="production-candidate") || heroineIds==null || heroineIds.Length!=5 || heroineIds.Any(id=>!known.Contains(id)) || heroineIds.Distinct().Count()!=5 || ticketPoints)throw new ArgumentException("Incomplete kinder rules.");
             if(materials==null || materials.Length==0 || materials.Any(m=>m==null || m.kind!="nectar" && m.kind!="crystal" || m.weight<=0 || m.amount<=0) || materials.Sum(m=>(long)m.weight)>int.MaxValue)throw new ArgumentException("Invalid material rewards.");
         }
         public KinderOutcome Draw(Func<int,int> nextBelow)

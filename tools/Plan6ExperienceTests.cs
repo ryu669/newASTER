@@ -33,7 +33,17 @@ public static class Plan6ExperienceTests
         commit(new HomeOperation("occupant",combat.FormationIds[0],garden:garden,x:.5f,y:.7f));commit(new HomeOperation("use",combat.FormationIds[0],"instance.a"));check(journal.Snapshot.home.occupants[0].furnitureInstanceId==null,"missing SD action returns idle");
         c.furniture[0].supportedHeroineIds=supportedPreview;commit(new HomeOperation("use",combat.FormationIds[0],"instance.a"));check(journal.Snapshot.home.occupants[0].actionId=="action.sit","explicit same-hero candidate supports furniture without formal adoption");
         commit(new HomeOperation("use",combat.FormationIds[0],"instance.a"));check(journal.Snapshot.home.occupants[0].actionId=="action.sit","repeat same-hero use retains own furniture slot");
-        commit(new HomeOperation("occupant",combat.FormationIds[1],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[1],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[1]).actionId==null,"unmade second-hero SD stays idle at unoccupied furniture");
+        commit(new HomeOperation("occupant",combat.FormationIds[1],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[1],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[1]).actionId=="action.work","Iconoclast candidate supports own work pose");
+        commit(new HomeOperation("occupant",combat.FormationIds[1],garden:garden,x:.6f,y:.6f));
+        commit(new HomeOperation("occupant",combat.FormationIds[2],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[2],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[2]).actionId=="action.work","Undermine candidate supports own work pose");
+        commit(new HomeOperation("occupant",combat.FormationIds[2],garden:garden,x:.6f,y:.6f));
+        var supportedDesk=c.furniture[1].supportedHeroineIds;c.furniture[1].supportedHeroineIds=supportedDesk.Where(h=>h!=combat.FormationIds[2]).ToArray();
+        commit(new HomeOperation("use",combat.FormationIds[2],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[2]).actionId==null,"Unsupported hero SD stays idle at unoccupied furniture");
+        c.furniture[1].supportedHeroineIds=supportedDesk;
+        commit(new HomeOperation("occupant",combat.FormationIds[3],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[3],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[3]).actionId=="action.work","Echidna candidate supports own work pose");
+        commit(new HomeOperation("occupant",combat.FormationIds[3],garden:garden,x:.6f,y:.6f));
+        commit(new HomeOperation("occupant",combat.FormationIds[4],garden:garden,x:.6f,y:.6f));commit(new HomeOperation("use",combat.FormationIds[4],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[4]).actionId=="action.work","Excalipan candidate supports own work pose");
+        commit(new HomeOperation("occupant",combat.FormationIds[4],garden:garden,x:.6f,y:.6f));
         commit(new HomeOperation("use",combat.FormationIds[0],"instance.b"));check(journal.Snapshot.home.occupants.Single(o=>o.heroineId==combat.FormationIds[0]).actionId=="action.work","desk uses supported work pose");
         commit(new HomeOperation("use",combat.FormationIds[0],"instance.a"));
         string originalGarden=encode(journal.Snapshot);var fountainSample=new FormalCampaignJournal(decode(originalGarden),encode,decode);

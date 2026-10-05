@@ -14,6 +14,7 @@ namespace NewAster.Data
         public bool placeholder;
         public string backgroundResourcePath, bodyResourcePath;
         public string middleResourcePath,foregroundResourcePath,enemyMajorResourcePath;
+        public IllustrationLayerPlacement bodyPlacement;
         public HeroIllustrationBinding[] heroes;
         public PartIllustrationBinding[] parts;
         public int HeroIndex(string heroineId)
@@ -22,12 +23,13 @@ namespace NewAster.Data
         }
         public void Validate()
         {
-            if(schemaVersion!=1 || heroes==null || heroes.Length!=5 || parts==null || parts.Length!=4)
-                throw new ArgumentException("Illustration manifest requires version 1, five heroes and four parts.");
+            if(schemaVersion!=1 || heroes==null || heroes.Length!=5 || parts==null || parts.Length<4 || parts.Length>6)
+                throw new ArgumentException("Illustration manifest requires version 1, five heroes and four to six parts.");
             if(heroes.Any(h=>h==null || string.IsNullOrWhiteSpace(h.heroineId) || (!h.placeholder && string.IsNullOrWhiteSpace(h.resourcePath))) ||
                 heroes.Select(h=>h.heroineId).Distinct().Count()!=5) throw new ArgumentException("Invalid heroine bindings.");
             if(parts.Any(p=>p==null || string.IsNullOrWhiteSpace(p.partId) || !Valid(p.x,p.y,p.width,p.height)) ||
-                parts.Select(p=>p.partId).Distinct().Count()!=4) throw new ArgumentException("Invalid part rectangles.");
+                parts.Select(p=>p.partId).Distinct().Count()!=parts.Length) throw new ArgumentException("Invalid part rectangles.");
+            if(bodyPlacement!=null && bodyPlacement.enabled && !Valid(bodyPlacement.x,bodyPlacement.y,bodyPlacement.scale,bodyPlacement.scale))throw new ArgumentException("Invalid enemy body placement.");
             if(parts.Any(p=>p.placement!=null && p.placement.enabled && !Valid(p.placement.x,p.placement.y,p.placement.scale,p.placement.scale)))throw new ArgumentException("Invalid enemy layer placement.");
             if(!placeholder && heroes.Any(h=>h.placeholder)) throw new ArgumentException("Final manifest cannot contain placeholder heroes.");
             if(!placeholder && (string.IsNullOrWhiteSpace(backgroundResourcePath) || string.IsNullOrWhiteSpace(bodyResourcePath) ||

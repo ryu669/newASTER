@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Create one transparent-background game sprite: Echidna garden SD idle candidate, using attached standing as identity reference. Adult heroine stylized compact 3.5-head-tall proportions, not child, finely polished anime RPG miniature, silver bob covering one eye, visible violet eye, two ivory curled horns, gold forehead jewelry, opaque white petal dress with gold edges and turquoise gems, dark violet ankle boots. Distinct dark-violet organic petal wings with gold branching edges and cyan gems, folded compactly behind her; no white feather wings. Full body relaxed standing, three-quarter facing right, one hand relaxed near waist, other at side, gentle neutral expression. No props or ground shadow. All horns, wing branches, skirt and feet inside central 75% of square canvas with generous empty transparent margin. Preserve outfit modestly simplified for garden readability. One sprite only, no text, no sheet, genuinely transparent alpha.",
+  "reference": "echidna-standing-candidate-v1.png",
+  "output": "exec-786ac855-e5cf-4efb-90f1-9d34caa93649.png",
+  "finalDeliveryApproved": false
+}

@@ -1,0 +1,9 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Create Excalipan ATTACK transparent full-body square game sprite from attached standing identity reference. Adult orange-red long hair side braid, amber eyes, white cap blue trim, blue capelet, white frilled blouse dark brown bodice, blue white layered skirt gold wheat embroidery, opaque white stockings dark boots, white feather wings gold roots. ORIGINAL wooden brass bakery rifle same as reference, now aiming firmly left in both hands shoulder-height, dynamic stable staggered feet and slight forward lean, focused cheerful confidence, small golden muzzle flash fully inside canvas. Bread parcel absent during combat, wrapped pastries still at belt. Complete body wings cap rifle muzzle and boots INSIDE central 80% square with ample transparent margin top bottom left right, no cropped feathers barrel hair. Polished anime RPG illustration matching reference, single sprite no text or floor/shadow, transparent alpha. Keep adult anatomy and modest opaque outfit.",
+  "edit": "Reframe this transparent Excalipan attack sprite: scale ENTIRE character, white wings, orange hair, rifle and muzzle flash down to 72% of current scale, center all complete silhouette in square with ample TRANSPARENT blank margin especially LEFT muzzle flash and RIGHT hair feathers. Restore missing whole muzzle flash and right hair/wing tips. Keep exact costume face pose rifle aim left two hands feet and rendering style. No background, no floor/shadow, no text. Truly transparent alpha. Complete silhouette never touches edges.",
+  "reference": "excalipan-standing-candidate-v1.png",
+  "originalOutput": "exec-d56c8ff9-2979-4ab9-bc27-c63be3281fe9.png",
+  "selectedOutput": "exec-21b9e51c-f430-4d7f-a6b2-fe594f38093e.png",
+  "finalDeliveryApproved": false
+}

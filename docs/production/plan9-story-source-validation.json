@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "status": "full-source-awaiting-core-validation",
+  "chapters": 60,
+  "poems": 450,
+  "events": 25,
+  "required": {
+    "chapters": 60,
+    "poems": 450,
+    "events": 25
+  },
+  "missingChapterIds": [],
+  "sources": [
+    {
+      "path": "game/story-source/plan9/amber-king-serpent.json",
+      "sha256": "279f4fa5496146c998a55e7fbd3e15848f588276a64152912464b6ee0dd0a06c"
+    },
+    {
+      "path": "game/story-source/plan9/black-smoke-citadel.json",
+      "sha256": "5faaabc73ef0c4f35965f1d568a40556d2875baf4be9fa9718a190f44644a0dd"
+    },
+    {
+      "path": "game/story-source/plan9/crystal-rose-princess.json",
+      "sha256": "8326066b94f25b8160df8cd558821232004779521cec4cebbf09d7ad9200f01b"
+    },
+    {
+      "path": "game/story-source/plan9/dead-king-megadeath.json",
+      "sha256": "9cadacf6c090e45cddf772e35ebe2d81e2fd28d6e0cf4fd0661af435ee0f0244"
+    },
+    {
+      "path": "game/story-source/plan9/echidna-events.json",
+      "sha256": "f63cd7b82755f27ca3d3cbab535ab94ef694f504e85a614622f12186531c8679"
+    },
+    {
+      "path": "game/story-source/plan9/echidna-later-chapters.json",
+      "sha256": "a77296397bb0b704e2fed2241d146fe21485bbc0621f9b5eae8e959048739bc5"
+    },
+    {
+      "path": "game/story-source/plan9/emerald-star-astal.json",
+      "sha256": "3560c348ce95c0403ccc0f10e5464d566e31f7bb19b3644f58ac3e0ce9893a72"
+    },
+    {
+      "path": "game/story-source/plan9/excalipan-events.json",
+      "sha256": "e967e4bad502d68720ea17dc8bcbdc9b39ea54a300b187c712b80f156843147c"
+    },
+    {
+      "path": "game/story-source/plan9/excalipan-later-chapters.json",
+      "sha256": "0b4a1047eb14730d415ace83c650b7a43350bbddf8a19b1450e817faa0e00893"
+    },
+    {
+      "path": "game/story-source/plan9/final-flame-ice-phoenix.json",
+      "sha256": "d0595520b50beaa3d7720c3045c12d388b5c80c595af5086d8b551cb06985db4"
+    },
+    {
+      "path": "game/story-source/plan9/heaven-tree-orochi.json",
+      "sha256": "7fb4e2b3ea49295ce6a7cd6c342d015bce4c3b73434a2056eb291d9f23bfc3a1"
+    },
+    {
+      "path": "game/story-source/plan9/iconoclast-events.json",
+      "sha256": "c96e4446347d69207cb64fb051dcc6bb29ba7e849a30769cc108663429dafc17"
+    },
+    {
+      "path": "game/story-source/plan9/iconoclast-later-chapters.json",
+      "sha256": "9d8e13d383e1ea2c20595a800b143e72217538e0cadfc196b19504edf12d40db"
+    },
+    {
+      "path": "game/story-source/plan9/initial-authored-chapters.json",
+      "sha256": "1d0f8f055b0741053a0a419b58daa6070f17d376b18720a1719dae0326a1800b"
+    },
+    {
+      "path": "game/story-source/plan9/memory-crystal-dragon.json",
+      "sha256": "78cb75f3112f2e2ef36db51aba81032f02dec6bd24c03c583c0f6afd27e547f2"
+    },
+    {
+      "path": "game/story-source/plan9/newborn-asteria.json",
+      "sha256": "3571346218f9a3126b121d910937f98f9212fb02d78b1fc0471f987196fe33bb"
+    },
+    {
+      "path": "game/story-source/plan9/red-crystal-tyrant.json",
+      "sha256": "aa786cbe6448c9f107dd6fc14c4cdbba51f483b90a73daba1213032c708de900"
+    },
+    {
+      "path": "game/story-source/plan9/reenactment-yimir.json",
+      "sha256": "759c0081c469b67565863a574f47033786dd1e543f8627a38e6c6abf89914823"
+    },
+    {
+      "path": "game/story-source/plan9/silver-sea-whale.json",
+      "sha256": "268171ce1870356704dc7c54b132a08efdbaf933c5e1aba157b20545db4e840b"
+    },
+    {
+      "path": "game/story-source/plan9/sky-tower-machine.json",
+      "sha256": "276fffd82f7b32df77a4d90472c26774455f60adbe63c65a8620067d29157b3b"
+    },
+    {
+      "path": "game/story-source/plan9/slayer-events.json",
+      "sha256": "11445829b7bd59c1143f9a0ae5b663072b67ca88f8fc313330b3b4233be05fa4"
+    },
+    {
+      "path": "game/story-source/plan9/slayer-later-chapters.json",
+      "sha256": "5ed653009bdb74e242966efc491124e6cda807e1888a03edcc4296e393621ea2"
+    },
+    {
+      "path": "game/story-source/plan9/undermine-events.json",
+      "sha256": "40f635081676dde981742d6670ec9f5e189bb70ef6b53a506ea595f632e29141"
+    },
+    {
+      "path": "game/story-source/plan9/undermine-later-chapters.json",
+      "sha256": "2ff62a374cf30af1cf66efd6dd5af8dc3bb058779856fa16e5b1b9eb421f4832"
+    },
+    {
+      "path": "game/story-source/plan9/white-divine-dragon-mother.json",
+      "sha256": "3a0869b0d230d21de46777ebf6903fddb526a47fbbf4c99ccdfe0e2e2becbb6e"
+    }
+  ]
+}

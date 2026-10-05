@@ -10,7 +10,7 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool plan8StoryTrial;
-        private ColossusCombatDef ActiveColossusDefinition(string id)=>plan8StoryTrial?ColossusCombatCatalog.GetPlan8Trial(id):ColossusCombatCatalog.Get(id);
+        private ColossusCombatDef ActiveColossusDefinition(string id)=>plan8StoryTrial?ColossusCombatCatalog.GetPlan8Trial(id):ProductionStoryActive?ProductionEconomyCatalog.Enemy(id):ColossusCombatCatalog.Get(id);
         private void PreparePlan8Performance(string[] args)
         {
             if(!formalDiagnostic || capturePath==null || !args.Contains("-validatePlan7Playback") || !args.Contains("-measurePlan7"))throw new ArgumentException("Plan8 performance requires isolated measured playback.");

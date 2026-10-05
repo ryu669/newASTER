@@ -16,7 +16,7 @@ namespace NewAster.Presentation
         private bool formalVictoryDiagnosticFailure;
         private void StartCollection()
         {
-            collectionCatalog=plan8StoryTrial?TrialStoryCatalog.Collection(combatDefinitions,StoryData()):CollectionContractFixture.Create(combatDefinitions);
+            collectionCatalog=SelectCollectionCatalog();
             collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,combatDefinitions.FormationIds,encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.
@@ -27,7 +27,8 @@ namespace NewAster.Presentation
                 collectionSession.RecordCompletedSinging(id);
                 TrialObserve("collection","singing-completed",id);
                 var poem=plan8StoryTrial?StoryData().chapters.SelectMany(c=>c.poems).SingleOrDefault(p=>p.id==id):null;
-                lastSinging=poem!=null?"歌唱："+poem.text:"歌唱を記録：詩 "+(Array.IndexOf(songs,id)+1)+"（収集テスト用・本文未制作）";
+                var productionPoem=ProductionStoryActive?ProductionStoryData().chapters.SelectMany(c=>c.poems).SingleOrDefault(p=>p.id==id):null;
+                lastSinging=productionPoem!=null?"歌唱："+productionPoem.text:poem!=null?"歌唱："+poem.text:"歌唱を記録：詩 "+(Array.IndexOf(songs,id)+1)+"（収集テスト用・本文未制作）";
             };
         }
         private void PrepareFormalVictory()=>PrepareFormalBattleEnd(BattleEndReason.Victory);
@@ -67,7 +68,7 @@ namespace NewAster.Presentation
                 formalProgression=new FormalProgression(saved.growth,combatDefinitions.FormationIds);
                 result=(formalVictorySummary??(r.reason==BattleEndReason.Defeat?"敗北":"撤退"))+$"\n聞いた詩 {r.battle.heardPoemIds.Length} ／ 新しい詩 {r.acquiredPoemIds.Length} ／ 開いた章 {r.unlockedChapterIds.Length}";
                 if(r.reason!=BattleEndReason.Victory)result+="\n詩と章を保存しました。素材・石・世界復元の報酬はありません。";
-                result+=plan8StoryTrial?"\nオリジナル試遊本文：物語から、開いた章を読めます。歌唱率・戦闘値は調整中です。":"\n詩対応と歌唱率は検証用。本文・正式対応は未制作です。";
+                result+=ProductionStoryActive?"\n物語のしおりから、開いた章を読めます。":plan8StoryTrial?"\nオリジナル試遊本文：物語から、開いた章を読めます。歌唱率・戦闘値は調整中です。":"\n詩対応と歌唱率は検証用。本文・正式対応は未制作です。";
                 formalBattleEndRequest=null;formalVictoryRequest=null;status="戦闘の取得結果を一括保存しました。";
             }catch(Exception e){result="戦闘終了 ／ 保存待ち";Debug.LogException(e);}
         }
@@ -88,7 +89,7 @@ namespace NewAster.Presentation
             var detail=ResultDetail();float contentHeight=Math.Max(190,growthSmallStyle.CalcHeight(new GUIContent(detail),1080)+12);
             resultScroll=GUI.BeginScrollView(new Rect(240,405,1120,190),resultScroll,new Rect(0,0,1080,contentHeight));
             GUI.Label(new Rect(0,0,1080,contentHeight),detail,growthSmallStyle);GUI.EndScrollView();
-            Label(240,608,1120,65,(plan8StoryTrial?"取得結果を専用保存に確定しました。開いた章は物語から読めます。":"取得結果は一つの正式保存に確定しました。詩の本文は未制作です。")+"\n世界・育成・歌唱の数値は調整中です。",growthSmallStyle);
+            Label(240,608,1120,65,ProductionStoryActive?"取得結果を保存しました。開いた章は物語のしおりから読めます。\n世界の記憶・人物の詩・好感度は、それぞれの進捗で確かめられます。":(plan8StoryTrial?"取得結果を専用保存に確定しました。開いた章は物語から読めます。":"取得結果は一つの正式保存に確定しました。詩の本文は未制作です。")+"\n世界・育成・歌唱の数値は調整中です。",growthSmallStyle);
             if(GrowthButton(240,680,260,65,"万物の書へ")){result=null;encounter=null;}
             if(GrowthButton(520,680,260,65,"人物を育てる",true,true)){result=null;encounter=null;book.ChangeBookmark(BookBookmark.Heroines);}
             if(GrowthButton(800,680,260,65,"記憶・遺物")){result=null;encounter=null;collectionOpen=true;}

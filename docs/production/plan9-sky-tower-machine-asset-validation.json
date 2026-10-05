@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.sky-tower-machine",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "26661d411c1282530e6254cebfdcb39440a8d3bb1c130e017c25c1066f5e44ad",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        51,
+        38,
+        1204,
+        1216
+      ],
+      "sha256": "c936e2374afcd42a08d37b6852e3810fe78fe04a4b92d4825a462f7d4143daa9",
+      "status": "candidate"
+    },
+    {
+      "purpose": "sky.ring",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-ring-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        44,
+        80,
+        1233,
+        1118
+      ],
+      "sha256": "af84cdc22172824bb5e8d7283b5c496e51f2d98a0d24627641d3b8f7c78700b1",
+      "status": "candidate"
+    },
+    {
+      "purpose": "sky.cannon",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-cannon-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        79,
+        269,
+        1190,
+        980
+      ],
+      "sha256": "d8b121cc39dfedf7d8bc98f1879ba2e877ef28066091de6c3d8e99724c02f178",
+      "status": "candidate"
+    },
+    {
+      "purpose": "sky.barrier",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-barrier-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        234,
+        20,
+        1073,
+        1215
+      ],
+      "sha256": "de5b7b0ffcff0b1bed34a742eb5078f2ba3819f1f7f84591e018ba2466ea3061",
+      "status": "candidate"
+    },
+    {
+      "purpose": "sky.turbine",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-turbine-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        68,
+        163,
+        1209,
+        1057
+      ],
+      "sha256": "23ba729e4c9c911534df7d081e2b2431412ae17bad5d8c94e1a32ece989a4dad",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/sky-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        146,
+        158,
+        1113,
+        1095
+      ],
+      "sha256": "d9a85cf0a40a4b147003a5a5cad35ace56ea0d22ce2897d039dcf97d2f4fbc37",
+      "status": "candidate"
+    }
+  ]
+}

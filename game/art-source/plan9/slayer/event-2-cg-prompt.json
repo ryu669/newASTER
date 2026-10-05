@@ -1,0 +1,10 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "New anime RPG romantic event CG Slayer2 'Coming back to the same garden', opaque wide16:9 no text. Standing adult identity and seedling CG painterly references. Adult blonde bob blue eyes large looping forelock pink flower ornaments opaque pink floral knit dress detached long sleeves white boots with gold and flowers, white feather wings with pink flowers folded below head. Twilight flowered garden bench, heroine seated RIGHT side with gentle shy affectionate closed-mouth smile toward viewer, one open hand rests on EMPTY left side of bench inviting companion, other on lap. Small lit lantern and two modest cups on side table. Full seated figure including complete looping forelock boots and wing feather tips inside, ample breathing room; WIDE SHOT entire bench path under feet and sunset sky, subject occupies at most60% image height. Quiet promise of shared home, nonsexual adult modest costume. Cream stone and gold bench, pink blossoms emerald valley lake, rose-violet sky. Premium detailed painted anime fantasy, no other people sword absent no logos words.",
+  "references": [
+    "existing Slayer standing",
+    "existing Slayer gardenCG"
+  ],
+  "selectedOutput": "exec-581631a8-7a0e-4a24-9aad-4f8db2be945f.png",
+  "finalDeliveryApproved": false
+}

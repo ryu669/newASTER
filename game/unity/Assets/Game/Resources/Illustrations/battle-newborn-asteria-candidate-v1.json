@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "placeholder": false,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    }
+  ],
+  "parts": [
+    {
+      "partId": "asteria.ring",
+      "resourcePath": "Illustrations/asteria-ring-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.43,
+        "y": 0.055,
+        "scale": 0.4
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 2,
+      "x": 0.46,
+      "y": 0.075,
+      "width": 0.34,
+      "height": 0.32
+    },
+    {
+      "partId": "asteria.claw",
+      "resourcePath": "Illustrations/asteria-claw-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.59,
+        "y": 0.64,
+        "scale": 0.15
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 3,
+      "x": 0.61,
+      "y": 0.68,
+      "width": 0.13,
+      "height": 0.12
+    },
+    {
+      "partId": "asteria.chest",
+      "resourcePath": "Illustrations/asteria-chest-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.642,
+        "y": 0.386,
+        "scale": 0.2
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2,
+      "x": 0.67,
+      "y": 0.42,
+      "width": 0.15,
+      "height": 0.16
+    },
+    {
+      "partId": "asteria.tail",
+      "resourcePath": "Illustrations/asteria-tail-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.03,
+        "y": 0.31,
+        "scale": 0.38
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 1,
+      "x": 0.055,
+      "y": 0.36,
+      "width": 0.31,
+      "height": 0.3
+    }
+  ],
+  "backgroundResourcePath": "Illustrations/world-confluence-far-candidate-v1",
+  "middleResourcePath": "Illustrations/world-snow-mid-candidate-v1",
+  "foregroundResourcePath": "Illustrations/world-snow-front-candidate-v1",
+  "bodyResourcePath": "Illustrations/asteria-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/asteria-major-candidate-v1",
+  "bodyPlacement": {
+    "enabled": true,
+    "x": 0.23,
+    "y": 0.14,
+    "scale": 0.64
+  }
+}

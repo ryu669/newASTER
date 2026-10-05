@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "id": "heroine.slayer.event.0", "ownerId": "heroine.slayer", "title": "苗を持つ朝",
+      "affectionRequired": 1, "establishesLover": false,
+      "cgResourcePath": "Illustrations/slayer-event-0-cg-candidate-v1", "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "paragraphs": [
+        "庭のベンチで、スレイヤーが小さな鉢を両手で抱えていた。土から出た二枚の葉へ、朝の光が落ちている。",
+        "「昨日より少し伸びた気がするの。でも、見ているだけだと分からなくて」。彼女は鉢をこちらへ向けた。",
+        "あなたが葉の高さを測る印を提案すると、彼女は頷いた。大きく見せるためではなく、変わったことを確かめるための印だった。",
+        "鉢の縁へ細い棒を立てる間、彼女は土を押さえた。剣の柄を握る時よりゆっくりした手つきで、葉に触れないよう場所を選ぶ。",
+        "「守った後に何が育つのか、前は考える余裕がなかった」。目を上げた彼女は、少し照れたように笑った。",
+        "あなたは次の水やりも一緒にできると伝える。彼女は量を調べてから頼みたいと言い、濡らしすぎないよう鉢の底を確かめた。",
+        "二人で鉢を日当たりの良い場所へ戻す。ベンチには道具を置ける空きがあり、庭の世話をする場所が一つ増えた。",
+        "「明日も、葉の話をしていい？」。あなたが頷くと、彼女は棒の印をもう一度見て、今日の高さを小さな帳面へ書いた。"
+      ],
+      "expressions": ["normal","puzzled","joy","normal","puzzled","determined","joy","joy"]
+    },
+    {
+      "id": "heroine.slayer.event.1", "ownerId": "heroine.slayer", "title": "剣を置ける場所",
+      "affectionRequired": 5, "establishesLover": false,
+      "cgResourcePath": "Illustrations/slayer-event-1-cg-candidate-v1", "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "paragraphs": [
+        "夕方の作業台に、スレイヤーの剣が横たわっていた。彼女は小さな布で柄を拭き、刃先を人の通る側から遠ざけている。",
+        "「手入れが終わったら、少し座ろうと思って」。そう言いながら、彼女の目は庭の入口へ何度も戻った。",
+        "あなたが今は交代の見張りがいると伝えると、彼女は知っていると答えた。それでも体だけが立ち上がろうとしてしまう。",
+        "彼女は布を畳み、今日は終えると声に出した。剣を安全な場所へ戻すまであなたが道具を持ち、二人で作業台を空けた。",
+        "「休んでいる間に何かあったらって考える。でも、疲れて見落とすこともあるんだよね」。彼女は肩を回して、息を吐いた。",
+        "あなたは次の当番までの時間を確かめ、一緒に茶を飲むか尋ねた。彼女は入口の見える席を選び、それなら落ち着けそうだと言った。",
+        "茶の湯気が夕日の中へほどける。しばらく話さずに座っていると、彼女の手が剣のあった位置を探さなくなった。",
+        "「何もしない時間を、一緒に過ごせるのも嬉しいね」。彼女は空いた作業台を眺め、明日は苗の台を直そうと話した。"
+      ],
+      "expressions": ["normal","puzzled","puzzled","determined","normal","joy","normal","joy"]
+    },
+    {
+      "id": "heroine.slayer.event.2", "ownerId": "heroine.slayer", "title": "隣へ帰る約束",
+      "affectionRequired": 10, "establishesLover": true,
+      "cgResourcePath": "Illustrations/slayer-event-2-cg-candidate-v1", "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "paragraphs": [
+        "夕暮れのベンチに、スレイヤーが二人分の茶を用意していた。小さな灯が揺れ、彼女の隣には席が空いている。",
+        "「今日は、庭の仕事の話じゃないの」。彼女は席を示した後、あなたが座るのを待った。",
+        "彼女は苗の成長を一緒に測った朝と、剣を置いて茶を飲んだ夕方を話した。危険を越えた時だけでなく、普通の日に会いたくなるのだという。",
+        "「あなたが好き。仲間としてだけじゃなくて、恋人として隣にいたい」。言い終えた彼女は、答えを急がせないよう手を膝へ戻した。",
+        "あなたも同じ気持ちであると伝え、恋人として歩いていきたいと答えた。守ってもらったから応えるのではなく、彼女と過ごした時間から選んだ返事だった。",
+        "彼女は安心したように笑い、これからも困ったことや違う希望を話してほしいと言った。近くなることを、何もかも同じにする約束にはしなかった。",
+        "あなたが手を重ねてよいか尋ねると、彼女は頷いて自分の手を差し出した。二人の間の距離が、言葉の後で少し縮まる。",
+        "「おかえりって言う場所を、一緒に育てよう」。二人は茶が冷めるまで隣に座り、明日の水やりの時間もいつも通り相談した。"
+      ],
+      "expressions": ["normal","puzzled","normal","determined","puzzled","joy","joy","joy"]
+    },
+    {
+      "id": "heroine.slayer.event.3", "ownerId": "heroine.slayer", "title": "雨の向こうの春",
+      "affectionRequired": 15, "establishesLover": false,
+      "cgResourcePath": "Illustrations/slayer-event-3-cg-candidate-v1", "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "paragraphs": [
+        "雨の午後、スレイヤーは鉢を屋根のある東屋へ運んでいた。肩には旅の外套が掛かり、膝の上の若葉を雨から守っている。",
+        "あなたが隣へ来ると、彼女は濡れていない席を示した。庭へ出る予定は取りやめたが、一緒に過ごす午後は残っていた。",
+        "「今日、ずっとここにいられると思ってた」。あなたに別の仕事があると聞き、彼女は寂しそうに鉢へ目を落とした。",
+        "あなたは帰る予定を伝え、終わるまで待っていてほしいとは言わなかった。彼女にも今日したいことを尋ね、夕方にまた会えるか相談した。",
+        "「恋人になったら、寂しいって言っちゃだめなのかと思ってた」。彼女は首を振り、自分でも違うと分かっていたと話す。",
+        "寂しい気持ちを聞くことと、予定を全部変えることは分けて話せる。二人は帰りが遅れる時の連絡を決め、彼女は午後に手入れの帳面を読むことにした。",
+        "出掛ける前、あなたは鉢を台へ移すのを手伝った。雨を受けすぎない場所と、光が入る場所を彼女が確かめる。",
+        "「じゃあ、夕方にお茶を淹れるね」。彼女は外套の襟を整えて見送った。空いた席は待ち続ける義務ではなく、また会える場所になった。"
+      ],
+      "expressions": ["normal","joy","puzzled","normal","puzzled","determined","normal","joy"]
+    },
+    {
+      "id": "heroine.slayer.event.4", "ownerId": "heroine.slayer", "title": "夜明けの門",
+      "affectionRequired": 20, "establishesLover": false,
+      "cgResourcePath": "Illustrations/slayer-event-4-cg-candidate-v1", "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "paragraphs": [
+        "夜明けの庭の門が開いていた。ベンチには外套と旅の鞄が置かれ、スレイヤーは両手に小さな鉢を持って立っている。",
+        "「この苗は、庭に残していこうと思う」。旅の間は別の庭師へ世話を頼み、必要な水の量も帳面へ書いてあった。",
+        "あなたは一緒に出発する道を確かめた。二人で旅をする日も、別々の仕事へ行く日もある。戻る時刻はまだ決められないので、連絡できる場所だけを共有した。",
+        "彼女は鉢を庭の台へ置き、印の棒を撫でた。最初の朝より葉が増え、棒の高さだけでは測れない枝も伸びている。",
+        "「帰ってきた時、庭が変わっていてもいいよね」。あなたが変わった所を一緒に見たいと答えると、彼女は嬉しそうに頷いた。",
+        "守る場所を昔の形へ固定するより、戻る人のために手入れを続ける。その仕事をここに残る人へ渡し、彼女は自分の旅を選んだ。",
+        "あなたが鞄を持つか尋ねると、彼女は今日は自分で持ちたいと答えた。外套を羽織る間だけ手を貸し、二人は門の前へ並ぶ。",
+        "「行ってきます。帰る時は、二人でただいまって言おう」。彼女は庭へ手を振り、あなたと歩幅を合わせて朝の道へ踏み出した。"
+      ],
+      "expressions": ["normal","normal","determined","joy","puzzled","determined","joy","joy"]
+    }
+  ]
+}

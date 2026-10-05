@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached Echidna standing for a PUZZLED conversation expression source. Keep exact SAME 1024x1536 canvas, pose, camera scale, placement, silver fringe covering one eye, horns jewelry costume wings feet. ONLY exposed facial expression changes: visible violet eye slightly widened, visible eyebrow gently raised with uncertain inner brow, tiny softly parted mouth, subtle worried/puzzled expression without fear or tears. Adult composed heroine. No extra symbols or effects, no redesign or zoom. Preserve transparent alpha. Single full body standing source for runtime face-only patch.",
+  "reference": "echidna-standing-candidate-v1.png",
+  "output": "exec-1e18b2f9-878c-43e8-9f17-b9319a795650.png",
+  "usage": "Native face-only overlay; full generated source not adopted",
+  "finalDeliveryApproved": false
+}

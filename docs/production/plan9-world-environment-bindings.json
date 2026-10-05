@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "worlds": 7,
+  "battlefields": 15,
+  "bindings": [
+    {
+      "world": "W01",
+      "colossus": "green-return-dragon",
+      "ownFar": "Illustrations/forest-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-forest-mid-candidate-v1",
+      "worldFront": "Illustrations/forest-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W01",
+      "colossus": "red-crystal-tyrant",
+      "ownFar": "Illustrations/canyon-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-forest-mid-candidate-v1",
+      "worldFront": "Illustrations/forest-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W02",
+      "colossus": "memory-crystal-dragon",
+      "ownFar": "Illustrations/crystal-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-crystal-mid-candidate-v1",
+      "worldFront": "Illustrations/world-crystal-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W02",
+      "colossus": "sky-tower-machine",
+      "ownFar": "Illustrations/highland-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-crystal-mid-candidate-v1",
+      "worldFront": "Illustrations/world-crystal-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W03",
+      "colossus": "crystal-rose-princess",
+      "ownFar": "Illustrations/rose-garden-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-water-mid-candidate-v1",
+      "worldFront": "Illustrations/world-water-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W03",
+      "colossus": "silver-sea-whale",
+      "ownFar": "Illustrations/silver-sea-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-water-mid-candidate-v1",
+      "worldFront": "Illustrations/world-water-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W03",
+      "colossus": "heaven-tree-orochi",
+      "ownFar": "Illustrations/heaven-forest-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-water-mid-candidate-v1",
+      "worldFront": "Illustrations/world-water-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W04",
+      "colossus": "reenactment-yimir",
+      "ownFar": "Illustrations/spring-plain-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-stars-mid-candidate-v1",
+      "worldFront": "Illustrations/world-stars-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W04",
+      "colossus": "emerald-star-astal",
+      "ownFar": "Illustrations/star-prairie-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-stars-mid-candidate-v1",
+      "worldFront": "Illustrations/world-stars-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W05",
+      "colossus": "amber-king-serpent",
+      "ownFar": "Illustrations/amber-desert-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-oasis-mid-candidate-v1",
+      "worldFront": "Illustrations/world-oasis-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W05",
+      "colossus": "white-divine-dragon-mother",
+      "ownFar": "Illustrations/divine-sanctuary-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-oasis-mid-candidate-v1",
+      "worldFront": "Illustrations/world-oasis-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W06",
+      "colossus": "black-smoke-citadel",
+      "ownFar": "Illustrations/black-wasteland-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-spring-mid-candidate-v1",
+      "worldFront": "Illustrations/world-spring-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W06",
+      "colossus": "dead-king-megadeath",
+      "ownFar": "Illustrations/night-forest-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-spring-mid-candidate-v1",
+      "worldFront": "Illustrations/world-spring-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W07",
+      "colossus": "final-flame-ice-phoenix",
+      "ownFar": "Illustrations/flame-ice-caldera-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-snow-mid-candidate-v1",
+      "worldFront": "Illustrations/world-snow-front-candidate-v1",
+      "integrationVariant": false
+    },
+    {
+      "world": "W07",
+      "colossus": "newborn-asteria",
+      "ownFar": "Illustrations/world-confluence-far-candidate-v1",
+      "worldMiddle": "Illustrations/world-snow-mid-candidate-v1",
+      "worldFront": "Illustrations/world-snow-front-candidate-v1",
+      "integrationVariant": true
+    }
+  ]
+}

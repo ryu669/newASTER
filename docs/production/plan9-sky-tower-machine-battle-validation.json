@@ -1,0 +1,152 @@
+{
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "height": 720,
+      "case": "sky-battle-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-1-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-1-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-44",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-44-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-44-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-45",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-45-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-45-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-49",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-49-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-49-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-50",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-50-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-50-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-part1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part1-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part1-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-part2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part2-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part2-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-part3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part3-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part3-720.png"
+    },
+    {
+      "height": 720,
+      "case": "sky-battle-part4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part4-720.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part4-720.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-1-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-1-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-44",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-44-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-44-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-45",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-45-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-45-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-49",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-49-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-49-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-50",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-50-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-50-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-part1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part1-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part1-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-part2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part2-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part2-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-part3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part3-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part3-1080.png"
+    },
+    {
+      "height": 1080,
+      "case": "sky-battle-part4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part4-1080.log",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6dd3e593326c4c789915f853fd994b3e\\sky-battle-part4-1080.png"
+    }
+  ],
+  "assemblySha256": "2AD098A574B235DF72DD3FAC95C77482EC6CDC193A800B27A456CF017B9BF7CA",
+  "schemaVersion": 1,
+  "normalSaveUnchanged": true
+}

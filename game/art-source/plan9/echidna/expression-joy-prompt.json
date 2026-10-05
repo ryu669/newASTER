@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached Echidna standing for a JOY expression source. Preserve SAME 1024x1536 canvas, exact character pose scale position, silver hair, horns, jewelry, white costume, purple petal wings and all silhouette. Change ONLY facial expression within exposed face: visible violet eye soft happy slightly narrowed, small gentle closed-mouth smile, subtle warm cheek blush. Keep eye identity and silver fringe covering other eye. Adult peaceful joy, understated. Do not redesign or zoom; all non-face pixels conceptually unchanged. Genuinely transparent background; one full standing image. This is a source for native runtime face-only composition.",
+  "reference": "echidna-standing-candidate-v1.png",
+  "output": "exec-c2575492-a396-4d03-94d9-2ea790eecf29.png",
+  "usage": "Native face-only overlay; full generated source not adopted",
+  "finalDeliveryApproved": false
+}

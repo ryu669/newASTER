@@ -1,0 +1,172 @@
+param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('title','settings','credits','exit','development','book','growth','battle','victory','garden','adv'))
+$ErrorActionPreference='Stop'
+$repo=Split-Path $PSScriptRoot -Parent
+$player=Join-Path $repo 'game/Builds/playable/newASTER.exe'
+$output=Join-Path $repo ('tmp/plan9-ui-'+[Guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Path $output | Out-Null
+$settings=Get-Content (Join-Path $repo 'game/unity/ProjectSettings/ProjectSettings.asset')
+$company=($settings | Select-String '^  companyName: (.+)$').Matches[0].Groups[1].Value
+$product=($settings | Select-String '^  productName: (.+)$').Matches[0].Groups[1].Value
+$normal=Join-Path ([Environment]::GetFolderPath('UserProfile')) ('AppData/LocalLow/'+$company+'/'+$product)
+function Fingerprint {
+ $items=@();if(Test-Path $normal){$items=@(Get-ChildItem -LiteralPath $normal -File | Where-Object Name -notin @('Player.log','Player-prev.log') | Sort-Object Name | ForEach-Object { [ordered]@{name=$_.Name;hash=(Get-FileHash -LiteralPath $_.FullName).Hash} })}
+ ConvertTo-Json -InputObject @($items) -Compress
+}
+$before=Fingerprint
+$assembly=Join-Path (Split-Path $player -Parent) 'newASTER_Data/Managed/Assembly-CSharp.dll'
+$buildHash=(Get-FileHash $assembly).Hash
+$results=@()
+$enemyAliases=@{'memory'='memory-crystal-dragon';'sky'='sky-tower-machine';'rose'='crystal-rose-princess';'whale'='silver-sea-whale';'orochi'='heaven-tree-orochi';'yimir'='reenactment-yimir';'astal'='emerald-star-astal';'serpent'='amber-king-serpent';'mother'='white-divine-dragon-mother';'citadel'='black-smoke-citadel';'megadeath'='dead-king-megadeath';'phoenix'='final-flame-ice-phoenix';'asteria'='newborn-asteria'}
+foreach($height in $Heights){
+ if($height -notin @(720,1080)){throw 'Unsupported height'}
+ foreach($case in $Cases){
+  $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
+  $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)
+  if($case -in @('title','intro','settings','credits','exit','help','startup-error','settings-cancel','settings-large','book','growth','battle','victory','victory-pending','victory-retry','recovery','recovery-confirm','recovery-blocked')){$flags+='-capturePlan9ProductionEntry'}
+  $expectedEnemy=$null;$expectedEnemyKind=$null
+  switch($case){
+   'title' {$flags+='-capturePlan9Title'}
+   'intro' {$flags+=@('-capturePlan9Title','-capturePlan9Intro')}
+   'startup-error' {$flags+=@('-capturePlan9Title','-capturePlan9StartupError')}
+   'settings-cancel' {$flags+=@('-capturePlan9Title','-validatePlan9SettingsCancel')}
+   'settings-large' {$flags+=@('-capturePlan9Title','-plan9TitlePanel','settings','-inspectLargeText')}
+   'audio-focus' {$flags+=@('-capturePlan7Sample','-artCase','settings','-validatePlan7Focus')}
+   {$_ -in @('settings','credits','exit','development','help')} {$flags+=@('-capturePlan9Title','-plan9TitlePanel',$case)}
+   'book' {$flags+='-captureBook'}
+   {$_ -match '^story-(chapters|conditions|chapter|events|book|economy\.(tree|growth|relics|engagement|kinder-(entrance|draw|rates|exchange|tickets|confirm|result))|garden\.([0-8]|audio|furniture|residents|placement|confirmation)|event\.(slayer|iconoclast|undermine|echidna|excalipan)\.[0-4])$'} {$flags+=@('-capturePlan9Story','-plan9RepositoryRoot',$repo,'-plan9StoryRunId',([Guid]::NewGuid().ToString('N')),'-plan9StoryView',$case.Substring(6));if($case -eq 'story-garden.audio'){$flags+='-validatePlan9Audio'}}
+   'book-empty' {$flags+=@('-captureBook','-bookEmpty')}
+   'book-last' {$flags+=@('-captureBook','-bookLast')}
+   'growth' {$flags+='-captureGrowth'}
+   {$_ -in @('red-battle-1','red-battle-44','red-battle-45','red-battle-49','red-battle-50','red-battle-crown','red-battle-claw','red-battle-plate','red-battle-tail')} {
+    $flags+=@('-captureBattleMenu','closed','-inspectPlan9Colossus','colossus.red-crystal-tyrant')
+    $detail=$case.Substring(11)
+    if($detail -in @('crown','claw','plate','tail')){$flags+=@('-inspectPlan9ColossusLevel','45','-inspectPlan9ColossusBreak',('tyrant.'+$detail))}
+    else{$flags+=@('-inspectPlan9ColossusLevel',$detail)}
+   }
+   {$_ -in @('red-art-normal','red-art-crown','red-art-claw','red-art-plate','red-art-tail','red-art-all','red-art-major')} {
+    $flags+=@('-capturePlan9Title','-inspectPlan9Enemy','red-crystal-tyrant')
+    $mask=@{'red-art-normal'=0;'red-art-crown'=1;'red-art-claw'=2;'red-art-plate'=4;'red-art-tail'=8;'red-art-all'=15;'red-art-major'=0}[$case]
+    $flags+=@('-inspectPlan9EnemyBroken',"$mask")
+    if($case -eq 'red-art-major'){$flags+='-inspectPlan9EnemyMajor'}
+   }
+   'iconoclast-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.iconoclast')}
+   'undermine-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.undermine')}
+   'echidna-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.echidna')}
+   'slayer-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.slayer')}
+   {$_ -in @('slayer-normal','slayer-joy','slayer-puzzled','slayer-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(7),'-inspectPlan9ArtSlayer')}
+   {$_ -in @('slayer-adv-normal','slayer-adv-joy','slayer-adv-puzzled','slayer-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvSlayer',$case.Substring(11))}
+   {$_ -in @('slayer-cg-0','slayer-cg-1','slayer-cg-2','slayer-cg-3','slayer-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(10),'-inspectPlan9ArtSlayer')}
+   {$_ -in @('slayer-garden-idle','slayer-garden-sit','slayer-garden-work','slayer-garden-look','slayer-garden-move','slayer-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(14),'-inspectPlan9GardenSlayer')}
+   'slayer-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.slayer')}
+   'slayer-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.slayer')}
+   'slayer-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.slayer')}
+   'slayer-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.slayer')}
+   'excalipan-growth' {$flags+=@('-captureGrowth','-captureGrowthHero','heroine.excalipan')}
+   {$_ -in @('excalipan-normal','excalipan-joy','excalipan-puzzled','excalipan-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(10),'-inspectPlan9ArtExcalipan')}
+   {$_ -in @('excalipan-adv-normal','excalipan-adv-joy','excalipan-adv-puzzled','excalipan-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvExcalipan',$case.Substring(14))}
+   {$_ -in @('excalipan-cg-0','excalipan-cg-1','excalipan-cg-2','excalipan-cg-3','excalipan-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(13),'-inspectPlan9ArtExcalipan')}
+   {$_ -in @('excalipan-garden-idle','excalipan-garden-sit','excalipan-garden-work','excalipan-garden-look','excalipan-garden-move','excalipan-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(17),'-inspectPlan9GardenExcalipan')}
+   'excalipan-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.excalipan')}
+   'excalipan-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.excalipan')}
+   {$_ -in @('echidna-normal','echidna-joy','echidna-puzzled','echidna-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(8),'-inspectPlan9ArtEchidna')}
+   {$_ -in @('echidna-adv-normal','echidna-adv-joy','echidna-adv-puzzled','echidna-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvEchidna',$case.Substring(12))}
+   {$_ -in @('echidna-cg-0','echidna-cg-1','echidna-cg-2','echidna-cg-3','echidna-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(11),'-inspectPlan9ArtEchidna')}
+   {$_ -in @('echidna-garden-idle','echidna-garden-sit','echidna-garden-work','echidna-garden-look','echidna-garden-move','echidna-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(15),'-inspectPlan9GardenEchidna')}
+   'echidna-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.echidna')}
+   'echidna-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.echidna')}
+   'undermine-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.undermine')}
+   'undermine-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.undermine')}
+   {$_ -in @('undermine-cg-0','undermine-cg-1','undermine-cg-2','undermine-cg-3','undermine-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(13),'-inspectPlan9ArtUndermine')}
+   {$_ -in @('undermine-normal','undermine-joy','undermine-puzzled','undermine-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(10),'-inspectPlan9ArtUndermine')}
+   {$_ -in @('undermine-adv-normal','undermine-adv-joy','undermine-adv-puzzled','undermine-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvUndermine',$case.Substring(14))}
+   {$_ -in @('undermine-garden-idle','undermine-garden-sit','undermine-garden-work','undermine-garden-look','undermine-garden-move','undermine-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(17),'-inspectPlan9GardenUndermine')}
+   'iconoclast-standing' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Standing','-inspectPlan9Hero','heroine.iconoclast')}
+   'iconoclast-attack' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','attack','-inspectPlan9Hero','heroine.iconoclast')}
+   'iconoclast-hit' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','hit','-inspectPlan9Hero','heroine.iconoclast')}
+   'iconoclast-cutin' {$flags+=@('-captureBattleMenu','closed','-inspectPlan7Battle','cutin','-inspectPlan9Hero','heroine.iconoclast')}
+   {$_ -in @('iconoclast-cg-0','iconoclast-cg-1','iconoclast-cg-2','iconoclast-cg-3','iconoclast-cg-4')} {$flags+=@('-capturePlan9Title','-inspectPlan9Cg',$case.Substring(14))}
+   {$_ -in @('iconoclast-normal','iconoclast-joy','iconoclast-puzzled','iconoclast-determined')} {$flags+=@('-capturePlan9Title','-inspectPlan9Expression',$case.Substring(11))}
+   {$_ -in @('iconoclast-adv-normal','iconoclast-adv-joy','iconoclast-adv-puzzled','iconoclast-adv-determined')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Adv','-inspectPlan9AdvExpression',$case.Substring(15))}
+   {$_ -in @('iconoclast-garden-idle','iconoclast-garden-sit','iconoclast-garden-work','iconoclast-garden-look','iconoclast-garden-move','iconoclast-garden-remove')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase','Garden','-inspectPlan7GardenUse',$case.Substring(18),'-inspectPlan9GardenHero')}
+   'growth-large' {$flags+=@('-captureGrowth','-inspectLargeText')}
+   'book-large' {$flags+=@('-captureBook','-inspectLargeText')}
+   'battle' {$flags+=@('-captureBattleMenu','closed')}
+   'victory' {$flags+='-captureVictory'}
+   'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
+   'victory-retry' {$flags+=@('-captureVictory','-captureVictoryRetry')}
+   'recovery' {$flags+='-captureRecovery'}
+   'recovery-confirm' {$flags+=@('-captureRecovery','-captureRecoveryConfirm')}
+   'recovery-blocked' {$flags+=@('-captureRecovery','-captureRecoveryBlocked')}
+   'victory-pending' {$flags+=@('-captureVictory','-captureVictoryPending')}
+   {$_ -in @('garden','adv')} {$flags+=@('-capturePlan6Home','-plan6Save',(Join-Path $output ($name+'-fixture.json')),'-plan6NewSave','-homeCase',([Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case)))}
+   default {
+    $segments=$case.Split('-')
+    if($segments.Length -ne 3 -or !$enemyAliases.ContainsKey($segments[0]) -or $segments[1] -notin @('art','battle')){throw ('Unknown case '+$case)}
+    $slug=$enemyAliases[$segments[0]];$expectedEnemy='colossus.'+$slug;$expectedEnemyKind=$segments[1]
+    $manifest=Get-Content (Join-Path $repo ('game/unity/Assets/Game/Resources/Illustrations/battle-'+$slug+'-candidate-v1.json')) -Raw | ConvertFrom-Json
+    $detail=$segments[2]
+    if($segments[1] -eq 'art'){
+     $mask=0
+     if($detail -eq 'all'){$mask=(1 -shl $manifest.parts.Count)-1}
+     elseif($detail -match '^part([1-6])$'){$index=[int]$Matches[1]-1;if($index -ge $manifest.parts.Count){throw 'Unknown enemy art part'};$mask=1 -shl $index}
+     elseif($detail -notin @('normal','major')){throw 'Unknown enemy art state'}
+     $flags+=@('-capturePlan9Title','-inspectPlan9Enemy',$slug,'-inspectPlan9EnemyBroken',"$mask")
+     if($detail -eq 'major'){$flags+='-inspectPlan9EnemyMajor'}
+    }else{
+     $flags+=@('-captureBattleMenu','closed','-inspectPlan9Colossus',$expectedEnemy)
+     if($detail -match '^part([1-6])$'){$index=[int]$Matches[1]-1;if($index -ge $manifest.parts.Count){throw 'Unknown enemy battle part'};$flags+=@('-inspectPlan9ColossusLevel','45','-inspectPlan9ColossusBreak',$manifest.parts[$index].partId)}
+     elseif($detail -in @('1','44','45','49','50')){$flags+=@('-inspectPlan9ColossusLevel',$detail)}
+     else{throw 'Unknown enemy combat state'}
+    }
+   }
+  }
+  # A piped GUI executable waits for its own process; no physical input is injected.
+  $watchdog=Start-Job -ArgumentList $player,$log -ScriptBlock {
+   param($taskPlayer,$taskLog)
+   Start-Sleep -Seconds 120
+   Get-CimInstance Win32_Process -Filter "Name='newASTER.exe'" | Where-Object {$_.ExecutablePath -eq $taskPlayer -and $_.CommandLine.Contains($taskLog)} | ForEach-Object {Stop-Process -Id $_.ProcessId -ErrorAction SilentlyContinue}
+  }
+  try {& $player @flags | Out-Null} finally {Stop-Job $watchdog;Remove-Job $watchdog}
+  $text=Get-Content -LiteralPath $log -Raw
+  if($LASTEXITCODE -ne 0 -or $text -match 'Exception:|error CS' -or -not(Test-Path $png)){throw ('Capture failed: '+$name+' '+$log)}
+  if($expectedEnemy){
+   $marker=if($expectedEnemyKind -eq 'art'){'PLAN9_ENEMY_ART_CAPTURE'}else{'PLAN9_COLOSSUS_CAPTURE'}
+   if($text -notmatch ($marker+' id='+[regex]::Escape($expectedEnemy)) -or $text -match 'ILLUSTRATION_MANIFEST_WARNING'){throw 'Wrong enemy or missing independent artwork'}
+  }
+  if($case -in @('garden','adv') -and $text -cnotmatch ('case='+[Globalization.CultureInfo]::InvariantCulture.TextInfo.ToTitleCase($case))){throw ('Incorrect home scene: '+$case)}
+  if($case.StartsWith('story-') -and $text -notmatch ('PLAN9_STORY_PLAYER_PASS.*events=25 lover=5 view='+[regex]::Escape($case.Substring(6)))){throw 'Wrong production story view or incomplete event progression'}
+  if($case -eq 'story-garden.audio' -and $text -notmatch 'PLAN9_PRODUCTION_AUDIO_PASS'){throw 'Production audio functional diagnostic incomplete'}
+  if($case -eq 'settings-cancel' -and $text -notmatch 'PLAN9_TITLE_SETTINGS_CANCEL_PASS'){throw 'Title settings cancellation diagnostic missing'}
+  if($case -eq 'victory-retry' -and $text -notmatch 'FORMAL_VICTORY_NAVIGATION_PASS 4 assertions'){throw 'Victory retry diagnostic missing'}
+  if($case.StartsWith('red-art-') -and ($text -notmatch 'PLAN9_ENEMY_ART_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy art capture unavailable'}
+  if($case.StartsWith('red-battle-') -and ($text -notmatch 'PLAN9_COLOSSUS_CAPTURE id=colossus.red-crystal-tyrant' -or $text -match 'ILLUSTRATION_MANIFEST_WARNING')){throw 'Enemy combat capture unavailable'}
+  if($case -eq 'audio-focus' -and ($text -notmatch 'PLAN9_TITLE_AUDIO_PASS' -or $text -notmatch 'PLAN7_FOCUS_AUDIO_PASS')){throw 'Audio focus diagnostic missing'}
+  if($case.StartsWith('slayer-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.slayer'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('slayer-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.slayer'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('slayer-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.slayer event='+$case.Substring(10))){throw 'Wrong CG heroine or stale build'}
+  if($case.StartsWith('iconoclast-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('undermine-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('undermine-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.undermine event='+$case.Substring(13))){throw 'Wrong CG heroine or stale build'}
+  if($case.StartsWith('iconoclast-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.iconoclast event='+$case.Substring(14))){throw 'Wrong CG heroine or stale build'}
+  if($case.StartsWith('iconoclast-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.iconoclast'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('undermine-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.undermine'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('echidna-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('excalipan-garden-') -and $text -notmatch 'PLAN9_GARDEN_USE_CAPTURE.*heroine=heroine.excalipan'){throw 'Wrong garden heroine'}
+  if($case.StartsWith('echidna-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.echidna'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('excalipan-adv-') -and $text -notmatch 'PLAN9_ADV_EXPRESSION_CAPTURE.*heroine=heroine.excalipan'){throw 'Wrong ADV heroine'}
+  if($case.StartsWith('excalipan-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.excalipan event='+$case.Substring(13))){throw 'Wrong CG heroine or stale build'}
+  if($case.StartsWith('echidna-cg-') -and $text -notmatch ('PLAN9_CG_CAPTURE heroine=heroine.echidna event='+$case.Substring(11))){throw 'Wrong CG heroine or stale build'}
+  if((Get-FileHash $assembly).Hash -ne $buildHash){throw 'Build changed during capture'}
+  $results+=@{case=$case;height=$height;image=$png;log=$log;state='rendered-not-visually-approved';humanInput=$false}
+  Write-Output ('PLAN9_UI_CAPTURE_PASS '+$name)
+ }
+}
+if((Fingerprint) -ne $before){throw 'Normal player files changed'}
+@{schemaVersion=1;assemblySha256=$buildHash;normalSaveUnchanged=$true;performanceMeasured=$false;cases=$results} | ConvertTo-Json -Depth 6 | Set-Content (Join-Path $output 'results.json') -Encoding utf8
+Write-Output ('PLAN9_UI_OUTPUT '+$output)

@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "placeholder": false,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    }
+  ],
+  "parts": [
+    {
+      "partId": "megadeath.crown",
+      "resourcePath": "Illustrations/megadeath-crown-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.451,
+        "y": 0.105,
+        "scale": 0.13
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2,
+      "x": 0.46,
+      "y": 0.125,
+      "width": 0.11,
+      "height": 0.11
+    },
+    {
+      "partId": "megadeath.sword",
+      "resourcePath": "Illustrations/megadeath-sword-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.61,
+        "y": 0.435,
+        "scale": 0.35
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 3,
+      "x": 0.65,
+      "y": 0.485,
+      "width": 0.28,
+      "height": 0.27
+    },
+    {
+      "partId": "megadeath.armor",
+      "resourcePath": "Illustrations/megadeath-armor-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.445,
+        "y": 0.28,
+        "scale": 0.2
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2,
+      "x": 0.48,
+      "y": 0.31,
+      "width": 0.13,
+      "height": 0.17
+    },
+    {
+      "partId": "megadeath.lantern",
+      "resourcePath": "Illustrations/megadeath-lantern-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.285,
+        "y": 0.41,
+        "scale": 0.25
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 1,
+      "x": 0.32,
+      "y": 0.44,
+      "width": 0.18,
+      "height": 0.22
+    }
+  ],
+  "backgroundResourcePath": "Illustrations/night-forest-far-candidate-v1",
+  "middleResourcePath": "Illustrations/world-spring-mid-candidate-v1",
+  "foregroundResourcePath": "Illustrations/world-spring-front-candidate-v1",
+  "bodyResourcePath": "Illustrations/megadeath-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/megadeath-major-candidate-v1",
+  "bodyPlacement": {
+    "enabled": true,
+    "x": 0.12,
+    "y": 0.15,
+    "scale": 0.72
+  }
+}

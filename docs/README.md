@@ -1,6 +1,6 @@
 # newASTER 仕様体系
 
-更新：2026-10-02。現行ブランチ：`docs/kyoshin-requirements-v2`。このページを実装の入口とします。文書名の版番号を廃止し、変更版はGitコミットで管理します。実装・素材・セーブは今回変更しません。
+更新：2026-10-05。現行ブランチ：`codex/plan9-production`。初期5人の正式配布候補RC1を実装・検証済み。[計画9の完了記録](production/plan9-completion-status.md)と[配布内容台帳](production/plan9-release-content-inventory.json)を参照。残り8ジョブと200人超の制作は[継続計画](production/post-plan9-jobs.md)。変更版はGitコミットで管理します。
 
 ## 読む順序と唯一の定義元
 
@@ -22,6 +22,8 @@
 | 表示 | [箱庭・ADV表示](presentation/garden-and-adv.md) | 背景・人物・家具絵・CG・欠落時表示 |
 | 素材 | [素材契約](presentation/assets.md) | 制作・書き出し・差分・採用・権利確認 |
 | 制作 | [実装計画](production/implementation-plan.md) | 着手順・完了条件 |
+| 制作 | [計画9の実装記録](production/plan9-progress.md) | 内容・全画面台帳、UI実装と検証結果、量産不足 |
+| 制作 | [計画9の詳細計画](production/plan9-implementation-plan.md) | 正式量産・起動から全画面の豪華UI・保存互換・配布候補、9-1〜9-10の順序 |
 | 制作 | [計画8の詳細計画](production/plan8-implementation-plan.md) | 通し試遊・計測・本文・難度・経済・操作・性能、8-1〜8-10の順序 |
 | 制作 | [計画7の完了記録](production/plan7-completion-status.md) | 開発見本の改訂条件・検証範囲・量産／公開受入れへの引継ぎ |
 | 制作 | [縦切り](production/vertical-slice.md) | 最初の完成範囲・測る内容 |

@@ -1,0 +1,104 @@
+{
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "humanInput": false,
+      "case": "intro",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\intro-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\intro-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-large-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-large-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings-cancel",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-cancel-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-cancel-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "book-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\book-large-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\book-large-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "growth-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\growth-large-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\growth-large-720.log"
+    },
+    {
+      "humanInput": false,
+      "case": "intro",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\intro-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\intro-1080.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-1080.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-large-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-large-1080.log"
+    },
+    {
+      "humanInput": false,
+      "case": "settings-cancel",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-cancel-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\settings-cancel-1080.log"
+    },
+    {
+      "humanInput": false,
+      "case": "book-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\book-large-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\book-large-1080.log"
+    },
+    {
+      "humanInput": false,
+      "case": "growth-large",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\growth-large-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-4bd988ed1c8d44bcb08d68c44a967c22\\growth-large-1080.log"
+    }
+  ],
+  "assemblySha256": "A67BBCF0FFD2AACB01EA864470DB817E7DAFF12D3E27FA6804F92BAA2383473B",
+  "schemaVersion": 1,
+  "performanceMeasured": false
+}

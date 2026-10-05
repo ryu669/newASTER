@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Single transparent garden work SD sprite, same adult Echidna identity/style as attached idle. Compact 3.5-head-tall silver bob covering left eye, visible violet eye, two ivory curled horns, gold/cyan jewelry, opaque white petal dress and dark boots, dark-violet petal wings gold branches/cyan gems tucked behind upper body. Full standing three-quarter facing right, slight forward lean, BOTH hands extended in front at WAIST HEIGHT, palms angled down as if arranging small flowers on an invisible waist-high worktable. Hands must be separated and clearly visible with wrists in front of waist, not up at chest. Calm focused expression. No table, no flowers, no props drawn, no floor/shadow, no text. Complete feet horns and wing branches fully inside square canvas with transparent margin. Matching polished anime garden miniature.",
+  "reference": "echidna-sd-idle-candidate-v1.png",
+  "output": "exec-500377d6-1fd8-4e6e-a35c-be7c2f352b0a.png",
+  "finalDeliveryApproved": false
+}

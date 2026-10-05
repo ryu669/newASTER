@@ -1,0 +1,169 @@
+{
+  "cases": [
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-normal-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-normal-720.log",
+      "case": "slayer-normal",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-joy-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-joy-720.log",
+      "case": "slayer-joy",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-puzzled-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-puzzled-720.log",
+      "case": "slayer-puzzled",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-determined-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-determined-720.log",
+      "case": "slayer-determined",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-idle-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-idle-720.log",
+      "case": "slayer-garden-idle",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-sit-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-sit-720.log",
+      "case": "slayer-garden-sit",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-work-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-work-720.log",
+      "case": "slayer-garden-work",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-look-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-look-720.log",
+      "case": "slayer-garden-look",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-move-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-move-720.log",
+      "case": "slayer-garden-move",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-remove-720.png",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-remove-720.log",
+      "case": "slayer-garden-remove",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-normal-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-normal-1080.log",
+      "case": "slayer-normal",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-joy-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-joy-1080.log",
+      "case": "slayer-joy",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-puzzled-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-puzzled-1080.log",
+      "case": "slayer-puzzled",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-determined-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-determined-1080.log",
+      "case": "slayer-determined",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-idle-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-idle-1080.log",
+      "case": "slayer-garden-idle",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-sit-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-sit-1080.log",
+      "case": "slayer-garden-sit",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-work-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-work-1080.log",
+      "case": "slayer-garden-work",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-look-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-look-1080.log",
+      "case": "slayer-garden-look",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-move-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-move-1080.log",
+      "case": "slayer-garden-move",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-remove-1080.png",
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\slayer-garden-remove-1080.log",
+      "case": "slayer-garden-remove",
+      "state": "rendered-not-visually-approved"
+    }
+  ],
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "BFFE059F3F5806A77A93D639A6D4103E16F6D24FAB94A6F13A76DE2B760D55B3",
+  "schemaVersion": 1,
+  "sourceResults": "tmp\\plan9-ui-cef63faf098e499faf8ab5b4fa3d838e\\results.json"
+}

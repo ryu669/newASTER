@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Create single transparent game garden sprite Echidna SD sitting. Attached SD idle is identity and exact rendering style reference. Adult compact 3.5-head proportions, silver bob one eye covered, violet other eye, two ivory horns, gold jewelry, opaque white petal dress gold/cyan gems, dark boots, dark violet organic petal wings gold branches cyan gems. Full body three-quarter facing right, sitting on an INVISIBLE bench at knee height, hips supported horizontally, knees bent naturally together, both boots visibly below knees, hands resting softly together on lap, quiet warm expression. Fold wings compact behind torso and above hips so they do not pass through bench. No bench or furniture drawn, no floor, no shadow, no text. Whole silhouette including horns, wings and boots fits square with empty transparent margin, polished matching RPG miniature.",
+  "reference": "echidna-sd-idle-candidate-v1.png",
+  "output": "exec-2713b5dd-5325-4b13-aa98-04421f7aeee5.png",
+  "finalDeliveryApproved": false
+}

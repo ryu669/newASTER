@@ -1,0 +1,2422 @@
+{
+  "schemaVersion": 1,
+  "scope": "deterministic functional difficulty; no performance or human timing",
+  "definition": "economy-initial-five-2026-10-05",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "equipment": "none",
+  "policy": "basic intact parts then body",
+  "criteria": "Lv1 versus Lv1 \u003E=7/8; Lv1 versus Lv50 \u003C=2/8; Lv30\u002B versus Lv50 \u003E=6/8; no command caps",
+  "runs": 1920,
+  "failures": 0,
+  "rows": [
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 26.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 55.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 107,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 96.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 22.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 108.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 114.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 16,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 31.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 82.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 86.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 7.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 14.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 38.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.green-return-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 41.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 31.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 60.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 2,
+      "caps": 0,
+      "meanCommands": 121.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 98,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 25.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 49,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 110.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 118.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 17.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 32.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 89.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 92.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 8.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 15.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 40,
+      "accepted": true
+    },
+    {
+      "id": "colossus.red-crystal-tyrant",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 32.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 60.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 4,
+      "caps": 0,
+      "meanCommands": 126.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 101,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 25.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 48.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 109.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 117.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 18.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 33.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 86.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 93.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 8.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 15.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.memory-crystal-dragon",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 34.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 61.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 5,
+      "caps": 0,
+      "meanCommands": 135.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 119,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 26.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 51.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 112.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 121.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 19.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 34.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 89.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 94.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 9,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 16.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.sky-tower-machine",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 34.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 62.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 80.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 72,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 27.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 52.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 1,
+      "caps": 0,
+      "meanCommands": 97.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 92.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 19.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 35.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 87.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 92.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 9.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 15.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 41.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.crystal-rose-princess",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 38.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 68.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 89,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 80,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 30.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 54.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 4,
+      "caps": 0,
+      "meanCommands": 116,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 1,
+      "caps": 0,
+      "meanCommands": 109.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 21.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 37.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 91.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 93.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 10.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 17,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.silver-sea-whale",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 46.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 70.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 94,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 79,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 31.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 56,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 97.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 94.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 22.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 37.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 91.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 94.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 10.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 17.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.heaven-tree-orochi",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 46.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 40.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 70.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 102.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 100.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 33.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 57.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 6,
+      "caps": 0,
+      "meanCommands": 124.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 1,
+      "caps": 0,
+      "meanCommands": 118.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 23.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 38.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 91.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 97,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 11.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 17.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 43.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.reenactment-yimir",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 47.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 68.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 45,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 37,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 31.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 55,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 66.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 58,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 22.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 37.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 86.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 90.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 10.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 17.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.emerald-star-astal",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 42.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 69.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 100.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 77,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 35.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 59.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 3,
+      "caps": 0,
+      "meanCommands": 127.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 124.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 25.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 91.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 95.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 11.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 18.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.amber-king-serpent",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 47.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 72.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 70,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 68,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 37.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 61.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 96.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 91.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 25.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 41.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 91.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 97.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 12.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 18.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.white-divine-dragon-mother",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 48.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 50,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 75.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 132,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 120,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 40,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 67.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 137.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 138.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 27.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 98,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 104.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 13.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 20.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 47.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.black-smoke-citadel",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 49.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 48.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 70.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 82,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 65.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 39.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 63,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 99.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 99.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 26.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 90.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 98.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 13.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 20.125,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.dead-king-megadeath",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 49.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 51.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 70.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 54,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 45,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 40.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 63.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 71.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 56,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 29,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 88.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 7,
+      "caps": 0,
+      "meanCommands": 93.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 14,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 19.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 44.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.final-flame-ice-phoenix",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 47.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 1,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 54.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 1,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 77.625,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 1,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 57,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 1,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 55,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 10,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 45.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 10,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 66.875,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 10,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 80,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 0,
+      "caps": 0,
+      "meanCommands": 69,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 30,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 30.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 30,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 48.75,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 30,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 98.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 7,
+      "caps": 0,
+      "meanCommands": 103.25,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 120,
+      "enemyLevel": 1,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 15,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 120,
+      "enemyLevel": 10,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 22.375,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 120,
+      "enemyLevel": 45,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 48.5,
+      "accepted": true
+    },
+    {
+      "id": "colossus.newborn-asteria",
+      "heroLevel": 120,
+      "enemyLevel": 50,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "meanCommands": 53.25,
+      "accepted": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached Excalipan full standing expression to DETERMINED. Preserve exact1024x1536 full composition head position and angle cap braid wings rifle bread parcel outfit legs. ONLY exposed face changes: both amber eyes clear focused, gently lowered brows and firmly closed mouth, quiet resolve with kindness, no anger fear tears. Do not rotate or resize head. Adult confident baker heroine. No effects symbols text zoom pose changes. Genuine transparent alpha full standing source for native runtime face-region overlay.",
+  "reference": "excalipan-standing-candidate-v1.png",
+  "selectedOutput": "exec-fb1b5142-f33c-4466-bd59-6a5b971f39ad.png",
+  "usage": "native face-only runtime overlay; not whole frame",
+  "finalDeliveryApproved": false
+}

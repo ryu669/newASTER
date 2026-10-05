@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "088A1083EE1FDBAE91FC6B4648442688618F473D6EC0D233EBA7E1A89396648D",
+  "cases": [
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-1-720.log",
+      "height": 720,
+      "case": "astal-battle-1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-1-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-44-720.log",
+      "height": 720,
+      "case": "astal-battle-44",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-44-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-45-720.log",
+      "height": 720,
+      "case": "astal-battle-45",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-45-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-49-720.log",
+      "height": 720,
+      "case": "astal-battle-49",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-49-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-50-720.log",
+      "height": 720,
+      "case": "astal-battle-50",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-50-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part1-720.log",
+      "height": 720,
+      "case": "astal-battle-part1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part1-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part2-720.log",
+      "height": 720,
+      "case": "astal-battle-part2",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part2-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part3-720.log",
+      "height": 720,
+      "case": "astal-battle-part3",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part3-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part4-720.log",
+      "height": 720,
+      "case": "astal-battle-part4",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part4-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-1-1080.log",
+      "height": 1080,
+      "case": "astal-battle-1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-1-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-44-1080.log",
+      "height": 1080,
+      "case": "astal-battle-44",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-44-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-45-1080.log",
+      "height": 1080,
+      "case": "astal-battle-45",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-45-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-49-1080.log",
+      "height": 1080,
+      "case": "astal-battle-49",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-49-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-50-1080.log",
+      "height": 1080,
+      "case": "astal-battle-50",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-50-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part1-1080.log",
+      "height": 1080,
+      "case": "astal-battle-part1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part1-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part2-1080.log",
+      "height": 1080,
+      "case": "astal-battle-part2",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part2-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part3-1080.log",
+      "height": 1080,
+      "case": "astal-battle-part3",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part3-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part4-1080.log",
+      "height": 1080,
+      "case": "astal-battle-part4",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-battle-part4-1080.png",
+      "state": "rendered-not-visually-approved"
+    }
+  ]
+}

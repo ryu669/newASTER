@@ -17,7 +17,7 @@ namespace NewAster.Core
     { public string id,heroineId,abilityId,skillId; public bool initial; public int attackBonus; public float skillPower=1; public HomePoint treePosition; public string terminal; public string[] parentIds=Array.Empty<string>(); public HomeCost[] costs=Array.Empty<HomeCost>(); }
     [Serializable] public sealed class HomeGardenZone { public string id; public int order; public HomeRect bounds; }
     [Serializable] public sealed class HomeGardenLayout
-    { public string id,backgroundAssetId; public string[] foregroundAssetIds=Array.Empty<string>(); public int schemaVersion; public bool unmade; public HomeGardenZone[] zones=Array.Empty<HomeGardenZone>(); }
+    { public string id,backgroundAssetId; public string[] middleAssetIds=Array.Empty<string>(),foregroundAssetIds=Array.Empty<string>(); public int schemaVersion; public bool unmade; public HomeGardenZone[] zones=Array.Empty<HomeGardenZone>(); }
     [Serializable] public sealed class HomeFurnitureSlot
     { public string id; public HomePoint offset; public string[] actionIds=Array.Empty<string>(); }
     [Serializable] public sealed class HomeFurnitureLayout
@@ -32,11 +32,13 @@ namespace NewAster.Core
     [Serializable] public sealed class HomeChapterDef
     { public string id,ownerId,sceneId; public string[] requiredPoemIds=Array.Empty<string>(); public HomeCost[] rewards=Array.Empty<HomeCost>(); }
     [Serializable] public sealed class HomeTextDef { public string id,text; }
-    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; public string resourcePath; public bool fullFrame,regionalOverlay; public HomeRect overlayRegion01; }
+    [Serializable] public sealed class HomeAssetDef { public string id,kind; public bool placeholder; public string resourcePath; public bool fullFrame,regionalOverlay,mappedOverlay; public HomeRect overlayRegion01,overlaySourceRegion01; }
     [Serializable] public sealed class HomeDisplayVariant { public string id,assetId; }
     [Serializable] public sealed class HomeDisplaySet
     {
         public string id,heroineId,outfitId,standingAssetId;
+        public bool usePortraitCrop;
+        public HomeRect portraitCrop01;
         public HomeDisplayVariant[] expressions=Array.Empty<HomeDisplayVariant>(),poses=Array.Empty<HomeDisplayVariant>();
     }
     [Serializable] public sealed class HomeActorSlot { public string id; public HomePoint anchor,pivot,size01; public int drawOrder; }
@@ -63,7 +65,9 @@ namespace NewAster.Core
     [Serializable] public sealed partial class HomeExperienceCatalog
     {
         public const string TrialVersion="home-trial-story-2026-10-04";
-        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion;
+        public const string CandidateVersion="home-production-story-2026-10-04";
+        public const string ProductionVersion="home-initial-five-rc1-2026-10-05";
+        public static bool SupportedVersion(string version)=>version==FixtureVersion || version==TrialVersion || version==CandidateVersion || version==ProductionVersion;
         public const string FixtureVersion="home-fixture-2026-10-03";
         public int schemaVersion; public string contentVersion,status;
         public string[] heroineIds=Array.Empty<string>(),colossusIds=Array.Empty<string>(),poemIds=Array.Empty<string>(),resourceIds=Array.Empty<string>(),abilityIds=Array.Empty<string>(),skillIds=Array.Empty<string>(),speakerIds=Array.Empty<string>();
@@ -106,9 +110,9 @@ namespace NewAster.Core
         public void Validate(bool release=false)
         {
             if(schemaVersion!=1)Fail("UNKNOWN_SCHEMA","/schemaVersion",null,"未対応の定義版です。");
-            if(!Id(contentVersion) || status!="fixture" && status!="release" && !(status=="development-trial" && contentVersion==TrialVersion))Fail("UNRESOLVED_RULE","/contentVersion",contentVersion,"内容版と状態を指定してください。");
+            if(!Id(contentVersion) || status!="fixture" && status!="release" && !(status=="development-trial" && contentVersion==TrialVersion) && !(status=="production-candidate" && contentVersion==CandidateVersion))Fail("UNRESOLVED_RULE","/contentVersion",contentVersion,"内容版と状態を指定してください。");
             if(release && status!="release")Fail("PLACEHOLDER_IN_RELEASE","/status",null,"検証パックを正式版へ採用できません。");
-            if(status=="release" && SupportedVersion(contentVersion))Fail("PLACEHOLDER_IN_RELEASE","/contentVersion",contentVersion,"検証・試遊用内容版を正式版へ改名できません。");
+            if(status=="release" && contentVersion!=ProductionVersion)Fail("PLACEHOLDER_IN_RELEASE","/contentVersion",contentVersion,"検証・試遊用内容版を正式版へ改名できません。");
             var hs=Set(heroineIds,"/heroineIds");var cs=Set(colossusIds,"/colossusIds");var ps=Set(poemIds,"/poemIds");var rs=Set(resourceIds,"/resourceIds");var abs=Set(abilityIds,"/abilityIds");var sks=Set(skillIds,"/skillIds");Set(speakerIds,"/speakerIds");
             if(hs.Overlaps(cs))Fail("DUPLICATE_ID","/heroineIds",null,"人物と巨神獣のIDが重複しています。");
             var ns=Index(weaponNodes,n=>n.id,"/weaponNodes");var gs=Index(gardens,g=>g.id,"/gardens");var fs=Index(furniture,f=>f.id,"/furniture");var es=Index(events,e=>e.id,"/events");var chs=Index(chapters,c=>c.id,"/chapters");
@@ -116,11 +120,11 @@ namespace NewAster.Core
             if(es.Keys.Intersect(chs.Keys).Any())Fail("DUPLICATE_ID","/events",null,"章とイベントの報酬IDが重複しています。");
             var tx=Index(texts,t=>t.id,"/texts");var ast=Index(assets,a=>a.id,"/assets");Index(displays,d=>d.id,"/displays");var slots=Index(actorSlots,s=>s.id,"/actorSlots");var scs=Index(scripts,s=>s.id,"/scripts");Index(subjects,s=>s.id,"/subjects");
             foreach(var t in texts)if(string.IsNullOrWhiteSpace(t.text))Fail("INVALID_RANGE","/texts",t.id,"本文が空です。");
-            foreach(var a in assets){if(!new[]{"background","standing","expression","pose","cg","audio","furniture","foreground"}.Contains(a.kind))Fail("INVALID_RANGE","/assets",a.id,"素材種別が不正です。");if(a.regionalOverlay && (a.kind!="expression" || a.fullFrame || !Rect(a.overlayRegion01)))Fail("INVALID_RANGE","/assets",a.id,"表情の重ね領域が不正です。");if((release || status=="release") && a.placeholder)Fail("PLACEHOLDER_IN_RELEASE","/assets",a.id,"正式必須素材が仮素材です。");}
+            foreach(var a in assets){if(!new[]{"background","standing","expression","pose","cg","audio","furniture","foreground"}.Contains(a.kind))Fail("INVALID_RANGE","/assets",a.id,"素材種別が不正です。");if(a.regionalOverlay && (a.kind!="expression" || a.fullFrame || !Rect(a.overlayRegion01)))Fail("INVALID_RANGE","/assets",a.id,"表情の重ね領域が不正です。");if(a.mappedOverlay && (!a.regionalOverlay || !Rect(a.overlaySourceRegion01)))Fail("INVALID_RANGE","/assets",a.id,"表情の転写元領域が不正です。");if((release || status=="release") && a.placeholder)Fail("PLACEHOLDER_IN_RELEASE","/assets",a.id,"正式必須素材が仮素材です。");}
             foreach(var n in weaponNodes){Ref(hs.Contains(n.heroineId),"/weaponNodes/heroineId",n.heroineId);Set(n.parentIds,"/weaponNodes/parentIds");if(n.initial?n.parentIds.Length!=0:n.parentIds.Length==0)Fail("MISSING_REFERENCE","/weaponNodes/parentIds",n.id,"初期以外には親が必要です。");foreach(var id in n.parentIds)Ref(ns.TryGetValue(id,out var parent) && parent.heroineId==n.heroineId,"/weaponNodes/parentIds",id);Costs(n.costs,rs,"/weaponNodes/costs",!n.initial);Ref(abs.Contains(n.abilityId),"/weaponNodes/abilityId",n.abilityId);Ref(sks.Contains(n.skillId),"/weaponNodes/skillId",n.skillId);}
             foreach(var n in weaponNodes)foreach(var cost in n.costs)Ref(materialIndex.ContainsKey(cost.resourceId),"/weaponNodes/costs/resourceId",cost.resourceId);
             foreach(var group in weaponNodes.GroupBy(n=>n.heroineId))if(group.Count(n=>n.initial)!=1)Fail("INVALID_RANGE","/weaponNodes",group.Key,"人物ごとの初期ノードは一つです。");
-            foreach(var g in gardens){Set(g.foregroundAssetIds,"/gardens/foregroundAssetIds");if(!g.unmade)Ref(ast.TryGetValue(g.backgroundAssetId,out var background) && background.kind=="background","/gardens/backgroundAssetId",g.backgroundAssetId);foreach(var id in g.foregroundAssetIds)Ref(ast.TryGetValue(id,out var foreground) && foreground.kind=="foreground","/gardens/foregroundAssetIds",id);}
+            foreach(var g in gardens){Set(g.middleAssetIds,"/gardens/middleAssetIds");Set(g.foregroundAssetIds,"/gardens/foregroundAssetIds");if(!g.unmade)Ref(ast.TryGetValue(g.backgroundAssetId,out var background) && background.kind=="background","/gardens/backgroundAssetId",g.backgroundAssetId);foreach(var id in g.middleAssetIds.Concat(g.foregroundAssetIds))Ref(ast.TryGetValue(id,out var foreground) && foreground.kind=="foreground","/gardens/layers",id);}
             Cycle(ns.Keys,id=>ns[id].parentIds,"/weaponNodes");
             Index(interactions,t=>t.id,"/interactions");if(interactions.Select(t=>t.heroineId).Distinct().Count()!=interactions.Length)Fail("DUPLICATE_ID","/interactions",null,"人物ごとの交流定義が重複しています。");foreach(var t in interactions){Ref(hs.Contains(t.heroineId),"/interactions/heroineId",t.heroineId);if(t.affectionGain<=0)Fail("UNRESOLVED_RULE","/interactions",t.id,"交流の増分が未定です。");Costs(t.costs,rs,"/interactions/costs",true);foreach(var cost in t.costs)Ref(materialIndex.ContainsKey(cost.resourceId),"/interactions/costs",cost.resourceId);}
             foreach(var n in weaponNodes)if(n.attackBonus<0 || !Finite(n.skillPower) || n.skillPower<=0 || n.skillPower>10 || n.treePosition==null || !Finite(n.treePosition.x) || !Finite(n.treePosition.y) || n.treePosition.x<0 || n.treePosition.x>1 || n.treePosition.y<0 || n.treePosition.y>1)Fail("INVALID_RANGE","/weaponNodes/effects",n.id,"武器効果と樹の座標が不正です。");
@@ -128,6 +132,7 @@ namespace NewAster.Core
             foreach(var f in furniture){Set(f.supportedHeroineIds,"/furniture/supportedHeroineIds");foreach(var id in f.supportedHeroineIds)Ref(hs.Contains(id),"/furniture/supportedHeroineIds",id);if(!Size(f.size01) || !Point(f.drawAnchor) || !Rect(f.footprint))Fail("INVALID_RANGE","/furniture",f.id,"家具の寸法・接地・占有範囲が不正です。");Set(f.orientationIds,"/furniture/orientationIds");if(f.orientationIds.Length!=1 || f.orientationIds[0]!="orientation.default")Fail("UNRESOLVED_RULE","/furniture/orientationIds",f.id,"初回は既定の向きだけに対応します。");Ref(ast.TryGetValue(f.assetId,out var a) && a.kind=="furniture","/furniture/assetId",f.assetId);Costs(f.costs,rs,"/furniture/costs",false);Index(f.slots,s=>s.id,"/furniture/slots");foreach(var s in f.slots){if(!Point(s.offset))Fail("INVALID_RANGE","/furniture/slots",s.id,"使用位置が不正です。");Set(s.actionIds,"/furniture/slots/actionIds");if(s.actionIds.Length==0)Fail("UNRESOLVED_RULE","/furniture/slots",s.id,"使用動作がありません。");}}
             foreach(var s in actorSlots)if(!Point(s.anchor) || !Point(s.pivot) || !Size(s.size01) || s.drawOrder<0)Fail("INVALID_RANGE","/actorSlots",s.id,"人物表示位置が不正です。");
             if(displays.Select(d=>d.heroineId+"|"+d.outfitId).Distinct().Count()!=displays.Length)Fail("DUPLICATE_ID","/displays",null,"人物と衣装の組が重複しています。");
+            foreach(var display in displays)if(display.usePortraitCrop && !Rect(display.portraitCrop01))Fail("INVALID_RANGE","/displays/portraitCrop01",display.id,"人物肖像の切取り領域が不正です。");
             foreach(var d in displays){Ref(hs.Contains(d.heroineId) && Id(d.outfitId),"/displays/heroineId",d.heroineId);Ref(ast.TryGetValue(d.standingAssetId,out var a) && a.kind=="standing","/displays/standingAssetId",d.standingAssetId);var expressions=Index(d.expressions,v=>v.id,"/displays/expressions");Index(d.poses,v=>v.id,"/displays/poses");Ref(expressions.ContainsKey("expression.normal"),"/displays/expressions","expression.normal");foreach(var v in d.expressions)Ref(ast.TryGetValue(v.assetId,out var asset) && asset.kind=="expression","/displays/expressions",v.assetId);foreach(var v in d.poses)Ref(ast.TryGetValue(v.assetId,out var asset) && asset.kind=="pose","/displays/poses",v.assetId);}
             foreach(var e in events){Ref(hs.Contains(e.heroineId),"/events/heroineId",e.heroineId);if(e.kind!="affinity" && e.kind!="lover" || e.establishesLover && e.kind!="affinity")Fail("INVALID_RANGE","/events/kind",e.id,"イベント種別または恋人移行指定が不正です。");Ref(scs.ContainsKey(e.sceneId),"/events/sceneId",e.sceneId);Condition(e.unlockCondition,hs,cs,ps,gs.Keys,chs.Keys,es.Keys,"/events/unlockCondition");}
             foreach(var c in chapters){Ref(hs.Contains(c.ownerId) || cs.Contains(c.ownerId),"/chapters/ownerId",c.ownerId);Set(c.requiredPoemIds,"/chapters/requiredPoemIds");if(c.requiredPoemIds.Length==0)Fail("UNRESOLVED_RULE","/chapters/requiredPoemIds",c.id,"章に必要な詩を指定してください。");foreach(var id in c.requiredPoemIds)Ref(ps.Contains(id),"/chapters/requiredPoemIds",id);Ref(scs.ContainsKey(c.sceneId),"/chapters/sceneId",c.sceneId);}

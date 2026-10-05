@@ -1,0 +1,152 @@
+{
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-normal-720.png",
+      "case": "iconoclast-adv-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-normal-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-joy-720.png",
+      "case": "iconoclast-adv-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-joy-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-puzzled-720.png",
+      "case": "iconoclast-adv-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-puzzled-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-determined-720.png",
+      "case": "iconoclast-adv-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-determined-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-0-720.png",
+      "case": "iconoclast-cg-0",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-0-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-1-720.png",
+      "case": "iconoclast-cg-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-1-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-2-720.png",
+      "case": "iconoclast-cg-2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-2-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-3-720.png",
+      "case": "iconoclast-cg-3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-3-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-4-720.png",
+      "case": "iconoclast-cg-4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-4-720.log",
+      "height": 720
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-normal-1080.png",
+      "case": "iconoclast-adv-normal",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-normal-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-joy-1080.png",
+      "case": "iconoclast-adv-joy",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-joy-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-puzzled-1080.png",
+      "case": "iconoclast-adv-puzzled",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-puzzled-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-determined-1080.png",
+      "case": "iconoclast-adv-determined",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-adv-determined-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-0-1080.png",
+      "case": "iconoclast-cg-0",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-0-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-1-1080.png",
+      "case": "iconoclast-cg-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-1-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-2-1080.png",
+      "case": "iconoclast-cg-2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-2-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-3-1080.png",
+      "case": "iconoclast-cg-3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-3-1080.log",
+      "height": 1080
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-4-1080.png",
+      "case": "iconoclast-cg-4",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ff3b63d6d49645dd89516035a7f745d7\\iconoclast-cg-4-1080.log",
+      "height": 1080
+    }
+  ],
+  "schemaVersion": 1,
+  "assemblySha256": "4AA479397BF6FF2456E8CADC87DB58FE3558DE85430B48F50BA1225DF0EAB00E",
+  "performanceMeasured": false
+}

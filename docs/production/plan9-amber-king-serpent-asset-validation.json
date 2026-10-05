@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.amber-king-serpent",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "319b9057cf1dd69b845ddb2d3fcec6af30722b83cc3c39b359d200faee003164",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        262,
+        288,
+        1004,
+        1011
+      ],
+      "sha256": "793dccb8e7c2afc9eefcbdae2012d444fe94205d9eeeb28cbe45a90213b687d1",
+      "status": "candidate"
+    },
+    {
+      "purpose": "serpent.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        209,
+        232,
+        1102,
+        941
+      ],
+      "sha256": "ee4c20e4babca42c125a70373c1d344fc37d17f218993a2af5f4a09653ccb581",
+      "status": "candidate"
+    },
+    {
+      "purpose": "serpent.fang",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-fang-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        324,
+        247,
+        922,
+        967
+      ],
+      "sha256": "01ad94bac6183fbab36f1edade45e8415ca354d6309c8a682bba310e1a419924",
+      "status": "candidate"
+    },
+    {
+      "purpose": "serpent.armor",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-armor-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        378,
+        78,
+        964,
+        1161
+      ],
+      "sha256": "3f52867ce57d1e641e3eb23c74fcff13dc2e19af4aac36a987fbb8d97694b221",
+      "status": "candidate"
+    },
+    {
+      "purpose": "serpent.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        245,
+        251,
+        1054,
+        994
+      ],
+      "sha256": "0e4c498b39cab4143b86eeb84c6c02138382fedd8246dd1821b2cef8f6cf75b4",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/serpent-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        95,
+        94,
+        1184,
+        1141
+      ],
+      "sha256": "a47891d5aced630acbc82e1ac17255ccdb65042adf45c876b3a2873d89d07585",
+      "status": "candidate"
+    }
+  ]
+}

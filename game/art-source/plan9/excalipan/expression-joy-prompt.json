@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Edit attached full standing Excalipan for JOY expression source. Preserve SAME1024x1536 canvas pose scale position entire white wings cap braid hair rifle bread parcel costume feet. ONLY change face expression: both amber eyes softly happy narrowed, broad warm friendly smile with slightly open mouth and subtle cheek blush. Adult baker delighted to welcome a friend, restrained natural joy. No extra hearts/symbols. No zoom redesign or pose change. Maintain transparent alpha. One full standing image, source for native runtime face-only composition.",
+  "reference": "excalipan-standing-candidate-v1.png",
+  "selectedOutput": "exec-dd36ac88-e968-4d86-ab58-d8c8e6c2befb.png",
+  "usage": "native face-only runtime overlay; not whole frame",
+  "finalDeliveryApproved": false
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "eventId": "heroine.excalipan.event.0",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-0-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "cf2abf53c1ac03907840a1ff8f3ca99d638b4571f94520f2001141bc2a9d2843",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.excalipan.event.1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-1-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "75ed7ca7f984dbc5365df099647ba2ce734e316629ebf5853a5f1fc7d6f22410",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.excalipan.event.2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-2-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "7cff75d46da7969580e07153d3fda6581b44101af52ed22ceadbcfda304a401e",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.excalipan.event.3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-3-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "1d0dbf590626d19cfafec63387a0a065b0c0fe42c7386a70fbcb9f87730526ae",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.excalipan.event.4",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-4-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "d7c5ed2d554525687d43bc7e4e1ec69c8dae4543797179f962c42564953d0485",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

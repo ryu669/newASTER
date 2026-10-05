@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "assemblySha256": "6FEE8B06B5BFB5ACB0529F478E98096FD691647540FD3130420E509BC6916EC5",
+  "cases": [
+    {
+      "case": "undermine-normal",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-normal-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-normal-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-joy",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-joy-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-joy-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-puzzled",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-puzzled-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-puzzled-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-determined",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-determined-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-determined-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-adv-normal",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-normal-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-normal-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-adv-joy",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-joy-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-joy-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-adv-puzzled",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-puzzled-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-puzzled-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-adv-determined",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-determined-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-determined-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-idle",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-idle-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-idle-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-sit",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-sit-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-sit-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-work",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-work-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-work-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-look",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-look-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-look-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-move",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-move-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-move-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-garden-remove",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-remove-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-remove-720.png",
+      "height": 720
+    },
+    {
+      "case": "undermine-normal",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-normal-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-normal-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-joy",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-joy-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-joy-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-puzzled",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-puzzled-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-puzzled-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-determined",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-determined-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-determined-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-adv-normal",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-normal-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-normal-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-adv-joy",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-joy-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-joy-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-adv-puzzled",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-puzzled-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-puzzled-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-adv-determined",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-determined-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-adv-determined-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-idle",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-idle-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-idle-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-sit",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-sit-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-sit-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-work",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-work-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-work-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-look",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-look-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-look-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-move",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-move-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-move-1080.png",
+      "height": 1080
+    },
+    {
+      "case": "undermine-garden-remove",
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-remove-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-2c954a51190049619ab2599edbca3069\\undermine-garden-remove-1080.png",
+      "height": 1080
+    }
+  ]
+}

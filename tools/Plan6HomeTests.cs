@@ -21,6 +21,10 @@ public static class Plan6HomeTests
         check(catalog.gardens.Length==9 && catalog.gardens.Count(g=>g.unmade)==7 && catalog.gardens.Where(g=>g.unmade).All(g=>g.zones.Length==0),"All nine garden pages exist without fabricating seven placement layouts");
         var restored=JsonSerializer.Deserialize<HomeExperienceCatalog>(JsonSerializer.Serialize(catalog,options),options);restored.Validate();check(restored.scripts[0].commands[2].textId=="text.fixture.line","Full home pack survives nested JSON roundtrip");
         reject(()=>catalog.Validate(true),"Fixture rejected by release gate");
+        check(restored.assets.Single(a=>a.id=="art.candidate.iconoclast.expression.joy.v1").mappedOverlay && restored.displays.Single(d=>d.heroineId=="heroine.iconoclast").portraitCrop01!=null,"Mapped expressions and portrait crop survive JSON roundtrip");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.iconoclast.expression.joy.v1").overlaySourceRegion01.x=.99f,"INVALID_RANGE","Mapped expression source outside canvas rejected");
+        invalid(c=>c.assets.Single(a=>a.id=="art.candidate.iconoclast.expression.joy.v1").regionalOverlay=false,"INVALID_RANGE","Mapped expression needs regional overlay");
+        invalid(c=>c.displays.Single(d=>d.heroineId=="heroine.iconoclast").portraitCrop01.width=-1,"INVALID_RANGE","Negative portrait crop rejected");
         invalid(c=>c.schemaVersion=2,"UNKNOWN_SCHEMA","Future home pack rejected");
         invalid(c=>c.subjects[1].pageOrder=0,"DUPLICATE_ID","Duplicate page order diagnosed");
         invalid(c=>c.subjects[0].subjectId="missing","MISSING_REFERENCE","Unknown book subject diagnosed");

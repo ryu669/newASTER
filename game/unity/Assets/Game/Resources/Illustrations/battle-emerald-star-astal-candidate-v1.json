@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "placeholder": false,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    }
+  ],
+  "parts": [
+    {
+      "partId": "astal.ring",
+      "resourcePath": "Illustrations/astal-ring-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.45,
+        "y": 0.165,
+        "scale": 0.28
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 2,
+      "x": 0.48,
+      "y": 0.185,
+      "width": 0.23,
+      "height": 0.25
+    },
+    {
+      "partId": "astal.claw",
+      "resourcePath": "Illustrations/astal-claw-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.644,
+        "y": 0.67,
+        "scale": 0.17
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 3,
+      "x": 0.67,
+      "y": 0.7,
+      "width": 0.14,
+      "height": 0.14
+    },
+    {
+      "partId": "astal.shield",
+      "resourcePath": "Illustrations/astal-shield-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.68,
+        "y": 0.37,
+        "scale": 0.21
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2,
+      "x": 0.72,
+      "y": 0.4,
+      "width": 0.15,
+      "height": 0.19
+    },
+    {
+      "partId": "astal.tail",
+      "resourcePath": "Illustrations/astal-tail-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.115,
+        "y": 0.26,
+        "scale": 0.3
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 1,
+      "x": 0.14,
+      "y": 0.29,
+      "width": 0.25,
+      "height": 0.25
+    }
+  ],
+  "backgroundResourcePath": "Illustrations/star-prairie-far-candidate-v1",
+  "middleResourcePath": "Illustrations/world-stars-mid-candidate-v1",
+  "foregroundResourcePath": "Illustrations/world-stars-front-candidate-v1",
+  "bodyResourcePath": "Illustrations/astal-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/astal-major-candidate-v1",
+  "bodyPlacement": {
+    "enabled": true,
+    "x": 0.18,
+    "y": 0.14,
+    "scale": 0.7
+  }
+}

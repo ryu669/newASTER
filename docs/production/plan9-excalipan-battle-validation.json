@@ -1,0 +1,88 @@
+{
+  "assemblySha256": "E288A33EC908BD14E70C6B2DDB60DB773B5516B3BC7F679DFC7D0771218D2704",
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "case": "excalipan-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-growth-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-growth-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "case": "excalipan-standing",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-standing-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-standing-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "case": "excalipan-attack",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-attack-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-attack-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "case": "excalipan-hit",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-hit-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-hit-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "case": "excalipan-cutin",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-cutin-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-cutin-720.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "case": "excalipan-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-growth-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-growth-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "case": "excalipan-standing",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-standing-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-standing-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "case": "excalipan-attack",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-attack-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-attack-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "case": "excalipan-hit",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-hit-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-hit-1080.log"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "case": "excalipan-cutin",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-cutin-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-d9ae77e775c14469b4728b771fdfe724\\excalipan-cutin-1080.log"
+    }
+  ]
+}

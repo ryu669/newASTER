@@ -1,0 +1,13 @@
+{
+  "prompt": "Create complete MAJOR ATTACK sprite of same referenced final flame ice phoenix using all five references. EXACT SQUARE1254x1254 transparent. Entire crowned bird both feet both full wings tail and aura contained inside15percent blank margins, zoom out. Complete phoenix lunges upward facing right, wearing small ICE FLAME CROWN seated on head, enormous FIRE WING spreads LEFT, ICE SHIELD WING spreads RIGHT, flowing alternating red/blue TAIL FAN behind. All four parts present. Red fire and cyan frost trails circle bird in restrained contained aura, bright contrast. Anatomically two legs two wings one head, no duplicated limbs. Same white silver crystalline body and crimson orange feathers, premium JRPG painterly art. No floor scenery text UI.",
+  "references": [
+    "phoenix-body-candidate-v1.png",
+    "phoenix-crown-candidate-v1.png",
+    "phoenix-flame-candidate-v1.png",
+    "phoenix-ice-candidate-v1.png",
+    "phoenix-tail-candidate-v1.png"
+  ],
+  "generatedOutput": "exec-fdd711b3-2f7d-45e0-8763-faf56fef3c08.png",
+  "status": "rejected-edge-clipping",
+  "transparentBackground": true
+}

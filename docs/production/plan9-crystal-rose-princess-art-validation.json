@@ -1,0 +1,120 @@
+{
+  "performanceMeasured": false,
+  "assemblySha256": "A69204045AC5BDE9A3F50FD951846A45A4F4528EB050068017025E81E2AABCB3",
+  "cases": [
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-normal-720.log",
+      "case": "rose-art-normal",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-normal-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part1-720.log",
+      "case": "rose-art-part1",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part1-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part2-720.log",
+      "case": "rose-art-part2",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part2-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part3-720.log",
+      "case": "rose-art-part3",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part3-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part4-720.log",
+      "case": "rose-art-part4",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part4-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-all-720.log",
+      "case": "rose-art-all",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-all-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-major-720.log",
+      "case": "rose-art-major",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-major-720.png",
+      "humanInput": false,
+      "height": 720
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-normal-1080.log",
+      "case": "rose-art-normal",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-normal-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part1-1080.log",
+      "case": "rose-art-part1",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part1-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part2-1080.log",
+      "case": "rose-art-part2",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part2-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part3-1080.log",
+      "case": "rose-art-part3",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part3-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part4-1080.log",
+      "case": "rose-art-part4",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-part4-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-all-1080.log",
+      "case": "rose-art-all",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-all-1080.png",
+      "humanInput": false,
+      "height": 1080
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-major-1080.log",
+      "case": "rose-art-major",
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-827839ff4d4540c3bf6944c102d74b1b\\rose-art-major-1080.png",
+      "humanInput": false,
+      "height": 1080
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1
+}

@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-1-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-1-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-1"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-44-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-44-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-44"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-45-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-45-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-45"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-49-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-49-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-49"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-50-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-50-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-50"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part1-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part1-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part1"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part2-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part2-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part2"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part3-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part3-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part3"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part4-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part4-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part4"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-1-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-1-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-1"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-44-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-44-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-44"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-45-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-45-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-45"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-49-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-49-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-49"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-50-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-50-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-50"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part1-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part1-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part1"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part2-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part2-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part2"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part3-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part3-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part3"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part4-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-battle-part4-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-battle-part4"
+    }
+  ],
+  "performanceMeasured": false,
+  "assemblySha256": "DF9E9EB2187D94158AEB8F532D93E7355888EC6981F620CBF7DD374A8362A7FA",
+  "normalSaveUnchanged": true
+}

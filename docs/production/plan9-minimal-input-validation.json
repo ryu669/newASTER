@@ -1,0 +1,66 @@
+{
+  "actions": [
+    {
+      "result": "modal opens, body paused and background controls disabled",
+      "action": "click 操作説明",
+      "index": 1
+    },
+    {
+      "result": "modal closes, 手動で再開 shown",
+      "action": "click 閉じる",
+      "index": 2
+    },
+    {
+      "result": "次の行へ shown",
+      "action": "click 手動で再開",
+      "index": 3
+    },
+    {
+      "result": "next authored line 貯蔵庫の水位は昨日より高く shown",
+      "action": "click 次の行へ",
+      "index": 4
+    },
+    {
+      "result": "book chapter progress and replay return shown",
+      "action": "click 中断して本へ",
+      "index": 5
+    }
+  ],
+  "performanceMeasured": false,
+  "windowId": 25233456,
+  "physicalInputCount": 5,
+  "listeningSeconds": 0,
+  "schemaVersion": 1,
+  "assemblySha256": "941ed9a3fdd96369d82f66c0792da13ecf02d008c89684b7b1111ccd75c62fd3",
+  "scope": "prepared-isolated-chapter-replay-not-earned-full-journey",
+  "normalSaveUnchanged": true,
+  "date": "2026-10-05",
+  "humanPlaytest": false,
+  "tool": "computer-use @oai/sky",
+  "observedByAgent": true,
+  "log": "tmp/plan9-manual.log",
+  "saveFingerprint": [
+    {
+      "sha256": "23BF2BED5389F51643DD50899371FB5AFEB3164E4B33B56899B92DF04EA2C575",
+      "name": "campaign-v2.json"
+    },
+    {
+      "sha256": "23BF2BED5389F51643DD50899371FB5AFEB3164E4B33B56899B92DF04EA2C575",
+      "name": "campaign-v2.json.bak"
+    },
+    {
+      "sha256": "B0050851E4EA8CB85794A32F54FF30506354A9E6AC39ADD7C3886093CE319A7B",
+      "name": "formal-campaign-v1.json"
+    },
+    {
+      "sha256": "141AF9DED31B3234BC0B782CC8ADC7CF225B686868E40C443197D7CAFD7932F3",
+      "name": "formal-campaign-v1.json.bak"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "formal-campaign-v1.json.write.lock"
+    }
+  ],
+  "observedAdvSourceSha256": "b6fb18858f9692d9b6e195d31f10610abb0b429d6e897e6336bbf6dd22b2a9c5",
+  "buildRelationNote": "Five input actions were performed before a result-screen copy correction; AdvExperience.cs is unchanged. No repeat input beyond five."
+}

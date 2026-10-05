@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "standing",
+      "width": 1024,
+      "height": 1536,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-standing-candidate-v1.png",
+      "visibleAlphaBounds": [
+        40,
+        25,
+        995,
+        1464
+      ],
+      "sha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "transparentPixels": 785842,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "attack",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-attack-candidate-v1.png",
+      "visibleAlphaBounds": [
+        95,
+        106,
+        1210,
+        1166
+      ],
+      "sha256": "827da44ab34a2262e960a4d4736ef7b42a5135ff63709db04c9c8607c548bb00",
+      "transparentPixels": 941055,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "portrait",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-portrait-candidate-v1.png",
+      "visibleAlphaBounds": [
+        19,
+        31,
+        1536,
+        1024
+      ],
+      "sha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "transparentPixels": 499588,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "hit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-hit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        71,
+        82,
+        1203,
+        1193
+      ],
+      "sha256": "a139ac3234a0f5e9bf98967a42ad03230668e8d6e76fda9ce050b118fc0130a4",
+      "transparentPixels": 836572,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "cutin",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-cutin-candidate-v1.png",
+      "visibleAlphaBounds": [
+        0,
+        15,
+        1496,
+        1024
+      ],
+      "sha256": "c0c913e10af0b3e2b5878367e9e675310b941e1b621819a9e4c3d259e7b5197c",
+      "transparentPixels": 331717,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "sd-idle",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-idle-candidate-v1.png",
+      "visibleAlphaBounds": [
+        69,
+        31,
+        1193,
+        1228
+      ],
+      "sha256": "1bd5dbe2fb368b482f8db68fef4996107f16c995425492c9345ee74a45035f2f",
+      "transparentPixels": 683857,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "sd-sit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-sit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        169,
+        11,
+        1068,
+        1227
+      ],
+      "sha256": "0e19fb95911f793ad8f8cf258c00d3cfbca0c7e054f4e5f15de824d7dfea383c",
+      "transparentPixels": 924056,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "sd-work",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-work-candidate-v1.png",
+      "visibleAlphaBounds": [
+        147,
+        7,
+        1117,
+        1237
+      ],
+      "sha256": "626b6c47d8b10aaf3b95805ef4bbea2a6031695b387ae3e0beb8505c465e8762",
+      "transparentPixels": 867788,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "pose": "sd-look",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-look-candidate-v1.png",
+      "visibleAlphaBounds": [
+        244,
+        26,
+        1089,
+        1225
+      ],
+      "sha256": "e778049021642ec0a8d5fa8b78887128a05d807cf3650976c86cf33740af58f6",
+      "transparentPixels": 955713,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

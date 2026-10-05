@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Original isolated detachable CHERRY BLOSSOM CHEST ARMOR component matching reference ivory slate ancient stone giant. Transparent SQUARE1:1 canvas. Broad compact stone breastplate with five sculpted pale pink cherry blossom petals surrounding warm amber central jewel, weathered ivory stone slate edging, gold leaf veins moss at joints. Threequarter view faces right, slightly curved chest shape, flat hidden rear mounting socket. No body head arm crown wheel. Entire armor inside15percent transparent margins65percent width55percent height. Premium painterly Japanese fantasy guardian statue crisp alpha no scenery floor shadow text particles.",
+  "editPrompt": "Edit supplied chest armor image. REMOVE all shoulders, shoulder sockets, torso, abdomen, belt, neck opening and surrounding body. Keep ONLY central five-petal cherry blossom shield plate and its amber circular jewel, with a narrow weathered ivory stone rim and small moss flecks. Detached compact flower-shaped chest medallion only, no body silhouette. Center medallion on transparent SQUARE canvas, occupy60percent width60percent height with clear transparent border. Preserve materials petal colors and jewel, crisp alpha.",
+  "rejectedOutput": "exec-58e35f57-ce53-47b0-8a39-ec4dc1d8016b.png",
+  "selectedOutput": "exec-6c1288fd-d81c-4667-844c-b69cd3acc6d9.png",
+  "finalDeliveryApproved": false
+}

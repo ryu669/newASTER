@@ -1,0 +1,6 @@
+{
+  "prompt": "Use reference as exact creature identity. Produce complete MAJOR ATTACK sprite of Emerald Star Astal premium fantasy RPG. Transparent SQUARE1:1 canvas. Same emerald silver gold long-eared celestial fox feline, now COMPLETE FOUR PAWS all attached, emerald comet talons on near front foot, kite star shield attached chest, beautiful curved satellite star tail connected rump extending left, upright eightpoint emerald star halo mounted behind head on shoulder pad. Proud stance faces right, restrained teal starlight orbit arc around whole body, no wings, no scenery ground text or shadow. Whole ears paws tail halo and glow fit inside generous15percent transparent margin occupying70percent height and width. Detailed crisp alpha.",
+  "rejectedOutput": "exec-56cf8d5e-8aee-494c-9059-867189aea3fc.png",
+  "reason": "Right outline and glow approach canvas edge; requires imagegen reframing.",
+  "transparent_background": true
+}

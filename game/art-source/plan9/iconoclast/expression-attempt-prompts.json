@@ -1,0 +1,7 @@
+{
+  "tool": "built-in imagegen",
+  "date": "2026-10-04",
+  "expression": "Use case: identity-preserve. Edit target: Iconoclast standing full-body illustration. Change ONLY her facial expression to a soft delighted smile: closed smiling mouth, gently lifted cheeks, warm happy amber eyes, slight blush. Preserve pixel alignment and canvas 1024x1536, exact face location and head outline. Everything outside internal face MUST stay unchanged: hair and wisps, pose, body, jacket, plaid shorts, boots, sword, wings, colors, lighting, alpha silhouette. No new hair, no new pose or background. This is a face-only expression variant for compositing onto the same standing base. Genuine alpha background.",
+  "status": "rejected-outside-face-changed",
+  "imageNotBundled": true
+}

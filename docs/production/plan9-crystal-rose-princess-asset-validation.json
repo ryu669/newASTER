@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.crystal-rose-princess",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "d72df629422d802822bad0fcb1e5e5ac2c644df141a4aaec33288f25f06ecc1e",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        136,
+        24,
+        1119,
+        1231
+      ],
+      "sha256": "7e08cebfe755d337634f0750701e82670af6bee1f93a8953100034b6ccc9ab89",
+      "status": "candidate"
+    },
+    {
+      "purpose": "rose.crown",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-crown-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        13,
+        287,
+        1242,
+        1004
+      ],
+      "sha256": "92e03367d16cde8438b08583e09d0f8d8d94f17c6824e18cf60a1cd0237d630a",
+      "status": "candidate"
+    },
+    {
+      "purpose": "rose.whip",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-whip-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        99,
+        119,
+        1174,
+        1098
+      ],
+      "sha256": "5951ce5145f3bf5aa7614d372d6bf5d4b4460b41b30ab427e898587554e2a2d6",
+      "status": "candidate"
+    },
+    {
+      "purpose": "rose.shield",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-shield-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        171,
+        41,
+        1083,
+        1216
+      ],
+      "sha256": "cd77f3ba59e6181e3b4d0111b1e398e8c6e73ecac85a1890595847262a0f4d5e",
+      "status": "candidate"
+    },
+    {
+      "purpose": "rose.root",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-root-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        294,
+        109,
+        1019,
+        1146
+      ],
+      "sha256": "f557cc598fc25ad10465a9c1319b1eea5dd6198f8a78ef53ca3b5dee73f16c40",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/rose-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        198,
+        44,
+        1181,
+        1162
+      ],
+      "sha256": "10405bc8e8f40af1ea724d538e4f39e9e9b2a3bcd3046606281c3b040f15e4bd",
+      "status": "candidate"
+    }
+  ]
+}

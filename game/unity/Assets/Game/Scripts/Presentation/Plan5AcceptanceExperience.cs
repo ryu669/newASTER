@@ -82,7 +82,7 @@ namespace NewAster.Presentation
             do {PlayedAcceptanceEnding(BattleEndReason.Victory,8+fights,8);fights++;}
             while(fights<128 && (formalCampaign.Snapshot.world.unlockedStoryIds.Length<18 || formalCampaign.Snapshot.collection.relics.Length==0));
             AcceptanceCheck(fights<128 && formalCampaign.Snapshot.world.unlockedStoryIds.Length==18,"all 8/6-poem chapters acquired through played singing");
-            AcceptanceCheck(campaign.Gardens.UnlockedGardenIds.Contains("garden.grassland-forest") && campaign.ColossusUnlocks.IsUnlocked(WorldCatalog.ColossusIds[1]) && !ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]),"first-clear garden and next page without unmade summon");
+            AcceptanceCheck(campaign.Gardens.UnlockedGardenIds.Contains("garden.grassland-forest") && campaign.ColossusUnlocks.IsUnlocked(WorldCatalog.ColossusIds[1]) && ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]),"first-clear garden and authored next encounter");
             AcceptanceCheck(formalCampaign.Snapshot.world.firstClearIds.Length==1 && formalCampaign.Snapshot.world.environmentTags.Length==2 && (!legacy || formalCampaign.Snapshot.world.poemIds.Contains("legacy.plan4.poem")),"repeat farming preserves first-clear and old poems");
             PlayedAcceptanceEnding(BattleEndReason.Defeat,71,1);PlayedAcceptanceEnding(BattleEndReason.Retreat,73,1);
             var relic=formalCampaign.Snapshot.collection.relics.Single();collectionOpen=true;collectionTab=1;result=null;encounter=null;

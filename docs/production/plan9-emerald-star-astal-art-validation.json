@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "088A1083EE1FDBAE91FC6B4648442688618F473D6EC0D233EBA7E1A89396648D",
+  "cases": [
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-normal-720.log",
+      "height": 720,
+      "case": "astal-art-normal",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-normal-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part1-720.log",
+      "height": 720,
+      "case": "astal-art-part1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part1-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part2-720.log",
+      "height": 720,
+      "case": "astal-art-part2",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part2-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part3-720.log",
+      "height": 720,
+      "case": "astal-art-part3",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part3-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part4-720.log",
+      "height": 720,
+      "case": "astal-art-part4",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part4-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-all-720.log",
+      "height": 720,
+      "case": "astal-art-all",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-all-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-major-720.log",
+      "height": 720,
+      "case": "astal-art-major",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-major-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-normal-1080.log",
+      "height": 1080,
+      "case": "astal-art-normal",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-normal-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part1-1080.log",
+      "height": 1080,
+      "case": "astal-art-part1",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part1-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part2-1080.log",
+      "height": 1080,
+      "case": "astal-art-part2",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part2-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part3-1080.log",
+      "height": 1080,
+      "case": "astal-art-part3",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part3-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part4-1080.log",
+      "height": 1080,
+      "case": "astal-art-part4",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-part4-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-all-1080.log",
+      "height": 1080,
+      "case": "astal-art-all",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-all-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-major-1080.log",
+      "height": 1080,
+      "case": "astal-art-major",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-f955865ad45d4496953df342c0ee89ef\\astal-art-major-1080.png",
+      "state": "rendered-not-visually-approved"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "performanceMeasured": false,
+  "assemblySha256": "78E4C5EA5EEE0A07C0D69FC31274670A482B5E3A970FDFF3CD37D5EFFAEA9182",
+  "schemaVersion": 1,
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "iconoclast-hit",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-hit-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-hit-720.log"
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "iconoclast-cutin",
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-cutin-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-cutin-720.log"
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "iconoclast-hit",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-hit-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-hit-1080.log"
+    },
+    {
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "iconoclast-cutin",
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-cutin-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3518071e67ab43a88c608de9efbf3bc4\\iconoclast-cutin-1080.log"
+    }
+  ]
+}

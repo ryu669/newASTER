@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.emerald-star-astal",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "9b05b9f37acac4d6965f94699b292f968ddc9abf21f1a8c408442b29ab262737",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        67,
+        17,
+        1221,
+        1159
+      ],
+      "sha256": "acde08e466c878adbf570b4316c196d5947c017a9434cb56da7ff873112c63ff",
+      "status": "candidate"
+    },
+    {
+      "purpose": "astal.ring",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-ring-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        111,
+        61,
+        1144,
+        1121
+      ],
+      "sha256": "1d72579fb7e29a18583b3f13bf13921a6bf30cab846f137299924476f114ddd2",
+      "status": "candidate"
+    },
+    {
+      "purpose": "astal.claw",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-claw-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        231,
+        197,
+        1031,
+        1074
+      ],
+      "sha256": "b576582903525fd857eabc96f5118a1daf83c6f32fe485ab6df9ad7701527607",
+      "status": "candidate"
+    },
+    {
+      "purpose": "astal.shield",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-shield-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        276,
+        76,
+        1030,
+        1162
+      ],
+      "sha256": "3a17ddcc926a8086e5e5d914a0d6275f4c8b9d9aa5b44c76e6262792681e8c7f",
+      "status": "candidate"
+    },
+    {
+      "purpose": "astal.tail",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-tail-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        220,
+        124,
+        1068,
+        1060
+      ],
+      "sha256": "175d24bf42fee6ba32f67e1bbc621d415ffb10fdb5c55dd0cfd45ccc2e0981a3",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/astal-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        164,
+        171,
+        1127,
+        1113
+      ],
+      "sha256": "e2d521224ffb301c06cc0e7db75fd75f3c93961dd17db6cebbc27991c9da2027",
+      "status": "candidate"
+    }
+  ]
+}

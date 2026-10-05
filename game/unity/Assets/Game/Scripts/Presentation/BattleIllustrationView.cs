@@ -11,6 +11,8 @@ namespace NewAster.Presentation
         private BattleIllustrationManifest manifest;
         private Texture2D[] portraits;
         private string warning;
+        public bool Ready=>manifest!=null && body!=null;
+        public int PartCount=>manifest?.parts.Length??0;
         private Texture2D background,body,middle,foreground,enemyMajor;
         private readonly string[] args=Environment.GetCommandLineArgs();
         private string Inspection { get {int i=Array.IndexOf(args,"-inspectPlan7Battle");return i>=0 && i+1<args.Length?args[i+1]:null;} }
@@ -54,13 +56,17 @@ namespace NewAster.Presentation
             if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);
         }
         public static Rect PartCanvas(Rect canvas,PartIllustrationBinding part)
-        {var p=part.placement;return p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);}
+        =>LayerCanvas(canvas,part.placement);
+        public static Rect LayerCanvas(Rect canvas,IllustrationLayerPlacement p)
+        =>p==null || !p.enabled?canvas:new Rect(canvas.x+p.x*canvas.width,canvas.y+p.y*canvas.height,canvas.width*p.scale,canvas.height*p.scale);
         public static int DisplayActor(int available,BattlePresentationEvent e) => e!=null?e.Actor:available;
+        public static int DisplayVictim(string[] heroineIds,BattlePresentationEvent e)
+        {return e!=null && e.Kind==BattlePresentationKind.Enemy?Array.FindIndex(heroineIds,id=>e.TargetIds.Contains(id)):-1;}
         public void DrawEnemyPreview(Rect canvas,int brokenMask)
         {
             if(manifest==null || body==null)return;
             foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal))DrawPreviewPart(part,canvas,brokenMask);
-            GUI.DrawTexture(canvas,body,ScaleMode.ScaleToFit,true);
+            GUI.DrawTexture(LayerCanvas(canvas,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
             foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal))DrawPreviewPart(part,canvas,brokenMask);
         }
         public void DrawEnemyMajorPreview(Rect canvas){if(enemyMajor!=null)GUI.DrawTexture(canvas,enemyMajor,ScaleMode.ScaleToFit,true);}
@@ -78,9 +84,15 @@ namespace NewAster.Presentation
             int actor=DisplayActor(battle.AvailableHero,e);
             // Asset inspection only: never changes the engine's available actor or command target.
             bool inspectStanding=args.Contains("-inspectPlan7Standing") || Inspection!=null;
-            if(inspectStanding) actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
-            bool victim=e!=null && e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Contains("heroine.slayer");
-            if(victim && !inspectStanding)actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id=="heroine.slayer");
+            if(inspectStanding){
+                int inspectIndex=Array.IndexOf(args,"-inspectPlan9Hero");
+                string inspectId=inspectIndex>=0 && inspectIndex+1<args.Length?args[inspectIndex+1]:"heroine.slayer";
+                actor=battle.State.Heroes.ToList().FindIndex(h=>h.Id==inspectId);
+                if(actor<0)throw new ArgumentException("Unknown illustration inspection heroine: "+inspectId);
+            }
+            int victimIndex=DisplayVictim(battle.State.Heroes.Select(h=>h.Id).ToArray(),e);
+            if(victimIndex>=0 && !inspectStanding)actor=victimIndex;
+            bool victim=victimIndex>=0 && !inspectStanding;
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=!ArtSampleSettings.ReducedMotion && e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
             var actorRect=new Rect(890+movement,104,650,550);
@@ -104,7 +116,7 @@ namespace NewAster.Presentation
                 GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
             } else if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.Major && e.PartHp.All(hp=>hp>0) && enemyMajor!=null){GUI.DrawTexture(enemy,enemyMajor,ScaleMode.ScaleToFit,true);} else {
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
-                GUI.DrawTexture(enemy,body,ScaleMode.ScaleToFit,true);
+                GUI.DrawTexture(LayerCanvas(enemy,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
             if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.StretchToFill,true);

@@ -1,0 +1,152 @@
+{
+  "assemblySha256": "3148EBD850612E4617BD65B52BD654C59C04341AB51B0860B9891C1B0FAEE2F2",
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-1-720.png",
+      "humanInput": false,
+      "case": "memory-battle-1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-1-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-44-720.png",
+      "humanInput": false,
+      "case": "memory-battle-44",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-44-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-45-720.png",
+      "humanInput": false,
+      "case": "memory-battle-45",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-45-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-49-720.png",
+      "humanInput": false,
+      "case": "memory-battle-49",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-49-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-50-720.png",
+      "humanInput": false,
+      "case": "memory-battle-50",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-50-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part1-720.png",
+      "humanInput": false,
+      "case": "memory-battle-part1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part1-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part2-720.png",
+      "humanInput": false,
+      "case": "memory-battle-part2",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part2-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part3-720.png",
+      "humanInput": false,
+      "case": "memory-battle-part3",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part3-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part4-720.png",
+      "humanInput": false,
+      "case": "memory-battle-part4",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part4-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-1-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-1-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-44-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-44",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-44-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-45-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-45",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-45-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-49-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-49",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-49-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-50-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-50",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-50-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part1-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-part1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part1-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part2-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-part2",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part2-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part3-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-part3",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part3-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part4-1080.png",
+      "humanInput": false,
+      "case": "memory-battle-part4",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-battle-part4-1080.log",
+      "height": 1080
+    }
+  ]
+}

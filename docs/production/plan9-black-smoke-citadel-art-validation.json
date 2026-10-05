@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-normal-720.png",
+      "humanInput": false,
+      "case": "citadel-art-normal",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-normal-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part1-720.png",
+      "humanInput": false,
+      "case": "citadel-art-part1",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part2-720.png",
+      "humanInput": false,
+      "case": "citadel-art-part2",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part2-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part3-720.png",
+      "humanInput": false,
+      "case": "citadel-art-part3",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part3-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part4-720.png",
+      "humanInput": false,
+      "case": "citadel-art-part4",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part4-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-all-720.png",
+      "humanInput": false,
+      "case": "citadel-art-all",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-all-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-major-720.png",
+      "humanInput": false,
+      "case": "citadel-art-major",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-major-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-normal-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-normal",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-normal-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part1-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-part1",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part2-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-part2",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part2-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part3-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-part3",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part3-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part4-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-part4",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-part4-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-all-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-all",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-all-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-major-1080.png",
+      "humanInput": false,
+      "case": "citadel-art-major",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-ce142c5568fd45459ea60a1da571d7cd\\citadel-art-major-1080.log"
+    }
+  ],
+  "assemblySha256": "BCD83F8D965CEEFEBEF59E4A624E818E2C220DBE597A760471AA2FC52A025522",
+  "normalSaveUnchanged": true
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-normal-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-normal-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-normal"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part1-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part1-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part1"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part2-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part2-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part2"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part3-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part3-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part3"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part4-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part4-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part4"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-all-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-all-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-all"
+    },
+    {
+      "height": 720,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-major-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-major-720.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-major"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-normal-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-normal-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-normal"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part1-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part1-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part1"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part2-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part2-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part2"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part3-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part3-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part3"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part4-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-part4-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-part4"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-all-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-all-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-all"
+    },
+    {
+      "height": 1080,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-major-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-8156d90b13644393b8d64a204475394b\\megadeath-art-major-1080.log",
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "case": "megadeath-art-major"
+    }
+  ],
+  "performanceMeasured": false,
+  "assemblySha256": "DF9E9EB2187D94158AEB8F532D93E7355888EC6981F620CBF7DD374A8362A7FA",
+  "normalSaveUnchanged": true
+}

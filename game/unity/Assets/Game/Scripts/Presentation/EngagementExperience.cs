@@ -17,6 +17,7 @@ namespace NewAster.Presentation
         private string engagementError;
         private void InitializeEngagement()
         {
+            if(ProductionStoryActive){engagementRules=NewAster.Data.ProductionEconomyCatalog.Engagement();engagementRules.Validate();return;}
             var source=Resources.Load<TextAsset>("Economy/engagement-trial");if(source==null)throw new ArgumentException("Engagement rules missing.");
             engagementRules=JsonUtility.FromJson<FormalEngagementRules>(source.text);engagementRules.Validate();
         }
@@ -82,7 +83,7 @@ namespace NewAster.Presentation
             Label(230,340,1140,55,$"所持石  {state.growth.stones}    ／    保存済みプレイ時間  {ledger.activeSeconds/60}分",growthTextStyle);
             if(GrowthButton(230,423,1140,70,login?$"今日のログイン ／ {engagementRules.loginStones}石を確認":"今日のログインは受取済み",login,true))ConfirmEngagement(true);
             if(GrowthButton(230,525,1140,70,available>0?$"プレイ時間 ／ {available*engagementRules.periodStones}石を確認":$"次の時間報酬まで {Math.Ceiling((engagementRules.periodSeconds-ledger.activeSeconds%engagementRules.periodSeconds)/60d)}分",available>0))ConfirmEngagement(false);
-            Label(230,615,1140,75,engagementError??"検証用：日本時間0時に日替わり、30分ごとに100石。\n裏で起動中・停止中・60秒超の未操作は計測しません。端末時計を使います。",growthSmallStyle);
+            Label(230,615,1140,75,engagementError??"日本時間0時に日替わり300石、アクティブ30分ごとに100石。\n裏で起動中・停止中・60秒超の未操作は計測しません。端末時計を使います。",growthSmallStyle);
             if(GrowthButton(230,727,1140,52,"戻る"))EngagementBack();
         }
         private void PrepareEngagementCapture(string[] args)

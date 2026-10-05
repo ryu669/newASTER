@@ -1,0 +1,24 @@
+{
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6628a63e905f4dba9be846011cded904\\book-720.log",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6628a63e905f4dba9be846011cded904\\book-720.png",
+      "case": "book",
+      "humanInput": false
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6628a63e905f4dba9be846011cded904\\book-1080.log",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-6628a63e905f4dba9be846011cded904\\book-1080.png",
+      "case": "book",
+      "humanInput": false
+    }
+  ],
+  "schemaVersion": 1,
+  "assemblySha256": "2865DCC08DB397F5A953F0A7B87A2908217D953AC946530845A4EC6A6D921B1E"
+}

@@ -23,6 +23,12 @@ public static class AutomaticChainTests
         FormalProgressionTests.Battle(Check,formal());
         BattleEndTests.Run(Check,formal());
         Plan5WorldRelicTests.Run(Check,formal());
+        Plan9ColossusTests.Run(Check,formal());
+        Plan9ColossusEndTests.Run(Check,formal());
+        HeroineRosterTests.Run(Check);
+        Plan9EconomySupplyTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
+        Plan9StoryTests.Run(Check,File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")),formal());
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN9_BALANCE")=="1")Plan9BalanceTests.Run(Check,formal());
         Plan6HomeTests.Run(Check,formal());
         Plan6BookTests.Run(Check);
         Plan6ExperienceTests.Run(Check,formal());

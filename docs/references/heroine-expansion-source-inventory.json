@@ -1,0 +1,1671 @@
+{
+  "policy": "observed values retain source/time/context; missing values authored as newaster-original",
+  "usage": "reference-only; no source media in distribution",
+  "sources": [
+    {
+      "path": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘",
+      "coverage": "partial-more-to-follow",
+      "count": 21,
+      "id": "angelica-battle",
+      "files": [
+        {
+          "bytes": 581062349,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "001戦闘_R.mkv",
+          "modifiedUtc": "2026-10-02T10:55:08.2711685Z"
+        },
+        {
+          "bytes": 213248883,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "002戦闘_アイアンメイデン.mkv",
+          "modifiedUtc": "2026-10-04T14:55:27.2175356Z"
+        },
+        {
+          "bytes": 463264577,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "003戦闘_アイオーン.mkv",
+          "modifiedUtc": "2026-10-02T11:09:34.5340123Z"
+        },
+        {
+          "bytes": 432543789,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "004戦闘_アイオーン1周年.mkv",
+          "modifiedUtc": "2026-10-04T14:59:43.2633044Z"
+        },
+        {
+          "bytes": 627409057,
+          "observationStatus": "initial-five-evidence-extracted",
+          "relativePath": "005戦闘_アイコノクラスト.mkv",
+          "modifiedUtc": "2026-09-30T13:39:17.2346475Z",
+          "heroineId": "heroine.iconoclast",
+          "evidence": "game/unity/Assets/Game/Resources/Combat/heroine-reference.json"
+        },
+        {
+          "bytes": 193971358,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "006戦闘_アヴァランチ.mkv",
+          "modifiedUtc": "2026-10-04T15:02:17.4788724Z"
+        },
+        {
+          "bytes": 513515405,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "007戦闘_あざらし.mkv",
+          "modifiedUtc": "2026-10-04T15:06:51.145721Z"
+        },
+        {
+          "bytes": 641484668,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "008戦闘_あざらし魔王.mkv",
+          "modifiedUtc": "2026-10-04T15:11:46.4413742Z"
+        },
+        {
+          "bytes": 480402401,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "009戦闘_アナイアレイター.mkv",
+          "modifiedUtc": "2026-10-04T15:16:08.546833Z"
+        },
+        {
+          "bytes": 374431575,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "010戦闘_アナイアレイター(聖夜).mkv",
+          "modifiedUtc": "2026-10-04T15:19:37.6297399Z"
+        },
+        {
+          "bytes": 563467702,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "013戦闘_アルケイン学園.mkv",
+          "modifiedUtc": "2026-10-02T10:59:58.0589867Z"
+        },
+        {
+          "bytes": 756426766,
+          "observationStatus": "initial-five-evidence-extracted",
+          "relativePath": "015戦闘_アンダーマイン.mkv",
+          "modifiedUtc": "2026-09-30T13:26:36.6446602Z",
+          "heroineId": "heroine.undermine",
+          "evidence": "game/unity/Assets/Game/Resources/Combat/heroine-reference.json"
+        },
+        {
+          "bytes": 293806743,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "016戦闘_インヴィジブル.mkv",
+          "modifiedUtc": "2026-10-02T10:49:28.938817Z"
+        },
+        {
+          "bytes": 527564002,
+          "observationStatus": "initial-five-evidence-extracted",
+          "relativePath": "023戦闘_エキドナ.mkv",
+          "modifiedUtc": "2026-09-30T14:16:28.5443869Z",
+          "heroineId": "heroine.echidna",
+          "evidence": "game/unity/Assets/Game/Resources/Combat/heroine-reference.json"
+        },
+        {
+          "bytes": 418169276,
+          "observationStatus": "initial-five-evidence-extracted",
+          "relativePath": "024戦闘_エクスカリパン.mkv",
+          "modifiedUtc": "2026-09-30T13:44:53.5431667Z",
+          "heroineId": "heroine.excalipan",
+          "evidence": "game/unity/Assets/Game/Resources/Combat/heroine-reference.json"
+        },
+        {
+          "bytes": 525345066,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "032戦闘_オリフラム.mkv",
+          "modifiedUtc": "2026-10-02T11:17:16.4061368Z"
+        },
+        {
+          "bytes": 1750985267,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "044戦闘_ザクロ花嫁.mkv",
+          "modifiedUtc": "2026-09-30T14:08:09.7433481Z"
+        },
+        {
+          "bytes": 350103992,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "048戦闘_シェル.mkv",
+          "modifiedUtc": "2026-10-02T11:25:19.7045569Z"
+        },
+        {
+          "bytes": 398911836,
+          "observationStatus": "initial-five-evidence-extracted",
+          "relativePath": "055戦闘_スレイヤー.mkv",
+          "modifiedUtc": "2026-09-30T11:10:08.3448665Z",
+          "heroineId": "heroine.slayer",
+          "evidence": "game/unity/Assets/Game/Resources/Combat/heroine-reference.json"
+        },
+        {
+          "bytes": 641247983,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "056戦闘_スレイヤー水着.mkv",
+          "modifiedUtc": "2026-09-30T11:17:31.7281779Z"
+        },
+        {
+          "bytes": 721647021,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "066戦闘_ナイトホーク.mkv",
+          "modifiedUtc": "2026-09-30T13:32:13.7112727Z"
+        }
+      ]
+    },
+    {
+      "path": "D:\\M02_gamemovie\\巨神と誓女\\巨神と誓女_誓女データ",
+      "coverage": "sparse-original-fill-required",
+      "count": 252,
+      "id": "kyoshin-maidens",
+      "files": [
+        {
+          "bytes": 20477672,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女001_BB.mp4",
+          "modifiedUtc": "2021-06-20T14:27:31.0301183Z"
+        },
+        {
+          "bytes": 69308204,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女001_BB.wav",
+          "modifiedUtc": "2021-06-20T14:27:30.6865319Z"
+        },
+        {
+          "bytes": 24137668,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女002_Drビクター.mp4",
+          "modifiedUtc": "2021-06-20T14:34:23.0904236Z"
+        },
+        {
+          "bytes": 80947244,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女002_Drビクター.wav",
+          "modifiedUtc": "2021-06-20T14:34:22.7179101Z"
+        },
+        {
+          "bytes": 21427809,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女003_シェラザード.mp4",
+          "modifiedUtc": "2021-06-20T14:41:16.4580622Z"
+        },
+        {
+          "bytes": 72218924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女003_シェラザード.wav",
+          "modifiedUtc": "2021-06-20T14:41:16.0880316Z"
+        },
+        {
+          "bytes": 23661698,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女004_エヴァ.mp4",
+          "modifiedUtc": "2021-06-20T14:46:34.332884Z"
+        },
+        {
+          "bytes": 79411244,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女004_エヴァ.wav",
+          "modifiedUtc": "2021-06-20T14:46:33.9134741Z"
+        },
+        {
+          "bytes": 24350835,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女005_セラフ.mp4",
+          "modifiedUtc": "2021-06-20T14:54:59.423859Z"
+        },
+        {
+          "bytes": 82778924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女005_セラフ.wav",
+          "modifiedUtc": "2021-06-20T14:54:59.0817739Z"
+        },
+        {
+          "bytes": 21346580,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女006_リーナ.mp4",
+          "modifiedUtc": "2021-06-20T15:00:18.4330848Z"
+        },
+        {
+          "bytes": 73132844,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女006_リーナ.wav",
+          "modifiedUtc": "2021-06-20T15:00:18.033156Z"
+        },
+        {
+          "bytes": 23810183,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女007_ヴィーナ.mp4",
+          "modifiedUtc": "2021-06-20T15:06:48.237328Z"
+        },
+        {
+          "bytes": 77072684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女007_ヴィーナ.wav",
+          "modifiedUtc": "2021-06-20T15:06:47.8473704Z"
+        },
+        {
+          "bytes": 25279098,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女008_あんみつ.mp4",
+          "modifiedUtc": "2021-06-20T22:44:02.7607863Z"
+        },
+        {
+          "bytes": 84084524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女008_あんみつ.wav",
+          "modifiedUtc": "2021-06-20T22:44:02.3349236Z"
+        },
+        {
+          "bytes": 25989841,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女009_あーや.mp4",
+          "modifiedUtc": "2021-06-20T22:51:02.8946145Z"
+        },
+        {
+          "bytes": 86761004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女009_あーや.wav",
+          "modifiedUtc": "2021-06-20T22:51:02.4690984Z"
+        },
+        {
+          "bytes": 22031445,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女010_いちごちゃん.mp4",
+          "modifiedUtc": "2021-06-20T23:00:34.9549117Z"
+        },
+        {
+          "bytes": 73701164,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女010_いちごちゃん.wav",
+          "modifiedUtc": "2021-06-20T23:00:34.5669482Z"
+        },
+        {
+          "bytes": 21406337,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女011.mp4",
+          "modifiedUtc": "2021-06-20T23:31:57.4635038Z"
+        },
+        {
+          "bytes": 73620524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女011.wav",
+          "modifiedUtc": "2021-06-20T23:31:57.0630002Z"
+        },
+        {
+          "bytes": 27356519,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女012.mp4",
+          "modifiedUtc": "2021-06-20T23:42:51.646503Z"
+        },
+        {
+          "bytes": 90247724,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女012.wav",
+          "modifiedUtc": "2021-06-20T23:42:51.2021016Z"
+        },
+        {
+          "bytes": 24701361,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女013.mp4",
+          "modifiedUtc": "2021-06-20T23:48:19.7730656Z"
+        },
+        {
+          "bytes": 80855084,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女013.wav",
+          "modifiedUtc": "2021-06-20T23:48:19.3112995Z"
+        },
+        {
+          "bytes": 25912480,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女014.mp4",
+          "modifiedUtc": "2021-06-21T00:07:31.7844833Z"
+        },
+        {
+          "bytes": 84637484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女014.wav",
+          "modifiedUtc": "2021-06-21T00:07:31.1736362Z"
+        },
+        {
+          "bytes": 24824808,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女015.mp4",
+          "modifiedUtc": "2021-06-21T00:56:56.2431143Z"
+        },
+        {
+          "bytes": 87014444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女015.wav",
+          "modifiedUtc": "2021-06-21T00:56:55.8958617Z"
+        },
+        {
+          "bytes": 25466439,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女016.mp4",
+          "modifiedUtc": "2021-06-21T01:05:48.8433257Z"
+        },
+        {
+          "bytes": 81446444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女016.wav",
+          "modifiedUtc": "2021-06-21T01:05:48.4503782Z"
+        },
+        {
+          "bytes": 24681395,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女017.mp4",
+          "modifiedUtc": "2021-06-21T01:11:35.36276Z"
+        },
+        {
+          "bytes": 85175084,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女017.wav",
+          "modifiedUtc": "2021-06-21T01:11:34.9598395Z"
+        },
+        {
+          "bytes": 24921206,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女018.mp4",
+          "modifiedUtc": "2021-06-21T01:33:41.2414095Z"
+        },
+        {
+          "bytes": 80905004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女018.wav",
+          "modifiedUtc": "2021-06-21T01:33:40.6691572Z"
+        },
+        {
+          "bytes": 25658737,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女019.mp4",
+          "modifiedUtc": "2021-06-21T01:40:26.7271649Z"
+        },
+        {
+          "bytes": 86668844,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女019.wav",
+          "modifiedUtc": "2021-06-21T01:40:26.3347046Z"
+        },
+        {
+          "bytes": 20979158,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女020.mp4",
+          "modifiedUtc": "2021-06-21T01:44:43.2470953Z"
+        },
+        {
+          "bytes": 69530924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女020.wav",
+          "modifiedUtc": "2021-06-21T01:44:42.862124Z"
+        },
+        {
+          "bytes": 24357403,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女021.mp4",
+          "modifiedUtc": "2021-06-21T03:45:17.2882419Z"
+        },
+        {
+          "bytes": 79971884,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女021.wav",
+          "modifiedUtc": "2021-06-21T03:45:16.8803336Z"
+        },
+        {
+          "bytes": 25693140,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女022.mp4",
+          "modifiedUtc": "2021-06-21T03:53:54.559168Z"
+        },
+        {
+          "bytes": 90309164,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女022.wav",
+          "modifiedUtc": "2021-06-21T03:53:54.1880768Z"
+        },
+        {
+          "bytes": 23295773,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女023.mp4",
+          "modifiedUtc": "2021-06-21T04:03:58.6123458Z"
+        },
+        {
+          "bytes": 77502764,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女023.wav",
+          "modifiedUtc": "2021-06-21T04:03:58.0358874Z"
+        },
+        {
+          "bytes": 25444282,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女024.mp4",
+          "modifiedUtc": "2021-06-21T04:11:20.2003719Z"
+        },
+        {
+          "bytes": 83132204,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女024.wav",
+          "modifiedUtc": "2021-06-21T04:11:19.7031684Z"
+        },
+        {
+          "bytes": 24005016,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女025.mp4",
+          "modifiedUtc": "2021-06-21T04:18:38.1421005Z"
+        },
+        {
+          "bytes": 78589484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女025.wav",
+          "modifiedUtc": "2021-06-21T04:18:37.7232194Z"
+        },
+        {
+          "bytes": 23367833,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女026.mp4",
+          "modifiedUtc": "2021-06-21T04:37:33.9242062Z"
+        },
+        {
+          "bytes": 78773804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女026.wav",
+          "modifiedUtc": "2021-06-21T04:37:33.5043288Z"
+        },
+        {
+          "bytes": 25116528,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女027.mp4",
+          "modifiedUtc": "2021-06-21T04:45:12.7615277Z"
+        },
+        {
+          "bytes": 82755884,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女027.wav",
+          "modifiedUtc": "2021-06-21T04:45:12.2543705Z"
+        },
+        {
+          "bytes": 22878673,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女028.mp4",
+          "modifiedUtc": "2021-06-21T04:50:50.106785Z"
+        },
+        {
+          "bytes": 76930604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女028.wav",
+          "modifiedUtc": "2021-06-21T04:50:49.6511524Z"
+        },
+        {
+          "bytes": 26254156,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女029.mp4",
+          "modifiedUtc": "2021-06-21T04:58:19.9861284Z"
+        },
+        {
+          "bytes": 92348204,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女029.wav",
+          "modifiedUtc": "2021-06-21T04:58:19.4505364Z"
+        },
+        {
+          "bytes": 26004015,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女030.mp4",
+          "modifiedUtc": "2021-06-21T05:04:30.9234716Z"
+        },
+        {
+          "bytes": 86039084,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女030.wav",
+          "modifiedUtc": "2021-06-21T05:04:30.0257362Z"
+        },
+        {
+          "bytes": 21923809,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女031.mp4",
+          "modifiedUtc": "2021-06-21T12:31:34.0114309Z"
+        },
+        {
+          "bytes": 73198124,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女031.wav",
+          "modifiedUtc": "2021-06-21T12:31:33.6523895Z"
+        },
+        {
+          "bytes": 19845598,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女032.mp4",
+          "modifiedUtc": "2021-06-21T12:38:16.7443205Z"
+        },
+        {
+          "bytes": 71281964,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女032.wav",
+          "modifiedUtc": "2021-06-21T12:38:16.3773032Z"
+        },
+        {
+          "bytes": 24555359,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女033.mp4",
+          "modifiedUtc": "2021-06-21T12:56:37.854245Z"
+        },
+        {
+          "bytes": 80801324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女033.wav",
+          "modifiedUtc": "2021-06-21T12:56:37.4583042Z"
+        },
+        {
+          "bytes": 26355439,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女034.mp4",
+          "modifiedUtc": "2021-06-21T13:02:28.343069Z"
+        },
+        {
+          "bytes": 88450604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女034.wav",
+          "modifiedUtc": "2021-06-21T13:02:27.9670732Z"
+        },
+        {
+          "bytes": 22747451,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女035.mp4",
+          "modifiedUtc": "2021-06-21T13:07:30.2125566Z"
+        },
+        {
+          "bytes": 76942124,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女035.wav",
+          "modifiedUtc": "2021-06-21T13:07:29.7359215Z"
+        },
+        {
+          "bytes": 29032927,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女036.mp4",
+          "modifiedUtc": "2021-06-21T13:22:49.7584476Z"
+        },
+        {
+          "bytes": 98058284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女036.wav",
+          "modifiedUtc": "2021-06-21T13:22:49.3632772Z"
+        },
+        {
+          "bytes": 26176255,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女037.mp4",
+          "modifiedUtc": "2021-06-21T13:33:57.2850291Z"
+        },
+        {
+          "bytes": 84779564,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女037.wav",
+          "modifiedUtc": "2021-06-21T13:33:56.9239957Z"
+        },
+        {
+          "bytes": 27976272,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女038.mp4",
+          "modifiedUtc": "2021-06-21T13:40:19.1259359Z"
+        },
+        {
+          "bytes": 92378924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女038.wav",
+          "modifiedUtc": "2021-06-21T13:40:18.7750966Z"
+        },
+        {
+          "bytes": 22696727,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女039.mp4",
+          "modifiedUtc": "2021-06-21T13:46:28.4918432Z"
+        },
+        {
+          "bytes": 75298604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女039.wav",
+          "modifiedUtc": "2021-06-21T13:46:28.1138414Z"
+        },
+        {
+          "bytes": 25278683,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女040.mp4",
+          "modifiedUtc": "2021-06-21T14:21:15.5636161Z"
+        },
+        {
+          "bytes": 83166764,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女040.wav",
+          "modifiedUtc": "2021-06-21T14:21:15.190614Z"
+        },
+        {
+          "bytes": 22912203,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女041.mp4",
+          "modifiedUtc": "2021-06-21T14:27:26.2842407Z"
+        },
+        {
+          "bytes": 78889004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女041.wav",
+          "modifiedUtc": "2021-06-21T14:27:25.8835545Z"
+        },
+        {
+          "bytes": 21914890,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女042.mp4",
+          "modifiedUtc": "2021-06-21T14:33:40.6337829Z"
+        },
+        {
+          "bytes": 76938284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女042.wav",
+          "modifiedUtc": "2021-06-21T14:33:40.2438405Z"
+        },
+        {
+          "bytes": 21037439,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女043.mp4",
+          "modifiedUtc": "2021-06-21T14:40:21.5047632Z"
+        },
+        {
+          "bytes": 73090604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女043.wav",
+          "modifiedUtc": "2021-06-21T14:40:21.1327031Z"
+        },
+        {
+          "bytes": 25106290,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女044.mp4",
+          "modifiedUtc": "2021-06-21T14:51:23.0772099Z"
+        },
+        {
+          "bytes": 84986924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女044.wav",
+          "modifiedUtc": "2021-06-21T14:51:22.705204Z"
+        },
+        {
+          "bytes": 24588606,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女045.mp4",
+          "modifiedUtc": "2021-06-21T14:58:05.9822952Z"
+        },
+        {
+          "bytes": 82821164,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女045.wav",
+          "modifiedUtc": "2021-06-21T14:58:05.5943148Z"
+        },
+        {
+          "bytes": 19750568,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女046.mp4",
+          "modifiedUtc": "2021-06-21T15:05:09.7907503Z"
+        },
+        {
+          "bytes": 67584044,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女046.wav",
+          "modifiedUtc": "2021-06-21T15:05:09.3319766Z"
+        },
+        {
+          "bytes": 19877257,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女047.mp4",
+          "modifiedUtc": "2021-06-21T22:37:58.4352903Z"
+        },
+        {
+          "bytes": 69711404,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女047.wav",
+          "modifiedUtc": "2021-06-21T22:37:58.0909245Z"
+        },
+        {
+          "bytes": 25680947,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女048.mp4",
+          "modifiedUtc": "2021-06-21T22:48:47.7891724Z"
+        },
+        {
+          "bytes": 86634284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女048.wav",
+          "modifiedUtc": "2021-06-21T22:48:47.301174Z"
+        },
+        {
+          "bytes": 29492457,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女049.mp4",
+          "modifiedUtc": "2021-06-21T22:56:03.6939941Z"
+        },
+        {
+          "bytes": 94487084,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女049.wav",
+          "modifiedUtc": "2021-06-21T22:56:03.2898882Z"
+        },
+        {
+          "bytes": 23962555,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女050.mp4",
+          "modifiedUtc": "2021-06-21T23:03:46.796192Z"
+        },
+        {
+          "bytes": 80221484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女050.wav",
+          "modifiedUtc": "2021-06-21T23:03:46.3201753Z"
+        },
+        {
+          "bytes": 20028373,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女051.mp4",
+          "modifiedUtc": "2021-06-21T23:11:55.2606514Z"
+        },
+        {
+          "bytes": 71224364,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女051.wav",
+          "modifiedUtc": "2021-06-21T23:11:54.7740962Z"
+        },
+        {
+          "bytes": 22961160,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女052.mp4",
+          "modifiedUtc": "2021-06-21T23:32:27.4810214Z"
+        },
+        {
+          "bytes": 74722604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女052.wav",
+          "modifiedUtc": "2021-06-21T23:32:27.0509998Z"
+        },
+        {
+          "bytes": 21508612,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女053.mp4",
+          "modifiedUtc": "2021-06-21T23:42:18.4965301Z"
+        },
+        {
+          "bytes": 71258924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女053.wav",
+          "modifiedUtc": "2021-06-21T23:42:18.0201737Z"
+        },
+        {
+          "bytes": 20713544,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女054.mp4",
+          "modifiedUtc": "2021-06-21T23:53:43.1216574Z"
+        },
+        {
+          "bytes": 67407404,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女054.wav",
+          "modifiedUtc": "2021-06-21T23:53:42.7263349Z"
+        },
+        {
+          "bytes": 23894844,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女055.mp4",
+          "modifiedUtc": "2021-06-22T00:01:03.4823942Z"
+        },
+        {
+          "bytes": 79418924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女055.wav",
+          "modifiedUtc": "2021-06-22T00:01:03.0441702Z"
+        },
+        {
+          "bytes": 23960649,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女056.mp4",
+          "modifiedUtc": "2021-06-22T00:07:32.2849928Z"
+        },
+        {
+          "bytes": 77429804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女056.wav",
+          "modifiedUtc": "2021-06-22T00:07:31.729678Z"
+        },
+        {
+          "bytes": 27211376,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女057.mp4",
+          "modifiedUtc": "2021-06-22T00:18:28.0995423Z"
+        },
+        {
+          "bytes": 87936044,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女057.wav",
+          "modifiedUtc": "2021-06-22T00:18:27.6890702Z"
+        },
+        {
+          "bytes": 21318488,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女058.mp4",
+          "modifiedUtc": "2021-06-22T00:28:54.889369Z"
+        },
+        {
+          "bytes": 70606124,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女058.wav",
+          "modifiedUtc": "2021-06-22T00:28:54.5145428Z"
+        },
+        {
+          "bytes": 23978762,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女059.mp4",
+          "modifiedUtc": "2021-06-22T00:35:53.2465261Z"
+        },
+        {
+          "bytes": 80839724,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女059.wav",
+          "modifiedUtc": "2021-06-22T00:35:52.7941308Z"
+        },
+        {
+          "bytes": 28767781,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女060.mp4",
+          "modifiedUtc": "2021-06-22T00:43:19.0404301Z"
+        },
+        {
+          "bytes": 96280364,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女060.wav",
+          "modifiedUtc": "2021-06-22T00:43:18.652868Z"
+        },
+        {
+          "bytes": 21708260,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女061.mp4",
+          "modifiedUtc": "2021-06-22T01:00:54.9548548Z"
+        },
+        {
+          "bytes": 71201324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女061.wav",
+          "modifiedUtc": "2021-06-22T01:00:54.5927132Z"
+        },
+        {
+          "bytes": 20810269,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女062.mp4",
+          "modifiedUtc": "2021-06-22T01:07:20.9023487Z"
+        },
+        {
+          "bytes": 69269804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女062.wav",
+          "modifiedUtc": "2021-06-22T01:07:20.4634786Z"
+        },
+        {
+          "bytes": 21224367,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女063.mp4",
+          "modifiedUtc": "2021-06-22T01:13:28.4437888Z"
+        },
+        {
+          "bytes": 71185964,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女063.wav",
+          "modifiedUtc": "2021-06-22T01:13:28.0444402Z"
+        },
+        {
+          "bytes": 19772833,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女064.mp4",
+          "modifiedUtc": "2021-06-22T01:19:29.8934792Z"
+        },
+        {
+          "bytes": 67322924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女064.wav",
+          "modifiedUtc": "2021-06-22T01:19:29.5271845Z"
+        },
+        {
+          "bytes": 24744649,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女065.mp4",
+          "modifiedUtc": "2021-06-22T01:26:00.0388088Z"
+        },
+        {
+          "bytes": 81350444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女065.wav",
+          "modifiedUtc": "2021-06-22T01:25:59.4473113Z"
+        },
+        {
+          "bytes": 22470259,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女066.mp4",
+          "modifiedUtc": "2021-06-22T01:48:32.7005322Z"
+        },
+        {
+          "bytes": 75075884,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女066.wav",
+          "modifiedUtc": "2021-06-22T01:48:32.2789139Z"
+        },
+        {
+          "bytes": 24709783,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女067.mp4",
+          "modifiedUtc": "2021-06-22T02:12:25.0962283Z"
+        },
+        {
+          "bytes": 80747564,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女067.wav",
+          "modifiedUtc": "2021-06-22T02:12:24.6677657Z"
+        },
+        {
+          "bytes": 26611903,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女068.mp4",
+          "modifiedUtc": "2021-06-22T02:18:56.0808984Z"
+        },
+        {
+          "bytes": 88477484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女068.wav",
+          "modifiedUtc": "2021-06-22T02:18:55.6713578Z"
+        },
+        {
+          "bytes": 20002907,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女069.mp4",
+          "modifiedUtc": "2021-06-22T02:25:53.1844585Z"
+        },
+        {
+          "bytes": 69292844,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女069.wav",
+          "modifiedUtc": "2021-06-22T02:25:52.7710711Z"
+        },
+        {
+          "bytes": 27405411,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女070.mp4",
+          "modifiedUtc": "2021-06-22T02:46:13.845558Z"
+        },
+        {
+          "bytes": 88688684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女070.wav",
+          "modifiedUtc": "2021-06-22T02:46:13.4385652Z"
+        },
+        {
+          "bytes": 22276042,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女071.mp4",
+          "modifiedUtc": "2021-06-22T02:52:57.0259914Z"
+        },
+        {
+          "bytes": 78662444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女071.wav",
+          "modifiedUtc": "2021-06-22T02:52:56.6779796Z"
+        },
+        {
+          "bytes": 25882713,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女072.mp4",
+          "modifiedUtc": "2021-06-22T02:59:00.1133391Z"
+        },
+        {
+          "bytes": 83024684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女072.wav",
+          "modifiedUtc": "2021-06-22T02:58:59.7287834Z"
+        },
+        {
+          "bytes": 22155291,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女073.mp4",
+          "modifiedUtc": "2021-06-22T03:56:14.6748773Z"
+        },
+        {
+          "bytes": 76692524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女073.wav",
+          "modifiedUtc": "2021-06-22T03:56:14.3005594Z"
+        },
+        {
+          "bytes": 23461460,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女074.mp4",
+          "modifiedUtc": "2021-06-22T04:05:02.6373987Z"
+        },
+        {
+          "bytes": 81181484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女074.wav",
+          "modifiedUtc": "2021-06-22T04:05:02.1200702Z"
+        },
+        {
+          "bytes": 27093765,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女075.mp4",
+          "modifiedUtc": "2021-06-22T04:15:27.8672643Z"
+        },
+        {
+          "bytes": 88512044,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女075.wav",
+          "modifiedUtc": "2021-06-22T04:15:27.483697Z"
+        },
+        {
+          "bytes": 23845658,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女076.mp4",
+          "modifiedUtc": "2021-06-22T04:23:01.4936265Z"
+        },
+        {
+          "bytes": 82982444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女076.wav",
+          "modifiedUtc": "2021-06-22T04:23:01.072416Z"
+        },
+        {
+          "bytes": 26838869,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女077.mp4",
+          "modifiedUtc": "2021-06-22T04:29:48.2283816Z"
+        },
+        {
+          "bytes": 88112684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女077.wav",
+          "modifiedUtc": "2021-06-22T04:29:47.8106451Z"
+        },
+        {
+          "bytes": 23059632,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女078.mp4",
+          "modifiedUtc": "2021-06-22T05:09:39.4665806Z"
+        },
+        {
+          "bytes": 76105004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女078.wav",
+          "modifiedUtc": "2021-06-22T05:09:39.0858077Z"
+        },
+        {
+          "bytes": 22644241,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女079.mp4",
+          "modifiedUtc": "2021-06-22T05:14:28.7923198Z"
+        },
+        {
+          "bytes": 75421484,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女079.wav",
+          "modifiedUtc": "2021-06-22T05:14:28.4906833Z"
+        },
+        {
+          "bytes": 25390518,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女080.mp4",
+          "modifiedUtc": "2021-06-22T05:20:12.118444Z"
+        },
+        {
+          "bytes": 82667564,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女080.wav",
+          "modifiedUtc": "2021-06-22T05:20:11.6626054Z"
+        },
+        {
+          "bytes": 23762140,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女081.mp4",
+          "modifiedUtc": "2021-06-22T05:30:58.8466796Z"
+        },
+        {
+          "bytes": 81162284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女081.wav",
+          "modifiedUtc": "2021-06-22T05:30:58.4465181Z"
+        },
+        {
+          "bytes": 23845083,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女082.mp4",
+          "modifiedUtc": "2021-06-22T05:47:05.4335504Z"
+        },
+        {
+          "bytes": 81146924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女082.wav",
+          "modifiedUtc": "2021-06-22T05:47:05.0244759Z"
+        },
+        {
+          "bytes": 26276713,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女083.mp4",
+          "modifiedUtc": "2021-06-22T07:14:11.2459271Z"
+        },
+        {
+          "bytes": 84706604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女083.wav",
+          "modifiedUtc": "2021-06-22T07:14:10.7742175Z"
+        },
+        {
+          "bytes": 22731797,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女084.mp4",
+          "modifiedUtc": "2021-06-22T07:21:08.9310727Z"
+        },
+        {
+          "bytes": 77168684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女084.wav",
+          "modifiedUtc": "2021-06-22T07:21:08.563542Z"
+        },
+        {
+          "bytes": 23424793,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女085.mp4",
+          "modifiedUtc": "2021-06-22T07:29:05.4287803Z"
+        },
+        {
+          "bytes": 78881324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女085.wav",
+          "modifiedUtc": "2021-06-22T07:29:04.9690855Z"
+        },
+        {
+          "bytes": 25573606,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女086.mp4",
+          "modifiedUtc": "2021-06-22T07:34:55.0921809Z"
+        },
+        {
+          "bytes": 89833004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女086.wav",
+          "modifiedUtc": "2021-06-22T07:34:54.5540724Z"
+        },
+        {
+          "bytes": 24951884,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女087.mp4",
+          "modifiedUtc": "2021-06-22T07:46:11.9689916Z"
+        },
+        {
+          "bytes": 82817324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女087.wav",
+          "modifiedUtc": "2021-06-22T07:46:11.561363Z"
+        },
+        {
+          "bytes": 22219648,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女088.mp4",
+          "modifiedUtc": "2021-06-22T07:56:45.3354279Z"
+        },
+        {
+          "bytes": 76158764,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女088.wav",
+          "modifiedUtc": "2021-06-22T07:56:44.8503175Z"
+        },
+        {
+          "bytes": 27990469,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女089.mp4",
+          "modifiedUtc": "2021-06-22T08:03:10.5185234Z"
+        },
+        {
+          "bytes": 97013804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女089.wav",
+          "modifiedUtc": "2021-06-22T08:03:10.1066505Z"
+        },
+        {
+          "bytes": 19865452,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女090.mp4",
+          "modifiedUtc": "2021-06-22T10:23:32.3928814Z"
+        },
+        {
+          "bytes": 69258284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女090.wav",
+          "modifiedUtc": "2021-06-22T10:23:31.9185436Z"
+        },
+        {
+          "bytes": 26470636,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女091.mp4",
+          "modifiedUtc": "2021-06-22T10:38:31.5841526Z"
+        },
+        {
+          "bytes": 86035244,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女091.wav",
+          "modifiedUtc": "2021-06-22T10:38:30.9882827Z"
+        },
+        {
+          "bytes": 24199259,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女092.mp4",
+          "modifiedUtc": "2021-06-22T10:46:43.8379904Z"
+        },
+        {
+          "bytes": 79061804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女092.wav",
+          "modifiedUtc": "2021-06-22T10:46:43.474875Z"
+        },
+        {
+          "bytes": 22490524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女093.mp4",
+          "modifiedUtc": "2021-06-22T10:51:30.2663862Z"
+        },
+        {
+          "bytes": 75041324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女093.wav",
+          "modifiedUtc": "2021-06-22T10:51:29.8662261Z"
+        },
+        {
+          "bytes": 23809080,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女094.mp4",
+          "modifiedUtc": "2021-06-22T10:57:03.7951732Z"
+        },
+        {
+          "bytes": 79265324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女094.wav",
+          "modifiedUtc": "2021-06-22T10:57:03.4169097Z"
+        },
+        {
+          "bytes": 24309911,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女095.mp4",
+          "modifiedUtc": "2021-06-22T11:02:19.3452901Z"
+        },
+        {
+          "bytes": 81461804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女095.wav",
+          "modifiedUtc": "2021-06-22T11:02:18.7997068Z"
+        },
+        {
+          "bytes": 25821629,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女096.mp4",
+          "modifiedUtc": "2021-06-22T11:08:08.680926Z"
+        },
+        {
+          "bytes": 86661164,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女096.wav",
+          "modifiedUtc": "2021-06-22T11:08:08.1233246Z"
+        },
+        {
+          "bytes": 21627748,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女097.mp4",
+          "modifiedUtc": "2021-06-22T11:13:27.304383Z"
+        },
+        {
+          "bytes": 76147244,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女097.wav",
+          "modifiedUtc": "2021-06-22T11:13:26.9256951Z"
+        },
+        {
+          "bytes": 22933308,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女098.mp4",
+          "modifiedUtc": "2021-06-22T11:18:28.6213022Z"
+        },
+        {
+          "bytes": 77195564,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女098.wav",
+          "modifiedUtc": "2021-06-22T11:18:28.2371826Z"
+        },
+        {
+          "bytes": 20289662,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女099.mp4",
+          "modifiedUtc": "2021-06-22T11:24:46.3398299Z"
+        },
+        {
+          "bytes": 69461804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女099.wav",
+          "modifiedUtc": "2021-06-22T11:24:45.9621177Z"
+        },
+        {
+          "bytes": 21617362,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女100.mp4",
+          "modifiedUtc": "2021-06-22T11:29:19.7368241Z"
+        },
+        {
+          "bytes": 70256684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女100.wav",
+          "modifiedUtc": "2021-06-22T11:29:19.1844216Z"
+        },
+        {
+          "bytes": 27006229,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女101.mp4",
+          "modifiedUtc": "2021-06-22T11:34:51.6549967Z"
+        },
+        {
+          "bytes": 90409004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女101.wav",
+          "modifiedUtc": "2021-06-22T11:34:51.2509336Z"
+        },
+        {
+          "bytes": 24390138,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女102.mp4",
+          "modifiedUtc": "2021-06-22T11:39:48.8093708Z"
+        },
+        {
+          "bytes": 82575404,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女102.wav",
+          "modifiedUtc": "2021-06-22T11:39:48.4238452Z"
+        },
+        {
+          "bytes": 21392040,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女103.mp4",
+          "modifiedUtc": "2021-06-22T11:46:00.383833Z"
+        },
+        {
+          "bytes": 75206444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女103.wav",
+          "modifiedUtc": "2021-06-22T11:45:59.9995324Z"
+        },
+        {
+          "bytes": 23995278,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女104.mp4",
+          "modifiedUtc": "2021-06-22T11:52:16.6256192Z"
+        },
+        {
+          "bytes": 81166124,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女104.wav",
+          "modifiedUtc": "2021-06-22T11:52:16.2820664Z"
+        },
+        {
+          "bytes": 23741285,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女105.mp4",
+          "modifiedUtc": "2021-06-22T11:58:42.9627631Z"
+        },
+        {
+          "bytes": 79119404,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女105.wav",
+          "modifiedUtc": "2021-06-22T11:58:42.5903948Z"
+        },
+        {
+          "bytes": 23053558,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女106.mp4",
+          "modifiedUtc": "2021-06-22T12:06:55.8607283Z"
+        },
+        {
+          "bytes": 75540524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女106.wav",
+          "modifiedUtc": "2021-06-22T12:06:55.4610804Z"
+        },
+        {
+          "bytes": 17883823,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女107.mp4",
+          "modifiedUtc": "2021-06-22T12:13:04.6151904Z"
+        },
+        {
+          "bytes": 63398444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女107.wav",
+          "modifiedUtc": "2021-06-22T12:13:04.0637511Z"
+        },
+        {
+          "bytes": 24778047,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女108.mp4",
+          "modifiedUtc": "2021-06-22T13:02:04.3304573Z"
+        },
+        {
+          "bytes": 86211884,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女108.wav",
+          "modifiedUtc": "2021-06-22T13:02:03.7538852Z"
+        },
+        {
+          "bytes": 23797261,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女109.mp4",
+          "modifiedUtc": "2021-06-22T13:08:27.0103421Z"
+        },
+        {
+          "bytes": 78996524,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女109.wav",
+          "modifiedUtc": "2021-06-22T13:08:26.6140876Z"
+        },
+        {
+          "bytes": 23424479,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女110.mp4",
+          "modifiedUtc": "2021-06-22T13:14:18.0981041Z"
+        },
+        {
+          "bytes": 76761644,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女110.wav",
+          "modifiedUtc": "2021-06-22T13:14:17.5300717Z"
+        },
+        {
+          "bytes": 23694488,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女111.mp4",
+          "modifiedUtc": "2021-06-22T13:20:04.7905397Z"
+        },
+        {
+          "bytes": 81146924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女111.wav",
+          "modifiedUtc": "2021-06-22T13:20:04.3913032Z"
+        },
+        {
+          "bytes": 29118458,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女112.mp4",
+          "modifiedUtc": "2021-06-22T13:27:02.093513Z"
+        },
+        {
+          "bytes": 94709804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女112.wav",
+          "modifiedUtc": "2021-06-22T13:27:01.7031146Z"
+        },
+        {
+          "bytes": 19857859,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女113.mp4",
+          "modifiedUtc": "2021-06-22T13:31:20.8197252Z"
+        },
+        {
+          "bytes": 65583404,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女113.wav",
+          "modifiedUtc": "2021-06-22T13:31:20.2625946Z"
+        },
+        {
+          "bytes": 21153684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女114.mp4",
+          "modifiedUtc": "2021-06-22T13:36:09.3544146Z"
+        },
+        {
+          "bytes": 73609004,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女114.wav",
+          "modifiedUtc": "2021-06-22T13:36:08.9484007Z"
+        },
+        {
+          "bytes": 23964053,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女115.mp4",
+          "modifiedUtc": "2021-06-22T13:41:41.694929Z"
+        },
+        {
+          "bytes": 79568684,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女115.wav",
+          "modifiedUtc": "2021-06-22T13:41:41.2550249Z"
+        },
+        {
+          "bytes": 20000725,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女116.mp4",
+          "modifiedUtc": "2021-06-22T13:46:23.2202598Z"
+        },
+        {
+          "bytes": 68198444,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女116.wav",
+          "modifiedUtc": "2021-06-22T13:46:22.8024441Z"
+        },
+        {
+          "bytes": 20403671,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女117.mp4",
+          "modifiedUtc": "2021-06-22T13:50:58.7727265Z"
+        },
+        {
+          "bytes": 69642284,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女117.wav",
+          "modifiedUtc": "2021-06-22T13:50:58.3530503Z"
+        },
+        {
+          "bytes": 23335059,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女118.mp4",
+          "modifiedUtc": "2021-06-22T13:56:41.1728748Z"
+        },
+        {
+          "bytes": 79265324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女118.wav",
+          "modifiedUtc": "2021-06-22T13:56:40.7580745Z"
+        },
+        {
+          "bytes": 29500981,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女119.mp4",
+          "modifiedUtc": "2021-06-22T14:06:15.5666596Z"
+        },
+        {
+          "bytes": 96130604,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女119.wav",
+          "modifiedUtc": "2021-06-22T14:06:14.9771107Z"
+        },
+        {
+          "bytes": 25310320,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女120.mp4",
+          "modifiedUtc": "2021-06-22T23:08:15.5895737Z"
+        },
+        {
+          "bytes": 79745324,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女120.wav",
+          "modifiedUtc": "2021-06-22T23:08:14.6378146Z"
+        },
+        {
+          "bytes": 20894265,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女121.mp4",
+          "modifiedUtc": "2021-06-22T23:13:17.861147Z"
+        },
+        {
+          "bytes": 73267244,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女121.wav",
+          "modifiedUtc": "2021-06-22T23:13:17.4582232Z"
+        },
+        {
+          "bytes": 23765085,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女122.mp4",
+          "modifiedUtc": "2021-06-22T23:18:31.2095092Z"
+        },
+        {
+          "bytes": 81093164,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女122.wav",
+          "modifiedUtc": "2021-06-22T23:18:30.7836478Z"
+        },
+        {
+          "bytes": 21310633,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女123.mp4",
+          "modifiedUtc": "2021-06-22T23:25:00.0491534Z"
+        },
+        {
+          "bytes": 71285804,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女123.wav",
+          "modifiedUtc": "2021-06-22T23:24:59.6658893Z"
+        },
+        {
+          "bytes": 20845249,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女124.mp4",
+          "modifiedUtc": "2021-06-22T23:30:00.8034861Z"
+        },
+        {
+          "bytes": 73739564,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女124.wav",
+          "modifiedUtc": "2021-06-22T23:30:00.3616457Z"
+        },
+        {
+          "bytes": 22440776,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女125.mp4",
+          "modifiedUtc": "2021-06-22T23:34:56.1007224Z"
+        },
+        {
+          "bytes": 77402924,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女125.wav",
+          "modifiedUtc": "2021-06-22T23:34:55.6798593Z"
+        },
+        {
+          "bytes": 20339676,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女126.mp4",
+          "modifiedUtc": "2021-06-22T23:42:28.4733157Z"
+        },
+        {
+          "bytes": 73113644,
+          "observationStatus": "not-yet-extracted",
+          "relativePath": "巨神と誓女_誓女126.wav",
+          "modifiedUtc": "2021-06-22T23:42:27.9375963Z"
+        }
+      ]
+    }
+  ],
+  "version": "heroine-reference-inventory-2026-10-05"
+}

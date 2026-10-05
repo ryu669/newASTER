@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "eventId": "heroine.slayer.event.0",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-0-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "a204e2d4de4fd391bdb0ce2cf8672225fc1f1a4df3cf379db3028bf1593e9fa4",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.slayer.event.1",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-1-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "14ae1386b006cddc16c1deea87106a37a19bb84a0ad1c592fd614fc09d4f4375",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.slayer.event.2",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-2-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "76b9df60f59d18bae1d23ac53e96dffff59407703d6338d04e15862d424187a3",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.slayer.event.3",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-3-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "93243eeaf17ae1315a94f70c69fe68fe449a5c014061a4193780294ad07f395b",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "eventId": "heroine.slayer.event.4",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-4-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "af3c94d4d50819b5776063b2e2c63e12efaffd6817df975d2803771a43273015",
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

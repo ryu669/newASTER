@@ -1,0 +1,6 @@
+{
+  "prompt": "Edit exact base Astal sprite preserving canvas, size, position, all creature identity, ears, palette, three intact feet and missing tail/star-ring/chest mounts. ONLY shorten nearest FRONT lower leg (picture center right with round empty silver ankle socket): raise its socket by about12percent of whole canvas height so socket ends at same height as other feet's TOP ankles, leaving space for detachable paw. No new paw, retain clean round socket, no other shape changes. Transparent square same canvas, no ground text.",
+  "reference": "exec-d396fd2b-e5a3-41e7-8f39-ec60772ef6cc.png",
+  "generatedOutput": "exec-bcd647e0-4d92-4b55-a35c-60ced54dc5b4.png",
+  "transparent_background": true
+}

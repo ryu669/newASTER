@@ -1,31 +1,51 @@
 {
   "schemaVersion": 1,
-  "placeholder": true,
+  "placeholder": false,
   "heroes": [
     {
       "heroineId": "heroine.slayer",
       "resourcePath": "Illustrations/slayer-standing-candidate-v1",
       "fullCanvas": true,
-      "placeholder": true,
+      "placeholder": false,
       "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
       "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
       "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
     },
     {
       "heroineId": "heroine.iconoclast",
-      "placeholder": true
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": false
     },
     {
       "heroineId": "heroine.undermine",
-      "placeholder": true
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
     },
     {
       "heroineId": "heroine.echidna",
-      "placeholder": true
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
     },
     {
       "heroineId": "heroine.excalipan",
-      "placeholder": true
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
     }
   ],
   "parts": [
@@ -36,7 +56,12 @@
       "width": 0.4,
       "height": 0.28,
       "resourcePath": "Illustrations/green-crown-candidate-v2",
-      "placement": { "enabled": true, "x": 0.32, "y": 0.015, "scale": 0.36 },
+      "placement": {
+        "enabled": true,
+        "x": 0.32,
+        "y": 0.015,
+        "scale": 0.36
+      },
       "hideWhenDestroyed": true,
       "drawOrder": 1,
       "inputPriority": 1
@@ -76,7 +101,7 @@
     }
   ],
   "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
-  "middleResourcePath": "Illustrations/forest-mid-candidate-v1",
+  "middleResourcePath": "Illustrations/world-forest-mid-candidate-v1",
   "foregroundResourcePath": "Illustrations/forest-front-candidate-v1",
   "bodyResourcePath": "Illustrations/green-body-candidate-v1",
   "enemyMajorResourcePath": "Illustrations/green-major-candidate-v3"

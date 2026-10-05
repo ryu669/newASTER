@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Original premium painterly Japanese fantasy RPG colossal enemy BASE BODY sprite, transparent SQUARE1:1 canvas. A magnificent floating SILVER SEA WHALE, broad compact body in threequarter side view facing right, pearly silver-white smooth cetacean skin with navy-blue flowing wave engravings and pale turquoise light seams, gentle powerful massive head and tapered rear body. Own anatomy whale not dragon fish serpent. BASE BODY ONLY: no pectoral fin on visible left side, no detachable dorsal silver armor plate, no fluked tail fin, no tidal core orb. Leave clean round nacre mounting socket on forehead for core, fin mount at visible lower side, long empty smooth dorsal armor bed, round rear tail connector. No decorative unrelated fins or crown. Entire body inside15percent transparent margins,65percent width40percent height. No sky water scene splashes floor shadow text particles, crisp alpha.",
+  "editPrompt": "Edit exact supplied silver whale base body sprite. Preserve anatomy, silver navy wave patterns and all four empty mounting sockets. Zoom out entire body to75percent current width and height centered on transparent SQUARE canvas. Fully reconstruct nose edge at right so whole whale silhouette and every subtle glow ends inside generous clear transparent margin. No fin tail core orb armor plate added, no other objects background floor or shadow.",
+  "rejectedOutput": "exec-723f5e0c-a716-4a1a-8d87-6cbf779bccc5.png",
+  "selectedOutput": "exec-28496e86-550c-4b2d-b6cf-544666a354ae.png",
+  "finalDeliveryApproved": false
+}

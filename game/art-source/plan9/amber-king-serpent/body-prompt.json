@@ -1,0 +1,6 @@
+{
+  "prompt": "Original premium painterly Japanese fantasy RPG colossal enemy BASE BODY sprite transparent SQUARE1:1 canvas. AMBER KING SERPENT, majestic desert cobra monarch huge coiled golden ochre scaled snake with dark bronze patterned hood, head high at upper right looking right, coils form massive seated spiral. BASE ONLY bare round crown socket atop head, NO detachable sand fangs mouth slightly open dark empty fang slots, NO golden belly shield central belly reveals oval mounting pad, NO hourglass tail lower LEFT outer coil ends clean circular stump for separate tail. No limbs wings dragon horns or extra heads. Entire cobra hood coils and mounting points inside15percent empty transparent margins, occupying70percent height65percent width. Crisp alpha fine gold amber crystal scales, no scenery sand floor shadow text particles.",
+  "rejectedOutput": "exec-0ac66c66-0d20-4195-afe0-01d3f75437d6.png",
+  "reason": "Right coil reaches canvas edge; reframe through imagegen.",
+  "transparent_background": true
+}

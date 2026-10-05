@@ -54,14 +54,41 @@ namespace NewAster.Presentation
         }
         private void OnDestroy()
         {
+            foreach(var patch in plan9FacePatches.Values){patch.Release();Destroy(patch);}plan9FacePatches.Clear();
             foreach(var layers in gardenLayers.Values){layers.back.Release();layers.front.Release();Destroy(layers.back);Destroy(layers.front);}gardenLayers.Clear();
         }
-        private static GardenArtUse GardenUse(string furnitureId)=>gardenArtUses.SingleOrDefault(a=>a.furnitureId==furnitureId);
+        private static GardenArtUse GardenUse(string furnitureId,string heroineId="heroine.slayer")
+        {
+            var original=gardenArtUses.SingleOrDefault(a=>a.furnitureId==furnitureId);
+            if(original==null && furnitureId.StartsWith("furniture.production.",StringComparison.Ordinal))return new GardenArtUse{furnitureId=furnitureId,action="look",ground=new Vector2(.5f,.95f),contact=new Vector2(1.1f,.95f),actorContact=new Vector2(.5f,.98f),actorScale=.9f};
+            if(original==null || heroineId=="heroine.slayer")return original;
+            if(heroineId=="heroine.excalipan")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.52f,.60f):original.action=="work"?new Vector2(.41f,.49f):new Vector2(.5f,.97f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.29f,.46f,.52f,.46f,.53f,.52f,.29f,.52f)}:Array.Empty<Vector2[]>()};
+            if(heroineId=="heroine.echidna")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.55f,.59f):original.action=="work"?new Vector2(.64f,.51f):new Vector2(.5f,.97f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.53f,.47f,.76f,.47f,.77f,.53f,.53f,.53f)}:Array.Empty<Vector2[]>()};
+            if(heroineId=="heroine.undermine")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.50f,.64f):original.action=="work"?new Vector2(.50f,.49f):new Vector2(.5f,.97f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.38f,.44f,.60f,.44f,.60f,.52f,.38f,.52f)}:Array.Empty<Vector2[]>()};
+            if(heroineId!="heroine.iconoclast")return null;
+            return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.50f,.66f):original.action=="work"?new Vector2(.43f,.60f):new Vector2(.55f,.94f),
+                actorScale=original.action=="work"?1.35f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.26f,.558f,.52f,.558f,.55f,.62f,.43f,.635f,.27f,.625f)}:Array.Empty<Vector2[]>()};
+        }
         private HomePlacement GardenUsePlacement(HomeOccupant occupant,FormalHomeProgress state)
         {
-            if(occupant.heroineId!="heroine.slayer" || occupant.furnitureInstanceId==null)return null;
+            if(occupant.furnitureInstanceId==null)return null;
             var placement=state.furniturePlacements.SingleOrDefault(p=>p.instanceId==occupant.furnitureInstanceId && p.gardenId==occupant.gardenId);
-            var use=placement==null?null:GardenUse(placement.defId);
+            var use=placement==null?null:GardenUse(placement.defId,occupant.heroineId);
             return use!=null && occupant.actionId=="action."+use.action?placement:null;
         }
         private Rect GardenFurnitureImageRect(Rect area,HomePlacement placement)
@@ -76,13 +103,14 @@ namespace NewAster.Presentation
             float size=furniture.width*use.actorScale;
             return new Rect(furniture.x+use.contact.x*furniture.width-use.actorContact.x*size,furniture.y+use.contact.y*furniture.height-use.actorContact.y*size,size,size);
         }
-        private void DrawGardenArtUse(Rect furniture,Texture2D texture,GardenArtUse use,bool occupied)
+        private void DrawGardenArtUse(Rect furniture,Texture2D texture,GardenArtUse use,bool occupied,string heroineId="heroine.slayer")
         {
-            var actor=occupied && use!=null?SampleImage("slayer-sd-"+use.action):null;
+            string prefix=heroineId.Substring("heroine.".Length);
+            var actor=occupied && use!=null?SampleImage(prefix+"-sd-"+use.action):null;
             var furnitureLayers=actor==null?null:GardenImageLayers(texture,use.front,use.furnitureId);
             if(texture!=null)GUI.DrawTexture(furniture,(Texture)furnitureLayers?.back??texture,ScaleMode.ScaleToFit,true);
             if(actor==null)return;
-            var actorLayers=GardenImageLayers(actor,use.hands,"slayer-"+use.action);var actorRect=GardenActorImageRect(furniture,use);
+            var actorLayers=GardenImageLayers(actor,use.hands,prefix+"-"+use.action);var actorRect=GardenActorImageRect(furniture,use);
             GUI.DrawTexture(actorRect,(Texture)actorLayers?.back??actor,ScaleMode.ScaleToFit,true);
             if(furnitureLayers!=null)GUI.DrawTexture(furniture,furnitureLayers.front,ScaleMode.ScaleToFit,true);
             if(actorLayers!=null)GUI.DrawTexture(actorRect,actorLayers.front,ScaleMode.ScaleToFit,true);

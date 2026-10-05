@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "scope": "art-stage-comparison; visual seam acceptance separate",
+  "cases": [
+    {
+      "expression": "joy",
+      "height": 720,
+      "changedInside": 12433,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 720,
+      "changedInside": 12535,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 720,
+      "changedInside": 12512,
+      "changedOutside": 0
+    },
+    {
+      "expression": "joy",
+      "height": 1080,
+      "changedInside": 28039,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 1080,
+      "changedInside": 28260,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 1080,
+      "changedInside": 28195,
+      "changedOutside": 0
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "assemblySha256": "C9099FBA4D51291BFA58439F6E48D915BDD9373174AA0EB34380A912C24DD3C9",
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\title-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\title-720.log",
+      "case": "title"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\settings-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\settings-720.log",
+      "case": "settings"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\credits-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\credits-720.log",
+      "case": "credits"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\exit-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\exit-720.log",
+      "case": "exit"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\development-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\development-720.log",
+      "case": "development"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\book-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\book-720.log",
+      "case": "book"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\growth-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\growth-720.log",
+      "case": "growth"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\battle-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\battle-720.log",
+      "case": "battle"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\victory-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\victory-720.log",
+      "case": "victory"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\garden-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\garden-720.log",
+      "case": "garden"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\adv-720.png",
+      "height": 720,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\adv-720.log",
+      "case": "adv"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\title-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\title-1080.log",
+      "case": "title"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\settings-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\settings-1080.log",
+      "case": "settings"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\credits-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\credits-1080.log",
+      "case": "credits"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\exit-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\exit-1080.log",
+      "case": "exit"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\development-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\development-1080.log",
+      "case": "development"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\book-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\book-1080.log",
+      "case": "book"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\growth-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\growth-1080.log",
+      "case": "growth"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\battle-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\battle-1080.log",
+      "case": "battle"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\victory-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\victory-1080.log",
+      "case": "victory"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\garden-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\garden-1080.log",
+      "case": "garden"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\adv-1080.png",
+      "height": 1080,
+      "humanInput": false,
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-0fdf16fc85194bd893334d1653ee6005\\adv-1080.log",
+      "case": "adv"
+    }
+  ]
+}

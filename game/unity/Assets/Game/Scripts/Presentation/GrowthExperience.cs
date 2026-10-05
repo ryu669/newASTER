@@ -12,16 +12,24 @@ namespace NewAster.Presentation
         private int growthTargetLevel;
         private string growthOutcome,growthDelta;
         private Texture2D growthPortrait;
+        private Texture2D iconoclastPortrait;
+        private Texture2D underminePortrait;
+        private Texture2D echidnaPortrait;
+        private Texture2D excalipanPortrait;
         private readonly Color ink=new Color(.035f,.065f,.10f),navy=new Color(.06f,.11f,.16f),gold=new Color(.72f,.57f,.32f),ivory=new Color(.94f,.89f,.77f),muted=new Color(.67f,.71f,.73f);
         private GUIStyle growthTitleStyle,growthTextStyle,growthSmallStyle,growthButtonStyle;
         private void GrowthStyles()
         {
             if(growthTitleStyle!=null)return;
             growthTitleStyle=new GUIStyle(heading){fontSize=34};growthTitleStyle.normal.textColor=ivory;
-            growthTextStyle=new GUIStyle(text){fontSize=23};growthTextStyle.normal.textColor=ivory;
-            growthSmallStyle=new GUIStyle(small){fontSize=18};growthSmallStyle.normal.textColor=muted;
+            growthTextStyle=new GUIStyle(text){fontSize=ArtSampleSettings.LargeText?26:23};growthTextStyle.normal.textColor=ivory;
+            growthSmallStyle=new GUIStyle(small){fontSize=ArtSampleSettings.LargeText?20:18};growthSmallStyle.normal.textColor=muted;
             growthButtonStyle=new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter,fontSize=22};
-            growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+            growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-portrait-candidate-v1");
+            iconoclastPortrait=Resources.Load<Texture2D>("Illustrations/iconoclast-portrait-candidate-v1");
+            underminePortrait=Resources.Load<Texture2D>("Illustrations/undermine-portrait-candidate-v1");
+            echidnaPortrait=Resources.Load<Texture2D>("Illustrations/echidna-portrait-candidate-v1");
+            excalipanPortrait=Resources.Load<Texture2D>("Illustrations/excalipan-portrait-candidate-v1");
         }
         private void GrowthFill(float x,float y,float w,float h,Color color)
         {var before=GUI.color;GUI.color=color;GUI.DrawTexture(new Rect(x,y,w,h),Texture2D.whiteTexture);GUI.color=before;}
@@ -48,7 +56,7 @@ namespace NewAster.Presentation
             GrowthFill(x,y,w,h,enabled?(primary?new Color(.19f,.32f,.31f):hover?new Color(.13f,.22f,.26f):new Color(.075f,.145f,.20f)):new Color(.085f,.10f,.12f));
             GrowthLine(x,y,x+w,y,enabled?gold:new Color(.23f,.25f,.25f));GrowthLine(x,y+h,x+w,y+h,enabled?gold:new Color(.23f,.25f,.25f));
             var color=growthButtonStyle.normal.textColor;growthButtonStyle.normal.textColor=enabled?ivory:muted;
-            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked)TrialObserve("navigation","button",caption);return clicked;
+            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
         }
         private void GrowthBack()
         {
@@ -83,11 +91,15 @@ namespace NewAster.Presentation
             bool previousGrowthEnabled=GUI.enabled;GUI.enabled=previousGrowthEnabled && !book.IsTransitioning && (!formalCampaign.HasPending || formalProgression.HasPending || homeRequest!=null);
             Label(92,194,425,56,definition.name,growthTitleStyle);Label(92,258,420,30,"★ ★ ★ ★ ★ ★   ／   Lv."+heroine.level,growthSmallStyle,gold);
             if(id=="heroine.slayer"&&growthPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),growthPortrait,ScaleMode.ScaleToFit,true);
+            else if(id=="heroine.iconoclast"&&iconoclastPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),iconoclastPortrait,ScaleMode.ScaleToFit,true);
+            else if(id=="heroine.undermine"&&underminePortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),underminePortrait,ScaleMode.ScaleToFit,true);
+            else if(id=="heroine.echidna"&&echidnaPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),echidnaPortrait,ScaleMode.ScaleToFit,true);
+            else if(id=="heroine.excalipan"&&excalipanPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),excalipanPortrait,ScaleMode.ScaleToFit,true);
             else{GrowthDiamond(300,470,100);GrowthDiamond(300,470,84);Label(193,435,220,55,"誓 女 の 記 憶",growthTextStyle);Label(177,520,260,35,"正式立ち絵は制作待ち",growthSmallStyle);}
-            Label(92,726,420,38,id=="heroine.slayer"?"比較用立ち絵 ／ 正式美術は未完成":"他人物の絵で代用しません",growthSmallStyle);
+            Label(92,726,420,38,ProductionStoryActive?"誓いと記憶を育てる":(id=="heroine.slayer" || id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
             string[] names={"誓女の記憶","ネクタル育成","覚醒の儀","誓いの強化","人物の記録","選択の確認","誓いの結実","装備の樹"};Label(605,204,860,55,names[(int)growthScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(growthScreen==GrowthScreen.Overview){
-                if(GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
+                if(!ProductionStoryActive && GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
                 Label(605,295,860,38,"いま、この誓女にしてあげたいことを選ぶ。",growthSmallStyle);
                 var entries=new[]{GrowthScreen.Level,GrowthScreen.Awakening,GrowthScreen.Duplicate};string[] captions={"01    ネクタルで育てる","02    覚醒して可能性をひらく","03    重複した誓いを力にする"};
                 for(int i=0;i<3;i++)if(GrowthButton(605,363+i*104,885,78,captions[i]))GrowthSelect(entries[i],heroine);

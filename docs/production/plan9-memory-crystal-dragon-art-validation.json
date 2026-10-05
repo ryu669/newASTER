@@ -1,0 +1,120 @@
+{
+  "assemblySha256": "3148EBD850612E4617BD65B52BD654C59C04341AB51B0860B9891C1B0FAEE2F2",
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-normal-720.png",
+      "humanInput": false,
+      "case": "memory-art-normal",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-normal-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part1-720.png",
+      "humanInput": false,
+      "case": "memory-art-part1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part1-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part2-720.png",
+      "humanInput": false,
+      "case": "memory-art-part2",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part2-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part3-720.png",
+      "humanInput": false,
+      "case": "memory-art-part3",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part3-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part4-720.png",
+      "humanInput": false,
+      "case": "memory-art-part4",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part4-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-all-720.png",
+      "humanInput": false,
+      "case": "memory-art-all",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-all-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-major-720.png",
+      "humanInput": false,
+      "case": "memory-art-major",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-major-720.log",
+      "height": 720
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-normal-1080.png",
+      "humanInput": false,
+      "case": "memory-art-normal",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-normal-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part1-1080.png",
+      "humanInput": false,
+      "case": "memory-art-part1",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part1-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part2-1080.png",
+      "humanInput": false,
+      "case": "memory-art-part2",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part2-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part3-1080.png",
+      "humanInput": false,
+      "case": "memory-art-part3",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part3-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part4-1080.png",
+      "humanInput": false,
+      "case": "memory-art-part4",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-part4-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-all-1080.png",
+      "humanInput": false,
+      "case": "memory-art-all",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-all-1080.log",
+      "height": 1080
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-major-1080.png",
+      "humanInput": false,
+      "case": "memory-art-major",
+      "state": "rendered-not-visually-approved",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-842914ac486d46a48d4e9c7b58294426\\memory-art-major-1080.log",
+      "height": 1080
+    }
+  ]
+}

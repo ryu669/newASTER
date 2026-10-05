@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.echidna",
+  "performanceMeasured": false,
+  "scope": "art-stage-comparison; visual seam acceptance separate",
+  "cases": [
+    {
+      "expression": "joy",
+      "height": 720,
+      "changedInside": 11534,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 720,
+      "changedInside": 11508,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 720,
+      "changedInside": 11525,
+      "changedOutside": 0
+    },
+    {
+      "expression": "joy",
+      "height": 1080,
+      "changedInside": 25871,
+      "changedOutside": 0
+    },
+    {
+      "expression": "puzzled",
+      "height": 1080,
+      "changedInside": 25755,
+      "changedOutside": 0
+    },
+    {
+      "expression": "determined",
+      "height": 1080,
+      "changedInside": 25804,
+      "changedOutside": 0
+    }
+  ]
+}

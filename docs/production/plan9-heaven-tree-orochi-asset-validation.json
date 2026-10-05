@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.heaven-tree-orochi",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "7ab978434472dffa3bfce7928a3f26b2675f22c321b4730328b8af51d2c8e468",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        97,
+        76,
+        1209,
+        1198
+      ],
+      "sha256": "de4dba030d66d00dec85e4fd93977559eaac9a57f0f43ed749c51441f8c9b8ea",
+      "status": "candidate"
+    },
+    {
+      "purpose": "orochi.bud",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-bud-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        202,
+        172,
+        1065,
+        1079
+      ],
+      "sha256": "5cb5619c6d9a5b537bb8009442b82137405f01d1f24e137db9c0b4a1e5be5d9c",
+      "status": "candidate"
+    },
+    {
+      "purpose": "orochi.branch",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-branch-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        81,
+        101,
+        1190,
+        1156
+      ],
+      "sha256": "d5b446a7794a010c506d13c48c23e2e3bb3d6b5443c8211a1a3c2bd138482b72",
+      "status": "candidate"
+    },
+    {
+      "purpose": "orochi.shield",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-shield-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        220,
+        43,
+        1117,
+        1192
+      ],
+      "sha256": "60c478ed0b60cd548c6b0f2423a33cf99c37c208efc54e189b771c3bcd9726ce",
+      "status": "candidate"
+    },
+    {
+      "purpose": "orochi.root",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-root-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        155,
+        133,
+        1151,
+        1174
+      ],
+      "sha256": "6464a806a3acdd58cf5693c568635b673e1ee8ede39e20b0c78b30cd9bd9a1d7",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/orochi-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        127,
+        40,
+        1177,
+        1212
+      ],
+      "sha256": "4b3cf7070d584b79f5a5f121956b4075a4d26164f4cf711a120dcd086bb4353e",
+      "status": "candidate"
+    }
+  ]
+}

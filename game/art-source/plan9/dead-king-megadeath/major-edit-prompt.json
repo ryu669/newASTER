@@ -1,0 +1,10 @@
+{
+  "prompt": "Edit FIRST image exact Megadeath major sprite. Preserve king pose body two legs both arms sword lantern cape blue aura. Add ROYAL CROWN from SECOND reference image sized correctly SEATED around skull top band (not floating), and CHEST ARMOR from THIRD reference attached flush covering exposed chest ribs and empty central socket. All four detachable parts present in this COMPLETE major sprite. Crown five spikes black violet silver amethyst, chest shield skeletal silver purple jewel. Do not change held weapon positions. Zoom out to90percent if needed so crown sword cape aura feet fully inside10percent transparent margins square canvas. No ground text scenery.",
+  "referencedImages": [
+    "exec-8eca5cf8-e754-4542-9570-0d46fe492be8.png",
+    "megadeath-crown-candidate-v1.png",
+    "megadeath-armor-candidate-v1.png"
+  ],
+  "generatedOutput": "exec-f9ad2135-58a2-4279-80fc-571f23016104.png",
+  "transparentBackground": true
+}

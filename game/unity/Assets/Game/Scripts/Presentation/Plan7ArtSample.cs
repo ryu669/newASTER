@@ -56,12 +56,16 @@ namespace NewAster.Presentation
         {
             if(measureArt && Time.realtimeSinceStartup>8 && capturedAtFrame<0){artFrameTimes.Add(Time.unscaledDeltaTime);var visual=playback.Current;if(visual!=null && visual.Major)artMajorFrameTimes.Add(Time.unscaledDeltaTime);if(visual!=null && visual.PartBroken)artBreakFrameTimes.Add(Time.unscaledDeltaTime);}
             EnsureArtAudio();artBgm.volume=ArtSampleSettings.Bgm;artSe.volume=1;
-            bool active=artSample || encounter!=null && adv==null;
-            bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:paused || help || retreat);
+            bool active=artSample || title && (!formalDiagnostic || plan7FocusStarted) && adv==null && !recoveryActive && combatDefinitionError==null || encounter!=null && adv==null;
+            bool stop=!artHasFocus || !Application.isFocused || (artSample?artSamplePaused:title?false:paused || help || retreat);
+            if(ProductionStoryActive && !artSample){active=!recoveryActive && combatDefinitionError==null;stop=!ProductionAudioHasFocus || (adv!=null?adv.Paused:encounter!=null?paused || help || retreat:help);UpdateProductionMusic(active,stop);}
+            else{
             if(!active){artBgm.Stop();artSe.Stop();return;}
             if(artBgm.clip==null)artBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));
             if(stop){artBgm.Pause();artSe.Pause();return;}
             artBgm.UnPause();artSe.UnPause();if(!artBgm.isPlaying && artBgm.clip!=null)artBgm.Play();
+            }
+            if(!active || stop)return;
             if(artSample)return;
             if(audioBattle!=encounter){audioBattle=encounter;audioSequence=0;audioVictory=false;}
             var e=playback.Current;if(e==null || e.Sequence==audioSequence)return;audioSequence=e.Sequence;

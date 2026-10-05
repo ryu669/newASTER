@@ -1,0 +1,88 @@
+{
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "4F675A211A26253E55ABDE4C78F419A28A3515D4000E073D34B32DA81630699A",
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "echidna-growth",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-growth-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-growth-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "echidna-standing",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-standing-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-standing-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "echidna-attack",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-attack-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-attack-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "echidna-hit",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-hit-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-hit-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "echidna-cutin",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-cutin-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-cutin-720.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "echidna-growth",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-growth-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-growth-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "echidna-standing",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-standing-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-standing-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "echidna-attack",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-attack-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-attack-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "echidna-hit",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-hit-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-hit-1080.png",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "echidna-cutin",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-cutin-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-83812f10c1fd4fcb8af00a24d215adbe\\echidna-cutin-1080.png",
+      "state": "rendered-not-visually-approved"
+    }
+  ]
+}

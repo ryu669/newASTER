@@ -1,0 +1,56 @@
+{
+  "normalSaveUnchanged": true,
+  "assemblySha256": "BF80D2C228CDC216CC84DFAEA45FBF9C3EC5EC3BA253B2807DB9C170E556F03C",
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-hit-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-hit-720.log",
+      "case": "undermine-hit",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-cutin-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-cutin-720.log",
+      "case": "undermine-cutin",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-growth-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-growth-720.log",
+      "case": "undermine-growth",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-hit-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-hit-1080.log",
+      "case": "undermine-hit",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-cutin-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-cutin-1080.log",
+      "case": "undermine-cutin",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-growth-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-3fe98da103d94f76afbdc25d0f23e44a\\undermine-growth-1080.log",
+      "case": "undermine-growth",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "humanInput": false
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "performanceMeasured": false,
+  "normalSaveUnchanged": true,
+  "cases": [
+    {
+      "humanInput": false,
+      "height": 720,
+      "case": "iconoclast-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-37cdc619f2f846d2a892129fb7d710e8\\iconoclast-growth-720.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-37cdc619f2f846d2a892129fb7d710e8\\iconoclast-growth-720.log",
+      "state": "rendered-not-visually-approved"
+    },
+    {
+      "humanInput": false,
+      "height": 1080,
+      "case": "iconoclast-growth",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-37cdc619f2f846d2a892129fb7d710e8\\iconoclast-growth-1080.png",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-37cdc619f2f846d2a892129fb7d710e8\\iconoclast-growth-1080.log",
+      "state": "rendered-not-visually-approved"
+    }
+  ],
+  "assemblySha256": "916390DE1DB943E0959A3C5C372E00F6B8555FB5501F8CD70A805CBCFC65C415",
+  "schemaVersion": 1
+}

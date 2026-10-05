@@ -53,7 +53,8 @@ namespace NewAster.Presentation
             if(gardenUseArg>=0){
                 if(display!="Garden" || gardenUseArg+1>=args.Length)throw new ArgumentException("Garden use capture requires Garden and scenario");
                 string scenario=args[gardenUseArg+1];if(!new[]{"sit","work","look","move","remove","idle"}.Contains(scenario))throw new ArgumentException("Unknown garden scenario");
-                var catalog=HomeData();string hero=combatDefinitions.FormationIds[0],garden=catalog.gardens[0].id;
+                var catalog=HomeData();bool plan9Hero=args.Contains("-inspectPlan9GardenSlayer") || args.Contains("-inspectPlan9GardenHero") || args.Contains("-inspectPlan9GardenUndermine") || args.Contains("-inspectPlan9GardenEchidna") || args.Contains("-inspectPlan9GardenExcalipan");string hero=combatDefinitions.FormationIds[args.Contains("-inspectPlan9GardenSlayer")?0:args.Contains("-inspectPlan9GardenExcalipan")?4:args.Contains("-inspectPlan9GardenEchidna")?3:args.Contains("-inspectPlan9GardenUndermine")?2:plan9Hero?1:0],garden=catalog.gardens[0].id;
+                if(plan9Hero){int otherIndex=0;foreach(var other in HomeState.occupants.Where(o=>o.gardenId==garden && o.heroineId!=hero).Select(o=>o.heroineId).ToArray())AcceptanceHome(new HomeOperation("occupant",other,garden:garden,x:.08f+.1f*otherIndex++,y:.98f));}
                 AcceptanceHome(new HomeOperation("occupant",hero,garden:garden,x:.15f,y:.8f));
                 if(scenario!="idle"){
                     int index=scenario=="work"?1:scenario=="look"?2:0;string instance="acceptance.furniture."+index;
@@ -66,18 +67,30 @@ namespace NewAster.Presentation
                 bool usingFurniture=new[]{"sit","work","look"}.Contains(scenario);
                 AcceptanceCheck(usingFurniture?occupant.actionId=="action."+scenario && GardenUsePlacement(occupant,HomeState)!=null:string.IsNullOrEmpty(occupant.actionId) && string.IsNullOrEmpty(occupant.furnitureInstanceId) && GardenUsePlacement(occupant,HomeState)==null,"garden composition survives reload and release");
                 Debug.Log("PLAN7_GARDEN_USE_CAPTURE "+scenario+" action="+(occupant.actionId??"idle")+" / isolated");
+                if(plan9Hero)Debug.Log("PLAN9_GARDEN_USE_CAPTURE "+scenario+" heroine="+hero+" / isolated");
             }
             if(display=="Weapons"){book.ChangeBookmark(BookBookmark.Heroines);growthScreen=GrowthScreen.Weapons;selectedNode=combatDefinitions.FormationIds[0]+".weapon.gamma";}
             else if(display=="Events"){book.ChangeBookmark(BookBookmark.Gardens);if(book.Face==BookFace.Overview)book.FlipPage();selectedResident=combatDefinitions.FormationIds[0];gardenPanel=GardenPanel.Events;gardenMenuExpanded=true;}
             else if(display=="Adv" || display=="Backlog" || display=="Cg"){book.ChangeBookmark(BookBookmark.Gardens);BeginAdv(HomeData().events[0].id,true);adv.Tick(.3);if(display=="Cg"){AdvanceAdv();AdvanceAdv();adv.Advance();}else{adv.Advance();if(display=="Backlog"){advBacklog=true;adv.Pause();}else adv.Pause();}}
             else{book.ChangeBookmark(BookBookmark.Gardens);selectedResident=combatDefinitions.FormationIds[0];}
             int artArg=Array.IndexOf(args,"-inspectPlan7Expression");
+            bool slayerExpression=args.Contains("-inspectPlan9AdvSlayer");
+            if(slayerExpression)artArg=Array.IndexOf(args,"-inspectPlan9AdvSlayer");
+            bool iconoclastExpression=args.Contains("-inspectPlan9AdvExpression");
+            if(iconoclastExpression)artArg=Array.IndexOf(args,"-inspectPlan9AdvExpression");
+            bool undermineExpression=args.Contains("-inspectPlan9AdvUndermine");
+            if(undermineExpression)artArg=Array.IndexOf(args,"-inspectPlan9AdvUndermine");
+            bool echidnaExpression=args.Contains("-inspectPlan9AdvEchidna");
+            if(echidnaExpression)artArg=Array.IndexOf(args,"-inspectPlan9AdvEchidna");
+            bool excalipanExpression=args.Contains("-inspectPlan9AdvExcalipan");
+            if(excalipanExpression)artArg=Array.IndexOf(args,"-inspectPlan9AdvExcalipan");
             if(artArg>=0){
                 if(display!="Adv" || artArg+1>=args.Length)throw new ArgumentException("Expression capture requires ADV and expression name");
                 var expression=args[artArg+1];if(!new[]{"normal","joy","puzzled","determined"}.Contains(expression))throw new ArgumentException("Unknown candidate expression");
-                adv=new AdvSession(HomeData(),"scene.art-candidate.slayer",HomeData().events[0].id,true,formalCampaign.Snapshot.home.readLineKeys);
+                adv=new AdvSession(HomeData(),excalipanExpression?"scene.art-candidate.excalipan":echidnaExpression?"scene.art-candidate.echidna":undermineExpression?"scene.art-candidate.undermine":iconoclastExpression?"scene.art-candidate.iconoclast":"scene.art-candidate.slayer",HomeData().events[0].id,true,formalCampaign.Snapshot.home.readLineKeys);
                 for(int line=0;line<Array.IndexOf(new[]{"normal","joy","puzzled","determined"},expression);line++){adv.Advance();adv.Advance();}
                 adv.Advance();adv.Pause();Debug.Log("PLAN7_EXPRESSION_CAPTURE "+expression+" asset="+adv.Actors.Single().ExpressionAsset);
+                if(slayerExpression || iconoclastExpression || undermineExpression || echidnaExpression || excalipanExpression)Debug.Log("PLAN9_ADV_EXPRESSION_CAPTURE "+expression+" heroine="+adv.Actors.Single().HeroineId);
             }
             int menuArg=Array.IndexOf(args,"-inspectGardenMenu");if(menuArg>=0)PrepareGardenMenuCapture(args[menuArg+1]);
             Debug.Log("PLAN6_HOME_PLAYER_PASS checks="+acceptanceChecks+" resumed="+args.Contains("-plan6Resume")+" case="+display);

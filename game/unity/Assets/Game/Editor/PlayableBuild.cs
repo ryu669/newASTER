@@ -15,6 +15,7 @@ public static partial class PlayableBuild
     public static void ValidateAndBuild()
     {
         Validate();
+        PlayerSettings.bundleVersion="0.9.0-rc.1";
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
             scenes=new[] { "Assets/Game/Scenes/Bootstrap.unity" },
             locationPathName="../Builds/playable/newASTER.exe",
@@ -154,6 +155,8 @@ public static partial class PlayableBuild
         ValidatePlan5();
         ValidatePlan6();
         ValidatePlan8();
+        ValidatePlan9Colossi();
+        ValidatePlan9Story();
         ValidatePlayback();
         ValidateVisualCues();
         ValidateSlayerModel();
@@ -241,6 +244,13 @@ public static partial class PlayableBuild
         var first=battle.DrainPresentationEvents().First(e=>e.Kind==BattlePresentationKind.Attack);
         Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(battle.AvailableHero,first)==actor,"Presentation actor overrides the next available heroine");
         Check(NewAster.Presentation.BattleIllustrationView.DisplayActor(3,null)==3,"Idle display uses the available actor");
+        string[] portraitIds={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan"};
+        for(int victim=0;victim<portraitIds.Length;victim++){
+            var hitEvent=new BattlePresentationEvent(1,0,BattlePresentationKind.Enemy,-1,portraitIds[victim],"hit",false,false,1,0,battle.State,Array.Empty<int>(),Enumerable.Repeat(false,5),targetIds:new[]{portraitIds[victim]});
+            Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,hitEvent)==victim,"Hit portrait follows target ID for each formal heroine");
+        }
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,first)==-1,"Hero attacks do not select a hit portrait");
+        Check(NewAster.Presentation.BattleIllustrationView.DisplayVictim(portraitIds,null)==-1,"Idle frames do not select a hit portrait");
         var compound=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);
         compound.Skill("hero-0",0).selfHealingBaseAttackPercent=70;
         compound.Skill("hero-0",0).selfDamageMaxHpPercent=10;
@@ -279,7 +289,7 @@ public static partial class PlayableBuild
         Check(artSource!=null,"Illustration manifest must exist");
         var art=JsonUtility.FromJson<BattleIllustrationManifest>(artSource.text);art.Validate();
         Check(battle.State.Heroes.All(h=>art.HeroIndex(h.Id)>=0) && battle.State.Parts.All(p=>art.parts.Any(a=>a.partId==p.Id)),"Art bindings match combat heroine and part IDs");
-        var texture=Resources.Load<Texture2D>("Illustrations/slayer-bust-preview");
+        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Game/ArtCandidates/RetiredResources/slayer-bust-preview.png");
         Check(texture!=null && texture.width==1672 && texture.height==941,"UI illustration keeps native aspect and dimensions");
     }
     private static void ValidateFormalCombat()

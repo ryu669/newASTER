@@ -37,7 +37,7 @@ namespace NewAster.Data
             c.scripts=c.scripts.Concat(c.events.Select(e=>new HomeAdvScript{id=e.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).Concat(c.chapters.Select(ch=>new HomeAdvScript{id=ch.sceneId,schemaVersion=1,scriptVersion=1,commands=rich})).ToArray();
             // Candidate art is explicitly bound to Slayer only; the fixture remains non-release content.
             var candidateAssets=new[]{new HomeAssetDef{id="art.candidate.slayer.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/slayer-standing-candidate-v1",fullFrame=true}}
-                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",regionalOverlay=true,overlayRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536}})).ToArray();
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeAssetDef{id="art.candidate.slayer.expression."+expression+".v1",kind="expression",placeholder=true,resourcePath="Illustrations/slayer-expression-"+expression+"-candidate-v1",regionalOverlay=true,mappedOverlay=true,overlayRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536},overlaySourceRegion01=new HomeRect{x=435f/1024,y=178f/1536,width=111f/1024,height=98f/1536}})).ToArray();
             c.assets=c.assets.Concat(candidateAssets).ToArray();
             c.assets.Single(a=>a.id=="asset.fixture.background").resourcePath="Illustrations/forest-far-candidate-v1";
             c.assets.Single(a=>a.id=="asset.fixture.foreground").resourcePath="Illustrations/forest-front-candidate-v1";
@@ -45,11 +45,11 @@ namespace NewAster.Data
             c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal-v2";
             var furnitureArt=new[]{"bench","desk","fountain"};var actions=new[]{"sit","work","look"};
             for(int i=0;i<3;i++){
-                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=new[]{"heroine.slayer"};
+                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=combat.FormationIds.ToArray();
                 f.slots[0].actionIds=actions[i]=="sit"?new[]{"action.sit"}:new[]{"action."+actions[i],"action.sit"};
                 c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=f.assetId,kind="furniture",placeholder=true,resourcePath="Illustrations/garden-"+furnitureArt[i]+"-candidate-v1"}}).ToArray();
             }
-            var slayerDisplay=c.displays.Single(d=>d.heroineId=="heroine.slayer");slayerDisplay.standingAssetId=candidateAssets[0].id;
+            var slayerDisplay=c.displays.Single(d=>d.heroineId=="heroine.slayer");slayerDisplay.standingAssetId=candidateAssets[0].id;slayerDisplay.usePortraitCrop=true;slayerDisplay.portraitCrop01=new HomeRect{x=0,y=0,width=1,height=.48f};
             slayerDisplay.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}
                 .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeDisplayVariant{id="expression."+expression,assetId="art.candidate.slayer.expression."+expression+".v1"})).ToArray();
             c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.slayer",schemaVersion=1,scriptVersion=1,
@@ -57,9 +57,79 @@ namespace NewAster.Data
                     new HomeAdvCommand{commandId="art.actor."+expression,kind="actor",heroineId="heroine.slayer",slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+expression,poseId="pose.idle"},
                     new HomeAdvCommand{commandId="art.line."+expression,kind="line",lineId="art.line."+expression,textId="text.fixture.line",speakerId="heroine.slayer"}}))
                     .Concat(new[]{new HomeAdvCommand{commandId="art.end",kind="end"}}).ToArray()}}).ToArray();
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id="art.candidate.iconoclast.standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/iconoclast-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select((expression,i)=>new HomeAssetDef{
+                    id="art.candidate.iconoclast.expression."+expression+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/iconoclast-expression-"+expression+"-source-v1",
+                    overlayRegion01=new HomeRect{x=466f/1024,y=280f/1536,width=110f/1024,height=83f/1536},
+                    overlaySourceRegion01=i==0?new HomeRect{x=461f/1024,y=230f/1536,width=110f/1024,height=83f/1536}:
+                        i==1?new HomeRect{x=343f/1024,y=626f/1536,width=376f/1024,height=284f/1536}:
+                        new HomeRect{x=403f/1230,y=588f/1280,width=440f/1230,height=327f/1280}})).ToArray();
+            var iconoclastDisplay=c.displays.Single(d=>d.heroineId=="heroine.iconoclast");iconoclastDisplay.standingAssetId="art.candidate.iconoclast.standing.v1";
+            iconoclastDisplay.usePortraitCrop=true;
+            iconoclastDisplay.portraitCrop01=new HomeRect{x=0,y=.07f,width=1,height=.48f};
+            iconoclastDisplay.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}
+                .Concat(new[]{"joy","puzzled","determined"}.Select(expression=>new HomeDisplayVariant{id="expression."+expression,assetId="art.candidate.iconoclast.expression."+expression+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.iconoclast",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="iconoclast.background",kind="background",assetId="asset.fixture.background",transition="instant"}}
+                .Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(expression=>new[]{
+                    new HomeAdvCommand{commandId="iconoclast.actor."+expression,kind="actor",heroineId="heroine.iconoclast",slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+expression,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="iconoclast.line."+expression,kind="line",lineId="iconoclast.line."+expression,textId="text.fixture.line",speakerId="heroine.iconoclast"}}))
+                .Concat(new[]{new HomeAdvCommand{commandId="iconoclast.end",kind="end"}}).ToArray()}}).ToArray();
+            AddUndermineCandidate(c);
+            AddEchidnaCandidate(c);
+            AddExcalipanCandidate(c);
             c.Validate();return c;
         }
+        private static void AddUndermineCandidate(HomeExperienceCatalog c)
+        {
+            const string hero="heroine.undermine",prefix="art.candidate.undermine.";
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=prefix+"standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/undermine-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeAssetDef{id=prefix+"expression."+e+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/undermine-expression-"+e+"-source-v1",
+                    overlayRegion01=new HomeRect{x=473f/1024,y=302f/1536,width=100f/1024,height=82f/1536},
+                    overlaySourceRegion01=new HomeRect{x=473f/1024,y=302f/1536,width=100f/1024,height=82f/1536}})).ToArray();
+            var display=c.displays.Single(d=>d.heroineId==hero);display.standingAssetId=prefix+"standing.v1";display.usePortraitCrop=true;
+            display.portraitCrop01=new HomeRect{x=0,y=.09f,width=1,height=.48f};
+            display.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}.Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeDisplayVariant{id="expression."+e,assetId=prefix+"expression."+e+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.undermine",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="undermine.background",kind="background",assetId="asset.fixture.background",transition="instant"}}.Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(e=>new[]{
+                    new HomeAdvCommand{commandId="undermine.actor."+e,kind="actor",heroineId=hero,slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+e,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="undermine.line."+e,kind="line",lineId="undermine.line."+e,textId="text.fixture.line",speakerId=hero}})).Concat(new[]{new HomeAdvCommand{commandId="undermine.end",kind="end"}}).ToArray()}}).ToArray();
+        }
         private static HomeCondition Always()=>new HomeCondition{kind="always"};
+        private static void AddExcalipanCandidate(HomeExperienceCatalog c)
+        {
+            const string hero="heroine.excalipan",prefix="art.candidate.excalipan.";
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=prefix+"standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/excalipan-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeAssetDef{id=prefix+"expression."+e+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/excalipan-expression-"+e+"-source-v1",
+                    overlayRegion01=new HomeRect{x=432f/1024,y=182f/1536,width=130f/1024,height=104f/1536},
+                    overlaySourceRegion01=new HomeRect{x=432f/1024,y=(e=="joy"?174f:182f)/1536,width=130f/1024,height=104f/1536}})).ToArray();
+            var display=c.displays.Single(d=>d.heroineId==hero);display.standingAssetId=prefix+"standing.v1";display.usePortraitCrop=true;
+            display.portraitCrop01=new HomeRect{x=0,y=.02f,width=1,height=.48f};
+            display.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}.Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeDisplayVariant{id="expression."+e,assetId=prefix+"expression."+e+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.excalipan",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="excalipan.background",kind="background",assetId="asset.fixture.background",transition="instant"}}.Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(e=>new[]{
+                    new HomeAdvCommand{commandId="excalipan.actor."+e,kind="actor",heroineId=hero,slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+e,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="excalipan.line."+e,kind="line",lineId="excalipan.line."+e,textId="text.fixture.line",speakerId=hero}})).Concat(new[]{new HomeAdvCommand{commandId="excalipan.end",kind="end"}}).ToArray()}}).ToArray();
+        }
+        private static void AddEchidnaCandidate(HomeExperienceCatalog c)
+        {
+            const string hero="heroine.echidna",prefix="art.candidate.echidna.";
+            c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=prefix+"standing.v1",kind="standing",placeholder=true,resourcePath="Illustrations/echidna-standing-candidate-v1"}})
+                .Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeAssetDef{id=prefix+"expression."+e+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
+                    resourcePath="Illustrations/echidna-expression-"+e+"-source-v1",
+                    overlayRegion01=new HomeRect{x=466f/1024,y=210f/1536,width=113f/1024,height=76f/1536},
+                    overlaySourceRegion01=new HomeRect{x=466f/1024,y=210f/1536,width=113f/1024,height=76f/1536}})).ToArray();
+            var display=c.displays.Single(d=>d.heroineId==hero);display.standingAssetId=prefix+"standing.v1";display.usePortraitCrop=true;
+            display.portraitCrop01=new HomeRect{x=0,y=.03f,width=1,height=.48f};
+            display.expressions=new[]{new HomeDisplayVariant{id="expression.normal",assetId="asset.fixture.expression"}}.Concat(new[]{"joy","puzzled","determined"}.Select(e=>new HomeDisplayVariant{id="expression."+e,assetId=prefix+"expression."+e+".v1"})).ToArray();
+            c.scripts=c.scripts.Concat(new[]{new HomeAdvScript{id="scene.art-candidate.echidna",schemaVersion=1,scriptVersion=1,
+                commands=new[]{new HomeAdvCommand{commandId="echidna.background",kind="background",assetId="asset.fixture.background",transition="instant"}}.Concat(new[]{"normal","joy","puzzled","determined"}.SelectMany(e=>new[]{
+                    new HomeAdvCommand{commandId="echidna.actor."+e,kind="actor",heroineId=hero,slotId="slot.center",outfitId="outfit.fixture",expressionId="expression."+e,poseId="pose.idle"},
+                    new HomeAdvCommand{commandId="echidna.line."+e,kind="line",lineId="echidna.line."+e,textId="text.fixture.line",speakerId=hero}})).Concat(new[]{new HomeAdvCommand{commandId="echidna.end",kind="end"}}).ToArray()}}).ToArray();
+        }
         private static HomeBookSubject Subject(string bookmark,string id,int order)=>new HomeBookSubject{id="book."+bookmark+"."+id,bookmarkId=bookmark,subjectId=id,pageOrder=order,unlockCondition=Always()};
         private static HomeAssetDef Asset(string id,string kind)=>new HomeAssetDef{id=id,kind=kind,placeholder=true};
         private static HomeActorSlot Slot(string id,float x)=>new HomeActorSlot{id=id,anchor=new HomePoint{x=x,y=.8f},pivot=new HomePoint{x=.5f,y=1},size01=new HomePoint{x=.25f,y=.65f},drawOrder=id=="slot.left"?0:id=="slot.center"?1:2};

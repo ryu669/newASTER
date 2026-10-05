@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "standing",
+      "width": 1024,
+      "height": 1536,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-standing-candidate-v1.png",
+      "visibleAlphaBounds": [
+        41,
+        75,
+        999,
+        1499
+      ],
+      "sha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "transparentPixels": 728261,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "attack",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-attack-candidate-v1.png",
+      "visibleAlphaBounds": [
+        91,
+        231,
+        1146,
+        1091
+      ],
+      "sha256": "f89d783a8af5f75ff64e758485a93d0429944cd62811704793df8361fcf787fd",
+      "transparentPixels": 1121749,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "portrait",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-portrait-candidate-v1.png",
+      "visibleAlphaBounds": [
+        0,
+        16,
+        1536,
+        1024
+      ],
+      "sha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "transparentPixels": 366311,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "hit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-hit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        46,
+        20,
+        1193,
+        1225
+      ],
+      "sha256": "167b40198e09d5d37feae50fa863f66dd56b7415cf83a41ec040f19e564892af",
+      "transparentPixels": 900827,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "cutin",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-cutin-candidate-v1.png",
+      "visibleAlphaBounds": [
+        25,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "43cf4bc985cf99b7b19664ccdb4663edcef6715b9334c3918eb93596db1701c1",
+      "transparentPixels": 402289,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "sd-idle",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-idle-candidate-v1.png",
+      "visibleAlphaBounds": [
+        323,
+        43,
+        1035,
+        1223
+      ],
+      "sha256": "7b48285bd8ffe2b4e5344639bfba74db6ff6181141e84e003954cc8cb0c743e9",
+      "transparentPixels": 1030233,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "sd-sit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-sit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        292,
+        23,
+        977,
+        1215
+      ],
+      "sha256": "f62f9a593df2a8f134892074b966cc84e79d4517f4b16141ed697e1d56db655d",
+      "transparentPixels": 1040411,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "sd-work",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-work-candidate-v1.png",
+      "visibleAlphaBounds": [
+        282,
+        21,
+        1091,
+        1235
+      ],
+      "sha256": "c6cd353d62ac4ccc1c22b53d5982288bb850f5c4e6d69da2b8cf6c30e4229fe6",
+      "transparentPixels": 924334,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "pose": "sd-look",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-look-candidate-v1.png",
+      "visibleAlphaBounds": [
+        243,
+        29,
+        1102,
+        1240
+      ],
+      "sha256": "f71748e816ad412dc565ba5a0915506917cc4c76250e8496a0f4c075476c6398",
+      "transparentPixels": 922121,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

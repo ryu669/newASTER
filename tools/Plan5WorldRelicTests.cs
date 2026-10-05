@@ -13,7 +13,7 @@ public static class Plan5WorldRelicTests
         Action<Action,string> reject=(f,name)=>{bool failed=false;try{f();}catch(Exception e)when(e is ArgumentException || e is InvalidOperationException){failed=true;}check(failed,name);};
         var catalog=CollectionContractFixture.Create(combat);var dragon=catalog.owners[0];var relicId=catalog.relics[0].id;
         Func<FormalCampaignSave> fresh=()=>new FormalCampaignSave {world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave {saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth {heroineId=id}).ToArray()},collection=new FormalCollectionLedger()};
-        check(WorldCatalog.Colossi.Count==15 && WorldCatalog.Colossi.Count(c=>ColossusCombatCatalog.CanSummon(c.Id))==1,"Fifteen pages but only authored encounter summonable");
+        check(WorldCatalog.Colossi.Count==15 && ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[0]) && ColossusCombatCatalog.CanSummon(WorldCatalog.ColossusIds[1]),"Fifteen pages retain authored dragon and tyrant encounters");
         var worldContract=new CampaignState(WorldCatalog.ColossusIds);
         foreach(var colossus in WorldCatalog.Colossi) {
             check(worldContract.ColossusUnlocks.IsUnlocked(colossus.Id),"Sequential page and final integration prerequisites resolve");
@@ -24,7 +24,7 @@ public static class Plan5WorldRelicTests
             check(!repeat.FirstClear && repeat.NewEnvironmentTags.Count==0 && repeat.NewGardenIds.Count==0 && worldContract.Terraforming.EnvironmentTags.Count==environments && worldContract.Gardens.UnlockedGardenIds.Count==gardens && worldContract.Progress.Materials>materials,"Repeated high-level rewards never duplicate environment or garden unlocks");
         }
         check(GardenCatalog.Requirements.All(g=>worldContract.Gardens.UnlockedGardenIds.Contains(g.GardenId)),"All garden environment combinations including integrated world resolve");
-        reject(()=>ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[1]),"Unmade enemy cannot reuse dragon encounter");
+        reject(()=>ColossusCombatCatalog.Get("colossus.unmade-fixture"),"Unknown enemy cannot reuse authored encounters");
         foreach(int level in new[]{1,9,10,19,20,29,30,39,40,44,45,49,50}){
             var band=catalog.rewardBands.Single(x=>x.ownerId==dragon.id && level>=x.minLevel && level<=x.maxLevel);
             check(band.draws==Math.Min(5,1+level/10),"Explicit hunt level boundaries");

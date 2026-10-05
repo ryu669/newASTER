@@ -11,9 +11,10 @@ namespace NewAster.Core
     }
     [Serializable] public sealed class FormalEngagementRules
     {
+        public const string ProductionVersion="engagement-production-2026-10-05";
         public string version="engagement-trial-2026-10-03";
         public int loginStones=300,periodStones=100,periodSeconds=1800;
-        public void Validate(){if(version!="engagement-trial-2026-10-03" || loginStones<1 || periodStones<1 || periodSeconds!=1800)throw new ArgumentException("Invalid engagement rules.");}
+        public void Validate(){if(version!="engagement-trial-2026-10-03" && version!=ProductionVersion || loginStones<1 || periodStones<1 || periodSeconds!=1800)throw new ArgumentException("Invalid engagement rules.");}
         public static int Day(DateTime utc){if(utc.Kind!=DateTimeKind.Utc)throw new ArgumentException("UTC clock required.");return int.Parse(utc.AddHours(9).ToString("yyyyMMdd",System.Globalization.CultureInfo.InvariantCulture));}
         public static bool ValidDay(int day)=>DateTime.TryParseExact(day.ToString(),"yyyyMMdd",System.Globalization.CultureInfo.InvariantCulture,System.Globalization.DateTimeStyles.None,out _);
     }

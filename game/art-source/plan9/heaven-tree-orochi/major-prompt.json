@@ -1,0 +1,8 @@
+{
+  "tool": "built-in imagegen",
+  "prompt": "Original full assembled HEAVEN TREE OROCHI major attack sprite matching five reference assets. Transparent SQUARE1:1 canvas. Massive ancient tree trunk with EXACTLY EIGHT separate clearly countable wooden serpent heads: six base heads arranged three on left and three on right, plus the detachable two-headed attack branch on upper-left beside other heads. Jade leaf bud atop central trunk, oval bark shield on front trunk, luminous water-root bulb lower-right. All heads distinct and visible no overlaps hiding head count. Brown bark emerald moss jade veins, jade root-magic arcs close around entire tree. Strongly zoomed-out all eight heads roots crown shield bulb and EVERY glow completely inside20percent transparent outer margin, at most60percent width60percent height. Premium painterly Japanese fantasy botanical guardian no floor scenery shadow text.",
+  "editPrompt": "Edit exact supplied tree serpent major sprite. There are currently SEVEN heads, four left and three right. Add ONE distinct eighth wooden serpent head at upper RIGHT above existing top-right head, mirroring the height of highest-left head, with separate curved bark neck joining tree trunk. Final EXACTLY EIGHT clearly countable separate heads: four on left and four on right. Preserve existing seven heads, central bud bark shield lower-right root bulb and same bark moss jade materials. Zoom entire artwork out slightly to leave clear transparent border and contain all roots glow and eight heads within canvas. Transparent square, no scenery text.",
+  "rejectedOutput": "exec-fe88a474-a309-481e-9641-82d8cfebc469.png",
+  "selectedOutput": "exec-5c9c8583-62db-4dd5-8b6d-c0ee712847b0.png",
+  "finalDeliveryApproved": false
+}

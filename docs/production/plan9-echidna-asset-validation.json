@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "standing",
+      "width": 1024,
+      "height": 1536,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-standing-candidate-v1.png",
+      "visibleAlphaBounds": [
+        54,
+        6,
+        990,
+        1517
+      ],
+      "sha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "transparentPixels": 707245,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "attack",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-attack-candidate-v1.png",
+      "visibleAlphaBounds": [
+        113,
+        78,
+        1178,
+        1190
+      ],
+      "sha256": "fb60cebab61e9ecb8022a9dd88cd584ebc3a4b4869b05b3c315983a9f6373391",
+      "transparentPixels": 878993,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "portrait",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-portrait-candidate-v1.png",
+      "visibleAlphaBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "transparentPixels": 409910,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "hit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-hit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        167,
+        10,
+        1136,
+        1231
+      ],
+      "sha256": "16417a5f61c9bddaa99d749474d6d4d6f38faf71d8f8bb24ac4efe16535309b9",
+      "transparentPixels": 895011,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "cutin",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-cutin-candidate-v1.png",
+      "visibleAlphaBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ],
+      "sha256": "c8517c9ce8804775f4eab9bd1f3a5dc03229581207b0f3471c76138b6bf23567",
+      "transparentPixels": 382446,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "sd-idle",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-idle-candidate-v1.png",
+      "visibleAlphaBounds": [
+        243,
+        36,
+        1020,
+        1235
+      ],
+      "sha256": "17e882445daedc424b3c4e9343606cf20879444d5e4e012a0e8ec721a5b95f6d",
+      "transparentPixels": 982224,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "sd-sit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-sit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        215,
+        21,
+        1000,
+        1215
+      ],
+      "sha256": "77bd4d069306cbaf14605ef7306cba0c72fc758183a7f773e848da4e4060dedf",
+      "transparentPixels": 998637,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "sd-work",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-work-candidate-v1.png",
+      "visibleAlphaBounds": [
+        190,
+        10,
+        1051,
+        1236
+      ],
+      "sha256": "2072ec4be3026ce449ee0de835d2c7c1a83d1f855c6b1817bebd98edb1222a3d",
+      "transparentPixels": 917536,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "pose": "sd-look",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-look-candidate-v1.png",
+      "visibleAlphaBounds": [
+        323,
+        32,
+        1075,
+        1234
+      ],
+      "sha256": "76e773f1511e77cc7197dd48b213918169ab17c0bea5636eae3d011c829c30a5",
+      "transparentPixels": 1031448,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

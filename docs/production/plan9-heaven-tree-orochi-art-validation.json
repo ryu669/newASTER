@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-normal-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-normal",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-normal-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part1-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part1-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part2-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part2",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part2-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part3-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part3",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part3-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part4-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part4",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part4-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-all-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-all",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-all-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-major-720.png",
+      "height": 720,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-major",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-major-720.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-normal-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-normal",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-normal-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part1-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part1",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part1-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part2-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part2",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part2-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part3-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part3",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part3-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part4-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-part4",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-part4-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-all-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-all",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-all-1080.log"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-major-1080.png",
+      "height": 1080,
+      "state": "rendered-not-visually-approved",
+      "case": "orochi-art-major",
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-c75f3ab6eb1b4b89b7e4a893c4dd43cd\\orochi-art-major-1080.log"
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "assemblySha256": "ACC0812782AD8BA44E04913506A24B78F0534EE5DDAA66567B70DF521079A2D1"
+}

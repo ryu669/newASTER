@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "placeholder": false,
+  "heroes": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-standing-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false,
+      "attackResourcePath": "Illustrations/slayer-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/slayer-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/slayer-cutin-candidate-v3"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-standing-candidate-v1",
+      "fullCanvas": true,
+      "attackResourcePath": "Illustrations/iconoclast-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/iconoclast-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/iconoclast-cutin-candidate-v1",
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/undermine-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/undermine-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/undermine-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/echidna-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/echidna-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/echidna-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-standing-candidate-v1",
+      "attackResourcePath": "Illustrations/excalipan-attack-candidate-v1",
+      "hitResourcePath": "Illustrations/excalipan-hit-candidate-v1",
+      "cutinResourcePath": "Illustrations/excalipan-cutin-candidate-v1",
+      "fullCanvas": true,
+      "placeholder": false
+    }
+  ],
+  "parts": [
+    {
+      "partId": "tyrant.crown",
+      "x": 0.5,
+      "y": 0.02,
+      "width": 0.23,
+      "height": 0.2,
+      "resourcePath": "Illustrations/red-crown-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.49,
+        "y": 0.025,
+        "scale": 0.22
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 2,
+      "inputPriority": 2
+    },
+    {
+      "partId": "tyrant.claw",
+      "x": 0.08,
+      "y": 0.38,
+      "width": 0.3,
+      "height": 0.32,
+      "resourcePath": "Illustrations/red-claw-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.066,
+        "y": 0.37,
+        "scale": 0.34
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 3,
+      "inputPriority": 2
+    },
+    {
+      "partId": "tyrant.plate",
+      "x": 0.43,
+      "y": 0.44,
+      "width": 0.24,
+      "height": 0.25,
+      "resourcePath": "Illustrations/red-plate-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.38,
+        "y": 0.4,
+        "scale": 0.28
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": 1,
+      "inputPriority": 1
+    },
+    {
+      "partId": "tyrant.tail",
+      "x": 0.72,
+      "y": 0.5,
+      "width": 0.23,
+      "height": 0.31,
+      "resourcePath": "Illustrations/red-tail-candidate-v1",
+      "placement": {
+        "enabled": true,
+        "x": 0.58,
+        "y": 0.42,
+        "scale": 0.4
+      },
+      "hideWhenDestroyed": true,
+      "drawOrder": -1,
+      "inputPriority": 1
+    }
+  ],
+  "backgroundResourcePath": "Illustrations/canyon-far-candidate-v1",
+  "middleResourcePath": "Illustrations/world-forest-mid-candidate-v1",
+  "foregroundResourcePath": "Illustrations/forest-front-candidate-v1",
+  "bodyResourcePath": "Illustrations/red-body-candidate-v1",
+  "enemyMajorResourcePath": "Illustrations/red-major-candidate-v1",
+  "bodyPlacement": {
+    "enabled": true,
+    "x": 0.08,
+    "y": 0.17,
+    "scale": 0.78
+  }
+}

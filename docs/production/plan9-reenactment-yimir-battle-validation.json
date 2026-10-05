@@ -1,0 +1,152 @@
+{
+  "cases": [
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-1-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-1-720.png",
+      "case": "yimir-battle-1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-44-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-44-720.png",
+      "case": "yimir-battle-44"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-45-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-45-720.png",
+      "case": "yimir-battle-45"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-49-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-49-720.png",
+      "case": "yimir-battle-49"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-50-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-50-720.png",
+      "case": "yimir-battle-50"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part1-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part1-720.png",
+      "case": "yimir-battle-part1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part2-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part2-720.png",
+      "case": "yimir-battle-part2"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part3-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part3-720.png",
+      "case": "yimir-battle-part3"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part4-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part4-720.png",
+      "case": "yimir-battle-part4"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-1-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-1-1080.png",
+      "case": "yimir-battle-1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-44-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-44-1080.png",
+      "case": "yimir-battle-44"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-45-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-45-1080.png",
+      "case": "yimir-battle-45"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-49-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-49-1080.png",
+      "case": "yimir-battle-49"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-50-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-50-1080.png",
+      "case": "yimir-battle-50"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part1-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part1-1080.png",
+      "case": "yimir-battle-part1"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part2-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part2-1080.png",
+      "case": "yimir-battle-part2"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part3-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part3-1080.png",
+      "case": "yimir-battle-part3"
+    },
+    {
+      "state": "rendered-not-visually-approved",
+      "humanInput": false,
+      "height": 1080,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part4-1080.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-e24fd94505a74d64a549bee2af147f97\\yimir-battle-part4-1080.png",
+      "case": "yimir-battle-part4"
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "performanceMeasured": false,
+  "schemaVersion": 1,
+  "assemblySha256": "656DE680EB340EE84BD1FB0B1CECDDA446F45429718BD3077F6A6FAD70153E0F"
+}

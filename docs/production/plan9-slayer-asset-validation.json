@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "performanceMeasured": false,
+  "assets": [
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "standing",
+      "width": 1024,
+      "height": 1536,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
+      "visibleAlphaBounds": [
+        77,
+        4,
+        962,
+        1517
+      ],
+      "sha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "transparentPixels": 950872,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "attack",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-attack-candidate-v1.png",
+      "visibleAlphaBounds": [
+        39,
+        3,
+        1241,
+        1215
+      ],
+      "sha256": "74a28016733166f07f30cfb75c1933b94ef62dfb7e747c363291077450214ab7",
+      "transparentPixels": 969329,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "hit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        145,
+        21,
+        1123,
+        1232
+      ],
+      "sha256": "40ba73f690ef7d94bda811699aa6907900b2225eb67ab96845bcb3a11361f0c4",
+      "transparentPixels": 1057839,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "cutin",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-cutin-candidate-v3.png",
+      "visibleAlphaBounds": [
+        262,
+        218,
+        1017,
+        1052
+      ],
+      "sha256": "2a7bf6bde5e55348a47163b78592e53f8e790b9626080dc24ed92e4fe4084dbf",
+      "transparentPixels": 1129701,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "portrait",
+      "width": 1536,
+      "height": 1024,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-portrait-candidate-v1.png",
+      "visibleAlphaBounds": [
+        48,
+        9,
+        1486,
+        1024
+      ],
+      "sha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "transparentPixels": 715513,
+      "intentionalCrop": true,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "sd-idle",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-idle-candidate-v1.png",
+      "visibleAlphaBounds": [
+        244,
+        6,
+        1014,
+        1246
+      ],
+      "sha256": "ead29e6a676c906b500ad63aff351d7e1718017cd0362b05eb355e7f2ca535b6",
+      "transparentPixels": 1085912,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "sd-sit",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-sit-candidate-v1.png",
+      "visibleAlphaBounds": [
+        227,
+        14,
+        1023,
+        1237
+      ],
+      "sha256": "3c64ebbc9d1b26010085e05be2b942f7439d5aa6334b04719a41fe5ed42460b0",
+      "transparentPixels": 1093669,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "sd-work",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-work-candidate-v1.png",
+      "visibleAlphaBounds": [
+        310,
+        5,
+        991,
+        1245
+      ],
+      "sha256": "fab3b3fa2f984065aebc60c5b89bc6791d2de4d2aad5f79142bfea43317f2119",
+      "transparentPixels": 1138141,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "pose": "sd-look",
+      "width": 1254,
+      "height": 1254,
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-look-candidate-v1.png",
+      "visibleAlphaBounds": [
+        270,
+        11,
+        978,
+        1241
+      ],
+      "sha256": "a7c0ff1f4809bce4171d5983fe3b8d8271be64f6a584b6d0b3c8a09a2ce0835b",
+      "transparentPixels": 1154856,
+      "intentionalCrop": false,
+      "status": "candidate",
+      "finalDeliveryApproved": false
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "colossusId": "colossus.memory-crystal-dragon",
+  "performanceMeasured": false,
+  "finalDeliveryApproved": false,
+  "manifestSha256": "78bd9a25b88067b2c5647f8c6619d1bfd6771a2f6a25e2b8fefc9548997c47bb",
+  "layers": [
+    {
+      "purpose": "body",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-body-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        50,
+        155,
+        1234,
+        1107
+      ],
+      "sha256": "89bf36fca5fb5e72a1f2b0cb6296b4720cd5fe688462bef943600e76c8045935",
+      "status": "candidate"
+    },
+    {
+      "purpose": "memory.core",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-core-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        296,
+        106,
+        965,
+        1130
+      ],
+      "sha256": "2848dbc4ab5cabcb3e6114076f3ab74e45a316301272d711ece79919cb72f30b",
+      "status": "candidate"
+    },
+    {
+      "purpose": "memory.cannon",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-cannon-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        100,
+        405,
+        1194,
+        862
+      ],
+      "sha256": "6fb95937f583d1f21fce87fa73d9a0e76d14f5149b956419e9f15e7e75abf206",
+      "status": "candidate"
+    },
+    {
+      "purpose": "memory.shield",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-shield-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        296,
+        81,
+        1023,
+        1166
+      ],
+      "sha256": "fc255e59572d0ab66fed529e16b6631ed9917b95d1102c60d91d99a31df59aed",
+      "status": "candidate"
+    },
+    {
+      "purpose": "memory.antenna",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-antenna-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        370,
+        134,
+        892,
+        1112
+      ],
+      "sha256": "e02a1cdc3fef940e7a6169c586ebe0a53ec91b7c62281c3ef7b846cc196b8ae8",
+      "status": "candidate"
+    },
+    {
+      "purpose": "major",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/memory-major-candidate-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaBounds": [
+        74,
+        134,
+        1194,
+        1133
+      ],
+      "sha256": "99e7c07480cedd52573e195197cd702cc462047e687b1d5e6aeedab2b69764c7",
+      "status": "candidate"
+    }
+  ]
+}
