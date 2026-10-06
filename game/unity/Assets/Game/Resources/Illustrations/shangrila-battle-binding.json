@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.shangrila",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/shangrila-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/shangrila-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/shangrila-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/shangrila-cutin-candidate-v1"
+}

@@ -9,7 +9,7 @@ namespace NewAster.Core
         public int hp,attack,defense,magicDefense,speed,criticalBp;
         public void Validate()
         {
-            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(resourceName) || resourceMax<0 || resourceMax==0 && id!="job.panzer" || resourceMax>15 || initialResource<0 || initialResource>resourceMax || gainAtReady<0 || gainAtReady>15 || gainOnAttack<0 || gainOnAttack>15 || gainOnHit<0 || gainOnHit>15 || hp<1 || hp>1000000 || attack<1 || attack>1000000 || defense<0 || defense>1000000 || magicDefense<0 || magicDefense>1000000 || speed<1 || speed>10000 || criticalBp<0 || criticalBp>10000) throw new ArgumentException("Invalid formal job.");
+            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(resourceName) || resourceMax<0 || resourceMax==0 && id!="job.panzer" && id!="job.gambler" || resourceMax>15 || initialResource<0 || initialResource>resourceMax || gainAtReady<0 || gainAtReady>15 || gainOnAttack<0 || gainOnAttack>15 || gainOnHit<0 || gainOnHit>15 || hp<1 || hp>1000000 || attack<1 || attack>1000000 || defense<0 || defense>1000000 || magicDefense<0 || magicDefense>1000000 || speed<1 || speed>10000 || criticalBp<0 || criticalBp>10000) throw new ArgumentException("Invalid formal job.");
         }
         public JobCombatDef Copy() => (JobCombatDef)MemberwiseClone();
     }
@@ -43,7 +43,9 @@ namespace NewAster.Core
                 if(contentReferences.Single(r=>r.id==hero.traitId).status!="implemented") throw new ArgumentException("Combat trait must be implemented.");
                 for(int slot=0;slot<3;slot++) {
                     var skill=Skill(hero.id,slot);
-                    if(skill.ruleOrigin!="video-observation-plus-newaster-original" || skill.sourceSkillId!=skill.id || string.IsNullOrEmpty(skill.sourceFile) || !skill.sourceFile.EndsWith(".mkv",StringComparison.OrdinalIgnoreCase) || skill.sourceSecond<0 || skill.observedSkillLevel!=7) throw new ArgumentException("Missing skill evidence provenance.");
+                    bool observed=skill.ruleOrigin=="video-observation-plus-newaster-original" && !string.IsNullOrEmpty(skill.sourceFile) && skill.sourceFile.EndsWith(".mkv",StringComparison.OrdinalIgnoreCase) && skill.sourceSecond>=0 && skill.observedSkillLevel==7;
+                    bool authored=skill.ruleOrigin=="newaster-original" && string.IsNullOrEmpty(skill.sourceFile) && skill.sourceSecond==0 && skill.observedSkillLevel==0;
+                    if(skill.sourceSkillId!=skill.id || !observed && !authored)throw new ArgumentException("Missing or contradictory skill evidence provenance.");
                     if(skill.resourceCost>job.resourceMax || (skill.effectRuleId=="effect.damage" && string.IsNullOrEmpty(skill.damageType))) throw new ArgumentException("Formal skill needs explicit attack profile and reachable resource cost.");
                     if(skill.effectRuleId=="effect.damage" && skill.damageCap<=0) throw new ArgumentException("Formal damage cap must be explicit.");
                     if((skill.conditions??Array.Empty<SkillConditionDef>()).Any(c=>c.kind=="trait-equipped" && c.referenceId!=hero.traitId || c.kind=="job-resource-at-least" && c.threshold>job.resourceMax)) throw new ArgumentException("Unreachable or cross-owner formal skill condition.");

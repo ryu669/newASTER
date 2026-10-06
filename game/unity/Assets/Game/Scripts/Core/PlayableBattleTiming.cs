@@ -41,7 +41,7 @@ namespace NewAster.Core
         private long bossAt;
         private int commandCount;
         private readonly SkillTimingDefinition[,] timings;
-        private sealed class PendingCast { public int Slot; public string Target; public BattleSkill Skill; public int ChainBonus; public bool[] ChainActors; public int Repeats; }
+        private sealed class PendingCast { public int Slot; public bool Sniper; public string Target; public BattleSkill Skill; public int ChainBonus; public bool[] ChainActors; public int Repeats; }
         public SkillTimingDefinition Timing(int actor,int slot)
         {
             // Vertical-slice profiles only; each skill has independent casting/recovery fields.
@@ -114,8 +114,8 @@ namespace NewAster.Core
         private void AdvanceTimeline()
         {
             while(!Ended) {
-                for(int i=0;i<5;i++) if(!State.Heroes[i].IsAlive && casting[i]!=null) {
-                    casting[i]=null; RecordPresentation(BattlePresentationKind.CastCanceled,i,"body","戦闘不能により詠唱中断。");
+                for(int i=0;i<5;i++) if(casting[i]!=null && (!State.Heroes[i].IsAlive || casting[i].Sniper && (State.Heroes[i].Status.Active("stun") || State.Heroes[i].Status.Active("absent")))) {
+                    bool alive=State.Heroes[i].IsAlive;casting[i]=null; RecordPresentation(BattlePresentationKind.CastCanceled,i,"body",alive?"行動不能により狙撃中断。":"戦闘不能により詠唱中断。");
                 }
                 var next=UpcomingOrder().First(); AdvanceClock(next.At);if(Ended)break;
                 if(next.Actor<0) {
@@ -129,6 +129,7 @@ namespace NewAster.Core
                 var pending=casting[actor];
                 if(pending!=null) {
                     casting[actor]=null;
+                    if(pending.Sniper){ResolveSniperMode(actor,pending);continue;}
                     // An already broken target cancels this spell; no silent retarget/refund.
                     var outcome=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,pending.Skill,pending.Target,max=>random.Next(max));
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");

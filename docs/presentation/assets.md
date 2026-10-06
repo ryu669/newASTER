@@ -1,6 +1,12 @@
 # 2D素材制作・納品・差分整合性
 
-更新：2026-10-02。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
+<!-- plan10-current:start -->
+## 計画10の現行接続（2026-10-07）
+
+今回4形態×18点=72点の本人専用PNGを追加。生成元・プロンプトを `game/art-source/plan10/<key>-generation.json`、無加工の採用PNGをart-sourceとResources、SHA-256をProductionAssetAcceptanceへ保存する。参考動画と切り出し資料はGit・配布へ入れない。ジョブ資源13種は既存コードのアイコン体系を拡張した固有形状のPNGで、色替えだけではない。[追加手順](../production/heroine-addition-guide.md)を参照。
+<!-- plan10-current:end -->
+
+更新：2026-10-07。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
 
 ## 共通契約
 

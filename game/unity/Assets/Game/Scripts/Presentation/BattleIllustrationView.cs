@@ -31,8 +31,7 @@ namespace NewAster.Presentation
                 var source=Resources.Load<TextAsset>(resource);
                 if(source==null) throw new ArgumentException("battle-preview manifest missing");
                 manifest=JsonUtility.FromJson<BattleIllustrationManifest>(source.text);manifest.Validate();
-                var extra=Resources.Load<TextAsset>("Illustrations/r-battle-binding");if(extra!=null && !manifest.heroes.Any(h=>h.heroineId=="heroine.r"))manifest.heroes=manifest.heroes.Concat(new[]{JsonUtility.FromJson<HeroIllustrationBinding>(extra.text)}).ToArray();
-                foreach(string key in new[]{"annihilator","annihilator-holy","shell","oriflamme","nighthawk"}){var binding=Resources.Load<TextAsset>("Illustrations/"+key+"-battle-binding");if(binding!=null && !manifest.heroes.Any(h=>h.heroineId=="heroine."+key))manifest.heroes=manifest.heroes.Concat(new[]{JsonUtility.FromJson<HeroIllustrationBinding>(binding.text)}).ToArray();}
+                foreach(var binding in Resources.LoadAll<TextAsset>("Illustrations").Where(a=>a.name.EndsWith("-battle-binding",StringComparison.Ordinal))){var hero=JsonUtility.FromJson<HeroIllustrationBinding>(binding.text);if(!manifest.heroes.Any(h=>h.heroineId==hero.heroineId))manifest.heroes=manifest.heroes.Concat(new[]{hero}).ToArray();}
                 portraits=manifest.heroes.Select(h=>string.IsNullOrEmpty(h.resourcePath)?null:Resources.Load<Texture2D>(h.resourcePath)).ToArray();
                 background=LoadLayer(manifest.backgroundResourcePath);body=LoadLayer(manifest.bodyResourcePath);
                 middle=LoadLayer(manifest.middleResourcePath);foreground=LoadLayer(manifest.foregroundResourcePath);
@@ -82,7 +81,7 @@ namespace NewAster.Presentation
             Fill(sceneRect,new Color(.08f,.14f,.19f));
             if(background!=null) GUI.DrawTexture(sceneRect,background,ScaleMode.ScaleAndCrop);
             float parallax=ArtSampleSettings.ReducedMotion?0:Mathf.Sin(elapsed*.7f)*3;
-            if(middle!=null)GUI.DrawTexture(new Rect(-4+parallax,0,1608,900),middle,ScaleMode.StretchToFill,true);
+            if(middle!=null)GUI.DrawTexture(new Rect(-4+parallax,0,1608,900),middle,ScaleMode.ScaleAndCrop,true);
             int actor=DisplayActor(battle.AvailableHero,e);
             // Asset inspection only: never changes the engine's available actor or command target.
             bool inspectStanding=args.Contains("-inspectPlan7Standing") || Inspection!=null;
@@ -122,7 +121,7 @@ namespace NewAster.Presentation
                 GUI.DrawTexture(LayerCanvas(enemy,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
-            if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.StretchToFill,true);
+            if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.ScaleAndCrop,true);
             if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(sceneRect,tint);}
             if(body!=null && manifest!=null && canSelect && Event.current.type==EventType.MouseDown && Event.current.button==0 && enemy.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<708) {
                 var mouse=Event.current.mousePosition;

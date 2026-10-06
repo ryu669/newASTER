@@ -143,7 +143,7 @@ namespace NewAster.Presentation
             else if (titlePanel == "credits")
             {
                 Label(400, 185, 750, 60, "クレジット", heading, titleGold);
-                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n初期5人 配布候補 RC1\n人物・巨神獣・背景・家具・CG：\nnewASTER用に制作したAI生成美術\n本文・戦闘ルール・UI・音：独自制作\nBGM4曲と操作音4種、戦闘音5種を収録。\n\n参考ゲーム映像は制作上の観察資料です。\n原作の画像・音声を本配布物へ収録しません。\n\n素材ごとの採用記録と既知の制限は\n同梱のCREDITS・READMEを参照してください。";
+                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n計画10 追加天使を含む開発版\n人物・巨神獣・背景・家具・CG：\nnewASTER用に制作したAI生成美術\n本文・戦闘ルール・UI・音：独自制作\nBGM4曲と操作音4種、戦闘音5種を収録。\n\n参考ゲーム映像は制作上の観察資料です。\n原作の画像・音声を本配布物へ収録しません。\n\n素材ごとの採用記録と既知の制限は\n同梱のCREDITS・READMEを参照してください。";
                 float height=Math.Max(320,text.CalcHeight(new GUIContent(credits),700));
                 titleCreditsScroll=GUI.BeginScrollView(new Rect(400,275,750,320),titleCreditsScroll,new Rect(0,0,700,height));
                 Label(0,0,700,height,credits,text,Color.white);GUI.EndScrollView();

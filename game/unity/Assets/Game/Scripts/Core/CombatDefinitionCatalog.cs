@@ -24,6 +24,10 @@ namespace NewAster.Core
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
         public string targetStatusBonusKind;
         public int targetStatusBonusPercent;
+        public int enemyAttackReductionPercent,enemyAttackReductionTurns;
+        public int bodyDamageBonusPercent,enemyStatusExtensionTurns,alliesEffectExtensionTurns;
+        public string[] enemyStatusExtensionKinds;
+        public TimedSelfEffectDef[] postAttackAlliesEffects;
         public int enemyFireVulnerabilityPercent,enemyFireVulnerabilityTurns,allAlchemistResourceGain;
         public int criticalBonusBp,damageCap;
         public int chainChanceBonusBp;
@@ -88,6 +92,7 @@ namespace NewAster.Core
             if(schemaVersion!=1 && formation.All(id=>heroines.Any(h=>h.id==id)) && formation.Select(PersonId).Distinct().Count()!=5)throw new ArgumentException("One person cannot occupy multiple formation slots.");
             if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=skills.Length)
                 throw new ArgumentException("Invalid skill definition.");
+            if(skills.Any(s=>s.enemyAttackReductionPercent<0 || s.enemyAttackReductionPercent>50 || s.enemyAttackReductionTurns<0 || s.enemyAttackReductionTurns>10 || (s.enemyAttackReductionPercent==0)!=(s.enemyAttackReductionTurns==0)))throw new ArgumentException("Invalid enemy attack reduction.");
             if(skills.Any(s=>s.chainChanceBonusBp<0 || s.chainChanceBonusBp>1500 || s.chainChanceBonusBp>0 && s.effectRuleId!="effect.damage"))throw new ArgumentException("Invalid authored chain bonus.");
             if(skills.Any(s=>s.enemyFireVulnerabilityPercent<0 || s.enemyFireVulnerabilityPercent>100 || s.enemyFireVulnerabilityTurns<0 || s.enemyFireVulnerabilityTurns>10 || (s.enemyFireVulnerabilityPercent==0)!=(s.enemyFireVulnerabilityTurns==0) || s.enemyFireVulnerabilityPercent>0 && s.effectRuleId!="effect.damage" || s.allAlchemistResourceGain<0 || s.allAlchemistResourceGain>10 || s.allAlchemistResourceGain>0 && s.effectRuleId!="effect.allies-buff"))throw new ArgumentException("Invalid alchemy skill effects.");
             if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || s.effectRuleId!="effect.damage" && s.effectRuleId!="effect.self-buff" && s.selfHealingBaseAttackPercent!=0 || s.effectRuleId!="effect.damage" && s.selfDamageMaxHpPercent!=0 || s.resourceGain<0 || s.resourceGain>10 || s.alliesHealingBaseAttackPercent<0 || s.alliesHealingBaseAttackPercent>1000 || s.alliesHealingBaseAttackPercent>0 && s.effectRuleId!="effect.damage" || s.cleanseAll && s.effectRuleId!="effect.heal"))
@@ -104,6 +109,7 @@ namespace NewAster.Core
                 SkillConditionDef.ValidateAll(skill.conditions);
                 if(skill.criticalBonusBp<0 || skill.criticalBonusBp>10000 || skill.damageCap<0 || (skill.effectRuleId!="effect.damage" && (skill.criticalBonusBp!=0 || skill.damageCap!=0))) throw new ArgumentException("Critical bonus and damage cap require an attack.");
                 TimedSelfEffectDef.ValidateAll(skill.selfEffects);
+                ExtendedSkillEffects.Validate(skill);
                 if(skill.effectRuleId=="effect.self-buff" || skill.effectRuleId=="effect.allies-buff") {
                     if(skill.selfEffects==null || skill.selfEffects.Length==0 || (skill.effectRuleId=="effect.self-buff"?skill.targetRuleId!="target.self":skill.targetRuleId!="target.all-living-allies" && !(skill.targetRuleId=="target.selected-allies" && skill.targetCount==1)) || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
                         throw new ArgumentException("Self-buff requires nonempty supported effects and self target without casting or chain.");
@@ -137,7 +143,7 @@ namespace NewAster.Core
                     }
                 }
             }
-            ValidateFormal();
+            ValidateFormal();if(IsFormal)ValidateGeneralFormations();
         }
         public SkillTimingDefinition[,] Timings()
         {

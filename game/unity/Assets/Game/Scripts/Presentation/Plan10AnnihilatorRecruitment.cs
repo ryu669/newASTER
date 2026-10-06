@@ -8,9 +8,10 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool expansionRecruitmentOpen;
+        private int expansionRecruitmentPage;
         private GrowthRequest expansionRecruitRequest;
         private string expansionRecruitError;
-        private string[] UnownedExpansionForms()=>new[]{"heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk"}.Where(id=>combatDefinitions.HeroineIds.Contains(id) && !formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id)).ToArray();
+        private string[] UnownedExpansionForms()=>combatDefinitions.HeroineIds.Skip(5).Where(id=>combatDefinitions.HeroineIds.Contains(id) && !formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id)).ToArray();
         private void DrawExpansionRecruitmentButton()
         {
             int count=UnownedExpansionForms().Length;if(count==0)return;
@@ -18,7 +19,7 @@ namespace NewAster.Presentation
         }
         private GrowthCommitResult RecruitExpansionForm(string id)
         {
-            if(!new[]{"heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk"}.Contains(id) || !combatDefinitions.HeroineIds.Contains(id))throw new ArgumentException("Unknown recruitable form.");
+            if(!combatDefinitions.HeroineIds.Skip(5).Contains(id) || !combatDefinitions.HeroineIds.Contains(id))throw new ArgumentException("Unknown recruitable form.");
             if(formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id))return GrowthCommitResult.AlreadyCommitted;
             if(expansionRecruitRequest!=null && expansionRecruitRequest.HeroineId!=id)throw new InvalidOperationException("加入の保存を再試行してください。");
             expansionRecruitRequest=expansionRecruitRequest??new GrowthRequest(Guid.NewGuid().ToString("N"),id,formalProgression.Snapshot.revision,GrowthOperation.ReceiveHeroine);
@@ -31,14 +32,17 @@ namespace NewAster.Presentation
             if(!expansionRecruitmentOpen)return;drawingModal=true;
             GrowthFill(0,0,1600,900,new Color(0,0,0,.75f));GrowthFrame(285,65,1030,780);
             Label(330,95,940,48,"新しい天使を迎える",growthTitleStyle,gold);
-            Label(330,156,940,58,"加入は無償。通常版と聖夜版は同じ人物です。\n好感度・恋人関係を共有し、衣装とジョブの育成は形態ごとに進めます。",growthSmallStyle);
-            var forms=UnownedExpansionForms();
+            Label(330,156,940,58,"加入は無償。衣装違いは同じ人物として扱います。\n好感度・恋人関係を共有し、衣装とジョブの育成は形態ごとに進めます。",growthSmallStyle);
+            var allForms=UnownedExpansionForms();int pages=Math.Max(1,(allForms.Length+4)/5);expansionRecruitmentPage=Mathf.Clamp(expansionRecruitmentPage,0,pages-1);var forms=allForms.Skip(expansionRecruitmentPage*5).Take(5).ToArray();
             for(int i=0;i<forms.Length;i++){
                 string id=forms[i];var hero=combatDefinitions.Hero(id);
                 if(GrowthButton(330,229+i*70,940,58,hero.name+" ／ "+HeroineIdentityCatalog.JobName(hero.jobId)+"を迎える",expansionRecruitRequest==null || expansionRecruitRequest.HeroineId==id,true)){
                     try{RecruitExpansionForm(id);}catch(Exception e){expansionRecruitError=e.Message;}
                 }
             }
+            if(GrowthButton(330,610,260,48,"‹ 前の5形態",expansionRecruitmentPage>0 && expansionRecruitRequest==null))expansionRecruitmentPage--;
+            Label(660,619,260,40,(expansionRecruitmentPage+1)+" / "+pages,growthSmallStyle);
+            if(GrowthButton(1010,610,260,48,"次の5形態 ›",expansionRecruitmentPage+1<pages && expansionRecruitRequest==null))expansionRecruitmentPage++;
             if(expansionRecruitError!=null)Label(330,665,940,40,expansionRecruitError,growthSmallStyle);
             if(GrowthButton(970,765,300,48,"一覧へ戻る",expansionRecruitRequest==null,true))expansionRecruitmentOpen=false;
         }

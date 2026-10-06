@@ -1,0 +1,106 @@
+[
+  {
+    "job": "fighter",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\fighter.png",
+    "sha256": "65366fb003dbe7b41140c5cec9e5792ed0368170df72b0e442294e7db03d4dae",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "berserker",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\berserker.png",
+    "sha256": "88704e2265b39043fb70ab8403cc54b18794d7f4ca30218805c4568a2ec2c00b",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "defender",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\defender.png",
+    "sha256": "3b79227bf67bf0acb2212685058bddda537639f22e12be6cce27a81eb52c0734",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "blaster",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\blaster.png",
+    "sha256": "44dd3531224cad72a0b85748fb3fc54af30822138a68c765a4f4617bc47edd55",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "gunner",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\gunner.png",
+    "sha256": "007bbd347b4679c6c9a09520ab2db26d8a425580023f6670dde0d1c82e0af783",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "artist",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\artist.png",
+    "sha256": "ca08572d821df7842749dc6eed5714ffffd5fcb2ca2a8e62c6e527f21ec22000",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "healer",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\healer.png",
+    "sha256": "42a1bf7bd01abe0831d1042f8d3c775e7427f405e687a0ebea4f689106ed5c01",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "panzer",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\panzer.png",
+    "sha256": "02b6b84713719c70059aa609eedb2e78b87d6c2a3578649583185e290b8a948e",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "alchemist",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\alchemist.png",
+    "sha256": "72eeac7825c43f7ffaab787101661a67c8825afd078e7d1c59c0c4433cebe8eb",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "chaser",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\chaser.png",
+    "sha256": "bfe838667acdb36f2edf6ac98c462eee288ef56886c24013fdab160c48214843",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "sniper",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\sniper.png",
+    "sha256": "f9695723104ac949fa6b21a10fcdf5826622a12ca2c045e8f7173b28fdf89fc5",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "gambler",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\gambler.png",
+    "sha256": "c0e327f7d56928addc035c33b879299e7e5ebbf5036a5957b798de14eeec423a",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  },
+  {
+    "job": "general",
+    "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\UI\\Jobs\\general.png",
+    "sha256": "987b1856331b5b3b9312745e1a087d2f92a42becf43d261c85f8c946396eedee",
+    "width": 192,
+    "height": 192,
+    "origin": "newaster-original-vector-geometry"
+  }
+]

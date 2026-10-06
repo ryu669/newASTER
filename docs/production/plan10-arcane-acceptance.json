@@ -1,0 +1,221 @@
+{
+  "form": "arcane",
+  "artCount": 18,
+  "pixelEditing": false,
+  "buildLogs": [
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\unity-build-final.log",
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\unity-build.log"
+  ],
+  "playerCaptureCount": 26,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-attack.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "attack"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-battle.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "battle"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-buff.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "buff"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-chapter.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "chapter"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-detail.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-event0.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event0"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-event1.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event1"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-event2.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-event3.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event3"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-event4.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event4"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-formation-member.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-formation-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-formation.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-garden.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "garden"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-journey.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "journey"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-recruit.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruit"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-recruitment.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruitment"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-reload.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "reload"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-status.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "status"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-ultimate.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "ultimate"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-volley.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "volley"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1280\\arcane-weapon.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1600x900\\arcane-event2.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1600x900\\arcane-formation-member.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane\\player-1600x900\\arcane-garden.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "garden"
+    }
+  ],
+  "remarks": "Screens are isolated acceptance saves. Final art revisions require new captures; older screenshots are retained as QA history."
+}

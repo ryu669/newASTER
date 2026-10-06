@@ -1,0 +1,244 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 18,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-standing-candidate-v1.png",
+      "sha256": "27bc8523e20115022c8fd7ca05847c5775005505cf12680452c83df2388bff49",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-portrait-candidate-v1.png",
+      "sha256": "d52678199269ba5a455634ae57f2faa56a19db705ef1c84ce14be7ceaf28fe99",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-expression-joy-candidate-v1.png",
+      "sha256": "f1260318c01e155c9ae43844d1a58db8bbbd540697f83d7a5d5bd7524a3b57a3",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-expression-puzzled-candidate-v1.png",
+      "sha256": "a20c8569fae3729415136be35354d18b7663e8957937fdbc04d96d3e7175227c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-expression-determined-candidate-v1.png",
+      "sha256": "d49b3315e961eb7f2d3925cb59b604994ef741b16cd6381deeb7702289d9d5a3",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-attack-candidate-v1.png",
+      "sha256": "b7fc320a9ba670b6a2f9bbfe7ed293dbdfcdc5c2b27f429b9236e6c26ab232e6",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-hit-candidate-v1.png",
+      "sha256": "a838755e80cc59afb914cd05aac349c8f0827f563d40ca6e09a485c50c3f7346",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-cutin-candidate-v1.png",
+      "sha256": "6951a664d9530cc79dce1597529190251e10942551c4c21cca3c348ce7ee628f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-sd-idle-candidate-v1.png",
+      "sha256": "e088b84304b272d6f621cdaa656aef5bf9842d9503c8804da366b038b4d0f6ae",
+      "size": [
+        1229,
+        1280
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-sd-walk-candidate-v1.png",
+      "sha256": "63edb7e86e8c39ebf4b87d0655bfd0e7731c5b949bbe7f7bb2228e408cf5580d",
+      "size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-sd-talk-candidate-v1.png",
+      "sha256": "4bd73e73bd4a3499adc6eed3793b235167a9b9177daf9e76115fdd1283e95485",
+      "size": [
+        1241,
+        1268
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-sd-react-candidate-v1.png",
+      "sha256": "04a506cc2ab87994d8a08b14f238632b988e6510019a83f2a5645d30b3372ee4",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-equipment-tree-v1.png",
+      "sha256": "3eb937bae094e1d092348ac89c8f9fe59f240c386f343fd89b3cd8b33e714461",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-event-0-cg-candidate-v1.png",
+      "sha256": "f80444bcb1af91b800daca8dd3ac45d897b548a8b0abf171e9cb7e745ff97ff9",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-event-1-cg-candidate-v1.png",
+      "sha256": "380e205e5ad61f588c21f01deb0c6d4edb4d9d8bee6b05a91c671ba876b75052",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-event-2-cg-candidate-v1.png",
+      "sha256": "a071430e0a8bc9bf7ed8c536e9bcd94c3b0b977088d7ecd491fbbeddc25b1aa8",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-event-3-cg-candidate-v1.png",
+      "sha256": "ba819b24201e995084639d8b0100a346d552eba1c1bf851ea5f4e09b8a5b4b98",
+      "size": [
+        1672,
+        940
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\arcane-event-4-cg-candidate-v1.png",
+      "sha256": "b98437ff4c9ff5b94772fb9c2edbbbd6d61ecbc2cfdf40156628f9f19774f036",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    }
+  ]
+}

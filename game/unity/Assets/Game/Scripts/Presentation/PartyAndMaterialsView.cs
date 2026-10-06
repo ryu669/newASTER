@@ -12,6 +12,8 @@ namespace NewAster.Presentation
         private string formationQuery="";
         private string[] CurrentFormation()=>HomeState.formationIds!=null && HomeState.formationIds.Length==5?(string[])HomeState.formationIds.Clone():combatDefinitions.FormationIds;
         private void DrawFormation()
+        {DrawHierarchicalFormation();}
+        private void DrawLegacyFormation()
         {
             bool previous=GUI.enabled;if(panzerSetupOpen)GUI.enabled=false;
             SanctuaryHeader("誓いの編成","5人の絆を、出撃の順番へ");

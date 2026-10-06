@@ -1,0 +1,5200 @@
+{
+  "schemaVersion": 3,
+  "status": "newaster-original",
+  "designOrigin": "user-authorized-newaster-rules-2026-10-02",
+  "formation": [
+    "heroine.slayer",
+    "heroine.iconoclast",
+    "heroine.undermine",
+    "heroine.echidna",
+    "heroine.excalipan"
+  ],
+  "enemyPhysicalDefense": 120,
+  "enemyMagicDefense": 160,
+  "enemyStatusResistances": [],
+  "jobs": [
+    {
+      "id": "job.fighter",
+      "resourceName": "ブースト",
+      "resourceMax": 5,
+      "initialResource": 2,
+      "gainAtReady": 1,
+      "gainOnAttack": 1,
+      "gainOnHit": 0,
+      "hp": 350,
+      "attack": 45,
+      "defense": 180,
+      "magicDefense": 160,
+      "speed": 110,
+      "criticalBp": 1500
+    },
+    {
+      "id": "job.berserker",
+      "resourceName": "怒気",
+      "resourceMax": 10,
+      "initialResource": 0,
+      "gainAtReady": 0,
+      "gainOnAttack": 3,
+      "gainOnHit": 1,
+      "hp": 390,
+      "attack": 55,
+      "defense": 100,
+      "magicDefense": 100,
+      "speed": 100,
+      "criticalBp": 1000
+    },
+    {
+      "id": "job.defender",
+      "resourceName": "チャージ",
+      "resourceMax": 15,
+      "initialResource": 3,
+      "gainAtReady": 1,
+      "gainOnAttack": 0,
+      "gainOnHit": 2,
+      "hp": 500,
+      "attack": 30,
+      "defense": 400,
+      "magicDefense": 250,
+      "speed": 80,
+      "criticalBp": 500
+    },
+    {
+      "id": "job.blaster",
+      "resourceName": "マジック",
+      "resourceMax": 10,
+      "initialResource": 6,
+      "gainAtReady": 2,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 300,
+      "attack": 48,
+      "defense": 120,
+      "magicDefense": 350,
+      "speed": 105,
+      "criticalBp": 1000
+    },
+    {
+      "id": "job.gunner",
+      "resourceName": "弾丸",
+      "resourceMax": 10,
+      "initialResource": 4,
+      "gainAtReady": 2,
+      "gainOnAttack": 1,
+      "gainOnHit": 0,
+      "hp": 320,
+      "attack": 42,
+      "defense": 140,
+      "magicDefense": 160,
+      "speed": 120,
+      "criticalBp": 2000
+    },
+    {
+      "id": "job.artist",
+      "resourceName": "歌唱ゲージ",
+      "resourceMax": 10,
+      "initialResource": 0,
+      "gainAtReady": 2,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 320,
+      "attack": 42,
+      "defense": 130,
+      "magicDefense": 200,
+      "speed": 115,
+      "criticalBp": 1200
+    },
+    {
+      "id": "job.healer",
+      "resourceName": "生命力",
+      "resourceMax": 10,
+      "initialResource": 6,
+      "gainAtReady": 1,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 300,
+      "attack": 36,
+      "defense": 90,
+      "magicDefense": 210,
+      "speed": 105,
+      "criticalBp": 1000
+    },
+    {
+      "id": "job.panzer",
+      "resourceName": "装甲",
+      "resourceMax": 0,
+      "initialResource": 0,
+      "gainAtReady": 0,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 320,
+      "attack": 42,
+      "defense": 260,
+      "magicDefense": 90,
+      "speed": 95,
+      "criticalBp": 1000
+    },
+    {
+      "id": "job.alchemist",
+      "resourceName": "錬成",
+      "resourceMax": 15,
+      "initialResource": 5,
+      "gainAtReady": 1,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 360,
+      "attack": 100,
+      "defense": 95,
+      "magicDefense": 100,
+      "speed": 110,
+      "criticalBp": 1800
+    },
+    {
+      "id": "job.chaser",
+      "resourceName": "ギア",
+      "resourceMax": 15,
+      "initialResource": 6,
+      "gainAtReady": 0,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 340,
+      "attack": 85,
+      "defense": 95,
+      "magicDefense": 100,
+      "speed": 145,
+      "criticalBp": 2000
+    },
+    {
+      "id": "job.general",
+      "resourceName": "指揮旗",
+      "resourceMax": 15,
+      "initialResource": 0,
+      "gainAtReady": 3,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 420,
+      "attack": 95,
+      "defense": 110,
+      "magicDefense": 100,
+      "speed": 125,
+      "criticalBp": 1500
+    },
+    {
+      "id": "job.gambler",
+      "resourceName": "SLOT",
+      "resourceMax": 0,
+      "initialResource": 0,
+      "gainAtReady": 0,
+      "gainOnAttack": 0,
+      "gainOnHit": 0,
+      "hp": 350,
+      "attack": 82,
+      "defense": 100,
+      "magicDefense": 110,
+      "speed": 135,
+      "criticalBp": 1750
+    }
+  ],
+  "heroines": [
+    {
+      "id": "heroine.slayer",
+      "name": "スレイヤー",
+      "jobId": "job.fighter",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.slayer.1",
+        "heroine.slayer.2",
+        "heroine.slayer.3"
+      ],
+      "chainActionId": "heroine.slayer.chain",
+      "traitId": "heroine.slayer.trait",
+      "weaponTreeId": "heroine.slayer.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.slayer.poem-chapter.1",
+        "heroine.slayer.poem-chapter.2",
+        "heroine.slayer.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.slayer.poem-link.1",
+        "heroine.slayer.poem-link.2",
+        "heroine.slayer.poem-link.3",
+        "heroine.slayer.poem-link.4",
+        "heroine.slayer.poem-link.5",
+        "heroine.slayer.poem-link.6",
+        "heroine.slayer.poem-link.7",
+        "heroine.slayer.poem-link.8",
+        "heroine.slayer.poem-link.9",
+        "heroine.slayer.poem-link.10",
+        "heroine.slayer.poem-link.11",
+        "heroine.slayer.poem-link.12",
+        "heroine.slayer.poem-link.13",
+        "heroine.slayer.poem-link.14",
+        "heroine.slayer.poem-link.15",
+        "heroine.slayer.poem-link.16",
+        "heroine.slayer.poem-link.17",
+        "heroine.slayer.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.slayer.affinity.1",
+        "heroine.slayer.affinity.2",
+        "heroine.slayer.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.slayer.lover.1",
+        "heroine.slayer.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast",
+      "name": "アイコノクラスト",
+      "jobId": "job.berserker",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.iconoclast.1",
+        "heroine.iconoclast.2",
+        "heroine.iconoclast.3"
+      ],
+      "chainActionId": "heroine.iconoclast.chain",
+      "traitId": "heroine.iconoclast.trait",
+      "weaponTreeId": "heroine.iconoclast.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 8,
+      "poemChapters": [
+        "heroine.iconoclast.poem-chapter.1",
+        "heroine.iconoclast.poem-chapter.2",
+        "heroine.iconoclast.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.iconoclast.poem-link.1",
+        "heroine.iconoclast.poem-link.2",
+        "heroine.iconoclast.poem-link.3",
+        "heroine.iconoclast.poem-link.4",
+        "heroine.iconoclast.poem-link.5",
+        "heroine.iconoclast.poem-link.6",
+        "heroine.iconoclast.poem-link.7",
+        "heroine.iconoclast.poem-link.8",
+        "heroine.iconoclast.poem-link.9",
+        "heroine.iconoclast.poem-link.10",
+        "heroine.iconoclast.poem-link.11",
+        "heroine.iconoclast.poem-link.12",
+        "heroine.iconoclast.poem-link.13",
+        "heroine.iconoclast.poem-link.14",
+        "heroine.iconoclast.poem-link.15",
+        "heroine.iconoclast.poem-link.16",
+        "heroine.iconoclast.poem-link.17",
+        "heroine.iconoclast.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.iconoclast.affinity.1",
+        "heroine.iconoclast.affinity.2",
+        "heroine.iconoclast.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.iconoclast.lover.1",
+        "heroine.iconoclast.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.undermine",
+      "name": "アンダーマイン",
+      "jobId": "job.defender",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.undermine.1",
+        "heroine.undermine.2",
+        "heroine.undermine.3"
+      ],
+      "chainActionId": "heroine.undermine.chain",
+      "traitId": "heroine.undermine.trait",
+      "weaponTreeId": "heroine.undermine.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 8,
+      "traitAttackPercent": 0,
+      "poemChapters": [
+        "heroine.undermine.poem-chapter.1",
+        "heroine.undermine.poem-chapter.2",
+        "heroine.undermine.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.undermine.poem-link.1",
+        "heroine.undermine.poem-link.2",
+        "heroine.undermine.poem-link.3",
+        "heroine.undermine.poem-link.4",
+        "heroine.undermine.poem-link.5",
+        "heroine.undermine.poem-link.6",
+        "heroine.undermine.poem-link.7",
+        "heroine.undermine.poem-link.8",
+        "heroine.undermine.poem-link.9",
+        "heroine.undermine.poem-link.10",
+        "heroine.undermine.poem-link.11",
+        "heroine.undermine.poem-link.12",
+        "heroine.undermine.poem-link.13",
+        "heroine.undermine.poem-link.14",
+        "heroine.undermine.poem-link.15",
+        "heroine.undermine.poem-link.16",
+        "heroine.undermine.poem-link.17",
+        "heroine.undermine.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.undermine.affinity.1",
+        "heroine.undermine.affinity.2",
+        "heroine.undermine.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.undermine.lover.1",
+        "heroine.undermine.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.echidna",
+      "name": "エキドナ",
+      "jobId": "job.blaster",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.echidna.1",
+        "heroine.echidna.2",
+        "heroine.echidna.3"
+      ],
+      "chainActionId": "heroine.echidna.chain",
+      "traitId": "heroine.echidna.trait",
+      "weaponTreeId": "heroine.echidna.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.echidna.poem-chapter.1",
+        "heroine.echidna.poem-chapter.2",
+        "heroine.echidna.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.echidna.poem-link.1",
+        "heroine.echidna.poem-link.2",
+        "heroine.echidna.poem-link.3",
+        "heroine.echidna.poem-link.4",
+        "heroine.echidna.poem-link.5",
+        "heroine.echidna.poem-link.6",
+        "heroine.echidna.poem-link.7",
+        "heroine.echidna.poem-link.8",
+        "heroine.echidna.poem-link.9",
+        "heroine.echidna.poem-link.10",
+        "heroine.echidna.poem-link.11",
+        "heroine.echidna.poem-link.12",
+        "heroine.echidna.poem-link.13",
+        "heroine.echidna.poem-link.14",
+        "heroine.echidna.poem-link.15",
+        "heroine.echidna.poem-link.16",
+        "heroine.echidna.poem-link.17",
+        "heroine.echidna.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.echidna.affinity.1",
+        "heroine.echidna.affinity.2",
+        "heroine.echidna.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.echidna.lover.1",
+        "heroine.echidna.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.excalipan",
+      "name": "エクスカリパン",
+      "jobId": "job.gunner",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.excalipan.1",
+        "heroine.excalipan.2",
+        "heroine.excalipan.3"
+      ],
+      "chainActionId": "heroine.excalipan.chain",
+      "traitId": "heroine.excalipan.trait",
+      "weaponTreeId": "heroine.excalipan.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.excalipan.poem-chapter.1",
+        "heroine.excalipan.poem-chapter.2",
+        "heroine.excalipan.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.excalipan.poem-link.1",
+        "heroine.excalipan.poem-link.2",
+        "heroine.excalipan.poem-link.3",
+        "heroine.excalipan.poem-link.4",
+        "heroine.excalipan.poem-link.5",
+        "heroine.excalipan.poem-link.6",
+        "heroine.excalipan.poem-link.7",
+        "heroine.excalipan.poem-link.8",
+        "heroine.excalipan.poem-link.9",
+        "heroine.excalipan.poem-link.10",
+        "heroine.excalipan.poem-link.11",
+        "heroine.excalipan.poem-link.12",
+        "heroine.excalipan.poem-link.13",
+        "heroine.excalipan.poem-link.14",
+        "heroine.excalipan.poem-link.15",
+        "heroine.excalipan.poem-link.16",
+        "heroine.excalipan.poem-link.17",
+        "heroine.excalipan.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.excalipan.affinity.1",
+        "heroine.excalipan.affinity.2",
+        "heroine.excalipan.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.excalipan.lover.1",
+        "heroine.excalipan.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.r",
+      "name": "R",
+      "jobId": "job.artist",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.r.1",
+        "heroine.r.2",
+        "heroine.r.3"
+      ],
+      "chainActionId": "heroine.r.chain",
+      "traitId": "heroine.r.trait",
+      "weaponTreeId": "heroine.r.weapon-tree",
+      "hpBp": 9500,
+      "attackBp": 10500,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.r.poem-chapter.1",
+        "heroine.r.poem-chapter.2",
+        "heroine.r.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.r.poem-link.1",
+        "heroine.r.poem-link.2",
+        "heroine.r.poem-link.3",
+        "heroine.r.poem-link.4",
+        "heroine.r.poem-link.5",
+        "heroine.r.poem-link.6",
+        "heroine.r.poem-link.7",
+        "heroine.r.poem-link.8",
+        "heroine.r.poem-link.9",
+        "heroine.r.poem-link.10",
+        "heroine.r.poem-link.11",
+        "heroine.r.poem-link.12",
+        "heroine.r.poem-link.13",
+        "heroine.r.poem-link.14",
+        "heroine.r.poem-link.15",
+        "heroine.r.poem-link.16",
+        "heroine.r.poem-link.17",
+        "heroine.r.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.r.affinity.1",
+        "heroine.r.affinity.2",
+        "heroine.r.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.r.lover.1",
+        "heroine.r.lover.2"
+      ]
+    },
+    {
+      "id": "heroine.annihilator",
+      "name": "アナイアレイター",
+      "jobId": "job.fighter",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.annihilator.1",
+        "heroine.annihilator.2",
+        "heroine.annihilator.3"
+      ],
+      "chainActionId": "heroine.annihilator.chain",
+      "traitId": "heroine.annihilator.trait",
+      "weaponTreeId": "heroine.annihilator.weapon-tree",
+      "hpBp": 10500,
+      "attackBp": 10500,
+      "defenseBp": 9000,
+      "speedBp": 10000,
+      "traitHpPercent": 5,
+      "traitAttackPercent": 0,
+      "poemChapters": [
+        "heroine.annihilator.poem-chapter.1",
+        "heroine.annihilator.poem-chapter.2",
+        "heroine.annihilator.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.annihilator.poem-link.1",
+        "heroine.annihilator.poem-link.2",
+        "heroine.annihilator.poem-link.3",
+        "heroine.annihilator.poem-link.4",
+        "heroine.annihilator.poem-link.5",
+        "heroine.annihilator.poem-link.6",
+        "heroine.annihilator.poem-link.7",
+        "heroine.annihilator.poem-link.8",
+        "heroine.annihilator.poem-link.9",
+        "heroine.annihilator.poem-link.10",
+        "heroine.annihilator.poem-link.11",
+        "heroine.annihilator.poem-link.12",
+        "heroine.annihilator.poem-link.13",
+        "heroine.annihilator.poem-link.14",
+        "heroine.annihilator.poem-link.15",
+        "heroine.annihilator.poem-link.16",
+        "heroine.annihilator.poem-link.17",
+        "heroine.annihilator.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.annihilator.affinity.1",
+        "heroine.annihilator.affinity.2",
+        "heroine.annihilator.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.annihilator.lover.1",
+        "heroine.annihilator.lover.2"
+      ],
+      "personId": "heroine.annihilator",
+      "variantId": "normal"
+    },
+    {
+      "id": "heroine.annihilator-holy",
+      "name": "アナイアレイター（聖夜）",
+      "jobId": "job.healer",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.annihilator-holy.1",
+        "heroine.annihilator-holy.2",
+        "heroine.annihilator-holy.3"
+      ],
+      "chainActionId": "heroine.annihilator-holy.chain",
+      "traitId": "heroine.annihilator-holy.trait",
+      "weaponTreeId": "heroine.annihilator-holy.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 9500,
+      "defenseBp": 10500,
+      "speedBp": 10000,
+      "traitHpPercent": 5,
+      "traitAttackPercent": 0,
+      "poemChapters": [
+        "heroine.annihilator-holy.poem-chapter.1",
+        "heroine.annihilator-holy.poem-chapter.2",
+        "heroine.annihilator-holy.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.annihilator-holy.poem-link.1",
+        "heroine.annihilator-holy.poem-link.2",
+        "heroine.annihilator-holy.poem-link.3",
+        "heroine.annihilator-holy.poem-link.4",
+        "heroine.annihilator-holy.poem-link.5",
+        "heroine.annihilator-holy.poem-link.6",
+        "heroine.annihilator-holy.poem-link.7",
+        "heroine.annihilator-holy.poem-link.8",
+        "heroine.annihilator-holy.poem-link.9",
+        "heroine.annihilator-holy.poem-link.10",
+        "heroine.annihilator-holy.poem-link.11",
+        "heroine.annihilator-holy.poem-link.12",
+        "heroine.annihilator-holy.poem-link.13",
+        "heroine.annihilator-holy.poem-link.14",
+        "heroine.annihilator-holy.poem-link.15",
+        "heroine.annihilator-holy.poem-link.16",
+        "heroine.annihilator-holy.poem-link.17",
+        "heroine.annihilator-holy.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.annihilator-holy.affinity.1",
+        "heroine.annihilator-holy.affinity.2",
+        "heroine.annihilator-holy.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.annihilator-holy.lover.1",
+        "heroine.annihilator-holy.lover.2"
+      ],
+      "personId": "heroine.annihilator",
+      "variantId": "holy-night"
+    },
+    {
+      "id": "heroine.shell",
+      "name": "シェル",
+      "jobId": "job.panzer",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.shell.1",
+        "heroine.shell.2",
+        "heroine.shell.3"
+      ],
+      "chainActionId": "heroine.shell.chain",
+      "traitId": "heroine.shell.trait",
+      "weaponTreeId": "heroine.shell.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 5,
+      "traitAttackPercent": 0,
+      "poemChapters": [
+        "heroine.shell.poem-chapter.1",
+        "heroine.shell.poem-chapter.2",
+        "heroine.shell.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.shell.poem-link.1",
+        "heroine.shell.poem-link.2",
+        "heroine.shell.poem-link.3",
+        "heroine.shell.poem-link.4",
+        "heroine.shell.poem-link.5",
+        "heroine.shell.poem-link.6",
+        "heroine.shell.poem-link.7",
+        "heroine.shell.poem-link.8",
+        "heroine.shell.poem-link.9",
+        "heroine.shell.poem-link.10",
+        "heroine.shell.poem-link.11",
+        "heroine.shell.poem-link.12",
+        "heroine.shell.poem-link.13",
+        "heroine.shell.poem-link.14",
+        "heroine.shell.poem-link.15",
+        "heroine.shell.poem-link.16",
+        "heroine.shell.poem-link.17",
+        "heroine.shell.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.shell.affinity.1",
+        "heroine.shell.affinity.2",
+        "heroine.shell.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.shell.lover.1",
+        "heroine.shell.lover.2"
+      ],
+      "personId": "heroine.shell",
+      "variantId": "normal"
+    },
+    {
+      "id": "heroine.oriflamme",
+      "name": "オリフラム",
+      "jobId": "job.alchemist",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.oriflamme.1",
+        "heroine.oriflamme.2",
+        "heroine.oriflamme.3"
+      ],
+      "chainActionId": "heroine.oriflamme.chain",
+      "traitId": "heroine.oriflamme.trait",
+      "weaponTreeId": "heroine.oriflamme.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.oriflamme.poem-chapter.1",
+        "heroine.oriflamme.poem-chapter.2",
+        "heroine.oriflamme.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.oriflamme.poem-link.1",
+        "heroine.oriflamme.poem-link.2",
+        "heroine.oriflamme.poem-link.3",
+        "heroine.oriflamme.poem-link.4",
+        "heroine.oriflamme.poem-link.5",
+        "heroine.oriflamme.poem-link.6",
+        "heroine.oriflamme.poem-link.7",
+        "heroine.oriflamme.poem-link.8",
+        "heroine.oriflamme.poem-link.9",
+        "heroine.oriflamme.poem-link.10",
+        "heroine.oriflamme.poem-link.11",
+        "heroine.oriflamme.poem-link.12",
+        "heroine.oriflamme.poem-link.13",
+        "heroine.oriflamme.poem-link.14",
+        "heroine.oriflamme.poem-link.15",
+        "heroine.oriflamme.poem-link.16",
+        "heroine.oriflamme.poem-link.17",
+        "heroine.oriflamme.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.oriflamme.affinity.1",
+        "heroine.oriflamme.affinity.2",
+        "heroine.oriflamme.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.oriflamme.lover.1",
+        "heroine.oriflamme.lover.2"
+      ],
+      "personId": "heroine.oriflamme",
+      "variantId": "normal"
+    },
+    {
+      "id": "heroine.nighthawk",
+      "name": "ナイトホーク",
+      "jobId": "job.chaser",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.nighthawk.1",
+        "heroine.nighthawk.2",
+        "heroine.nighthawk.3"
+      ],
+      "chainActionId": "heroine.nighthawk.chain",
+      "traitId": "heroine.nighthawk.trait",
+      "weaponTreeId": "heroine.nighthawk.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.nighthawk.poem-chapter.1",
+        "heroine.nighthawk.poem-chapter.2",
+        "heroine.nighthawk.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.nighthawk.poem-link.1",
+        "heroine.nighthawk.poem-link.2",
+        "heroine.nighthawk.poem-link.3",
+        "heroine.nighthawk.poem-link.4",
+        "heroine.nighthawk.poem-link.5",
+        "heroine.nighthawk.poem-link.6",
+        "heroine.nighthawk.poem-link.7",
+        "heroine.nighthawk.poem-link.8",
+        "heroine.nighthawk.poem-link.9",
+        "heroine.nighthawk.poem-link.10",
+        "heroine.nighthawk.poem-link.11",
+        "heroine.nighthawk.poem-link.12",
+        "heroine.nighthawk.poem-link.13",
+        "heroine.nighthawk.poem-link.14",
+        "heroine.nighthawk.poem-link.15",
+        "heroine.nighthawk.poem-link.16",
+        "heroine.nighthawk.poem-link.17",
+        "heroine.nighthawk.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.nighthawk.affinity.1",
+        "heroine.nighthawk.affinity.2",
+        "heroine.nighthawk.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.nighthawk.lover.1",
+        "heroine.nighthawk.lover.2"
+      ],
+      "personId": "heroine.nighthawk",
+      "variantId": "normal"
+    },
+    {
+      "id": "heroine.slayer-swim",
+      "name": "スレイヤー（水着）",
+      "jobId": "job.general",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.slayer-swim.1",
+        "heroine.slayer-swim.2",
+        "heroine.slayer-swim.3"
+      ],
+      "chainActionId": "heroine.slayer-swim.chain",
+      "traitId": "heroine.slayer-swim.trait",
+      "weaponTreeId": "heroine.slayer-swim.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 5,
+      "traitAttackPercent": 0,
+      "poemChapters": [
+        "heroine.slayer-swim.poem-chapter.1",
+        "heroine.slayer-swim.poem-chapter.2",
+        "heroine.slayer-swim.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.slayer-swim.poem-link.1",
+        "heroine.slayer-swim.poem-link.2",
+        "heroine.slayer-swim.poem-link.3",
+        "heroine.slayer-swim.poem-link.4",
+        "heroine.slayer-swim.poem-link.5",
+        "heroine.slayer-swim.poem-link.6",
+        "heroine.slayer-swim.poem-link.7",
+        "heroine.slayer-swim.poem-link.8",
+        "heroine.slayer-swim.poem-link.9",
+        "heroine.slayer-swim.poem-link.10",
+        "heroine.slayer-swim.poem-link.11",
+        "heroine.slayer-swim.poem-link.12",
+        "heroine.slayer-swim.poem-link.13",
+        "heroine.slayer-swim.poem-link.14",
+        "heroine.slayer-swim.poem-link.15",
+        "heroine.slayer-swim.poem-link.16",
+        "heroine.slayer-swim.poem-link.17",
+        "heroine.slayer-swim.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.slayer-swim.affinity.1",
+        "heroine.slayer-swim.affinity.2",
+        "heroine.slayer-swim.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.slayer-swim.lover.1",
+        "heroine.slayer-swim.lover.2"
+      ],
+      "personId": "heroine.slayer",
+      "variantId": "swim"
+    },
+    {
+      "id": "heroine.arcane",
+      "name": "アルケイン",
+      "jobId": "job.gunner",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.arcane.1",
+        "heroine.arcane.2",
+        "heroine.arcane.3"
+      ],
+      "chainActionId": "heroine.arcane.chain",
+      "traitId": "heroine.arcane.trait",
+      "weaponTreeId": "heroine.arcane.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10500,
+      "defenseBp": 9500,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.arcane.poem-chapter.1",
+        "heroine.arcane.poem-chapter.2",
+        "heroine.arcane.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.arcane.poem-link.1",
+        "heroine.arcane.poem-link.2",
+        "heroine.arcane.poem-link.3",
+        "heroine.arcane.poem-link.4",
+        "heroine.arcane.poem-link.5",
+        "heroine.arcane.poem-link.6",
+        "heroine.arcane.poem-link.7",
+        "heroine.arcane.poem-link.8",
+        "heroine.arcane.poem-link.9",
+        "heroine.arcane.poem-link.10",
+        "heroine.arcane.poem-link.11",
+        "heroine.arcane.poem-link.12",
+        "heroine.arcane.poem-link.13",
+        "heroine.arcane.poem-link.14",
+        "heroine.arcane.poem-link.15",
+        "heroine.arcane.poem-link.16",
+        "heroine.arcane.poem-link.17",
+        "heroine.arcane.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.arcane.affinity.1",
+        "heroine.arcane.affinity.2",
+        "heroine.arcane.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.arcane.lover.1",
+        "heroine.arcane.lover.2"
+      ],
+      "personId": "heroine.arcane",
+      "variantId": "normal"
+    },
+    {
+      "id": "heroine.arcane-academy",
+      "name": "アルケイン（学園）",
+      "jobId": "job.gambler",
+      "baseRarity": 6,
+      "skills": [
+        "heroine.arcane-academy.1",
+        "heroine.arcane-academy.2",
+        "heroine.arcane-academy.3"
+      ],
+      "chainActionId": "heroine.arcane-academy.chain",
+      "traitId": "heroine.arcane-academy.trait",
+      "weaponTreeId": "heroine.arcane-academy.weapon-tree",
+      "hpBp": 10000,
+      "attackBp": 10000,
+      "defenseBp": 10000,
+      "speedBp": 10000,
+      "traitHpPercent": 0,
+      "traitAttackPercent": 5,
+      "poemChapters": [
+        "heroine.arcane-academy.poem-chapter.1",
+        "heroine.arcane-academy.poem-chapter.2",
+        "heroine.arcane-academy.poem-chapter.3"
+      ],
+      "poemLinks": [
+        "heroine.arcane-academy.poem-link.1",
+        "heroine.arcane-academy.poem-link.2",
+        "heroine.arcane-academy.poem-link.3",
+        "heroine.arcane-academy.poem-link.4",
+        "heroine.arcane-academy.poem-link.5",
+        "heroine.arcane-academy.poem-link.6",
+        "heroine.arcane-academy.poem-link.7",
+        "heroine.arcane-academy.poem-link.8",
+        "heroine.arcane-academy.poem-link.9",
+        "heroine.arcane-academy.poem-link.10",
+        "heroine.arcane-academy.poem-link.11",
+        "heroine.arcane-academy.poem-link.12",
+        "heroine.arcane-academy.poem-link.13",
+        "heroine.arcane-academy.poem-link.14",
+        "heroine.arcane-academy.poem-link.15",
+        "heroine.arcane-academy.poem-link.16",
+        "heroine.arcane-academy.poem-link.17",
+        "heroine.arcane-academy.poem-link.18"
+      ],
+      "affinityEventIds": [
+        "heroine.arcane-academy.affinity.1",
+        "heroine.arcane-academy.affinity.2",
+        "heroine.arcane-academy.affinity.3"
+      ],
+      "loverEventIds": [
+        "heroine.arcane-academy.lover.1",
+        "heroine.arcane-academy.lover.2"
+      ],
+      "personId": "heroine.arcane",
+      "variantId": "academy"
+    }
+  ],
+  "skills": [
+    {
+      "id": "heroine.slayer.1",
+      "ownerId": "heroine.slayer",
+      "name": "スターテイル",
+      "sourceSkillId": "heroine.slayer.1",
+      "sourceFile": "055戦闘_スレイヤー.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 1500,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.slayer.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
+    },
+    {
+      "id": "heroine.slayer.2",
+      "ownerId": "heroine.slayer",
+      "name": "空に咲く奇蹟",
+      "sourceSkillId": "heroine.slayer.2",
+      "sourceFile": "055戦闘_スレイヤー.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.self-buff",
+      "targetRuleId": "target.self",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 2,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "critical",
+          "percent": 20,
+          "turns": 3
+        },
+        {
+          "kind": "critical-damage",
+          "percent": 60,
+          "turns": 3
+        },
+        {
+          "kind": "attack",
+          "percent": 15,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.slayer.trait"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "id": "heroine.slayer.3",
+      "ownerId": "heroine.slayer",
+      "name": "比翼《聖伝》神獣殺し -輪-",
+      "sourceSkillId": "heroine.slayer.3",
+      "sourceFile": "055戦闘_スレイヤー.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.8,
+      "partScale": 1,
+      "resourceCost": 3,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 110000,
+      "criticalBonusBp": 1500,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.slayer.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.1",
+      "ownerId": "heroine.iconoclast",
+      "name": "旋風斬",
+      "sourceSkillId": "heroine.iconoclast.1",
+      "sourceFile": "005戦闘_アイコノクラスト.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.7,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.iconoclast.trait"
+        }
+      ],
+      "damageType": "physical",
+      "enemyWaitAdd": 30,
+      "selfWaitReductionPercent": 50,
+      "attributes": [
+        "斬撃"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.2",
+      "ownerId": "heroine.iconoclast",
+      "name": "星の光のシルエット",
+      "sourceSkillId": "heroine.iconoclast.2",
+      "sourceFile": "005戦闘_アイコノクラスト.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 3.2,
+      "partScale": 1,
+      "resourceCost": 3,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.iconoclast.trait"
+        }
+      ],
+      "damageType": "magic",
+      "selfDamageMaxHpPercent": 10,
+      "attributes": [
+        "斬撃"
+      ]
+    },
+    {
+      "id": "heroine.iconoclast.3",
+      "ownerId": "heroine.iconoclast",
+      "name": "涙は捨てろスターストーム",
+      "sourceSkillId": "heroine.iconoclast.3",
+      "sourceFile": "005戦闘_アイコノクラスト.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 6,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "stun",
+          "amount": 45
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.iconoclast.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "斬撃"
+      ]
+    },
+    {
+      "id": "heroine.undermine.1",
+      "ownerId": "heroine.undermine",
+      "name": "先輩コレもらってください！",
+      "sourceSkillId": "heroine.undermine.1",
+      "sourceFile": "015戦闘_アンダーマイン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 120
+        },
+        {
+          "kind": "stun",
+          "amount": 40
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.undermine.trait"
+        }
+      ],
+      "damageType": "physical",
+      "selfDamageMaxHpPercent": 10,
+      "attributes": [
+        "打撃"
+      ]
+    },
+    {
+      "id": "heroine.undermine.2",
+      "ownerId": "heroine.undermine",
+      "name": "自分好き好き大好き超愛してる",
+      "sourceSkillId": "heroine.undermine.2",
+      "sourceFile": "015戦闘_アンダーマイン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.self-buff",
+      "targetRuleId": "target.self",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "regen",
+          "percent": 140,
+          "turns": 4
+        },
+        {
+          "kind": "critical-damage",
+          "percent": 50,
+          "turns": 4
+        },
+        {
+          "kind": "physical-protection",
+          "percent": 40,
+          "turns": 4
+        },
+        {
+          "kind": "forced-target",
+          "percent": 1,
+          "turns": 4
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.undermine.trait"
+        }
+      ],
+      "attributes": []
+    },
+    {
+      "id": "heroine.undermine.3",
+      "ownerId": "heroine.undermine",
+      "name": "Pernicious Deed",
+      "sourceSkillId": "heroine.undermine.3",
+      "sourceFile": "015戦闘_アンダーマイン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.8,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 50000,
+      "criticalBonusBp": 6000,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.undermine.trait"
+        }
+      ],
+      "damageType": "physical",
+      "chargeConsumeMax": 9,
+      "chargeBonusPercent": 10,
+      "attributes": [
+        "打撃"
+      ]
+    },
+    {
+      "id": "heroine.echidna.1",
+      "ownerId": "heroine.echidna",
+      "name": "マイディストラクション",
+      "sourceSkillId": "heroine.echidna.1",
+      "sourceFile": "023戦闘_エキドナ.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.enemy-range",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 2,
+      "recoveryPercent": 75,
+      "castPercent": 75,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.echidna.trait"
+        }
+      ],
+      "damageType": "physical",
+      "ignoreDefenseBp": 10000,
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
+    },
+    {
+      "id": "heroine.echidna.2",
+      "ownerId": "heroine.echidna",
+      "name": "コンセクティブテンタクル",
+      "sourceSkillId": "heroine.echidna.2",
+      "sourceFile": "023戦闘_エキドナ.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.enemy-range",
+      "powerScale": 3,
+      "partScale": 1,
+      "resourceCost": 3,
+      "recoveryPercent": 75,
+      "castPercent": 100,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "bleed",
+          "amount": 75
+        },
+        {
+          "kind": "poison",
+          "amount": 75
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.echidna.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
+    },
+    {
+      "id": "heroine.echidna.3",
+      "ownerId": "heroine.echidna",
+      "name": "―怪物、再臨―",
+      "sourceSkillId": "heroine.echidna.3",
+      "sourceFile": "023戦闘_エキドナ.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.enemy-range",
+      "powerScale": 3.6,
+      "partScale": 1,
+      "resourceCost": 4,
+      "recoveryPercent": 75,
+      "castPercent": 125,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "sickness",
+          "amount": 100
+        },
+        {
+          "kind": "fracture",
+          "amount": 100
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.echidna.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "ビーム",
+        "光"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.1",
+      "ownerId": "heroine.excalipan",
+      "name": "あなたの胃袋パンパカパン",
+      "sourceSkillId": "heroine.excalipan.1",
+      "sourceFile": "024戦闘_エクスカリパン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.26,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "bleed",
+          "amount": 30
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.excalipan.trait"
+        }
+      ],
+      "damageType": "physical",
+      "attributes": [
+        "銃弾"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.2",
+      "ownerId": "heroine.excalipan",
+      "name": "パン菓子の弾丸はジャムらない",
+      "sourceSkillId": "heroine.excalipan.2",
+      "sourceFile": "024戦闘_エクスカリパン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.63,
+      "partScale": 1,
+      "resourceCost": 2,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 20,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.excalipan.trait"
+        }
+      ],
+      "damageType": "physical",
+      "selfHealingBaseAttackPercent": 70,
+      "attributes": [
+        "銃弾"
+      ]
+    },
+    {
+      "id": "heroine.excalipan.3",
+      "ownerId": "heroine.excalipan",
+      "name": "追いバゲット・コマンドー撃ち",
+      "sourceSkillId": "heroine.excalipan.3",
+      "sourceFile": "024戦闘_エクスカリパン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 6,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 80
+        }
+      ],
+      "conditions": [
+        {
+          "kind": "trait-equipped",
+          "threshold": 1,
+          "referenceId": "heroine.excalipan.trait"
+        }
+      ],
+      "damageType": "physical",
+      "specialWeaponBonusPercent": 200,
+      "attributes": [
+        "銃弾"
+      ]
+    },
+    {
+      "id": "heroine.r.1",
+      "ownerId": "heroine.r",
+      "name": "星音のプリズム",
+      "sourceSkillId": "heroine.r.1",
+      "sourceFile": "001戦闘_R.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 75,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "magic",
+      "attributes": [
+        "ビーム",
+        "光"
+      ],
+      "ignoreDefenseBp": 10000
+    },
+    {
+      "id": "heroine.r.2",
+      "ownerId": "heroine.r",
+      "name": "大空のハーモニー",
+      "sourceSkillId": "heroine.r.2",
+      "sourceFile": "001戦闘_R.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.allies-buff",
+      "targetRuleId": "target.all-living-allies",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 75,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 20,
+          "turns": 5
+        },
+        {
+          "kind": "critical",
+          "percent": 10,
+          "turns": 5
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": null,
+      "attributes": [],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.r.3",
+      "ownerId": "heroine.r",
+      "name": "未来へ響く翼",
+      "sourceSkillId": "heroine.r.3",
+      "sourceFile": "001戦闘_R.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 1500,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "magic",
+      "attributes": [
+        "ビーム",
+        "光"
+      ],
+      "ignoreDefenseBp": 10000
+    },
+    {
+      "id": "heroine.annihilator.1",
+      "sourceSkillId": "heroine.annihilator.1",
+      "ownerId": "heroine.annihilator",
+      "slot": 1,
+      "name": "撃滅の宣告",
+      "sourceFile": "009戦闘_アナイアレイター.mkv",
+      "sourceSecond": 5,
+      "powerScale": 0,
+      "targetRuleId": "target.self",
+      "recoveryPercent": 75,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": null,
+      "attributes": [],
+      "ignoreDefenseBp": 0,
+      "damageCap": 0,
+      "chainEligible": false,
+      "effectRuleId": "effect.self-buff",
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 30,
+          "turns": 2
+        }
+      ],
+      "resourceCost": 0,
+      "resourceGain": 4,
+      "targetCount": 0,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 0,
+      "chargeBonusPercent": 0,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7,
+      "selfHealingBaseAttackPercent": 90
+    },
+    {
+      "id": "heroine.annihilator.2",
+      "sourceSkillId": "heroine.annihilator.2",
+      "ownerId": "heroine.annihilator",
+      "slot": 2,
+      "name": "紅き地獄蝶の誘い",
+      "sourceFile": "009戦闘_アナイアレイター.mkv",
+      "sourceSecond": 5,
+      "powerScale": 2,
+      "targetRuleId": "target.selected-enemy",
+      "recoveryPercent": 75,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": "physical",
+      "attributes": [],
+      "ignoreDefenseBp": 0,
+      "damageCap": 10000,
+      "chainEligible": true,
+      "effectRuleId": "effect.damage",
+      "selfEffects": [],
+      "resourceCost": 0,
+      "resourceGain": 0,
+      "targetCount": 0,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 3,
+      "chargeBonusPercent": 20,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7
+    },
+    {
+      "id": "heroine.annihilator.3",
+      "sourceSkillId": "heroine.annihilator.3",
+      "ownerId": "heroine.annihilator",
+      "slot": 3,
+      "name": "鬼面新境・曼珠沙華",
+      "sourceFile": "009戦闘_アナイアレイター.mkv",
+      "sourceSecond": 5,
+      "powerScale": 2.4,
+      "targetRuleId": "target.selected-enemy",
+      "recoveryPercent": 150,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": "physical",
+      "attributes": [],
+      "ignoreDefenseBp": 0,
+      "damageCap": 10000,
+      "chainEligible": true,
+      "effectRuleId": "effect.damage",
+      "selfEffects": [],
+      "resourceCost": 0,
+      "resourceGain": 0,
+      "targetCount": 0,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 5,
+      "chargeBonusPercent": 20,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7,
+      "selfDamageMaxHpPercent": 10
+    },
+    {
+      "id": "heroine.annihilator-holy.1",
+      "sourceSkillId": "heroine.annihilator-holy.1",
+      "ownerId": "heroine.annihilator-holy",
+      "slot": 1,
+      "name": "ひとひらの愛",
+      "sourceFile": "010戦闘_アナイアレイター(聖夜).mkv",
+      "sourceSecond": 5,
+      "powerScale": 1.3,
+      "targetRuleId": "target.selected-allies",
+      "recoveryPercent": 75,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": null,
+      "attributes": [],
+      "ignoreDefenseBp": 0,
+      "damageCap": 0,
+      "chainEligible": false,
+      "effectRuleId": "effect.heal",
+      "selfEffects": [],
+      "resourceCost": 0,
+      "resourceGain": 6,
+      "targetCount": 1,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 0,
+      "chargeBonusPercent": 0,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7,
+      "cleanseAll": true
+    },
+    {
+      "id": "heroine.annihilator-holy.2",
+      "sourceSkillId": "heroine.annihilator-holy.2",
+      "ownerId": "heroine.annihilator-holy",
+      "slot": 2,
+      "name": "仲間たちへの贈り物",
+      "sourceFile": "010戦闘_アナイアレイター(聖夜).mkv",
+      "sourceSecond": 5,
+      "powerScale": 0,
+      "targetRuleId": "target.selected-allies",
+      "recoveryPercent": 100,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": null,
+      "attributes": [],
+      "ignoreDefenseBp": 0,
+      "damageCap": 0,
+      "chainEligible": false,
+      "effectRuleId": "effect.allies-buff",
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 40,
+          "turns": 3
+        },
+        {
+          "kind": "critical",
+          "percent": 25,
+          "turns": 3
+        },
+        {
+          "kind": "critical-damage",
+          "percent": 30,
+          "turns": 3
+        }
+      ],
+      "resourceCost": 8,
+      "resourceGain": 0,
+      "targetCount": 1,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 0,
+      "chargeBonusPercent": 0,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7
+    },
+    {
+      "id": "heroine.annihilator-holy.3",
+      "sourceSkillId": "heroine.annihilator-holy.3",
+      "ownerId": "heroine.annihilator-holy",
+      "slot": 3,
+      "name": "破壊者より哀を込めて",
+      "sourceFile": "010戦闘_アナイアレイター(聖夜).mkv",
+      "sourceSecond": 5,
+      "powerScale": 2,
+      "targetRuleId": "target.all-enemies",
+      "recoveryPercent": 150,
+      "conditions": [],
+      "criticalBonusBp": 0,
+      "damageType": "magic",
+      "attributes": [
+        "光"
+      ],
+      "ignoreDefenseBp": 0,
+      "damageCap": 10000,
+      "chainEligible": true,
+      "effectRuleId": "effect.damage",
+      "selfEffects": [],
+      "resourceCost": 8,
+      "resourceGain": 0,
+      "targetCount": 0,
+      "baseHealingAmount": 0,
+      "chargeConsumeMax": 0,
+      "chargeBonusPercent": 0,
+      "partScale": 1,
+      "baseHealing": 0,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "observedSkillLevel": 7,
+      "alliesHealingBaseAttackPercent": 60
+    },
+    {
+      "id": "heroine.shell.1",
+      "sourceSkillId": "heroine.shell.1",
+      "ownerId": "heroine.shell",
+      "slot": 1,
+      "name": "コンバット・フッキング",
+      "sourceFile": "048戦闘_シェル.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "bleed",
+          "amount": 60
+        }
+      ],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.shell.2",
+      "sourceSkillId": "heroine.shell.2",
+      "ownerId": "heroine.shell",
+      "slot": 2,
+      "name": "スパーキング・シグネチュア",
+      "sourceFile": "048戦闘_シェル.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 100
+        }
+      ],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "火"
+      ],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.shell.3",
+      "sourceSkillId": "heroine.shell.3",
+      "ownerId": "heroine.shell",
+      "slot": 3,
+      "name": "コンティニュード・インファイト",
+      "sourceFile": "048戦闘_シェル.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.8,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "火"
+      ],
+      "ignoreDefenseBp": 0,
+      "targetStatusBonusKind": "burn",
+      "targetStatusBonusPercent": 80
+    },
+    {
+      "id": "heroine.oriflamme.1",
+      "sourceSkillId": "heroine.oriflamme.1",
+      "ownerId": "heroine.oriflamme",
+      "slot": 1,
+      "name": "インシネレート",
+      "sourceFile": "032戦闘_オリフラム.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 75,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 60
+        }
+      ],
+      "conditions": [],
+      "damageType": "magic",
+      "attributes": [
+        "火"
+      ],
+      "ignoreDefenseBp": 0,
+      "enemyFireVulnerabilityPercent": 20,
+      "enemyFireVulnerabilityTurns": 3,
+      "resourceGain": 2
+    },
+    {
+      "id": "heroine.oriflamme.2",
+      "sourceSkillId": "heroine.oriflamme.2",
+      "ownerId": "heroine.oriflamme",
+      "slot": 2,
+      "name": "浄火",
+      "sourceFile": "032戦闘_オリフラム.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.allies-buff",
+      "targetRuleId": "target.all-living-allies",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 30,
+          "turns": 3
+        },
+        {
+          "kind": "fire-amplification",
+          "percent": 30,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "",
+      "attributes": [
+        "火"
+      ],
+      "ignoreDefenseBp": 0,
+      "allAlchemistResourceGain": 3
+    },
+    {
+      "id": "heroine.oriflamme.3",
+      "sourceSkillId": "heroine.oriflamme.3",
+      "ownerId": "heroine.oriflamme",
+      "slot": 3,
+      "name": "アナイアレイション",
+      "sourceFile": "032戦闘_オリフラム.mkv",
+      "sourceSecond": 5,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.8,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "magic",
+      "attributes": [
+        "斬撃",
+        "火",
+        "闇"
+      ],
+      "ignoreDefenseBp": 0,
+      "targetStatusBonusKind": "burn",
+      "targetStatusBonusPercent": 120,
+      "enemyFireVulnerabilityPercent": 30,
+      "enemyFireVulnerabilityTurns": 4
+    },
+    {
+      "id": "heroine.nighthawk.1",
+      "sourceSkillId": "heroine.nighthawk.1",
+      "ownerId": "heroine.nighthawk",
+      "slot": 1,
+      "name": "つめたいほしあかり",
+      "sourceFile": "066戦闘_ナイトホーク.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.self-buff",
+      "targetRuleId": "target.self",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 75,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 20,
+          "turns": 6
+        },
+        {
+          "kind": "speed",
+          "percent": 20,
+          "turns": 6
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "",
+      "attributes": [],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.nighthawk.2",
+      "sourceSkillId": "heroine.nighthawk.2",
+      "ownerId": "heroine.nighthawk",
+      "slot": 2,
+      "name": "そらをめぐる燐の火",
+      "sourceFile": "066戦闘_ナイトホーク.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.7,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "frostbite",
+          "amount": 120
+        }
+      ],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "打撃",
+        "火",
+        "氷"
+      ],
+      "ignoreDefenseBp": 10000,
+      "targetStatusBonusKind": "frostbite",
+      "targetStatusBonusPercent": 60
+    },
+    {
+      "id": "heroine.nighthawk.3",
+      "sourceSkillId": "heroine.nighthawk.3",
+      "ownerId": "heroine.nighthawk",
+      "slot": 3,
+      "name": "カシオピアと天の川",
+      "sourceFile": "066戦闘_ナイトホーク.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 1.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 60
+        },
+        {
+          "kind": "frostbite",
+          "amount": 60
+        }
+      ],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "打撃",
+        "火",
+        "氷"
+      ],
+      "ignoreDefenseBp": 0,
+      "chainChanceBonusBp": 1500
+    },
+    {
+      "id": "heroine.slayer-swim.1",
+      "sourceSkillId": "heroine.slayer-swim.1",
+      "ownerId": "heroine.slayer-swim",
+      "slot": 1,
+      "name": "スレイヤーの意志",
+      "sourceFile": "056戦闘_スレイヤー水着.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 1.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 75,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "speed",
+          "percent": 20,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "刺突",
+        "光"
+      ],
+      "ignoreDefenseBp": 10000,
+      "enemyAttackReductionPercent": 20,
+      "enemyAttackReductionTurns": 3
+    },
+    {
+      "id": "heroine.slayer-swim.2",
+      "sourceSkillId": "heroine.slayer-swim.2",
+      "ownerId": "heroine.slayer-swim",
+      "slot": 2,
+      "name": "君といる夏",
+      "sourceFile": "056戦闘_スレイヤー水着.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.allies-buff",
+      "targetRuleId": "target.all-living-allies",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "attack",
+          "percent": 30,
+          "turns": 3
+        },
+        {
+          "kind": "critical",
+          "percent": 15,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "",
+      "attributes": [],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.slayer-swim.3",
+      "sourceSkillId": "heroine.slayer-swim.3",
+      "ownerId": "heroine.slayer-swim",
+      "slot": 3,
+      "name": "《継承》呪いと自由の物語",
+      "sourceFile": "056戦闘_スレイヤー水着.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 3000,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "burn",
+          "amount": 50
+        }
+      ],
+      "conditions": [],
+      "damageType": "magic",
+      "attributes": [
+        "火",
+        "光"
+      ],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.arcane.1",
+      "sourceSkillId": "heroine.arcane.1",
+      "ownerId": "heroine.arcane",
+      "slot": 1,
+      "name": "レッツアドベンチャーですわ！",
+      "sourceFile": "012戦闘_アルケイン.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2.08,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "銃弾"
+      ],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.arcane.2",
+      "sourceSkillId": "heroine.arcane.2",
+      "ownerId": "heroine.arcane",
+      "slot": 2,
+      "name": "遺物の見取り図",
+      "sourceFile": "",
+      "sourceSecond": 0,
+      "observedSkillLevel": 0,
+      "ruleOrigin": "newaster-original",
+      "effectRuleId": "effect.allies-buff",
+      "targetRuleId": "target.all-living-allies",
+      "powerScale": 0,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": false,
+      "damageCap": 0,
+      "criticalBonusBp": 0,
+      "selfEffects": [
+        {
+          "kind": "critical",
+          "percent": 15,
+          "turns": 3
+        }
+      ],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "",
+      "attributes": [],
+      "ignoreDefenseBp": 0
+    },
+    {
+      "id": "heroine.arcane.3",
+      "sourceSkillId": "heroine.arcane.3",
+      "ownerId": "heroine.arcane",
+      "slot": 3,
+      "name": "博物館の守り手",
+      "sourceFile": "",
+      "sourceSecond": 0,
+      "observedSkillLevel": 0,
+      "ruleOrigin": "newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 1.5,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "銃弾",
+        "光"
+      ],
+      "ignoreDefenseBp": 2500
+    },
+    {
+      "id": "heroine.arcane-academy.1",
+      "sourceSkillId": "heroine.arcane-academy.1",
+      "ownerId": "heroine.arcane-academy",
+      "slot": 1,
+      "name": "フルスイングですわ！",
+      "sourceFile": "013戦闘_アルケイン学園.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 100,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "打撃"
+      ],
+      "ignoreDefenseBp": 0,
+      "postAttackAlliesEffects": [
+        {
+          "kind": "critical-damage",
+          "percent": 30,
+          "turns": 3
+        }
+      ]
+    },
+    {
+      "id": "heroine.arcane-academy.2",
+      "sourceSkillId": "heroine.arcane-academy.2",
+      "ownerId": "heroine.arcane-academy",
+      "slot": 2,
+      "name": "レッツ飽和攻撃ですわ！",
+      "sourceFile": "013戦闘_アルケイン学園.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.selected-enemy",
+      "powerScale": 3.2,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 125,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [
+        {
+          "kind": "bleed",
+          "amount": 120
+        }
+      ],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "斬撃",
+        "刺突"
+      ],
+      "ignoreDefenseBp": 0,
+      "enemyWaitAdd": 60,
+      "enemyStatusExtensionTurns": 2,
+      "enemyStatusExtensionKinds": [
+        "poison",
+        "burn",
+        "bleed"
+      ]
+    },
+    {
+      "id": "heroine.arcane-academy.3",
+      "sourceSkillId": "heroine.arcane-academy.3",
+      "ownerId": "heroine.arcane-academy",
+      "slot": 3,
+      "name": "ワールドイズマインですわ！",
+      "sourceFile": "013戦闘_アルケイン学園.mkv",
+      "sourceSecond": 15,
+      "observedSkillLevel": 7,
+      "ruleOrigin": "video-observation-plus-newaster-original",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.all-enemies",
+      "powerScale": 2.4,
+      "partScale": 1,
+      "resourceCost": 0,
+      "recoveryPercent": 150,
+      "castPercent": 0,
+      "targetCount": 0,
+      "baseHealing": 0,
+      "chainEligible": true,
+      "damageCap": 10000,
+      "criticalBonusBp": 0,
+      "selfEffects": [],
+      "statusEffects": [],
+      "conditions": [],
+      "damageType": "physical",
+      "attributes": [
+        "銃弾",
+        "火"
+      ],
+      "ignoreDefenseBp": 0,
+      "bodyDamageBonusPercent": 80,
+      "alliesEffectExtensionTurns": 1
+    }
+  ],
+  "chainActions": [
+    {
+      "id": "heroine.slayer.chain",
+      "heroineId": "heroine.slayer",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.slayer.chain.presentation",
+      "powerScale": 1,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original"
+    },
+    {
+      "id": "heroine.iconoclast.chain",
+      "heroineId": "heroine.iconoclast",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.iconoclast.chain.presentation",
+      "powerScale": 1.25,
+      "baseHealing": 0,
+      "damageType": "magic",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original"
+    },
+    {
+      "id": "heroine.undermine.chain",
+      "heroineId": "heroine.undermine",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.lowest-hp-part",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.undermine.chain.presentation",
+      "powerScale": 0.8,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original"
+    },
+    {
+      "id": "heroine.echidna.chain",
+      "heroineId": "heroine.echidna",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.echidna.chain.presentation",
+      "powerScale": 1.1,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 2500,
+      "ruleOrigin": "newaster-original"
+    },
+    {
+      "id": "heroine.excalipan.chain",
+      "heroineId": "heroine.excalipan",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.excalipan.chain.presentation",
+      "powerScale": 0.9,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original"
+    },
+    {
+      "id": "heroine.r.chain",
+      "heroineId": "heroine.r",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.r.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "magic",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": [
+        "光"
+      ]
+    },
+    {
+      "id": "heroine.annihilator.chain",
+      "heroineId": "heroine.annihilator",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.annihilator.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": []
+    },
+    {
+      "id": "heroine.annihilator-holy.chain",
+      "heroineId": "heroine.annihilator-holy",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.annihilator-holy.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "magic",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": [
+        "光"
+      ]
+    },
+    {
+      "id": "heroine.shell.chain",
+      "heroineId": "heroine.shell",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.shell.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": []
+    },
+    {
+      "id": "heroine.oriflamme.chain",
+      "heroineId": "heroine.oriflamme",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.oriflamme.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "magic",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": [
+        "火"
+      ]
+    },
+    {
+      "id": "heroine.nighthawk.chain",
+      "heroineId": "heroine.nighthawk",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.nighthawk.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": []
+    },
+    {
+      "id": "heroine.slayer-swim.chain",
+      "heroineId": "heroine.slayer-swim",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.slayer-swim.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": []
+    },
+    {
+      "id": "heroine.arcane.chain",
+      "heroineId": "heroine.arcane",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.arcane.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": [
+        "銃弾"
+      ]
+    },
+    {
+      "id": "heroine.arcane-academy.chain",
+      "heroineId": "heroine.arcane-academy",
+      "effectRuleId": "effect.damage",
+      "targetRuleId": "target.boss-body",
+      "resourcePolicy": "none",
+      "timelinePolicy": "preserve",
+      "commandInteractionPolicy": "none",
+      "presentationId": "heroine.arcane-academy.chain.presentation",
+      "powerScale": 0.65,
+      "baseHealing": 0,
+      "damageType": "physical",
+      "ignoreDefenseBp": 0,
+      "ruleOrigin": "newaster-original",
+      "attributes": [
+        "打撃"
+      ]
+    }
+  ],
+  "contentReferences": [
+    {
+      "id": "heroine.slayer.trait",
+      "ownerId": "heroine.slayer",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer.weapon-tree",
+      "ownerId": "heroine.slayer",
+      "kind": "weapon-tree",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.1",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.2",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-chapter.3",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.1",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.2",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.3",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.4",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.5",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.6",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.7",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.8",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.9",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.10",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.11",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.12",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.13",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.14",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.15",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.16",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.17",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.poem-link.18",
+      "ownerId": "heroine.slayer",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.affinity.1",
+      "ownerId": "heroine.slayer",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.affinity.2",
+      "ownerId": "heroine.slayer",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.affinity.3",
+      "ownerId": "heroine.slayer",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.lover.1",
+      "ownerId": "heroine.slayer",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.slayer.lover.2",
+      "ownerId": "heroine.slayer",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.trait",
+      "ownerId": "heroine.iconoclast",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.iconoclast.weapon-tree",
+      "ownerId": "heroine.iconoclast",
+      "kind": "weapon-tree",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.1",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.2",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-chapter.3",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.1",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.2",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.3",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.4",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.5",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.6",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.7",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.8",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.9",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.10",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.11",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.12",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.13",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.14",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.15",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.16",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.17",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.poem-link.18",
+      "ownerId": "heroine.iconoclast",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.affinity.1",
+      "ownerId": "heroine.iconoclast",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.affinity.2",
+      "ownerId": "heroine.iconoclast",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.affinity.3",
+      "ownerId": "heroine.iconoclast",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.lover.1",
+      "ownerId": "heroine.iconoclast",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.iconoclast.lover.2",
+      "ownerId": "heroine.iconoclast",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.trait",
+      "ownerId": "heroine.undermine",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.undermine.weapon-tree",
+      "ownerId": "heroine.undermine",
+      "kind": "weapon-tree",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.1",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.2",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-chapter.3",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.1",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.2",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.3",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.4",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.5",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.6",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.7",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.8",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.9",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.10",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.11",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.12",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.13",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.14",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.15",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.16",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.17",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.poem-link.18",
+      "ownerId": "heroine.undermine",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.affinity.1",
+      "ownerId": "heroine.undermine",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.affinity.2",
+      "ownerId": "heroine.undermine",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.affinity.3",
+      "ownerId": "heroine.undermine",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.lover.1",
+      "ownerId": "heroine.undermine",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.undermine.lover.2",
+      "ownerId": "heroine.undermine",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.trait",
+      "ownerId": "heroine.echidna",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.echidna.weapon-tree",
+      "ownerId": "heroine.echidna",
+      "kind": "weapon-tree",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.1",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.2",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-chapter.3",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.1",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.2",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.3",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.4",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.5",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.6",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.7",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.8",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.9",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.10",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.11",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.12",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.13",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.14",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.15",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.16",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.17",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.poem-link.18",
+      "ownerId": "heroine.echidna",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.affinity.1",
+      "ownerId": "heroine.echidna",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.affinity.2",
+      "ownerId": "heroine.echidna",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.affinity.3",
+      "ownerId": "heroine.echidna",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.lover.1",
+      "ownerId": "heroine.echidna",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.echidna.lover.2",
+      "ownerId": "heroine.echidna",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.trait",
+      "ownerId": "heroine.excalipan",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.excalipan.weapon-tree",
+      "ownerId": "heroine.excalipan",
+      "kind": "weapon-tree",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.1",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.2",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-chapter.3",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-chapter",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.1",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.2",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.3",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.4",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.5",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.6",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.7",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.8",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.9",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.10",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.11",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.12",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.13",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.14",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.15",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.16",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.17",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.poem-link.18",
+      "ownerId": "heroine.excalipan",
+      "kind": "poem-link",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.affinity.1",
+      "ownerId": "heroine.excalipan",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.affinity.2",
+      "ownerId": "heroine.excalipan",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.affinity.3",
+      "ownerId": "heroine.excalipan",
+      "kind": "affinity-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.lover.1",
+      "ownerId": "heroine.excalipan",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.excalipan.lover.2",
+      "ownerId": "heroine.excalipan",
+      "kind": "lover-event",
+      "status": "reserved"
+    },
+    {
+      "id": "heroine.r.trait",
+      "ownerId": "heroine.r",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.weapon-tree",
+      "ownerId": "heroine.r",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-chapter.1",
+      "ownerId": "heroine.r",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-chapter.2",
+      "ownerId": "heroine.r",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-chapter.3",
+      "ownerId": "heroine.r",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.1",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.2",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.3",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.4",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.5",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.6",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.7",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.8",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.9",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.10",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.11",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.12",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.13",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.14",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.15",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.16",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.17",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.poem-link.18",
+      "ownerId": "heroine.r",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.affinity.1",
+      "ownerId": "heroine.r",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.affinity.2",
+      "ownerId": "heroine.r",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.affinity.3",
+      "ownerId": "heroine.r",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.lover.1",
+      "ownerId": "heroine.r",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.r.lover.2",
+      "ownerId": "heroine.r",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.trait",
+      "ownerId": "heroine.annihilator",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.weapon-tree",
+      "ownerId": "heroine.annihilator",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-chapter.1",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-chapter.2",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-chapter.3",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.1",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.2",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.3",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.4",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.5",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.6",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.7",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.8",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.9",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.10",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.11",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.12",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.13",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.14",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.15",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.16",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.17",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.poem-link.18",
+      "ownerId": "heroine.annihilator",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.affinity.1",
+      "ownerId": "heroine.annihilator",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.affinity.2",
+      "ownerId": "heroine.annihilator",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.affinity.3",
+      "ownerId": "heroine.annihilator",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.lover.1",
+      "ownerId": "heroine.annihilator",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator.lover.2",
+      "ownerId": "heroine.annihilator",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.trait",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.weapon-tree",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-chapter.1",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-chapter.2",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-chapter.3",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.1",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.2",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.3",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.4",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.5",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.6",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.7",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.8",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.9",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.10",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.11",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.12",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.13",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.14",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.15",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.16",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.17",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.poem-link.18",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.affinity.1",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.affinity.2",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.affinity.3",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.lover.1",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.annihilator-holy.lover.2",
+      "ownerId": "heroine.annihilator-holy",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.trait",
+      "ownerId": "heroine.shell",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.weapon-tree",
+      "ownerId": "heroine.shell",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-chapter.1",
+      "ownerId": "heroine.shell",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-chapter.2",
+      "ownerId": "heroine.shell",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-chapter.3",
+      "ownerId": "heroine.shell",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.1",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.2",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.3",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.4",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.5",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.6",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.7",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.8",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.9",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.10",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.11",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.12",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.13",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.14",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.15",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.16",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.17",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.poem-link.18",
+      "ownerId": "heroine.shell",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.affinity.1",
+      "ownerId": "heroine.shell",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.affinity.2",
+      "ownerId": "heroine.shell",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.affinity.3",
+      "ownerId": "heroine.shell",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.lover.1",
+      "ownerId": "heroine.shell",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.shell.lover.2",
+      "ownerId": "heroine.shell",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.trait",
+      "ownerId": "heroine.oriflamme",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.weapon-tree",
+      "ownerId": "heroine.oriflamme",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-chapter.1",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-chapter.2",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-chapter.3",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.1",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.2",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.3",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.4",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.5",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.6",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.7",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.8",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.9",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.10",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.11",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.12",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.13",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.14",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.15",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.16",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.17",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.poem-link.18",
+      "ownerId": "heroine.oriflamme",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.affinity.1",
+      "ownerId": "heroine.oriflamme",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.affinity.2",
+      "ownerId": "heroine.oriflamme",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.affinity.3",
+      "ownerId": "heroine.oriflamme",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.lover.1",
+      "ownerId": "heroine.oriflamme",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.oriflamme.lover.2",
+      "ownerId": "heroine.oriflamme",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.trait",
+      "ownerId": "heroine.nighthawk",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.weapon-tree",
+      "ownerId": "heroine.nighthawk",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-chapter.1",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-chapter.2",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-chapter.3",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.1",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.2",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.3",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.4",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.5",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.6",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.7",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.8",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.9",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.10",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.11",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.12",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.13",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.14",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.15",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.16",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.17",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.poem-link.18",
+      "ownerId": "heroine.nighthawk",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.affinity.1",
+      "ownerId": "heroine.nighthawk",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.affinity.2",
+      "ownerId": "heroine.nighthawk",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.affinity.3",
+      "ownerId": "heroine.nighthawk",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.lover.1",
+      "ownerId": "heroine.nighthawk",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.nighthawk.lover.2",
+      "ownerId": "heroine.nighthawk",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.trait",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.weapon-tree",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-chapter.1",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-chapter.2",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-chapter.3",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.1",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.2",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.3",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.4",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.5",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.6",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.7",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.8",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.9",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.10",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.11",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.12",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.13",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.14",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.15",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.16",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.17",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.poem-link.18",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.affinity.1",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.affinity.2",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.affinity.3",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.lover.1",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.slayer-swim.lover.2",
+      "ownerId": "heroine.slayer-swim",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.trait",
+      "ownerId": "heroine.arcane",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.weapon-tree",
+      "ownerId": "heroine.arcane",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-chapter.1",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-chapter.2",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-chapter.3",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.1",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.2",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.3",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.4",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.5",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.6",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.7",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.8",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.9",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.10",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.11",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.12",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.13",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.14",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.15",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.16",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.17",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.poem-link.18",
+      "ownerId": "heroine.arcane",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.affinity.1",
+      "ownerId": "heroine.arcane",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.affinity.2",
+      "ownerId": "heroine.arcane",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.affinity.3",
+      "ownerId": "heroine.arcane",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.lover.1",
+      "ownerId": "heroine.arcane",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane.lover.2",
+      "ownerId": "heroine.arcane",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.trait",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "trait",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.weapon-tree",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "weapon-tree",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-chapter.1",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-chapter.2",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-chapter.3",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-chapter",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.1",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.2",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.3",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.4",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.5",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.6",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.7",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.8",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.9",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.10",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.11",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.12",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.13",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.14",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.15",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.16",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.17",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.poem-link.18",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "poem-link",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.affinity.1",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.affinity.2",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.affinity.3",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "affinity-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.lover.1",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "lover-event",
+      "status": "implemented"
+    },
+    {
+      "id": "heroine.arcane-academy.lover.2",
+      "ownerId": "heroine.arcane-academy",
+      "kind": "lover-event",
+      "status": "implemented"
+    }
+  ],
+  "optionalResourceBoost": true,
+  "generalFormations": [
+    {
+      "ownerId": "heroine.slayer-swim",
+      "strengthenPercent": 100,
+      "durationClock": 300,
+      "slots": [
+        {
+          "slot": 0,
+          "label": "攻撃＋15%",
+          "attackPercent": 15
+        },
+        {
+          "slot": 1,
+          "label": "物理防御＋20%",
+          "physicalDefensePercent": 20
+        },
+        {
+          "slot": 2,
+          "label": "魔法防御＋20%",
+          "magicDefensePercent": 20
+        },
+        {
+          "slot": 3,
+          "label": "速度＋10%",
+          "speedPercent": 10
+        },
+        {
+          "slot": 4,
+          "label": "会心率＋10%",
+          "criticalBp": 1000
+        }
+      ]
+    }
+  ]
+}

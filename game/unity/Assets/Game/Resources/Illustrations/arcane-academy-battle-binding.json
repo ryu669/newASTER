@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.arcane-academy",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/arcane-academy-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/arcane-academy-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/arcane-academy-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/arcane-academy-cutin-candidate-v1"
+}

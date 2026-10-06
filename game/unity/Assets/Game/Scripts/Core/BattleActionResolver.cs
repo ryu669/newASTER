@@ -18,17 +18,19 @@ namespace NewAster.Core
         public int DamageCap { get; }
         public string DamageType { get; }
         public int IgnoreDefenseBp { get; }
+        public int BodyDamageBonusPercent {get;}
         public string TargetRule { get; }
         public decimal PerTargetPartScale { get; }
         public bool BodyPartProtection { get; }
         private readonly EnemyStatusDef[] statusEffects;
         public System.Collections.Generic.IReadOnlyList<EnemyStatusDef> StatusEffects => Array.AsReadOnly(statusEffects.Select(e=>e.Copy()).ToArray());
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false,string[] attributes=null)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false,string[] attributes=null,int bodyDamageBonusPercent=0)
         {
             if(perTargetPartScale<=0 || perTargetPartScale>100) throw new ArgumentOutOfRangeException(nameof(perTargetPartScale));
             CombatAttributeRules.Validate(attributes);this.attributes=(attributes??Array.Empty<string>()).ToArray();
-            PerTargetPartScale=perTargetPartScale;BodyPartProtection=bodyPartProtection;
+            if(bodyDamageBonusPercent<0 || bodyDamageBonusPercent>200)throw new ArgumentOutOfRangeException(nameof(bodyDamageBonusPercent));
+            BodyDamageBonusPercent=bodyDamageBonusPercent;PerTargetPartScale=perTargetPartScale;BodyPartProtection=bodyPartProtection;
             if(targetRule!="target.selected-enemy" && targetRule!="target.enemy-range" && targetRule!="target.all-enemies") throw new ArgumentException("Unknown attack target rule.");
             var effects=(statusEffects??Array.Empty<EnemyStatusDef>()).ToArray();
             if(effects.Any(e=>e==null) || effects.Select(e=>e.kind).Distinct().Count()!=effects.Length) throw new ArgumentException("Invalid attack statuses.");
@@ -93,6 +95,7 @@ namespace NewAster.Core
             decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,battle.AttributeResistances)*(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
             if(skill.Attributes.Contains("火"))raw*=1m+(hero.FireAmplificationPercent+battle.EnemyStatus(targetId).FireVulnerabilityPercent)/100m;
             if(battle.ReferenceStatusRules){var status=battle.EnemyStatus(targetId);if(status.Active("sickness"))raw*=1.25m;if(status.Active("electrified") && skill.Attributes.Contains("雷"))raw*=1.25m;}
+            if(targetId=="body")raw*=1m+skill.BodyDamageBonusPercent/100m;
             if(part!=null) raw*=skill.PerTargetPartScale;
             else if(skill.BodyPartProtection) {
                 var armor=battle.Parts.Any(p=>!string.IsNullOrEmpty(p.Role))

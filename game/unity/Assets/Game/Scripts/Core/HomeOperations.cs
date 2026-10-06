@@ -34,6 +34,10 @@ namespace NewAster.Core
                 case "panzer-loadout": {
                     Owned(s,op.Target);if(op.Target!="heroine.shell" || !c.heroineIds.Contains(op.Target))throw new ArgumentException("Unknown panzer.");var l=new PanzerLoadout(op.Owner,op.Garden,op.Zone);
                     h.panzerEquipment=(h.panzerEquipment??Array.Empty<HomePanzerEquipment>()).Where(e=>e.heroineId!=op.Target).Concat(new[]{new HomePanzerEquipment{heroineId=op.Target,resistance=l.Resistance,firstTool=l.FirstTool,secondTool=l.SecondTool}}).ToArray();break;}
+                case "commander": {
+                    if(op.Target=="formation.auto"){h.commanderHeroineId=null;break;}Owned(s,op.Target);if(c.BattleJob(op.Target)!="job.general")throw new ArgumentException("指揮官にはジェネラルを選択してください。");h.commanderHeroineId=op.Target;break;}
+                case "sniper-support": {
+                    Owned(s,op.Target);Owned(s,op.Owner);if(c.BattleJob(op.Target)!="job.sniper" || op.Target==op.Owner)throw new ArgumentException("狙撃手と援護対象を選択してください。");h.sniperSupports=(h.sniperSupports??Array.Empty<HomeSniperSupport>()).Where(e=>e.heroineId!=op.Target).Concat(new[]{new HomeSniperSupport{heroineId=op.Target,targetId=op.Owner}}).ToArray();break;}
                 case "formation": {
                     Owned(s,op.Target);if(!c.heroineIds.Contains(op.Target) || !int.TryParse(op.Owner,out int slot) || slot<0 || slot>=5)throw new ArgumentException("編成枠を選択してください。");
                     var ids=h.formationIds==null || h.formationIds.Length==0?c.heroineIds.Take(5).ToArray():(string[])h.formationIds.Clone();

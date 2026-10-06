@@ -1,10 +1,12 @@
 # newASTER
 
-計画10の現行実装は11形態・10人・10ジョブ。R、アナイアレイター通常／聖夜、シェル、オリフラム、ナイトホークを追加し、人物ごとの戦闘・育成・神器・庭・物語へ接続しています。性格・口調・概要も保存。最新の開発ビルドは `game/Builds/plan10-nighthawk/newASTER.exe`、生成・検証手順は [ナイトホーク実装記録](docs/production/plan10-nighthawk-implementation.md)、全体の進捗は [計画10](docs/production/plan10-implementation-plan.md) を参照してください。Windows実行ファイルとローカル参考動画はGit管理の対象外です。
+計画10の現行実装は15形態・12人・13ジョブ。スレイヤー水着、アルケイン通常／学園、シャングリラを順に追加し、戦闘・育成・神器・庭・物語へ接続しました。性格・口調・概要を保存し、現行物語は90章630詩・75交流です。編成を「配置 → 隊員の設定 → 入れ替え候補」へ分け、将来のオーパーツ1人1枠を表示。ジョブ資源13種は形の異なる画像へ変更し、画面比率・CG・神器・人物表示を見直しました。
 
-![ナイトホークの育成・GEAR・NITRO・交流画面](docs/production/images/nighthawk-game-comparison.jpg)
+最新の開発ビルドは `game/Builds/plan10-shangrila/newASTER.exe`。[今回の実装とUI確認](docs/production/plan10-four-heroines-and-ui.md)、[ヒロイン追加手順](docs/production/heroine-addition-guide.md)、[計画10](docs/production/plan10-implementation-plan.md)を参照してください。個別オーパーツの装備操作は後続実装です。実行ファイル・元動画・調査画像はGit管理の対象外です。
 
-計画9の初期5人・5ジョブを実装したWindows正式配布候補です。15巨神獣、7世界、60章450詩、25交流、9庭10家具、人物固有神器、15遺物、ガチャ・交換・星の恵みを通常入口から利用できます。起動・タイトル・万物の書・戦闘・結果・ADV・育成・庭・設定を正式版用の美術へ統一しました。計画9 RC1の内容と検証履歴は[完了記録](docs/production/plan9-completion-status.md)に保存しています。
+![追加4形態の実行画面](docs/production/images/four-heroines-game-comparison.jpg)
+
+計画9では、初期5人・5ジョブを実装したWindows正式配布候補を作成しました。15巨神獣、7世界、60章450詩、25交流、9庭10家具、人物固有神器、15遺物、ガチャ・交換・星の恵みを通常入口へ接続しました。起動・タイトル・万物の書・戦闘・結果・ADV・育成・庭・設定を正式版用の美術へ統一しました。計画9 RC1の内容と検証履歴は[完了記録](docs/production/plan9-completion-status.md)に保存しています。
 
 計画9の画像UI改修版は `0.9.5-rc.2`。全画面の共通パネル・ボタン・検索欄・スライダー・スクロールバーを画像UIに統一し、植物図書宮殿の背景も追加。[画像UI設計](docs/production/image-ui-design.md)、[制作プロンプト](docs/production/image-ui-prompts.json)、[画面確認](docs/production/image-ui-validation.json)。5枠の編成入替、巨神獣ごとの4段階素材と複数巨神獣の希少素材を使う神器を追加しました。ガチャは到着・開扉・降車の3枚のオリジナル一枚絵で演出します。戦闘のスキル選択はヒロインを隠さず表示し続け、リソースは任意消費で効果を強化。12属性、巨神獣の弱点・耐性、10種類の蓄積型状態異常も実装しました。ヒロインカード一覧、Lv1〜7のスキル・神器強化、枝別能力・最終特性も収録。[追加設計と画像制作](docs/production/combat-expansion-design.md)、[検証](docs/production/combat-expansion-validation.json)、[配布案内](docs/production/combat-expansion-readme.txt)。
 
@@ -32,7 +34,9 @@
 
 ブラウザ試作では、仮の3人対ボス1体で、編成・遺物・発動／託す・誓い・翼破壊・報酬・強化・記憶解放を体験できます。初討伐で記憶を開き、強化3段階で試作クリア。その後も再挑戦できます。セラ・リネ・アシュと仮図形は技術検証用で、正式版の人物へ自動転用しません。
 
-## Unity試遊版の起動
+## 過去のUnity試遊版の起動
+
+以下は計画6時点の試遊用操作の記録です。現行の計画10は、冒頭の最新ビルドとヒロイン追加手順を参照してください。
 
 Unity Hubで [game/unity](game/unity) を開き、`Assets/Game/Scenes/Bootstrap.unity` を開いて再生ボタンを押します。Windows実行ファイルを作る場合は、Unityのメニューで `PlayableBuild > Validate And Build` を実行します。出力先は `game/Builds/playable/newASTER.exe` です。
 

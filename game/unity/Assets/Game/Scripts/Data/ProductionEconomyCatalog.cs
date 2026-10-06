@@ -19,11 +19,11 @@ namespace NewAster.Data
             }
             enemy.hpPerLevel=id=="colossus.final-flame-ice-phoenix"?360:400;enemy.damagePerLevel=5;enemy.Validate();return enemy;
         }
-        private static readonly string[] WeaponOwners={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk"};
+        private static readonly string[] WeaponOwners={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk","heroine.slayer-swim","heroine.arcane","heroine.arcane-academy","heroine.shangrila"};
         private static int WeaponOwner(string id){int index=Array.IndexOf(WeaponOwners,id);if(index<0)throw new ArgumentException("Missing authored weapon identity "+id);return index;}
-        private static readonly string[] BranchNames={"翼の誓い","星の剣","天の祝福","封印の刻印","砕く意志","理の解放","薬草の息吹","森の守り","命の調和","火花の記憶","竜の鼓動","紅蓮の誓い","月の護り","祈りの剣","光の輪舞","星音の弦","静寂の譜","共鳴の環","鬼面の刃","花守の盾","紅蝶の誓い","雪灯の鈴","聖夜の守り","贈り物の翼","守護の拳","耐える装甲","帰還の回転翼","黒剣の火花","五色の触媒","明日を灯す炎","星図の指針","青い羽根の盾","夜明けの足音"};
-        private static readonly int[] Attacks={8,5,15,10,6,18,4,7,12,9,6,16,5,8,14,7,5,13,9,6,15,6,8,12,9,7,14,10,6,16,8,6,14};
-        private static readonly float[] Powers={1.15f,1.25f,1.4f,1.12f,1.28f,1.38f,1.22f,1.12f,1.35f,1.2f,1.18f,1.42f,1.25f,1.1f,1.36f,1.18f,1.12f,1.38f,1.2f,1.15f,1.4f,1.12f,1.2f,1.32f,1.2f,1.14f,1.36f,1.2f,1.12f,1.4f,1.18f,1.14f,1.38f};
+        private static readonly string[] BranchNames={"翼の誓い","星の剣","天の祝福","封印の刻印","砕く意志","理の解放","薬草の息吹","森の守り","命の調和","火花の記憶","竜の鼓動","紅蓮の誓い","月の護り","祈りの剣","光の輪舞","星音の弦","静寂の譜","共鳴の環","鬼面の刃","花守の盾","紅蝶の誓い","雪灯の鈴","聖夜の守り","贈り物の翼","守護の拳","耐える装甲","帰還の回転翼","黒剣の火花","五色の触媒","明日を灯す炎","星図の指針","青い羽根の盾","夜明けの足音","白傘の道標","海風の守り","夏を継ぐ翼","探検の指針","展示の守り","帰還の鍵","検証の頁","書架の結界","卒業の先の翼","選び直す照準","休息の防壁","帰る日の魔弾"};
+        private static readonly int[] Attacks={8,5,15,10,6,18,4,7,12,9,6,16,5,8,14,7,5,13,9,6,15,6,8,12,9,7,14,10,6,16,8,6,14,8,6,14,9,5,15,8,7,14,11,6,16};
+        private static readonly float[] Powers={1.15f,1.25f,1.4f,1.12f,1.28f,1.38f,1.22f,1.12f,1.35f,1.2f,1.18f,1.42f,1.25f,1.1f,1.36f,1.18f,1.12f,1.38f,1.2f,1.15f,1.4f,1.12f,1.2f,1.32f,1.2f,1.14f,1.36f,1.2f,1.12f,1.4f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.2f,1.12f,1.36f,1.22f,1.14f,1.4f};
         public static void ApplyHome(HomeExperienceCatalog home,CombatDefinitionCatalog combat,CollectionCatalog collection)
         {
             home.abilityIds=new[]{"ability.production.weapon-attack"};home.skillIds=new[]{"skill.production.weapon-basic"};
@@ -61,7 +61,7 @@ namespace NewAster.Data
                 n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1?10+tier*6:0;
                 n.speedBonus=route==2?3+tier*2:0;n.criticalBonusBp=route==0?200+tier*100:route==2?100+tier*50:0;
                 n.criticalDamageBonus=route==2?5+tier*3:0;
-                if(tier==4){int hero=WeaponOwner(n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈","星音","紅蝶","雪灯","鋼翼","炎翼","夜星"};
+                if(tier==4){int hero=WeaponOwner(n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈","星音","紅蝶","雪灯","鋼翼","炎翼","夜星","海翼","遺翼","書翼","銃翼"};
                     n.weaponTraitName=motifs[hero]+(route==0?"の鋭刃":route==1?"の結界":"の疾風");
                     n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
                 }

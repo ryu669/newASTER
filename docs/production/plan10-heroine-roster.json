@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "plan10-2026-10-06",
+  "contentVersion": "plan10-2026-10-07",
   "usage": "authoring-only",
   "heroines": [
     {
@@ -103,6 +103,86 @@
         "参考調査：全ボイスの文字起こしと全詩の精読"
       ],
       "implementation": "docs/production/plan10-nighthawk-implementation.md"
+    },
+    {
+      "id": "heroine.slayer-swim",
+      "personId": "heroine.slayer",
+      "variantId": "swim",
+      "referenceName": "スレイヤー（水着）",
+      "jobId": "job.general",
+      "stage": "implemented",
+      "available": true,
+      "profile": "docs/references/characters/slayer-swim.md",
+      "sourceIds": [
+        "angelica-battle:056戦闘_スレイヤー水着.mkv",
+        "angelica-angel:056_スレイヤー水着.mkv"
+      ],
+      "unresolved": [
+        "参考調査：全ボイスの文字起こしと全詩の精読"
+      ],
+      "implementation": "docs/production/plan10-slayer-swim-implementation.md"
+    },
+    {
+      "id": "heroine.arcane",
+      "personId": "heroine.arcane",
+      "variantId": "normal",
+      "referenceName": "アルケイン",
+      "jobId": "job.gunner",
+      "stage": "implemented",
+      "available": true,
+      "profile": "docs/references/characters/arcane.md",
+      "sourceIds": [
+        "angelica-battle:012戦闘_アルケイン.mkv",
+        "angelica-angel:012_アルケイン.mkv"
+      ],
+      "unresolved": [
+        "参考調査：全ボイスの文字起こしと全詩の精読"
+      ],
+      "implementation": "docs/production/plan10-arcane-implementation.md"
+    },
+    {
+      "id": "heroine.arcane-academy",
+      "personId": "heroine.arcane",
+      "variantId": "academy",
+      "referenceName": "アルケイン（学園）",
+      "jobId": "job.gambler",
+      "stage": "implemented",
+      "available": true,
+      "profile": "docs/references/characters/arcane-academy.md",
+      "sourceIds": [
+        "angelica-battle:013戦闘_アルケイン学園.mkv",
+        "angelica-angel:013_アルケイン学園.mkv"
+      ],
+      "unresolved": [
+        "参考調査：全ボイスの文字起こしと全詩の精読"
+      ],
+      "implementation": "docs/production/plan10-arcane-academy-implementation.md"
+    },
+    {
+      "id": "heroine.shangrila",
+      "personId": "heroine.shangrila",
+      "variantId": "normal",
+      "referenceName": "シャングリラ",
+      "jobId": "job.sniper",
+      "stage": "implemented",
+      "available": true,
+      "profile": "docs/references/characters/shangrila.md",
+      "sourceIds": [
+        "angelica-battle:050戦闘_シャングリラ.mkv",
+        "angelica-angel:050_シャングリラ.mkv"
+      ],
+      "unresolved": [
+        "参考調査：全ボイスの文字起こしと全詩の精読"
+      ],
+      "implementation": "docs/production/plan10-shangrila-implementation.md"
     }
-  ]
+  ],
+  "currentCounts": {
+    "forms": 15,
+    "people": 12,
+    "jobs": 13,
+    "chapters": 90,
+    "poems": 630,
+    "events": 75
+  }
 }

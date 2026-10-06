@@ -1,0 +1,42 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using NewAster.Core;
+using NewAster.Data;
+internal static class Plan10ArcaneAcademyTests {
+ public static void Run(Action<bool,string> check,string resources){
+  var options=new JsonSerializerOptions{IncludeFields=true};Func<CombatDefinitionCatalog> read=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(Path.Combine(resources,"Combat/battle-plan10-arcane-academy.json")),options);var c=read();c.Validate();
+  check(c.HeroineIds.Length==14 && c.HeroineIds.Select(c.PersonId).Distinct().Count()==11 && c.jobs.Length==12 && c.PersonId("heroine.arcane-academy")=="heroine.arcane","Academy adds Gambler form, shares Arcane person");
+  var rows=GamblerSlotRules.Evaluate(new[]{2,2,0,3,3,3,4,4,4});check(rows.Count==3 && !rows[0].Enhanced && rows[1].Enhanced && rows[2].Enhanced,"Every row, partial and enhanced matches execute");
+  var all=GamblerSlotRules.Evaluate(Enumerable.Repeat(2,9).ToArray());check(all.Count==5 && all.All(t=>t.Skill==0 && t.Enhanced),"Repeated symbols match all three rows and both diagonals");
+  var seven=GamblerSlotRules.Evaluate(Enumerable.Repeat(5,9).ToArray());check(seven.Count==30 && Enumerable.Range(0,3).All(s=>seven.Count(t=>t.Skill==s)==10),"All five 777 lines each execute skills 1/2/3 twice");
+  check(GamblerSlotRules.Evaluate(Enumerable.Repeat(0,9).ToArray()).Count==0,"Fruit lines do not trigger skills");
+  Func<int,PlayableBattle> fixture=slot=>{var defs=read();foreach(var j in defs.jobs){j.hp=100000;j.speed=100;}foreach(var s in defs.skills)s.chainEligible=false;var ids=defs.FormationIds;ids[slot]="heroine.arcane-academy";var enemy=ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[0]);enemy.baseHp=10000000;enemy.hpPerLevel=1;enemy.enemySpeed=1;enemy.baseDamage=1;enemy.statusResistances=Array.Empty<EnemyStatusResistanceDef>();return new PlayableBattle(1,new PlayableProgress(),991,combatDefinitions:defs.WithFormation(ids),colossusDefinition:enemy,useJobRulesV2:true);};
+  Action<PlayableBattle,int> ready=(b,a)=>{int limit=0;while(b.AvailableHero!=a && !b.Ended && limit++<500)b.Pass();check(b.AvailableHero==a,"Academy reaches READY");};
+  for(int i=0;i<5;i++){
+   var b=fixture(i);ready(b,i);long clock=b.Clock;int draws=0;check(!b.Act(i,0,"body") && !b.Act(i,1,"body") && !b.Act(i,2,"body") && b.Clock==clock,"Ordinary three skill selections disabled for Gambler");
+   check(b.SpinGamblerSlot(i,"body",max=>{draws++;return 0;}) && draws==9 && b.Clock==clock && b.AvailableHero==i && b.State.Heroes[i].JobResource==0,"Full miss draws exactly nine symbols, no resource, WT0, immediate same READY");
+  }
+  var jackpot=fixture(0);ready(jackpot,0);jackpot.DrainPresentationEvents();check(jackpot.SpinGamblerSlot(0,"body",max=>5) && jackpot.LastSlotTriggerCount==30,"777 jackpot resolves all thirty triggers");check(jackpot.DrainPresentationEvents().Count(e=>e.Actor==0 && e.Kind==BattlePresentationKind.Attack)==30,"Thirty actual source attacks, not only thirty evaluated trigger records");
+  var duplicates=fixture(0);ready(duplicates,0);duplicates.DrainPresentationEvents();check(duplicates.SpinGamblerSlot(0,"body",max=>2) && duplicates.DrainPresentationEvents().Count(e=>e.Actor==0 && e.Kind==BattlePresentationKind.Attack)==5,"All identical enhanced lines execute separately");check(duplicates.State.Heroes.All(h=>h.TimedEffects.Any(e=>e.Kind=="critical-damage" && e.Percent==30)),"First source skill buffs all allies after attack");
+  var status=fixture(0);ready(status,0);status.State.BossStatus.Add(new EnemyStatusDef{kind="burn",amount=100});status.State.BossStatus.Add(new EnemyStatusDef{kind="poison",amount=30});int[] board={3,3,0,0,1,0,1,0,1};int at=0;check(status.SpinGamblerSlot(0,"body",max=>board[at++]) && status.State.BossStatus.Remaining("burn")==5 && status.State.BossStatus.Remaining("bleed")==5 && !status.State.BossStatus.Active("poison"),"Second source skill extends active burn and new bleed, not inactive poison");
+  var buffs=fixture(0);ready(buffs,0);buffs.State.Heroes[1].ApplySelfEffects(new[]{new TimedSelfEffectDef{kind="attack",percent=20,turns=3}});buffs.State.Heroes[0].ApplySelfEffects(new[]{new TimedSelfEffectDef{kind="attack-reduction",percent=35,turns=2}});board=new[]{4,4,0,0,1,0,1,0,1};at=0;check(buffs.SpinGamblerSlot(0,"body",max=>board[at++]) && buffs.State.Heroes[1].TimedEffects.Single().RemainingCommands==4 && buffs.State.Heroes[0].TimedEffects.Single().RemainingCommands==2,"Third source skill extends positive buffs without extending a self attack penalty");
+  var baseShot=new BattleSkill("base",2.4m,0);var bodyShot=new BattleSkill("body-bonus",2.4m,0,bodyDamageBonusPercent:80);var hero=buffs.State.Heroes[2];int plain=BattleActionResolver.CalculateDamage(buffs.State,hero,baseShot,"body");check(BattleActionResolver.CalculateDamage(buffs.State,hero,bodyShot,"body")>=plain*1.75,"Body-only source damage bonus");
+  var fresh=fixture(0);string part=fresh.State.Parts.First(p=>!p.IsBroken).Id;check(BattleActionResolver.CalculateDamage(fresh.State,fresh.State.Heroes[0],baseShot,part)==BattleActionResolver.CalculateDamage(fresh.State,fresh.State.Heroes[0],bodyShot,part),"Body bonus never leaks into part damage");
+  var penalty=fixture(0);ready(penalty,0);penalty.State.Heroes[0].AddStatus(new EnemyStatusDef{kind="electrified",amount=100});long before=penalty.Clock;check(penalty.SpinGamblerSlot(0,"body",max=>0) && penalty.NextAt(0)>before,"SLOT miss cannot bypass a pending status wait penalty");
+  var invalid=fixture(0);ready(invalid,0);int drawCount=0;check(!invalid.SpinGamblerSlot(0,"missing",max=>{drawCount++;return 0;}) && drawCount==0,"Rejected target consumes no RNG");invalid.State.Heroes[0].Status.Add(new EnemyStatusDef{kind="stun",amount=100});check(!invalid.SpinGamblerSlot(0,"body",max=>{drawCount++;return 0;}) && drawCount==0,"Stunned Gambler consumes no RNG");
+  if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ACADEMY_ART")=="1"){
+   var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(Path.Combine(resources,"Story/plan10-arcane-academy-story-content.json")),options);story.Validate(c.HeroineIds,WorldCatalog.ColossusIds.ToArray());var home=ProductionStoryCatalog.Home(c,story);home.Validate(true);check(home.weaponNodes.Count(n=>n.heroineId=="heroine.arcane-academy")==13 && home.assets.All(a=>!a.placeholder),"Academy dedicated tree and adopted art");check(story.chapters.Where(x=>x.ownerId=="heroine.arcane-academy").Sum(x=>x.pages.Length)==30 && story.events.Count(e=>e.ownerId=="heroine.arcane-academy")==5,"Academy thirty pages five events");
+  }
+  if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ACADEMY_ART")=="1"){
+   var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(Path.Combine(resources,"Story/plan10-arcane-academy-story-content.json")),options);
+   var home=ProductionStoryCatalog.Home(c,story);var collection=ProductionStoryCatalog.Collection(c,story);
+   var save=new FormalCampaignSave{growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=c.HeroineIds.Select(id=>new FormalHeroineGrowth{heroineId=id,level=20}).ToArray()},world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),home=FormalHomeProgress.Empty(home.contentVersion),collection=new FormalCollectionLedger{contentVersion=collection.contentVersion}};
+   save.home.affections=new[]{new HomeAffection{heroineId="heroine.arcane",value=20}};save.home.loverHeroineIds=new[]{"heroine.arcane"};save.home.readEventIds=new[]{"heroine.arcane.event.2"};save.home.unlockedEventIds=new[]{"heroine.arcane.event.2"};HomeConditions.Refresh(save,home);save.Validate();save.home.ValidateContent(home,save);
+   check(save.home.affections.Single(a=>a.heroineId=="heroine.arcane-academy").value==20 && save.home.loverHeroineIds.Contains("heroine.arcane-academy"),"Academy inherits normal Arcane affection and confirmed relationship");
+   save.home.formationIds=new[]{"heroine.arcane"}.Concat(c.FormationIds.Skip(1)).ToArray();HomeRules.Apply(save,home,new HomeOperation("formation","heroine.arcane-academy",owner:"1"));check(!save.home.formationIds.Contains("heroine.arcane") && save.home.formationIds[1]=="heroine.arcane-academy","Academy replaces normal form instead of duplicating person");
+  }
+  Console.WriteLine("PLAN10_ACADEMY_PASS five lines / all duplicate and 777 triggers / miss WT0 / source status extensions / shared person");
+ }
+}

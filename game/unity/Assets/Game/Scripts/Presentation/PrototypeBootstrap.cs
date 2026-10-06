@@ -83,7 +83,7 @@ namespace NewAster.Presentation
                 if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
                 heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
                 Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
-                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan10-nighthawk");
+                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-capturePlan10Ui")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureShangrila")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureArcaneAcademy")?"Combat/battle-plan10-arcane-academy":Environment.GetCommandLineArgs().Contains("-captureArcane")?"Combat/battle-plan10-arcane":Environment.GetCommandLineArgs().Contains("-captureSlayerSwim")?"Combat/battle-plan10-slayer-swim":Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan10-shangrila");
                 if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes="+combatDefinitions.heroines.Length+" skills="+combatDefinitions.skills.Length+" chains="+combatDefinitions.chainActions.Length);
@@ -188,6 +188,11 @@ namespace NewAster.Presentation
             PreparePlan10ShellCapture(args);
             PreparePlan10OriflammeCapture(args);
             PreparePlan10NighthawkCapture(args);
+            PreparePlan10SlayerSwimCapture(args);
+            PreparePlan10ArcaneCapture(args);
+            PreparePlan10ArcaneAcademyCapture(args);
+            PreparePlan10ShangrilaCapture(args);
+            PreparePlan10UiAuditCapture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -237,19 +242,22 @@ namespace NewAster.Presentation
             }
             bool battleView=encounter!=null;
             bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
-            viewCamera.cullingMask=recoveryActive || engagementOpen || battleView || formalHeroView?0:~0;
+            viewCamera.cullingMask=modelViewer?~0:recoveryActive || engagementOpen || battleView || formalHeroView?0:~0;
             viewCamera.orthographic=modelViewer;
             viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
-            viewCamera.rect=battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f);
+            viewCamera.rect=LogicalCameraRect(battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f));
             viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
             viewCamera.fieldOfView=battleView?35f:60f;
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
             viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
             viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
             if(modelViewer) {
-                if(Input.GetMouseButton(0) && Input.mousePosition.y>Screen.height*(95f/900) && Input.mousePosition.y<Screen.height*(1-125f/900)) portraitYaw+=Input.GetAxis("Mouse X")*4;
-                portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
-                viewCamera.rect=new Rect(0,0,1,1); viewCamera.aspect=Screen.width/(float)Screen.height;
+                var canvas=NewAster.Core.AspectLayout.Contain(0,0,Screen.width,Screen.height,1600,900);
+                var mouse=new Vector2((Input.mousePosition.x-canvas.X)/canvas.Scale,(Screen.height-Input.mousePosition.y-canvas.Y)/canvas.Scale);
+                bool overPortrait=new Rect(0,125,1600,680).Contains(mouse);
+                if(Input.GetMouseButton(0) && overPortrait)portraitYaw+=Input.GetAxis("Mouse X")*4;
+                if(overPortrait)portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
+                viewCamera.rect=LogicalCameraRect(new Rect(0,0,1,1));viewCamera.aspect=1600f/900f;
                 var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
                 float angle=portraitYaw*Mathf.Deg2Rad;
                 viewCamera.transform.position=focus+new Vector3(Mathf.Cos(angle)*3,.025f,Mathf.Sin(angle)*3);
@@ -263,7 +271,7 @@ namespace NewAster.Presentation
             if(stage!=null) stage.SetPortraitView(modelViewer);
             bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
             if(!bookPreviewVisible)viewCamera.cullingMask=0;
-            if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
+            if(!modelViewer && !title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
             if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
@@ -322,7 +330,7 @@ namespace NewAster.Presentation
         private void DrawGameGui()
         {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
-            Styles(); ImageUiSkin.ApplyControls(GUI.skin); GUI.matrix=Matrix4x4.Scale(new Vector3(Screen.width/1600f,Screen.height/900f,1)); drawingModal=false;
+            Styles();ImageUiSkin.ApplyControls(GUI.skin);BeginAspectCanvas();drawingModal=false;
             if(recoveryActive){DrawSaveRecovery();return;}
             if(plan9EnemyPreview!=null){DrawPlan9EnemyArt();return;}
             if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
@@ -333,6 +341,7 @@ namespace NewAster.Presentation
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
             if(modelViewer) { DrawModelViewer(); return; }
+            if(!title && encounter==null && help) { DrawFormalBookSurface();drawingModal=true;DrawHelp();return; }
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
@@ -535,7 +544,7 @@ namespace NewAster.Presentation
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
@@ -638,7 +647,7 @@ namespace NewAster.Presentation
         private void DrawHelp()
         {
             Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 上の部位ボタンで対象を選ぶ。\n3. 下の誓女カードを選び、右の3スキルで行動。\n4. 接続成功で次の攻撃が強化。支援で終了。\n5. 部位破壊で敵を弱め、報酬で育成・家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
+            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 上の部位ボタンで対象を選ぶ。\n3. 行動可能な誓女の操作を開き、スキルやジョブ固有操作を選択。\n4. 接続成功で固定チェインが発動。固有資源で戦術を変える。\n5. 部位破壊で敵を弱め、報酬で育成・家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
             if(Btn(340,656,890,62,"閉じる")) help=false;
         }
         private void DrawKinderGarden()

@@ -27,6 +27,7 @@ namespace NewAster.Data
             var collection=Collection(combat,story);
             // Reuse candidate art layout contracts, replace every fixture narrative and scene.
             var home=HomeExperienceFixture.Create(combat);
+            home.battleRoles=combat.heroines.Select(h=>new HomeBattleRole{heroineId=h.id,jobId=h.jobId}).ToArray();
             home.personLinks=combat.heroines.Where(h=>!string.IsNullOrEmpty(h.personId)).Select(h=>new HomePersonLink{heroineId=h.id,personId=h.personId}).ToArray();
             home.contentVersion=HomeExperienceCatalog.ProductionVersion;home.status="release";
             home.texts=Array.Empty<HomeTextDef>();home.scripts=Array.Empty<HomeAdvScript>();
@@ -62,6 +63,10 @@ namespace NewAster.Data
             Plan10ShellHomeArt.Apply(home);
             Plan10OriflammeHomeArt.Apply(home);
             Plan10NighthawkHomeArt.Apply(home);
+            Plan10SlayerSwimHomeArt.Apply(home);
+            Plan10ArcaneHomeArt.Apply(home);
+            Plan10ArcaneAcademyHomeArt.Apply(home);
+            Plan10ShangrilaHomeArt.Apply(home);
             var used=new HashSet<string>(home.displays.SelectMany(d=>new[]{d.standingAssetId}.Concat(d.expressions.Select(e=>e.assetId)).Concat(d.poses.Select(p=>p.assetId)))
                 .Concat(home.gardens.SelectMany(g=>new[]{g.backgroundAssetId}.Concat(g.middleAssetIds).Concat(g.foregroundAssetIds)))
                 .Concat(home.furniture.Select(f=>f.assetId)).Concat(home.scripts.SelectMany(s=>s.commands).SelectMany(c=>new[]{c.assetId,c.audioId}).Where(id=>id!=null)));

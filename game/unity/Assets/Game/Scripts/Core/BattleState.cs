@@ -28,13 +28,13 @@ namespace NewAster.Core
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
         private readonly int basePhysicalDefense,baseMagicDefense;
-        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent)/100)/(IsPanzer && !ArmorActive?5:1);
-        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent)/100)/(IsPanzer && !ArmorActive?5:1);
+        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
+        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack")+JobAllStatsPercent+JobAttackPercent)/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
-        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
+        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; internal set; }
 

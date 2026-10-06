@@ -34,6 +34,12 @@ namespace NewAster.Presentation
                 if(Btn(220,484,60,32,"＋珠",enabled && j.BoostUnits<h.JobResource,jobButton))encounter.SelectBoostUnits(actor,j.BoostUnits+1);
                 if(Btn(295,484,250,32,j.Reckless?"捨て身 → 通常":"通常 → 捨て身",enabled,jobButton))encounter.ToggleReckless(actor);
                 if(Btn(560,484,295,32,"BOOST解放・3ターン",enabled && j.Gauge==100,jobButton))encounter.ActivateJobGauge(actor);
+            }else if(j.Id=="job.gambler"){
+                if(Btn(34,484,820,32,"SLOT ／ 3×3・5ライン抽選 ／ 全外れWT0",enabled,jobButton)){if(encounter.SpinGamblerSlot(actor,target)){ResetBattleMenu();QueueBattleEvents();}}
+            }else if(j.Id=="job.sniper"){
+                if(Btn(34,484,820,32,"狙撃モード ／ MAX消費・詠唱中は全員支援",enabled && h.JobResource==h.JobResourceMax,jobButton)){if(encounter.StartSniperMode(actor,target)){ResetBattleMenu();QueueBattleEvents();}}
+            }else if(j.Id=="job.general"){
+                if(Btn(34,484,650,32,actor==encounter.CommanderActor?"指揮解放 ／ 5枠の固有効果を3ターン強化":"他の指揮官の陣形に従う・通常スキルのみ",enabled && actor==encounter.CommanderActor && h.JobResource==h.JobResourceMax,jobButton)){encounter.ActivateGeneralCommand(actor);QueueBattleEvents();}
             }else if(j.Id=="job.berserker" || j.Id=="job.defender"){
                 if(Btn(34,484,480,32,j.Id=="job.berserker"?"ゲージ解放 ／ スキル二重発動・3ターン":"ゲージ解放 ／ 全員護衛と反撃・3ターン",enabled && h.JobResource==h.JobResourceMax,jobButton))encounter.ActivateJobGauge(actor);
             }else if(j.Id=="job.blaster"){
@@ -62,7 +68,8 @@ namespace NewAster.Presentation
                     if(encounter.FullVolley(actor,target)){ResetBattleMenu();QueueBattleEvents();}
                 }
             }
-            if(j.Id=="job.healer" || j.Id=="job.alchemist" || j.Id=="job.chaser")jobLabel.fontSize=14;Label(34,517,820,25,encounter.JobDescription(actor)+(j.Id=="job.healer"?" ／ "+encounter.HeroineName(lifeTarget):j.Id=="job.alchemist"?" ／ "+encounter.AlchemyPreview(actor,alchemyUnits):""),jobLabel,gold);
+            DrawSanctuaryIcon(new Rect(34,517,25,25),"resource."+j.Id.Replace("job.",""),Color.white);
+            if(j.Id=="job.healer" || j.Id=="job.alchemist" || j.Id=="job.chaser")jobLabel.fontSize=14;Label(68,517,786,25,encounter.JobDescription(actor)+(j.Id=="job.healer"?" ／ "+encounter.HeroineName(lifeTarget):j.Id=="job.alchemist"?" ／ "+encounter.AlchemyPreview(actor,alchemyUnits):""),jobLabel,gold);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace NewAster.Core
         public int percent,turns;
         public void Validate()
         {
-            if((kind!="speed" && kind!="fire-amplification" && kind!="attack" && kind!="physical-protection" && kind!="regen" && kind!="critical" && kind!="critical-damage" && kind!="forced-target") || percent<=0 || percent>(kind=="forced-target"?1:kind=="critical" || kind=="physical-protection"?100:1000) || turns<1 || turns>10)
+            if((kind!="speed" && kind!="fire-amplification" && kind!="attack" && kind!="attack-reduction" && kind!="physical-protection" && kind!="regen" && kind!="critical" && kind!="critical-damage" && kind!="forced-target") || percent<=0 || percent>(kind=="forced-target"?1:kind=="critical" || kind=="physical-protection" || kind=="attack-reduction"?100:1000) || turns<1 || turns>10)
                 throw new ArgumentException("Unsupported timed self effect or range.");
         }
         public static void ValidateAll(IEnumerable<TimedSelfEffectDef> effects)
@@ -20,7 +20,7 @@ namespace NewAster.Core
             foreach(var item in items) item.Validate();
         }
         public TimedSelfEffectDef Copy() => new TimedSelfEffectDef {kind=kind,percent=percent,turns=turns};
-        public static string Label(string kind) => kind=="speed"?"速度＋": kind=="fire-amplification"?"火増幅＋": kind=="attack"?"攻撃＋":kind=="regen"?"再生 ":kind=="physical-protection"?"物理防護 ":kind=="critical"?"会心率＋":kind=="critical-damage"?"会心威力＋":"強制標的 ";
+        public static string Label(string kind) => kind=="speed"?"速度＋": kind=="fire-amplification"?"火増幅＋": kind=="attack"?"攻撃＋":kind=="attack-reduction"?"攻撃−":kind=="regen"?"再生 ":kind=="physical-protection"?"物理防護 ":kind=="critical"?"会心率＋":kind=="critical-damage"?"会心威力＋":"強制標的 ";
     }
     // Immutable copies are safe to place in delayed presentation events.
     public sealed class TimedSelfEffectSnapshot
@@ -36,7 +36,7 @@ namespace NewAster.Core
         private readonly List<TimedSelfEffectSnapshot> timedEffects=new List<TimedSelfEffectSnapshot>();
         public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.ToArray());
         private int EffectPercent(string kind) => timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0;
-        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100+SongCriticalBonusBp);
+        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100+SongCriticalBonusBp+GeneralCriticalBp);
         public int CriticalMultiplierPercent => (150+WeaponCriticalDamageBonus)*(100+JobAllStatsPercent)/100+EffectPercent("critical-damage");
         public int TimedSpeedPercent=>EffectPercent("speed");
         public int FireAmplificationPercent=>EffectPercent("fire-amplification");
@@ -64,6 +64,7 @@ namespace NewAster.Core
             timedEffects.Clear();timedEffects.AddRange(next);
         }
         internal void ExtendTimedEffects(){var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,Math.Min(10,e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
+        internal void ExtendPositiveTimedEffects(){var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.Kind=="attack-reduction"?e.RemainingCommands:Math.Min(10,e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
         public int RegenerateAtOwnerReady()
         {
             if(!IsAlive) return 0;

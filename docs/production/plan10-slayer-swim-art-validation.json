@@ -1,0 +1,244 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 18,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-standing-candidate-v1.png",
+      "sha256": "4798760c306db96828cd85895528064505d13b44a528d92122aa63dc3fc81850",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-portrait-candidate-v1.png",
+      "sha256": "506b4b235f080ccde8e5816ea1e9f165f7fff04a048d07a2d7ac46d091507b5b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-expression-joy-candidate-v1.png",
+      "sha256": "dc62fb5591055a2d0358711371a8a506e2b97d2d752365d9b514577db3b870aa",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-expression-puzzled-candidate-v1.png",
+      "sha256": "c08e5c1baa8867d45b16ee57040ba026d609f8d5bb072c6733a5afeb5e596573",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-expression-determined-candidate-v1.png",
+      "sha256": "ae9b1957c859ec076aebade2ed804e68ca4ea59aaa593006f5f272835ebe5aa5",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-hit-candidate-v1.png",
+      "sha256": "adf832e459b514535299b863b553cd0f19f0e326ac1da504ffa36b2c6aceace4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-cutin-candidate-v1.png",
+      "sha256": "a24adc8c2fe39b3ffa450d1e1ac0428da9a81098d1d59b29adb5eef90b0fb851",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-sd-idle-candidate-v1.png",
+      "sha256": "591869b033e402167cfd9d917defdb3ebe99a4d37db976c94ee84f73131785bc",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-sd-talk-candidate-v1.png",
+      "sha256": "d9a25af8b509a4dd51ee637833da6e432d98ba9be1dbe5d305b5f77c7c046f3a",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-equipment-tree-v1.png",
+      "sha256": "98bcf603743e7d4ea286ad44f99d1727f4af9df93b27c2195777056a60cb9627",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-event-0-cg-candidate-v1.png",
+      "sha256": "4ab9ddfeacc931779de025136ce53ec8bcbd272b85880ac86cd3e6410c7ad445",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-event-1-cg-candidate-v1.png",
+      "sha256": "eab2d29eef2d592095ffa00cee404fd6c6cf5051f02019b519a089d95dd3ced7",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-event-2-cg-candidate-v1.png",
+      "sha256": "64b8d81515967b1d71b153b92523300d52a3ca0088971e067e2374257f89257c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-event-3-cg-candidate-v1.png",
+      "sha256": "d56f1ca3b2837f4a03f257d0995ffb0aa6d194c104208514aa89cdf94a42944d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-event-4-cg-candidate-v1.png",
+      "sha256": "1785a244f43037ed124dbc9225810781db62cb761b9069722b466af34f20eee8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-attack-candidate-v1.png",
+      "sha256": "dc7245d78fdc512d3da3f9fe0efae2a7ecdbdf3ffa190bc64194d78326ddf16a",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-sd-walk-candidate-v1.png",
+      "sha256": "dcc596478602ed331cfa0ab12c7ba45baaa4655935e3e8d2712afaee0e5c4693",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\slayer-swim-sd-react-candidate-v1.png",
+      "sha256": "ff9f1ff3b82958373ab4642e46f30083f515bb50ed76fc560226e9d168adc717",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

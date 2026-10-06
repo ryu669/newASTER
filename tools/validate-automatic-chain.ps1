@@ -43,6 +43,12 @@ $lines+='"'+(Join-Path $PSScriptRoot 'Plan10AnnihilatorTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan10ShellTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan10OriflammeTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan10NighthawkTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan10SlayerSwimTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan10ArcaneTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'AspectLayoutTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan10ArcaneAcademyTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan10ShangrilaTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan10FormContinuityTests.cs')+'"'
 $response=Join-Path $output 'compile.rsp'
 [IO.File]::WriteAllLines($response,$lines,[Text.UTF8Encoding]::new($false))
 & $DotNet (Join-Path $sdk.FullName 'Roslyn/bincore/csc.dll') ('@'+$response)

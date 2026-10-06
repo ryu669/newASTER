@@ -1,5 +1,11 @@
 # 正式版ゲーム実装領域
 
+<!-- plan10-current:start -->
+## 現行の計画10ビルド
+
+最新入口は `unity/Assets/Game/Resources/Combat/battle-plan10-shangrila.json`、15形態・12人・13ジョブ。Windows開発版は `Builds/plan10-shangrila/newASTER.exe`。`Plan10ShangrilaBuild.ValidateAndBuild` でビルドし、`../tools/validate-plan10-expanded-roster.ps1` でCore/DataとUnity C#を検証する。[今回の接続とUI](../docs/production/plan10-four-heroines-and-ui.md)、[追加手順](../docs/production/heroine-addition-guide.md)を参照。以下のplayable／初期5人ビルドは当時の記録で、現行配布入口とは別。
+<!-- plan10-current:end -->
+
 `core/`は縦切り用の描画非依存ルールを置く。現在は仕様検証のためのJavaScript実装であり、既存ブラウザ試作の`src/`とは独立している。
 
 正式版のUnityプロジェクトは`unity/`にあり、使用バージョンは6000.6.3f1。`Assets/Game/Scenes/Bootstrap.unity`から起動する。WindowsビルドとUnity内検証は`PlayableBuild.ValidateAndBuild`を実行し、出力先は`Builds/playable/newASTER.exe`。URP採用はTBD。

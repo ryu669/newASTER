@@ -65,7 +65,7 @@ namespace NewAster.Presentation
                 var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
-                var portrait=HeroPortrait(entry.id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+6,111,154),portrait,ScaleMode.ScaleAndCrop,true);else DrawSanctuaryIcon(new Rect(x+32,y+45,65,65),"star",gold);
+                var portrait=HeroPortrait(entry.id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+6,111,154),portrait,ScaleMode.ScaleToFit,true);else DrawSanctuaryIcon(new Rect(x+32,y+45,65,65),"star",gold);
                 var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
                 Label(x+134,y+23,212,41,entry.name,nameStyle);
                 Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);

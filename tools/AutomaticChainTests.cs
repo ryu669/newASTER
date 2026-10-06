@@ -20,6 +20,11 @@ public static class AutomaticChainTests
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_R")=="1")Plan10RTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ANNIHILATOR")=="1")Plan10AnnihilatorTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_NIGHTHAWK")=="1")Plan10NighthawkTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SLAYER_SWIM")=="1")Plan10SlayerSwimTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ARCANE")=="1")Plan10ArcaneTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_UI")=="1")AspectLayoutTests.Run(Check);
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ACADEMY")=="1")Plan10ArcaneAcademyTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SHANGRILA")=="1")Plan10ShangrilaTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ORIFLAMME")=="1")Plan10OriflammeTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SHELL")=="1")Plan10ShellTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));

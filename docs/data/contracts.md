@@ -1,6 +1,14 @@
 # 共通データ・JSON交換形式・イベント・検証
 
-更新：2026-10-04。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
+<!-- plan10-current:start -->
+## 計画10の現行接続（2026-10-07）
+
+現行カタログは `battle-plan10-shangrila.json` と `plan10-shangrila-story-content.json`。段階12／13／14形態のJSONは順次受入れの証拠として保持する。`personId`／`variantId`で人物と衣装を分離。`sourceFile`／`sourceSecond`／`observedSkillLevel`／`ruleOrigin`で観察と創作を区別し、通常アルケインの2つの創作技は出典を空にし観察Lv=0とする。
+
+追加効果は `postAttackAlliesEffects`、`enemyStatusExtensionTurns/Kinds`、`alliesEffectExtensionTurns`、`bodyDamageBonusPercent`、自己効果 `attack-reduction`。発症中・正の効果・本体限定の対象境界と数値範囲を検証する。配備は `BattleDeployment` に指揮官と支援対象を渡し、外部の配列や要素変更から防御コピーする。
+<!-- plan10-current:end -->
+
+更新：2026-10-07。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
 
 ## 計画8の基準定義と診断境界
 

@@ -1,10 +1,10 @@
 # newASTER 仕様体系
 
-更新：2026-10-05。現行ブランチ：`codex/plan9-production`。初期5人の正式配布候補RC1を実装・検証済み。[計画9の完了記録](production/plan9-completion-status.md)と[配布内容台帳](production/plan9-release-content-inventory.json)を参照。残り8ジョブと200人超の制作は[継続計画](production/post-plan9-jobs.md)。変更版はGitコミットで管理します。
+更新：2026-10-07。現行ブランチ：`codex/plan9-production`。計画10は15形態・12人・13ジョブ、90章630詩・75交流を接続済み。現在の入口は[今回の実装](production/plan10-four-heroines-and-ui.md)。計画9 RC1の初期5人は[履歴](production/plan9-completion-status.md)として保存し、追加版と区別します。
 
 ## 読む順序と唯一の定義元
 
-2026-10-06：[計画10 ヒロイン量産と物語追加](production/plan10-implementation-plan.md)を開始。最初の追加候補はアーティストのR。[性格・口調・概要](references/characters/r.md)を物語制作の参考資料として保存した。人物実装・提供は未完了。
+[計画10](production/plan10-implementation-plan.md)に各ロットの順序と受入れを記録。[追加手順](production/heroine-addition-guide.md)、[人物台帳](production/plan10-heroine-roster.json)、[全体UI確認](production/plan10-ui-validation.json)から制作・検証へ進めます。
 
 | 層 | 文書 | 定義するもの |
 | --- | --- | --- |

@@ -53,7 +53,7 @@ namespace NewAster.Core
                     Log+="\n"+message;
                     var kind=effect.TargetIds.Count==0?BattlePresentationKind.Support:def.Effect==ChainEffect.Heal?BattlePresentationKind.Healing:BattlePresentationKind.Attack;
                     RecordPresentation(kind,actor,effect.Target,message,damage:def.Effect==ChainEffect.Damage?effect.Amount:0,broken:effect.PartBroken,healingTargets:effect.HealingTargets,chainActionId:def.Id,presentationId:def.PresentationId,targetIds:effect.TargetIds);
-                    if(effect.TargetIds.Count>0 && def.Effect==ChainEffect.Damage)ChaserIgnition(actor,effect.TargetIds);
+                    if(effect.TargetIds.Count>0 && def.Effect==ChainEffect.Damage){ChaserIgnition(actor,effect.TargetIds);SniperSupportReaction(actor,effect.TargetIds.ToArray());}
                 },authoredBonus:authoredBonus>0);
             Chain=outcome.Participants; LastActionChain=outcome.Participants;
             LastFullChain=outcome.FullChain; LastChainActionCount=outcome.Participants+outcome.BonusActions;

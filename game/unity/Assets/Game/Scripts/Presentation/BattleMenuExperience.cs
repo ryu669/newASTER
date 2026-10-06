@@ -123,7 +123,8 @@ namespace NewAster.Presentation
                 encounter.ResourceBoostSelected=GUI.Toggle(new Rect(35,484,815,32),encounter.ResourceBoostSelected,(encounter.ResourceBoostSelected?"［強化 ON］ ":"［強化 OFF］ ")+encounter.ResourceName(actor)+"を使って強化　所持 "+hero.JobResource+" / "+hero.JobResourceMax+"　1個につき+10%（任意）",toggleStyle);
                 GUI.enabled=previous;
             }
-            for(int slot=0;slot<3;slot++){
+            if(encounter.JobState(actor).Id=="job.gambler")DrawGamblerSlotGrid(actor);
+            else for(int slot=0;slot<3;slot++){
                 int cost=encounter.SkillResourceCost(actor,slot);var healing=encounter.HealingSkill(actor,slot);
                 string description=encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healing!=null?encounter.HealingDescription(actor,slot):encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target);
                 string caption=encounter.SkillName(actor,slot)+"\n"+encounter.SkillAttributes(actor,slot)+"\n"+description+"\n"+(cost>0?encounter.ResourceName(actor)+" "+cost+"消費・強化":"リソース消費なし")+"\n"+encounter.TimingDescription(actor,slot);
@@ -132,6 +133,16 @@ namespace NewAster.Presentation
             }
             if(Btn(34,653,540,37,"対象："+BattleTargetName(target)+" ／ 対象を変更",enabled))battlePanel=BattlePanel.Targets;
             if(Btn(590,653,274,37,encounter.RequiresPanzerDefense(actor)?"防御・装甲を待つ":"パス",enabled && (encounter.RequiresPanzerDefense(actor) || encounter.CanPass(actor)))){ResetBattleMenu();if(encounter.RequiresPanzerDefense(actor))encounter.DefendPanzer(actor);else encounter.Pass();QueueBattleEvents();}
+        }
+        private void DrawGamblerSlotGrid(int actor)
+        {
+            var board=encounter.LastSlotSymbols;
+            for(int i=0;i<9;i++){
+                int symbol=board.Length==9?board[i]:-1;
+                var style=new GUIStyle(skillButton){fontSize=20,alignment=TextAnchor.MiddleCenter};
+                string label=symbol<0?"―":GamblerSlotRules.Label(symbol);
+                GUI.Box(new Rect(34+(i%3)*280,543+(i/3)*35,270,32),label,style);
+            }
         }
         private bool ChooseBattleSkill(int slot)
         {

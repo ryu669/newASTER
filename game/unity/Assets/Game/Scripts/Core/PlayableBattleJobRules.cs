@@ -51,6 +51,9 @@ namespace NewAster.Core
         {
             if(!UsesJobRulesV2)return "";
             var j=jobStates[actor];var h=State.Heroes[actor];
+            if(Job(actor,"sniper"))return "狙撃 "+h.JobResource+"/"+h.JobResourceMax+(IsSniping(actor)?" ／ 詠唱中・全員支援":" ／ 支援対象："+HeroineName(sniperTargets[actor]));
+            if(Job(actor,"gambler"))return "SLOT ／ 資源なし・3×3・5ライン"+(lastSlotSymbols.Length==9?" ／ "+"結果は下の9マス ／ "+LastSlotTriggerCount+"発動":"");
+            if(Job(actor,"general"))return actor==CommanderActor?"指揮 "+h.JobResource+"/"+h.JobResourceMax+(j.Empowered(Clock)?" ／ 5枠強化中":" ／ 指揮官・5枠の固有効果"):"非指揮官 ／ 3スキルのみ";
             if(Job(actor,"chaser"))return "駆動 "+h.JobResource+"/"+h.JobResourceMax+" ／ GEAR "+j.Gear+" ／ NITRO "+j.NitroCount+"/10"+(j.NitroSelected?"・次回WT0":"");
             if(Job(actor,"alchemist"))return "錬成 "+h.JobResource+"/"+h.JobResourceMax+" ／ 5属性を投入・行動消費なし";
             if(Job(actor,"panzer"))return (h.ArmorActive?"ARMOR "+h.HitPoints+"/"+h.MaxHitPoints+" ／ 耐性 "+(j.ArmorResistance=="physical"?"物理":j.ArmorResistance=="magic"?"魔法":"火"):"生身 "+h.HitPoints+"/"+h.MaxHitPoints+" ／ CALLまで "+Math.Max(0,h.ArmorCallAt-Clock))+" ／ ツール "+j.ToolUses[0]+"・"+j.ToolUses[1];
@@ -103,7 +106,7 @@ namespace NewAster.Core
         public bool FullVolley(int actor,string target)
         {
             if(!JobReady(actor) || !Job(actor,"gunner"))return false;
-            var h=State.Heroes[actor];var j=jobStates[actor];
+            var h=State.Heroes[actor];var j=jobStates[actor];UpdateGeneralFormationStats(actor);
             if(h.JobResource<h.JobResourceMax || j.Magazines[j.SelectedMagazine]==0)return false;
             j.FullVolley=true;bool accepted=Act(actor,0,target);if(!accepted)j.FullVolley=false;return accepted;
         }
@@ -135,7 +138,7 @@ namespace NewAster.Core
             return 1m;
         }
         private int JobRepeat(int actor) => Job(actor,"berserker") && jobStates[actor].Empowered(Clock)?2:Job(actor,"blaster")?jobStates[actor].Repeat:1;
-        private bool JobCanCommand(int actor,int slot) => !UsesJobRulesV2 || !RequiresPanzerDefense(actor) && ChaserCommandValid(actor) && !(Job(actor,"artist") && jobStates[actor].Singing) && (!Job(actor,"gunner") || !IsAttackSkill(actor,slot) || jobStates[actor].Magazines[jobStates[actor].SelectedMagazine]>0);
+        private bool JobCanCommand(int actor,int slot) => !UsesJobRulesV2 || (!Job(actor,"gambler") || resolvingGamblerSlot && gamblerSlotActor==actor) && !RequiresPanzerDefense(actor) && ChaserCommandValid(actor) && !(Job(actor,"artist") && jobStates[actor].Singing) && (!Job(actor,"gunner") || !IsAttackSkill(actor,slot) || jobStates[actor].Magazines[jobStates[actor].SelectedMagazine]>0);
         private void ConsumeJobCommand(int actor,int cost,bool attack)
         {
             if(!UsesJobRulesV2)return;var j=jobStates[actor];CommitChaserGear(actor,cost);
@@ -145,6 +148,7 @@ namespace NewAster.Core
         private void UpdateJobStats(int actor)
         {
             var j=jobStates[actor];var h=State.Heroes[actor];
+            UpdateGeneralFormationStats(actor);
             int all=Job(actor,"berserker")?j.Predation*5:Job(actor,"fighter") && j.Empowered(Clock)?25:0;
             int song=jobStates.Where((s,i)=>s.Singing && State.Heroes[i].IsAlive).Select(s=>s.SongStage).DefaultIfEmpty(0).Max();
             h.JobAllStatsPercent=all;h.JobAttackPercent=(Job(actor,"fighter") && j.Reckless?30:0)+song*5;
@@ -159,6 +163,8 @@ namespace NewAster.Core
         }
         private void GainJobCommandResource(int actor)
         {
+            if(Job(actor,"sniper"))State.Heroes[actor].GainResource(3);
+            if(Job(actor,"general") && actor==CommanderActor)State.Heroes[actor].GainResource(jobProfiles[actor].gainAtReady);
             if(Job(actor,"alchemist") || Job(actor,"blaster") || Job(actor,"healer") || Job(actor,"artist") && !jobStates[actor].Singing)State.Heroes[actor].GainResource(jobProfiles[actor].gainAtReady);
         }
         private void ResolveRepeatedAttack(int actor,int slot,string target,int count,BattleSkill snapshot=null)

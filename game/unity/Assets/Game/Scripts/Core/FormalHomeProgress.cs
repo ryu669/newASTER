@@ -15,7 +15,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HomeWeaponLevel { public string nodeId; public int level=1; }
     [Serializable] public sealed class HomeReadLine { public string sceneId,lineId; public int scriptVersion; }
     [Serializable] public sealed class HomeReceipt { public string transactionId,kind,signature,resultHash; }
-    [Serializable] public sealed class FormalHomeProgress
+    [Serializable] public sealed partial class FormalHomeProgress
     {
         public int version; public string contentVersion;
         public string[] formationIds=Array.Empty<string>();
@@ -35,6 +35,7 @@ namespace NewAster.Core
         {if(entries==null || entries.Any(x=>x==null || !HomeExperienceCatalog.Id(key(x))) || entries.Select(key).Distinct().Count()!=entries.Length)throw new ArgumentException("Missing or duplicate home entity.");}
         public void Validate()
         {
+            ValidateBattleDeploymentStructure();
             if(version!=1 || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Unsupported home progress.");
             if(formationIds!=null && formationIds.Length>0){Set(formationIds);if(formationIds.Length!=5)throw new ArgumentException("編成は異なる5人です。");}
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
@@ -60,7 +61,7 @@ namespace NewAster.Core
             if(formationIds!=null && formationIds.Select(catalog.PersonId).Distinct().Count()!=formationIds.Length)throw new ArgumentException("同じ人物の別衣装は同時に編成できません。");
             if(occupants.Select(o=>catalog.PersonId(o.heroineId)).Distinct().Count()!=occupants.Length)throw new ArgumentException("同じ人物の別衣装は同時に庭へ配置できません。");
             Validate();catalog.Validate();if(catalog.contentVersion!=contentVersion)throw new ArgumentException("Home content version mismatch.");
-            var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();
+            var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();ValidateBattleDeploymentContent(catalog,heroes);
             if((panzerEquipment??Array.Empty<HomePanzerEquipment>()).Any(e=>!heroes.Contains(e.heroineId) || !catalog.heroineIds.Contains(e.heroineId)))throw new ArgumentException("Unowned panzer setup.");
             if(formationIds!=null && formationIds.Any(id=>!heroes.Contains(id) || !catalog.heroineIds.Contains(id)))throw new ArgumentException("未所持の誓女は編成できません。");
             foreach(var e in weaponEquipment)if(!heroes.Contains(e.heroineId) || !catalog.weaponNodes.Any(n=>n.id==e.nodeId && n.heroineId==e.heroineId))throw new ArgumentException("Invalid weapon owner.");
