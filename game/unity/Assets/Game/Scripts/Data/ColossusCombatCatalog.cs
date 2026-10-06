@@ -95,7 +95,12 @@ namespace NewAster.Data
         public static ColossusCombatDef Get(string id)
         {
             if(!CanSummon(id))throw new System.ArgumentException("This colossus combat definition has not been authored.");
-            var result=AuthoredDefinitions[id]();result.Validate();return result;
+            var result=AuthoredDefinitions[id]();
+            int index=WorldCatalog.ColossusIds.ToList().IndexOf(id);
+            result.attributeResistances=CombatAttributeRules.Kinds.Select((kind,i)=>new AttributeResistanceDef{attribute=kind,resistanceBp=i==index%12?-2500:i==(index+5)%12?3000:0}).ToArray();
+            result.statusResistances=EnemyStatusState.Kinds.Select((kind,i)=>new EnemyStatusResistanceDef{kind=kind,resistanceBp=i==index%10?3500:0}).ToArray();
+            if(result.actionCycle!=null)for(int i=0;i<result.actionCycle.Length;i++)result.actionCycle[i].statusEffects=new[]{new EnemyStatusDef{kind=EnemyStatusState.Kinds[(index+i)%10],amount=45}};
+            result.Validate();return result;
         }
         private static ColossusCombatDef GreenReturnDragon()
         {

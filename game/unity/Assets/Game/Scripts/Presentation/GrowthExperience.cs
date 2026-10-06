@@ -6,7 +6,7 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
-        private enum GrowthScreen { Overview, Level, Awakening, Duplicate, Information, Confirmation, Complete, Weapons }
+        private enum GrowthScreen { Overview, Level, Awakening, Duplicate, Information, Confirmation, Complete, Weapons, Skill }
         private GrowthScreen growthScreen,growthOrigin;
         private GrowthPreview growthPreview;
         private int growthTargetLevel;
@@ -32,7 +32,7 @@ namespace NewAster.Presentation
             excalipanPortrait=Resources.Load<Texture2D>("Illustrations/excalipan-portrait-candidate-v1");
         }
         private void GrowthFill(float x,float y,float w,float h,Color color)
-        {var before=GUI.color;GUI.color=color;GUI.DrawTexture(new Rect(x,y,w,h),Texture2D.whiteTexture);GUI.color=before;}
+        {ImageUiSkin.Surface(new Rect(x,y,w,h),color);}
         private void GrowthLine(float x1,float y1,float x2,float y2,Color color,float width=1)
         {
             float dx=x2-x1,dy=y2-y1;
@@ -46,23 +46,28 @@ namespace NewAster.Presentation
         {GrowthLine(x,y-size,x+size,y,gold);GrowthLine(x+size,y,x,y+size,gold);GrowthLine(x,y+size,x-size,y,gold);GrowthLine(x-size,y,x,y-size,gold);}
         private void GrowthFrame(float x,float y,float w,float h)
         {
-            GrowthFill(x,y,w,h,navy);GrowthLine(x+14,y,x+w-14,y,gold);GrowthLine(x+14,y+h,x+w-14,y+h,gold);
-            GrowthLine(x,y+14,x,y+h-14,gold);GrowthLine(x+w,y+14,x+w,y+h-14,gold);
-            foreach(float a in new[]{x,x+w})foreach(float b in new[]{y,y+h})GrowthDiamond(a,b,8);
+            ImageUiSkin.Frame(new Rect(x,y,w,h));
+        }
+        private void PalaceBackdrop(string emblem)
+        {
+            GrowthFill(0,0,1600,900,ink);
+            for(int i=0;i<9;i++){float x=95+i*180;GrowthLine(x,0,x+170,900,new Color(.3f,.45f,.48f,.06f));GrowthDiamond(x,50,16);}
+            GrowthLine(52,54,1548,54,gold);GrowthLine(52,847,1548,847,gold);
+            DrawSanctuaryIcon(new Rect(747,13,106,82),emblem,new Color(.93f,.78f,.46f,.85f));
         }
         private bool GrowthButton(float x,float y,float w,float h,string caption,bool enabled=true,bool primary=false)
         {
-            var rect=new Rect(x,y,w,h);bool hover=enabled&&rect.Contains(Event.current.mousePosition);
-            GrowthFill(x,y,w,h,enabled?(primary?new Color(.19f,.32f,.31f):hover?new Color(.13f,.22f,.26f):new Color(.075f,.145f,.20f)):new Color(.085f,.10f,.12f));
-            GrowthLine(x,y,x+w,y,enabled?gold:new Color(.23f,.25f,.25f));GrowthLine(x,y+h,x+w,y+h,enabled?gold:new Color(.23f,.25f,.25f));
+            var rect=new Rect(x,y,w,h);
             var color=growthButtonStyle.normal.textColor;growthButtonStyle.normal.textColor=enabled?ivory:muted;
-            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=GUI.Button(rect,caption,growthButtonStyle);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
+            bool previous=GUI.enabled;GUI.enabled=previous&&enabled;bool clicked=ImageUiSkin.Button(rect,caption,growthButtonStyle,primary);GUI.enabled=previous;growthButtonStyle.normal.textColor=color;if(clicked){TrialObserve("navigation","button",caption);PlayProductionUiSound(caption);}return clicked;
         }
         private void GrowthBack()
         {
             if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}return;}
             if(formalProgression.HasPending || formalCampaign.HasPending)return;
-            if(growthScreen==GrowthScreen.Overview){book.Close();book.Reenter();return;}
+            if(formationOpen){formationOpen=false;return;}
+            if(heroineRosterOpen){book.Close();book.Reenter();return;}
+            if(growthScreen==GrowthScreen.Overview){heroineRosterOpen=true;selectedTrait=-1;return;}
             if(growthScreen==GrowthScreen.Confirmation){growthRequest=null;growthPreview=null;growthScreen=growthOrigin;return;}
             if(book.Face==BookFace.Details)book.FlipPage();growthScreen=GrowthScreen.Overview;growthRequest=null;
         }
@@ -72,13 +77,13 @@ namespace NewAster.Presentation
         {
             growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,snapshot.revision,operation,target);growthPreview=formalProgression.Preview(growthRequest);
             var after=snapshot.Copy();int index=Array.FindIndex(after.heroines,h=>h.heroineId==id);after.heroines[index]=growthPreview.HeroineAfter.Copy();
-            var before=new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions,formalGrowth:snapshot).State.Heroes[book.SubjectIndex];
-            var result=new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions,formalGrowth:after).State.Heroes[book.SubjectIndex];
+            int actorIndex=Array.IndexOf(combatDefinitions.FormationIds,id);var before=HeroinePreview(snapshot).State.Heroes[actorIndex];
+            var result=HeroinePreview(after).State.Heroes[actorIndex];
             growthDelta=$"HP  {before.MaxHitPoints} → {result.MaxHitPoints}     攻撃  {before.Attack} → {result.Attack}\n防御  {before.PhysicalDefense} → {result.PhysicalDefense}     魔法防御  {before.MagicDefense} → {result.MagicDefense}";
             if(operation==GrowthOperation.Awaken) growthDelta=$"育成上限  Lv.{snapshot.heroines[index].LevelCap} → Lv.{growthPreview.HeroineAfter.LevelCap}\n現在のLvと能力はそのまま、新しい成長の余地がひらきます。";
             growthOrigin=growthScreen;growthScreen=GrowthScreen.Confirmation;growthOutcome=null;
         }
-        private void DrawGrowthExperience()
+        private void DrawLegacyGrowthExperience()
         {
             GrowthStyles();if(!book.HasSubject)return;string id=book.SubjectId;var definition=combatDefinitions.Hero(id);
             var snapshot=formalProgression.Snapshot;var heroine=snapshot.heroines.Single(h=>h.heroineId==id);

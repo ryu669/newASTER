@@ -72,7 +72,7 @@ namespace NewAster.Presentation
         public void DrawEnemyMajorPreview(Rect canvas){if(enemyMajor!=null)GUI.DrawTexture(canvas,enemyMajor,ScaleMode.ScaleToFit,true);}
         private void DrawPreviewPart(PartIllustrationBinding part,Rect canvas,int mask)
         {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null && layers.TryGetValue(path,out var art))GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);}
-        private static void Fill(Rect rect,Color color) { var saved=GUI.color;GUI.color=color;GUI.DrawTexture(rect,Texture2D.whiteTexture);GUI.color=saved; }
+        private static void Fill(Rect rect,Color color) { ImageUiSkin.Surface(rect,color); }
         public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames,bool showActorLabel=true)
         {
             style=new GUIStyle(style);small=new GUIStyle(small);style.normal.textColor=Color.white;small.normal.textColor=new Color(.97f,.94f,.83f);
@@ -127,7 +127,7 @@ namespace NewAster.Presentation
                 if(hit!=null){target=hit;Event.current.Use();}
                 else if(new Rect(enemy.x+enemy.width*.397f,enemy.y+enemy.height*.385f,enemy.width*.25f,enemy.height*.5f).Contains(mouse)){target="body";Event.current.Use();}
             }
-            if(body==null && canSelect && GUI.Button(new Rect(330,440,195,64),(target=="body"?"◆ ":"")+"本体")) target="body";
+            if(body==null && canSelect && ImageUiSkin.Button(new Rect(330,440,195,64),(target=="body"?"◆ ":"")+"本体")) target="body";
             else if(!canSelect && body==null) GUI.Label(new Rect(340,450,190,40),"本体",style);
             if(warning!=null) GUI.Label(new Rect(100,615,570,65),"素材警告："+warning,small);
             if(manifest!=null) foreach(var p in manifest.parts) {
@@ -136,7 +136,7 @@ namespace NewAster.Presentation
                 int hp=Inspection==p.partId?0:e?.PartHp[index]??battle.State.Parts[index].HitPoints;
                 var rect=new Rect(enemy.x+p.x*enemy.width,enemy.y+p.y*enemy.height,p.width*enemy.width,p.height*enemy.height);
                 var old=GUI.enabled;GUI.enabled=canSelect && hp>0;
-                if(body==null && GUI.Button(rect,(target==p.partId?"◆ ":"")+partNames[index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.partId;
+                if(body==null && ImageUiSkin.Button(rect,(target==p.partId?"◆ ":"")+partNames[index]+"\n"+(hp==0?"破壊済み":"HP "+hp))) target=p.partId;
                 if(body!=null && (target==p.partId || rect.Contains(Event.current.mousePosition))) {Fill(new Rect(rect.x,rect.y,rect.width,2),new Color(1,.85f,.35f));Fill(new Rect(rect.x,rect.yMax-2,rect.width,2),new Color(1,.85f,.35f));}
                 GUI.enabled=old;
             }

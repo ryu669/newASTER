@@ -30,6 +30,7 @@ namespace NewAster.Core
         public string PresentationId { get; }
         public IReadOnlyList<string> TargetIds { get; }
         public IReadOnlyList<string> EnemyStatuses { get; }
+        public IReadOnlyList<string> HeroStatuses {get;}
         public BattlePresentationEvent(long sequence,long clock,BattlePresentationKind kind,int actor,string target,string message,bool major,bool partBroken,int damage,int chain,BattleState state,IEnumerable<int> healingTargets,IEnumerable<bool> casting,bool fullChain=false,int chainActionCount=0,string chainActionId=null,string presentationId=null,IEnumerable<string> targetIds=null)
         {
             Sequence=sequence; Clock=clock; Kind=kind; Actor=actor; Target=target??"body"; Message=message??"";
@@ -38,6 +39,7 @@ namespace NewAster.Core
             HeroHp=Array.AsReadOnly(state.Heroes.Select(h=>h.HitPoints).ToArray());
             Resources=Array.AsReadOnly(state.Heroes.Select(h=>h.JobResource).ToArray());
             PartHp=Array.AsReadOnly(state.Parts.Select(p=>p.HitPoints).ToArray());
+            HeroStatuses=Array.AsReadOnly(state.Heroes.Select(h=>h.Status.Description).ToArray());
             HeroEffects=Array.AsReadOnly(state.Heroes.Select(h=>h.TimedEffects).ToArray());
             HealingTargets=Array.AsReadOnly((healingTargets??Array.Empty<int>()).ToArray());
             Casting=Array.AsReadOnly(casting.ToArray());

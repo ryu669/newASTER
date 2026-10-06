@@ -13,6 +13,7 @@ namespace NewAster.Core
                 return cycle.First(a=>string.IsNullOrEmpty(a.requiredPartId));
             }
         }
+        private int EffectiveEnemySpeed => Math.Max(1,(colossusDefinition?.enemySpeed??90)*(optionalResourceBoost && State.BossStatus.Active("frostbite")?80:100)/100);
         private int NextColossusGaugeGain=>NextColossusStep?.gaugeGain??1;
         private int EnemyWaitPercent=>lastEnemyWasMajor?colossusDefinition?.majorWaitPercent??150:lastColossusWaitPercent;
         private int lastColossusWaitPercent=100;

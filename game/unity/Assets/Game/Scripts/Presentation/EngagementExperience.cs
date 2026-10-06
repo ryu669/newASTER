@@ -64,9 +64,9 @@ namespace NewAster.Presentation
         }
         private void DrawEngagement()
         {
-            GrowthStyles();GrowthFill(0,0,1600,900,ink);GrowthFrame(120,90,1360,720);GrowthDiamond(800,159,24);
+            GrowthStyles();PalaceBackdrop("star");GrowthFrame(120,90,1360,720);GrowthDiamond(800,159,24);
             Label(230,220,1140,70,engagementComplete?"星の恵みを受け取りました":engagementRequest!=null?"受け取る恵みの確認":"星の恵み",growthTitleStyle);
-            GrowthLine(230,303,1370,303,gold);
+            GrowthLine(230,303,1370,303,gold);DrawSanctuaryIcon(new Rect(1287,210,70,70),"star",gold);
             var state=formalCampaign.Snapshot;var ledger=state.engagement??new FormalEngagementState();
             if(engagementRequest!=null){
                 Label(230,355,1140,180,$"{(engagementRequest.Login?"今日のログイン":"プレイ時間の積み重ね")}\n石 ＋{engagementAmount}\n{(engagementComplete?"所持石  "+state.growth.stones:"費用なし ／ 受取履歴と石を一括保存します。")}",growthTextStyle);

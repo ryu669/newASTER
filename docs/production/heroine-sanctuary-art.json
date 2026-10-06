@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "assets": [
+    {
+      "heroineId": "heroine.slayer",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-ae50fa30-f942-4556-b45c-edc43fcaf21b.png",
+      "sha256": "388e76372060eeb9bc12a2f2f242f2d509a4a6ac31f1e3c01e81ad519eba4186",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-d6ba5edc-9cea-4010-91b4-2b754c74ebe2.png",
+      "sha256": "998ca06212bc78fa4fdee6798ac8f0c26ae7638872bf5288bde6ce061dce8819",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-13c5172e-b909-41fd-9c96-b74654f519bf.png",
+      "sha256": "a60b73b7c1146b4749e02d1a1536c7130a7a77bc2e222959808f4dbc84a33058",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-67cc1b19-81d9-460c-9221-9bb26d98ff6d.png",
+      "sha256": "0aa12efc3ffe2b020f79d4746f3984e44309de4c142891b3278b5a065c83ac3c",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-equipment-tree-v1.png",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a104c7-1dd7-7f73-8ccf-1b79338e1d01\\exec-699bd728-acc4-45cb-92f4-f9c73c2875aa.png",
+      "sha256": "af71c0480acc81e0aeafb797cda1adf2e1427989e33edec2b55d43e95c156f9a",
+      "width": 1254,
+      "height": 1254,
+      "alphaVerified": true,
+      "visualReview": "approved original botanical tree, no text or characters"
+    }
+  ]
+}

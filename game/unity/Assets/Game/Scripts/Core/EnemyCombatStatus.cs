@@ -19,7 +19,7 @@ namespace NewAster.Core
     // newASTER rules: threshold 100; local meters; three enemy-action duration.
     public sealed class EnemyStatusState
     {
-        public static readonly System.Collections.Generic.IReadOnlyList<string> Kinds=Array.AsReadOnly(new[]{"burn","bleed","poison","stun","sickness","fracture"});
+        public static readonly System.Collections.Generic.IReadOnlyList<string> Kinds=Array.AsReadOnly(new[]{"burn","bleed","poison","stun","sickness","fracture","frostbite","jamming","absent","electrified"});
         private readonly Dictionary<string,int> meter=new Dictionary<string,int>();
         private readonly Dictionary<string,int> duration=new Dictionary<string,int>();
         private readonly Dictionary<string,int> resistances=new Dictionary<string,int>();
@@ -32,17 +32,20 @@ namespace NewAster.Core
         public int Meter(string kind) => meter.TryGetValue(kind,out var n)?n:0;
         public int Remaining(string kind) => duration.TryGetValue(kind,out var n)?n:0;
         public bool Active(string kind) => Remaining(kind)>0;
-        public void Add(EnemyStatusDef effect)
+        public bool Add(EnemyStatusDef effect)
         {
             effect.Validate();int resistance=resistances.TryGetValue(effect.kind,out var n)?n:0;
-            int gain=(int)((long)effect.amount*(10000-resistance)/10000);if(gain==0)return;
-            int value=Meter(effect.kind)+gain;
+            int gain=(int)((long)effect.amount*(10000-resistance)/10000);if(gain==0)return false;
+            int value=Meter(effect.kind)+gain;bool activated=value>=100;
             if(value>=100) {duration[effect.kind]=effect.kind=="stun"?1:3;value%=100;}
-            meter[effect.kind]=value;
+            meter[effect.kind]=value;return activated;
         }
-        public int Dot(int maxHp) => (int)Math.Min(int.MaxValue,(long)maxHp*((Active("burn")?2:0)+(Active("poison")?3:0)+(Active("bleed")?2:0))/100);
+        public int Dot(int maxHp) => (int)Math.Min(int.MaxValue,(long)maxHp*((Active("burn")?2:0)+(Active("poison")?3:0)+(Active("bleed")?2:0)+(Active("frostbite")?2:0))/100);
         public void Tick() {foreach(var kind in duration.Keys.ToArray()) duration[kind]=Math.Max(0,duration[kind]-1);}
-        public static string Label(string kind) => kind=="burn"?"火傷":kind=="bleed"?"出血":kind=="poison"?"毒":kind=="stun"?"スタン":kind=="sickness"?"病気":"骨折";
+        public void Remove(string kind) {duration[kind]=0;}
+        public int ActivationDamage(string kind,int maxHp)=>kind=="poison"?Math.Max(1,(int)((long)maxHp*3/100)):kind=="burn" || kind=="bleed" || kind=="frostbite"?Math.Max(1,(int)((long)maxHp*2/100)):0;
+        public static string EffectDescription(string kind)=>kind=="poison"?"発症時と行動終了時に最大HPの3%ダメージ。":kind=="burn"?"発症時・行動終了時に2%ダメージ、攻撃力20%低下。":kind=="frostbite"?"発症時・行動終了時に2%ダメージ、速度20%低下。":kind=="bleed"?"発症時・行動終了時に2%ダメージ。回復を受けられない。":kind=="stun"?"次の行動を自動で1回飛ばす。":kind=="jamming"?"選択可能な対象からランダムに対象を選ぶ。":kind=="absent"?"行動不可。行動終了時にHP5%回復。被会心率+25%。ダメージを受けると解除。":kind=="sickness"?"攻撃力20%低下、受ける最終ダメージ25%増加。":kind=="fracture"?"攻撃後に自身の最大HP5%ダメージ。攻撃しないスキルでは発生しない。":"雷の最終ダメージ25%増加。発症時・行動終了時に次行動待機+20。";
+        public static string Label(string kind) => kind=="burn"?"火傷":kind=="bleed"?"出血":kind=="poison"?"毒":kind=="stun"?"スタン":kind=="sickness"?"病弱":kind=="fracture"?"骨折":kind=="frostbite"?"凍傷":kind=="jamming"?"ジャミング":kind=="absent"?"うわの空":"帯電";
         public string Description => string.Join(" / ",Kinds.Where(k=>Meter(k)>0 || Active(k)).Select(k=>Label(k)+":"+Meter(k)+(Active(k)?"（残り"+Remaining(k)+"）":"")));
     }
     public static class EnemyAttackTargets

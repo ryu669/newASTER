@@ -18,13 +18,14 @@ namespace NewAster.Presentation
         private string HomeOperationSummary()
         {
             string kind=homeOperation.Kind;
+            if(kind=="formation")return "編成枠"+(int.Parse(homeOperation.Owner)+1)+"へ "+combatDefinitions.Hero(homeOperation.Target).name+"を配置します。";
             if(kind=="craft")return GardenFurnitureName(homeOperation.Target)+"を作ります。";
             if(kind=="place" || kind=="remove"){
                 var item=HomeState.furnitureInstances.SingleOrDefault(f=>f.instanceId==homeOperation.Target);
                 return (item==null?"家具":GardenFurnitureName(item.defId))+(kind=="place"?"の配置を変更します。":"を庭から片付けます。");
             }
             if(kind=="occupant" || kind=="talk" || kind=="use")return combatDefinitions.Hero(homeOperation.Target).name+(kind=="occupant"?"をこの庭へ移動します。":kind=="talk"?"と交流します。":"が選んだ家具を使います。");
-            return kind=="weapon"?"装備の樹を取得します。":kind=="equip"?"装備を変更します。":"変更内容を保存します。";
+            return kind=="weapon"?"選択した神器を解放します。":kind=="weapon-level"?"神器をLv."+homeOperation.Owner+"へ強化します。":kind=="equip"?"装備を変更します。":"変更内容を保存します。";
         }
         private void OpenGardenPanel(GardenPanel panel)
         {

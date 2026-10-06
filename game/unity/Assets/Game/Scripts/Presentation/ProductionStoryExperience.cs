@@ -107,7 +107,7 @@ namespace NewAster.Presentation
             save.collection.materials=CollectionData().resources.Where(r=>r.kind=="material").Select(r=>new CollectionMaterial{id=r.id,sourceColossusId=r.ownerId,amount=10000}).ToArray();
             save.collection.relics=CollectionData().relics.Select(r=>new CollectionRelic{id=r.id,contentVersion=CollectionData().contentVersion,attackRoll=80,hpRoll=800}).ToArray();save.revision++;
             AcceptanceCheck(acceptanceStore.Save(save),"production economy UI fixture is isolated");BindFormalCampaign(save);InitializeKinder();InitializeEngagement();
-            book.RequestSubject(BookBookmark.Heroines,combatDefinitions.FormationIds[0]);book.CompleteTransition();growthScreen=GrowthScreen.Overview;
+            book.RequestSubject(BookBookmark.Heroines,combatDefinitions.FormationIds[0]);book.CompleteTransition();growthScreen=GrowthScreen.Overview;heroineRosterOpen=false;
             if(view=="tree")growthScreen=GrowthScreen.Weapons;
             else if(view=="growth"){}
             else if(view=="relics"){collectionOpen=true;collectionTab=1;}

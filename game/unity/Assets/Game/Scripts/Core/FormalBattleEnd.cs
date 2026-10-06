@@ -26,9 +26,10 @@ namespace NewAster.Core
             var band=catalog.rewardBands.Single(x=>x.ownerId==b.colossusId && b.level>=x.minLevel && b.level<=x.maxLevel);
             var source=catalog.owners.Single(x=>x.id==b.colossusId);
             foreach(var id in source.materialIds){
+                int amount=catalog.resources.Single(r=>r.id==id).DropAmount(b.level);if(amount==0)continue;
                 var material=ledger.materials.SingleOrDefault(x=>x.id==id);
                 if(material==null){material=new CollectionMaterial {id=id,sourceColossusId=b.colossusId};ledger.materials=ledger.materials.Concat(new[]{material}).ToArray();}
-                material.amount=checked(material.amount+10+b.level);
+                material.amount=checked(material.amount+amount);
             }
             var rng=new Random(unchecked(b.seed ^ 0x48554E54));var drops=new System.Collections.Generic.List<CollectionRelic>();
             for(int i=0;i<band.draws;i++){

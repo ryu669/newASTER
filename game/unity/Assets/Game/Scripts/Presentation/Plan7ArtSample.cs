@@ -162,8 +162,8 @@ namespace NewAster.Presentation
         private void DrawArtSettings()
         {
             Label(80,180,1400,55,"音と表示の設定",heading,Color.white);
-            Label(80,260,260,45,"BGM音量",text,Color.white);float bgm=GUI.HorizontalSlider(new Rect(400,275,700,30),ArtSampleSettings.Bgm,0,1);if(Math.Abs(bgm-ArtSampleSettings.Bgm)>.001)PlayerPrefs.SetFloat("art.bgm",bgm);
-            Label(80,340,260,45,"SE音量",text,Color.white);float se=GUI.HorizontalSlider(new Rect(400,355,700,30),ArtSampleSettings.Se,0,1);if(Math.Abs(se-ArtSampleSettings.Se)>.001)PlayerPrefs.SetFloat("art.se",se);
+            Label(80,260,260,45,"BGM音量",text,Color.white);float bgm=ImageUiSkin.HorizontalSlider(new Rect(400,275,700,30),ArtSampleSettings.Bgm,0,1);if(Math.Abs(bgm-ArtSampleSettings.Bgm)>.001)PlayerPrefs.SetFloat("art.bgm",bgm);
+            Label(80,340,260,45,"SE音量",text,Color.white);float se=ImageUiSkin.HorizontalSlider(new Rect(400,355,700,30),ArtSampleSettings.Se,0,1);if(Math.Abs(se-ArtSampleSettings.Se)>.001)PlayerPrefs.SetFloat("art.se",se);
             if(Btn(80,430,430,55,"揺れ軽減："+(ArtSampleSettings.ReducedMotion?"ON":"OFF")))PlayerPrefs.SetInt("art.motion",ArtSampleSettings.ReducedMotion?0:1);
             if(Btn(545,430,430,55,"フラッシュ軽減："+(ArtSampleSettings.ReducedFlash?"ON":"OFF")))PlayerPrefs.SetInt("art.flash",ArtSampleSettings.ReducedFlash?0:1);
             if(Btn(1010,430,430,55,"演出短縮："+(ArtSampleSettings.Shortened?"ON":"OFF")))PlayerPrefs.SetInt("art.shortened",ArtSampleSettings.Shortened?0:1);

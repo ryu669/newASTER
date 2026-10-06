@@ -21,6 +21,7 @@ namespace NewAster.Core
         public static int Attack(CollectionRelic r)=>checked(10+2*(r.level-1)+r.attackRoll);
         public static int Hp(CollectionRelic r)=>checked(50+5*(r.level-1)+r.hpRoll);
         public static bool DirectEligible(int value,int maximum)=>(long)value*5 >= (long)maximum*4;
+        public static int MaterialBalance(FormalCollectionLedger ledger,CollectionRelicDef definition)=>definition.materialIds.Min(id=>ledger?.materials.SingleOrDefault(m=>m.id==id)?.amount??0);
         public static CollectionRelic Equipped(FormalCollectionLedger ledger,string heroineId)
         {
             var e=ledger?.equipment.SingleOrDefault(x=>x.heroineId==heroineId);

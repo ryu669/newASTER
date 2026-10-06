@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "assemblySha256": "6EB2C0077FC8B13086F61FBAC0EB04B5F61CC6530FC65161DDF9F4E25405BAD8",
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-0bb5f3f250434373bdc916a5935bd1c9\\roster-720.log",
+      "physicalInput": 0,
+      "case": "roster",
+      "state": "visually-reviewed-by-agent",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-0bb5f3f250434373bdc916a5935bd1c9\\roster-720.png",
+      "imageSha256": "26e61e05b84a59d610789bef1fcbdf9d48290719fccd49d7c07832a7dcc6efc9",
+      "logSha256": "d801cd7e956c0f81c440a550325a50ced26466d0523fe7cd91875b940f58c552"
+    }
+  ],
+  "normalSaveUnchanged": true,
+  "physicalInputCount": 0,
+  "version": "0.9.1-rc.1",
+  "packagePath": "dist/newASTER-0.9.1-rc.1-windows-x64",
+  "listeningSeconds": 0,
+  "review": "Packaged executable roster screenshot individually inspected by agent."
+}

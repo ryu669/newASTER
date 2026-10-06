@@ -15,7 +15,9 @@ public static partial class PlayableBuild
     public static void ValidateAndBuild()
     {
         Validate();
-        PlayerSettings.bundleVersion="0.9.0-rc.1";
+        ValidateCombatExpansion();
+        ValidateImageUi();
+        PlayerSettings.bundleVersion="0.9.5-rc.2";
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions {
             scenes=new[] { "Assets/Game/Scenes/Bootstrap.unity" },
             locationPathName="../Builds/playable/newASTER.exe",
@@ -147,6 +149,7 @@ public static partial class PlayableBuild
         ValidateCombatDefinitions();
         ValidateFormalCombat();
         ValidateFormalGrowth();
+        ValidateHeroineSanctuary();
         ValidateFormalKinder();
         ValidateFormalCampaign();
         ValidateFormalRecovery();

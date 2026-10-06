@@ -21,6 +21,7 @@ namespace NewAster.Core
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
         public int criticalBonusBp,damageCap;
         public string damageType;
+        public string[] attributes;
         public int ignoreDefenseBp;
         public EnemyStatusDef[] statusEffects;
         public int enemyWaitAdd,selfWaitReductionPercent,chargeConsumeMax,chargeBonusPercent,specialWeaponBonusPercent;
@@ -36,6 +37,7 @@ namespace NewAster.Core
         public float powerScale;
         public int baseHealing;
         public string damageType;
+        public string[] attributes;
         public int ignoreDefenseBp;
     }
     // Versioned execution catalog. v3 includes full heroine reference boundaries;
@@ -43,6 +45,7 @@ namespace NewAster.Core
     [Serializable] public sealed partial class CombatDefinitionCatalog
     {
         public int schemaVersion;
+        public bool optionalResourceBoost;
         public string status;
         public int enemyPhysicalDefense,enemyMagicDefense;
         public EnemyStatusResistanceDef[] enemyStatusResistances;
@@ -55,6 +58,11 @@ namespace NewAster.Core
         public HeroineCombatDef Hero(string id) => heroines.Single(h=>h.id==id);
         public SkillCombatDef Skill(string heroId,int slot) => skills.Single(s=>s.id==Hero(heroId).skills[slot]);
         public string[] FormationIds => schemaVersion==1?Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray():(string[])formation.Clone();
+        public CombatDefinitionCatalog WithFormation(string[] ids)
+        {
+            if(ids==null || ids.Length!=5 || ids.Distinct().Count()!=5 || ids.Any(id=>!heroines.Any(h=>h.id==id)))throw new ArgumentException("Invalid battle formation.");
+            var copy=(CombatDefinitionCatalog)MemberwiseClone();copy.formation=(string[])ids.Clone();return copy;
+        }
         public string HeroIdAt(int index) => FormationIds[index];
         public void Validate()
         {
@@ -70,6 +78,7 @@ namespace NewAster.Core
             if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
+                CombatAttributeRules.Validate(skill.attributes);
                 var statuses=skill.statusEffects??Array.Empty<EnemyStatusDef>();
                 if(statuses.Any(e=>e==null) || statuses.Select(e=>e.kind).Distinct().Count()!=statuses.Length) throw new ArgumentException("Invalid status effect list.");
                 foreach(var e in statuses) e.Validate();

@@ -17,13 +17,13 @@ namespace NewAster.Presentation
         private void StartCollection()
         {
             collectionCatalog=SelectCollectionCatalog();
-            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,combatDefinitions.FormationIds,encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
+            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.
             // No presentation callback or battle RNG participates in collection.
             encounter.CompletedEnemyAction=()=>{
                 var songs=collectionCatalog.owners.Single(o=>o.id==activeColossus).poemIds;
-                var id=TrialSingingSelector.Select(collectionCatalog,activeColossus,combatDefinitions.FormationIds,formalCampaign.Snapshot.world.poemIds,collectionSession.Snapshot.heardPoemIds,singingRandom,plan8StoryTrial);
+                var id=TrialSingingSelector.Select(collectionCatalog,activeColossus,collectionSession.Snapshot.formationIds,formalCampaign.Snapshot.world.poemIds,collectionSession.Snapshot.heardPoemIds,singingRandom,plan8StoryTrial);
                 collectionSession.RecordCompletedSinging(id);
                 TrialObserve("collection","singing-completed",id);
                 var poem=plan8StoryTrial?StoryData().chapters.SelectMany(c=>c.poems).SingleOrDefault(p=>p.id==id):null;
@@ -91,7 +91,7 @@ namespace NewAster.Presentation
             GUI.Label(new Rect(0,0,1080,contentHeight),detail,growthSmallStyle);GUI.EndScrollView();
             Label(240,608,1120,65,ProductionStoryActive?"取得結果を保存しました。開いた章は物語のしおりから読めます。\n世界の記憶・人物の詩・好感度は、それぞれの進捗で確かめられます。":(plan8StoryTrial?"取得結果を専用保存に確定しました。開いた章は物語から読めます。":"取得結果は一つの正式保存に確定しました。詩の本文は未制作です。")+"\n世界・育成・歌唱の数値は調整中です。",growthSmallStyle);
             if(GrowthButton(240,680,260,65,"万物の書へ")){result=null;encounter=null;}
-            if(GrowthButton(520,680,260,65,"人物を育てる",true,true)){result=null;encounter=null;book.ChangeBookmark(BookBookmark.Heroines);}
+            if(GrowthButton(520,680,260,65,"人物を育てる",true,true)){result=null;encounter=null;heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;book.ChangeBookmark(BookBookmark.Heroines);}
             if(GrowthButton(800,680,260,65,"記憶・遺物")){result=null;encounter=null;collectionOpen=true;}
             if(GrowthButton(1080,680,280,65,"同じLvで再戦"))StartBattle(activeColossus);
         }

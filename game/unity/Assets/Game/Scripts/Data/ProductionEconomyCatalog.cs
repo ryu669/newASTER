@@ -28,9 +28,52 @@ namespace NewAster.Data
                 node.terminal=stage==0?"誓いの根":BranchNames[hero*3+stage-1];node.attackBonus=stage==0?0:Attacks[hero*3+stage-1];node.skillPower=stage==0?1:Powers[hero*3+stage-1];
                 if(stage>0){var source=WorldCatalog.Colossi.First(c=>c.WorldLineId=="W0"+(hero+1));node.costs=new[]{new HomeCost{resourceId=collection.owners.Single(o=>o.id==source.Id).materialIds[0],amount=stage==3?24:stage==2?16:12}};}
             }
+            // Preserve the four RC1 IDs and dependencies, then grow each branch upwards.
+            var expanded=home.weaponNodes.ToList();
+            foreach(string heroId in combat.FormationIds){
+                int hero=Array.IndexOf(combat.FormationIds,heroId);
+                var root=expanded.Single(n=>n.heroineId==heroId && n.initial);root.treePosition=new HomePoint{x=.5f,y=.96f};
+                string[] routes={"alpha","beta","gamma"};
+                for(int route=0;route<3;route++){
+                    var first=expanded.Single(n=>n.id==heroId+".weapon."+routes[route]);first.treePosition=new HomePoint{x=.2f+route*.3f,y=.72f};
+                    string parent=first.id;
+                    for(int step=2;step<=4;step++){
+                        float bend=(hero%2==0?1:-1)*.025f*step;
+                        var n=new HomeWeaponNode{id=first.id+".tier"+step,heroineId=heroId,abilityId=first.abilityId,skillId=first.skillId,parentIds=new[]{parent},terminal=first.terminal+" "+(step==4?routes[route]=="alpha"?"α":routes[route]=="beta"?"β":"γ":step==2?"II":"III"),attackBonus=first.attackBonus+step*4,skillPower=first.skillPower+.08f*step,treePosition=new HomePoint{x=Math.Max(.08f,Math.Min(.92f,.2f+route*.3f+bend)),y=.72f-(step-1)*.2f},costs=first.costs.Select(c=>new HomeCost{resourceId=c.resourceId,amount=c.amount+step*4}).ToArray()};
+                        expanded.Add(n);parent=n.id;
+                    }
+                }
+            }
+            foreach(var n in expanded.Where(n=>!n.initial)){
+                int route=n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;
+                int tier=n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;
+                int heroIndex=Array.IndexOf(combat.FormationIds,n.heroineId);
+                int sourceIndex=Array.FindIndex(WorldCatalog.Colossi.ToArray(),c=>c.WorldLineId=="W0"+(heroIndex+1));
+                var sources=Enumerable.Range(0,3).Select(i=>WorldCatalog.Colossi[(sourceIndex+i)%WorldCatalog.Colossi.Count]).ToArray();
+                if(tier>=2)n.costs=Enumerable.Range(0,tier==2?2:3).Select(i=>new HomeCost{resourceId=collection.owners.Single(o=>o.id==sources[i%sources.Length].Id).materialIds[tier==2?1:tier==3?2:i<2?3:2],amount=tier==2?4:tier==3?5:6}).ToArray();
+                n.attackBonus=route==0?8+tier*4:route==1?2+tier:4+tier*2;
+                n.skillPower=route==0?1.12f+tier*.06f:route==1?1.02f+tier*.025f:1.06f+tier*.04f;
+                n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1?10+tier*6:0;
+                n.speedBonus=route==2?3+tier*2:0;n.criticalBonusBp=route==0?200+tier*100:route==2?100+tier*50:0;
+                n.criticalDamageBonus=route==2?5+tier*3:0;
+                if(tier==4){int hero=Array.IndexOf(combat.FormationIds,n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈"};
+                    n.weaponTraitName=motifs[hero]+(route==0?"の鋭刃":route==1?"の結界":"の疾風");
+                    n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
+                }
+            }
+            home.weaponNodes=expanded.ToArray();
         }
         public static void ApplyCollection(CollectionCatalog catalog)
         {
+            var resources=catalog.resources.ToList();
+            foreach(var owner in catalog.owners.Where(o=>o.kind=="colossus")){
+                string common=owner.materialIds[0],name=WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName;
+                var baseMaterial=resources.Single(r=>r.id==common);baseMaterial.name=name+"の鱗片";baseMaterial.rarity=1;baseMaterial.minDropLevel=1;
+                string[] suffix={"rare","epic","legendary"},names={"結晶","心核","星髄"};int[] levels={5,15,30};
+                for(int i=0;i<3;i++)resources.Add(new CollectionResourceDef{id=common+"."+suffix[i],kind="material",ownerId=owner.id,name=name+"の"+names[i],rarity=i+2,minDropLevel=levels[i]});
+                owner.materialIds=new[]{common,common+".rare",common+".epic",common+".legendary"};
+            }
+            catalog.resources=resources.ToArray();
             for(int i=0;i<catalog.relics.Length;i++){
                 var relic=catalog.relics[i];relic.abilityId="ability.production.relic."+i;
                 relic.attackPercent=i%3==0?6+i/3:i%3==1?0:3+i/3;

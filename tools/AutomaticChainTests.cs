@@ -19,13 +19,17 @@ public static class AutomaticChainTests
         var options=new JsonSerializerOptions {IncludeFields=true};
         FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
-        Func<CombatDefinitionCatalog> formal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
+        Func<CombatDefinitionCatalog> currentFormal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
+        BattleV2Tests.Run(Check,currentFormal);
+        CombatExpansionTests.Run(Check,currentFormal,()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(args[0]),options));
+        Func<CombatDefinitionCatalog> formal=()=>{var c=currentFormal();c.optionalResourceBoost=false;return c;};
         FormalProgressionTests.Battle(Check,formal());
         BattleEndTests.Run(Check,formal());
         Plan5WorldRelicTests.Run(Check,formal());
         Plan9ColossusTests.Run(Check,formal());
         Plan9ColossusEndTests.Run(Check,formal());
         HeroineRosterTests.Run(Check);
+        HeroineSanctuaryTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
         Plan9EconomySupplyTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
         Plan9StoryTests.Run(Check,File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")),formal());
         if(Environment.GetEnvironmentVariable("NEWASTER_PLAN9_BALANCE")=="1")Plan9BalanceTests.Run(Check,formal());

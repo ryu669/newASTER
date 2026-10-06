@@ -29,7 +29,7 @@
     },
     {
       "path": "game/story-source/plan9/echidna-events.json",
-      "sha256": "f63cd7b82755f27ca3d3cbab535ab94ef694f504e85a614622f12186531c8679"
+      "sha256": "f813db4f3bd08208d87113345434d331020441fb62f95522558a6350da14578d"
     },
     {
       "path": "game/story-source/plan9/echidna-later-chapters.json",
@@ -41,7 +41,7 @@
     },
     {
       "path": "game/story-source/plan9/excalipan-events.json",
-      "sha256": "e967e4bad502d68720ea17dc8bcbdc9b39ea54a300b187c712b80f156843147c"
+      "sha256": "153d84d65a166cb1c7c54c0e424fa459bfbf654ddae032b51a1594575f686e28"
     },
     {
       "path": "game/story-source/plan9/excalipan-later-chapters.json",
@@ -57,7 +57,7 @@
     },
     {
       "path": "game/story-source/plan9/iconoclast-events.json",
-      "sha256": "c96e4446347d69207cb64fb051dcc6bb29ba7e849a30769cc108663429dafc17"
+      "sha256": "b254208a337674e9743172f919dd2ad31ab21b89c13f039f1d1e026986a1ca44"
     },
     {
       "path": "game/story-source/plan9/iconoclast-later-chapters.json",
@@ -93,7 +93,7 @@
     },
     {
       "path": "game/story-source/plan9/slayer-events.json",
-      "sha256": "11445829b7bd59c1143f9a0ae5b663072b67ca88f8fc313330b3b4233be05fa4"
+      "sha256": "1d511405ad1be58981d870d65f177f57144142660ac81f81c3567f3fd225aba1"
     },
     {
       "path": "game/story-source/plan9/slayer-later-chapters.json",
@@ -101,7 +101,7 @@
     },
     {
       "path": "game/story-source/plan9/undermine-events.json",
-      "sha256": "40f635081676dde981742d6670ec9f5e189bb70ef6b53a506ea595f632e29141"
+      "sha256": "2c8ab62f99a6348846319f1c3dd5f6cc5d2ce9b801c80ef94c2093fd2a4c37f8"
     },
     {
       "path": "game/story-source/plan9/undermine-later-chapters.json",

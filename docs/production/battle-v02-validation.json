@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "status": "passed-initial-five-v02-with-provisional-tuning",
+  "scope": "25 revised recollections / first five playable jobs / eight additional jobs specified in continuation plan",
+  "coreAndRegressionAssertions": 7913,
+  "unityBuildAssertions": 2005,
+  "normalSaveUnchanged": true,
+  "assemblySha256": "46e8a36dfff4bf6b7e7af99afba72e93f992cb3e9237aa90df81d0e33976141c",
+  "physicalInputCount": 0,
+  "listeningSeconds": 0,
+  "performanceMeasured": false,
+  "packageFileCount": 162,
+  "packageRuntimeLaunchVerified": true,
+  "cases": [
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-0-720.log",
+      "physicalInput": 0,
+      "actor": 0,
+      "image": "docs/production/battle-v02-preview/job-0-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "6b6592cef839eb0ef39afb6e90605c1e0c7119c94cb3f1644e91c5d52098b2d6"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-1-720.log",
+      "physicalInput": 0,
+      "actor": 1,
+      "image": "docs/production/battle-v02-preview/job-1-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "c0a5e4c99e1d3d1d934b181993ebfae4c2b9937aaf0f9353dab7cec150c779c9"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-2-720.log",
+      "physicalInput": 0,
+      "actor": 2,
+      "image": "docs/production/battle-v02-preview/job-2-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "d8104dd1af4acd6d3a7c9688fecb7711176632b3dab04b9d9ee2b038a62e9e1c"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-3-720.log",
+      "physicalInput": 0,
+      "actor": 3,
+      "image": "docs/production/battle-v02-preview/job-3-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "8527923d4588a81bc6a6567482c4930eac078eeb2efdf01bc57a761089e228cb"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-4-720.log",
+      "physicalInput": 0,
+      "actor": 4,
+      "image": "docs/production/battle-v02-preview/job-4-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "06bc29b67ef3c46afd62d07ea23b8ed391d7c69604a758fe703c880fc4b3ecbb"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-0-1080.log",
+      "physicalInput": 0,
+      "actor": 0,
+      "image": "docs/production/battle-v02-preview/job-0-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "sha256": "55e27529fc9f89fbcd60e5f479674beaa3e6b60c56f0f795f9693b044cbcdf24"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-1-1080.log",
+      "physicalInput": 0,
+      "actor": 1,
+      "image": "docs/production/battle-v02-preview/job-1-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "sha256": "19fb34f313cb143461a8db3a26a39abb0ecc67916725e9c573fcab945a2aa6f8"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-2-1080.log",
+      "physicalInput": 0,
+      "actor": 2,
+      "image": "docs/production/battle-v02-preview/job-2-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "sha256": "a40a4cd3e9e6b0843644261924166de4ab6144e7d7081102346640b103253b02"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-3-1080.log",
+      "physicalInput": 0,
+      "actor": 3,
+      "image": "docs/production/battle-v02-preview/job-3-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "sha256": "500d9b5754e18102227e9aea71d5f1f56ff9424afaea6f0f8718b65f89dc1049"
+    },
+    {
+      "log": "D:\\AIGAME\\newASTER\\tmp\\battle-v2-ui-10e4a5c1037f4c81b1ced69986ecfc99\\job-4-1080.log",
+      "physicalInput": 0,
+      "actor": 4,
+      "image": "docs/production/battle-v02-preview/job-4-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "sha256": "7bea7a6c91338f0bf4d69e683b272e210ed3dcafdf4ac23dd4728b0629c614ea"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-9fb4084877d145c2867743ca2c3cef3a\\story-event.slayer.0-720.log",
+      "case": "story-event.slayer.0",
+      "image": "docs/production/battle-v02-preview/story-event.slayer.0-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "00c7089a8fac8ab35fda7b023f25094910f274bcab72e6da97ab0b61a9e3e91e"
+    },
+    {
+      "humanInput": false,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-9fb4084877d145c2867743ca2c3cef3a\\story-event.slayer.0-1440.log",
+      "case": "story-event.slayer.0",
+      "image": "docs/production/battle-v02-preview/story-event.slayer.0-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1440,
+      "sha256": "ab55d6fc20d9b276174e71e21876dbad6bbfd9e2af545e407fa06766dfcd24fa"
+    },
+    {
+      "physicalInput": 0,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-380a7c9d96e14403922c192d22035ed1\\formation-720.log",
+      "case": "formation",
+      "image": "docs/production/battle-v02-preview/formation-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "sha256": "6b3a04edc836d85e33766cdacf6aee867d14d029b1c82385f712eca1364db76c"
+    },
+    {
+      "physicalInput": 0,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-380a7c9d96e14403922c192d22035ed1\\formation-1440.log",
+      "case": "formation",
+      "image": "docs/production/battle-v02-preview/formation-1440.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1440,
+      "sha256": "56379615943a1de687903fd294646ee6131a2506663d8ccb77ee5acd6a0d4342"
+    }
+  ],
+  "limitations": [
+    "Job tuning is provisional",
+    "Eight additional jobs are specified but not playable",
+    "Guard target is session-only"
+  ]
+}

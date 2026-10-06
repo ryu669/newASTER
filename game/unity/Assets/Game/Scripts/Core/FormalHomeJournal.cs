@@ -11,7 +11,7 @@ namespace NewAster.Core
         public string Signature=>"home|"+Kind+"|"+ContentVersion+"|"+OperationKey;
         public FormalHomeRequest(string id,string kind,long revision,string contentVersion,string operationKey)
         {
-            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit","weapon","craft","place","occupant","talk","sceneEnd"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Invalid home request.");
+            if(!HomeExperienceCatalog.Id(id) || !new[]{"garden","event","advRead","homeInit","weapon","weapon-level","formation","craft","place","occupant","talk","sceneEnd"}.Contains(kind) || revision<0 || !HomeExperienceCatalog.Id(operationKey) || !HomeExperienceCatalog.SupportedVersion(contentVersion))throw new ArgumentException("Invalid home request.");
             Id=id;Kind=kind;Revision=revision;ContentVersion=contentVersion;OperationKey=operationKey;
         }
     }
@@ -42,6 +42,7 @@ namespace NewAster.Core
                 var before=next.home;next=Copy(next);writing=true;try{next=build(next);}finally{writing=false;}
                 if(next.home==null)throw new ArgumentException("Missing home result.");
                 next=Copy(next);next.home.ValidateContent(catalog,next);
+                if((before.weaponLevels??Array.Empty<HomeWeaponLevel>()).Any(w=>next.home.WeaponLevel(w.nodeId)<w.level))throw new ArgumentException("神器Lvは下げられません。");
                 if(!before.receipts.Select(r=>r.transactionId+"|"+r.kind+"|"+r.signature+"|"+r.resultHash).SequenceEqual(next.home.receipts.Select(r=>r.transactionId+"|"+r.kind+"|"+r.signature+"|"+r.resultHash)) ||
                     before.weaponNodeIds.Any(id=>!next.home.weaponNodeIds.Contains(id)) || before.unlockedEventIds.Any(id=>!next.home.unlockedEventIds.Contains(id)) || before.readEventIds.Any(id=>!next.home.readEventIds.Contains(id)) || before.claimedRewardIds.Any(id=>!next.home.claimedRewardIds.Contains(id)) || before.loverHeroineIds.Any(id=>!next.home.loverHeroineIds.Contains(id)) ||
                     before.readLineKeys.Any(l=>!next.home.readLineKeys.Any(n=>n.sceneId==l.sceneId && n.scriptVersion==l.scriptVersion && n.lineId==l.lineId)) || before.furnitureInstances.Any(i=>!next.home.furnitureInstances.Any(n=>n.instanceId==i.instanceId && n.defId==i.defId)) || before.affections.Any(a=>!next.home.affections.Any(n=>n.heroineId==a.heroineId && n.value>=a.value)))throw new ArgumentException("Home transaction cannot remove durable progress or replace receipts.");

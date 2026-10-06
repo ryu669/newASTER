@@ -1,0 +1,47 @@
+{
+  "performanceMeasured": false,
+  "cases": [
+    {
+      "case": "story-event.slayer.0",
+      "image": "docs/production/adv-layout-preview/story-event.slayer.0-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "humanInput": false
+    },
+    {
+      "case": "story-event.iconoclast.0",
+      "image": "docs/production/adv-layout-preview/story-event.iconoclast.0-720.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 720,
+      "humanInput": false
+    },
+    {
+      "case": "story-event.slayer.0",
+      "image": "docs/production/adv-layout-preview/story-event.slayer.0-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "humanInput": false
+    },
+    {
+      "case": "story-event.iconoclast.0",
+      "image": "docs/production/adv-layout-preview/story-event.iconoclast.0-1080.png",
+      "state": "visually-reviewed-by-agent",
+      "height": 1080,
+      "humanInput": false
+    }
+  ],
+  "assemblySha256": "B6E909689C943D9CEB700D851895B5C6F8E6BCA06328E54D0BBB90549B7EDD6B",
+  "normalSaveUnchanged": true,
+  "schemaVersion": 1,
+  "unityAssertions": 2002,
+  "compiledSourceFiles": 136,
+  "physicalInputCount": 0,
+  "sourceSha256": "50958b3ff86be2a0d5aa0e94c362776be62f96164e550bbd0cbc87194e1b3aaa",
+  "playerPath": "game/Builds/playable/newASTER.exe",
+  "changes": [
+    "Hide narration speaker label",
+    "Remove scene end and successful save explanations",
+    "Move message window from y525 to y615 and menu from y790 to y840 at 1600x900",
+    "Expand actor/background viewing height"
+  ]
+}

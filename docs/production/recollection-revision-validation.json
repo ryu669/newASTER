@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "attachmentSha256": "066f5e642d0e47ec22e9b24e02597a14f7e0afc8355de9d1c283887b98b1d2a4",
+  "events": 25,
+  "paragraphs": 200,
+  "exactAttachedProseMatch": true,
+  "unchangedUnlocksIdsExpressionsArtwork": true,
+  "unchangedStoryChapters": 60,
+  "exportMatchesRuntime": true
+}

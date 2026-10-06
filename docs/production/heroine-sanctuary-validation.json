@@ -1,0 +1,441 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "version": "0.9.1-rc.1",
+  "assemblySha256": "6eb2c0077fc8b13086f61fbac0eb04b5f61cc6530fc65161ddf9f4e25405bad8",
+  "coreAssertions": 7178,
+  "unityBuildAssertions": 1970,
+  "buildLog": "tmp/heroine-sanctuary-build-release.log",
+  "buildLogSha256": "2113cb1887997146fc740b1d60eef64405cd700be06a62d9c917ba4e8ed57679",
+  "normalSaveUnchanged": true,
+  "physicalInputCount": 0,
+  "listeningSeconds": 0,
+  "performanceMeasured": false,
+  "review": "All 42 images individually inspected by agent; automated isolated fixtures, not human playthrough.",
+  "cases": [
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "roster",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\roster-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\roster-720.png",
+      "imageSha256": "26e61e05b84a59d610789bef1fcbdf9d48290719fccd49d7c07832a7dcc6efc9",
+      "logSha256": "191de48144b1bc6a6dee1e472f19785be4a42281278401ed52636866fa4245b5"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "empty",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\empty-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\empty-720.png",
+      "imageSha256": "cca419576c073fc9202e06f590b6b1e5add9f0e094c580364a0712b34ddb1bad",
+      "logSha256": "b262f7d599e992a340bbe9cc5b34757dd460121423dd5d8569173d7885abd3f7"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "detail.slayer",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.slayer-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.slayer-720.png",
+      "imageSha256": "e344821b5218c02659d2de64f172df1c5970b2b00de9437001377b54aa1ecd25",
+      "logSha256": "61ef64a13a1ae2ca8a00488101d9a4bbe0c12cf6e6e93e44d5f10a7e0aa2063d"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "detail.iconoclast",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.iconoclast-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.iconoclast-720.png",
+      "imageSha256": "fbe2c9c5aee5e88381556fd30fda4f276d79a10be9a663eda4ff0bb34cb4e06d",
+      "logSha256": "f5cfa699d0a2c144bd23f7e1ea4c1b8990336a185713030e4c19479433166108"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "detail.undermine",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.undermine-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.undermine-720.png",
+      "imageSha256": "38b887a2bbaedd94e350bd05c462d631a1586b52af41bf9b231ca2362cd6809c",
+      "logSha256": "04dc8fcf010db5ca3e82882cb43489160900d94a8a250e2735d38bd85f08d461"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "detail.echidna",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.echidna-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.echidna-720.png",
+      "imageSha256": "4841879f7a8a9953e291863fbc394612e944a9e71fbf9c3c2570a9da4c093dd8",
+      "logSha256": "16355eb6bff46c29f352a2d53a4ab2699f19a08557a8da06108390aa705fc6f5"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "detail.excalipan",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.excalipan-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\detail.excalipan-720.png",
+      "imageSha256": "8d539ebdfc65cddb684c87a18df3b642d7fb20046d3f5080cc6e81ae0c91c34d",
+      "logSha256": "9e8497026d31432c4b8a374de8862c6bb8a7cf2d0cb3ca7efafdb5f34c73c7be"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "trait",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\trait-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\trait-720.png",
+      "imageSha256": "f1f7466bf63388877d001314c9dfa1c3c84e0b2982651cb70eade449e0a0708b",
+      "logSha256": "2361a3c432e2d5f507ffd312d3fd3c8adc0ae51a43ef9f70940a7a2f53d179c5"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "skill",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skill-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skill-720.png",
+      "imageSha256": "1b1958bef0e74993776fc701ebdd8fbf30dfccb5be830567cb35c01ec8d79b87",
+      "logSha256": "593964ed8109c78a255f4a94039100968d99a01c8683239c3d9831eb972b700d"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "skillmax",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skillmax-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skillmax-720.png",
+      "imageSha256": "5433d94ed60dc303e5372b65c3b1291485bb1e883b75a28baf2b95db4063d3d6",
+      "logSha256": "171cf20110de64134329ce63d285a64c6b06e465c8a3ff09d0380d2ac4f73070"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "skill-pending",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skill-pending-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\skill-pending-720.png",
+      "imageSha256": "28642afd49423942394bdfe7c12a57098439507816ee00a84236eb66f3145b51",
+      "logSha256": "71aa8298d11658484ad125760effa22dfff44eefb2f3cc9633f9a0609a23e175"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree.slayer",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.slayer-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.slayer-720.png",
+      "imageSha256": "c68b2c87a8784f01801c064bf4ecedcdba8d4363fc66562936784549beae4561",
+      "logSha256": "d5f50c476ce61995a1987a12e654a8f35b92aa05ab4a86fb7fc7a3fa7e072990"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree.iconoclast",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.iconoclast-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.iconoclast-720.png",
+      "imageSha256": "b319951b78b4bd88c0d5dbbd3e32bea91ee96b19af471c607c4832fff02267b4",
+      "logSha256": "925043b84070045ffb3661adc0451614f1f38dad6c56016889522495109142bf"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree.undermine",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.undermine-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.undermine-720.png",
+      "imageSha256": "6f22be0d9bb83636af40df2357933b28d5e5b83bb81b6dd8e330987bd5498f2e",
+      "logSha256": "3127b8fe53597bdb952cfb3af35b27884b7a9b9c99c8484d7dd57c9b4b122e46"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree.echidna",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.echidna-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.echidna-720.png",
+      "imageSha256": "d8558ec2abdc3dd94e7e44b79d8e5a40e02df6bfa555d257104f81d6c1f5eb24",
+      "logSha256": "c305fe371ce6f00895e2908e8b20b823ae3452d9979210420ec59a6b7ce3ed3c"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree.excalipan",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.excalipan-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree.excalipan-720.png",
+      "imageSha256": "33b15e0a0c4e05d6f3552feb88db8334af5bc16f737b0012b738d28ebd5b80af",
+      "logSha256": "7f8582ff447daf7d69106fd5f9be6c8140320f1377d5c4f74d490e12a88f6f65"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree-grown",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree-grown-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree-grown-720.png",
+      "imageSha256": "5a690c1c9bbf8a5368141e65c2602722330568f47d54e071f7308352d9041b25",
+      "logSha256": "a8dd4f43be51937eea154dccb7e5c3f95befc8f764be88140ba86ee5c2f5afff"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "tree-confirm",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree-confirm-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\tree-confirm-720.png",
+      "imageSha256": "a36fc478ac28960b009f8384547e9684bd7d5b6921a39b071891fb1f31ad7d4c",
+      "logSha256": "7a8ba983812ae118e5151f5aac14611b9185159ba02e896d5a42d6497d8cc17d"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "level",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\level-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\level-720.png",
+      "imageSha256": "e2f25c9e233b98358a4890d9fa807c199c4cab9892981bae224aa5523b85a896",
+      "logSha256": "834e6d53fc9b99815793a0b83263339812699d4de2b67907b8a5e46a0d3a9382"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "level-confirm",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\level-confirm-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\level-confirm-720.png",
+      "imageSha256": "cf7ad3bf3bdedf7d800643c5e298450d6a507ee3208c37a7a5b51d22f520b3b0",
+      "logSha256": "55c474da6b452f23a1ee2dbf2fdfdded0c3380f317519468135efd9739d84bb7"
+    },
+    {
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "case": "large",
+      "height": 720,
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\large-720.log",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-423a3295964946d59e072baa0b278422\\large-720.png",
+      "imageSha256": "87ecbbccb2c988b2c31c176033018cd709ea23e42a8249c71568169dc78fe282",
+      "logSha256": "50afdecb86c81524b3f887606d0cf574c43b918dbcd1c200b0568cccc00dd8ac"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\roster-1080.png",
+      "case": "roster",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\roster-1080.log",
+      "height": 1080,
+      "imageSha256": "b2382ceff10408e2c8c05b311403b73a27fadbde26fec64c82d0c602e7e12b6a",
+      "logSha256": "c9a69ab7f01fa3121294c9707f1e5cafad719f4c2816e4fd9c351831176fbdf0"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\empty-1080.png",
+      "case": "empty",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\empty-1080.log",
+      "height": 1080,
+      "imageSha256": "a8b7d6ec668c70508e9e7838d99b11757807bd5c08cd7def4807b29f3b9e8f33",
+      "logSha256": "7875ea39e1907a0cb13127be253035a3a548e316fdf1af7d534bb6c04b333ac2"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.slayer-1080.png",
+      "case": "detail.slayer",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.slayer-1080.log",
+      "height": 1080,
+      "imageSha256": "9c4c5950e6dd9039cd146c37ec487bdaf34ae431aca165b8ff0166d5cc378a78",
+      "logSha256": "b8ce5cd1cafc6a44a8ca21ca9df18b328ed63b4e6a806b935279731884472c2d"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.iconoclast-1080.png",
+      "case": "detail.iconoclast",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.iconoclast-1080.log",
+      "height": 1080,
+      "imageSha256": "9626fd9f48befde9315eb4f4e78b20cc21a9a52b69e36b3343eea5c0ffc3281b",
+      "logSha256": "46eda9482db3628d08420c33a3d7288d5c102b4f32a23aeac002b2601c32df59"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.undermine-1080.png",
+      "case": "detail.undermine",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.undermine-1080.log",
+      "height": 1080,
+      "imageSha256": "2c62de73798445681d8ffafca580b19a76bf9cd16394b77ba89eb00cfbfc89e6",
+      "logSha256": "1f7380e4b6226a7dfe4407ffe019decd6ab7e68dc03a4584034fed0fd68adc15"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.echidna-1080.png",
+      "case": "detail.echidna",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.echidna-1080.log",
+      "height": 1080,
+      "imageSha256": "8f8fca8c8c01a59e2e61d9ec6512d77b4f54c18dcb2eed9ed7b371ea851d6176",
+      "logSha256": "abc569dc7f4635fb7673a7af09b3963f94039adf127cb76b25d20d52b0e50968"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.excalipan-1080.png",
+      "case": "detail.excalipan",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\detail.excalipan-1080.log",
+      "height": 1080,
+      "imageSha256": "41a67840fd36ec4d1fb38dbdd900b11fe1593f1227f44575252f69c1ebf94aaf",
+      "logSha256": "e5c58332b984f09718eafdfa6085c9af8c4cb7b16ada6a3f8fd819aae2d141fe"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\trait-1080.png",
+      "case": "trait",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\trait-1080.log",
+      "height": 1080,
+      "imageSha256": "42ab6cd3d080d2545903e0b9e2f099e7c22ec91722c944be4664ee3a58d22fc6",
+      "logSha256": "8ed97589c1aa58df1ecc31eeb8997796a683d959d26ee822a37cc632ecbb0d6c"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skill-1080.png",
+      "case": "skill",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skill-1080.log",
+      "height": 1080,
+      "imageSha256": "a84be2865ff79e98e024e2b48c248b0bb952f87db6a2c2d79c3c856d43cf1f0c",
+      "logSha256": "1796b1db8198ca3dad4d0a914d359bf521d0ada5e890a6c0d14640c92886e163"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skillmax-1080.png",
+      "case": "skillmax",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skillmax-1080.log",
+      "height": 1080,
+      "imageSha256": "bc3231cb36c4d3b28d57959fe1588f12e11a73de7b555e80d1257a7668e3a8e8",
+      "logSha256": "361aef6a86433ecea34afb1ae24251662e350fa702fb6dd9eadbb06d72ae82c6"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skill-pending-1080.png",
+      "case": "skill-pending",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\skill-pending-1080.log",
+      "height": 1080,
+      "imageSha256": "bd86e9d28ffa0ea94079bd958079a590a5b86b8dbe3b86a398240fcb26c4fcb2",
+      "logSha256": "538d839c3991b845fa616244444ac69c9fb5730ed1a6d34eb3eba0e1d082a8f7"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.slayer-1080.png",
+      "case": "tree.slayer",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.slayer-1080.log",
+      "height": 1080,
+      "imageSha256": "04413260802a004048bf46088d15008699fa00ced94a004a56452582674247ac",
+      "logSha256": "947e257855e411f62a53495e7fe2d035c6812af8e1c54fb49046f598919b4c40"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.iconoclast-1080.png",
+      "case": "tree.iconoclast",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.iconoclast-1080.log",
+      "height": 1080,
+      "imageSha256": "c77264076bd1e213194b8a022562ca7d08c2cf8d0fa5991410328896e1483ecb",
+      "logSha256": "17686ebd4bfcb4dc6412fb944f4e5f06ae7b35d215a98b9cf3eb813f7f6ddaf4"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.undermine-1080.png",
+      "case": "tree.undermine",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.undermine-1080.log",
+      "height": 1080,
+      "imageSha256": "41a3bf98e37927e9891ddbcd6b915ab608c7fb51b6e5440b7c9fa54f1b239ee9",
+      "logSha256": "f8c5a0d118f3cb90b20783ef63fa6cdaf6d28ab90d1a0c849a87195b4e0f6144"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.echidna-1080.png",
+      "case": "tree.echidna",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.echidna-1080.log",
+      "height": 1080,
+      "imageSha256": "c357df0275c3f4ba53535ae261f181c205b770865c0c9ad8f62f70b68b8af404",
+      "logSha256": "0e9777061d8ef04ac24d4d533b5df2f59b3327afafb4a0bb66f817f7d29cc7a7"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.excalipan-1080.png",
+      "case": "tree.excalipan",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree.excalipan-1080.log",
+      "height": 1080,
+      "imageSha256": "d70eea5eac928d816d4571b52c57542013f1f83efbc2be7d6e0a9a2ed974f2cb",
+      "logSha256": "cc1bb8dfa1e0b122c63705ed59d9d3d3d188eb92950e967c1bcde2c18ba70845"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree-grown-1080.png",
+      "case": "tree-grown",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree-grown-1080.log",
+      "height": 1080,
+      "imageSha256": "a9f9d5f035f7d2ed654d070eb65dfdfeb65c91f3223edce2c2c762cbdb6ccb39",
+      "logSha256": "218b8cdc02acac2ab5a0bcb4ca20eb48e2205060769b5ffd03d5791c098e6194"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree-confirm-1080.png",
+      "case": "tree-confirm",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\tree-confirm-1080.log",
+      "height": 1080,
+      "imageSha256": "47e5a1df04aee3642ade4c1a60e9731ba23f9954db6206e24ed4e71d205db000",
+      "logSha256": "368047abde5e1fbea899c20c0f8b75c159e3d245b7112a53dac5c090d08cc078"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\level-1080.png",
+      "case": "level",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\level-1080.log",
+      "height": 1080,
+      "imageSha256": "56d7922c0c00842682d40544f04aa729d21fe5c7230c9e8cec7518933b56db8a",
+      "logSha256": "8f2aef895def492ee00bbb2f7b2109d93b341fd05cd657846536dbbd8fc8238e"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\level-confirm-1080.png",
+      "case": "level-confirm",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\level-confirm-1080.log",
+      "height": 1080,
+      "imageSha256": "c7dc60900256517c904f77737461581b41ecc9a5633d1177535a2bc27daf7c0b",
+      "logSha256": "1d061d0e04a42a610d71886d063947a164c2a7f75f514625f404487a9cdf4211"
+    },
+    {
+      "image": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\large-1080.png",
+      "case": "large",
+      "physicalInput": 0,
+      "state": "visually-reviewed-by-agent",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-ad5abf045ee44485b0d4bdaf4393d153\\large-1080.log",
+      "height": 1080,
+      "imageSha256": "5bab7505b7b5d8e0159d96c14a7ad9a8ae3d0ec9de48124ae6fb9bc89b96011c",
+      "logSha256": "8dc8c8b7bee77c82bc7f2ce6d545b87c018514481733838ba690df55217d219a"
+    }
+  ],
+  "rosterScalabilityFixtureCount": 256,
+  "actualHeroineCount": 5,
+  "weaponNodeCount": 65,
+  "remainingJobs": 8
+}

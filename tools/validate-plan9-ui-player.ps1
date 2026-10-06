@@ -1,7 +1,7 @@
-param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('title','settings','credits','exit','development','book','growth','battle','victory','garden','adv'))
+param([int[]]$Heights=@(720,1080),[string[]]$Cases=@('title','settings','credits','exit','development','book','growth','battle','victory','garden','adv'),[string]$PlayerPath='game/Builds/playable/newASTER.exe')
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
-$player=Join-Path $repo 'game/Builds/playable/newASTER.exe'
+$player=Join-Path $repo $PlayerPath
 $output=Join-Path $repo ('tmp/plan9-ui-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $output | Out-Null
 $settings=Get-Content (Join-Path $repo 'game/unity/ProjectSettings/ProjectSettings.asset')
@@ -18,7 +18,7 @@ $buildHash=(Get-FileHash $assembly).Hash
 $results=@()
 $enemyAliases=@{'memory'='memory-crystal-dragon';'sky'='sky-tower-machine';'rose'='crystal-rose-princess';'whale'='silver-sea-whale';'orochi'='heaven-tree-orochi';'yimir'='reenactment-yimir';'astal'='emerald-star-astal';'serpent'='amber-king-serpent';'mother'='white-divine-dragon-mother';'citadel'='black-smoke-citadel';'megadeath'='dead-king-megadeath';'phoenix'='final-flame-ice-phoenix';'asteria'='newborn-asteria'}
 foreach($height in $Heights){
- if($height -notin @(720,1080)){throw 'Unsupported height'}
+ if($height -notin @(720,1080,1440)){throw 'Unsupported height'}
  foreach($case in $Cases){
   $name=$case+'-'+$height;$png=Join-Path $output ($name+'.png');$log=Join-Path $output ($name+'.log')
   $flags=@('-screen-fullscreen','0','-screen-width',"$([int]($height*16/9))",'-screen-height',"$height",'-presentationCapture',$png,'-logFile',$log)

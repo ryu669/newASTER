@@ -1,0 +1,659 @@
+{
+  "schemaVersion": 1,
+  "version": "0.9.5-rc.2",
+  "scope": "image-ui-all-major-screens-initial-five",
+  "assemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+  "unityAssertions": 2002,
+  "uiAssetChecks": 9,
+  "compiledSourceFiles": 136,
+  "cases": [
+    {
+      "case": "title",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/title-720.png",
+      "sha256": "482f41184166035e07538756a6f1e2580c1872439adfa3d1b156614017d7c162",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\title-720.log"
+    },
+    {
+      "case": "intro",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/intro-720.png",
+      "sha256": "a0813f284d86ea72a483de529b0d35b39ac39943cb491dc974b961cc45e8e2b1",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\intro-720.log"
+    },
+    {
+      "case": "settings",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/settings-720.png",
+      "sha256": "eb3291db57fb15c22ed844d2d721870d470facc6da37789a01f62933b9fe7e35",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\settings-720.log"
+    },
+    {
+      "case": "credits",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/credits-720.png",
+      "sha256": "cc531420bee4be8eccf97d72f1bc6c9c93be0ded75a7862ae05d116f0cc09129",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\credits-720.log"
+    },
+    {
+      "case": "help",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/help-720.png",
+      "sha256": "7c852e293ab527db8bfae5a86043cc4d4bf6e3a4e617c2581e4d754be11143fb",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\help-720.log"
+    },
+    {
+      "case": "exit",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/exit-720.png",
+      "sha256": "282c75a354b32f8bc438053fd9c4b4dc8095204e194301eff2140bf554f73344",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\exit-720.log"
+    },
+    {
+      "case": "recovery",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/recovery-720.png",
+      "sha256": "d8bf3851e72d63a16edeb536179cfdfad41b8e66b6ecea74d20971acaceb511f",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\recovery-720.log"
+    },
+    {
+      "case": "book",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/book-720.png",
+      "sha256": "2b61aa3670bc6fb818a35ab667e0c388939f7bf7bbdd47f1a5858eb785844b0d",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\book-720.log"
+    },
+    {
+      "case": "victory",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/victory-720.png",
+      "sha256": "7513329ddececd285790e7ce2effbd42b105addceb329caea539dd43d832c6a4",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\victory-720.log"
+    },
+    {
+      "case": "story-chapters",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/story-chapters-720.png",
+      "sha256": "2e855c960412878f3f4c0aa0a22ab4d715b33209c541224c0afac628826dd7fe",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-chapters-720.log"
+    },
+    {
+      "case": "story-garden.0",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/story-garden.0-720.png",
+      "sha256": "b4015d62e3e2f0888f720e5a8ac66cf73709dce137b94d0d8d3af47f885dd72a",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-garden.0-720.log"
+    },
+    {
+      "case": "story-garden.furniture",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/story-garden.furniture-720.png",
+      "sha256": "64be7a35a8a53edd602a68c605718bd84a27f9cdac6cbc31ac59009b762f65e4",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-garden.furniture-720.log"
+    },
+    {
+      "case": "story-event.slayer.0",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/story-event.slayer.0-720.png",
+      "sha256": "06211d3da198a6efdd62d5d78fa54c981878c3699dbf5aba256f879fa01be8bd",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-event.slayer.0-720.log"
+    },
+    {
+      "case": "title",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/title-1080.png",
+      "sha256": "8a9c591ac18c8cc4e2df32987a7d8ffd40fbbf82a79491ea329776feaa7b7736",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\title-1080.log"
+    },
+    {
+      "case": "intro",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/intro-1080.png",
+      "sha256": "267851b3f376bd7be32aa15bfc6ece58e3a8f2616d87db8f17563c767ad8fc63",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\intro-1080.log"
+    },
+    {
+      "case": "settings",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/settings-1080.png",
+      "sha256": "af3b80e8f310aeed7ba32477752831f3cb8e751ff29b3d5fdc7431c89ed50a05",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\settings-1080.log"
+    },
+    {
+      "case": "credits",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/credits-1080.png",
+      "sha256": "01f0e03fe2c8f128ab001e9ad0670c2d090e7ce4faf3973646be676214f764a4",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\credits-1080.log"
+    },
+    {
+      "case": "help",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/help-1080.png",
+      "sha256": "a43838ae6c8ca6b0d4d94e8b83a96345cc05fb49f61fc7ed60a8f2a0eabd2149",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\help-1080.log"
+    },
+    {
+      "case": "exit",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/exit-1080.png",
+      "sha256": "92f430425612eca4f0f93fe6a7d07a4df6664526158d1289bae10c1ef288df82",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\exit-1080.log"
+    },
+    {
+      "case": "recovery",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/recovery-1080.png",
+      "sha256": "5b76360c7add754abef3b067fd20736ca60f35dfad5f5b9406c5a5e73ec50941",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\recovery-1080.log"
+    },
+    {
+      "case": "book",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/book-1080.png",
+      "sha256": "56bfb953e27d34e972372420d46c99ed7366c0790af4a0ed8478a9dbcafcd68b",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\book-1080.log"
+    },
+    {
+      "case": "victory",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/victory-1080.png",
+      "sha256": "cec6e8d2aab1d7f6eea6653b177dc0b1d5f54bd39c0630e0f037915afdc81e53",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\victory-1080.log"
+    },
+    {
+      "case": "story-chapters",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/story-chapters-1080.png",
+      "sha256": "d48011eba1e4908940d44252d5e7ee1cdab60c2c671ac908ac5c2a967caf0b78",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-chapters-1080.log"
+    },
+    {
+      "case": "story-garden.0",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/story-garden.0-1080.png",
+      "sha256": "1dcf24f14b772d6ae90914295fce1b4329896808523bf557a5fedafe4868bedf",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-garden.0-1080.log"
+    },
+    {
+      "case": "story-garden.furniture",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/story-garden.furniture-1080.png",
+      "sha256": "689cb674cd8d565087fc48728cdbd2ef04146362a4e16923efa63af557b6ddf5",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-garden.furniture-1080.log"
+    },
+    {
+      "case": "story-event.slayer.0",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/story-event.slayer.0-1080.png",
+      "sha256": "ec596f7d38b98cb9d47ee7fcfe0bc565fc024d7fc0a3fb0de66cb3a3934f7f7b",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\plan9-ui-fc0ef9d8f49b4caa999ee08f6648a287\\story-event.slayer.0-1080.log"
+    },
+    {
+      "case": "roster",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/roster-720.png",
+      "sha256": "8e3b6b1970dbbaffddea941329f3eef91b419b07e603f7be05a39d3dbe1a29d1",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\roster-720.log"
+    },
+    {
+      "case": "empty",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/empty-720.png",
+      "sha256": "cb83bba1b313b6237a6458f29a10f168243477d72eb9d9aa9b554f82d123aee7",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\empty-720.log"
+    },
+    {
+      "case": "detail",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/detail-720.png",
+      "sha256": "5ef6d71c82ea786513a17ddd9030d60086c0d423511ba38cf5beec4531349644",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\detail-720.log"
+    },
+    {
+      "case": "skill",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/skill-720.png",
+      "sha256": "356ef4b20713a9361eecc2e3866ba69fa0a7b444006852e6921691ffebac53fb",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\skill-720.log"
+    },
+    {
+      "case": "tree-grown",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/tree-grown-720.png",
+      "sha256": "71267c698a95e85c6fb3fb9d14ffef0cf01078dd2137b057c463f1360906a1c6",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\tree-grown-720.log"
+    },
+    {
+      "case": "level-confirm",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/level-confirm-720.png",
+      "sha256": "7be8dddaa7d9785d3c0514065ba4fca9fd7d1472d1dd54e23e85885edffa5bdb",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\level-confirm-720.log"
+    },
+    {
+      "case": "formation",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/formation-720.png",
+      "sha256": "a535ff91489e93aeed531d2c141cedd907f95f69de55b83d4f0394ee72caeac4",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\formation-720.log"
+    },
+    {
+      "case": "materials",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/materials-720.png",
+      "sha256": "ab628bf7539565c8f89f268ddb13e7d18853379274f82fe8a6a6452ecc12461a",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\materials-720.log"
+    },
+    {
+      "case": "kinder",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/kinder-720.png",
+      "sha256": "4d77e9e88e24dbe376ebf16186755e5897d9f35f625000a0265c8b6bbd9bc2a3",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-720.log"
+    },
+    {
+      "case": "kinder-rates",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/kinder-rates-720.png",
+      "sha256": "9f6ab087ff5ee013740851713e1667738af8bc65f33bc7dfe81fddf57d49d2c6",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-rates-720.log"
+    },
+    {
+      "case": "kinder-exchange",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/kinder-exchange-720.png",
+      "sha256": "4addb7af97e852862dba5a3a4f5d02db0c8bf936a73891061376a7d3215bb8c1",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-exchange-720.log"
+    },
+    {
+      "case": "kinder-tickets",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/kinder-tickets-720.png",
+      "sha256": "51fc8d5f05dfb7f9a206d8ddb6c77ae08b3383a85287fb544cf6b4e543f05f60",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-tickets-720.log"
+    },
+    {
+      "case": "train-disembark",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/train-disembark-720.png",
+      "sha256": "2ee02915f2223e319cf1f4a2e959ee642310b0998609ee11660c46ef52884f32",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\train-disembark-720.log"
+    },
+    {
+      "case": "collection",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/collection-720.png",
+      "sha256": "c0737c3eba162abad7cba99774bf262bcc1b4b647fc517965efc9ead8473202a",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\collection-720.log"
+    },
+    {
+      "case": "relics-populated",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/relics-populated-720.png",
+      "sha256": "f25acddabb34ddb9637fcfbaa67a666aea5b702c47b656278089836824bb7d7e",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\relics-populated-720.log"
+    },
+    {
+      "case": "engagement",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/engagement-720.png",
+      "sha256": "cd10cc74e6e540142c14133a04828f19a7d90e9eb509c4fc91287f4cd480c941",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\engagement-720.log"
+    },
+    {
+      "case": "battle-idle",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/battle-idle-720.png",
+      "sha256": "69d8db03b01b870f736981c74c527365b216048441921c8503d7694c6ace2c04",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-idle-720.log"
+    },
+    {
+      "case": "battle-targets",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/battle-targets-720.png",
+      "sha256": "9312a2bb68dcdd2e35862e113a1039def424185edd2bf7e2e202dbd308fe79d4",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-targets-720.log"
+    },
+    {
+      "case": "battle-status",
+      "height": 720,
+      "image": "docs/production/image-ui-preview/battle-status-720.png",
+      "sha256": "38171d569262f97c6dd3d81a763e60e9927579dc7f15113cbd1e0667e80c1b2b",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-status-720.log"
+    },
+    {
+      "case": "roster",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/roster-1080.png",
+      "sha256": "b61a60493f28058cb4750cfcff60021bc42e4f9dbcd58712e20cb5f6cd7802b6",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\roster-1080.log"
+    },
+    {
+      "case": "empty",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/empty-1080.png",
+      "sha256": "8b75f92854952c2f5bfba978828c5db360b59489e03089abb386173d01df9d7b",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\empty-1080.log"
+    },
+    {
+      "case": "detail",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/detail-1080.png",
+      "sha256": "594f5ef0ed0fc1603dc9816d2e1498700f2e1e374622406d20e7a5ed07ae5045",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\detail-1080.log"
+    },
+    {
+      "case": "skill",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/skill-1080.png",
+      "sha256": "f1c3948f21c8099d05056384c949a2d93c69dab49213b1e9f2f8a1d34a035a12",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\skill-1080.log"
+    },
+    {
+      "case": "tree-grown",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/tree-grown-1080.png",
+      "sha256": "d4699aaa693a165dfdc5a4047e4f7522a18f1d1142bbdfe99b65e62f4fef27d9",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\tree-grown-1080.log"
+    },
+    {
+      "case": "level-confirm",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/level-confirm-1080.png",
+      "sha256": "d8f8ecaf09c73165eb8d3415a2ecf969b7ecbd112f9a72c5a2b04b7234d98060",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\level-confirm-1080.log"
+    },
+    {
+      "case": "formation",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/formation-1080.png",
+      "sha256": "27758df1d41b158e65113117e102274fdc7e9a9c3ca746bf895044123ef00325",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\formation-1080.log"
+    },
+    {
+      "case": "materials",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/materials-1080.png",
+      "sha256": "140e2bd91b0cd9e0e2028db51c4aee81adbf0301eae57d181cb9830770bc9506",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\materials-1080.log"
+    },
+    {
+      "case": "kinder",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/kinder-1080.png",
+      "sha256": "3e005c682d7f5972fab1dbf91ef96f71a344375bab9f95eded3ff8eff9929a2d",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-1080.log"
+    },
+    {
+      "case": "kinder-rates",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/kinder-rates-1080.png",
+      "sha256": "88a9e0f1ded591ef9a25c3275d6812d87f07eb88313fc18dfc88f202e000c470",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-rates-1080.log"
+    },
+    {
+      "case": "kinder-exchange",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/kinder-exchange-1080.png",
+      "sha256": "3fe8786ed367e5d1d1da59f96d299ffba9963db23187462a06f6e6b76e316d23",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-exchange-1080.log"
+    },
+    {
+      "case": "kinder-tickets",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/kinder-tickets-1080.png",
+      "sha256": "9171534317c977e88da4a682722b3a3936311a6579e718842f2a9a2edec7e58f",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\kinder-tickets-1080.log"
+    },
+    {
+      "case": "train-disembark",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/train-disembark-1080.png",
+      "sha256": "76107b9749d212ac69385a524f5ef337a866911fe4dba2adef13a4c39f6b2873",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\train-disembark-1080.log"
+    },
+    {
+      "case": "collection",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/collection-1080.png",
+      "sha256": "5328538e2e415a0a05931f17eccd4053a905ec497fb173633778daf3aee2f1b2",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\collection-1080.log"
+    },
+    {
+      "case": "relics-populated",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/relics-populated-1080.png",
+      "sha256": "950c0a529dc4642bf55de8230c29c42a24026001189e42d5ba3a51fb27dff0d2",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\relics-populated-1080.log"
+    },
+    {
+      "case": "engagement",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/engagement-1080.png",
+      "sha256": "08ffdb7c3b5d345f4732ecc582c408317b3f6ef8698d0589bf07dbf9ae8cf62f",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\engagement-1080.log"
+    },
+    {
+      "case": "battle-idle",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/battle-idle-1080.png",
+      "sha256": "69b638a60bbe6ab2313ed620280305293d4d4053dfe27b6d3f7b4ba48bd56c53",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-idle-1080.log"
+    },
+    {
+      "case": "battle-targets",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/battle-targets-1080.png",
+      "sha256": "1288ec0d3a6e1343dca489042648b0b592c1db44db677012a041216641de73c0",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-targets-1080.log"
+    },
+    {
+      "case": "battle-status",
+      "height": 1080,
+      "image": "docs/production/image-ui-preview/battle-status-1080.png",
+      "sha256": "6827ce01e52c2f525681f966ea9f63f499ca94d9d347fc71c5c090d7ade495f5",
+      "state": "visually-reviewed-by-agent",
+      "physicalInput": 0,
+      "sourceAssemblySha256": "523e2cc3ee475042c7c067d22be1979b63fd908f36fc5ff2dfa499ce8b29e87a",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\heroine-sanctuary-ui-f838719d500744e99f98050f5e1bce31\\battle-status-1080.log"
+    }
+  ],
+  "caseCount": 64,
+  "normalSaveUnchanged": true,
+  "filesVerified": 162,
+  "physicalInputCount": 0,
+  "listeningSeconds": 0,
+  "performanceMeasured": false,
+  "earlierCoreEvidence": "7,873 assertions from 0.9.4-rc.2; Core source unchanged by this UI-only change",
+  "evidenceScope": "All 64 screenshots came from the final 0.9.5-rc.2 package and were individually inspected by the agent. Diagnostic fixtures use separate durable saves. No physical-input, listening or performance claims for this UI."
+}

@@ -1,0 +1,95 @@
+using System;
+using System.Linq;
+using System.Text.Json;
+using NewAster.Core;
+using NewAster.Data;
+public static class HeroineSanctuaryTests
+{
+    public static void Run(Action<bool,string> check,CombatDefinitionCatalog combat,string storyJson)
+    {
+        var options=new JsonSerializerOptions{IncludeFields=true};Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
+        var story=JsonSerializer.Deserialize<ProductionStoryContent>(storyJson,options);var home=ProductionStoryCatalog.Home(combat,story);var collection=ProductionStoryCatalog.Collection(combat,story);
+        var save=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",nectar=50000,heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion),collection=new FormalCollectionLedger{contentVersion=collection.contentVersion,materials=home.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray()}};
+        var journal=new FormalCampaignJournal(save,encode,decode);var progress=new FormalProgression(save.growth,combat.FormationIds);string hero=combat.FormationIds[0];
+        var poor=save.growth.Copy();poor.nectar=59;var poorProgress=new FormalProgression(poor,combat.FormationIds);bool insufficient=false;try{poorProgress.Preview(new GrowthRequest("poor",hero,0,GrowthOperation.Skill,2,skillSlot:0));}catch(ArgumentException){insufficient=true;}check(insufficient && poorProgress.Snapshot.nectar==59,"Insufficient nectar cannot raise skill or spend");
+        foreach(int badSlot in new[]{-1,3}){bool rejected=false;try{progress.Preview(new GrowthRequest("invalid.slot."+badSlot,hero,0,GrowthOperation.Skill,2,skillSlot:badSlot));}catch(ArgumentException){rejected=true;}check(rejected && progress.Snapshot.nectar==50000,"Invalid skill slots are rejected without mutation");}
+        var potent=save.growth.Copy();potent.heroines[0].skillLevels=new[]{7,1,1};var damageBase=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:save.growth);var damageUp=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:potent);for(int turn=0;damageBase.AvailableHero!=0 && turn<30;turn++){damageBase.Pass();damageUp.Pass();}check(damageUp.PreviewDamage(0,0,"body")>damageBase.PreviewDamage(0,0,"body") && damageUp.State.Heroes[0].Attack==damageBase.State.Heroes[0].Attack,"Skill Lv7 increases actual damage preview independently of mastery and stats");
+        var legacy=JsonSerializer.Deserialize<FormalHeroineGrowth>("{\"heroineId\":\"heroine.slayer\",\"level\":9}",options);check(legacy.SkillLevel(0)==1 && legacy.Copy().SkillLevel(2)==1,"Absent skill fields preserve prior level and start skills at Lv1");
+        for(int slot=0;slot<3;slot++)for(int level=2;level<=7;level++){
+            var before=progress.Snapshot;var request=new GrowthRequest("sanctuary.skill."+slot+"."+level,hero,before.revision,GrowthOperation.Skill,level,skillSlot:slot);
+            check(progress.Preview(request).NectarCost==60*(level-1),"Skill preview shows the authored incremental cost");
+            check(progress.Commit(request,s=>false)==GrowthCommitResult.SaveFailed && progress.Snapshot.nectar==before.nectar && progress.Snapshot.heroines[0].SkillLevel(slot)==level-1,"Failed skill persistence changes neither cost nor level");
+            check(progress.Commit(request,s=>journal.CommitGrowth(s,p=>true))==GrowthCommitResult.Committed,"Pending skill candidate retries without rebuilding");
+            check(progress.Commit(request,s=>throw new Exception("second debit"))==GrowthCommitResult.AlreadyCommitted && progress.Snapshot.nectar==before.nectar-60*(level-1),"Skill receipt prevents duplicate debit");
+        }
+        check(progress.Snapshot.heroines[0].skillLevels.SequenceEqual(new[]{7,7,7}) && save.growth.heroines[0].SkillLevel(0)==1,"Skill snapshots deeply isolate arrays and reach cap7");
+        bool refused=false;try{progress.Preview(new GrowthRequest("cap",hero,progress.Snapshot.revision,GrowthOperation.Skill,8,skillSlot:0));}catch(ArgumentException){refused=true;}check(refused,"Skill level8 is refused without spend");
+        var invalid=progress.Snapshot;invalid.heroines[0].skillLevels=new[]{0,7,7};refused=false;try{invalid.Validate();}catch(ArgumentException){refused=true;}check(refused,"Explicit invalid skill data is not silently repaired");
+        invalid=progress.Snapshot;invalid.heroines[0].skillLevels=new[]{7};refused=false;try{invalid.Validate();}catch(ArgumentException){refused=true;}check(refused,"Malformed skill array is rejected");
+        foreach(string id in combat.FormationIds){
+            var before=save.growth.Copy();var after=before.Copy();after.heroines.Single(h=>h.heroineId==id).skillLevels=new[]{7,7,7};
+            var a=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:before);var b=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:after);int actor=Array.IndexOf(combat.FormationIds,id);var job=combat.Hero(id).jobId;
+            check(b.State.Heroes[actor].Speed==a.State.Heroes[actor].Speed && b.ChainRate(actor)==a.ChainRate(actor),"Skill mastery never changes speed or chain rate");
+            check(HeroineTraitRules.Mastered(after.heroines[actor]) && !HeroineTraitRules.Mastered(before.heroines[actor]),"Mastery requires all three skills at7");
+            check(job=="job.fighter"?b.State.Heroes[actor].CriticalChanceBp==a.State.Heroes[actor].CriticalChanceBp+500:job=="job.berserker"?b.State.Heroes[actor].Attack>a.State.Heroes[actor].Attack:job=="job.defender"?b.State.Heroes[actor].MaxHitPoints>a.State.Heroes[actor].MaxHitPoints:job=="job.blaster"?b.State.Heroes[actor].MagicDefense>a.State.Heroes[actor].MagicDefense:b.State.Heroes[actor].PhysicalDefense>a.State.Heroes[actor].PhysicalDefense,"Each heroine mastery applies its distinct actual battle bonus");
+            for(int slot=0;slot<3;slot++){var s=combat.Skill(id,slot);var upgraded=HeroineSkillRules.AtLevel(s,7);check(upgraded.powerScale>=s.powerScale && upgraded.recoveryPercent==s.recoveryPercent && upgraded.castPercent==s.castPercent && upgraded.resourceCost==s.resourceCost && HeroineSkillRules.Description(s,7,combat.Job(job)).Length>25,"Every skill has live effect text and capped scaling without timing/resource changes");}
+            check(HeroineIdentityCatalog.Traits(combat.Hero(id),after.heroines[actor]).Length==3,"Each heroine has three authored trait cards");
+        }
+        var partyJournal=new FormalCampaignJournal(save,encode,decode);
+        for(int slot=0;slot<5;slot++){
+            var before=partyJournal.Snapshot;string target=combat.FormationIds[(slot+1)%5];var op=new HomeOperation("formation",target,slot.ToString());var request=new FormalHomeRequest("party.slot."+slot,"formation",before.revision,home.contentVersion,op.Key);
+            check(partyJournal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(partyJournal.Snapshot)==encode(before),"Formation failed persistence never changes the active party or wallets");
+            check(partyJournal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed && partyJournal.Snapshot.home.formationIds[slot]==target && partyJournal.Snapshot.home.formationIds.Distinct().Count()==5,"Each of the five slots swaps without duplicate members");
+            var restarted=new FormalCampaignJournal(decode(encode(partyJournal.Snapshot)),encode,decode);
+            check(restarted.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.AlreadyCommitted && JsonSerializer.Serialize(restarted.Snapshot.growth,options)==JsonSerializer.Serialize(before.growth,options),"Saved formation replays once without costs after restart");
+        }
+        foreach(var op in new[]{new HomeOperation("formation",combat.FormationIds[0],"5"),new HomeOperation("formation","heroine.unowned","0"),new HomeOperation("formation",combat.FormationIds[0],"invalid")}){
+            string before=encode(partyJournal.Snapshot);bool rejected=false;try{partyJournal.CommitHomeOperation(new FormalHomeRequest("invalid.party."+op.Target+"."+op.Owner,"formation",partyJournal.Snapshot.revision,home.contentVersion,op.Key),home,op,s=>true);}catch(ArgumentException){rejected=true;}check(rejected && encode(partyJournal.Snapshot)==before,"Invalid or unowned formation selections preserve active party and durable save");
+        }
+        Func<string[],System.Collections.Generic.IEnumerable<string[]>> permutations=null;
+        permutations=ids=>ids.Length==0?new[]{Array.Empty<string>()}:ids.SelectMany((id,index)=>permutations(ids.Where((_,i)=>i!=index).ToArray()).Select(tail=>new[]{id}.Concat(tail).ToArray()));
+        foreach(var ids in permutations(combat.FormationIds)){
+            var reordered=combat.WithFormation(ids);reordered.Validate();var battle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:reordered,formalGrowth:save.growth);
+            check(battle.State.Heroes.Select(h=>h.Id).SequenceEqual(ids) && Enumerable.Range(0,5).All(i=>battle.SkillName(i,1)==combat.Skill(ids[i],1).name),"All120 party orders bind battle identity and skills to selected members");
+        }
+        check(combat.FormationIds.SequenceEqual(home.heroineIds),"Battle formation copies never reorder canonical production/story catalogs");
+        foreach(var owner in collection.owners.Where(o=>o.kind=="colossus")){
+            var resources=owner.materialIds.Select(id=>collection.resources.Single(r=>r.id==id)).ToArray();
+            check(resources.Length==4 && resources.Select(r=>r.rarity).SequenceEqual(new[]{1,2,3,4}),"Each giant beast has four distinct named material rarities");
+            foreach(var r in resources){check(r.DropAmount(r.minDropLevel)>0 && (r.rarity==1 || r.DropAmount(r.minDropLevel-1)==0),"Rare drops begin exactly at their authored victory level");check(collection.Copy().resources.Single(x=>x.id==r.id).name==r.name && collection.Copy().resources.Single(x=>x.id==r.id).rarity==r.rarity,"Snapshot copies retain material rarity and source metadata");}
+        }
+        foreach(var n in home.weaponNodes.Where(n=>n.id.EndsWith("tier4")))check(n.costs.Select(c=>collection.resources.Single(r=>r.id==c.resourceId).ownerId).Distinct().Count()==3 && n.costs.Count(c=>collection.resources.Single(r=>r.id==c.resourceId).rarity==4)==2,"Final weapons require SSR from two beasts plus SR from a third");
+        var state=journal.Snapshot;
+        foreach(var n in home.weaponNodes.Where(n=>n.heroineId==hero)){
+            var op=new HomeOperation("weapon",n.id);var request=new FormalHomeRequest("tree.acquire."+n.id,"weapon",journal.Snapshot.revision,home.contentVersion,op.Key);
+            check(journal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed,"All thirteen production nodes can actually be acquired with their dependencies");
+        }
+        string node=hero+".weapon.alpha.tier4";
+        for(int lv=2;lv<=7;lv++){
+            var before=journal.Snapshot;var op=new HomeOperation("weapon-level",node,lv.ToString());var request=new FormalHomeRequest("tree.level."+lv,"weapon-level",before.revision,home.contentVersion,op.Key);var cost=WeaponGrowthRules.Costs(home.weaponNodes.Single(n=>n.id==node),lv-1,home)[0];
+            check(journal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==encode(before),"Weapon upgrade failure is atomic across materials and level");
+            check(journal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed && journal.Snapshot.home.WeaponLevel(node)==lv && HomeRules.Balance(journal.Snapshot,cost.resourceId)==HomeRules.Balance(before,cost.resourceId)-cost.amount,"Weapon upgrade retry consumes its displayed materials once");
+            check(WeaponGrowthRules.Costs(home.weaponNodes.Single(n=>n.id==node),lv-1,home).All(c=>HomeRules.Balance(journal.Snapshot,c.resourceId)==HomeRules.Balance(before,c.resourceId)-c.amount),"Weapon Lv upgrade consumes all three source beasts atomically");
+        }
+        var equip=new HomeOperation("equip",node,hero);journal.CommitHomeOperation(new FormalHomeRequest("tree.equip","weapon",journal.Snapshot.revision,home.contentVersion,equip.Key),home,equip,s=>true);
+        var armed=journal.Snapshot;var baseBattle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:armed.growth);var armedBattle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:armed.growth,homeCatalog:home,homeProgress:armed.home);
+        check(armedBattle.State.Heroes[0].Attack>baseBattle.State.Heroes[0].Attack && armedBattle.SkillName(0,0)==home.weaponNodes.Single(n=>n.id==node).terminal,"Lv7 equipped weapon changes next battle attack and command profile");
+        var old=decode(encode(save));old.home.contentVersion=HomeExperienceCatalog.PreviousProductionVersion;old.home.weaponNodeIds=new[]{hero+".weapon.root",hero+".weapon.alpha"};old.home.weaponEquipment=new[]{new HomeWeaponEquipment{heroineId=hero,nodeId=hero+".weapon.alpha"}};old.home.weaponLevels=null;old.growth.heroines[0].skillLevels=null;string original=encode(old);
+        var migrated=ProductionStoryMigration.Prepare(old,combat,story,s=>decode(encode(s)));
+        check(encode(old)==original && migrated.home.weaponEquipment[0].nodeId==hero+".weapon.alpha" && migrated.home.WeaponLevel(hero+".weapon.alpha")==1 && migrated.growth.heroines[0].SkillLevel(0)==1,"RC1 content migration retains equipped stable nodes and missing skill/weapon fields mean Lv1");
+        foreach(var id in combat.FormationIds){int actor=Array.IndexOf(combat.FormationIds,id);
+            var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:save.growth).State.Heroes[actor];
+            foreach(string branch in new[]{"alpha","beta","gamma"}){
+                var n=home.weaponNodes.Single(x=>x.id==id+".weapon."+branch+".tier4");var equipment=decode(encode(save)).home;equipment.weaponNodeIds=home.weaponNodes.Select(x=>x.id).ToArray();equipment.weaponEquipment=new[]{new HomeWeaponEquipment{heroineId=id,nodeId=n.id}};equipment.weaponLevels=new[]{new HomeWeaponLevel{nodeId=n.id,level=7}};
+                var actual=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:save.growth,homeProgress:equipment,homeCatalog:home).State.Heroes[actor];
+                check(!string.IsNullOrEmpty(n.weaponTraitName) && WeaponGrowthRules.Trait(n).Contains("＋"),"Every final branch has a named effective trait");
+                check(branch=="alpha"?actual.Attack>baseline.Attack && actual.CriticalChanceBp>baseline.CriticalChanceBp && actual.Speed==baseline.Speed:branch=="beta"?actual.PhysicalDefense>baseline.PhysicalDefense && actual.MagicDefense>baseline.MagicDefense && actual.Speed==baseline.Speed:actual.Speed>baseline.Speed && actual.CriticalMultiplierPercent>baseline.CriticalMultiplierPercent,"Equipped branches differ in actual battle stats, including final traits");
+                check(branch=="alpha"?actual.BaseAttack==(int)((long)((FormalGrowthMath.Stat(combat.Job(combat.Hero(id).jobId).attack,combat.Hero(id).attackBp,save.growth.heroines[actor].level,save.growth.heroines[actor].duplicateRank)+WeaponGrowthRules.Attack(n,7))*110/100)*(10000+(combat.Hero(id).traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(combat.Hero(id).traitAttackPercent*100,save.growth.heroines[actor].duplicateRank)))/10000):branch=="beta"?actual.PhysicalDefense==(baseline.PhysicalDefense+WeaponGrowthRules.Physical(n,7))*112/100:actual.Speed==(baseline.Speed+WeaponGrowthRules.Speed(n,7))*108/100,"Final trait applies once after its additive branch stat");
+            }
+        }
+        var roster=new HeroineRoster(Enumerable.Range(0,256).Select(i=>new HeroineRosterEntry{id="heroine.test."+i.ToString("D3"),name="人物"+i.ToString("D3"),jobId=i%2==0?"job.fighter":"job.gunner",stage="available",originalStats=true,originalSkills=true}),new[]{"job.fighter","job.gunner"},new[]{"job.fighter","job.gunner"});
+        var entries=roster.Search("",null,null);var pages=Enumerable.Range(0,22).SelectMany(p=>entries.Skip(p*12).Take(12)).ToArray();check(pages.Length==256 && pages.Select(e=>e.id).Distinct().Count()==256,"Twelve-card pagination selects all256 without cycling individual heroes");
+        check(roster.Search("人物12",null,null).Length==10 && roster.Search("", "job.gunner",null).Length==128 && roster.Search("人物12","job.fighter",null).Length==5,"Card search combines names and job filtering");
+        check(roster.Search("not found",null,null).Length==0 && roster.Search("",null,new[]{"heroine.test.255"}).Single().id=="heroine.test.255","Empty and owned-only card results are explicit");
+    }
+}

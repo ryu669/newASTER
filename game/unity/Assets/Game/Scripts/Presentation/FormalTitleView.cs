@@ -53,13 +53,10 @@ namespace NewAster.Presentation
 
         private void TitleFill(Rect rect, Color color)
         {
-            var previous = GUI.color;
-            GUI.color = color;
-            GUI.DrawTexture(rect, Texture2D.whiteTexture);
-            GUI.color = previous;
+            ImageUiSkin.Surface(rect,color);
         }
 
-        // Code-native ornament: no additional bitmap or borrowed logo is required.
+        // Thin rules complement the image frames.
         private void TitleBorder(Rect rect, float weight = 1)
         {
             TitleFill(new Rect(rect.x, rect.y, rect.width, weight), titleGold);
@@ -84,8 +81,6 @@ namespace NewAster.Presentation
             SampleImage(new Rect(700, 0, 900, 900), "slayer-standing");
             TitleFill(new Rect(0, 0, 775, 900), new Color(.035f, .05f, .10f, .96f));
             TitleFill(new Rect(775, 0, 825, 900), new Color(.035f, .05f, .10f, .12f));
-            TitleBorder(new Rect(28, 28, 1544, 844));
-            TitleBorder(new Rect(48, 48, 720, 804));
             if (titleLogo == null)
             {
                 titleLogo = new GUIStyle(heading) {fontSize = 78, alignment = TextAnchor.MiddleCenter};
@@ -113,13 +108,8 @@ namespace NewAster.Presentation
         private void DrawFormalBookSurface()
         {
             TitleFill(new Rect(0, 0, 1600, 900), titleInk);
-            // Layered paper and a shaded binding preserve the book's information layout.
-            TitleFill(new Rect(6, 92, 1018, 720), new Color(.52f, .43f, .30f));
-            TitleFill(new Rect(3, 87, 1015, 718), new Color(.79f, .72f, .59f));
+            // The image owns its complete border; legacy paper layers and straight outlines are removed.
             Panel(0, 80, 1010, 720, paper);
-            TitleFill(new Rect(996, 80, 3, 720), new Color(.70f, .59f, .40f));
-            TitleFill(new Rect(1000, 80, 10, 720), new Color(.38f, .30f, .23f));
-            TitleBorder(new Rect(12, 90, 976, 710));
         }
 
         private void DrawTitlePanel()
@@ -129,16 +119,15 @@ namespace NewAster.Presentation
             { Event.current.Use(); return; }
             TitleFill(new Rect(0, 0, 1600, 900), new Color(0, 0, 0, .7f));
             TitleFill(new Rect(350, 140, 900, 620), titleInk);
-            TitleBorder(new Rect(360, 150, 880, 600), 2);
             if (titlePanel == "settings")
             {
                 if(!titleSettingsDraftReady)BeginTitleSettings();
                 Label(400, 185, 750, 60, "設定", heading, titleGold);
                 Label(400, 280, 240, 40, "BGM音量", text, Color.white);
-                titleDraftBgm=GUI.HorizontalSlider(new Rect(650, 295, 400, 30),titleDraftBgm,0,1);
+                titleDraftBgm=ImageUiSkin.HorizontalSlider(new Rect(650, 295, 400, 30),titleDraftBgm,0,1);
                 Label(1070,280,90,40,Mathf.RoundToInt(titleDraftBgm*100)+"%",small,Color.white);
                 Label(400, 365, 240, 40, "効果音量", text, Color.white);
-                titleDraftSe=GUI.HorizontalSlider(new Rect(650, 380, 400, 30),titleDraftSe,0,1);
+                titleDraftSe=ImageUiSkin.HorizontalSlider(new Rect(650, 380, 400, 30),titleDraftSe,0,1);
                 Label(1070,365,90,40,Mathf.RoundToInt(titleDraftSe*100)+"%",small,Color.white);
                 if (TitleButton(400, 440, 720, 45, "演出短縮："+(titleDraftShortened ? "ON" : "OFF")))titleDraftShortened=!titleDraftShortened;
                 if (TitleButton(400, 497, 350, 45, "揺れ軽減："+(titleDraftMotion ? "ON" : "OFF")))titleDraftMotion=!titleDraftMotion;
