@@ -8,6 +8,7 @@ $taskRequired=@('newASTER.exe','UnityPlayer.dll','newASTER_Data','MonoBleedingEd
 foreach($taskItem in $taskRequired){if(!(Test-Path -LiteralPath (Join-Path $taskBuild $taskItem))){throw "Missing player dependency: $taskItem"}}
 New-Item -ItemType Directory -Path $taskOutput | Out-Null
 foreach($taskItem in $taskRequired){Copy-Item -LiteralPath (Join-Path $taskBuild $taskItem) -Destination (Join-Path $taskOutput $taskItem) -Recurse}
+foreach($taskRuntime in @('D3D12','dstorage.dll','dstoragecore.dll','UnityCrashHandler64.exe')){if(Test-Path -LiteralPath (Join-Path $taskBuild $taskRuntime)){Copy-Item -LiteralPath (Join-Path $taskBuild $taskRuntime) -Destination (Join-Path $taskOutput $taskRuntime) -Recurse}}
 foreach($taskDll in (Get-ChildItem -LiteralPath $taskBuild -File -Filter '*.dll' | Where-Object Name -ne 'UnityPlayer.dll')){Copy-Item -LiteralPath $taskDll.FullName -Destination (Join-Path $taskOutput $taskDll.Name)}
 foreach($taskItem in @('UnityCrashHandler64.exe','D3D12')){if(Test-Path -LiteralPath (Join-Path $taskBuild $taskItem)){Copy-Item -LiteralPath (Join-Path $taskBuild $taskItem) -Destination (Join-Path $taskOutput $taskItem) -Recurse}}
 Copy-Item -LiteralPath (Join-Path $taskRepo $ReadmePath) -Destination (Join-Path $taskOutput 'README.txt')

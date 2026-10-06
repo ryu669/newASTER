@@ -164,6 +164,7 @@ namespace NewAster.Presentation
             int battleMenuIndex=Array.IndexOf(args,"-captureBattleMenu");
             PreparePlan9ColossusCapture(args);
             if(capturePath!=null && battleMenuIndex>=0 && battleMenuIndex+1<args.Length)PrepareBattleMenuCapture(args[battleMenuIndex+1]);
+            PrepareBattleJobCapture(args);
             if(capturePath!=null && args.Contains("-captureHealingPlayback")) {
                 while(encounter.AvailableHero!=4 && !encounter.Ended) encounter.Pass();
                 encounter.DrainPresentationEvents();
@@ -528,7 +529,7 @@ namespace NewAster.Presentation
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot);
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);

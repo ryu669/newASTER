@@ -39,7 +39,7 @@ namespace NewAster.Core
         public bool ResourceBoostSelected {get;set;}
         public bool UsesOptionalResourceBoost => optionalResourceBoost;
         public int BoostCost(int actor,int slot) => Math.Min(State.Heroes[actor].JobResource,Math.Max(1,commandDefinitions?[actor,slot].chargeConsumeMax>0?commandDefinitions[actor,slot].chargeConsumeMax:commandDefinitions?[actor,slot].resourceCost??3));
-        private decimal BoostScale(int actor,int slot) => optionalResourceBoost && ResourceBoostSelected?1m+BoostCost(actor,slot)*.1m:1m;
+        private decimal BoostScale(int actor,int slot) => UsesJobRulesV2?JobPower(actor):optionalResourceBoost && ResourceBoostSelected?1m+BoostCost(actor,slot)*.1m:1m;
         public string SkillAttributes(int actor,int slot) => CombatAttributeRules.Labels(commandDefinitions?[actor,slot].attributes);
         private readonly string[] formationIds;
         private readonly JobCombatDef[] jobProfiles;
@@ -50,14 +50,14 @@ namespace NewAster.Core
         public string AttackTargetDescription(int actor,int slot) => commandDefinitions?[actor,slot].targetRuleId=="target.all-enemies"?"全体・合計":commandDefinitions?[actor,slot].targetRuleId=="target.enemy-range"?"範囲・合計":"単体";
         public string EnemyAttributeDescription=>CombatAttributeRules.Describe(State.AttributeResistances);
         public string EnemyStatusDescription(string target) => State.EnemyStatus(target).Description;
-        public int SkillResourceCost(int actor,int slot) => optionalResourceBoost?(ResourceBoostSelected?BoostCost(actor,slot):0):commandDefinitions!=null?(commandDefinitions[actor,slot].chargeConsumeMax>0?Math.Min(commandDefinitions[actor,slot].chargeConsumeMax,State.Heroes[actor].JobResource):commandDefinitions[actor,slot].resourceCost):HealingSkill(actor,slot)?.ResourceCost??(slot==0?0:3);
+        public int SkillResourceCost(int actor,int slot) => UsesJobRulesV2?JobCost(actor,slot):optionalResourceBoost?(ResourceBoostSelected?BoostCost(actor,slot):0):commandDefinitions!=null?(commandDefinitions[actor,slot].chargeConsumeMax>0?Math.Min(commandDefinitions[actor,slot].chargeConsumeMax,State.Heroes[actor].JobResource):commandDefinitions[actor,slot].resourceCost):HealingSkill(actor,slot)?.ResourceCost??(slot==0?0:3);
         public string SkillName(int actor,int slot) => commandDefinitions!=null?commandDefinitions[actor,slot].name:HealingSkill(actor,slot)?.Name??(slot==0?"通常攻撃":slot==1?"強撃":SupportName(actor));
         private bool ChainEligible(int actor,int slot) => commandDefinitions==null || commandDefinitions[actor,slot].chainEligible;
         public bool IsSelfBuff(int actor,int slot) => commandDefinitions?[actor,slot].effectRuleId=="effect.self-buff";
         public bool IsAttackSkill(int actor,int slot) => commandDefinitions!=null?commandDefinitions[actor,slot].effectRuleId=="effect.damage":slot<2 && HealingSkill(actor,slot)==null;
-        public bool ConditionsSatisfied(int actor,int slot) => SkillConditionDef.AllSatisfied(State,actor,optionalResourceBoost?commandDefinitions?[actor,slot].conditions?.Where(c=>c.kind!="resource-at-least" && c.kind!="job-resource-at-least").ToArray():commandDefinitions?[actor,slot].conditions);
+        public bool ConditionsSatisfied(int actor,int slot) => JobCanCommand(actor,slot) && SkillConditionDef.AllSatisfied(State,actor,optionalResourceBoost?commandDefinitions?[actor,slot].conditions?.Where(c=>c.kind!="resource-at-least" && c.kind!="job-resource-at-least").ToArray():commandDefinitions?[actor,slot].conditions);
         public int PreviewCriticalChanceBp(int actor,int slot) => IsAttackSkill(actor,slot)?Math.Min(10000,State.Heroes[actor].CriticalChanceBp+(commandDefinitions?[actor,slot].criticalBonusBp??0)):0;
-        public string SelfBuffDescription(int actor,int slot) => IsSelfBuff(actor,slot)?string.Join(" / ",commandDefinitions[actor,slot].selfEffects.Select(e=>TimedSelfEffectDef.Label(e.kind)+(e.kind=="forced-target"?"":e.percent+"%・")+e.turns+"行動")):"";
+        public string SelfBuffDescription(int actor,int slot) => IsSelfBuff(actor,slot)?string.Join(" / ",commandDefinitions[actor,slot].selfEffects.Select(e=>TimedSelfEffectDef.Label(e.kind)+(e.kind=="forced-target"?"":e.percent+"%・")+e.turns+(UsesJobRulesV2?"ターン":"行動"))):"";
         public IReadOnlyList<int> LastHealingTargets { get; private set; } = Array.Empty<int>();
         public HealingSkillDefinition HealingSkill(int actor,int slot) => healingSkills.FirstOrDefault(x=>x.Actor==actor && x.Slot==slot);
         public static HealingSkillDefinition[] DefaultHealingSkills() => new[] {
@@ -86,7 +86,7 @@ namespace NewAster.Core
                 default: return "";
             }
         }
-        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null, ColossusCombatDef colossusDefinition = null, FormalCollectionLedger collectionGrowth = null, FormalHomeProgress homeProgress=null,HomeExperienceCatalog homeCatalog=null,CollectionCatalog relicCatalog=null)
+        public PlayableBattle(int level, PlayableProgress progress, int seed = 1, IEnumerable<HealingSkillDefinition> healingDefinitions = null, bool useTimeline = true, SkillTimingDefinition[,] skillTimings = null, IEnumerable<HeroineChainAction> heroineChainActions = null, CombatDefinitionCatalog combatDefinitions = null, FormalGrowthSave formalGrowth = null, ColossusCombatDef colossusDefinition = null, FormalCollectionLedger collectionGrowth = null, FormalHomeProgress homeProgress=null,HomeExperienceCatalog homeCatalog=null,CollectionCatalog relicCatalog=null,bool useJobRulesV2=false,int protectedSlot=0)
         {
             if (progress == null) throw new ArgumentNullException(nameof(progress));
             formalGrowth?.Validate();
@@ -140,6 +140,7 @@ namespace NewAster.Core
                 colossusDefinition!=null?checked(colossusDefinition.baseHp+level*colossusDefinition.hpPerLevel):(IsFormal?1500:320) + level * (IsFormal?120:24), colossusDefinition?.gaugeMax??4,combatDefinitions?.enemyPhysicalDefense??0,combatDefinitions?.enemyMagicDefense??0,colossusDefinition?.statusResistances??combatDefinitions?.enemyStatusResistances);
             State.ReferenceStatusRules=optionalResourceBoost;
             State.AttributeResistances=colossusDefinition?.attributeResistances?.Select(a=>a.Copy()).ToArray()??Array.Empty<AttributeResistanceDef>();
+            InitializeJobRules(useJobRulesV2,protectedSlot);
             BeginTurn();
             if(UsesTimeline) InitializeTimeline();
         }
@@ -221,7 +222,7 @@ namespace NewAster.Core
             if(effects==null || effects.Length==0) return false;
             if(completeCommand) State.Heroes[actor].CompleteOwnerCommand();
             if(State.Heroes[actor].ApplySelfEffects(effects))
-                RecordPresentation(BattlePresentationKind.Support,actor,"body","攻撃後の自己効果 / "+string.Join(" / ",effects.Select(e=>TimedSelfEffectDef.Label(e.kind)+e.percent+"・"+e.turns+"行動")),targetIds:new[]{State.Heroes[actor].Id},standalone:true);
+                RecordPresentation(BattlePresentationKind.Support,actor,"body","攻撃後の自己効果 / "+string.Join(" / ",effects.Select(e=>TimedSelfEffectDef.Label(e.kind)+e.percent+"・"+e.turns+(UsesJobRulesV2?"ターン":"行動"))),targetIds:new[]{State.Heroes[actor].Id},standalone:true);
             return true;
         }
         public int PreviewDamage(int heroIndex, int skill, string target)
@@ -250,6 +251,7 @@ namespace NewAster.Core
                 int protection=magic?State.Heroes[heroIndex].MagicDefense:State.Heroes[heroIndex].PhysicalDefense;
                 damage=(int)((long)damage*1000/(1000L+protection));
                 if(State.Heroes[heroIndex].Status.Active("sickness"))damage=damage*125/100;
+                if(UsesJobRulesV2)damage=(int)((long)damage*State.Heroes[heroIndex].JobIncomingPercent/100);
                 return magic?Math.Max(1,damage):State.Heroes[heroIndex].ProtectPhysicalDamage(Math.Max(1,damage));
             }
             return State.Heroes[heroIndex].ProtectPhysicalDamage(Math.Max(1, damage - defense[heroIndex] * 3));
@@ -292,7 +294,7 @@ namespace NewAster.Core
             if(UsesTimeline && CastDelay(heroIndex,skill)>0) return StartCasting(heroIndex,skill,target);
             bool selfBuff=IsSelfBuff(heroIndex,skill);
             decimal effectBoost=BoostScale(heroIndex,skill);
-            bool commandCompleted=false;
+            bool commandCompleted=false;int jobCost=SkillResourceCost(heroIndex,skill),repeats=UsesJobRulesV2?JobRepeat(heroIndex):1;
             if(selfBuff)
             {
                 if(!hero.SpendResource(SkillResourceCost(heroIndex,skill))) {Log="資源が不足しています。";return false;}
@@ -346,15 +348,18 @@ namespace NewAster.Core
                 RecordAttackFollowUps(heroIndex,result);
                 ApplyCommandAttackEffects(heroIndex,skill);
                 commandCompleted=ApplyAttackTimedEffects(heroIndex,skill,true);
+                if(UsesJobRulesV2){ConsumeJobCommand(heroIndex,jobCost,true);ResolveRepeatedAttack(heroIndex,skill,target,repeats);}
                 if(UsesTimeline && ChainEligible(heroIndex,skill)) ResolveAutomaticChain(heroIndex,skillChainBonuses[skill],(bool[])cumulativeChainActors.Clone());
             }
             bool hadEffects=hero.TimedEffects.Count>0;
             if(!commandCompleted) hero.CompleteOwnerCommand();
-            if(hadEffects && !selfBuff && !commandCompleted) RecordPresentation(BattlePresentationKind.Support,heroIndex,"body","持続効果の残り行動を更新。",targetIds:new[]{hero.Id},standalone:true);
+            if(hadEffects && !selfBuff && !commandCompleted && !UsesJobRulesV2) RecordPresentation(BattlePresentationKind.Support,heroIndex,"body","持続効果の残り行動を更新。",targetIds:new[]{hero.Id},standalone:true);
             if(selfBuff) {
                 hero.ApplySelfEffects(commandDefinitions[heroIndex,skill].selfEffects.Select(e=>new TimedSelfEffectDef{kind=e.kind,turns=e.turns,percent=e.kind=="forced-target"?e.percent:Math.Min(e.kind=="critical" || e.kind=="physical-protection"?100:1000,(int)Math.Floor(e.percent*effectBoost))}).ToArray());
                 RecordPresentation(BattlePresentationKind.Support,heroIndex,"body",Log,targetIds:new[]{hero.Id});
             }
+            if(UsesJobRulesV2 && !IsAttackSkill(heroIndex,skill)){ConsumeJobCommand(heroIndex,jobCost,false);hero.GainResource(jobProfiles[heroIndex].gainOnAttack);}
+            GainJobCommandResource(heroIndex);
             ResourceBoostSelected=false;
             int statusWait=optionalResourceBoost?FinishHeroStatusAction(heroIndex,IsAttackSkill(heroIndex,skill)):0;
             Acted[heroIndex] = true;
@@ -387,15 +392,18 @@ namespace NewAster.Core
             if(optionalResourceBoost && (State.BossStatus.Active("stun") || State.BossStatus.Active("absent"))){if(State.BossStatus.Active("absent"))State.HealBoss(State.BossMaxHitPoints*5/100);FinishEnemyStatuses(false);RecordPresentation(BattlePresentationKind.Enemy,-1,"body","状態異常により巨神獣の行動をスキップ。",standalone:true);return;}
             bool major=NextAttackIsMajor;string action=NextEnemyAction;lastEnemyWasMajor=major;
             var step=NextColossusStep;int gaugeGain=NextColossusGaugeGain;lastColossusWaitPercent=step?.waitPercent??100;
-            long actualDamage=0;var damagedHeroes=new List<string>();
+            long actualDamage=0;var damagedHeroes=new List<string>();var counterActors=new List<int>();
             var enemyTargets=NextEnemyTargets;
             if(optionalResourceBoost && State.BossStatus.Active("jamming") && enemyTargets.Length==1){var alive=Enumerable.Range(0,5).Where(i=>State.Heroes[i].IsAlive).ToArray();enemyTargets=new[]{alive[random.Next(alive.Length)]};}
-            foreach(int i in enemyTargets) {
+            foreach(int intended in enemyTargets) {
+                int i=GuardRecipient(intended,enemyTargets);
                 int beforeHp=State.Heroes[i].HitPoints;
                 int damage=PreviewEnemyDamage(i);if(optionalResourceBoost && State.Heroes[i].Status.Active("absent") && random.Next(10000)<2500)damage=damage*150/100;State.Heroes[i].TakeDamage(damage);
                 if(optionalResourceBoost && State.Heroes[i].IsAlive)foreach(var e in step?.statusEffects??Array.Empty<EnemyStatusDef>()){State.Heroes[i].AddStatus(e);readyAt[i]+=State.Heroes[i].ConsumeStatusActivationWait();}
                 int lost=beforeHp-State.Heroes[i].HitPoints;if(lost>0){actualDamage+=lost;damagedHeroes.Add(State.Heroes[i].Id);}
                 if(IsFormal && damage>0 && State.Heroes[i].IsAlive) State.Heroes[i].GainResource(jobProfiles[i].gainOnHit);
+                if(UsesJobRulesV2 && intended!=i)RecordPresentation(BattlePresentationKind.Support,i,"body",HeroineName(intended)+"をかばう",targetIds:new[]{State.Heroes[i].Id},standalone:true);
+                if(UsesJobRulesV2 && damage>0)counterActors.Add(i);
             }
             State.AdvanceBossGauge(RolePart("gauge",0).IsBroken || RolePart("gauge",0).Status.Active("stun") ? 0 : gaugeGain);
             if (major) State.TryConsumeMajorGauge();
@@ -403,15 +411,17 @@ namespace NewAster.Core
             if(optionalResourceBoost)FinishEnemyStatuses(true);else if(IsFormal) TickEnemyStatuses();
             Log += "\n巨神獣の" + action + "！";
             RecordPresentation(BattlePresentationKind.Enemy,-1,"body","巨神獣の"+action+"！",major:major,damage:(int)Math.Min(int.MaxValue,actualDamage),targetIds:damagedHeroes);
+            foreach(int actor in counterActors)DefenderReaction(actor);
             CompletedEnemyAction?.Invoke();
             if (!State.Heroes.Any(h => h.IsAlive)) { Log += " 育成して再挑戦できます。"; return; }
         }
         private int FinishHeroStatusAction(int actor,bool attacked){var h=State.Heroes[actor];int before=h.HitPoints;int wait=h.FinishStatusAction(attacked);if(h.HitPoints!=before || wait>0)RecordPresentation(BattlePresentationKind.Support,actor,"body","状態異常：行動終了 / HP "+(h.HitPoints-before)+" / 待機 +"+wait,damage:Math.Max(0,before-h.HitPoints),targetIds:new[]{h.Id},standalone:true);return wait;}
         private void FinishEnemyStatuses(bool attacked){long damage=State.ApplyBossDamage(State.BossStatus.Dot(State.BossMaxHitPoints)+(attacked && State.BossStatus.Active("fracture")?State.BossMaxHitPoints*5/100:0));bool broken=false;foreach(var p in State.Parts.Where(p=>!p.IsBroken)){if(p.Status.Active("absent"))p.Heal(p.MaxHitPoints*5/100);int dot=p.Status.Dot(p.MaxHitPoints)+(attacked && p.Status.Active("fracture") && p.Role=="attack"?p.MaxHitPoints*5/100:0);if(p.Status.Active("electrified"))State.EnemyWaitPenalty+=20;damage+=Math.Min(p.HitPoints,dot);broken=State.BreakPart(p.Id,dot)||broken;}if(damage>0)RecordPresentation(BattlePresentationKind.Support,-1,"body","状態異常：行動終了時ダメージ",damage:(int)Math.Min(int.MaxValue,damage),broken:broken,standalone:true);State.EnemyWaitPenalty+=State.BossStatus.Active("electrified")?20:0;TickEnemyStatuses();}
-        private void TickEnemyStatuses() {State.BossStatus.Tick();foreach(var part in State.Parts) part.Status.Tick();}
+        private void TickEnemyStatuses() {if(UsesJobRulesV2)return;State.BossStatus.Tick();foreach(var part in State.Parts) part.Status.Tick();}
         private void ApplyCommandAttackEffects(int actor,int slot)
         {
             if(!IsFormal) return;
+            JobAttackReaction(actor);
             var d=commandDefinitions[actor,slot];int before=State.Heroes[actor].JobResource;State.Heroes[actor].GainResource(jobProfiles[actor].gainOnAttack);
             bossAt+=d.enemyWaitAdd+State.EnemyWaitPenalty;State.EnemyWaitPenalty=0;
             if(before!=State.Heroes[actor].JobResource || d.enemyWaitAdd>0) RecordPresentation(BattlePresentationKind.Support,actor,"body",ResourceName(actor)+" ＋"+(State.Heroes[actor].JobResource-before)+(d.enemyWaitAdd>0?" / 巨神獣の待機 ＋"+d.enemyWaitAdd:""),targetIds:new[]{State.Heroes[actor].Id},standalone:true);

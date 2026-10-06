@@ -41,11 +41,12 @@ namespace NewAster.Core
         private long bossAt;
         private int commandCount;
         private readonly SkillTimingDefinition[,] timings;
-        private sealed class PendingCast { public int Slot; public string Target; public BattleSkill Skill; public int ChainBonus; public bool[] ChainActors; }
+        private sealed class PendingCast { public int Slot; public string Target; public BattleSkill Skill; public int ChainBonus; public bool[] ChainActors; public int Repeats; }
         public SkillTimingDefinition Timing(int actor,int slot)
         {
             // Vertical-slice profiles only; each skill has independent casting/recovery fields.
             if(actor<0 || actor>=5 || slot<0 || slot>=3) throw new ArgumentOutOfRangeException();
+            if(Job(actor,"blaster"))return new SkillTimingDefinition(new[]{75,100,125}[slot],new[]{50,100,150}[slot]*jobStates[actor].CastPercent/100);
             return timings[actor,slot];
         }
         public static SkillTimingDefinition[,] DefaultTimings()
@@ -83,7 +84,7 @@ namespace NewAster.Core
             if(!UsesTimeline || Ended || AvailableHero<0) return;
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
             LastFullChain=false; LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();
-            int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+RecoveryDelay(actor,0);
+            int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+SkillTimingDefinition.Delay(State.Heroes[actor].Speed,UsesJobRulesV2?25:Timing(actor,0).RecoveryPercent);
             State.Heroes[actor].CompleteOwnerCommand();
             if(optionalResourceBoost)readyAt[actor]+=FinishHeroStatusAction(actor,false);
             ResourceBoostSelected=false;
@@ -95,13 +96,14 @@ namespace NewAster.Core
         private bool StartCasting(int actor,int slot,string target)
         {
             if(HealingSkill(actor,slot)!=null || PreviewDamage(actor,slot,target)==0) { Log="詠唱対象または資源を確認してください。"; return false; }
-            int cost=SkillResourceCost(actor,slot);
+            int cost=SkillResourceCost(actor,slot);int repeats=UsesJobRulesV2?JobRepeat(actor):1;long castDelay=CastDelay(actor,slot);
             var reservedSkill=AttackDefinition(actor,slot,AttackPower(actor,slot,target,1),0,State.Heroes[actor].Attack);
             if(!State.Heroes[actor].SpendResource(cost)) return false;
             ResourceBoostSelected=false;
-            casting[actor]=new PendingCast { Slot=slot,Target=target,Skill=reservedSkill,ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone() };
+            casting[actor]=new PendingCast { Slot=slot,Target=target,Skill=reservedSkill,ChainBonus=skillChainBonuses[slot],ChainActors=(bool[])cumulativeChainActors.Clone(),Repeats=repeats };
+            ConsumeJobCommand(actor,cost,true);
             State.Heroes[actor].CompleteOwnerCommand();
-            readyAt[actor]=Clock+CastDelay(actor,slot); Acted[actor]=true; AvailableHero=-1;
+            readyAt[actor]=Clock+castDelay; Acted[actor]=true; AvailableHero=-1;
             Chain=0; chainPending=false; chainMembers.Clear(); LastActionChain=0;
             LastHealingTargets=Array.Empty<int>(); LastActionWasCastStart=true; LastCastResolvedActor=-1;
             Log="味方"+(actor+1)+"：詠唱開始（発動予定 "+readyAt[actor]+"）。";
@@ -114,7 +116,7 @@ namespace NewAster.Core
                 for(int i=0;i<5;i++) if(!State.Heroes[i].IsAlive && casting[i]!=null) {
                     casting[i]=null; RecordPresentation(BattlePresentationKind.CastCanceled,i,"body","戦闘不能により詠唱中断。");
                 }
-                var next=UpcomingOrder().First(); Clock=next.At;
+                var next=UpcomingOrder().First(); AdvanceClock(next.At);if(Ended)break;
                 if(next.Actor<0) {
                     ResolveEnemyAction(); EnemyActionCount++; Turn++;
                     Guarded=false; Chain=0; chainPending=false; chainMembers.Clear();
@@ -135,16 +137,18 @@ namespace NewAster.Core
                     if(outcome.Accepted) RecordAttackFollowUps(actor,outcome);
                     if(outcome.Accepted) ApplyAttackTimedEffects(actor,pending.Slot,false);
                     if(outcome.Accepted) ApplyCommandAttackEffects(actor,pending.Slot);
+                    if(outcome.Accepted && UsesJobRulesV2)ResolveRepeatedAttack(actor,pending.Slot,pending.Target,pending.Repeats,pending.Skill);
                     if(outcome.Accepted && ChainEligible(actor,pending.Slot)) ResolveAutomaticChain(actor,pending.ChainBonus,pending.ChainActors);
+                    if(outcome.Accepted)GainJobCommandResource(actor);
                     readyAt[actor]=Clock+CommandRecoveryDelay(actor,pending.Slot)+(optionalResourceBoost?FinishHeroStatusAction(actor,outcome.Accepted):0);
                     Chain=0; chainPending=false; chainMembers.Clear();
                     continue;
                 }
                 AvailableHero=actor;
                 for(int i=0;i<5;i++) Acted[i]=i!=actor;
-                int regeneration=State.Heroes[actor].RegenerateAtOwnerReady();
+                int regeneration=UsesJobRulesV2?0:State.Heroes[actor].RegenerateAtOwnerReady();
                 if(regeneration>0) RecordPresentation(BattlePresentationKind.Healing,actor,"body","再生 / HP ＋"+regeneration,healingTargets:new[]{actor},standalone:true);
-                if(hadCommand[actor]) State.Heroes[actor].GainResource(IsFormal?jobProfiles[actor].gainAtReady:3);
+                if(hadCommand[actor] && !UsesJobRulesV2) State.Heroes[actor].GainResource(IsFormal?jobProfiles[actor].gainAtReady:3);
                 hadCommand[actor]=true;
                 State.BeginTurn(unchecked(Seed+(++commandCount)*97+State.SelectedLevel),.25m);
                 GenerateChainModifiers();

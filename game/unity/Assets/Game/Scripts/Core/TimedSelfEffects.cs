@@ -36,8 +36,8 @@ namespace NewAster.Core
         private readonly List<TimedSelfEffectSnapshot> timedEffects=new List<TimedSelfEffectSnapshot>();
         public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.ToArray());
         private int EffectPercent(string kind) => timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0;
-        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp+EffectPercent("critical")*100);
-        public int CriticalMultiplierPercent => 150+WeaponCriticalDamageBonus+EffectPercent("critical-damage");
+        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100);
+        public int CriticalMultiplierPercent => (150+WeaponCriticalDamageBonus)*(100+JobAllStatsPercent)/100+EffectPercent("critical-damage");
         public bool ForcedTarget => IsAlive && EffectPercent("forced-target")>0;
         public bool ApplySelfEffects(IEnumerable<TimedSelfEffectDef> definitions)
         {
@@ -52,6 +52,11 @@ namespace NewAster.Core
         // Called once at a successful command or pass, never by independent chains
         // or cast release. New self-buffs are installed after this expiration step.
         public void CompleteOwnerCommand()
+        {
+            if(UsesBattleTurnDuration)return;
+            TickTimedEffects();
+        }
+        private void TickTimedEffects()
         {
             var next=timedEffects.Where(e=>e.RemainingCommands>1).Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.RemainingCommands-1)).ToArray();
             timedEffects.Clear();timedEffects.AddRange(next);

@@ -44,6 +44,7 @@ namespace NewAster.Core
                 max=>random.Next(max),(actor,bonus,step)=> {
                     var def=chainActions[actor];
                     var effect=ChainActionResolver.Resolve(State,actor,def);
+                    if(effect.TargetIds.Count>0 && def.Effect==ChainEffect.Damage)JobAttackReaction(actor);
                     if(!bonus) participants++;
                     LastActionChain=participants; LastFullChain=bonus; LastChainActionCount=step;
                     string message=(bonus?"フルチェイン追加一周":"自動チェイン")+" / 味方"+(actor+1)+" / "+(effect.TargetIds.Count==0?"対象なし":def.Effect==ChainEffect.Heal?"回復 ＋"+effect.Amount:effect.Amount+"ダメージ");

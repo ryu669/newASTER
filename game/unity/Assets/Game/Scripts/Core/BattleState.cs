@@ -10,19 +10,28 @@ namespace NewAster.Core
         public int StatusWaitPenalty {get;private set;}
         public int ConsumeStatusActivationWait(){int n=StatusWaitPenalty;StatusWaitPenalty=0;return n;}
         public bool AddStatus(EnemyStatusDef effect){bool activated=Status.Add(effect);if(activated){TakeDamage(Status.ActivationDamage(effect.kind,MaxHitPoints));if(effect.kind=="electrified")StatusWaitPenalty+=20;}return activated;}
-        public int FinishStatusAction(bool attacked){int wait=StatusWaitPenalty+(Status.Active("electrified")?20:0);StatusWaitPenalty=0;if(Status.Active("absent"))Heal((int)((long)MaxHitPoints*5/100));TakeDamage(Status.Dot(MaxHitPoints)+(attacked && Status.Active("fracture")?(int)((long)MaxHitPoints*5/100):0));Status.Tick();return wait;}
+        public int FinishStatusAction(bool attacked){int wait=StatusWaitPenalty+(Status.Active("electrified")?20:0);StatusWaitPenalty=0;if(Status.Active("absent"))Heal((int)((long)MaxHitPoints*5/100));TakeDamage(Status.Dot(MaxHitPoints)+(attacked && Status.Active("fracture")?(int)((long)MaxHitPoints*5/100):0));if(!UsesBattleTurnDuration)Status.Tick();return wait;}
+        public bool UsesBattleTurnDuration {get;set;}
+        public int JobAllStatsPercent {get;set;}
+        public int JobAttackPercent {get;set;}
+        public int JobSpeedPercent {get;set;}
+        public int JobIncomingPercent {get;set;}=100;
+        internal void ClampJobHitPoints(){HitPoints=Math.Min(HitPoints,MaxHitPoints);}
+        public void TickBattleTurn(){TickTimedEffects();Status.Tick();RegenerateAtOwnerReady();}
         public string Id { get; }
         public int HitPoints { get; private set; }
-        public int MaxHitPoints { get; }
+        private readonly int baseMaxHitPoints;
+        public int MaxHitPoints => (int)Math.Min(int.MaxValue,(long)baseMaxHitPoints*(100+JobAllStatsPercent)/100);
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
-        public int PhysicalDefense { get; }
-        public int MagicDefense { get; }
+        private readonly int basePhysicalDefense,baseMagicDefense;
+        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent)/100);
+        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent)/100);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack"))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack")+JobAllStatsPercent+JobAttackPercent)/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
-        public int Speed => Math.Max(1,baseSpeed*(Status.Active("frostbite")?80:100)/100);
+        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; }
 
@@ -31,13 +40,13 @@ namespace NewAster.Core
             Status=new EnemyStatusState(statusResistances);TraitId=traitId;WeaponCriticalDamageBonus=weaponCriticalDamageBonus;
             if(weaponCriticalDamageBonus<0)throw new ArgumentOutOfRangeException(nameof(weaponCriticalDamageBonus));
             if(hitPoints<=0 || attack<=0 || jobResourceMax<0 || physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Invalid heroine stats.");
-            PhysicalDefense=physicalDefense;MagicDefense=magicDefense;
+            basePhysicalDefense=physicalDefense;baseMagicDefense=magicDefense;
             if(speed<=0) throw new ArgumentOutOfRangeException(nameof(speed));
             if(criticalChanceBp<0 || criticalChanceBp>10000) throw new ArgumentOutOfRangeException(nameof(criticalChanceBp));
             BaseCriticalChanceBp=criticalChanceBp;
             baseSpeed=speed;
             Id = id ?? throw new ArgumentNullException(nameof(id));
-            MaxHitPoints = hitPoints;
+            baseMaxHitPoints = hitPoints;
             HitPoints = hitPoints;
             BaseAttack = attack;
             JobResourceMax = jobResourceMax;

@@ -18,5 +18,10 @@ public static partial class PlayableBuild
         var battle=new PlayableBattle(1,new PlayableProgress(),341,combatDefinitions:catalog);
         int actor=battle.AvailableHero;battle.State.Heroes[actor].SpendResource(battle.State.Heroes[actor].JobResource);
         Check(battle.SkillResourceCost(actor,0)==0 && battle.Act(actor,0,"body"),"Unity current skill executes with no resource");
+        var v2=new PlayableBattle(1,new PlayableProgress(),341,combatDefinitions:catalog,useJobRulesV2:true);
+        Check(v2.UsesJobRulesV2 && v2.JobState(v2.AvailableHero)!=null,"Unity formal catalog binds v2 job state");
+        long clock=v2.Clock;actor=v2.AvailableHero;int resource=v2.State.Heroes[actor].JobResource;
+        v2.Pass();Check(v2.NextAt(actor)==clock+SkillTimingDefinition.Delay(v2.State.Heroes[actor].Speed,25),"Unity v2 PASS schedules WT 25");
+        Check(v2.BattleTurn==v2.Clock/100,"Unity v2 Battle Turn uses logical clock");
     }
 }

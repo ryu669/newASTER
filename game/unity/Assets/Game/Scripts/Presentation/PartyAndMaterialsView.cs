@@ -34,6 +34,8 @@ namespace NewAster.Presentation
                 var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+5,76,94),portrait,ScaleMode.ScaleAndCrop,true);
                 if(GrowthButton(x+88,y+10,180,82,combatDefinitions.Hero(id).name+"\nLv."+entries[i].level,homeRequest==null && BookInputAllowed && ids[formationSlot]!=id))ProposeHome(new HomeOperation("formation",id,formationSlot.ToString()));
             }
+            var guardStyle=new GUIStyle(button){fontSize=16,wordWrap=false,padding=new RectOffset(2,2,0,0),alignment=TextAnchor.MiddleCenter};
+            for(int i=0;i<5;i++)if(Btn(65+i*298,754,278,30,(protectedFormationSlot==i?"◆ ":"")+"護衛対象："+combatDefinitions.Hero(ids[i]).name,homeRequest==null && BookInputAllowed,guardStyle))protectedFormationSlot=i;
             if(GrowthButton(65,790,220,52,"‹ 前の10人",formationPage>0 && homeRequest==null))formationPage--;
             Label(450,800,640,42,"変更は保存後、次の出撃から反映 ／ 素材の消費なし",growthSmallStyle,gold);
             if(GrowthButton(1260,790,275,52,"次の10人 ›",formationPage+1<pages && homeRequest==null))formationPage++;
