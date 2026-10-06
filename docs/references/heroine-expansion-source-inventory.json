@@ -10,9 +10,11 @@
       "files": [
         {
           "bytes": 581062349,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "001戦闘_R.mkv",
-          "modifiedUtc": "2026-10-02T10:55:08.2711685Z"
+          "modifiedUtc": "2026-10-02T10:55:08.2711685Z",
+          "heroineId": "heroine.r",
+          "evidence": "docs/references/characters/r.md"
         },
         {
           "bytes": 213248883,
@@ -60,15 +62,19 @@
         },
         {
           "bytes": 480402401,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "009戦闘_アナイアレイター.mkv",
-          "modifiedUtc": "2026-10-04T15:16:08.546833Z"
+          "modifiedUtc": "2026-10-04T15:16:08.546833Z",
+          "heroineId": "heroine.annihilator",
+          "evidence": "docs/references/characters/annihilator.md"
         },
         {
           "bytes": 374431575,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "010戦闘_アナイアレイター(聖夜).mkv",
-          "modifiedUtc": "2026-10-04T15:19:37.6297399Z"
+          "modifiedUtc": "2026-10-04T15:19:37.6297399Z",
+          "heroineId": "heroine.annihilator-holy",
+          "evidence": "docs/references/characters/annihilator.md"
         },
         {
           "bytes": 563467702,
@@ -108,9 +114,11 @@
         },
         {
           "bytes": 525345066,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "032戦闘_オリフラム.mkv",
-          "modifiedUtc": "2026-10-02T11:17:16.4061368Z"
+          "modifiedUtc": "2026-10-02T11:17:16.4061368Z",
+          "heroineId": "heroine.oriflamme",
+          "evidence": "docs/references/characters/oriflamme.md"
         },
         {
           "bytes": 1750985267,
@@ -120,9 +128,11 @@
         },
         {
           "bytes": 350103992,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "048戦闘_シェル.mkv",
-          "modifiedUtc": "2026-10-02T11:25:19.7045569Z"
+          "modifiedUtc": "2026-10-02T11:25:19.7045569Z",
+          "heroineId": "heroine.shell",
+          "evidence": "docs/references/characters/shell.md"
         },
         {
           "bytes": 398911836,
@@ -140,9 +150,11 @@
         },
         {
           "bytes": 721647021,
-          "observationStatus": "not-yet-extracted",
+          "observationStatus": "plan10-partial-evidence-extracted",
           "relativePath": "066戦闘_ナイトホーク.mkv",
-          "modifiedUtc": "2026-09-30T13:32:13.7112727Z"
+          "modifiedUtc": "2026-09-30T13:32:13.7112727Z",
+          "heroineId": "heroine.nighthawk",
+          "evidence": "docs/references/characters/nighthawk.md"
         }
       ]
     },
@@ -1663,6 +1675,45 @@
           "observationStatus": "not-yet-extracted",
           "relativePath": "巨神と誓女_誓女126.wav",
           "modifiedUtc": "2021-06-22T23:42:27.9375963Z"
+        }
+      ]
+    },
+    {
+      "id": "angelica-angel",
+      "path": "D:\\M02_gamemovie\\ANGELICAASTER\\天使",
+      "coverage": "user-selected-file-only",
+      "count": 4,
+      "files": [
+        {
+          "relativePath": "001_R.mkv",
+          "bytes": 2117602383,
+          "observationStatus": "plan10-partial-evidence-extracted",
+          "heroineId": "heroine.r",
+          "evidence": "docs/references/characters/r.md"
+        },
+        {
+          "relativePath": "048_シェル.mkv",
+          "bytes": 901737627,
+          "modifiedUtc": "2026-09-24T11:46:41.750003+00:00",
+          "observationStatus": "plan10-partial-evidence-extracted",
+          "heroineId": "heroine.shell",
+          "evidence": "docs/references/characters/shell.md"
+        },
+        {
+          "relativePath": "032_オリフラム.mkv",
+          "bytes": 918340015,
+          "modifiedUtc": "2026-09-21T09:39:31.202085+00:00",
+          "observationStatus": "plan10-partial-evidence-extracted",
+          "heroineId": "heroine.oriflamme",
+          "evidence": "docs/references/characters/oriflamme.md"
+        },
+        {
+          "relativePath": "066_ナイトホーク.mkv",
+          "bytes": 969620592,
+          "modifiedUtc": "2026-09-25T23:22:18.570856+00:00",
+          "observationStatus": "plan10-partial-evidence-extracted",
+          "heroineId": "heroine.nighthawk",
+          "evidence": "docs/references/characters/nighthawk.md"
         }
       ]
     }

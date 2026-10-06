@@ -45,6 +45,7 @@ namespace NewAster.Presentation
         }
         private void DrawHeroineRoster()
         {
+            bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen)GUI.enabled=false;
             SanctuaryHeader("誓女の星図","名前と顔から、会いたい誓女を選ぶ");
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
             if(GrowthButton(58,108,190,48,"万物の書へ",BookInputAllowed)){book.Close();book.Reenter();return;}
@@ -56,14 +57,17 @@ namespace NewAster.Presentation
             if(GrowthButton(975,108,570,48,"ジョブ  ／  "+(heroineJobFilter==0?"すべて":HeroineIdentityCatalog.JobName(jobs[heroineJobFilter-1]))+"  ›",BookInputAllowed)){heroineJobFilter=(heroineJobFilter+1)%(jobs.Length+1);heroinePage=0;}
             var snapshot=formalProgression.Snapshot;var entries=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId));
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
-            Label(60,177,1440,35,$"所持 {snapshot.heroines.Length}人  ／  表示 {entries.Length}人    ·    カードを選択すると能力・スキル・神器を開きます",growthSmallStyle);
+            int people=snapshot.heroines.Select(h=>combatDefinitions.PersonId(h.heroineId)).Distinct().Count();
+            Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人    ·    能力・スキル・神器を開く":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
+            DrawRRecruitment();
             var page=entries.Skip(heroinePage*HeroinePageSize).Take(HeroinePageSize).ToArray();
             for(int i=0;i<page.Length;i++){
                 var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
                 var portrait=HeroPortrait(entry.id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+6,111,154),portrait,ScaleMode.ScaleAndCrop,true);else DrawSanctuaryIcon(new Rect(x+32,y+45,65,65),"star",gold);
-                Label(x+134,y+23,212,41,entry.name,new GUIStyle(growthTextStyle){fontSize=24});
+                var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
+                Label(x+134,y+23,212,41,entry.name,nameStyle);
                 Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
                 Label(x+134,y+119,204,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
                 if(hover)GrowthLine(x+124,y+156,x+338,y+156,gold,2);
@@ -74,22 +78,24 @@ namespace NewAster.Presentation
             if(GrowthButton(320,808,280,52,"編成 ／ 5人を入れ替える",BookInputAllowed)){formationOpen=true;formationSlot=0;}
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
+            GUI.enabled=previousEnabled;DrawAnnihilatorRecruitmentDialog();
         }
-        private PlayableBattle HeroinePreview(FormalGrowthSave growth=null)=>new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions,formalGrowth:growth??formalProgression.Snapshot,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),collectionGrowth:formalCampaign.Snapshot.collection,relicCatalog:CollectionData());
+        private PlayableBattle HeroinePreview(FormalGrowthSave growth=null,string heroId=null)=>new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(heroId)),formalGrowth:growth??formalProgression.Snapshot,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),collectionGrowth:formalCampaign.Snapshot.collection,relicCatalog:CollectionData());
         private SkillCombatDef DisplayHeroineSkill(string id,int slot)
         {
-            var skill=HeroineSkillRules.AtLevel(combatDefinitions.Skill(id,slot),1);if(slot!=0)return skill;
+            var skill=HeroineSkillRules.AtLevel(combatDefinitions.Skill(id,slot),1);if(slot!=combatDefinitions.WeaponSkillSlot(id) || skill.effectRuleId!="effect.damage")return skill;
             var equipped=HomeState.weaponEquipment.SingleOrDefault(e=>e.heroineId==id);if(equipped==null)return skill;
-            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);skill.powerScale=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));return skill;
+            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);float power=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));skill.powerScale=(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.shell" || id=="heroine.oriflamme" || id=="heroine.nighthawk")?skill.powerScale*power:power;return skill;
         }
         private void DrawHeroineDetail()
         {
             string id=book.SubjectId;var definition=combatDefinitions.Hero(id);var growth=formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id);
-            int actor=Array.IndexOf(combatDefinitions.FormationIds,id);var state=HeroinePreview().State.Heroes[actor];var job=combatDefinitions.Job(definition.jobId);
+            int actor=Array.IndexOf(PreviewFormation(id),id);var state=HeroinePreview(heroId:id).State.Heroes[actor];var job=combatDefinitions.Job(definition.jobId);
             SanctuaryHeader("誓女の記憶",HeroineIdentityCatalog.JobName(definition.jobId)+"  ／  ★ ★ ★ ★ ★ ★");
             if(GrowthButton(52,104,206,48,"‹ 誓女一覧",BookInputAllowed)){heroineRosterOpen=true;selectedTrait=-1;return;}
             GrowthFrame(52,176,646,643);GrowthDiamond(373,414,204);GrowthDiamond(373,414,222);
-            Label(286,106,415,53,definition.name,growthTitleStyle,gold);
+            var heroineNameStyle=new GUIStyle(growthTitleStyle);while(heroineNameStyle.fontSize>21 && heroineNameStyle.CalcSize(new GUIContent(definition.name)).x>415)heroineNameStyle.fontSize--;
+            Label(286,106,415,53,definition.name,heroineNameStyle,gold);
             var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(69,187,609,410),portrait,ScaleMode.ScaleToFit,true);
             GrowthFill(69,606,612,194,new Color(.045f,.095f,.135f,.97f));
             string[] stats={"HP  "+state.MaxHitPoints,"攻撃  "+state.Attack,"物理防御  "+state.PhysicalDefense,"魔法防御  "+state.MagicDefense,"速度  "+state.Speed,"会心  "+(state.CriticalChanceBp/100f).ToString("0.#")+"%"};

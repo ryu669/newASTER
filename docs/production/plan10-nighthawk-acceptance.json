@@ -1,0 +1,512 @@
+{
+  "date": "2026-10-07",
+  "status": "accepted",
+  "heroineId": "heroine.nighthawk",
+  "jobId": "job.chaser",
+  "formsTotal": 11,
+  "peopleTotal": 10,
+  "jobsTotal": 10,
+  "coreAssertions": 8342,
+  "windowsBuild": "D:\\AIGAME\\newASTER\\game\\Builds\\plan10-nighthawk\\newASTER.exe",
+  "buildBytes": 2138497366,
+  "artCount": 18,
+  "storyPages": 30,
+  "poems": 18,
+  "events": 5,
+  "screenCount": 28,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-attack.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        94.71145833333334,
+        102.58602430555555,
+        89.33944227430555
+      ],
+      "pixelStddev": [
+        72.77026953242087,
+        66.21758105184036,
+        57.79086645040241
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-battle.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.72149305555556,
+        100.43967013888889,
+        88.1220583767361
+      ],
+      "pixelStddev": [
+        68.91917675315982,
+        64.53577659046373,
+        56.232918034899114
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-buff.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.71669379340278,
+        100.43337999131944,
+        88.11794813368056
+      ],
+      "pixelStddev": [
+        68.91636026834779,
+        64.53379970187672,
+        56.23031615395933
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-chapter.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        70.85851996527778,
+        83.86951171875,
+        86.93333984375
+      ],
+      "pixelStddev": [
+        61.92510913503412,
+        62.95646342203904,
+        60.79830172481371
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-detail.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        99.51544162326388,
+        97.91635850694445,
+        97.55574761284723
+      ],
+      "pixelStddev": [
+        101.36595815193454,
+        94.36067913890564,
+        82.72107003273055
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-event0.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        74.53197916666667,
+        71.32431749131945,
+        82.00359700520833
+      ],
+      "pixelStddev": [
+        66.28243869348665,
+        57.17013233751936,
+        56.42275377092596
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-event1.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        74.39343967013889,
+        76.34782660590278,
+        90.48124240451389
+      ],
+      "pixelStddev": [
+        66.8549527416931,
+        61.581351762727614,
+        61.49295498811203
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-event2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        69.87192925347222,
+        73.778134765625,
+        92.83951497395833
+      ],
+      "pixelStddev": [
+        65.0235071326388,
+        59.16059413520644,
+        60.843787921427094
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-event3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        66.83178927951388,
+        64.36230034722222,
+        76.55193359375
+      ],
+      "pixelStddev": [
+        63.460275762887896,
+        53.786467052015695,
+        54.33540658543578
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-event4.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        90.87123263888888,
+        89.43196397569444,
+        99.07805881076389
+      ],
+      "pixelStddev": [
+        79.45055571831674,
+        72.33930345410023,
+        70.50638574870102
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-formation.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        60.78884114583333,
+        56.17407118055556,
+        62.47864800347222
+      ],
+      "pixelStddev": [
+        75.4992887202798,
+        64.77059776684784,
+        60.73394608332856
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-garden.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.4569921875,
+        113.34867513020833,
+        93.94923502604166
+      ],
+      "pixelStddev": [
+        67.53128524716244,
+        62.90335686413593,
+        58.14809924038661
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-gear2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.73917317708333,
+        100.455595703125,
+        88.13293836805556
+      ],
+      "pixelStddev": [
+        68.91098356261043,
+        64.52789940221122,
+        56.23413201070981
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-gear3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.73945855034722,
+        100.45582139756945,
+        88.13306532118055
+      ],
+      "pixelStddev": [
+        68.91155386404252,
+        64.52843408629687,
+        56.234521373420876
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-ignition.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        94.69365234375,
+        102.59108723958333,
+        89.33820746527778
+      ],
+      "pixelStddev": [
+        72.76296421561845,
+        66.21529048162648,
+        57.79238921455919
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-journey.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        126.28263129340277,
+        128.42948350694445,
+        122.77797417534723
+      ],
+      "pixelStddev": [
+        104.22101403701858,
+        94.87271868639853,
+        81.85284784544716
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-nitro.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.49148654513888,
+        100.281728515625,
+        87.98816514756945
+      ],
+      "pixelStddev": [
+        68.82343134301459,
+        64.5862931842456,
+        56.28859112077345
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-recruit.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        44.44628038194445,
+        42.16084852430556,
+        46.98712239583333
+      ],
+      "pixelStddev": [
+        56.27434986514107,
+        47.524946370215,
+        43.86244504663863
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-recruitment.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        24.840360243055557,
+        32.95629774305556,
+        47.22063910590278
+      ],
+      "pixelStddev": [
+        35.906584757535576,
+        29.18682666083116,
+        19.73805716460489
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-roster.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        49.20453559027778,
+        46.59816731770833,
+        52.82920681423611
+      ],
+      "pixelStddev": [
+        64.22213539536754,
+        53.60117286124759,
+        49.28390537084726
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-status.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        84.33336263020833,
+        94.58790364583334,
+        80.52402452256945
+      ],
+      "pixelStddev": [
+        70.42583782885875,
+        66.18445403649388,
+        53.8744897991705
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-ultimate.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        94.72300998263889,
+        102.58575086805556,
+        89.34227647569445
+      ],
+      "pixelStddev": [
+        72.77214795705672,
+        66.21687339444418,
+        57.78897841342809
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1280\\nighthawk-weapon.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        76.29802951388889,
+        79.71114149305555,
+        87.40850911458334
+      ],
+      "pixelStddev": [
+        88.71263848283363,
+        84.03325083874152,
+        79.54899748548478
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1600\\nighthawk-battle.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        89.41677361111111,
+        100.19074027777778,
+        87.99239791666666
+      ],
+      "pixelStddev": [
+        69.12867280603432,
+        64.88509142306702,
+        56.57618416900345
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1600\\nighthawk-detail.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        99.959475,
+        98.38777013888888,
+        98.03785833333333
+      ],
+      "pixelStddev": [
+        101.6746712324381,
+        94.68670830406069,
+        83.00745329702453
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1600\\nighthawk-event2.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        69.98292569444445,
+        73.84674513888889,
+        92.82082013888889
+      ],
+      "pixelStddev": [
+        65.34886235085828,
+        59.43473735047349,
+        60.994517326419825
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1600\\nighthawk-gear3.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        89.43794930555555,
+        100.20984236111111,
+        88.00538125
+      ],
+      "pixelStddev": [
+        69.12943250598987,
+        64.88485336382132,
+        56.58238793577354
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-nighthawk\\player-1600\\nighthawk-nitro.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        84.00213611111111,
+        94.85715833333333,
+        84.50789236111112
+      ],
+      "pixelStddev": [
+        68.02985829066631,
+        65.57356260662472,
+        57.025462272855435
+      ]
+    }
+  ],
+  "verified": [
+    "previous ten forms and skills unchanged",
+    "atomic GEAR preview and commit with saved recovery ratio",
+    "NITRO consumes five and returns READY at identical clock for buff and attack",
+    "resource recovery at exact clock boundaries and capped nitro",
+    "target-local IGNITION and one nonrecursive reaction per resolved attack",
+    "fixed chain contributes IGNITION",
+    "source attack speed buff defense ignore and frost synergy",
+    "source AOE and authored fifteen percent chain bonus",
+    "five formation positions",
+    "stable weapon owner identity independent of sorted roster",
+    "compatible saves and idempotent free recruitment",
+    "all chapters and events read persisted and reloaded",
+    "18 original images alpha import hash validation",
+    "1280x720 and 1600x900; nitro fixture disables independent enemy drain part"
+  ],
+  "referenceLimit": "Sampled screen evidence; authored speech separate from untranscribed source audio."
+}

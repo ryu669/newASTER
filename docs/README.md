@@ -4,6 +4,8 @@
 
 ## 読む順序と唯一の定義元
 
+2026-10-06：[計画10 ヒロイン量産と物語追加](production/plan10-implementation-plan.md)を開始。最初の追加候補はアーティストのR。[性格・口調・概要](references/characters/r.md)を物語制作の参考資料として保存した。人物実装・提供は未完了。
+
 | 層 | 文書 | 定義するもの |
 | --- | --- | --- |
 | 要求 | [ゲーム要求](requirements/game.md) | 体験・対象範囲・数量・禁止事項・ユーザー確定方針 |
@@ -75,3 +77,11 @@
 Lv育成はネクタル1種、ジョブ基準＋キャラ補正に確定。初期調整値として必要量・13ジョブ基礎値・Lv成長式をsystems/progression.mdへ定義。実戦バランスと配布量は検証後に調整する。LV-01〜LV-07を参照する。
 
 覚醒・重複強化量・チェイン率はユーザーから調整を委任され、初期値と処理をsystems/progression.md、systems/battle.mdに設定した。人物固有チェイン行動はヒロイン定義側で決める。共通データと受入条件も対応させ、実戦未検証と区別する。
+
+- [アナイアレイター通常版・聖夜版の人物と実装](production/plan10-annihilator-implementation.md)
+
+- [シェルのパンツァー実装](production/plan10-shell-implementation.md)
+
+- [オリフラムのアルケミスト実装](production/plan10-oriflamme-implementation.md)
+
+- [ナイトホークのチェイサー実装](production/plan10-nighthawk-implementation.md)

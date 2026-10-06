@@ -9,31 +9,34 @@ namespace NewAster.Core
         public EnemyStatusState Status {get;}
         public int StatusWaitPenalty {get;private set;}
         public int ConsumeStatusActivationWait(){int n=StatusWaitPenalty;StatusWaitPenalty=0;return n;}
-        public bool AddStatus(EnemyStatusDef effect){bool activated=Status.Add(effect);if(activated){TakeDamage(Status.ActivationDamage(effect.kind,MaxHitPoints));if(effect.kind=="electrified")StatusWaitPenalty+=20;}return activated;}
+        public bool AddStatus(EnemyStatusDef effect){if(IsPanzer && ArmorActive && PanzerFireResistance && effect.kind=="burn"){effect=effect.Copy();effect.amount=Math.Max(1,effect.amount/2);}bool activated=Status.Add(effect);if(activated){TakeDamage(Status.ActivationDamage(effect.kind,MaxHitPoints));if(effect.kind=="electrified")StatusWaitPenalty+=20;}return activated;}
         public int FinishStatusAction(bool attacked){int wait=StatusWaitPenalty+(Status.Active("electrified")?20:0);StatusWaitPenalty=0;if(Status.Active("absent"))Heal((int)((long)MaxHitPoints*5/100));TakeDamage(Status.Dot(MaxHitPoints)+(attacked && Status.Active("fracture")?(int)((long)MaxHitPoints*5/100):0));if(!UsesBattleTurnDuration)Status.Tick();return wait;}
         public bool UsesBattleTurnDuration {get;set;}
         public int JobAllStatsPercent {get;set;}
         public int JobAttackPercent {get;set;}
+        public int SongCriticalBonusBp {get;set;}
         public int JobSpeedPercent {get;set;}
         public int JobIncomingPercent {get;set;}=100;
-        internal void ClampJobHitPoints(){HitPoints=Math.Min(HitPoints,MaxHitPoints);}
+        public int LifeMaxHpPercent {get;internal set;}
+        public int OverhealLimitPercent {get;internal set;}
+        internal void ClampJobHitPoints(){HitPoints=Math.Min(HitPoints,(int)Math.Min(int.MaxValue,(long)MaxHitPoints*(100+OverhealLimitPercent)/100));}
         public void TickBattleTurn(){TickTimedEffects();Status.Tick();RegenerateAtOwnerReady();}
         public string Id { get; }
         public int HitPoints { get; private set; }
         private readonly int baseMaxHitPoints;
-        public int MaxHitPoints => (int)Math.Min(int.MaxValue,(long)baseMaxHitPoints*(100+JobAllStatsPercent)/100);
+        public int MaxHitPoints => IsPanzer?(ArmorActive?ArmorMaxHitPoints:FleshMaxHitPoints):OrdinaryMaxHp;
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
         private readonly int basePhysicalDefense,baseMagicDefense;
-        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent)/100);
-        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent)/100);
+        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent)/100)/(IsPanzer && !ArmorActive?5:1);
+        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent)/100)/(IsPanzer && !ArmorActive?5:1);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
         public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(100+EffectPercent("attack")+JobAllStatsPercent+JobAttackPercent)/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
-        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
+        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
-        public int JobResourceMax { get; }
+        public int JobResourceMax { get; internal set; }
 
         public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0,EnemyStatusResistanceDef[] statusResistances=null)
         {
@@ -60,8 +63,10 @@ namespace NewAster.Core
             return true;
         }
         public bool IsAlive => HitPoints > 0;
-        public void TakeDamage(int amount) { if(amount>0)Status.Remove("absent"); HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount)); if(!IsAlive) timedEffects.Clear(); }
-        public void Heal(int amount) { if (IsAlive && !Status.Active("bleed")) HitPoints = (int)Math.Min(MaxHitPoints, (long)HitPoints + Math.Max(0, amount)); }
+        public void TakeDamage(int amount) { if(amount>0)Status.Remove("absent"); HitPoints = Math.Max(0, HitPoints - Math.Max(0, amount)); if(IsPanzer && ArmorActive && HitPoints==0)PanzerBreak();if(IsPanzer && !ArmorActive)FleshHitPoints=HitPoints;if(!IsAlive) timedEffects.Clear(); }
+        public void Heal(int amount) { if (IsAlive && !(IsPanzer && ArmorActive) && !Status.Active("bleed")) {HitPoints = (int)Math.Min(Math.Max(MaxHitPoints,HitPoints), (long)HitPoints + Math.Max(0, amount));if(IsPanzer)FleshHitPoints=HitPoints;} }
+        internal void Overheal(int amount){if(IsAlive && !(IsPanzer && ArmorActive) && !Status.Active("bleed")){OverhealLimitPercent=25;HitPoints=(int)Math.Min(int.MaxValue,Math.Min((long)MaxHitPoints*125/100,(long)HitPoints+Math.Max(0,amount)));if(IsPanzer)FleshHitPoints=Math.Min(FleshMaxHitPoints,HitPoints);}}
+        internal void Revive(){if(!IsAlive){Status.ClearAll();HitPoints=Math.Max(1,MaxHitPoints/4);}}
     }
 
     public sealed class BattlePart

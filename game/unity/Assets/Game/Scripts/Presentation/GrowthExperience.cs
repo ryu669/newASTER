@@ -77,8 +77,8 @@ namespace NewAster.Presentation
         {
             growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,snapshot.revision,operation,target);growthPreview=formalProgression.Preview(growthRequest);
             var after=snapshot.Copy();int index=Array.FindIndex(after.heroines,h=>h.heroineId==id);after.heroines[index]=growthPreview.HeroineAfter.Copy();
-            int actorIndex=Array.IndexOf(combatDefinitions.FormationIds,id);var before=HeroinePreview(snapshot).State.Heroes[actorIndex];
-            var result=HeroinePreview(after).State.Heroes[actorIndex];
+            int actorIndex=Array.IndexOf(PreviewFormation(id),id);var before=HeroinePreview(snapshot,heroId:id).State.Heroes[actorIndex];
+            var result=HeroinePreview(after,heroId:id).State.Heroes[actorIndex];
             growthDelta=$"HP  {before.MaxHitPoints} → {result.MaxHitPoints}     攻撃  {before.Attack} → {result.Attack}\n防御  {before.PhysicalDefense} → {result.PhysicalDefense}     魔法防御  {before.MagicDefense} → {result.MagicDefense}";
             if(operation==GrowthOperation.Awaken) growthDelta=$"育成上限  Lv.{snapshot.heroines[index].LevelCap} → Lv.{growthPreview.HeroineAfter.LevelCap}\n現在のLvと能力はそのまま、新しい成長の余地がひらきます。";
             growthOrigin=growthScreen;growthScreen=GrowthScreen.Confirmation;growthOutcome=null;
@@ -157,7 +157,7 @@ namespace NewAster.Presentation
             var original=formalProgression;var save=original.Snapshot;int checks=0;
             Action<bool> check=ok=>{checks++;if(!ok)throw new InvalidOperationException("Growth screen navigation assertion "+checks);};
             try {
-                formalProgression=new FormalProgression(save,combatDefinitions.FormationIds);
+                formalProgression=new FormalProgression(save,combatDefinitions.HeroineIds);
                 string id=combatDefinitions.FormationIds[book.SubjectIndex];var hero=save.heroines.Single(h=>h.heroineId==id);
                 GrowthSelect(GrowthScreen.Level,hero);check(growthScreen==GrowthScreen.Level);
                 GrowthConfirm(GrowthOperation.Level,id,save,hero.level+1);check(growthScreen==GrowthScreen.Confirmation && growthPreview.NectarCost==12);

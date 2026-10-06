@@ -1,0 +1,277 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 19,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "form": "normal",
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-standing-candidate-v1.png",
+      "sha256": "3e60fade74f83edc817b079976dde86fbce2598546654de66e95d2720ca6c8e7",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-portrait-candidate-v1.png",
+      "sha256": "b135d1f434ddb672adccd1e6e264e34a3cf59da7310b2629dde3308058eb79f4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-expression-joy-candidate-v1.png",
+      "sha256": "02c733de70253f7776457b44fb1fbc241279f237b4f00e4688455ca5f10c7e36",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-expression-puzzled-candidate-v1.png",
+      "sha256": "8ab5098b04b62613eec4682b2b42438266d7acc1f10f40a34f81ddc61c9fc6cb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-expression-determined-candidate-v1.png",
+      "sha256": "46f695b46dfe567f4c09684babcb541b84d1f1564970cb2e7ca41b1cb7fac47f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-attack-candidate-v1.png",
+      "sha256": "8545afd1ef314d5b0359337e7e267c34e5796001c1ad7e64a279770647ee12dc",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-hit-candidate-v1.png",
+      "sha256": "51898c343410b39668ca9fb3ec62f089c4de125dda2e23cd8cf9ba9942b651af",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-cutin-candidate-v1.png",
+      "sha256": "63ff38d2a4f8f0a9c2a1fef301525d6d528d5e668f31ba37a99ed6bdd59d4bf6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-sd-idle-candidate-v1.png",
+      "sha256": "61287510cde237f3fb31cec145c8acc3bbfd76ad9cea4dcdc7c403fa2406f235",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-sd-walk-candidate-v1.png",
+      "sha256": "67b42e698308d02fac4558f2933ca852d2d6c417ab1f5e0308f88fef1155d923",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-sd-talk-candidate-v1.png",
+      "sha256": "0435af1c6d6e0a5d71c01c7c6a3940adae99612e8a4857046511674ce985dc31",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-sd-react-candidate-v1.png",
+      "sha256": "906c3640f549e269017f9f3e176970febee00dcec4a4a313bd98c608735eb259",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-event-0-cg-candidate-v1.png",
+      "sha256": "6b2ab61867727b88d7af10363ac212df053333ba18110f0412dbf8870c915564",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-event-1-cg-candidate-v1.png",
+      "sha256": "f906221abafa5e6a42b0d0fefbd52b31e9a9af60cb3d024f98ad965dfcda115f",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-event-2-cg-candidate-v1.png",
+      "sha256": "d0a10421c77262b2d8ce5c6eb80c70b70b26be6e88252c1e77573ba032aa8136",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-event-3-cg-candidate-v1.png",
+      "sha256": "3cc9c25da50ba8cca155e97ebef73b0b09fd047c96a0e2321f32685dcf4cd7be",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-event-4-cg-candidate-v1.png",
+      "sha256": "29e92e6c183851d917f37554700cd00d96d095bcf40614a26ce6fb654728e2d6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-equipment-tree-v1.png",
+      "sha256": "2489a8c61cb1b2c3dfb9a62526839dc56f66a5becd3c8f963f401a6dfd73ba0c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "bare",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shell-bare-candidate-v1.png",
+      "sha256": "b2e4ee4bb90689b0e158c84d19e67364a9ece8a3c9531b9df7587eb6d3528a68",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    }
+  ]
+}

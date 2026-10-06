@@ -116,6 +116,7 @@ namespace NewAster.Core
             if(status=="release" && contentVersion!=ProductionVersion)Fail("PLACEHOLDER_IN_RELEASE","/contentVersion",contentVersion,"検証・試遊用内容版を正式版へ改名できません。");
             var hs=Set(heroineIds,"/heroineIds");var cs=Set(colossusIds,"/colossusIds");var ps=Set(poemIds,"/poemIds");var rs=Set(resourceIds,"/resourceIds");var abs=Set(abilityIds,"/abilityIds");var sks=Set(skillIds,"/skillIds");Set(speakerIds,"/speakerIds");
             if(hs.Overlaps(cs))Fail("DUPLICATE_ID","/heroineIds",null,"人物と巨神獣のIDが重複しています。");
+            if(personLinks==null || personLinks.Any(p=>p==null || !hs.Contains(p.heroineId) || !hs.Contains(p.personId)) || personLinks.Select(p=>p.heroineId).Distinct().Count()!=personLinks.Length)Fail("INVALID_RANGE","/personLinks",null,"人物と衣装の対応が不正です。");
             var ns=Index(weaponNodes,n=>n.id,"/weaponNodes");var gs=Index(gardens,g=>g.id,"/gardens");var fs=Index(furniture,f=>f.id,"/furniture");var es=Index(events,e=>e.id,"/events");var chs=Index(chapters,c=>c.id,"/chapters");
             var materialIndex=Index(materials,m=>m.id,"/materials");foreach(var material in materials){Ref(rs.Contains(material.id),"/materials/id",material.id);Ref(cs.Contains(material.colossusId),"/materials/colossusId",material.colossusId);}
             if(es.Keys.Intersect(chs.Keys).Any())Fail("DUPLICATE_ID","/events",null,"章とイベントの報酬IDが重複しています。");

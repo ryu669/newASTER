@@ -1,0 +1,517 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 36,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "form": "normal",
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-standing-candidate-v1.png",
+      "sha256": "007f7187e60719ca0bf465ecb350e1bd438dd4ca94952de79e546ff83c33dd32",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-portrait-candidate-v1.png",
+      "sha256": "8a91a0e7bcbb7b5ab43957e97002ab1f55c268746c79df2016e22ec9783ec5cb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-expression-joy-candidate-v1.png",
+      "sha256": "f3397e059f8205aef72cb0145067a6cea5d0c88657fb3280fe734522e62458a2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-expression-puzzled-candidate-v1.png",
+      "sha256": "b18b6b69802e2ccfad3c29b75aed0665966ea918ea6fbf4317c16d9c53f6ea3c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-expression-determined-candidate-v1.png",
+      "sha256": "cfa9687201a8f745104c38b9e9c6e74be4fa56fd9f8ad9424652f2d16c17cdb7",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-attack-candidate-v1.png",
+      "sha256": "96b9e1b1b68eef86e96f7f91cea1dd1e7c3d73c0c2c655de05ac9e536a08881f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        253
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-hit-candidate-v1.png",
+      "sha256": "da75455509907ab7c764d4d30aac326d7a8aa9ab49e3e5b055d8f3917e10d3ed",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-cutin-candidate-v1.png",
+      "sha256": "bdbdcc38337de6ae8d6f1a4626257fe363d86553c0d59aad9e50ad0503796b44",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-sd-idle-candidate-v1.png",
+      "sha256": "c85b9dc4b4d50875e5636dba9daa37ad5dce72f213aa0eebaaebca917f6669c7",
+      "size": [
+        1243,
+        1265
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-sit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-sd-sit-candidate-v1.png",
+      "sha256": "90ec9cbc941a8f3d962df4fb8c46314de0c6f7417e855e5f5443b0bb1fefd369",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-work",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-sd-work-candidate-v1.png",
+      "sha256": "0c205fd25d7d8914f0e0a99bec91dd8e54082147e67e9079ee216bfd3e0690eb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-look",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-sd-look-candidate-v1.png",
+      "sha256": "432a036c4843ecff34f4ea4120a9752736802c70f67a5a3deb276c606cc8ffbe",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-event-0-cg-candidate-v1.png",
+      "sha256": "b31a6a4397cb54f169acd24169e442edae9ad75ce06c87780e4deb2fc46c97e0",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-event-1-cg-candidate-v1.png",
+      "sha256": "15dc79a93aa5b8d277012e776bf74f43c3bb6e94825e7dfc666d2ce6f7552c74",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-event-2-cg-candidate-v1.png",
+      "sha256": "b247101ac436b5aa122f2d1ca975cd22d5dc0fda58a2f2fec0a50cd1f3c87e84",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-event-3-cg-candidate-v1.png",
+      "sha256": "26debced5e7c5d157f8a147e5000ef144a77f8eaec6f112a582dba68b225c970",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-event-4-cg-candidate-v1.png",
+      "sha256": "3b31447f0cb75f1fd292d0dff3796776a4e9ae35ada536156f612e0070213451",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-equipment-tree-v1.png",
+      "sha256": "a93c44fb1bbaed16056f4af68685cefd6ea0660d2a44c77620a38aa354c2f123",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-standing-candidate-v1.png",
+      "sha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-portrait-candidate-v1.png",
+      "sha256": "ab331ebb5181e21fea0565bedbac7ebad2c66fe269b1b007487a648dc117f601",
+      "size": [
+        1151,
+        1366
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-expression-joy-candidate-v1.png",
+      "sha256": "bf29f0df23278c6fe5b407bf1d872f902e3a4c7b467eeb2319e2a376846da8bb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-expression-puzzled-candidate-v1.png",
+      "sha256": "9df284f194c68fa8832cad67b6b909d1c0659f16dd33c3d748bb1de842b0660c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-expression-determined-candidate-v1.png",
+      "sha256": "7f3a0671286d7d088767847f020a25cd90879b8baeb8635171edcb310b945c3b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-attack-candidate-v1.png",
+      "sha256": "afeff36fec0a7f183f9e1374e6ae8efc03fb44c6f8d4c99843802ab5b5085a3c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-hit-candidate-v1.png",
+      "sha256": "45f837899298da5a0fdfea8c41bb3aa443767126ecf928d7c61fea4baeb0a563",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-cutin-candidate-v1.png",
+      "sha256": "ded748d5b48c13deaab194c6e920940930aefbe77b7ad2d8ae9ec068caa47735",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        253
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-sd-idle-candidate-v1.png",
+      "sha256": "01a5c1965ddf5cba7a5302cc35f678cda61ecaf8b5b743a08a1ec0eda47c680d",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "sd-sit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-sd-sit-candidate-v1.png",
+      "sha256": "a2c68357bc6d6b1d5b4ff3267bb987f4339b50883e6ce59c9d501d3d52aefde2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "sd-work",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-sd-work-candidate-v1.png",
+      "sha256": "70d4ee50c2c175c1dacc5d4212077ab87e0ce7ce82e1eb17eb633d35626b03ac",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "sd-look",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-sd-look-candidate-v1.png",
+      "sha256": "a7638264f2240717e93c2fe2b4e9d7e181cac59aa4be9ee457398eb12a93e1b5",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "holy",
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-event-0-cg-candidate-v1.png",
+      "sha256": "cbe9f2a9ee61fe7f5bcc32bf3b2fcdf49b128e24a9587d8f367a91b6dd4030e1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "holy",
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-event-1-cg-candidate-v1.png",
+      "sha256": "5a6bb8577329153ee1f14b3c61ec7b615d7ebb7d06ed8ec7e71b57e3afcbc334",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "holy",
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-event-2-cg-candidate-v1.png",
+      "sha256": "1d157b97103850a6cb570cabec50f1a1861a8b690e9c04eb0e9c3b305180f0d7",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "holy",
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-event-3-cg-candidate-v1.png",
+      "sha256": "8e248eab1e91262bbb96b55b8c0c7647ece58486db7e51bb2b33e5fab53a6a76",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "holy",
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-event-4-cg-candidate-v1.png",
+      "sha256": "f0439fc6234a0f7886b696242e9828c1a0cf22519ace6f50de61f7729eed6511",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "holy",
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\annihilator-holy-equipment-tree-v1.png",
+      "sha256": "1404c0c47d47cb757cb4dfd361c3656156e15c6c7b7048bba8461f16e87fe0b7",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

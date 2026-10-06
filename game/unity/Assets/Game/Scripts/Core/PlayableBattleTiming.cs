@@ -55,7 +55,7 @@ namespace NewAster.Core
             for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) result[i,slot]=new SkillTimingDefinition(slot==0?100:slot==1?125:150,i==4 && slot==1?150:0);
             return result;
         }
-        public long RecoveryDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
+        public long RecoveryDelay(int actor,int slot) => Job(actor,"chaser")?ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),ChaserSelectedRecovery(actor)):SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
         public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).CastPercent);
         public bool IsCasting(int actor) => actor>=0 && actor<5 && casting[actor]!=null;
         public long NextAt(int actor) => readyAt[actor];
@@ -82,6 +82,7 @@ namespace NewAster.Core
         public void Pass()
         {
             if(!UsesTimeline || Ended || AvailableHero<0) return;
+            if(!CanPass(AvailableHero))return;
             LastActionWasCastStart=false; LastCastResolvedActor=-1;
             LastFullChain=false; LastChainActionCount=0;LastActionChain=0;LastChainChecks=Array.Empty<ChainConnection>();
             int actor=AvailableHero; Acted[actor]=true; readyAt[actor]=Clock+SkillTimingDefinition.Delay(State.Heroes[actor].Speed,UsesJobRulesV2?25:Timing(actor,0).RecoveryPercent);
@@ -124,7 +125,7 @@ namespace NewAster.Core
                     continue;
                 }
                 int actor=next.Actor;
-                if(optionalResourceBoost && (State.Heroes[actor].Status.Active("stun") || State.Heroes[actor].Status.Active("absent"))){var h=State.Heroes[actor];bool canceled=casting[actor]!=null;casting[actor]=null;int wait=FinishHeroStatusAction(actor,false);readyAt[actor]=Clock+RecoveryDelay(actor,0)+wait;RecordPresentation(canceled?BattlePresentationKind.CastCanceled:BattlePresentationKind.Pass,actor,"body","状態異常により行動をスキップ。",standalone:true);continue;}
+                if(optionalResourceBoost && (State.Heroes[actor].Status.Active("stun") || State.Heroes[actor].Status.Active("absent"))){var h=State.Heroes[actor];bool canceled=casting[actor]!=null;casting[actor]=null;int wait=FinishHeroStatusAction(actor,false);readyAt[actor]=Clock+SkillTimingDefinition.Delay(h.Speed,Timing(actor,0).RecoveryPercent)+wait;RecordPresentation(canceled?BattlePresentationKind.CastCanceled:BattlePresentationKind.Pass,actor,"body","状態異常により行動をスキップ。",standalone:true);continue;}
                 var pending=casting[actor];
                 if(pending!=null) {
                     casting[actor]=null;

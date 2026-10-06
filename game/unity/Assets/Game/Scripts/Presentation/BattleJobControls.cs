@@ -5,6 +5,7 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private int protectedFormationSlot;
+        private int lifeTarget;
         private void PrepareBattleJobCapture(string[] args)
         {
             int index=System.Array.IndexOf(args,"-captureBattleJob");
@@ -39,6 +40,21 @@ namespace NewAster.Presentation
                 int[] casts={0,50,100,200};
                 for(int i=0;i<4;i++)if(Btn(34+i*112,484,105,32,(j.CastPercent==casts[i]?"◆":"")+"詠唱"+casts[i]+"%",enabled && PlayableBattle.BlasterCost(casts[i],j.Repeat)<=h.JobResource,jobButton))encounter.SelectBlaster(actor,casts[i],j.Repeat);
                 for(int i=1;i<=3;i++)if(Btn(490+(i-1)*120,484,112,32,(j.Repeat==i?"◆":"")+"×"+i,enabled && PlayableBattle.BlasterCost(j.CastPercent,i)<=h.JobResource,jobButton))encounter.SelectBlaster(actor,j.CastPercent,i);
+            }else if(j.Id=="job.artist"){
+                if(j.Singing){
+                    if(Btn(34,484,380,32,"歌唱継続 ／ スキル選択なし",enabled,jobButton)){encounter.ContinueSong(actor);ResetBattleMenu();QueueBattleEvents();}
+                    if(Btn(435,484,420,32,"歌唱解除 ／ 同じ行動順でスキルへ",enabled,jobButton)){encounter.StopSong(actor);QueueBattleEvents();}
+                }else if(Btn(34,484,500,32,"歌唱開始 ／ ゲージ3以上・毎ターン2消費",enabled && h.JobResource>=3,jobButton)){encounter.StartSong(actor);ResetBattleMenu();QueueBattleEvents();}
+            }else if(j.Id=="job.healer"){
+                if(Btn(34,484,160,32,"対象 "+(lifeTarget+1)+" ↻",enabled,jobButton))lifeTarget=(lifeTarget+1)%5;
+                string[] tools={"heal","overheal","maxhp","revive","invest"},labels={"回復 2","超過 4","最大HP 4","蘇生 8","生命投資 3"};
+                for(int i=0;i<tools.Length;i++)if(Btn(204+i*132,484,124,32,labels[i],enabled && encounter.CanUseLifeTool(actor,tools[i],lifeTarget),jobButton)){encounter.UseLifeTool(actor,tools[i],lifeTarget);ResetBattleMenu();QueueBattleEvents();}
+            }else if(j.Id=="job.chaser"){
+                DrawChaserBattleControls(actor,enabled,jobButton);
+            }else if(j.Id=="job.alchemist"){
+                DrawAlchemyBattleControls(actor,enabled,jobButton);
+            }else if(j.Id=="job.panzer"){
+                DrawPanzerBattleTools(actor,enabled,jobButton);
             }else if(j.Id=="job.gunner"){
                 for(int i=0;i<2;i++)if(Btn(34+i*165,484,155,32,(j.SelectedMagazine==i?"◆":"")+"弾倉"+(i+1)+"："+j.Magazines[i],enabled,jobButton))encounter.SelectMagazine(actor,i);
                 if(Btn(375,484,200,32,"全弾倉RELOAD",enabled,jobButton)){ResetBattleMenu();encounter.Reload(actor);QueueBattleEvents();}
@@ -46,7 +62,7 @@ namespace NewAster.Presentation
                     if(encounter.FullVolley(actor,target)){ResetBattleMenu();QueueBattleEvents();}
                 }
             }
-            Label(34,517,820,25,encounter.JobDescription(actor),jobLabel,gold);
+            if(j.Id=="job.healer" || j.Id=="job.alchemist" || j.Id=="job.chaser")jobLabel.fontSize=14;Label(34,517,820,25,encounter.JobDescription(actor)+(j.Id=="job.healer"?" ／ "+encounter.HeroineName(lifeTarget):j.Id=="job.alchemist"?" ／ "+encounter.AlchemyPreview(actor,alchemyUnits):""),jobLabel,gold);
         }
     }
 }

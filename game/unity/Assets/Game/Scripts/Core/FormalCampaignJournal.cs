@@ -32,11 +32,11 @@ namespace NewAster.Core
         {save.Validate();this.encode=encode;this.decode=decode;current=Copy(save);}
         private FormalCampaignSave Copy(FormalCampaignSave s)=>decode(encode(s));
         private void Ready(){if(writing || HasPending)throw new InvalidOperationException("Finish pending campaign save first.");}
-        public bool CommitGrowth(FormalGrowthSave growth,Func<FormalCampaignSave,bool> save)
+        public bool CommitGrowth(FormalGrowthSave growth,Func<FormalCampaignSave,bool> save,HomeExperienceCatalog home=null)
         {
             Ready();growth.Validate();var old=current.growth;
             if(growth.revision!=checked(old.revision+1)||growth.receipts.Length!=old.receipts.Length+1 || old.receipts.AnyMissingFrom(growth))throw new ArgumentException("Invalid growth transition.");
-            var next=Snapshot;next.revision=checked(next.revision+1);next.growth=growth.Copy();return Persist(next,save);
+            var next=Snapshot;next.revision=checked(next.revision+1);next.growth=growth.Copy();if(home!=null)HomeConditions.Refresh(next,home);return Persist(next,save);
         }
         public bool CommitWorld(CampaignSaveV2 world,Func<FormalCampaignSave,bool> save)
         {

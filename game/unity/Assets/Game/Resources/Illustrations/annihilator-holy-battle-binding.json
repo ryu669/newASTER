@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.annihilator-holy",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/annihilator-holy-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/annihilator-holy-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/annihilator-holy-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/annihilator-holy-cutin-candidate-v1"
+}

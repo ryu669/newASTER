@@ -110,7 +110,7 @@ namespace NewAster.Presentation
         private void DrawGardenResident(Rect area,HomeOccupant occupant)
         {
             float x=area.x+occupant.x*area.width,y=area.y+occupant.y*area.height;
-            if(combatDefinitions.FormationIds.Contains(occupant.heroineId)){
+            if(combatDefinitions.HeroineIds.Contains(occupant.heroineId)){
                 string action=occupant.actionId=="action.sit"?"sit":occupant.actionId=="action.work"?"work":occupant.actionId=="action.look"?"look":"idle";
                 string prefix=occupant.heroineId.Substring("heroine.".Length);
                 var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");

@@ -11,7 +11,7 @@ namespace NewAster.Presentation
         {
             string Arg(string key,string fallback){int index=Array.IndexOf(args,key);return index>=0 && index+1<args.Length?args[index+1]:fallback;}
             if(!ProductionStoryActive)throw new ArgumentException("Sanctuary capture requires production entry and isolated profile.");
-            string view=Arg("-heroineView","roster"),id=Arg("-heroineId","heroine.slayer");if(!combatDefinitions.FormationIds.Contains(id))throw new ArgumentException("Unknown heroine capture target.");
+            string view=Arg("-heroineView","roster"),id=Arg("-heroineId","heroine.slayer");if(!combatDefinitions.HeroineIds.Contains(id))throw new ArgumentException("Unknown heroine capture target.");
             acceptanceStore=new FormalCampaignStore(Path.Combine(Path.GetDirectoryName(capturePath),"heroine-"+Guid.NewGuid().ToString("N")+".json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
             var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
             save.growth.nectar=20000;save.collection.materials=HomeData().materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray();

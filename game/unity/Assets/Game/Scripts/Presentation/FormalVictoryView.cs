@@ -65,7 +65,7 @@ namespace NewAster.Presentation
                 TrialObserve("collection","committed",$"heard={r.battle.heardPoemIds.Length};new={r.acquiredPoemIds.Length};chapters={r.unlockedChapterIds.Length}",battleId+"/collection-committed");
                 TrialObserve("economy","balance",$"nectar={saved.growth.nectar};crystals={saved.growth.awakeningCrystals}",battleId+"/balance");
                 campaign=new CampaignState(WorldCatalog.ColossusIds,saved.world);
-                formalProgression=new FormalProgression(saved.growth,combatDefinitions.FormationIds);
+                formalProgression=new FormalProgression(saved.growth,combatDefinitions.HeroineIds);
                 result=(formalVictorySummary??(r.reason==BattleEndReason.Defeat?"敗北":"撤退"))+$"\n聞いた詩 {r.battle.heardPoemIds.Length} ／ 新しい詩 {r.acquiredPoemIds.Length} ／ 開いた章 {r.unlockedChapterIds.Length}";
                 if(r.reason!=BattleEndReason.Victory)result+="\n詩と章を保存しました。素材・石・世界復元の報酬はありません。";
                 result+=ProductionStoryActive?"\n物語のしおりから、開いた章を読めます。":plan8StoryTrial?"\nオリジナル試遊本文：物語から、開いた章を読めます。歌唱率・戦闘値は調整中です。":"\n詩対応と歌唱率は検証用。本文・正式対応は未制作です。";

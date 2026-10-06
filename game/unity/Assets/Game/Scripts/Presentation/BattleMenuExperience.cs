@@ -78,7 +78,7 @@ namespace NewAster.Presentation
                 bool casting=visual?.Casting[i]??encounter.IsCasting(i),healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
                 string state=hp==0?"戦闘不能":healed?"回復対象":casting?"詠唱中":playback.Busy?(visual?.Actor==i?"行動中":""):encounter.AvailableHero==i?"行動可能":"";
                 if(healed)GrowthFill(x-2,830,307,63,new Color(.18f,.6f,.42f));
-                if(Btn(x,830,303,53,Names[i]+"　"+state+"\nHP "+hp+"/"+hero.MaxHitPoints,!selectingAlly,cardStyle)){
+                if(Btn(x,830,303,53,Names[i]+"　"+state+"\n"+(hero.IsPanzer && hero.ArmorActive?"ARMOR ":"HP ")+hp+"/"+hero.MaxHitPoints,!selectingAlly,cardStyle)){
                     selectedHero=i;battlePanel=BattlePanel.Status;battleDetailsScroll=Vector2.zero;
                 }
                 Meter(x,886,303,5,hp,hero.MaxHitPoints,hp*3<hero.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
@@ -102,7 +102,7 @@ namespace NewAster.Presentation
             }else{
                 int actor=selectedHero;var hero=encounter.State.Heroes[actor];var visual=playback.Current;
                 var effects=visual?.HeroEffects[actor]??hero.TimedEffects;
-                details=Names[actor]+" ／ "+Jobs[actor]+"\nHP "+(visual?.HeroHp[actor]??hero.HitPoints)+"/"+hero.MaxHitPoints+"\n"+encounter.ResourceName(actor)+" "+(visual?.Resources[actor]??hero.JobResource)+"/"+hero.JobResourceMax+"　速度 "+hero.Speed+"\n\n次の行動 T "+encounter.NextAt(actor)+"\n敵からの予測ダメージ "+encounter.PreviewEnemyDamage(actor)+"\n\nチェイン基本50% ／ 最大70%\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>Names[i]))+"\n固定行動："+encounter.ChainActionDescription(actor)+"\n\n"+string.Join("\n",effects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+(encounter.UsesJobRulesV2?"ターン）":"行動）")))+"\n"+encounter.JobDescription(actor)+"\n\n状態異常："+(visual?.HeroStatuses[actor]??hero.Status.Description)+"\n"+string.Join("\n",EnemyStatusState.Kinds.Where(k=>hero.Status.Active(k)).Select(k=>EnemyStatusState.Label(k)+"："+EnemyStatusState.EffectDescription(k)))+"\n\n能力・神器・スキルの効果は出撃時の育成を反映します。";
+                details=Names[actor]+" ／ "+Jobs[actor]+"\nHP "+(visual?.HeroHp[actor]??hero.HitPoints)+"/"+hero.MaxHitPoints+"\n"+BattleResourceLine(actor,hero,visual)+"　速度 "+hero.Speed+"\n\n次の行動 T "+encounter.NextAt(actor)+"\n敵からの予測ダメージ "+encounter.PreviewEnemyDamage(actor)+"\n\nチェイン基本50% ／ 最大70%\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>Names[i]))+"\n固定行動："+encounter.ChainActionDescription(actor)+"\n\n"+string.Join("\n",effects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+(encounter.UsesJobRulesV2?"ターン）":"行動）")))+"\n"+encounter.JobDescription(actor)+"\n\n状態異常："+(visual?.HeroStatuses[actor]??hero.Status.Description)+"\n"+string.Join("\n",EnemyStatusState.Kinds.Where(k=>hero.Status.Active(k)).Select(k=>EnemyStatusState.Label(k)+"："+EnemyStatusState.EffectDescription(k)))+"\n\n能力・神器・スキルの効果は出撃時の育成を反映します。";
             }
             var style=new GUIStyle(text);style.normal.textColor=Color.white;
             float height=Mathf.Max(465,style.CalcHeight(new GUIContent(details),460)+20);
@@ -131,7 +131,7 @@ namespace NewAster.Presentation
                 if(Btn(34+slot*280,encounter.UsesJobRulesV2?543:524,270,encounter.UsesJobRulesV2?104:122,caption,enabled && encounter.ConditionsSatisfied(actor,slot),style))ChooseBattleSkill(slot);
             }
             if(Btn(34,653,540,37,"対象："+BattleTargetName(target)+" ／ 対象を変更",enabled))battlePanel=BattlePanel.Targets;
-            if(Btn(590,653,274,37,"パス",enabled)){ResetBattleMenu();encounter.Pass();QueueBattleEvents();}
+            if(Btn(590,653,274,37,encounter.RequiresPanzerDefense(actor)?"防御・装甲を待つ":"パス",enabled && (encounter.RequiresPanzerDefense(actor) || encounter.CanPass(actor)))){ResetBattleMenu();if(encounter.RequiresPanzerDefense(actor))encounter.DefendPanzer(actor);else encounter.Pass();QueueBattleEvents();}
         }
         private bool ChooseBattleSkill(int slot)
         {

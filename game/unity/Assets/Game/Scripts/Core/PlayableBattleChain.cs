@@ -5,6 +5,7 @@ namespace NewAster.Core
 {
     public sealed partial class PlayableBattle
     {
+        private int activeChainBonusBp;
         private int[] skillChainBonuses=new int[3];
         private bool[] cumulativeChainActors=new bool[5];
         private HeroineChainAction[] chainActions;
@@ -40,7 +41,8 @@ namespace NewAster.Core
             LastFullChain=false; LastChainActionCount=1;
             if(!State.Heroes[origin].IsAlive) {LastChainChecks=Array.Empty<ChainConnection>();return;}
             int participants=1;
-            var outcome=AutomaticChain.Resolve(origin,5,skillBonus,marked,i=>State.Heroes[i].IsAlive,()=>Ended,
+            int authoredBonus=activeChainBonusBp;
+            var outcome=AutomaticChain.Resolve(origin,5,skillBonus+authoredBonus,marked,i=>State.Heroes[i].IsAlive && !RequiresPanzerDefense(i),()=>Ended,
                 max=>random.Next(max),(actor,bonus,step)=> {
                     var def=chainActions[actor];
                     var effect=ChainActionResolver.Resolve(State,actor,def);
@@ -51,7 +53,8 @@ namespace NewAster.Core
                     Log+="\n"+message;
                     var kind=effect.TargetIds.Count==0?BattlePresentationKind.Support:def.Effect==ChainEffect.Heal?BattlePresentationKind.Healing:BattlePresentationKind.Attack;
                     RecordPresentation(kind,actor,effect.Target,message,damage:def.Effect==ChainEffect.Damage?effect.Amount:0,broken:effect.PartBroken,healingTargets:effect.HealingTargets,chainActionId:def.Id,presentationId:def.PresentationId,targetIds:effect.TargetIds);
-                });
+                    if(effect.TargetIds.Count>0 && def.Effect==ChainEffect.Damage)ChaserIgnition(actor,effect.TargetIds);
+                },authoredBonus:authoredBonus>0);
             Chain=outcome.Participants; LastActionChain=outcome.Participants;
             LastFullChain=outcome.FullChain; LastChainActionCount=outcome.Participants+outcome.BonusActions;
             LastChainChecks=Array.AsReadOnly(outcome.Checks.ToArray());

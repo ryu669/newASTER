@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-06",
+  "coreAssertions": 7970,
+  "unityBuild": "passed",
+  "adoptedRAssets": 18,
+  "rosterCount": 6,
+  "partySlots": 5,
+  "chapterPages": 30,
+  "events": 5,
+  "playerCases": [
+    {
+      "view": "recruitment",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/recruitment.png"
+    },
+    {
+      "view": "detail",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/detail.png"
+    },
+    {
+      "view": "weapon",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/weapon.png"
+    },
+    {
+      "view": "formation",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/formation.png"
+    },
+    {
+      "view": "battle",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/battle.png"
+    },
+    {
+      "view": "song",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/song.png"
+    },
+    {
+      "view": "buff",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/buff.png"
+    },
+    {
+      "view": "garden",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/garden.png"
+    },
+    {
+      "view": "event0",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/event0.png"
+    },
+    {
+      "view": "event1",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/event1.png"
+    },
+    {
+      "view": "event2",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/event2.png"
+    },
+    {
+      "view": "event3",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/event3.png"
+    },
+    {
+      "view": "event4",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/event4.png"
+    },
+    {
+      "view": "chapter",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/chapter.png"
+    },
+    {
+      "view": "journey",
+      "passed": true,
+      "imageHasContent": true,
+      "capture": "tmp/plan10-r/player-1280/journey.png"
+    }
+  ]
+}

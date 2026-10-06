@@ -11,6 +11,7 @@ namespace NewAster.Core
     { public string heroineId,gardenId,slotId,furnitureInstanceId,actionId; public float x=.5f,y=.5f; }
     [Serializable] public sealed class HomeAffection { public string heroineId; public int value; }
     [Serializable] public sealed class HomeWeaponEquipment { public string heroineId,nodeId; }
+    [Serializable] public sealed class HomePanzerEquipment { public string heroineId,resistance,firstTool,secondTool; }
     [Serializable] public sealed class HomeWeaponLevel { public string nodeId; public int level=1; }
     [Serializable] public sealed class HomeReadLine { public string sceneId,lineId; public int scriptVersion; }
     [Serializable] public sealed class HomeReceipt { public string transactionId,kind,signature,resultHash; }
@@ -25,6 +26,7 @@ namespace NewAster.Core
         public HomeAffection[] affections=Array.Empty<HomeAffection>(); public HomeReadLine[] readLineKeys=Array.Empty<HomeReadLine>();
         public HomeReceipt[] receipts=Array.Empty<HomeReceipt>();
         public HomeWeaponEquipment[] weaponEquipment=Array.Empty<HomeWeaponEquipment>();
+        public HomePanzerEquipment[] panzerEquipment=Array.Empty<HomePanzerEquipment>();
         public HomeWeaponLevel[] weaponLevels=Array.Empty<HomeWeaponLevel>();
         public int WeaponLevel(string nodeId)=>weaponLevels?.SingleOrDefault(w=>w.nodeId==nodeId)?.level??1;
         public static FormalHomeProgress Empty(string contentVersion)=>new FormalHomeProgress{version=1,contentVersion=contentVersion};
@@ -37,6 +39,7 @@ namespace NewAster.Core
             if(formationIds!=null && formationIds.Length>0){Set(formationIds);if(formationIds.Length!=5)throw new ArgumentException("編成は異なる5人です。");}
             Index(furnitureInstances,x=>x.instanceId);Index(furniturePlacements,x=>x.instanceId);Index(occupants,x=>x.heroineId);Index(affections,x=>x.heroineId);Index(receipts,x=>x.transactionId);
             Index(weaponEquipment,x=>x.heroineId);if(weaponEquipment.Any(e=>!weaponNodeIds.Contains(e.nodeId)))throw new ArgumentException("Weapon must be acquired.");
+            if(panzerEquipment!=null){Index(panzerEquipment,x=>x.heroineId);foreach(var e in panzerEquipment){if(e.heroineId!="heroine.shell")throw new ArgumentException("Unknown panzer owner.");new PanzerLoadout(e.resistance,e.firstTool,e.secondTool);}}
             if(weaponLevels!=null){Index(weaponLevels,x=>x.nodeId);if(weaponLevels.Any(w=>w.level<1 || w.level>7 || !weaponNodeIds.Contains(w.nodeId)))throw new ArgumentException("神器Lvは取得済みノードの1〜7です。");}
             foreach(var ids in new[]{weaponNodeIds,loverHeroineIds,unlockedEventIds,readEventIds,claimedRewardIds})Set(ids);
             if(readEventIds.Any(id=>!unlockedEventIds.Contains(id)) || affections.Any(a=>a.value<0) || furnitureInstances.Any(x=>!HomeExperienceCatalog.Id(x.defId)))throw new ArgumentException("Invalid home progression.");
@@ -54,8 +57,11 @@ namespace NewAster.Core
         }
         public void ValidateContent(HomeExperienceCatalog catalog,FormalCampaignSave campaign)
         {
+            if(formationIds!=null && formationIds.Select(catalog.PersonId).Distinct().Count()!=formationIds.Length)throw new ArgumentException("同じ人物の別衣装は同時に編成できません。");
+            if(occupants.Select(o=>catalog.PersonId(o.heroineId)).Distinct().Count()!=occupants.Length)throw new ArgumentException("同じ人物の別衣装は同時に庭へ配置できません。");
             Validate();catalog.Validate();if(catalog.contentVersion!=contentVersion)throw new ArgumentException("Home content version mismatch.");
             var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();
+            if((panzerEquipment??Array.Empty<HomePanzerEquipment>()).Any(e=>!heroes.Contains(e.heroineId) || !catalog.heroineIds.Contains(e.heroineId)))throw new ArgumentException("Unowned panzer setup.");
             if(formationIds!=null && formationIds.Any(id=>!heroes.Contains(id) || !catalog.heroineIds.Contains(id)))throw new ArgumentException("未所持の誓女は編成できません。");
             foreach(var e in weaponEquipment)if(!heroes.Contains(e.heroineId) || !catalog.weaponNodes.Any(n=>n.id==e.nodeId && n.heroineId==e.heroineId))throw new ArgumentException("Invalid weapon owner.");
             foreach(var instance in furnitureInstances)if(!catalog.furniture.Any(f=>f.id==instance.defId))throw new ArgumentException("Unknown furniture definition.");
@@ -66,7 +72,7 @@ namespace NewAster.Core
             if(affections.Any(a=>!heroes.Contains(a.heroineId) || !catalog.heroineIds.Contains(a.heroineId)))throw new ArgumentException("Unknown affection owner.");
             foreach(var id in unlockedEventIds)if(!catalog.events.Any(e=>e.id==id && heroes.Contains(e.heroineId)))throw new ArgumentException("Unknown event.");
             foreach(var id in claimedRewardIds)if(!catalog.events.Any(e=>e.id==id && e.rewards.Length>0 && readEventIds.Contains(id)) && !catalog.chapters.Any(c=>c.id==id && c.rewards.Length>0 && campaign.world.readStoryIds.Contains(id)))throw new ArgumentException("Unknown or incomplete first reward source.");
-            foreach(var id in loverHeroineIds)if(!heroes.Contains(id) || !catalog.events.Any(e=>e.heroineId==id && e.establishesLover && readEventIds.Contains(e.id)))throw new ArgumentException("Lover status requires explicit completed event.");
+            foreach(var id in loverHeroineIds)if(!heroes.Contains(id) || !catalog.events.Any(e=>catalog.PersonId(e.heroineId)==catalog.PersonId(id) && e.establishesLover && readEventIds.Contains(e.id)))throw new ArgumentException("Lover status requires explicit completed event.");
             foreach(var line in readLineKeys){var script=catalog.scripts.SingleOrDefault(s=>s.id==line.sceneId);if(script==null || line.scriptVersion>script.scriptVersion || line.scriptVersion==script.scriptVersion && !script.commands.Any(c=>c.kind=="line" && c.lineId==line.lineId))throw new ArgumentException("Unknown read line or script version.");}
         }
     }

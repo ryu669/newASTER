@@ -1,0 +1,231 @@
+{
+  "tool": "builtin image_gen.imagegen",
+  "masters": [
+    {
+      "key": "normal",
+      "prompt": "Create an original premium Japanese fantasy RPG heroine full-body standing sprite inspired by the provided reference character. Reference image is for character motifs only, not edit target; no source UI. Adult East Asian angel woman, long near-black hair with straight bangs, red eyes, reserved cool smile, small curved horn ornaments and an ornate pale white oni half-mask tied beside her head. Dramatic large BLACK feather wings with deep wine-red feather edges, thin elegant gold halo. Black and deep burgundy asymmetrical gothic kimono-inspired combat dress with pale fur shoulder trim, intricate gold floral metalwork, turquoise waist ribbon, black stockings, red spider-lily floral motifs, small glowing crimson butterflies. Holds an ornate black-and-gold crescent polearm with red flower accents. Her body and face are readable, original tailoring and weapon detail. Clearly angelic rather than generic human. Whole figure, wings, weapon and halo entirely inside canvas with generous 8% margins. Rich painterly anime rendering matching an elaborate fantasy art-book game, fine crisp silhouette. NO text, UI, icons or watermark. Transparent RGBA background."
+    },
+    {
+      "key": "holy",
+      "prompt": "Create an original premium Japanese fantasy RPG angel heroine full-body standing sprite inspired by the provided Holy Night reference character. Reference image for identity/design motifs only, not edit target; no source UI. Adult East Asian angel woman, same near-black long hair and straight bangs, same red eyes as ordinary version, warm but restrained smile. Elegant small horn/antler hair ornaments and white miniature deer-faced mask tied beside hair, holly/red bow. Large BLACK feather wings with burgundy-red edges, refined gold halo. New original red-and-white Holy Night outfit: fitted red festive bodice and short asymmetric skirt, substantial white fur trim, green ribbon accents and gold filigree, white thigh-high stockings with red bows, red gloves and boots. Carries a small gold-ribbon gift and an ornate luminous bell staff for HEALER role; floating wrapped gifts and warm snowflake lights as accents. Character, wings, staff and halo fully contained with generous 8% transparent margins. Detailed painterly anime illustration with dignified festive tenderness, visually same woman as normal version. No text, watermark, UI or icons. Transparent RGBA."
+    }
+  ],
+  "assets": [
+    {
+      "form": "normal",
+      "key": "standing",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-cf48d8d2-ce43-4094-a921-2cf70d96c2a5.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body standing pose, composed and inviting, all wings/weapon/halo fully within image with 8% margin. Isolated actual transparent RGBA background, no painted gradient backdrop. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "portrait",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-cde20c02-c7bc-4423-a9d0-a071d7670aa5.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Chest-up character portrait with large clearly readable face, same hair, mask ornament, halo and wings visible. Real transparent background; close-up crop shoulders allowed. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "expression-joy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-d95d558e-94fb-48f0-8ca0-3a04de2f82ef.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body expression sprite. Warm restrained genuine smile, relaxed shoulders; same outfit and exact identity, entire wings and halo within margins. Real transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "expression-puzzled",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-e37a0a49-a250-48e5-b257-c3bb25309d20.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body expression sprite. Quiet worried/doubtful expression, hand near chest, firm dignity, exact same identity and outfit, entire wings and halo within margins. Real transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "expression-determined",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fd8c224e-3fd3-4dd5-b22e-0eb974f5e9fa.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body expression sprite. Resolute protective gaze with focused red eyes, exact same identity/outfit and wings, whole silhouette and halo within margin. Transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "attack",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-a2707b26-1813-4821-9051-0ee750c24cea.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body combat attack illustration: normal form uses elegant crescent polearm slash with crimson butterfly/spider-lily particles; Holy Night form releases golden snowflake/bell magic with floating wrapped gifts. Use only action matching reference outfit. Entire silhouette/effects inside image, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "hit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-a2b3a2f3-14e1-4c69-bcdb-96f5d2d16289.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Full-body combat hit-reaction sprite, bracing defensively, tense but dignified, wings protect her, exact identity/outfit. Modest motion particles, no blood/injury, all parts inside frame, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "cutin",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-65fb4099-247e-4c82-a326-0fa8be99dcf2.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Dramatic magic cut-in, dynamic upper/full body with large wings and halo, distinct special pose. Normal: crimson butterflies and flower sigils around crescent weapon. Holy Night: golden bell snowflake spell and wrapped gifts. No writing, isolated transparency, silhouette fully inside canvas. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "sd-idle",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-d4e30559-d9da-49e0-bbd8-0e7b81e6f607.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Super-deformed chibi sprite, LARGE head to body 1:2.5 ratio, recognizably same face/hair/mask/outfit, small full black feather wings and gold halo, standing idle. Entire figure contained in margins, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "sd-sit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1474e532-4141-4e8d-ae53-a0d477bd848c.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, seated pose on invisible seat at three-quarter angle, hands on knees, no chair/background, genuine transparency. Entire figure inside canvas. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "sd-work",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-4b078e37-c2e8-4c50-8c59-49a7e1e42a97.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, leaning slightly to tend a tiny plant with hands forward, no table or large furniture, full contained figure, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "sd-look",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-bce499f4-aae2-4119-84af-2154d8bada60.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, looking attentively at a small floating flower or gift, full figure, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "event-0-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-f6225ebf-8fa0-4b46-b574-8a1c9c6bf51d.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Widescreen 16:9 original story CG, BACKGROUND included: heroine and her black wings/halo in restored fantasy garden. Normal outfit: tends crimson flowers at a quiet spring, initially guarded. Holy Night outfit: prepares handmade little wrapped gifts by the spring, reserved tender anticipation. Same reference identity and costume, no text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "event-1-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-83d25f94-fb65-441a-9fff-6459c742d7d0.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Widescreen 16:9 original story CG, background included. Normal outfit: rainy garden, heroine lowers her oni mask and lets unseen companion shelter a precious small flower, showing trust. Holy Night outfit: near a lantern-lit small evergreen, sorting gifts thoughtfully rather than grand spectacle, snow softly falling. Matching exact reference outfit/face, no text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "event-2-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3d13e452-288c-48e5-9368-273727c74156.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Widescreen 16:9 original romance story CG, background included. Heroine with her reference outfit, black wings, halo and red eyes, reaches hand toward unseen viewer beside tranquil glowing garden at night, affectionate quiet confession, gentle dignified smile. Normal form crimson butterflies; Holy Night warm snowflake lamps, gifts and bell. No lettering. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "event-3-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-56169989-d84b-4a93-93c3-a61d43c81037.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Widescreen 16:9 original everyday intimate story CG, background included. Normal form makes tea beside a small flowering plant on veranda, calm and warm. Holy Night form prepares spiced meal at a small garden outdoor table, dark wings remain visible, intimate domestic tenderness. Same reference identity/outfit. No text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "event-4-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0c085eb9-5937-4527-8416-53a5bb533104.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Widescreen 16:9 original future story CG, background included. Heroine with same identity, black wings and gold halo, watches new dawn over restored fantasy garden with unseen companion, subtle hopeful smile. Normal: red spider-lily buds and crimson butterflies; Holy Night: snow thawing, handmade gifts and small growing evergreen. No text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "normal",
+      "key": "equipment-tree-v1",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-580ca1e5-55f1-4f88-a6e6-f000cb588491.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator ordinary black/burgundy Fighter. Square transparent-background equipment-growth TREE ONLY. No heroine. Gold twisting trunk at bottom center with THREE broad upward branching canopies for UI nodes separately drawn, clear gaps between branches. Normal form motif black feathery leaves, crimson spider lilies/butterflies, small oni mask ornament. Holy Night motif white feather leaves, holly red berries, gold bells, tiny gifts and black feather accents. Match reference colors, entire roots/canopy contained. No labels/text/UI node circles, actual transparent RGBA. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "standing",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8b174068-5203-4159-a7ba-729c87ced420.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body standing pose, composed and inviting, all wings/weapon/halo fully within image with 8% margin. Isolated actual transparent RGBA background, no painted gradient backdrop. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "portrait",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-891c8633-1560-49ec-8d65-a1f83d8c93ee.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Chest-up character portrait with large clearly readable face, same hair, mask ornament, halo and wings visible. Real transparent background; close-up crop shoulders allowed. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "expression-joy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fe00e170-d691-4e53-87f2-7e7d4d88bafe.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body expression sprite. Warm restrained genuine smile, relaxed shoulders; same outfit and exact identity, entire wings and halo within margins. Real transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "expression-puzzled",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-7ab946e6-4723-4f5f-9f8b-ed5e49e00fb3.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body expression sprite. Quiet worried/doubtful expression, hand near chest, firm dignity, exact same identity and outfit, entire wings and halo within margins. Real transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "expression-determined",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-4f1d4cc5-3828-4e17-a98b-9be258ca6a1d.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body expression sprite. Resolute protective gaze with focused red eyes, exact same identity/outfit and wings, whole silhouette and halo within margin. Transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "attack",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-67d8ea83-8111-4f9f-afc1-54833ab87b8f.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body combat attack illustration: normal form uses elegant crescent polearm slash with crimson butterfly/spider-lily particles; Holy Night form releases golden snowflake/bell magic with floating wrapped gifts. Use only action matching reference outfit. Entire silhouette/effects inside image, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "hit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-ccbc8397-9177-4048-8998-53fd0ad2b9ae.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Full-body combat hit-reaction sprite, bracing defensively, tense but dignified, wings protect her, exact identity/outfit. Modest motion particles, no blood/injury, all parts inside frame, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "cutin",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-94988188-92fb-444b-831e-18728af2d6be.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Dramatic magic cut-in, dynamic upper/full body with large wings and halo, distinct special pose. Normal: crimson butterflies and flower sigils around crescent weapon. Holy Night: golden bell snowflake spell and wrapped gifts. No writing, isolated transparency, silhouette fully inside canvas. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "sd-idle",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-891a2ee2-3eb2-4c01-b8b6-b0f4a5c58e7a.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Super-deformed chibi sprite, LARGE head to body 1:2.5 ratio, recognizably same face/hair/mask/outfit, small full black feather wings and gold halo, standing idle. Entire figure contained in margins, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "sd-sit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-65fb5ace-3cb6-4a45-acc9-3d2b37410d22.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, seated pose on invisible seat at three-quarter angle, hands on knees, no chair/background, genuine transparency. Entire figure inside canvas. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "sd-work",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-6ee99f7c-287a-4f7b-aac0-63a3952dc618.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, leaning slightly to tend a tiny plant with hands forward, no table or large furniture, full contained figure, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "sd-look",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-eb9eda03-3b24-482a-9cd7-53c44795614a.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Super-deformed chibi sprite large head 1:2.5, same identity/outfit/black wings/halo, looking attentively at a small floating flower or gift, full figure, transparent background. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "event-0-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-b4d8648b-adaa-497b-adbe-fa824e7db9ce.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Widescreen 16:9 original story CG, BACKGROUND included: heroine and her black wings/halo in restored fantasy garden. Normal outfit: tends crimson flowers at a quiet spring, initially guarded. Holy Night outfit: prepares handmade little wrapped gifts by the spring, reserved tender anticipation. Same reference identity and costume, no text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "event-1-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-978c6014-baa6-4e4d-a02d-94fecfb71719.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Widescreen 16:9 original story CG, background included. Normal outfit: rainy garden, heroine lowers her oni mask and lets unseen companion shelter a precious small flower, showing trust. Holy Night outfit: near a lantern-lit small evergreen, sorting gifts thoughtfully rather than grand spectacle, snow softly falling. Matching exact reference outfit/face, no text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "event-2-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-7dbfb081-e59e-4407-8eb5-9ec7b6852146.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Widescreen 16:9 original romance story CG, background included. Heroine with her reference outfit, black wings, halo and red eyes, reaches hand toward unseen viewer beside tranquil glowing garden at night, affectionate quiet confession, gentle dignified smile. Normal form crimson butterflies; Holy Night warm snowflake lamps, gifts and bell. No lettering. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "event-3-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-5802cda3-b9bd-4fe8-8bc0-452146f4a47b.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Widescreen 16:9 original everyday intimate story CG, background included. Normal form makes tea beside a small flowering plant on veranda, calm and warm. Holy Night form prepares spiced meal at a small garden outdoor table, dark wings remain visible, intimate domestic tenderness. Same reference identity/outfit. No text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "event-4-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-bfd9f85b-26ff-4564-a807-e157c15b03a2.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Widescreen 16:9 original future story CG, background included. Heroine with same identity, black wings and gold halo, watches new dawn over restored fantasy garden with unseen companion, subtle hopeful smile. Normal: red spider-lily buds and crimson butterflies; Holy Night: snow thawing, handmade gifts and small growing evergreen. No text. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    },
+    {
+      "form": "holy",
+      "key": "equipment-tree-v1",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fcbbae83-8765-4873-955e-19a602a904f2.png",
+      "prompt": "Create a NEW original game asset using reference image for exact character identity, costume and style continuity; do not copy its composition/background. Form: Annihilator Holy Night red/white Healer. Square transparent-background equipment-growth TREE ONLY. No heroine. Gold twisting trunk at bottom center with THREE broad upward branching canopies for UI nodes separately drawn, clear gaps between branches. Normal form motif black feathery leaves, crimson spider lilies/butterflies, small oni mask ornament. Holy Night motif white feather leaves, holly red berries, gold bells, tiny gifts and black feather accents. Match reference colors, entire roots/canopy contained. No labels/text/UI node circles, actual transparent RGBA. Keep adult East Asian woman with long straight-banged black hair, red eyes, same mask ornament, large black/burgundy feather wings and gold halo. No generic white-wing substitution, no change of face or hair, no writing, no watermark. Production illustration, refined painterly Japanese fantasy RPG."
+    }
+  ]
+}

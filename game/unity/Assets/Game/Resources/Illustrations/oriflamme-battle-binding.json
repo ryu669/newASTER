@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.oriflamme",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/oriflamme-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/oriflamme-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/oriflamme-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/oriflamme-cutin-candidate-v1"
+}

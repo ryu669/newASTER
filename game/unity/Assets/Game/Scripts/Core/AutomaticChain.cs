@@ -23,10 +23,10 @@ namespace NewAster.Core
     public static class AutomaticChain
     {
         public static AutomaticChainResult Resolve(int origin,int count,int skillBonusBp,bool[] bonusActors,
-            Func<int,bool> canAct,Func<bool> ended,Func<int,int> draw,Action<int,bool,int> execute)
+            Func<int,bool> canAct,Func<bool> ended,Func<int,int> draw,Action<int,bool,int> execute,bool authoredBonus=false)
         {
             if(count<1 || origin<0 || origin>=count || bonusActors==null || bonusActors.Length!=count ||
-                (skillBonusBp!=0 && skillBonusBp!=1000)) throw new ArgumentException("Invalid chain context.");
+                (authoredBonus?skillBonusBp<0 || skillBonusBp>2500:skillBonusBp!=0 && skillBonusBp!=1000)) throw new ArgumentException("Invalid chain context.");
             int marked=0; foreach(bool b in bonusActors) if(b) marked++;
             if(marked>2) throw new ArgumentException("At most two cumulative actors.");
             var result=new AutomaticChainResult();
@@ -73,8 +73,12 @@ namespace NewAster.Core
         public string PresentationId { get; }
         public string DamageType { get; }
         public int IgnoreDefenseBp { get; }
-        public HeroineChainAction(string heroId,string id,decimal power,ChainEffect effect=ChainEffect.Damage,ChainTarget target=ChainTarget.BossBody,int baseHealing=0,string presentationId=null,string damageType="physical",int ignoreDefenseBp=0)
+        private readonly string[] attributes;
+        public string[] Attributes=>(string[])attributes.Clone();
+        public HeroineChainAction(string heroId,string id,decimal power,ChainEffect effect=ChainEffect.Damage,ChainTarget target=ChainTarget.BossBody,int baseHealing=0,string presentationId=null,string damageType="physical",int ignoreDefenseBp=0,string[] attributes=null)
         {
+            CombatAttributeRules.Validate(attributes);this.attributes=(string[])(attributes??Array.Empty<string>()).Clone();
+            if(effect==ChainEffect.Heal && this.attributes.Length>0)throw new ArgumentException("Healing fixed action cannot carry attack attributes.");
             if((damageType!="physical" && damageType!="magic") || ignoreDefenseBp<0 || ignoreDefenseBp>10000 || (effect==ChainEffect.Heal && (damageType!="physical" || ignoreDefenseBp!=0))) throw new ArgumentException("Invalid fixed-action defense profile.");
             DamageType=damageType;IgnoreDefenseBp=ignoreDefenseBp;
             if(string.IsNullOrWhiteSpace(heroId)||string.IsNullOrWhiteSpace(id)||!Enum.IsDefined(typeof(ChainEffect),effect)||!Enum.IsDefined(typeof(ChainTarget),target)||power<0||power>100||baseHealing<0||baseHealing>1000000||

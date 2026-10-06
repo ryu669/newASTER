@@ -83,10 +83,10 @@ namespace NewAster.Presentation
                 if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
                 heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
                 Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
-                var source=Resources.Load<TextAsset>("Combat/battle-formal");
+                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan10-nighthawk");
                 if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
-                Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=5 skills=15 chains=5");
+                Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes="+combatDefinitions.heroines.Length+" skills="+combatDefinitions.skills.Length+" chains="+combatDefinitions.chainActions.Length);
                 InitializeFormalGrowth();
                 InitializeKinder();
                 InitializeEngagement();
@@ -125,7 +125,7 @@ namespace NewAster.Presentation
                 int portraitIndex=Array.IndexOf(args,"-captureGrowthHero");
                 if(portraitIndex>=0 && portraitIndex+1<args.Length){
                     string requestedHero=args[portraitIndex+1];
-                    if(!combatDefinitions.FormationIds.Contains(requestedHero))throw new ArgumentException("Unknown growth capture heroine");
+                    if(!combatDefinitions.HeroineIds.Contains(requestedHero))throw new ArgumentException("Unknown growth capture heroine");
                     if(book.SubjectId!=requestedHero && !book.RequestSubject(BookBookmark.Heroines,requestedHero))throw new InvalidOperationException("Growth capture navigation failed");
                     book.CompleteTransition();
                 }
@@ -183,6 +183,11 @@ namespace NewAster.Presentation
                 portraitFace=!args.Contains("-captureSlayerFull");
                 portraitYaw=args.Contains("-captureSlayerProfile")?90:args.Contains("-captureSlayerFront")?0:-20;
             }
+            PreparePlan10RCapture(args);
+            PreparePlan10AnnihilatorCapture(args);
+            PreparePlan10ShellCapture(args);
+            PreparePlan10OriflammeCapture(args);
+            PreparePlan10NighthawkCapture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -209,6 +214,7 @@ namespace NewAster.Presentation
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
+                else if(panzerSetupOpen)panzerSetupOpen=false;
                 else if(placing){placing=false;selectedFurniture=null;}
                 else if(CloseGardenMenuLayer()){}
                 else if(recoveryActive)recoveryConfirm=false;
@@ -529,7 +535,7 @@ namespace NewAster.Presentation
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot);
+            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout());
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
@@ -570,14 +576,18 @@ namespace NewAster.Presentation
             Label(340,218,900,28,selectable?$"選択 {selectedAllies.Count}/{d.TargetCount}人・同じ人は重複不可":encounter.HealingDescription(healingActor,healingSlot),small);
             for(int i=0;i<5;i++) {
                 var h=encounter.State.Heroes[i]; int gain=encounter.PreviewHealing(healingActor,i,healingSlot);
+                bool supportTarget=encounter.IsAllyBuff(healingActor,healingSlot),canChoose=encounter.CanChooseAlly(healingActor,healingSlot,i);
                 string info=gain>0?$"HP {h.HitPoints} → {h.HitPoints+gain}/{h.MaxHitPoints}（＋{gain}）":$"HP {h.HitPoints}/{h.MaxHitPoints}　"+(!h.IsAlive?"戦闘不能（蘇生不可）":d.TargetRule==HealingTargetRule.Self && i!=healingActor?"対象外":h.HitPoints==h.MaxHitPoints?"HP満タン・回復0":"使用不可");
                 string caption=(affected.Contains(i)?"◆ ":"")+Names[i]+"　"+info;
-                if(gain>0 && selectable) { if(Btn(340,250+i*68,900,58,caption,!paused && (selectedAllies.Contains(i)||selectedAllies.Count<d.TargetCount))) { if(!selectedAllies.Remove(i)) selectedAllies.Add(i); } }
-                else if(gain>0) { Panel(340,250+i*68,900,58,teal); Label(358,264+i*68,864,36,caption,small,Color.white); }
+                if(supportTarget)caption=(affected.Contains(i)?"◆ ":"")+Names[i]+" ／ "+(h.IsAlive?$"HP {h.HitPoints}/{h.MaxHitPoints}・支援を受ける":"戦闘不能・対象外");
+                else if(canChoose && gain==0)caption=(affected.Contains(i)?"◆ ":"")+Names[i]+" ／ HP満タン・状態異常を解除";
+                if(canChoose && selectable) { if(Btn(340,250+i*68,900,58,caption,!paused && (selectedAllies.Contains(i)||selectedAllies.Count<d.TargetCount))) { if(!selectedAllies.Remove(i)) selectedAllies.Add(i); } }
+                else if(canChoose) { Panel(340,250+i*68,900,58,teal); Label(358,264+i*68,864,36,caption,small,Color.white); }
                 else { Panel(340,250+i*68,900,58,dark); Label(358,264+i*68,864,36,caption,small,Color.white); }
             }
+            if(encounter.IsAllyBuff(healingActor,healingSlot))Label(340,601,900,34,encounter.SelfBuffDescription(healingActor,healingSlot),new GUIStyle(small){fontSize=16,wordWrap=false});
             if(Btn(340,650,420,62,"取消（消費なし）")) { selectingAlly=false; selectedAllies.Clear(); }
-            if(Btn(820,650,420,62,"回復を実行",!paused && encounter.CanHealTargets(healingActor,healingSlot,selectedAllies))) { selectingAlly=false; Act(healingActor,healingSlot,selectedAllies.OrderBy(i=>i).ToArray()); selectedAllies.Clear(); }
+            if(Btn(820,650,420,62,encounter.IsAllyBuff(healingActor,healingSlot)?"支援を実行":"回復を実行",!paused && encounter.CanHealTargets(healingActor,healingSlot,selectedAllies))) { selectingAlly=false; Act(healingActor,healingSlot,selectedAllies.OrderBy(i=>i).ToArray()); selectedAllies.Clear(); }
         }
         private void SelectNextHero()
         {

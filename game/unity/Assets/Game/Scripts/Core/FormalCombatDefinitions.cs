@@ -9,7 +9,7 @@ namespace NewAster.Core
         public int hp,attack,defense,magicDefense,speed,criticalBp;
         public void Validate()
         {
-            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(resourceName) || resourceMax<1 || resourceMax>15 || initialResource<0 || initialResource>resourceMax || gainAtReady<0 || gainAtReady>15 || gainOnAttack<0 || gainOnAttack>15 || gainOnHit<0 || gainOnHit>15 || hp<1 || hp>1000000 || attack<1 || attack>1000000 || defense<0 || defense>1000000 || magicDefense<0 || magicDefense>1000000 || speed<1 || speed>10000 || criticalBp<0 || criticalBp>10000) throw new ArgumentException("Invalid formal job.");
+            if(string.IsNullOrEmpty(id) || string.IsNullOrEmpty(resourceName) || resourceMax<0 || resourceMax==0 && id!="job.panzer" || resourceMax>15 || initialResource<0 || initialResource>resourceMax || gainAtReady<0 || gainAtReady>15 || gainOnAttack<0 || gainOnAttack>15 || gainOnHit<0 || gainOnHit>15 || hp<1 || hp>1000000 || attack<1 || attack>1000000 || defense<0 || defense>1000000 || magicDefense<0 || magicDefense>1000000 || speed<1 || speed>10000 || criticalBp<0 || criticalBp>10000) throw new ArgumentException("Invalid formal job.");
         }
         public JobCombatDef Copy() => (JobCombatDef)MemberwiseClone();
     }
@@ -28,7 +28,7 @@ namespace NewAster.Core
         {
             if(!IsFormal) return;
             if(designOrigin!="user-authorized-newaster-rules-2026-10-02") throw new ArgumentException("Formal original rules need explicit provenance.");
-            if(jobs==null || jobs.Length!=5 || jobs.Any(j=>j==null) || jobs.Select(j=>j.id).Distinct().Count()!=5) throw new ArgumentException("Formal roster needs five distinct job definitions.");
+            if(jobs==null || jobs.Length<1 || jobs.Any(j=>j==null) || jobs.Select(j=>j.id).Distinct().Count()!=jobs.Length) throw new ArgumentException("Formal roster needs five distinct job definitions.");
             foreach(var job in jobs) {job.Validate();if(!Id(job.id)) throw new ArgumentException("Invalid job ID.");}
             var kinds=new[]{"trait","weapon-tree","poem-chapter","poem-link","affinity-event","lover-event"};
             if(contentReferences==null || contentReferences.Any(r=>r==null || !Id(r.id) || !Id(r.ownerId) || !kinds.Contains(r.kind) || (r.status!="reserved" && r.status!="implemented")) || contentReferences.Select(r=>r.id).Distinct().Count()!=contentReferences.Length) throw new ArgumentException("Invalid heroine content registry.");

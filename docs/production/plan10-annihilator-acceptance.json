@@ -1,0 +1,867 @@
+{
+  "date": "2026-10-06",
+  "status": "accepted",
+  "forms": [
+    "heroine.annihilator",
+    "heroine.annihilator-holy"
+  ],
+  "personId": "heroine.annihilator",
+  "coreAssertions": 8055,
+  "coreResult": "AUTOMATIC_CHAIN_PASS",
+  "windowsBuild": "D:\\AIGAME\\newASTER\\game\\Builds\\plan10-annihilator\\newASTER.exe",
+  "buildBytes": 1736157398,
+  "buildLog": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\build-final.log",
+  "artCount": 36,
+  "storyPages": 60,
+  "poems": 36,
+  "events": 10,
+  "screenCount": 49,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-attack.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.87747612847222,
+        101.57405707465277,
+        90.09159505208333
+      ],
+      "pixelStddev": [
+        71.55134206779765,
+        65.63082048866197,
+        57.7638603205426
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-battle.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        95.00396267361111,
+        100.34681966145833,
+        87.13404622395834
+      ],
+      "pixelStddev": [
+        72.79565645912247,
+        65.91509775592215,
+        56.51081062969079
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-buff-action.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.89923068576388,
+        101.58120225694445,
+        90.10119791666666
+      ],
+      "pixelStddev": [
+        71.5568631229628,
+        65.6310368845993,
+        57.763005595322625
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-buff-selection.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        68.45401909722223,
+        73.73427191840278,
+        83.54319444444444
+      ],
+      "pixelStddev": [
+        91.90176428657801,
+        82.1796885778872,
+        66.9198709514863
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-chapter.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        76.50986545138889,
+        81.63390733506944,
+        82.2912131076389
+      ],
+      "pixelStddev": [
+        68.36964630218127,
+        63.309464720260365,
+        58.26409685434357
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-detail.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        106.7248415798611,
+        101.36459526909722,
+        98.90504774305556
+      ],
+      "pixelStddev": [
+        102.0893784863841,
+        94.93624129955128,
+        83.09774427138508
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-event0.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        102.27234049479166,
+        83.85575086805555,
+        81.40938693576389
+      ],
+      "pixelStddev": [
+        84.62972561976127,
+        69.57712216166348,
+        61.36482988649349
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-event1.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        86.9453591579861,
+        70.56606879340278,
+        74.60675889756945
+      ],
+      "pixelStddev": [
+        77.22310868535031,
+        60.85545512388086,
+        55.46222782565638
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-event2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        100.61243815104167,
+        81.75666341145833,
+        83.044130859375
+      ],
+      "pixelStddev": [
+        83.76713290512471,
+        67.15084339647936,
+        59.85409304796111
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-event3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        94.85214192708334,
+        68.29620551215278,
+        60.951397569444445
+      ],
+      "pixelStddev": [
+        80.36114027764235,
+        60.79614750602282,
+        50.02378593300496
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-event4.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        108.34933919270833,
+        91.8634765625,
+        90.13554361979166
+      ],
+      "pixelStddev": [
+        89.02617239684994,
+        74.36960086773367,
+        66.71771552426006
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-formation.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        60.83888997395833,
+        54.76995659722222,
+        59.626049262152776
+      ],
+      "pixelStddev": [
+        74.66162872425943,
+        63.20596249260169,
+        58.44466809531055
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-garden.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.98128255208333,
+        112.83625325520833,
+        93.266279296875
+      ],
+      "pixelStddev": [
+        68.05505292837724,
+        63.13809770388263,
+        58.00455235425026
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-heal-action.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.90020941840278,
+        101.57402018229166,
+        90.09822265625
+      ],
+      "pixelStddev": [
+        71.55558599818012,
+        65.63080634502919,
+        57.763604291820485
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-heal-selection.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        66.77403862847223,
+        72.72337022569444,
+        82.19399522569445
+      ],
+      "pixelStddev": [
+        89.88368871016631,
+        81.17664192004918,
+        67.03819679078524
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-invest.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        95.00152560763888,
+        100.34266384548611,
+        87.13138237847222
+      ],
+      "pixelStddev": [
+        72.79497489571897,
+        65.91450856484406,
+        56.5095188096765
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-journey.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        126.28206814236111,
+        128.42896918402778,
+        122.77751193576388
+      ],
+      "pixelStddev": [
+        104.22079364176811,
+        94.8725109363049,
+        81.85266637013002
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-maxhp.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        95.00541666666666,
+        100.32989583333334,
+        87.12636067708333
+      ],
+      "pixelStddev": [
+        72.79239931001744,
+        65.91385307869751,
+        56.51091830416474
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-overheal.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        95.00095594618055,
+        100.34196723090278,
+        87.13074978298611
+      ],
+      "pixelStddev": [
+        72.79446379021257,
+        65.91403416402181,
+        56.50891764315475
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-recruit.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        46.21206705729167,
+        43.25309787326389,
+        47.89115342881944
+      ],
+      "pixelStddev": [
+        58.45288449082378,
+        48.79388127730466,
+        44.27111664460702
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-recruitment.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        23.896603732638887,
+        32.01282660590278,
+        46.480419921875
+      ],
+      "pixelStddev": [
+        30.9657211941367,
+        25.8298093063583,
+        17.62658196571734
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-revive.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        95.04877604166667,
+        100.25224500868056,
+        87.08908420138889
+      ],
+      "pixelStddev": [
+        72.80454620526595,
+        65.91630423756536,
+        56.519308960383
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-roster.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        46.63367947048611,
+        43.799275173611115,
+        49.079639756944445
+      ],
+      "pixelStddev": [
+        59.95830009647449,
+        50.02853114267968,
+        45.88368199001147
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\holy-weapon.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        82.56200520833333,
+        75.25499891493055,
+        74.87786024305555
+      ],
+      "pixelStddev": [
+        90.37443416992825,
+        82.67517448022937,
+        72.01879605416616
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-attack.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.84010416666666,
+        101.538076171875,
+        90.06955403645833
+      ],
+      "pixelStddev": [
+        71.55195182260626,
+        65.63218617953493,
+        57.75567872547108
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-battle.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.08903537326388,
+        95.93706488715277,
+        83.55407877604166
+      ],
+      "pixelStddev": [
+        68.33319373399776,
+        63.90889142106781,
+        53.771627177239715
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-chapter.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        69.197509765625,
+        77.15757161458333,
+        78.91314995659722
+      ],
+      "pixelStddev": [
+        60.134367315792126,
+        59.69554128647204,
+        55.55917658004168
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-declaration.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.86634548611111,
+        101.55239691840278,
+        90.08300564236112
+      ],
+      "pixelStddev": [
+        71.56138145786747,
+        65.63340541247753,
+        57.75396321622778
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-detail.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        99.92212239583333,
+        96.84840494791666,
+        95.47933702256944
+      ],
+      "pixelStddev": [
+        101.07597114493271,
+        94.08510847859914,
+        81.91040648311339
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-event0.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        81.75829210069445,
+        62.05538194444444,
+        62.961185980902776
+      ],
+      "pixelStddev": [
+        70.29053650506508,
+        52.81584727337821,
+        45.08528290926409
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-event1.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        72.81125217013889,
+        60.34184244791667,
+        63.365024956597225
+      ],
+      "pixelStddev": [
+        62.23348721291724,
+        51.86319095916194,
+        49.15538948672694
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-event2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        67.54109592013889,
+        50.420743272569446,
+        55.860582682291664
+      ],
+      "pixelStddev": [
+        62.755377663660674,
+        48.149825947457614,
+        42.35750877952696
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-event3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        90.4868630642361,
+        64.79662977430556,
+        66.76899088541667
+      ],
+      "pixelStddev": [
+        77.37825709571726,
+        56.31983536370691,
+        47.57355861617916
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-event4.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.16764214409723,
+        74.79723741319444,
+        77.33162326388889
+      ],
+      "pixelStddev": [
+        75.72918791878699,
+        61.34354825140925,
+        53.325900238569844
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-formation.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        60.32172309027778,
+        54.52715277777778,
+        59.52822916666667
+      ],
+      "pixelStddev": [
+        74.02302573437024,
+        62.90399195015252,
+        58.338444340732885
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-garden.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.041767578125,
+        112.260634765625,
+        92.88650607638888
+      ],
+      "pixelStddev": [
+        67.28181178837792,
+        62.80470382681663,
+        57.65893912154783
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-journey.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        126.28206814236111,
+        128.42896918402778,
+        122.77751193576388
+      ],
+      "pixelStddev": [
+        104.22079364176811,
+        94.8725109363049,
+        81.85266637013002
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-recruit.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        46.21206705729167,
+        43.25309787326389,
+        47.89115342881944
+      ],
+      "pixelStddev": [
+        58.45288449082378,
+        48.79388127730466,
+        44.27111664460702
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-recruitment.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        23.896603732638887,
+        32.01282660590278,
+        46.480419921875
+      ],
+      "pixelStddev": [
+        30.9657211941367,
+        25.8298093063583,
+        17.62658196571734
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-roster.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        46.63367947048611,
+        43.799275173611115,
+        49.079639756944445
+      ],
+      "pixelStddev": [
+        59.95830009647449,
+        50.02853114267968,
+        45.88368199001147
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1280\\normal-weapon.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        78.67671332465278,
+        72.69734809027777,
+        74.30255859375
+      ],
+      "pixelStddev": [
+        88.0462480237749,
+        81.42492356948968,
+        71.37427479113566
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\holy-battle.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        94.66858402777778,
+        100.07245,
+        86.99316180555556
+      ],
+      "pixelStddev": [
+        73.04159094107519,
+        66.2781897752676,
+        56.867674471239596
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\holy-chapter.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        76.64133680555555,
+        81.72491666666667,
+        82.30062222222222
+      ],
+      "pixelStddev": [
+        68.72746504626207,
+        63.60355589285302,
+        58.44473393634894
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\holy-detail.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        107.27580486111111,
+        101.91014791666667,
+        99.41667013888889
+      ],
+      "pixelStddev": [
+        102.35075074569002,
+        95.2293977256312,
+        83.36608655016622
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\holy-event2.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        100.66968402777778,
+        81.79896319444444,
+        83.01024583333333
+      ],
+      "pixelStddev": [
+        83.95828381535443,
+        67.36718193277734,
+        59.990934204174266
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\normal-battle.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        88.74646736111112,
+        95.64542430555555,
+        83.38540902777778
+      ],
+      "pixelStddev": [
+        68.52127082321807,
+        64.22652558928714,
+        54.09435337925944
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\normal-chapter.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        69.32723194444445,
+        77.24712708333334,
+        78.92054166666667
+      ],
+      "pixelStddev": [
+        60.55034262063889,
+        60.00709846675748,
+        55.743068555012464
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\normal-detail.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        100.37476944444444,
+        97.32614444444444,
+        95.9639625
+      ],
+      "pixelStddev": [
+        101.38079011044975,
+        94.41374765609098,
+        82.20884052838123
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-annihilator\\player-1600\\normal-event2.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        67.6470423611111,
+        50.50944444444445,
+        55.86968402777778
+      ],
+      "pixelStddev": [
+        63.11043410112885,
+        48.54302045004596,
+        42.580734726290444
+      ]
+    }
+  ],
+  "verified": [
+    "shared affection and lover state",
+    "no double sortie of same woman",
+    "atomic second-form join and retry",
+    "existing six heroine definitions preserved",
+    "targeted ally support and cleanse",
+    "life investment/overheal/maxHP/revive",
+    "independent equipment and non-damage Skill1 preservation",
+    "all six chapters and ten events persisted and reloaded",
+    "Unity texture imports and adopted SHA256s",
+    "1280x720 and 1600x900 display"
+  ],
+  "referenceLimit": "Video samples and screen text; no claim of complete audio or source-poem transcription."
+}

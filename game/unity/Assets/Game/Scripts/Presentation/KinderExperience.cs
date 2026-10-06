@@ -16,10 +16,10 @@ namespace NewAster.Presentation
         private float kinderRevealStarted;
         private void InitializeKinder()
         {
-            if(ProductionStoryActive){kinderBanner=NewAster.Data.ProductionEconomyCatalog.Kinder(combatDefinitions.FormationIds);kinderBanner.Validate(combatDefinitions.FormationIds);return;}
+            if(ProductionStoryActive){kinderBanner=NewAster.Data.ProductionEconomyCatalog.Kinder(combatDefinitions.FormationIds);kinderBanner.Validate(combatDefinitions.HeroineIds);return;}
             var source=Resources.Load<TextAsset>("Economy/kinder-trial");
             if(source==null)throw new ArgumentException("Kinder rules missing.");
-            kinderBanner=JsonUtility.FromJson<FormalKinderBanner>(source.text);kinderBanner.Validate(combatDefinitions.FormationIds);
+            kinderBanner=JsonUtility.FromJson<FormalKinderBanner>(source.text);kinderBanner.Validate(combatDefinitions.HeroineIds);
         }
         private void KinderBack()
         {
@@ -107,7 +107,7 @@ namespace NewAster.Presentation
         private void PrepareKinderCapture(string[] args)
         {
             var save=formalProgression.Snapshot;save.stones=3000;save.kinderPoints=200;save.tickets=new[]{new HeroineTicket {heroineId=kinderBanner.heroineIds[0],count=1}};
-            formalProgression=new FormalProgression(save,combatDefinitions.FormationIds);kinderGarden=true;encounter=null;title=false;
+            formalProgression=new FormalProgression(save,combatDefinitions.HeroineIds);kinderGarden=true;encounter=null;title=false;
             if(args.Contains("-captureKinderDraw"))kinderScreen=KinderScreen.Draw;
             if(args.Contains("-captureKinderExchange"))kinderScreen=KinderScreen.Exchange;
             if(args.Contains("-captureKinderTickets"))kinderScreen=KinderScreen.Tickets;

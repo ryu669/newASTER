@@ -19,15 +19,16 @@ namespace NewAster.Presentation
             float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
             var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,615-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
-            if(expression!=null && standing!=null && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
+            if(expression!=null && standing!=null && expressionDef?.fullFrame!=true && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;
             var display=HomeData().displays.Single(d=>d.heroineId==actor.HeroineId && d.outfitId==actor.OutfitId);
             var portraitCrop=display.portraitCrop01;
             bool mappedPortrait=display.usePortraitCrop && portraitCrop!=null && standing!=null;
             if(mappedPortrait){
                 rect=new Rect(rect.center.x-325,rect.y,650,rect.height);
+                if(actor.HeroineId=="heroine.nighthawk" || actor.HeroineId=="heroine.oriflamme" || actor.HeroineId=="heroine.shell" || actor.HeroineId=="heroine.r" || actor.HeroineId.StartsWith("heroine.annihilator",StringComparison.Ordinal))rect=new Rect(375,120,850,495);
                 var face=expressionDef?.overlayRegion01;var source=expressionDef?.overlaySourceRegion01;
-                DrawMappedExpression(rect,standing,expressionDef?.mappedOverlay==true?expression:null,
+                DrawMappedExpression(rect,fullExpression?expression:standing,expressionDef?.mappedOverlay==true?expression:null,
                     face==null?new Rect():new Rect(face.x,face.y,face.width,face.height),source==null?new Rect():new Rect(source.x,source.y,source.width,source.height),new Rect(portraitCrop.x,portraitCrop.y,portraitCrop.width,portraitCrop.height));
             }
             else if(standing!=null && expressionDef?.mappedOverlay==true){

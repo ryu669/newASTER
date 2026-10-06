@@ -91,6 +91,7 @@ namespace NewAster.Core
             decimal effectiveDefense=(decimal)defense*(10000-skill.IgnoreDefenseBp)/10000m;
             if(!battle.ReferenceStatusRules && battle.EnemyStatus(targetId).Active("fracture")) effectiveDefense*=.7m;
             decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,battle.AttributeResistances)*(skill.AttackSnapshot??hero.Attack)*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
+            if(skill.Attributes.Contains("火"))raw*=1m+(hero.FireAmplificationPercent+battle.EnemyStatus(targetId).FireVulnerabilityPercent)/100m;
             if(battle.ReferenceStatusRules){var status=battle.EnemyStatus(targetId);if(status.Active("sickness"))raw*=1.25m;if(status.Active("electrified") && skill.Attributes.Contains("雷"))raw*=1.25m;}
             if(part!=null) raw*=skill.PerTargetPartScale;
             else if(skill.BodyPartProtection) {

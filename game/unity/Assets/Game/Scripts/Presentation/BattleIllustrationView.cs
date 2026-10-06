@@ -31,6 +31,8 @@ namespace NewAster.Presentation
                 var source=Resources.Load<TextAsset>(resource);
                 if(source==null) throw new ArgumentException("battle-preview manifest missing");
                 manifest=JsonUtility.FromJson<BattleIllustrationManifest>(source.text);manifest.Validate();
+                var extra=Resources.Load<TextAsset>("Illustrations/r-battle-binding");if(extra!=null && !manifest.heroes.Any(h=>h.heroineId=="heroine.r"))manifest.heroes=manifest.heroes.Concat(new[]{JsonUtility.FromJson<HeroIllustrationBinding>(extra.text)}).ToArray();
+                foreach(string key in new[]{"annihilator","annihilator-holy","shell","oriflamme","nighthawk"}){var binding=Resources.Load<TextAsset>("Illustrations/"+key+"-battle-binding");if(binding!=null && !manifest.heroes.Any(h=>h.heroineId=="heroine."+key))manifest.heroes=manifest.heroes.Concat(new[]{JsonUtility.FromJson<HeroIllustrationBinding>(binding.text)}).ToArray();}
                 portraits=manifest.heroes.Select(h=>string.IsNullOrEmpty(h.resourcePath)?null:Resources.Load<Texture2D>(h.resourcePath)).ToArray();
                 background=LoadLayer(manifest.backgroundResourcePath);body=LoadLayer(manifest.bodyResourcePath);
                 middle=LoadLayer(manifest.middleResourcePath);foreground=LoadLayer(manifest.foregroundResourcePath);
@@ -43,7 +45,7 @@ namespace NewAster.Presentation
                             throw new ArgumentException("Enemy layer canvas mismatch: "+path);
                     }
                 }
-                for(int i=0;i<5;i++) if(!string.IsNullOrEmpty(manifest.heroes[i].resourcePath) && portraits[i]==null) throw new ArgumentException("Image missing: "+manifest.heroes[i].resourcePath);
+                for(int i=0;i<manifest.heroes.Length;i++) if(!string.IsNullOrEmpty(manifest.heroes[i].resourcePath) && portraits[i]==null) throw new ArgumentException("Image missing: "+manifest.heroes[i].resourcePath);
             } catch(Exception e) { manifest=null;portraits=null;background=null;body=null;middle=null;foreground=null;enemyMajor=null;layers.Clear();warning=e.Message;Debug.LogWarning("ILLUSTRATION_MANIFEST_WARNING "+warning); }
         }
         private void DrawEnemyLayer(PartIllustrationBinding part,Rect canvas,PlayableBattle battle,BattlePresentationEvent e)
@@ -101,6 +103,7 @@ namespace NewAster.Presentation
                 Texture2D art=binding>=0?portraits[binding]:null;
                 if(binding>=0){var hero=manifest.heroes[binding];string path=Inspection=="hit" || victim?hero.hitResourcePath:Inspection=="cutin" || e!=null && e.Actor==actor && (e.Major || e.FullChain)?hero.cutinResourcePath:Inspection=="attack" || e!=null && e.Actor==actor && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease)?hero.attackResourcePath:null;
                     if(path!=null && layers.TryGetValue(path,out var pose))art=pose;}
+                if(battle.State.Heroes[actor].Id=="heroine.shell" && battle.RequiresPanzerDefense(actor))art=LoadLayer("Illustrations/shell-bare-candidate-v1");
                 if(art!=null) {
                     if(manifest.heroes[binding].fullCanvas) GUI.DrawTexture(actorRect,art,ScaleMode.ScaleToFit,true);
                     else GUI.DrawTextureWithTexCoords(actorRect,art,new Rect(380f/1672,1-750f/941,912f/1672,650f/941));

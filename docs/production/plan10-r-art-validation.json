@@ -1,0 +1,296 @@
+{
+  "assets": [
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-attack-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        19,
+        41,
+        1128,
+        1277
+      ],
+      "sha256": "0ef2ba7da84b47b84440bf16046ba4f8715387595cdbbb4c6f962eba2a021776"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-cutin-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "sha256": "8b36b9f363dc114ea419a4f98bc80a0c9a8f23df261ff7dae3ffc81e30fdac54"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-0-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alphaExtrema": null,
+      "bounds": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "sha256": "bc6c225faaff613fd1bb76e52e999975b5bafd4c40f92eca395d319e29220ff0"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-1-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alphaExtrema": null,
+      "bounds": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "sha256": "e212a1d67b1da9278765da9c5a7b70907a25b14483878732dfec55a2d26aed65"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-2-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alphaExtrema": null,
+      "bounds": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "sha256": "f6a5744a02602e14cf521f647776a9cd7e8bf18de437437c69d2e1a9f62e0614"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-3-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alphaExtrema": null,
+      "bounds": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "sha256": "19d88db618fd17597fe1518ec8c702e151a61d299b94d68c6db3ba17d49e1faf"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-4-cg-candidate-v1.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "alphaExtrema": null,
+      "bounds": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "sha256": "3ae0c89fc35bc0f201b3efc7beba14dc5d958293ac919c37e43a0accf3383721"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-determined-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        41,
+        72,
+        1083,
+        1350
+      ],
+      "sha256": "ace73f5cb7f2fc48626a03fc7a530e85ced3b1117b2f6e716e0c62bc3a4921d8"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-joy-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "sha256": "309bfd5f12bf19c39ea390e5c487721c1937b70d36a38291155bae176dfc99fc"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-puzzled-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "sha256": "2bacb710d67fd38451c1e2b1fa8a4b1a12e18f6c94e2aac45cbcf985a40288fa"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-hit-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        8,
+        1145,
+        1374
+      ],
+      "sha256": "fa7040d47e1ea74436afef35b3d0fee0d28019bce881f54996af5e9cc303b566"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-portrait-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        0,
+        1145,
+        1374
+      ],
+      "sha256": "992f287f50cde38288d53046aa6aa1323d9fef408f108ffcecc5326fa1c700f2"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-idle-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        19,
+        1128,
+        1374
+      ],
+      "sha256": "8829c6f37f10d00410b24fdee6716567cc82632ab67d31da267ed3b7dcde22f1"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-look-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        9,
+        1144,
+        1374
+      ],
+      "sha256": "1bee0778274d134e9fc798fdf57f36cccb4c39226188ef8e20d7b28512561fd3"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-sit-candidate-v1.png",
+      "width": 1195,
+      "height": 1316,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        12,
+        1185,
+        1316
+      ],
+      "sha256": "7e3543ae18e12f095603b3d033c46e04331304af1e1374a84abec22b4d2203a8"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-work-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        9,
+        1145,
+        1374
+      ],
+      "sha256": "5a74b79a0145fbbb1c12fa6fa8f0f48fb2d9ae76d5d0799ea0551cefb31eedff"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-standing-candidate-v1.png",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        49,
+        9,
+        1111,
+        1342
+      ],
+      "sha256": "93f0754086038ff2b256377f444d4ef94fdc1744c20206e5373d33f66f149f8d"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-equipment-tree-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bounds": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sha256": "56d1b035c5ba8d195fbfad90888330cdf07f50bb81d126e8c8ac3d65ed6b0e78"
+    }
+  ],
+  "performanceMeasured": false
+}

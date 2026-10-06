@@ -1,0 +1,97 @@
+{
+  "tool": "builtin ImageGen",
+  "adultDesignAge": 25,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "C:/Users/nishi/.codex/generated_images/01a110e0-1db7-7301-b5c5-7186337a9dac/exec-32d4074c-c082-43f8-a3ae-b561790f67d3.png",
+      "prompt": "Use case: stylized-concept. Asset: full body standing character for Japanese fantasy RPG newASTER. One adult woman angel Nighthawk, age 25, visibly adult proportions and mature face, short ash-gray bob hair with cobalt blue streak at bangs, icy blue eyes, shy gentle attentive expression. Oversized blue white futuristic hooded flight jacket with orange visor brim and a simple white cross on hood, small star emblem clasp, charcoal high neck underlayer fully covering chest and abdomen, fitted navy shorts over opaque teal leggings, blue armored high-top boots, fingerless gloves. Hood up. Large paired blue/white mechanical ring turbine wings with crystalline feathers, cool blue flame wisps and luminous thin silver halo above hood. Sleek techno angel, no weapons needed in hands, reading book held gently at waist. Elegant polished anime fantasy game painting, soft realistic fabric, blue teal silver palette with restrained orange accents. Entire halo boots mechanical wings inside frame with 8 percent margins, relaxed standing three-quarter pose, ONE single person, no UI no lettering no watermark. Genuine transparent alpha background no scenery. No exposed torso, no cleavage, no childlike or chibi proportions."
+    },
+    {
+      "key": "portrait",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fd681e4a-d019-4b26-9deb-0312929093d4.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. upper body portrait of the visibly adult woman with entire silver halo, quiet attentive gaze. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "expression-joy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-9e0a9d53-6ab0-4907-b9dc-600a1353385c.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. full-body standing woman with small delighted warm smile holding book. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-13c60b29-0f22-4485-8b2d-a12ad9859a3d.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. full-body standing woman, shy hesitant concerned expression holding book. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "expression-determined",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1b8451d6-65cb-4780-aac5-3c3a9e0fcd1e.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. full-body standing woman, courageous focused face, closed book under arm. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "attack",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-867d239f-5a43-43a0-8b4d-5ba70a96af89.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. full-body dynamic soaring attack, book safely stowed, both ring turbine wings emit controlled blue white flame ribbons and ice crystal streaks, adult athletic pose. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "hit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-7f670fd1-cf65-4da0-9ff2-0a416da9a02e.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. full-body woman guarding herself with arms and mechanical wings during defensive recoil, no wounds. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "cutin",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8231395b-7c7c-47c6-9eeb-9a7e258a6173.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. dramatic upper body determined woman summoning a beautiful Cassiopeia five-star light constellation with blue flames, hood halo and twin turbines visible. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "sd-idle",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-ad55bc83-bde1-4f85-91b3-771cf203c870.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. ONE single three-head-tall chibi sprite of Nighthawk reading a little book, halo twin turbine wings. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "sd-walk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-603d782b-2aa6-4642-98ff-f62d8ce80cc3.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. ONE single three-head-tall chibi sprite of Nighthawk walking sideways on night stroll, book under arm, halo twin turbine wings. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "sd-talk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8d2672d5-9e79-41be-a968-b212fc315bf0.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. ONE single three-head-tall chibi sprite of Nighthawk shyly waving with a small smile, book under arm, halo twin turbine wings. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "sd-react",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-84e32aa9-c76a-49a3-9372-c31dea3294d2.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. ONE single three-head-tall chibi sprite of Nighthawk surprised by tiny blue star spark on fingertip, halo twin turbine wings. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0b107548-2963-415c-8feb-60240f2bcb75.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. abstract blue white mechanical turbine wings and ice crystal feather frame, NO woman NO figure, wide EMPTY transparent middle for weapon tree UI nodes. No text no UI no watermark. Genuine transparent alpha background no scenery, only requested subject. For chibi there is ONLY ONE chibi, never an adult figure alongside. Full body sprites entirely in frame, halo feet wings unclipped. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "event-0-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fe72a3c6-f859-4ca5-82dc-60a3361a3a6a.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. landscape story CG quiet garden library at dusk, adult woman and adult dark-haired man reading from same open star-chart book beside each other, gentle companionship. No text no UI no watermark. Beautiful detailed full background, all people adults age25+, modest clothed romantic scene, natural hands. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "event-1-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-e13ea827-91a9-4eec-9c6a-8c07e39035e3.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. landscape story CG moonlit stone garden path, adult woman carrying small blue-glass lantern, adult dark-haired man walking at her pace beside her, trusting conversation. No text no UI no watermark. Beautiful detailed full background, all people adults age25+, modest clothed romantic scene, natural hands. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "event-2-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-c8103668-04fd-4865-9a82-9f73f2e59547.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. landscape story CG garden under starry Cassiopeia sky, adult woman and adult dark-haired man facing each other holding hands in mutual romantic promise, same height adult proportions, quiet tender smile. No text no UI no watermark. Beautiful detailed full background, all people adults age25+, modest clothed romantic scene, natural hands. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "event-3-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-da2fbc49-f388-4def-b5cb-15543bb43263.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. landscape story CG cozy veranda at night, adult woman and adult dark-haired man sitting beside each other shoulder to shoulder sharing tea and a book, halo wings gently folded. No text no UI no watermark. Beautiful detailed full background, all people adults age25+, modest clothed romantic scene, natural hands. No exposed midriff, no cleavage. Adult design."
+    },
+    {
+      "key": "event-4-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-26425ef8-b659-4833-a7b2-fa23eb6503f6.png",
+      "prompt": "Use case: stylized-concept. Distinct finished newASTER fantasy game asset. Reference defines Nighthawk identity and polished anime painted style. Preserve short ash gray bob with blue bang streak, blue eyes, blue-white hood orange brim white cross, star clasp, charcoal high-neck top fully covers torso, navy shorts over opaque teal leggings, armored blue boots, silver halo and TWO mechanical ring turbine feather wings with blue flame wisps. landscape story CG dawn garden gate, adult woman and adult dark-haired man hand in hand beginning a hopeful journey, silver halo and pale blue wings gleam, lantern safely held. No text no UI no watermark. Beautiful detailed full background, all people adults age25+, modest clothed romantic scene, natural hands. No exposed midriff, no cleavage. Adult design."
+    }
+  ]
+}

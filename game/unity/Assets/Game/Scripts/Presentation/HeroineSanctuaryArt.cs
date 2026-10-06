@@ -57,7 +57,7 @@ namespace NewAster.Presentation
             Label(324,113,1140,38,"枝を選び、神器を解放・強化・装備する。全13ノード、各神器Lv1〜7。",growthSmallStyle);
             GrowthFill(62,176,473,632,parchment);Label(90,197,414,55,selected.terminal,sanctuaryHeading);
             DrawSanctuaryIcon(new Rect(92,265,78,78),"sword",new Color(.50f,.39f,.23f));
-            Label(188,255,315,96,(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7\n通常攻撃 "+(WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
+            Label(188,255,315,96,(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7\n"+((hero.StartsWith("heroine.annihilator",StringComparison.Ordinal) || hero=="heroine.shell" || hero=="heroine.oriflamme" || hero=="heroine.nighthawk")?"攻撃スキル強化 ×":"通常攻撃 ")+ (WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
             Label(90,340,418,65,WeaponGrowthRules.Trait(selected),sanctuarySmall);
             for(int lv=1;lv<=7;lv++){
                 float y=405+(lv-1)*34;GrowthFill(84,y,429,32,owned && level>=lv?new Color(.84f,.80f,.66f):new Color(.90f,.87f,.78f));

@@ -9,7 +9,7 @@ namespace NewAster.Data
     {
         public static HomeExperienceCatalog Create(CombatDefinitionCatalog combat)
         {
-            var collection=CollectionContractFixture.Create(combat);var heroes=combat.FormationIds;
+            var collection=CollectionContractFixture.Create(combat);var heroes=combat.HeroineIds;
             var c=new HomeExperienceCatalog{
                 schemaVersion=1,contentVersion=HomeExperienceCatalog.FixtureVersion,status="fixture",
                 heroineIds=heroes.ToArray(),colossusIds=WorldCatalog.ColossusIds.ToArray(),poemIds=collection.poems.Select(p=>p.id).ToArray(),resourceIds=collection.resources.Where(r=>r.kind=="material").Select(r=>r.id).Concat(new[]{"resource.materials"}).ToArray(),
@@ -45,7 +45,7 @@ namespace NewAster.Data
             c.assets.Single(a=>a.id=="asset.fixture.audio").resourcePath="Audio/candidate-heal-v2";
             var furnitureArt=new[]{"bench","desk","fountain"};var actions=new[]{"sit","work","look"};
             for(int i=0;i<3;i++){
-                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=combat.FormationIds.ToArray();
+                var f=c.furniture[i];f.assetId="art.candidate.furniture."+furnitureArt[i]+".v1";f.supportedHeroineIds=combat.HeroineIds.ToArray();
                 f.slots[0].actionIds=actions[i]=="sit"?new[]{"action.sit"}:new[]{"action."+actions[i],"action.sit"};
                 c.assets=c.assets.Concat(new[]{new HomeAssetDef{id=f.assetId,kind="furniture",placeholder=true,resourcePath="Illustrations/garden-"+furnitureArt[i]+"-candidate-v1"}}).ToArray();
             }
