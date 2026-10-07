@@ -27,14 +27,14 @@ namespace NewAster.Presentation
             }
             return portraitFraming.Entry(id);
         }
-        private Texture2D HeroPortrait(string id,bool framed=false)
+        private Texture2D HeroPortrait(string id)
         {
-            string key=framed?"framed."+id:id;
+            string key=id;
             if(!heroinePortraits.TryGetValue(key,out var texture)){
-                var framing=framed?HeroFraming(id):null;
-                string path=framed?framing?.resourcePath:"Illustrations/"+id.Substring("heroine.".Length)+"-portrait-candidate-v1";
+                var framing=HeroFraming(id);
+                string path=framing.resourcePath;
                 texture=path==null?null:Resources.Load<Texture2D>(path);
-                if(framed){if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
+                {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
                 heroinePortraits[key]=texture;
             }
             return texture;
@@ -43,7 +43,7 @@ namespace NewAster.Presentation
         // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
         private void DrawHeroPortrait(Rect panel,string id)
         {
-            var texture=HeroPortrait(id,true);var framing=HeroFraming(id);
+            var texture=HeroPortrait(id);var framing=HeroFraming(id);
             if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
             float scale=Mathf.Min(HeroinePortraitCatalog.MaximumDisplayScale,panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight));
             float w=texture.width*scale,h=texture.height*scale;
@@ -61,7 +61,7 @@ namespace NewAster.Presentation
         private void SanctuaryHeader(string titleText,string subtitle)
         {
             GrowthFill(0,0,1600,900,ink);GrowthLine(55,79,1545,79,gold);GrowthDiamond(800,79,8);
-            Label(58,20,1000,43,titleText,growthTitleStyle);Label(1060,32,480,34,subtitle,growthSmallStyle,gold);
+
         }
         private void DrawGrowthExperience()
         {
@@ -79,7 +79,6 @@ namespace NewAster.Presentation
             bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen)GUI.enabled=false;
             SanctuaryHeader("誓女の星図","名前と顔から、会いたい誓女を選ぶ");
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
-            if(GrowthButton(58,108,190,48,"万物の書へ",BookInputAllowed)){book.Close();book.Reenter();return;}
             Label(278,111,110,38,"名前検索",growthSmallStyle);
             string query=ImageUiSkin.TextField(new Rect(383,108,455,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
             if(query!=heroineQuery){heroineQuery=query;heroinePage=0;}
@@ -136,7 +135,6 @@ namespace NewAster.Presentation
             if(GrowthButton(771,140,240,71,"Lv. "+growth.level+" / "+growth.LevelCap+"  ＋",BookInputAllowed,true))GrowthSelect(GrowthScreen.Level,growth);
             if(GrowthButton(1027,140,225,71,"覚醒  "+growth.awakeningStage+" / 2  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Awakening,growth);
             if(GrowthButton(1268,140,245,71,"誓い  "+growth.duplicateRank+" / 5  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Duplicate,growth);
-            Label(771,215,740,29,"能力の数値とスキルをクリックして強化",sanctuarySmall);
             for(int slot=0;slot<3;slot++){
                 var skill=DisplayHeroineSkill(id,slot);int level=growth.SkillLevel(slot);float y=253+slot*150;
                 GrowthFill(762,y,765,140,new Color(.985f,.955f,.86f));GrowthLine(771,y+138,1511,y+138,new Color(.67f,.55f,.33f));
@@ -144,7 +142,7 @@ namespace NewAster.Presentation
                 Label(869,y+9,490,36,skill.name,new GUIStyle(sanctuaryHeading){fontSize=24,wordWrap=false});
                 string description=HeroineSkillRules.Description(skill,level,job).Split('\n')[0];
                 if(description.Length>55)description=description.Substring(0,55)+"…";
-                description+="\n全文・消費・強化はクリック ›";
+
                 Label(869,y+51,633,86,description,sanctuarySmall);
                 Label(1361,y+12,145,32,"Lv."+level+" / 7  "+(level==7?"MAX":"＋"),sanctuaryBody);
                 if(ImageUiSkin.Button(new Rect(762,y,765,140),"",GUIStyle.none) && BookInputAllowed){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
@@ -158,7 +156,6 @@ namespace NewAster.Presentation
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
             if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}
-            Label(59,850,1470,33,"レベル → 育成   ·   スキル → Lv1〜7強化   ·   特性アイコン → 効果説明   ·   Escで一覧へ",growthSmallStyle);
             DrawBookTransition(true);
         }
         private const float sixty=60;

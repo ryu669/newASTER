@@ -153,7 +153,7 @@ namespace NewAster.Core
                 int attack=FormalGrowthMath.Stat(j.attack,h.attackBp,g.level,g.duplicateRank);
                 var weapon=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.id);var node=weapon==null?null:homeCatalog.weaponNodes.Single(n=>n.id==weapon.nodeId);int weaponLevel=weapon==null?1:homeProgress.WeaponLevel(weapon.nodeId);if(node!=null)attack=checked(attack+WeaponGrowthRules.Attack(node,weaponLevel));
                 var relic=FormalRelicRules.Equipped(collectionGrowth,h.id);
-                if(relic!=null){var def=relicCatalog?.relics.Single(r=>r.id==relic.id);hp=checked((int)((long)(hp+FormalRelicRules.Hp(relic))*(100+(def?.hpPercent??0))/100));attack=checked((int)((long)(attack+FormalRelicRules.Attack(relic))*(100+(def?.attackPercent??5))/100));}
+                if(relic!=null){var def=relicCatalog?.relics.Single(r=>r.id==relic.id);hp=checked((int)((long)(hp+FormalRelicRules.Hp(relic))*(100+(def?.hpPercent??0)+FormalRelicRules.JobBonus(def,h.jobId))/100));attack=checked((int)((long)(attack+FormalRelicRules.Attack(relic))*(100+(def==null?5:def.id.StartsWith("relic.",StringComparison.Ordinal)?0:def.attackPercent))/100));}
                 int hpTrait=h.traitHpPercent==0?0:FormalGrowthMath.TraitAmount(h.traitHpPercent*100,g.duplicateRank);
                 int attackTrait=h.traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(h.traitAttackPercent*100,g.duplicateRank);
                 hp=(int)((long)hp*(100+HeroineTraitRules.MasteryBonus(j.id,"hp",g))/100);attack=(int)((long)attack*(100+HeroineTraitRules.MasteryBonus(j.id,"attack",g))/100);
@@ -167,8 +167,20 @@ namespace NewAster.Core
             return new BattleHero(h.id,(int)((long)j.hp*h.hpBp*(100+h.traitHpPercent)/1000000),(int)((long)j.attack*h.attackBp*(100+h.traitAttackPercent)/1000000),j.resourceMax,(int)((long)j.speed*h.speedBp/10000),j.criticalBp,(int)((long)j.defense*h.defenseBp/10000),j.magicDefense,h.traitId,statusResistances:HeroStatusResistances(h.jobId));
         }
         private EnemyStatusResistanceDef[] HeroStatusResistances(string job)=>EnemyStatusState.Kinds.Select((kind,i)=>new EnemyStatusResistanceDef{kind=kind,resistanceBp=i==Array.IndexOf(new[]{"job.fighter","job.berserker","job.defender","job.blaster","job.gunner"},job)?2500:0}).ToArray();
+        private void UpdateRelicTurnEffects()
+        {
+            if(relicCatalog==null || collectionGrowth==null)return;
+            for(int i=0;i<5;i++){
+                var r=FormalRelicRules.Equipped(collectionGrowth,State.Heroes[i].Id);if(r==null)continue;
+                var d=relicCatalog.relics.Single(x=>x.id==r.id);int job=FormalRelicRules.JobBonus(d,jobProfiles[i].id);
+                State.Heroes[i].RelicAttackPercent=(d.id.StartsWith("relic.",StringComparison.Ordinal)?d.attackPercent:0)+job+FormalRelicRules.TurnBonus(d,Turn);
+                State.Heroes[i].RelicDefensePercent=d.defensePercent+job;
+                State.Heroes[i].RelicSpeedPercent=d.speedPercent+job;
+            }
+        }
         private void BeginTurn()
         {
+            UpdateRelicTurnEffects();
             Array.Clear(Acted, 0, 5); Chain = 0; Guarded = false; chainPending = false;
             State.BeginTurn(unchecked(Seed + Turn * 97 + State.SelectedLevel), .25m);
             for(int i=0;i<5;i++) State.Heroes[i].GainResource(IsFormal?jobProfiles[i].initialResource:3);

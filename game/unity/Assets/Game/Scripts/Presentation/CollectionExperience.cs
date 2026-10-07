@@ -41,21 +41,14 @@ namespace NewAster.Presentation
         private void DrawCollectionExperience()
         {
             GrowthStyles();PalaceBackdrop("crown");GrowthFrame(90,80,1420,745);
-            Label(150,112,800,65,"記憶とオーパーツ",growthTitleStyle);
-            if(GrowthButton(960,115,220,55,"新天地",!formalCampaign.HasPending))collectionTab=3;
-            if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
-            if(collectionTab==3){DrawTerraformExperience();return;}
+            DrawBookFooter();
+            if(collectionTab!=0){DrawStandaloneItems();return;}
             if(plan8StoryTrial && trialPoemChapter!=null){DrawTrialPoemConditions();return;}
             if(ProductionStoryActive && trialPoemChapter!=null){DrawProductionPoemConditions();return;}
-            if(GrowthButton(150,205,400,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
-            if(GrowthButton(590,205,400,52,"オーパーツ",relicRequest==null,collectionTab==1))collectionTab=1;
-            if(GrowthButton(1030,205,400,52,"素材図鑑",relicRequest==null,collectionTab==2))collectionTab=2;
             if(relicRequest!=null){DrawRelicConfirmation();return;}
             if(collectionTab==0){
                 var owners=CollectionData().owners;collectionOwner=Math.Max(0,Math.Min(collectionOwner,owners.Length-1));var o=owners[collectionOwner];
                 Label(340,283,920,55,CollectionOwnerName(o),growthTitleStyle);
-                if(GrowthButton(150,280,150,55,"‹ 対象",BookInputAllowed && !book.IsTransitioning && collectionOwner>0))CollectionTurnOwner(-1);
-                if(GrowthButton(1280,280,150,55,"対象 ›",BookInputAllowed && !book.IsTransitioning && collectionOwner+1<owners.Length))CollectionTurnOwner(1);
                 var world=formalCampaign.Snapshot.world;
                 for(int i=0;i<3;i++){
                     var c=CollectionData().chapters.Single(x=>x.id==o.chapterIds[i]);int count=c.poemIds.Count(world.poemIds.Contains);
@@ -70,29 +63,8 @@ namespace NewAster.Presentation
                         if(GrowthButton(1230,405+i*110,200,44,read?"回想":"読む／再開",open))BeginAdv(c.id,read);
                     }
                 }
-                Label(150,710,1280,65,(ProductionStoryActive?"詩と章の進捗は、好感度とは別に記録します。":plan8StoryTrial?"詩対応はオリジナル本文に基づいています。歌唱率は調整中です。":"詩対応・歌唱率は収集テスト用です。好感度とは独立しています。")+"\n敵の完了した行動で歌唱を聞き、敗北・撤退でも持ち帰れます。",growthSmallStyle);
                 DrawBookTransition(true);
-            }else if(collectionTab==1)DrawRelicInventory();else DrawMaterialInventory();
-        }
-        private void DrawRelicInventory()
-        {
-            var ledger=formalCampaign.Snapshot.collection;var items=ledger?.relics??Array.Empty<CollectionRelic>();int pages=Math.Max(1,(items.Length+2)/3);collectionRelicPage=Math.Max(0,Math.Min(collectionRelicPage,pages-1));
-            Label(150,275,1280,95,"一人1枠・同一品の同時装備なし。巨神獣ごとの固有能力。Lv上限120。\n同名は項目ごとの高値を保持。強化は対応する巨神獣の素材を使います。\n80%未満は直接強化不可：攻撃80／100、HP800／1000から解放。",growthSmallStyle);
-            if(items.Length==0)Label(180,395,1200,100,"オーパーツ未所持。勝利時のレリックハントで獲得します。\n敗北・撤退は詩のみ取得します。",growthTextStyle);
-            foreach(var pair in items.Skip(collectionRelicPage*3).Take(3).Select((r,i)=>new{r,i})){
-                var r=pair.r;int y=380+pair.i*112;GrowthFill(151,y-5,1278,105,new Color(.095f,.17f,.21f));GrowthLine(151,y+101,1429,y+101,gold);string owner=r.id.Replace(".collection.relic","");var name=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==owner)?.DisplayName??"未制作";var e=ledger.equipment.SingleOrDefault(x=>x.relicId==r.id);int mats=FormalRelicRules.MaterialBalance(ledger,CollectionData().relics.Single(d=>d.id==r.id));
-                Label(170,y,730,48,$"{name}の遺物  Lv{r.level}  攻撃 {r.attackRoll}/100  HP {r.hpRoll}/1000",growthSmallStyle);
-                Label(170,y+50,730,40,(ProductionStoryActive?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==r.id))+" ／ ":"")+$"強化素材 {mats} ／ {(e==null?"未装備":combatDefinitions.Hero(e.heroineId).name+"に装備")}",growthSmallStyle);
-                string lv=RelicUnavailable(r,RelicOperation.LevelUp),attack=RelicUnavailable(r,RelicOperation.AttackUp),hp=RelicUnavailable(r,RelicOperation.HpUp);
-                if(GrowthButton(910,y,150,40,lv==null?"Lv強化":r.level>=120?"Lv上限":"Lv素材不足",lv==null))RelicSelect(r,RelicOperation.LevelUp);
-                if(GrowthButton(1080,y,150,40,attack==null?"攻撃強化":r.attackRoll>=100?"攻撃上限":r.attackRoll<80?"攻撃条件未達":"攻撃素材不足",attack==null))RelicSelect(r,RelicOperation.AttackUp);
-                if(GrowthButton(1250,y,150,40,hp==null?"HP強化":r.hpRoll>=1000?"HP上限":r.hpRoll<800?"HP条件未達":"HP素材不足",hp==null))RelicSelect(r,RelicOperation.HpUp);
-                if(e!=null){if(GrowthButton(910,y+50,490,40,"装備を外す"))RelicSelect(r,RelicOperation.Unequip,e.heroineId);}
-                else if(GrowthButton(910,y+50,490,40,"装備先を選ぶ"))RelicSelect(r,RelicOperation.Equip,combatDefinitions.FormationIds[0]);
-            }
-            if(GrowthButton(150,740,200,45,"‹ 前"))collectionRelicPage=(collectionRelicPage+pages-1)%pages;Label(380,745,170,35,$"{collectionRelicPage+1}/{pages}",growthSmallStyle);
-            if(GrowthButton(580,740,200,45,"次 ›"))collectionRelicPage=(collectionRelicPage+1)%pages;
-            if(relicError!=null)Label(800,740,630,55,relicError,growthSmallStyle);
+            }else if(collectionTab==1)DrawModernRelics();else DrawMaterialInventory();
         }
         private void DrawRelicConfirmation()
         {
@@ -103,13 +75,15 @@ namespace NewAster.Presentation
             else info=RelicEquipmentComparison(r,relicRequest);
             Label(170,375,1260,175,info,growthTextStyle);
             var ownedHeroes=combatDefinitions.HeroineIds.Where(id=>formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id)).ToArray();
+            var previousButtonStyle=growthButtonStyle;growthButtonStyle=new GUIStyle(previousButtonStyle){fontSize=16,wordWrap=false};
             if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<ownedHeroes.Length;i++){
-                var id=ownedHeroes[i];if(GrowthButton(170+i*210,565,200,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation,relicRequest.ContentVersion);
+                var id=ownedHeroes[i];if(GrowthButton(170+(i%5)*245,553+(i/5)*45,230,40,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation,relicRequest.ContentVersion);
             }
             string unavailable=RelicUnavailable(r,relicRequest.Operation);
-            if(relicError!=null || unavailable!=null)Label(170,635,1260,55,relicError??unavailable,growthSmallStyle);
-            if(GrowthButton(170,710,580,65,"取消",!formalCampaign.HasPending))CollectionBack();
-            if(GrowthButton(790,710,640,65,formalCampaign.HasPending?"同じ変更を保存する":"変更して保存する",formalCampaign.HasPending || unavailable==null,true))RelicCommit();
+            if(relicError!=null || unavailable!=null)Label(170,689,1260,36,relicError??unavailable,growthSmallStyle);
+            growthButtonStyle=previousButtonStyle;
+            if(GrowthButton(170,740,580,48,"取消",!formalCampaign.HasPending))CollectionBack();
+            if(GrowthButton(790,740,640,48,formalCampaign.HasPending?"同じ変更を保存する":"変更して保存する",formalCampaign.HasPending || unavailable==null,true))RelicCommit();
         }
         private string RelicEquipmentComparison(CollectionRelic relic,FormalRelicRequest request)
         {
@@ -118,11 +92,11 @@ namespace NewAster.Presentation
             var snapshot=formalCampaign.Snapshot;var current=FormalRelicRules.Equipped(snapshot.collection,request.HeroineId);
             var next=JsonUtility.FromJson<FormalCollectionLedger>(JsonUtility.ToJson(snapshot.collection));next.equipment=next.equipment.Where(e=>e.heroineId!=request.HeroineId && e.relicId!=request.RelicId).ToArray();
             if(request.Operation==RelicOperation.Equip)next.equipment=next.equipment.Concat(new[]{new CollectionEquipment{heroineId=request.HeroineId,relicId=request.RelicId}}).ToArray();
-            var before=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:snapshot.collection);
-            var after=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:next);
+            var before=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:snapshot.collection,homeProgress:snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
+            var after=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:next,homeProgress:snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData());
             int index=Array.IndexOf(PreviewFormation(request.HeroineId),request.HeroineId);var a=before.State.Heroes[index];var b=after.State.Heroes[index];
             string equipped=current==null?"未装備":$"Lv{current.level} ／ HP +{FormalRelicRules.Hp(current)}・攻撃 +{FormalRelicRules.Attack(current)}";
-            relicComparisonKey=key;return relicComparisonText=$"装備先：{combatDefinitions.Hero(request.HeroineId).name} ／ 現在 {equipped}\n出撃時HP {a.MaxHitPoints} → {b.MaxHitPoints} ／ 攻撃 {a.BaseAttack} → {b.BaseAttack}\n{(request.Operation==RelicOperation.Equip?"装備を置き換え、固有能力の攻撃 +5%も反映します。":"装備ステータスと攻撃 +5%を外します。")}\nチェイン率は変化しません。保存後の次の出撃から反映します。";
+            relicComparisonKey=key;return relicComparisonText=$"装備先：{combatDefinitions.Hero(request.HeroineId).name} ／ 現在 {equipped}\n出撃時HP {a.MaxHitPoints} → {b.MaxHitPoints} ／ 攻撃 {a.Attack} → {b.Attack}\n両防御 {a.PhysicalDefense}/{a.MagicDefense} → {b.PhysicalDefense}/{b.MagicDefense} ／ 速度 {a.Speed} → {b.Speed}\n{(request.Operation==RelicOperation.Equip?NewAster.Data.ProductionEconomyCatalog.RelicAbility(CollectionData().relics.Single(d=>d.id==relic.id)):"オーパーツの能力を外します。")}\nチェイン率は変化しません。保存後の次の出撃から反映します。";
         }
         private string ResultDetail()
         {
@@ -138,7 +112,7 @@ namespace NewAster.Presentation
                 var saved=formalCampaign.Snapshot;int amount=saved.collection.materials.Where(m=>m.sourceColossusId==source.Id).Sum(m=>m.amount);
                 return $"記憶元：{source.WorldLineId??"世界統合"} ／ 環境：{string.Join("・",source.EnvironmentTags)}\nTP +{r.terraformingTp} ／ 保存後所持 {saved.world.terraform.totalTp}\n巨神獣別素材 +{10+r.battle.level} ／ 保存後所持 {amount}\nページ・環境・庭の初回解放は一度だけ。再戦でもTPと素材を得られます。";
             }
-            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。抽選1回の提供率は75%です。";
+            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。提供率 "+(r.battle.contentVersion==CollectionCatalog.ProductionVersion?(r.battle.relicHunt?"35%":"5%"):"75%")+"。";
         }
         private void PrepareCollectionCapture(string[] args)
         {

@@ -88,25 +88,18 @@ namespace NewAster.Presentation
         {
             GrowthStyles();if(!book.HasSubject)return;string id=book.SubjectId;var definition=combatDefinitions.Hero(id);
             var snapshot=formalProgression.Snapshot;var heroine=snapshot.heroines.Single(h=>h.heroineId==id);
-            GrowthFill(0,0,1600,900,ink);GrowthFill(30,103,1540,732,new Color(.16f,.14f,.12f));GrowthFill(38,95,1524,732,new Color(.27f,.23f,.18f));
-            GrowthFrame(46,87,1508,732);GrowthLine(555,105,555,800,gold,2);
-            GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);Label(680,25,250,40,"万 物 の 書",growthTextStyle,gold);
+            SanctuaryStyles();SanctuaryHeader("","");GrowthFill(38,95,1524,732,new Color(.055f,.10f,.14f));
+            GrowthFrame(62,176,473,632);GrowthFrame(571,176,965,632);GrowthLine(555,105,555,800,gold,2);
+            GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);
             if(GrowthButton(80,118,180,48,growthScreen==GrowthScreen.Overview?"本へ戻る":"‹ 戻る",!formalProgression.HasPending))GrowthBack();
             if(growthScreen==GrowthScreen.Overview){if(GrowthButton(1130,118,180,48,"‹ 前の人物",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);if(GrowthButton(1325,118,180,48,"次の人物 ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);}
             DrawBookTransition(true);
             bool previousGrowthEnabled=GUI.enabled;GUI.enabled=previousGrowthEnabled && !book.IsTransitioning && (!formalCampaign.HasPending || formalProgression.HasPending || homeRequest!=null);
             Label(92,194,425,56,definition.name,growthTitleStyle);Label(92,258,420,30,"★ ★ ★ ★ ★ ★   ／   Lv."+heroine.level,growthSmallStyle,gold);
-            if(id=="heroine.slayer"&&growthPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),growthPortrait,ScaleMode.ScaleToFit,true);
-            else if(id=="heroine.iconoclast"&&iconoclastPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),iconoclastPortrait,ScaleMode.ScaleToFit,true);
-            else if(id=="heroine.undermine"&&underminePortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),underminePortrait,ScaleMode.ScaleToFit,true);
-            else if(id=="heroine.echidna"&&echidnaPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),echidnaPortrait,ScaleMode.ScaleToFit,true);
-            else if(id=="heroine.excalipan"&&excalipanPortrait!=null)GUI.DrawTexture(new Rect(78,310,459,355),excalipanPortrait,ScaleMode.ScaleToFit,true);
-            else{GrowthDiamond(300,470,100);GrowthDiamond(300,470,84);Label(193,435,220,55,"誓 女 の 記 憶",growthTextStyle);Label(177,520,260,35,"正式立ち絵は制作待ち",growthSmallStyle);}
-            Label(92,726,420,38,ProductionStoryActive?"誓いと記憶を育てる":(id=="heroine.slayer" || id=="heroine.iconoclast" || id=="heroine.undermine" || id=="heroine.echidna" || id=="heroine.excalipan")?"制作候補 ／ 最終採用前":"他人物の絵で代用しません",growthSmallStyle);
+            DrawHeroPortrait(new Rect(78,310,459,355),id);
             string[] names={"誓女の記憶","ネクタル育成","覚醒の儀","誓いの強化","人物の記録","選択の確認","誓いの結実","装備の樹"};Label(605,204,860,55,names[(int)growthScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(growthScreen==GrowthScreen.Overview){
                 if(!ProductionStoryActive && GrowthButton(605,785,885,42,homeTrial?"検証用の別セーブ ／ 通常へ戻る":"計画6の機能検証用セーブを開く",BookInputAllowed)){if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
-                Label(605,295,860,38,"いま、この誓女にしてあげたいことを選ぶ。",growthSmallStyle);
                 var entries=new[]{GrowthScreen.Level,GrowthScreen.Awakening,GrowthScreen.Duplicate};string[] captions={"01    ネクタルで育てる","02    覚醒して可能性をひらく","03    重複した誓いを力にする"};
                 for(int i=0;i<3;i++)if(GrowthButton(605,363+i*104,885,78,captions[i]))GrowthSelect(entries[i],heroine);
                 if(GrowthButton(605,690,430,58,"能力・スキルを見る"))GrowthSelect(GrowthScreen.Information,heroine);
@@ -120,10 +113,12 @@ namespace NewAster.Presentation
             }else if(growthScreen==GrowthScreen.Level){
                 if(growthTargetLevel<=heroine.level)growthTargetLevel=Math.Min(heroine.LevelCap,heroine.level+1);
                 Label(605,307,880,48,$"現在 Lv.{heroine.level}    →    目標 Lv.{growthTargetLevel} / {heroine.LevelCap}",growthTitleStyle);
-                int[] steps={1,5,10};for(int i=0;i<3;i++)if(GrowthButton(605+i*300,398,285,62,"＋"+steps[i]+" Lv",heroine.level<heroine.LevelCap))growthTargetLevel=Math.Min(heroine.LevelCap,heroine.level+steps[i]);
+                int[] steps={1,5,10};for(int i=0;i<3;i++)if(GrowthButton(605+i*205,398,190,62,"＋"+steps[i]+" Lv",heroine.level<heroine.LevelCap))growthTargetLevel=Math.Min(heroine.LevelCap,growthTargetLevel+steps[i]);
+                if(GrowthButton(1220,398,125,62,"−1",growthTargetLevel>heroine.level+1))growthTargetLevel--;
+                if(GrowthButton(1360,398,130,62,"MAX",heroine.level<heroine.LevelCap))growthTargetLevel=heroine.LevelCap;
                 int cost=growthTargetLevel>heroine.level?FormalProgression.LevelCost(heroine.level,growthTargetLevel):0;bool usable=cost>0&&snapshot.nectar>=cost;
                 Label(605,505,880,100,$"ネクタル    必要 {cost} ／ 所持 {snapshot.nectar}\n育成上限    Lv.{heroine.LevelCap}",growthTextStyle);
-                Label(605,640,880,42,cost==0?"覚醒して上限をひらくと、さらに育成できます。":!usable?"ネクタルが不足しています。":"次の画面で能力の変化を確認できます。",growthSmallStyle);
+                Label(605,640,880,42,cost==0?"覚醒して上限をひらくと、さらに育成できます。":!usable?"ネクタルが不足しています。":"ネクタル残量 "+(snapshot.nectar-cost),growthSmallStyle);
                 if(GrowthButton(605,709,885,62,"変化を確認する",usable,true))GrowthConfirm(GrowthOperation.Level,id,snapshot,growthTargetLevel);
             }else if(growthScreen==GrowthScreen.Awakening){
                 int cost=heroine.awakeningStage==0?20:60;bool complete=heroine.awakeningStage==2;
@@ -150,7 +145,6 @@ namespace NewAster.Presentation
                 GrowthDiamond(1050,385,48);Label(605,482,885,58,"育成を保存しました",growthTitleStyle,gold);Label(605,573,885,94,growthDelta,growthTextStyle);
                 if(GrowthButton(605,709,885,62,"誓女の記憶へ戻る",true,true))GrowthBack();
             }
-            Label(90,850,1420,32,formalProgression.HasPending?"保存待ち ／ 所持量は変更せず、同じ操作の保存を再試行します":"人物の記憶  ／  "+names[(int)growthScreen]+"    •    Escで戻る",growthSmallStyle);
             GUI.enabled=previousGrowthEnabled;
         }
         private void ValidateGrowthScreenNavigation()

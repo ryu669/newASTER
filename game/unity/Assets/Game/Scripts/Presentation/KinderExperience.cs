@@ -25,7 +25,7 @@ namespace NewAster.Presentation
         {
             if(formalProgression.HasPending)return;
             if(kinderScreen==KinderScreen.Revealing){kinderScreen=KinderScreen.Result;return;}
-            if(kinderScreen==KinderScreen.Entrance){kinderGarden=false;return;}
+            if(kinderScreen==KinderScreen.Entrance){kinderGarden=false;RequestBookBookmark(BookBookmark.Colossi);return;}
             if(kinderScreen==KinderScreen.Confirmation){kinderRequest=null;kinderScreen=kinderOrigin;return;}
             kinderScreen=KinderScreen.Entrance;kinderRequest=null;kinderReceipt=null;
         }
@@ -39,11 +39,10 @@ namespace NewAster.Presentation
             GrowthStyles();var state=formalProgression.Snapshot;
             PalaceBackdrop("leaf");GrowthFill(30,103,1540,732,new Color(.16f,.14f,.12f));GrowthFill(38,95,1524,732,new Color(.27f,.23f,.18f));GrowthFrame(46,87,1508,732);
             GrowthLine(555,105,555,800,gold,2);GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);
-            if(GrowthButton(80,118,180,48,"‹ 戻る",!formalProgression.HasPending))KinderBack();
+            if(kinderScreen!=KinderScreen.Entrance && GrowthButton(80,118,180,48,"‹ 戻る",!formalProgression.HasPending))KinderBack();
             Label(92,214,420,72,"キンダーガーデン",growthTitleStyle);
             GrowthDiamond(300,455,165);GrowthDiamond(300,455,145);
-            var featured=HeroPortrait(kinderBanner.heroineIds[Mathf.Clamp(kinderSelection,0,kinderBanner.heroineIds.Length-1)]);
-            if(featured!=null)GUI.DrawTexture(new Rect(130,300,338,285),featured,ScaleMode.ScaleToFit,true);
+            DrawHeroPortrait(new Rect(130,300,338,285),kinderBanner.heroineIds[Mathf.Clamp(kinderSelection,0,kinderBanner.heroineIds.Length-1)]);
             for(int i=0;i<5;i++){float x=105+i*78;DrawSanctuaryIcon(new Rect(x,671,46,46),i==0?"sword":i==1?"flame":i==2?"leaf":i==3?"star":"moon",gold);}
             Label(160,593,345,74,"新しい誓いが\nここから芽吹く。",growthTextStyle);
             Label(92,737,420,40,ProductionStoryActive?"初期5人の誓い ／ 育成素材": "育成素材のみの検証用テーブル",growthSmallStyle);
@@ -102,7 +101,6 @@ namespace NewAster.Presentation
                 Label(605,670,885,40,$"保存済み ／ 石 {state.stones} ／ 共通ポイント {state.kinderPoints}",growthSmallStyle);
                 if(GrowthButton(605,727,885,62,"キンダーガーデンの入口へ",true,true))KinderBack();
             }
-            Label(90,850,1420,32,formalProgression.HasPending?"保存待ち ／ 同じ結果を再保存してください":"キンダーガーデン  ／  "+titles[(int)kinderScreen]+"    •    Escで戻る",growthSmallStyle);
         }
         private void PrepareKinderCapture(string[] args)
         {

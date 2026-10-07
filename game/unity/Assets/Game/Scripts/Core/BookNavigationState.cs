@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NewAster.Core
 {
-    public enum BookBookmark { Colossi, Heroines, Gardens, Stories, NewWorld, PossibleWorlds }
+    public enum BookBookmark { Colossi, Heroines, Gardens, Stories, NewWorld, PossibleWorlds, Summoning, Items, RelicHunt }
     public enum BookFace { Overview, Details }
     public sealed class BookOrderedSubject
     {

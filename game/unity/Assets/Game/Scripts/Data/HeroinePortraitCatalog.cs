@@ -11,9 +11,6 @@ namespace NewAster.Data
         public int schemaVersion;
         public float faceHeightRatio, faceCenterYRatio;
         public HeroinePortraitDef[] entries;
-        // These five existing forms keep their previous art pending a separately requested replacement.
-        // A newly added heroine cannot opt out of the landscape portrait contract.
-        private static readonly string[] LegacyIds = { "heroine.nighthawk", "heroine.slayer-swim", "heroine.arcane", "heroine.arcane-academy", "heroine.shangrila" };
 
         public void Validate()
         {
@@ -28,7 +25,7 @@ namespace NewAster.Data
                     !Finite(e.faceHeight) || e.faceHeight <= 0 || e.faceHeight > 1 ||
                     !Finite(e.faceCenterX) || e.faceCenterX <= 0 || e.faceCenterX >= 1 ||
                     !Finite(e.faceCenterY) || e.faceCenterY <= 0 || e.faceCenterY >= 1 ||
-                    (e.legacyPortrait && !LegacyIds.Contains(e.heroineId)))
+                    e.legacyPortrait)
                     throw new ArgumentException("Invalid heroine portrait definition: " + e.heroineId);
         }
         public HeroinePortraitDef Entry(string id) => entries.SingleOrDefault(e => e.heroineId == id)
@@ -37,7 +34,7 @@ namespace NewAster.Data
         {
             if (width <= 0 || height <= 0 || width > 4096 || height > 4096)
                 throw new ArgumentException("Portrait exceeds native import limits: " + e.heroineId);
-            if (e.legacyPortrait) return;
+            if (e.legacyPortrait)throw new ArgumentException("Legacy portrait exception is retired.");
             if (width < MinimumWidth || height < MinimumHeight || Math.Abs(width / (float)height - SourceAspect) > .001f ||
                 height * e.faceHeight < MinimumFacePixels)
                 throw new ArgumentException("Portrait requires native 3:2, at least 1536x1024 and 128 face pixels: " + e.heroineId);

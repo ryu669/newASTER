@@ -17,7 +17,7 @@ namespace NewAster.Presentation
         private void StartCollection()
         {
             collectionCatalog=SelectCollectionCatalog();
-            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
+            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion,activeRelicHunt);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.
             // No presentation callback or battle RNG participates in collection.

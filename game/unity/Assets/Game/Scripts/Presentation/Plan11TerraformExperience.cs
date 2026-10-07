@@ -26,10 +26,6 @@ namespace NewAster.Presentation
         private void DrawTerraformBookPage()
         {
             GrowthStyles(); PalaceBackdrop("crown"); GrowthFrame(90,80,1420,745);
-            Label(130,100,750,56,"万物の書 ／ " + (book.Bookmark==BookBookmark.PossibleWorlds?"可能世界":"新天地"),growthTitleStyle);
-            bool ready = BookInputAllowed && !book.IsTransitioning && terraformRequest==null;
-            if(GrowthButton(970,110,220,48,book.Bookmark==BookBookmark.PossibleWorlds?"新天地へ":"可能世界へ",ready))RequestBookBookmark(book.Bookmark==BookBookmark.PossibleWorlds?BookBookmark.NewWorld:BookBookmark.PossibleWorlds);
-            if(GrowthButton(1210,110,220,48,"巨神獣のページ",ready))RequestBookBookmark(BookBookmark.Colossi);
             possibleWorlds = book.Bookmark==BookBookmark.PossibleWorlds;
             DrawTerraformExperience(); DrawBookTransition(true);
         }

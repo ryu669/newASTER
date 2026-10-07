@@ -1,153 +1,499 @@
 {
-  "schemaVersion": 1,
-  "date": "2026-10-07",
-  "generator": "built-in image_gen",
+  "schemaVersion": 2,
+  "date": "2026-10-08",
+  "generator": "built-in image_gen.imagegen",
   "sourcePixelsModified": false,
   "captureWidth": 1600,
   "captureHeight": 900,
   "physicalInputCount": 0,
-  "automaticChainAssertions": 7962,
-  "unityCompileSourceFiles": 194,
-  "buildLog": "tmp/heroine-framing/build-portraits-v2-final.log",
+  "automaticChainAssertions": 8461,
+  "unityCompileSourceFiles": 196,
+  "buildLog": "tmp/book-ui-build-delivery-final.log",
+  "fixedBookmarkPixelComparisons": 252,
   "assets": [
     {
-      "heroineId": "heroine.r",
-      "resourcePath": "Illustrations/heroine-portrait-r-v2",
-      "sourcePath": "game/art-source/heroine-portraits-v2/r.png",
+      "heroineId": "heroine.annihilator-holy",
+      "resourcePath": "Illustrations/heroine-portrait-annihilator-holy-v2",
       "width": 1536,
       "height": 1024,
       "mode": "RGBA",
-      "facePixels": 174.08,
-      "transparentPixels": 164496,
-      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "facePixels": 184.32,
+      "sha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator-holy.png",
       "sourceAndResourceIdentical": true
     },
     {
       "heroineId": "heroine.annihilator",
       "resourcePath": "Illustrations/heroine-portrait-annihilator-v2",
-      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator.png",
       "width": 1536,
       "height": 1024,
       "mode": "RGBA",
       "facePixels": 153.6,
-      "transparentPixels": 275544,
       "sha256": "9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator.png",
       "sourceAndResourceIdentical": true
     },
     {
-      "heroineId": "heroine.annihilator-holy",
-      "resourcePath": "Illustrations/heroine-portrait-annihilator-holy-v2",
-      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator-holy.png",
+      "heroineId": "heroine.arcane-academy",
+      "resourcePath": "Illustrations/heroine-portrait-arcane-academy-v2",
       "width": 1536,
       "height": 1024,
       "mode": "RGBA",
       "facePixels": 184.32,
-      "transparentPixels": 316965,
-      "sha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "sha256": "05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/arcane-academy.png",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "resourcePath": "Illustrations/heroine-portrait-arcane-v2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/arcane.png",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-portrait-candidate-v1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 153.6,
+      "sha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-portrait-candidate-v1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 204.8,
+      "sha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-portrait-candidate-v1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 204.8,
+      "sha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "resourcePath": "Illustrations/heroine-portrait-nighthawk-v2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/nighthawk.png",
       "sourceAndResourceIdentical": true
     },
     {
       "heroineId": "heroine.oriflamme",
       "resourcePath": "Illustrations/heroine-portrait-oriflamme-v2",
-      "sourcePath": "game/art-source/heroine-portraits-v2/oriflamme.png",
       "width": 1536,
       "height": 1024,
       "mode": "RGBA",
       "facePixels": 174.08,
-      "transparentPixels": 268799,
       "sha256": "fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/oriflamme.png",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.r",
+      "resourcePath": "Illustrations/heroine-portrait-r-v2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 174.08,
+      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/r.png",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "resourcePath": "Illustrations/heroine-portrait-shangrila-v2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/shangrila.png",
       "sourceAndResourceIdentical": true
     },
     {
       "heroineId": "heroine.shell",
       "resourcePath": "Illustrations/heroine-portrait-shell-v2",
-      "sourcePath": "game/art-source/heroine-portraits-v2/shell.png",
       "width": 1536,
       "height": 1024,
       "mode": "RGBA",
       "facePixels": 184.32,
-      "transparentPixels": 398427,
       "sha256": "06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/shell.png",
       "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-portrait-candidate-v1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "resourcePath": "Illustrations/heroine-portrait-slayer-swim-v2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f",
+      "legacyPortrait": false,
+      "sourcePath": "game/art-source/heroine-portraits-v2/slayer-swim.png",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-portrait-candidate-v1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "sha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "legacyPortrait": false
     }
   ],
   "captures": [
     {
+      "case": "book-colossi",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-colossi.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-colossi.log",
+      "sha256": "aa959cc7a6d21da65a346b34f35efabc7de74f237be612315f4e0205806cd797"
+    },
+    {
+      "case": "book-stories",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-stories.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-stories.log",
+      "sha256": "8624826530601132238adf8940e912a4315ca5fec7123e32891623dd5c69c671"
+    },
+    {
+      "case": "book-hunt",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-hunt.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-hunt.log",
+      "sha256": "de96cfe023901b1c45a94071d107f91c6850d05fb71719e8ae5f0c6c46b756bb"
+    },
+    {
+      "case": "book-items-added",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-items-added.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-items-added.log",
+      "sha256": "e7ecd59c765e4956d30ccc2ce5868e870684b634342d0d1a0700231e1e4467cc"
+    },
+    {
+      "case": "book-items-special",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-items-special.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-items-special.log",
+      "sha256": "6765b4de70268270fadda658cc174d73defa36e45a98bf4a18b30d529736f6ce"
+    },
+    {
+      "case": "book-items-fading",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-items-fading.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-items-fading.log",
+      "sha256": "dca6ab16e33f7d209580d1e76f491de68ad373c2e0e78a7b0dc1d6372922385d"
+    },
+    {
+      "case": "book-items-equip",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-items-equip.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-items-equip.log",
+      "sha256": "aa524ffa831338126574c244191fbececc286349114089e4fae9e15627e8cf73"
+    },
+    {
+      "case": "awakening",
+      "image": "tmp/plan10-ui/player-1600x900/ui-awakening.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-awakening.log",
+      "sha256": "54063fe32e26434f5613ae899ec81ad9df6ae3c3e33b0e46116569a896d8e279"
+    },
+    {
+      "case": "duplicate",
+      "image": "tmp/plan10-ui/player-1600x900/ui-duplicate.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-duplicate.log",
+      "sha256": "2eb71bf6f034a388fa59e3633e95e5108a559bca6d779c208f3a757522670a98"
+    },
+    {
+      "case": "garden-expanded",
+      "image": "tmp/plan10-ui/player-1600x900/ui-garden-expanded.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-garden-expanded.log",
+      "sha256": "67d9b0f471243d7bbc1cdd81906fa470e9fd3464551b5a13935caebed4337e51"
+    },
+    {
+      "case": "help",
+      "image": "tmp/plan10-ui/player-1600x900/ui-help.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-help.log",
+      "sha256": "f2a2e35e0a56add6a304cb4dd7cd18d6f1113a4d33e3c668b8d45765bdd88b24"
+    },
+    {
+      "case": "tree-grown",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown.log",
+      "sha256": "52f0bd366060c63c6917d8372536ae723b4233663b08fb8eab92e2974d076032"
+    },
+    {
       "case": "roster",
       "image": "tmp/plan10-ui/player-1600x900/ui-roster.png",
       "log": "tmp/plan10-ui/player-1600x900/ui-roster.log",
-      "sha256": "8bc06e4ddcf8cde8f21a166daf8a00d193a5e04ea8a45081ab3d7c07460df83b",
-      "visuallyInspected": true
+      "sha256": "ab4848a4e12b23be720ec97dc671b6eb3b42b0c8379f5aafbc986cae60f31dde"
     },
     {
       "case": "roster-second",
       "image": "tmp/plan10-ui/player-1600x900/ui-roster-second.png",
       "log": "tmp/plan10-ui/player-1600x900/ui-roster-second.log",
-      "sha256": "ff0b933823a4b6b69db6477d2a06db0bfc431b1ba98a36e0c9648f0c83cd426c",
-      "visuallyInspected": true
+      "sha256": "1271f405788d7e617765538295122ba84d534c3514d3c48024438891002214d2"
     },
     {
       "case": "formation-roster-second",
       "image": "tmp/plan10-ui/player-1600x900/ui-formation-roster-second.png",
       "log": "tmp/plan10-ui/player-1600x900/ui-formation-roster-second.log",
-      "sha256": "d82e2509285459c6187ebbb47cfd6cd2cb2c04f2340cc52d38b926a8536ca64f",
-      "visuallyInspected": true
+      "sha256": "79ad877020e491060d70a7676a9cab35ab5b915063f895be039b4407bf9c38ca"
     },
     {
-      "case": "detail-r",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-r.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-r.log",
-      "sha256": "ec3c6f4787927c66f2128b09b3e97e3b61163422e4fd510628ef3a1a6856d536",
-      "visuallyInspected": true
+      "case": "book-new-world",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-new-world.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-new-world.log",
+      "sha256": "d1d6052e042907e2849f825eec57522603a531b0c48540505ff1cae7c1e8f952"
     },
     {
-      "case": "detail-annihilator",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.log",
-      "sha256": "79337a29e08f03a42f2f637d88f4b5fffba49a0db0920c1aec99b2a0a8f76fd2",
-      "visuallyInspected": true
+      "case": "book-possible-worlds",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-possible-worlds.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-possible-worlds.log",
+      "sha256": "bb66fe4a99580c7e3abae1f7c32ddeb32fd19fcd627f795f312223fff67e825b"
+    },
+    {
+      "case": "book-summoning",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-summoning.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-summoning.log",
+      "sha256": "720b23e7ba69dca8e08ee6cc0660f34aa4f5ae0ebaf58f2740624b6fd24f31b3"
+    },
+    {
+      "case": "book-system",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-system.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-system.log",
+      "sha256": "1b6dfb53c4a07572859aff689de64cf89f73bfa9506bee56fcda1490b76d6738"
+    },
+    {
+      "case": "level",
+      "image": "tmp/plan10-ui/player-1600x900/ui-level.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-level.log",
+      "sha256": "363921d90d3f3bc3d617c5605be473c2ff6089f1991a8533a68dd4a5185ddfb4"
+    },
+    {
+      "case": "level-confirm",
+      "image": "tmp/plan10-ui/player-1600x900/ui-level-confirm.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-level-confirm.log",
+      "sha256": "db30601047964b7098b57fe07669e1d1e51e9aabeedb33327cef89d4f1b5c94d"
+    },
+    {
+      "case": "book-materials",
+      "image": "tmp/plan10-ui/player-1600x900/ui-book-materials.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-book-materials.log",
+      "sha256": "7b6c66a6cb03726c087e194aaa18b5ce0cb4274c423429ee4c8cc9f1f0cde2a2"
     },
     {
       "case": "detail-annihilator-holy",
       "image": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator-holy.png",
       "log": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator-holy.log",
-      "sha256": "777a55a3e4a88cec566eb820fd906abfa6458782c9d062face4459f248fdde7b",
-      "visuallyInspected": true
+      "sha256": "0f98c7db943e1f0e694c9361876fc0397e75fa0cac62161ad5527f342bf270ce"
     },
     {
-      "case": "detail-oriflamme",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.log",
-      "sha256": "1611f54b6e5d8545ef78c6cd3618a25fe4d447692e24237f000c4004e0c9cd77",
-      "visuallyInspected": true
+      "case": "detail-annihilator",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.log",
+      "sha256": "d47058a6411057e77ffcda551b226c34c4c426787627e92a9f7f87d796c9f2bf"
     },
     {
-      "case": "detail-shell",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-shell.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-shell.log",
-      "sha256": "bc210481cc5669681e7e1d6ca9e69e6d8a4ba7165cff2ad1604eb4fa218e06e2",
-      "visuallyInspected": true
+      "case": "detail-arcane-academy",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-arcane-academy.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-arcane-academy.log",
+      "sha256": "a1a2e926bd19340e0818e999f7aed83cfe0ef6cbd430e61fba7cf0366f085f3d"
     },
     {
-      "case": "detail-iconoclast",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.log",
-      "sha256": "7eb882125b33a94fa0438526f79b22121aff767c6d58b9d9e8640b34b46c6e5d",
-      "visuallyInspected": true
-    },
-    {
-      "case": "detail-undermine",
-      "image": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.png",
-      "log": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.log",
-      "sha256": "7faea8850c34a3efb49aa79ddd3c635199fa440d9c9bae8d457db7e16063387d",
-      "visuallyInspected": true
+      "case": "detail-arcane",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-arcane.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-arcane.log",
+      "sha256": "7f001e2a1689fec40de3d96858f5c48830d22180dfe88929365488b2c584caf2"
     },
     {
       "case": "detail-echidna",
       "image": "tmp/plan10-ui/player-1600x900/ui-detail-echidna.png",
       "log": "tmp/plan10-ui/player-1600x900/ui-detail-echidna.log",
-      "sha256": "bcbceb36618e3f149db3740ce42cb6d71b7e3b0c163b4f83959d2b2fed23250e",
-      "visuallyInspected": true
+      "sha256": "133053ea86b676711f89211ef3dffb1e1ffd85598da72eb28639978832aec6d8"
+    },
+    {
+      "case": "detail-excalipan",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-excalipan.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-excalipan.log",
+      "sha256": "12bbaa804ad81fc53a1720621e240eb839e65e48e28c848ac75dc2a5e53047ac"
+    },
+    {
+      "case": "detail-iconoclast",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.log",
+      "sha256": "40b90479fa72aae6ed67540d31c679e407268e3654f25f8008343b99bf317e18"
+    },
+    {
+      "case": "detail-nighthawk",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-nighthawk.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-nighthawk.log",
+      "sha256": "471219f14f436eaa3379db2bdfc6afe1a545a3fa509a34257b4e8065c40016c7"
+    },
+    {
+      "case": "detail-oriflamme",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.log",
+      "sha256": "95ea928c64589a11089002152bd26c2cf9a6f1feb37d4ccfe912d9d41ca579b5"
+    },
+    {
+      "case": "detail-r",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-r.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-r.log",
+      "sha256": "2563bddca6233ffb3428d3a8301084c23e437e42866056f5b6b920f929360b1a"
+    },
+    {
+      "case": "detail-shangrila",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-shangrila.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-shangrila.log",
+      "sha256": "97dca7b22bf56cba1dd4040d65a5735fbfef483aabc20aeaa54768ed0af91dae"
+    },
+    {
+      "case": "detail-shell",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-shell.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-shell.log",
+      "sha256": "360ca134c934a8b828ba1925f8e41c04da816b8919d4b499fe0a847d184a0983"
+    },
+    {
+      "case": "detail-slayer",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-slayer.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-slayer.log",
+      "sha256": "8a6d5d0cf35b8b8a0b34577db2290b9a36c69aa172087384583a6b0ffa28dcb2"
+    },
+    {
+      "case": "detail-slayer-swim",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-slayer-swim.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-slayer-swim.log",
+      "sha256": "9de8ece960eaf51dc1b64d202a9e7f9de3ba41e15836cda1f4fe6e5d4a377b80"
+    },
+    {
+      "case": "detail-undermine",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.log",
+      "sha256": "b2388cbaf3e1ebca7f5a92ee092623e444766ed0f7022cee54393ce05c21b820"
+    },
+    {
+      "case": "tree-grown-annihilator-holy",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-annihilator-holy.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-annihilator-holy.log",
+      "sha256": "6d116b7ed420885a7aa809940247c9be02a9c2371e58c941dfb006abcfa1bf42"
+    },
+    {
+      "case": "tree-grown-annihilator",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-annihilator.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-annihilator.log",
+      "sha256": "435aa107bc201784d78173d2200957d2257c6472b13b56504b4194b388efa7d2"
+    },
+    {
+      "case": "tree-grown-arcane-academy",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-arcane-academy.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-arcane-academy.log",
+      "sha256": "ad3719544cb0b48f0fc0113984940434d7942e630045b7015208d0ac0da65b08"
+    },
+    {
+      "case": "tree-grown-arcane",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-arcane.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-arcane.log",
+      "sha256": "61c4ee04a5df3a11e0ab8012a00241548287007bde90b8caff1314f55f68dc65"
+    },
+    {
+      "case": "tree-grown-echidna",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-echidna.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-echidna.log",
+      "sha256": "abf216b27217b12f0a629cb0c87d2f7738fd8a93fb151dbc7165e6d3621eb22a"
+    },
+    {
+      "case": "tree-grown-excalipan",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-excalipan.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-excalipan.log",
+      "sha256": "0c4889f3c376d5b48f879acef77501eb43b83b4507d3761764b43e8295b952c2"
+    },
+    {
+      "case": "tree-grown-iconoclast",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-iconoclast.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-iconoclast.log",
+      "sha256": "2a81440632a21aa5506d5f22260cde215d3888c3336154f94f5175828fa8b2b6"
+    },
+    {
+      "case": "tree-grown-nighthawk",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-nighthawk.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-nighthawk.log",
+      "sha256": "b12069de4dc214d8cb9790b994bc88c905cb5e3ee04087bcff6729bc1b0ac4be"
+    },
+    {
+      "case": "tree-grown-oriflamme",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-oriflamme.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-oriflamme.log",
+      "sha256": "6b4952a41c8f7f792105c6a7eb0ed1fcbab1484beae5cd5bb3d070a2e75f6554"
+    },
+    {
+      "case": "tree-grown-r",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-r.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-r.log",
+      "sha256": "fbc37b8fda238ffb920419e679a6be5859b267128dac2300008d17f4ae5889ba"
+    },
+    {
+      "case": "tree-grown-shangrila",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-shangrila.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-shangrila.log",
+      "sha256": "a0b28a3d755f2c3d6b0067b045d2232aa64bbe4493d5f40198fcc9fdcf73c05b"
+    },
+    {
+      "case": "tree-grown-shell",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-shell.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-shell.log",
+      "sha256": "cae71d0ac7c70f8c462935aa9fc52f669d2ab006752a2ba0b4532f8585b9d239"
+    },
+    {
+      "case": "tree-grown-slayer",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-slayer.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-slayer.log",
+      "sha256": "6b27da24360bdc04bea57fdc7e9138fe8041c79e0abd24f548be66464ea32a81"
+    },
+    {
+      "case": "tree-grown-slayer-swim",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-slayer-swim.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-slayer-swim.log",
+      "sha256": "e7046be37578e12e8d2589cdfa68bdc4f383a9f0bc7a838094faa19421567660"
+    },
+    {
+      "case": "tree-grown-undermine",
+      "image": "tmp/plan10-ui/player-1600x900/ui-tree-grown-undermine.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-tree-grown-undermine.log",
+      "sha256": "a41488f52e9b9c20d2a34a12956887fe069f8bf6aad07250bf75487dcdfb15e9"
     }
   ]
 }

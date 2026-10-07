@@ -16,17 +16,17 @@ namespace NewAster.Presentation
         {
             var data=HomeData();
             var navigation=new BookNavigationState(data.subjects.Select(s=>new BookOrderedSubject(
-                s.bookmarkId=="colossi"?BookBookmark.Colossi:s.bookmarkId=="heroines"?BookBookmark.Heroines:s.bookmarkId=="gardens"?BookBookmark.Gardens:BookBookmark.Stories,s.subjectId,s.pageOrder)).Concat(new[]{new BookOrderedSubject(BookBookmark.NewWorld,"terraform.new-world",0),new BookOrderedSubject(BookBookmark.PossibleWorlds,"terraform.possible-worlds",0)}));
+                s.bookmarkId=="colossi"?BookBookmark.Colossi:s.bookmarkId=="heroines"?BookBookmark.Heroines:s.bookmarkId=="gardens"?BookBookmark.Gardens:BookBookmark.Stories,s.subjectId,s.pageOrder)).Concat(new[]{new BookOrderedSubject(BookBookmark.NewWorld,"terraform.new-world",0),new BookOrderedSubject(BookBookmark.PossibleWorlds,"terraform.possible-worlds",0),new BookOrderedSubject(BookBookmark.Summoning,"summoning.main",0),new BookOrderedSubject(BookBookmark.Items,"items.main",0)}).Concat(NewAster.Data.WorldCatalog.ColossusIds.Select((id,i)=>new BookOrderedSubject(BookBookmark.RelicHunt,id,i))));
             return navigation;
         }
         private void SyncBookSelectedLevel()
         {
-            if(book.Bookmark!=BookBookmark.Colossi || !book.HasSubject || bookLevelOwner==book.SubjectId)return;
+            if((book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.RelicHunt) || !book.HasSubject || bookLevelOwner==book.SubjectId)return;
             if(bookLevelOwner!=null)bookLevelByColossus[bookLevelOwner]=selectedLevel;
             bookLevelOwner=book.SubjectId;selectedLevel=bookLevelByColossus.TryGetValue(bookLevelOwner,out var level)?Math.Max(1,Math.Min(campaign.Playable.HighestLevel,level)):1;
         }
         private bool BookInputAllowed=>formalCampaign==null || !formalCampaign.HasPending && !formalProgression.HasPending && homeRequest==null && !placing;
-        private void RequestBookBookmark(BookBookmark bookmark){if(BookInputAllowed && book.RequestBookmark(bookmark)){bookTransitionElapsed=0;scroll=Vector2.zero;if(bookmark==BookBookmark.Heroines){heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;}}}
+        private void RequestBookBookmark(BookBookmark bookmark){if(BookInputAllowed && book.RequestBookmark(bookmark)){bookTransitionElapsed=0;scroll=Vector2.zero;formationOpen=false;returnToFormationFromWeapon=false;gardenPanel=GardenPanel.None;gardenMenuExpanded=false;if(bookmark==BookBookmark.Heroines){heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;}}}
         private void RequestBookTurn(int direction){if(BookInputAllowed && book.RequestTurn(direction)){bookTransitionElapsed=0;scroll=Vector2.zero;}}
         private void RequestBookFlip(){if(BookInputAllowed && book.RequestFlip())bookTransitionElapsed=0;}
         private void UpdateBookTransition()

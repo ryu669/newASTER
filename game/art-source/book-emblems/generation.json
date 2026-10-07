@@ -1,0 +1,15 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Create ONE transparent RGBA game UI image atlas, square native 1024x1024. Exactly sixteen separate fantasy pictorial emblems in a precise 4 by 4 regular grid, each centered in its 256x256 cell, generous transparent padding, icon artwork no larger than 180x180, no cell borders, no labels, no text, no numerals. Read order left to right, top to bottom: row1 moss crystal dragon head; adult angel bust with white wings; living botanical tree; open antique story book. Row2 winged summoning luminous star; pouch of item crystals; antique relic compass; verdant blue-green planet. Row3 three possible-world orbs with portal rings; silver sword; green leaf; blue crescent moon. Row4 gold crown; red-orange flame; three blue/purple crystals; gold five-point luminous star. Consistent polished high quality hand-painted fantasy illustration, distinct silhouettes readable at 48px, navy gold ivory palette with softly luminous accent colors, no backgrounds or shadows outside each icon. ALL sixteen objects fully isolated and wholly contained inside their respective equal-sized grid cells. Actual transparent background.",
+  "nativePath": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-310215b8-a8a5-4d8a-ad3c-5b131b9e6923.png",
+  "resourcePath": "UI/book-emblems-v1",
+  "grid": {
+    "columns": 4,
+    "rows": 4
+  },
+  "sha256": "7d557a87fea78badee8753039ca6b84865b7a3a49a2559a2a8eaab7a1ce98da8",
+  "nativeSize": [
+    1254,
+    1254
+  ]
+}

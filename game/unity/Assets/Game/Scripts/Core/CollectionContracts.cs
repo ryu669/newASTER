@@ -25,7 +25,8 @@ namespace NewAster.Core
         public string RarityName=>rarity>=4?"SSR":rarity==3?"SR":rarity==2?"R":"N"; }
     [Serializable] public sealed class CollectionRelicDef
     {
-        public string id,abilityId;
+        public string id,abilityId,name,jobId,turnEffect;
+        public int jobStatPercent,defensePercent,speedPercent;
         public string[] materialIds;
         public int maxLevel=120;
         public int attackPercent=5,hpPercent;
@@ -115,7 +116,7 @@ namespace NewAster.Core
                    os[source.ownerId].kind!="colossus" || os[target.ownerId].kind!="heroine" || l.ownerId!=target.ownerId)throw new ArgumentException("Invalid poem correspondence.");
             foreach(var r in relics){
                 IdSet(r.materialIds);
-                if(r.maxLevel!=120 || !(contentVersion!=ProductionVersion && r.abilityId=="ability.fixture.attack" || (contentVersion==ProductionVersion || contentVersion==CandidateVersion) && r.abilityId.StartsWith("ability.production.relic.")) || r.attackPercent<0 || r.attackPercent>20 || r.hpPercent<0 || r.hpPercent>20 || r.materialIds.Length==0 || r.materialIds.Any(id=>!rs.TryGetValue(id,out var m) || m.kind!="material"))throw new ArgumentException("Invalid relic definition.");
+                if(r.maxLevel!=120 || !(contentVersion!=ProductionVersion && r.abilityId=="ability.fixture.attack" || (contentVersion==ProductionVersion || contentVersion==CandidateVersion) && r.abilityId.StartsWith("ability.production.relic.")) || r.attackPercent<0 || r.attackPercent>100 || r.hpPercent<0 || r.defensePercent<0 || r.defensePercent>100 || r.speedPercent<0 || r.speedPercent>100 || r.jobStatPercent<0 || r.jobStatPercent>100 || r.jobStatPercent>0 && string.IsNullOrEmpty(r.jobId) || r.turnEffect!=null && r.turnEffect!="ramp" && r.turnEffect!="wane" || r.hpPercent>100 || r.materialIds.Length==0 || r.materialIds.Any(id=>!rs.TryGetValue(id,out var m) || m.kind!="material"))throw new ArgumentException("Invalid relic definition.");
             }
             if(rewardBands==null || rewardBands.Any(x=>x==null))throw new ArgumentException("Missing reward bands.");
             foreach(var o in colossi){
@@ -142,7 +143,7 @@ namespace NewAster.Core
                 chapters=chapters.Select(c=>new CollectionChapterDef {id=c.id,ownerId=c.ownerId,poemIds=(string[])c.poemIds.Clone(),textId=c.textId}).ToArray(),
                 links=links.Select(l=>new CollectionLinkDef {id=l.id,ownerId=l.ownerId,sourcePoemId=l.sourcePoemId,targetPoemId=l.targetPoemId}).ToArray(),
                 resources=resources.Select(r=>new CollectionResourceDef {id=r.id,kind=r.kind,ownerId=r.ownerId,name=r.name,rarity=r.rarity,minDropLevel=r.minDropLevel}).ToArray(),
-                relics=relics.Select(r=>new CollectionRelicDef {id=r.id,abilityId=r.abilityId,maxLevel=r.maxLevel,attackPercent=r.attackPercent,hpPercent=r.hpPercent,materialIds=(string[])r.materialIds.Clone()}).ToArray(),
+                relics=relics.Select(r=>new CollectionRelicDef {id=r.id,abilityId=r.abilityId,name=r.name,jobId=r.jobId,turnEffect=r.turnEffect,jobStatPercent=r.jobStatPercent,defensePercent=r.defensePercent,speedPercent=r.speedPercent,maxLevel=r.maxLevel,attackPercent=r.attackPercent,hpPercent=r.hpPercent,materialIds=(string[])r.materialIds.Clone()}).ToArray(),
                 rewardBands=rewardBands.Select(b=>new CollectionRewardBandDef {ownerId=b.ownerId,minLevel=b.minLevel,maxLevel=b.maxLevel,draws=b.draws,terraforming=b.terraforming,allowEmpty=b.allowEmpty,relicIds=(string[])b.relicIds.Clone()}).ToArray()
                 ,weaponNodes=weaponNodes.Select(n=>new CollectionWeaponNodeDef {id=n.id,ownerId=n.ownerId,materialIds=(string[])n.materialIds.Clone(),prerequisiteIds=(string[])n.prerequisiteIds.Clone()}).ToArray()
             };
@@ -158,6 +159,7 @@ namespace NewAster.Core
     [Serializable] public sealed class CollectionBattleRecord
     {
         public string battleId,colossusId,contentVersion;
+        public bool relicHunt;
         public string combatVersion="combat-v3-newaster-original",colossusVersion=ColossusCombatDef.Version;
         public int level,seed;
         public long revision;
@@ -168,7 +170,7 @@ namespace NewAster.Core
                formationIds==null || formationIds.Length!=5 || formationIds.Any(x=>!CollectionCatalog.ValidId(x)) || formationIds.Distinct().Count()!=5 ||
                heardPoemIds==null || heardPoemIds.Any(x=>!CollectionCatalog.ValidId(x)) || heardPoemIds.Distinct().Count()!=heardPoemIds.Length)throw new ArgumentException("Invalid battle collection record.");
         }
-        public CollectionBattleRecord Copy()=>new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=contentVersion,combatVersion=combatVersion,colossusVersion=colossusVersion,level=level,seed=seed,revision=revision,formationIds=(string[])formationIds.Clone(),heardPoemIds=(string[])heardPoemIds.Clone()};
+        public CollectionBattleRecord Copy()=>new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=contentVersion,combatVersion=combatVersion,colossusVersion=colossusVersion,relicHunt=relicHunt,level=level,seed=seed,revision=revision,formationIds=(string[])formationIds.Clone(),heardPoemIds=(string[])heardPoemIds.Clone()};
     }
     [Serializable] public sealed class CollectionReceipt
     {
@@ -219,10 +221,10 @@ namespace NewAster.Core
         private readonly CollectionBattleRecord battle;
         private readonly HashSet<string> heard=new HashSet<string>();
         private CollectionReceipt ended;
-        public BattleCollectionSession(CollectionCatalog catalog,string battleId,string colossusId,int level,long revision,IEnumerable<string> formation,int seed=0,string colossusVersion=ColossusCombatDef.Version)
+        public BattleCollectionSession(CollectionCatalog catalog,string battleId,string colossusId,int level,long revision,IEnumerable<string> formation,int seed=0,string colossusVersion=ColossusCombatDef.Version,bool relicHunt=false)
         {
             catalog.Validate();this.catalog=catalog.Copy();
-            battle=new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=catalog.contentVersion,colossusVersion=colossusVersion,level=level,seed=seed,revision=revision,formationIds=(formation??throw new ArgumentNullException(nameof(formation))).ToArray(),heardPoemIds=Array.Empty<string>()};
+            battle=new CollectionBattleRecord {battleId=battleId,colossusId=colossusId,contentVersion=catalog.contentVersion,colossusVersion=colossusVersion,relicHunt=relicHunt,level=level,seed=seed,revision=revision,formationIds=(formation??throw new ArgumentNullException(nameof(formation))).ToArray(),heardPoemIds=Array.Empty<string>()};
             battle.Validate();
             if(!this.catalog.owners.Any(x=>x.id==colossusId && x.kind=="colossus") || battle.formationIds.Any(id=>!this.catalog.owners.Any(x=>x.id==id && x.kind=="heroine")))throw new ArgumentException("Unknown battle owner.");
         }

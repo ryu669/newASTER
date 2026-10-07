@@ -17,6 +17,8 @@ namespace NewAster.Core
     {
         // Versioned independent inventory tuning; historical receipt costs stay unchanged.
         public const int AttackMaximum=100,HpMaximum=1000;
+        public static int JobBonus(CollectionRelicDef d,string job)=>d!=null && d.jobId==job?d.jobStatPercent:0;
+        public static int TurnBonus(CollectionRelicDef d,int turn)=>d?.turnEffect=="ramp"?Math.Min(8,Math.Max(0,turn-1))*5:d?.turnEffect=="wane"?50-Math.Min(5,Math.Max(0,turn-1))*10:0;
         public static int UpgradeCost(CollectionRelic r,RelicOperation operation,string contentVersion) => contentVersion==CollectionCatalog.ProductionVersion ? (operation==RelicOperation.LevelUp?r.level:30) : (operation==RelicOperation.LevelUp?checked(10*r.level):1000);
         public static int Attack(CollectionRelic r)=>checked(10+2*(r.level-1)+r.attackRoll);
         public static int Hp(CollectionRelic r)=>checked(50+5*(r.level-1)+r.hpRoll);

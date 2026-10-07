@@ -18,7 +18,7 @@ namespace NewAster.Presentation
             bool previous=GUI.enabled;if(panzerSetupOpen)GUI.enabled=false;
             SanctuaryHeader("誓いの編成","5人の絆を、出撃の順番へ");
             if(GrowthButton(58,108,240,48,"‹ 誓女一覧",homeRequest==null && BookInputAllowed)){formationOpen=false;return;}
-            Label(330,112,850,45,"上の枠を選び、下の顔カードで入れ替え。",growthSmallStyle);
+
             if(idsOwnShell() && GrowthButton(1180,108,355,48,"シェルの装甲・ツール設定",homeRequest==null && BookInputAllowed)){
                 var l=SavedPanzerLoadout();panzerResistance=Array.IndexOf(new[]{"physical","magic","fire"},l.Resistance);panzerTool0=Array.IndexOf(PlayableBattle.PanzerTools,l.FirstTool);panzerTool1=Array.IndexOf(PlayableBattle.PanzerTools,l.SecondTool);panzerSetupOpen=true;
             }
@@ -58,7 +58,7 @@ namespace NewAster.Presentation
             if(GrowthButton(1250,280,180,50,"巨神獣 ›",materialPage+1<owners.Length))materialPage++;
             for(int i=0;i<owner.materialIds.Length;i++){
                 var r=CollectionData().resources.Single(m=>m.id==owner.materialIds[i]);float y=350+i*88;GrowthFrame(150,y,1280,78);
-                DrawSanctuaryIcon(new Rect(169,y+12,52,52),"star",MaterialColor(r.rarity));
+                DrawSanctuaryIcon(new Rect(169,y+12,52,52),"resource",MaterialColor(r.rarity));
                 Label(245,y+14,645,48,r.RarityName+"  "+r.name,growthTextStyle,MaterialColor(r.rarity));
                 Label(905,y+17,480,44,"所持 "+HomeRules.Balance(formalCampaign.Snapshot,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
             }

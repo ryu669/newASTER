@@ -32,6 +32,8 @@ namespace NewAster.Presentation
             else if(view.StartsWith("kinder")){PrepareKinderCapture(args);kinderScreen=view=="kinder-draw"?KinderScreen.Draw:view=="kinder-exchange"?KinderScreen.Exchange:view=="kinder-tickets"?KinderScreen.Tickets:view=="kinder-rates"?KinderScreen.Rates:KinderScreen.Entrance;}
             else if(view=="collection" || view=="relics"){collectionOpen=true;collectionTab=view=="relics"?1:0;}
             else if(view=="engagement")engagementOpen=true;
+            else if(view=="awakening")GrowthSelect(GrowthScreen.Awakening,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));
+            else if(view=="duplicate")GrowthSelect(GrowthScreen.Duplicate,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));
             else if(view=="level")GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));
             else if(view=="level-confirm"){growthScreen=GrowthScreen.Level;var snapshot=formalProgression.Snapshot;var heroine=snapshot.heroines.Single(h=>h.heroineId==id);GrowthConfirm(GrowthOperation.Level,id,snapshot,Math.Min(heroine.LevelCap,heroine.level+10));}
             else if(view!="detail" && view!="roster" && view!="empty")throw new ArgumentException("Unknown sanctuary UI case");

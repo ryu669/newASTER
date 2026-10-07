@@ -1,0 +1,36 @@
+{
+  "tool": "image_gen.imagegen",
+  "nativeResolution": "1536x1024",
+  "assets": [
+    {
+      "key": "nighthawk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-9bfe3451-ea41-4f26-b826-abcd77305c09.png",
+      "prompt": "Edit FIRST reference: retain exact adult heroine identity, face, hair, eyes, costume, accessories, halo and wing design. SECOND reference only indicates unified composition/quality. Produce a new native 1536x1024 landscape 3:2 transparent RGBA waist-up portrait. Face centered horizontally at 50%, vertical 36%, natural face height about 18% of entire canvas; head hair and halo entirely inside, body extends bottom, wings arranged to sides. Elegant polished anime illustration, detailed crisp face, natural adult proportions. No text, no background, no frame. Do not stretch the original.",
+      "sha256": "9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab"
+    },
+    {
+      "key": "slayer-swim",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-c6f8d737-7e36-4ce2-90b7-f420863563a7.png",
+      "prompt": "Edit FIRST reference: retain exact adult heroine identity, face, hair, eyes, costume, accessories, halo and wing design. SECOND reference only indicates unified composition/quality. Produce a new native 1536x1024 landscape 3:2 transparent RGBA waist-up portrait. Face centered horizontally at 50%, vertical 36%, natural face height about 18% of entire canvas; head hair and halo entirely inside, body extends bottom, wings arranged to sides. Elegant polished anime illustration, detailed crisp face, natural adult proportions. No text, no background, no frame. Do not stretch the original.",
+      "sha256": "680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f"
+    },
+    {
+      "key": "arcane",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-66b3c592-eb82-42ee-b32b-db5dc51f2436.png",
+      "prompt": "Edit FIRST reference: retain exact adult heroine identity, face, hair, eyes, costume, accessories, halo and wing design. SECOND reference only indicates unified composition/quality. Produce a new native 1536x1024 landscape 3:2 transparent RGBA waist-up portrait. Face centered horizontally at 50%, vertical 36%, natural face height about 18% of entire canvas; head hair and halo entirely inside, body extends bottom, wings arranged to sides. Elegant polished anime illustration, detailed crisp face, natural adult proportions. No text, no background, no frame. Do not stretch the original.",
+      "sha256": "9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771"
+    },
+    {
+      "key": "arcane-academy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-6bede454-cc7f-42d6-89cc-a85da2797beb.png",
+      "prompt": "Edit FIRST reference: retain exact adult heroine identity, face, hair, eyes, costume, accessories, halo and wing design. SECOND reference only indicates unified composition/quality. Produce a new native 1536x1024 landscape 3:2 transparent RGBA waist-up portrait. Face centered horizontally at 50%, vertical 36%, natural face height about 18% of entire canvas; head hair and halo entirely inside, body extends bottom, wings arranged to sides. Elegant polished anime illustration, detailed crisp face, natural adult proportions. No text, no background, no frame. Do not stretch the original.",
+      "sha256": "05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047"
+    },
+    {
+      "key": "shangrila",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-64dc78c9-183c-4c88-a0ad-f7899253ac98.png",
+      "prompt": "Edit FIRST reference: retain exact adult heroine identity, face, hair, eyes, costume, accessories, halo and wing design. SECOND reference only indicates unified composition/quality. Produce a new native 1536x1024 landscape 3:2 transparent RGBA waist-up portrait. Face centered horizontally at 50%, vertical 36%, natural face height about 18% of entire canvas; head hair and halo entirely inside, body extends bottom, wings arranged to sides. Elegant polished anime illustration, detailed crisp face, natural adult proportions. No text, no background, no frame. Do not stretch the original.",
+      "sha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e"
+    }
+  ]
+}

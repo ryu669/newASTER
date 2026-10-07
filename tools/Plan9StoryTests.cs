@@ -42,6 +42,7 @@ public static class Plan9StoryTests
         System.IO.Directory.CreateDirectory("tmp");System.IO.File.WriteAllText("tmp/plan9-home-catalog.json",JsonSerializer.Serialize(home,new JsonSerializerOptions{IncludeFields=true}));
         ValidateGardens(check,combat,collection,home);
         ValidateEconomy(check,combat,collection,home);
+        BookRedesignTests.Run(check,combat,collection,home);
         var legacy=CollectionContractFixture.Create(combat);
         check(collection.poems.Select(p=>p.id).SequenceEqual(legacy.poems.Select(p=>p.id)) && collection.chapters.Select(c=>c.id).SequenceEqual(legacy.chapters.Select(c=>c.id)),"Production collection preserves every existing canonical poem and chapter ID");
         check(collection.links.Length==90 && collection.chapters.All(c=>c.textId.StartsWith("text.production.")),"All ninety authored correspondences and sixty chapter texts are connected");
@@ -156,7 +157,7 @@ public static class Plan9StoryTests
         var ledger=new FormalCollectionLedger{contentVersion=collection.contentVersion};
         var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth);
         var heroDef=combat.Hero(Heroes[0]);var job=combat.Job(heroDef.jobId);int rawAttack=FormalGrowthMath.Stat(job.attack,heroDef.attackBp,1,0),rawHp=FormalGrowthMath.Stat(job.hp,heroDef.hpBp,1,0);
-        foreach(var relic in collection.relics){
+        foreach(var relic in collection.relics.Where(r=>!r.id.StartsWith("relic.",StringComparison.Ordinal))){
             ledger.relics=new[]{new CollectionRelic{id=relic.id,contentVersion=collection.contentVersion,attackRoll=100,hpRoll=1000}};ledger.equipment=new[]{new CollectionEquipment{heroineId=Heroes[0],relicId=relic.id}};
             var battle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth,collectionGrowth:ledger,relicCatalog:collection);
             check(battle.State.Heroes[0].Attack==((rawAttack+110)*(100+relic.attackPercent)/100)*(100+heroDef.traitAttackPercent)/100,"Own relic attack ability reaches battle projection before own trait");
@@ -164,7 +165,7 @@ public static class Plan9StoryTests
             check(Enumerable.Range(0,5).All(i=>battle.ChainRate(i)==baseline.ChainRate(i)),"Production equipment preserves common chain probability");
         }
         var copy=collection.Copy();check(copy.relics.Select(r=>r.attackPercent+":"+r.hpPercent).SequenceEqual(collection.relics.Select(r=>r.attackPercent+":"+r.hpPercent)),"Catalog copy preserves every own relic ability");
-        copy.relics[0].hpPercent=21;bool rejected=false;try{copy.Validate();}catch(ArgumentException){rejected=true;}check(rejected,"Unsupported production relic percentage is rejected");
+        copy.relics[0].hpPercent=101;bool rejected=false;try{copy.Validate();}catch(ArgumentException){rejected=true;}check(rejected,"Unsupported production relic percentage is rejected");
         ProductionEconomyCatalog.Engagement().Validate();
     }
     private static void ValidateGardens(Action<bool,string> check,CombatDefinitionCatalog combat,CollectionCatalog collection,HomeExperienceCatalog home)

@@ -21,19 +21,19 @@
     },
     {
       "heroineId": "heroine.arcane-academy",
-      "resourcePath": "Illustrations/arcane-academy-portrait-candidate-v1",
-      "faceCenterX": 0.52,
-      "faceCenterY": 0.32,
-      "faceHeight": 0.1,
-      "legacyPortrait": true
+      "resourcePath": "Illustrations/heroine-portrait-arcane-academy-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.arcane",
-      "resourcePath": "Illustrations/arcane-portrait-candidate-v1",
-      "faceCenterX": 0.53,
-      "faceCenterY": 0.3,
-      "faceHeight": 0.095,
-      "legacyPortrait": true
+      "resourcePath": "Illustrations/heroine-portrait-arcane-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.echidna",
@@ -61,11 +61,11 @@
     },
     {
       "heroineId": "heroine.nighthawk",
-      "resourcePath": "Illustrations/nighthawk-portrait-candidate-v1",
-      "faceCenterX": 0.48,
-      "faceCenterY": 0.33,
-      "faceHeight": 0.12,
-      "legacyPortrait": true
+      "resourcePath": "Illustrations/heroine-portrait-nighthawk-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.oriflamme",
@@ -85,11 +85,11 @@
     },
     {
       "heroineId": "heroine.shangrila",
-      "resourcePath": "Illustrations/shangrila-portrait-candidate-v1",
-      "faceCenterX": 0.52,
-      "faceCenterY": 0.45,
-      "faceHeight": 0.12,
-      "legacyPortrait": true
+      "resourcePath": "Illustrations/heroine-portrait-shangrila-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.shell",
@@ -109,11 +109,11 @@
     },
     {
       "heroineId": "heroine.slayer-swim",
-      "resourcePath": "Illustrations/slayer-swim-portrait-candidate-v1",
-      "faceCenterX": 0.51,
-      "faceCenterY": 0.35,
-      "faceHeight": 0.13,
-      "legacyPortrait": true
+      "resourcePath": "Illustrations/heroine-portrait-slayer-swim-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.undermine",

@@ -23,7 +23,7 @@ namespace NewAster.Presentation {
    }
    if(formationLayer==0){
     GrowthFrame(65,456,1470,329);Label(95,480,1400, fifty,"5人の配置",growthTitleStyle,gold);
-    Label(95,547,1380,160,"各隊員のカードから神器と支援設定へ進みます。\n神器：1人1つ。オーパーツ：1人1枠分を準備（装備機能は後続実装）。\n指揮官とスナイパーの支援対象は出撃前に選び、保存後の次の戦闘へ反映します。\n同じ人物の衣装違いは、同時に編成できません。",growthTextStyle);
+    Label(95,547,1380,65,"神器 "+HomeState.weaponEquipment.Count(e=>ids.Contains(e.heroineId))+" / 5　　オーパーツ "+formalCampaign.Snapshot.collection.equipment.Count(e=>ids.Contains(e.heroineId))+" / 5",growthTextStyle);
    }else if(formationLayer==1){
     string id=ids[formationSlot];var def=combatDefinitions.Hero(id);GrowthFrame(65,456,1470,346);
     Label(90,476,760, fifty,"第"+(formationSlot+1)+"枠 ／ "+def.name,growthTitleStyle,gold);
