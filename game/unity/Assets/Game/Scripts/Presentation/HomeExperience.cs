@@ -94,20 +94,28 @@ namespace NewAster.Presentation
             try{
                 var localArea=new Rect(0,0,area.width,area.height);
                 var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
-                if(garden=="garden.integrated-world")DrawTerraformLandscape(localArea,campaign.Terraform,true);
+                var landscape=TerraformRules.Copy(campaign.Terraform);
+                if(gardenLifeRuntime!=null){landscape.domains=landscape.domains.Where(d=>GardenLifeCatalog.MainDomains(garden).Contains(d.domainId)).ToArray();if(GardenLifeCatalog.PhenomenonUnavailable(landscape.activeWorldPhenomenonId,gardenLifeRuntime.TimePhase,garden)!=null)landscape.activeWorldPhenomenonId=null;}
+                if(garden=="garden.integrated-world"){var baseLandscape=TerraformRules.Copy(campaign.Terraform);baseLandscape.activeWorldPhenomenonId=null;foreach(var d in baseLandscape.domains)d.activeDeepRecordId=null;DrawTerraformLandscape(localArea,baseLandscape,true);}
                 foreach(var asset in layout.middleAssetIds){var layer=AdvTexture(asset);if(layer!=null)GUI.DrawTexture(localArea,layer,ScaleMode.ScaleAndCrop,true);}
                 var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
                 foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
                 foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.ScaleAndCrop,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
-                DrawTerraformLandscape(localArea,campaign.Terraform,false);
+                DrawTerraformLandscape(localArea,landscape,false);
                 if(names)DrawGardenResidentLabels(localArea,state,garden);
             }finally{GUI.EndGroup();}
         }
         private void DrawGardenFurniture(Rect area,HomePlacement placement,FormalHomeProgress state)
         {
+            if(placement.defId.StartsWith("furniture.memorial.")){DrawMemorialFurniture(area,placement);return;}
             var f=HomeData().furniture.Single(item=>item.id==placement.defId);var image=GardenFurnitureImageRect(area,placement);
             var occupant=state.occupants.FirstOrDefault(o=>GardenUsePlacement(o,state)?.instanceId==placement.instanceId);
-            var texture=AdvTexture(f.assetId);if(texture!=null)DrawGardenArtUse(image,texture,GardenUse(placement.defId,occupant?.heroineId??"heroine.slayer"),occupant!=null,occupant?.heroineId??"heroine.slayer");else{GrowthFill(image.x,image.y,image.width,image.height,new Color(.6f,.44f,.28f));Label(image.x,image.y,150,30,placement.defId.Substring(placement.defId.Length-1),small,Color.white);}
+            var texture=AdvTexture(f.assetId);var matrix=GUI.matrix;try{
+                var pivot=new Vector2(area.x+placement.x*area.width,area.y+placement.y*area.height);
+                if(placement.orientationId.Contains("flip"))GUIUtility.ScaleAroundPivot(new Vector2(-1,1),pivot);
+                if(placement.orientationId.Contains("rotate"))GUIUtility.RotateAroundPivot(90,pivot);
+                if(texture!=null)DrawGardenArtUse(image,texture,GardenUse(placement.defId,occupant?.heroineId??"heroine.slayer"),occupant!=null,occupant?.heroineId??"heroine.slayer");else{GrowthFill(image.x,image.y,image.width,image.height,new Color(.6f,.44f,.28f));Label(image.x,image.y,150,30,placement.defId.Substring(placement.defId.Length-1),small,Color.white);}
+            }finally{GUI.matrix=matrix;}
         }
         private void DrawGardenResident(Rect area,HomeOccupant occupant)
         {
@@ -117,7 +125,10 @@ namespace NewAster.Presentation
                 string prefix=occupant.heroineId.Substring("heroine.".Length);
                 var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");
                 float size=area.width*.128f*.95f;
-                if(texture!=null)GUI.DrawTexture(new Rect(x-size*.5f,y-size*.98f,size,size),texture,ScaleMode.ScaleToFit,true);else GrowthDiamond(x,y,14);
+                if(texture!=null){var matrix=GUI.matrix;var a=gardenLifeRuntime?.Agents.SingleOrDefault(v=>v.heroineId==occupant.heroineId);try{if(a!=null && a.facing<0)GUIUtility.ScaleAroundPivot(new Vector2(-1,1),new Vector2(x,y));if(a?.kind=="Move" || a?.kind=="Approach")y-=Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup*5))*3;var residentRect=new Rect(x-size*.5f,y-size*.98f,size,size);
+                    bool bathing=a?.tag=="bathe" || a?.tag=="bathe_together";
+                    if(bathing){GUI.BeginGroup(new Rect(residentRect.x,residentRect.y,residentRect.width,residentRect.height*.68f));GUI.DrawTexture(new Rect(0,0,size,size),texture,ScaleMode.ScaleToFit,true);GUI.EndGroup();var water=Resources.Load<Texture2D>("Illustrations/world-water-far-candidate-v1");if(water!=null)GUI.DrawTextureWithTexCoords(new Rect(residentRect.x,y-size*.33f,size,size*.18f),water,new Rect(.25f,0,.5f,.15f));}
+                    else GUI.DrawTexture(residentRect,texture,ScaleMode.ScaleToFit,true);}finally{GUI.matrix=matrix;}}else GrowthDiamond(x,y,14);
             }else GrowthDiamond(x,y,14);
         }
         private void DrawGardenResidentLabels(Rect area,FormalHomeProgress state,string garden)

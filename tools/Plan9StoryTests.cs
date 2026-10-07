@@ -171,13 +171,13 @@ public static class Plan9StoryTests
     private static void ValidateGardens(Action<bool,string> check,CombatDefinitionCatalog combat,CollectionCatalog collection,HomeExperienceCatalog home)
     {
         check(home.gardens.Length==9 && home.gardens.All(g=>!g.unmade && g.middleAssetIds.Length==1 && g.foregroundAssetIds.Length==1),"All nine production garden layouts have ordered three-layer scenery");
-        check(home.furniture.Length==10 && home.furniture.Take(3).Select(f=>f.id).SequenceEqual(new[]{"furniture.fixture.0","furniture.fixture.1","furniture.fixture.2"}),"Ten production recipes preserve all preexisting furniture identities");
+        check(home.furniture.Length==20 && home.furniture.Take(3).Select(f=>f.id).SequenceEqual(new[]{"furniture.fixture.0","furniture.fixture.1","furniture.fixture.2"}),"Ten production recipes preserve all preexisting furniture identities");
         var options=new JsonSerializerOptions{IncludeFields=true};Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
         var save=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion),collection=new FormalCollectionLedger{contentVersion=collection.contentVersion,materials=home.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray()}};
         foreach(var d in save.world.terraform.domains){d.currentLevel=5;d.maxReachedLevel=5;}TerraformRules.RefreshUnlocks(save.world);
         save.world.unlockedGardenIds=home.gardens.Select(g=>g.id).ToArray();HomeConditions.Refresh(save,home);var journal=new FormalCampaignJournal(save,encode,decode);
         Action<HomeOperation> commit=op=>{string kind=op.Kind=="use"?"occupant":op.Kind=="remove"?"place":op.Kind;var request=new FormalHomeRequest("garden-"+journal.Snapshot.revision,kind,journal.Snapshot.revision,home.contentVersion,op.Key);string before=encode(journal.Snapshot);check(journal.CommitHomeOperation(request,home,op,s=>false)==GrowthCommitResult.SaveFailed && encode(journal.Snapshot)==before,"Production home operation is atomic on save failure");check(journal.CommitHomeOperation(request,home,op,s=>true)==GrowthCommitResult.Committed,"Production home retries the exact prepared operation");};
-        for(int i=0;i<home.furniture.Length;i++){
+        for(int i=0;i<10;i++){
             var f=home.furniture[i];string instance="production-furniture-"+i;int before=HomeRules.Balance(journal.Snapshot,f.costs[0].resourceId);
             commit(new HomeOperation("craft",f.id,instance));check(HomeRules.Balance(journal.Snapshot,f.costs[0].resourceId)==before-f.costs[0].amount,"Production recipe consumes its own world material exactly once");
             commit(new HomeOperation("place",instance,garden:home.gardens[0].id,zone:"zone.ground",x:.13f+.23f*(i%4),y:.5f+.14f*(i/4)));

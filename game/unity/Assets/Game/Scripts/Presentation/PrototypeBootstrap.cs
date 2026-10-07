@@ -212,6 +212,7 @@ namespace NewAster.Presentation
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
             UpdateBookTransition();
+            UpdateGardenLife();
             UpdateAdv();
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
@@ -224,6 +225,7 @@ namespace NewAster.Presentation
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
                 else if(placing){placing=false;selectedFurniture=null;}
+                else if(CloseGardenLifeLayer()){}
                 else if(CloseGardenMenuLayer()){}
                 else if(recoveryActive)recoveryConfirm=false;
                 else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
@@ -331,7 +333,7 @@ namespace NewAster.Presentation
         {
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen));DrawGameGui();GUI.enabled=input;if(IsBookScreen)DrawBookRibbon();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -685,10 +687,10 @@ namespace NewAster.Presentation
         private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
         private void Save(string successMessage="進行を保存しました。")
         {
-            if(formalDiagnostic)return;
+            if(formalDiagnostic && !Environment.GetCommandLineArgs().Contains("-gardenLifeManualSave"))return;
             if(formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending){status="保存待ちの操作を先に完了してください。";return;}
             TrialObserve("save","start");
-            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }
+            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }
             catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);TrialObserve("save","failed",e.GetType().Name);}
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }

@@ -45,7 +45,7 @@ namespace NewAster.Core
             foreach(var ids in new[]{weaponNodeIds,loverHeroineIds,unlockedEventIds,readEventIds,claimedRewardIds})Set(ids);
             if(readEventIds.Any(id=>!unlockedEventIds.Contains(id)) || affections.Any(a=>a.value<0) || furnitureInstances.Any(x=>!HomeExperienceCatalog.Id(x.defId)))throw new ArgumentException("Invalid home progression.");
             foreach(var p in furniturePlacements){
-                if(!HomeExperienceCatalog.Id(p.defId) || !HomeExperienceCatalog.Id(p.gardenId) || !HomeExperienceCatalog.Id(p.zoneId) || p.orientationId!="orientation.default" || float.IsNaN(p.x) || float.IsNaN(p.y) || p.x<0 || p.x>1 || p.y<0 || p.y>1 || !furnitureInstances.Any(i=>i.instanceId==p.instanceId && i.defId==p.defId))throw new ArgumentException("Invalid furniture placement.");
+                if(!HomeExperienceCatalog.Id(p.defId) || !HomeExperienceCatalog.Id(p.gardenId) || !HomeExperienceCatalog.Id(p.zoneId) || !GardenLifeCatalog.Orientations.Contains(p.orientationId) || float.IsNaN(p.x) || float.IsNaN(p.y) || p.x<0 || p.x>1 || p.y<0 || p.y>1 || !furnitureInstances.Any(i=>i.instanceId==p.instanceId && i.defId==p.defId))throw new ArgumentException("Invalid furniture placement.");
             }
             foreach(var o in occupants){
                 if(!HomeExperienceCatalog.Id(o.gardenId) || !HomeExperienceCatalog.Id(o.slotId) || float.IsNaN(o.x) || float.IsNaN(o.y) || float.IsInfinity(o.x) || float.IsInfinity(o.y) || o.x<0 || o.x>1 || o.y<0 || o.y>1)throw new ArgumentException("Invalid garden occupant.");

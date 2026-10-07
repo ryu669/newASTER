@@ -24,7 +24,7 @@ namespace NewAster.Presentation
             int current=Array.IndexOf(RibbonOrder,book.Bookmark);if(current<0)current=0;
             DrawRibbon(current,new Rect(4,0,46,Math.Max(180,68+RibbonNames[current].Length*27)),true);
             for(int i=0;i<RibbonOrder.Length;i++)if(i!=current)DrawRibbon(i,new Rect(552+i*100,0,48,104),false);
-            bool prior=GUI.enabled;GUI.enabled=prior && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen;
+            bool prior=GUI.enabled;GUI.enabled=prior && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen && !gardenDiscardConfirm && gardenPresetShortage==null && gardenLifeError==null && gardenLifeRequest==null;
             if(GrowthButton(1490,14,64,52,"？",true)){help=true;PlayProductionUiSound("決定");}
             GUI.enabled=prior;
             if(!help && !bookSystemOpen && book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.Stories && book.Bookmark!=BookBookmark.RelicHunt && book.Bookmark!=BookBookmark.Gardens && !formationOpen && !(book.Bookmark==BookBookmark.Heroines && growthScreen==GrowthScreen.Weapons)){if(GrowthButton(1060,842,215,40,"システム",CanOpenBookSystem))bookSystemOpen=true;}
@@ -78,7 +78,7 @@ namespace NewAster.Presentation
                 case BookBookmark.Items:return common+"オーパーツ／素材を切り替えます。装備先は所持している全誓女から選べます。\n同名の抽選値は各項目の高値を保持。攻撃80／100、HP800／1000以上から直接強化できます。Lv上限120。\nジョブ適性は一致したジョブのみ。時計は敵の行動完了を1ターンと数え、戦闘ごとに戻ります。";
                 case BookBookmark.Summoning:return common+"石・チケットで召喚し、ポイントで交換できます。費用と提供割合は召喚前に確認できます。保存成功後に結果が確定します。";
                 case BookBookmark.Stories:return common+"章ごとに詩を集めると物語が解放されます。読む／再開で本文へ、回想で読了した章を読み直します。";
-                case BookBookmark.Gardens:return common+"家具・人物・交流を下部メニューで選びます。庭の配置は変更内容を確認して保存します。";
+                case BookBookmark.Gardens:return common+"家具・人物・催事・環境を下部メニューで選びます。人物の「話す」は短い反応、「観察」は現在の暮らしを説明します。\n模様替えは家具を選んで庭をクリックし、編集パネルから確定します。戻す／やり直すは50操作まで。取消では保存しません。\n生活記録は新天地、鑑賞ではフレームと動作の停止を選べます。";
                 case BookBookmark.NewWorld:case BookBookmark.PossibleWorlds:return common+"領域を選び、到達Lv・深度記録・極みを設定します。Lv6への変更は確認を表示します。可能世界では記述が生む現象を確認できます。";
                 default:return common+"挑戦レベルを選んで5人で出撃します。通常討伐の遺物は5%で1回抽選。レリックハントは各35%、レベル帯に応じ1〜5回抽選。\n部位破壊後に本体を攻めると安全です。Lv45以上は極大技に注意。アステリアは全7領域Lv3が必要です。";
             }

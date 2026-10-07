@@ -56,7 +56,7 @@ namespace NewAster.Core
                     if(op.Target!="unequip"){var n=c.weaponNodes.Single(n0=>n0.id==op.Target);if(n.heroineId!=op.Owner || !h.weaponNodeIds.Contains(n.id))throw new ArgumentException("Unowned weapon.");h.weaponEquipment=h.weaponEquipment.Concat(new[]{new HomeWeaponEquipment{heroineId=op.Owner,nodeId=n.id}}).ToArray();}break;}
                 case "craft": {
                     TerraformRules.RefreshUnlocks(s.world,h);
-                    if(!TerraformRules.FurnitureUnlocked(s.world,op.Target,h))throw new InvalidOperationException("対応する領域を発展させて家具を解放してください。");
+                    if(!GardenLifeCrafting.Unlocked(s,op.Target))throw new InvalidOperationException("対応する領域を発展させて家具を解放してください。");
                     var f=c.furniture.Single(f0=>f0.id==op.Target);if(!HomeExperienceCatalog.Id(op.Owner) || h.furnitureInstances.Any(i=>i.instanceId==op.Owner))throw new ArgumentException("Duplicate furniture instance.");Spend(s,f.costs);h.furnitureInstances=h.furnitureInstances.Concat(new[]{new HomeFurnitureInstance{instanceId=op.Owner,defId=f.id}}).ToArray();break;}
                 case "place": {
                     var i=h.furnitureInstances.Single(i0=>i0.instanceId==op.Target);var p=new HomePlacement{instanceId=i.instanceId,defId=i.defId,gardenId=op.Garden,zoneId=op.Zone,orientationId="orientation.default",x=op.X,y=op.Y};
@@ -89,13 +89,19 @@ namespace NewAster.Core
     public static class HomeGeometry
     {
         private static decimal Q(float v){if(float.IsNaN(v) || float.IsInfinity(v))throw new ArgumentException("Nonfinite coordinate.");return Math.Round((decimal)v,6,MidpointRounding.AwayFromZero);}
-        private static decimal[] Rect(HomePlacement p,HomeFurnitureLayout f)=>new[]{Q(p.x)-Q(f.drawAnchor.x)*Q(f.size01.x)+Q(f.footprint.x)*Q(f.size01.x),Q(p.y)-Q(f.drawAnchor.y)*Q(f.size01.y)+Q(f.footprint.y)*Q(f.size01.y),Q(f.footprint.width)*Q(f.size01.x),Q(f.footprint.height)*Q(f.size01.y)};
+        public static decimal[] Footprint(HomePlacement p,HomeFurnitureLayout f)
+        {
+            decimal left=(Q(f.footprint.x)-Q(f.drawAnchor.x))*Q(f.size01.x),top=(Q(f.footprint.y)-Q(f.drawAnchor.y))*Q(f.size01.y),width=Q(f.footprint.width)*Q(f.size01.x),height=Q(f.footprint.height)*Q(f.size01.y);
+            if(p.orientationId.Contains("flip"))left=-left-width;
+            if(p.orientationId.Contains("rotate")){decimal old=left;left=(-top-height)*730m/1600m;top=old*1600m/730m;decimal size=width;width=height*730m/1600m;height=size*1600m/730m;}
+            return new[]{Q(p.x)+left,Q(p.y)+top,width,height};
+        }
         public static void Validate(FormalCampaignSave s,HomeExperienceCatalog c,HomePlacement p)
         {
-            if(!s.world.unlockedGardenIds.Contains(p.gardenId) || !s.home.furnitureInstances.Any(i=>i.instanceId==p.instanceId && i.defId==p.defId) || p.orientationId!="orientation.default")throw new ArgumentException("Unknown placement.");
-            var g=c.gardens.Single(g0=>g0.id==p.gardenId);var z=g.zones.Single(z0=>z0.id==p.zoneId);var f=c.furniture.Single(f0=>f0.id==p.defId);var r=Rect(p,f);var b=z.bounds;
+            if(!s.world.unlockedGardenIds.Contains(p.gardenId) || !s.home.furnitureInstances.Any(i=>i.instanceId==p.instanceId && i.defId==p.defId) || !GardenLifeCatalog.Orientations.Contains(p.orientationId))throw new ArgumentException("Unknown placement.");
+            var g=c.gardens.Single(g0=>g0.id==p.gardenId);var z=g.zones.Single(z0=>z0.id==p.zoneId);var f=c.furniture.Single(f0=>f0.id==p.defId);var r=Footprint(p,f);var b=z.bounds;
             if(p.x<0 || p.x>1 || p.y<0 || p.y>1 || r[0]<Q(b.x) || r[1]<Q(b.y) || r[0]+r[2]>Q(b.x)+Q(b.width) || r[1]+r[3]>Q(b.y)+Q(b.height))throw new ArgumentException("家具の接地範囲が区画外です。");
-            foreach(var old in s.home.furniturePlacements.Where(o=>o.instanceId!=p.instanceId && o.gardenId==p.gardenId && o.zoneId==p.zoneId)){var t=Rect(old,c.furniture.Single(f0=>f0.id==old.defId));if(r[0]<t[0]+t[2] && t[0]<r[0]+r[2] && r[1]<t[1]+t[3] && t[1]<r[1]+r[3])throw new ArgumentException("家具の接地範囲が重なっています。");}
+            foreach(var old in s.home.furniturePlacements.Where(o=>o.instanceId!=p.instanceId && o.gardenId==p.gardenId && o.zoneId==p.zoneId)){var t=Footprint(old,c.furniture.Single(f0=>f0.id==old.defId));if(r[0]<t[0]+t[2] && t[0]<r[0]+r[2] && r[1]<t[1]+t[3] && t[1]<r[1]+r[3])throw new ArgumentException("家具の接地範囲が重なっています。");}
         }
     }
 }

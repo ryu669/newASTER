@@ -1,0 +1,17 @@
+{
+  "tool": "image_gen.imagegen",
+  "prompt": "Create one production game sprite atlas, native wide landscape 1536x1024 RGBA with truly transparent background. Exactly TEN distinct miniature ornate fantasy garden furniture sprites in a STRICT 5 columns by 2 rows evenly spaced grid. Each sprite fully isolated in its cell with generous transparent margins, no text, no numbers, no frames or grid lines. Front three-quarter view consistent fantasy painted anime RPG furniture, navy and antique gold detailing, richly detailed readable objects, natural lighting. Top row left-to-right: (1) small pile of books with bookmark and spectacles, (2) flower gardening tools and watering can with small blossoms, (3) elegant two-seat wooden memorial garden bench with wing and rose carvings, (4) low ornate tea table holding teapot and two cups, (5) sheltered rain lantern with roof and blue glass. Bottom row left-to-right: (6) standing brass star-chart lectern with open celestial book, (7) carved snow lantern with ice crystals and warm amber light, (8) small shooting-star meteor lamp on pedestal, (9) flower-viewing hanging lantern stand decorated in pink cherry petals, (10) Asteria memorial sculpture with golden cosmic ring, crystal globe and eight star ornaments. Furniture grounded with restrained transparent soft shadow, no scenery or characters. Cell geometry each 20% wide by 50% tall. Match luxury illustrated fantasy book game.",
+  "originalGeneratedPath": "C:/Users/nishi/.codex/generated_images/01a11600-4637-75e3-97c8-084f0a4779f3/exec-b245dcf5-222e-4ffb-8540-26db62a2651a.png",
+  "sourcePath": "game/art-source/garden-life-v1/memorial-furniture.png",
+  "resourcePath": "UI/garden-memorial-furniture-v1",
+  "sourcePixelsModified": false,
+  "nativeSize": [
+    1536,
+    1024
+  ],
+  "layout": [
+    5,
+    2
+  ],
+  "sha256": "72e4c5fb63e3fb6f7bf746026056c89d2270940524c7dc7ad55fd084c5e348b4"
+}

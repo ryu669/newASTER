@@ -13,7 +13,7 @@ public sealed class HeroinePortraitImporter : AssetPostprocessor
 {
     private void OnPreprocessTexture()
     {
-        if (assetPath!="Assets/Game/Resources/UI/book-emblems-v1.png" && assetPath!="Assets/Game/Resources/UI/weapon-effects-v1.png" && (!assetPath.StartsWith("Assets/Game/Resources/Illustrations/", StringComparison.Ordinal) || !Path.GetFileName(assetPath).Contains("-portrait-") && !Path.GetFileName(assetPath).Contains("-weapon-tree-"))) return;
+        if (assetPath!="Assets/Game/Resources/UI/book-emblems-v1.png" && assetPath!="Assets/Game/Resources/UI/weapon-effects-v1.png" && assetPath!="Assets/Game/Resources/UI/garden-memorial-furniture-v1.png" && (!assetPath.StartsWith("Assets/Game/Resources/Illustrations/", StringComparison.Ordinal) || !Path.GetFileName(assetPath).Contains("-portrait-") && !Path.GetFileName(assetPath).Contains("-weapon-tree-"))) return;
         Configure((TextureImporter)assetImporter);
     }
     internal static void Configure(TextureImporter importer)

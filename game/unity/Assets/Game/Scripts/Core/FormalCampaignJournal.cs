@@ -27,6 +27,7 @@ namespace NewAster.Core
         private readonly Func<string,FormalCampaignSave> decode;
         private bool writing;
         public bool HasPending=>pending!=null;
+        public long Revision=>current.revision;
         public FormalCampaignSave Snapshot=>Copy(current);
         public FormalCampaignJournal(FormalCampaignSave save,Func<FormalCampaignSave,string> encode,Func<string,FormalCampaignSave> decode)
         {save.Validate();this.encode=encode;this.decode=decode;current=Copy(save);TerraformRules.Synchronize(current);}

@@ -14,9 +14,11 @@ namespace NewAster.Presentation
             if(!panel && (!int.TryParse(parts[1],out index) || index<0 || index>=data.gardens.Length))throw new ArgumentException("Unknown production garden index");
             var snapshot=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
             snapshot.world.unlockedGardenIds=data.gardens.Select(g=>g.id).ToArray();snapshot.collection.materials=data.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=100}).ToArray();snapshot.revision++;
+            TerraformRules.Migrate(snapshot.world);
+            snapshot.world.terraform.unlockedFurnitureIds=snapshot.world.terraform.unlockedFurnitureIds.Union(data.furniture.Take(10).Select(f=>f.id)).ToArray();
             AcceptanceCheck(acceptanceStore.Save(snapshot),"garden diagnostic material fixture is isolated");BindFormalCampaign(snapshot);
             string garden=data.gardens[index].id;
-            for(int i=0;i<data.furniture.Length;i++){
+            for(int i=0;i<Math.Min(10,data.furniture.Length);i++){
                 string instance="garden.capture."+i;ProposeHome(new HomeOperation("craft",data.furniture[i].id,instance));
                 if(i==0){string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);formalVictoryDiagnosticFailure=true;ConfirmHome();AcceptanceCheck(formalCampaign.HasPending && UnityFormalCampaignJson.Encode(formalCampaign.Snapshot)==before,"garden crafting save failure retains original contents");formalVictoryDiagnosticFailure=false;}
                 ConfirmHome();AcceptanceCheck(homeRequest==null,"production furniture craft commits");

@@ -8,7 +8,7 @@ namespace NewAster.Presentation {
   private bool plan10UiCapture;
   private void PreparePlan10UiAuditCapture(string[] args){
    if(!args.Contains("-capturePlan10Ui") || capturePath==null)return;
-   plan10UiCapture=true;
+   plan10UiCapture=!args.Contains("-plan9ManualSmoke");
    int at=Array.IndexOf(args,"-uiView");string view=at>=0?args[at+1]:"title";
    PreparePlan10ShangrilaCapture(args.Concat(new[]{"-captureShangrila","-shangrilaView","detail"}).ToArray());
    if(view=="title" || view=="settings" || view=="credits" || view=="title-help"){title=true;if(view!="title")OpenTitlePanel(view=="title-help"?"help":view);}
@@ -29,6 +29,7 @@ namespace NewAster.Presentation {
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
+   else if(view.StartsWith("garden-life",StringComparison.Ordinal))PrepareGardenLifeCapture(view);
    else if(view.StartsWith("garden-",StringComparison.Ordinal)){
     string garden=HomeData().gardens[0].id;ProposeHome(new HomeOperation("occupant","heroine.shangrila",garden:garden,x:.5f,y:.65f));ConfirmHome();book.ChangeBookmark(BookBookmark.Gardens);book.CompleteTransition();selectedResident="heroine.shangrila";PrepareGardenMenuCapture(view.Substring(7));
    }

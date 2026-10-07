@@ -12,6 +12,7 @@ public static class AutomaticChainTests
     public static void Main(string[] args)
     {
         Plan11TerraformTests.Run(Check);
+        Plan12GardenLifeTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         CollectionContractTests.Run(Check);
         FormalProgressionTests.Run(Check);
         FormalCampaignTests.Run(Check);

@@ -37,6 +37,8 @@ namespace NewAster.Core
         public FormalCollectionLedger collection;
         // Missing or explicit null means no Plan 6 state; never infer from legacy arrays.
         public FormalHomeProgress home;
+        // Additive Plan11-2 progress. Runtime positions/actions are intentionally absent.
+        public GardenLifeProgress gardenLife;
         // Keep prior diagnostic narrative flags without treating them as authored read completion.
         public ProductionNarrativeArchive previousNarrative;
         public void Validate()
@@ -48,6 +50,7 @@ namespace NewAster.Core
             engagement?.Validate();
             collection?.Validate();
             home?.Validate();
+            gardenLife?.Validate();
             previousNarrative?.Validate();
             if(home!=null && home.receipts.Any(r=>growth.receipts.Any(g=>g.transactionId==r.transactionId) || world.claimedBattleIds.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
             if(collection!=null)foreach(var r in collection.receipts)

@@ -27,7 +27,7 @@ namespace NewAster.Presentation
         {
             GrowthStyles(); PalaceBackdrop("crown"); GrowthFrame(90,80,1420,745);
             possibleWorlds = book.Bookmark==BookBookmark.PossibleWorlds;
-            DrawTerraformExperience(); DrawBookTransition(true);
+            if(gardenLifeRecords)DrawGardenLifeRecords();else{DrawTerraformExperience();if(!possibleWorlds && Btn(130,820,380,44,"生活記録をひらく"))gardenLifeRecords=true;} DrawBookTransition(true);
         }
         private void SelectTerraformDomain(TerraformSave s,int index)
         {

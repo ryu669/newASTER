@@ -13,6 +13,7 @@ namespace NewAster.Presentation
         {
             if(value==null)throw new ArgumentNullException(nameof(value));string text=JsonUtility.ToJson(value,true);
             if(value.home==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"home");
+            if(value.gardenLife==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"gardenLife");
             if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
             if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
             if(value.previousNarrative==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"previousNarrative");
@@ -25,6 +26,8 @@ namespace NewAster.Presentation
             if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"previousNarrative") || FormalCampaignJsonShape.RootMemberIsNull(text,"previousNarrative"))value.previousNarrative=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"gardenLife") || FormalCampaignJsonShape.RootMemberIsNull(text,"gardenLife"))value.gardenLife=null;
+            GardenLifeCatalog.NormalizeOptionalFields(value.gardenLife);
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
             NormalizeKinderOptionalFields(value.growth);
@@ -84,9 +87,11 @@ namespace NewAster.Presentation
         }
         private void BindFormalCampaign(FormalCampaignSave unified)
         {
+            lifeSnapshotCached=null;gardenLifeRuntime?.Stop();gardenLifeRuntime=null;StopLifeAudio();
             if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
             unified.collection?.ValidateContent(SelectCollectionCatalog());
             unified.home?.ValidateContent(HomeData(),unified);
+            unified.gardenLife?.ValidateContent(unified,HomeData());
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.HeroineIds);

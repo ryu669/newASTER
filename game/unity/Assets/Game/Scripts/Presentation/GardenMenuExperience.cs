@@ -78,6 +78,7 @@ namespace NewAster.Presentation
         private static string GardenFurnitureName(string id)=>NewAster.Data.ProductionGardenCatalog.FurnitureName(id);
         private void DrawGardenHome()
         {
+            if(ProductionStoryActive && (!plan10UiCapture || gardenLifeCapture)){DrawLifeGarden();return;}
             var catalog=HomeData();var snapshot=formalCampaign.Snapshot;var state=HomeState;string garden=book.SubjectId;
             var layout=catalog.gardens.Single(g=>g.id==garden);bool available=snapshot.world.unlockedGardenIds.Contains(garden) && !layout.unmade;
             Panel(0,0,1600,900,dark);

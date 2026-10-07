@@ -23,6 +23,7 @@ namespace NewAster.Data
             {"Illustrations/heroine-weapon-tree-shell-v1","dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40"},
             {"Illustrations/heroine-weapon-tree-slayer-swim-v1","ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8"},
             {"Illustrations/heroine-weapon-tree-undermine-v1","d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8"},
+            {"UI/garden-memorial-furniture-v1","72e4c5fb63e3fb6f7bf746026056c89d2270940524c7dc7ad55fd084c5e348b4"},
             {"UI/book-emblems-v1","7d557a87fea78badee8753039ca6b84865b7a3a49a2559a2a8eaab7a1ce98da8"},
             {"Illustrations/heroine-portrait-shangrila-v2","410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e"},
             {"Illustrations/heroine-portrait-arcane-academy-v2","05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047"},

@@ -1,0 +1,78 @@
+{
+  "generator": "tools/generate-garden-life-audio.py",
+  "source": "original deterministic synthesis",
+  "assets": [
+    {
+      "resourcePath": "Audio/garden-life-forest-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "b0d1b94c0d38af780044514b997c741dee9cf027e40e1244c8cb04bee9e60c6b"
+    },
+    {
+      "resourcePath": "Audio/garden-life-wind-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "57153ec4d3da88fb343b1a8a1c37ee3730890b0e511ac0c7ba5aa39b3e9e9536"
+    },
+    {
+      "resourcePath": "Audio/garden-life-water-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "14a2f5fefb2ee36611196cc0d24d096ded079d41e3aaef44eb4f40a9520cc87e"
+    },
+    {
+      "resourcePath": "Audio/garden-life-rain-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "731bbeaec5d7454ab30c6fff83ccb9577c7ce6293a2b7c002cfa4913bb8ad97a"
+    },
+    {
+      "resourcePath": "Audio/garden-life-snow-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "4a5872b7c060335b33482b793d54452fb552e25b91a822804945da864cd42521"
+    },
+    {
+      "resourcePath": "Audio/garden-life-phenomenon-v1",
+      "duration": 8,
+      "sampleRate": 24000,
+      "sha256": "3154d51b477ded263cda158658a5dfdd76b5bad79a7d160329f0cd630b999290"
+    },
+    {
+      "resourcePath": "Audio/garden-life-step-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "21986d5fd00f87db08f5ef3e9520790f8ae06992ed3e00cd9be263deb74a5f95"
+    },
+    {
+      "resourcePath": "Audio/garden-life-seat-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "77a07734b6c19a52b1ce0b9d85c61325acad7d052d326f00003832b8d7f97016"
+    },
+    {
+      "resourcePath": "Audio/garden-life-book-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "d5d4510a2625e59481d621929f623078f00f187a2463e3f27b246203fc22c64f"
+    },
+    {
+      "resourcePath": "Audio/garden-life-table-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "a69d9a7125940c92b399e1c8cd7fafe511b1ece01fdd312c670d043a4d9ad2ff"
+    },
+    {
+      "resourcePath": "Audio/garden-life-water-use-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "07a1b87bd49a89496265cdfa2ad0c9ff99972edc525cee52951d6d3d7b35c4d5"
+    },
+    {
+      "resourcePath": "Audio/garden-life-furniture-v1",
+      "duration": 0.45,
+      "sampleRate": 24000,
+      "sha256": "91bf352b4f080198a4fdf7ac71bf0f25b60aefbc2b3bdcf659443c16f7952bc5"
+    }
+  ]
+}
