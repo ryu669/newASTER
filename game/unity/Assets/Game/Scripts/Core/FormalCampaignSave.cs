@@ -59,6 +59,7 @@ namespace NewAster.Core
         }
         public static void ValidateWorld(CampaignSaveV2 w)
         {
+            if(w!=null)TerraformRules.Validate(w.terraform);
             if(w==null || w.version!=2 || w.materials<0 || w.terraformingExperience<0 || w.highestBattleLevel<1 || w.highestBattleLevel>50 || w.kinderStones<0 || w.kinderDrawCount<0 || w.kinderExchangeCount<0 || w.overflowEnhancementMaterials<0)throw new ArgumentException("Invalid world wallet.");
             CheckArray(w.heroineLevels,5,1,120);CheckArray(w.heroineAwakenings,5,0,2);CheckArray(w.weaponBranches,15,0,3);CheckArray(w.affections,5,0,100);CheckArray(w.furnitureSlots,3,-1,2);CheckArray(w.heroineDuplicates,5,0,int.MaxValue);CheckArray(w.heroineTraitRanks,5,0,5);
             if(w.craftedFurniture==null || w.craftedFurniture.Length!=3)throw new ArgumentException("Invalid furniture state.");

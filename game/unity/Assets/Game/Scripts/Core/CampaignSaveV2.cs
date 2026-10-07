@@ -10,6 +10,8 @@ namespace NewAster.Core
         public int version = Version;
         public int materials;
         public int terraformingExperience;
+        public TerraformSave terraform;
+        public TerraformMigration migration = new TerraformMigration();
         public int[] heroineLevels = { 1, 1, 1, 1, 1 };
         public int[] heroineAwakenings = new int[5];
         public int[] weaponBranches = new int[15];

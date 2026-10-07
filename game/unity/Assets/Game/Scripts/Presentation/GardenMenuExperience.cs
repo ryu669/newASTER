@@ -83,8 +83,9 @@ namespace NewAster.Presentation
             Panel(0,0,1600,900,dark);
             if(available)DrawGardenScene(gardenViewport,state,garden,layout,false);
             else Label(100,270,930,160,layout.unmade?"この庭の景色は制作中です。":"世界を取り戻すと、この庭が開きます。",heading,Color.white);
+            if(available)DrawTerraformLandscape(gardenViewport,campaign.Terraform,false);
             Panel(0,0,1600,88,dark);Label(28,20,730,52,"万物の書 ／ "+NewAster.Data.ProductionGardenCatalog.GardenName(garden),heading,Color.white);
-            Label(770,25,575,42,$"素材 {AvailableCollectionMaterials}　復元 {campaign.Progress.TerraformingExperience}　詩 {campaign.Progress.CollectedPoemIds.Count}",small,Color.white);
+            Label(770,25,575,42,$"素材 {AvailableCollectionMaterials}　TP {campaign.Terraform.totalTp}　詩 {campaign.Progress.CollectedPoemIds.Count}",small,Color.white);
             bool interactive=homeRequest==null && !formalCampaign.HasPending && !formalProgression.HasPending;
             if(Btn(1400,18,165,50,"？",BookInputAllowed))help=true;
             if(placing && selectedFurniture!=null){

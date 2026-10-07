@@ -412,8 +412,9 @@ namespace NewAster.Presentation
                 if(Btn(232,548,90,42,"− 5")) selectedLevel=Math.Max(1,selectedLevel-5);
                 if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
                 if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
-                Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
-                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id))) StartBattle(c.Id);
+                var missing=TerraformRules.Index(c.Id)==14?TerraformRules.MissingIntegration(campaign.Terraform):Array.Empty<string>();
+                Label(32,612,925,58,missing.Length>0?"受入条件不足（Lv3必要）："+string.Join("・",missing):"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
+                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id) && missing.Length==0)) StartBattle(c.Id);
             }
         }
         private void DrawHeroine()
@@ -540,6 +541,7 @@ namespace NewAster.Presentation
         }
         private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(TerraformRules.Index(colossus)==14 && TerraformRules.MissingIntegration(campaign.Terraform).Length>0){status="アステリア受入条件：全7領域Lv3以上";return;}
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();

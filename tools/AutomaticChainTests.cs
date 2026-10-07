@@ -11,6 +11,7 @@ public static class AutomaticChainTests
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main(string[] args)
     {
+        Plan11TerraformTests.Run(Check);
         CollectionContractTests.Run(Check);
         FormalProgressionTests.Run(Check);
         FormalCampaignTests.Run(Check);

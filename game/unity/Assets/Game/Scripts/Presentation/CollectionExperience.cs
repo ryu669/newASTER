@@ -41,8 +41,10 @@ namespace NewAster.Presentation
         private void DrawCollectionExperience()
         {
             GrowthStyles();PalaceBackdrop("crown");GrowthFrame(90,80,1420,745);
-            Label(150,112,1050,65,"記憶とオーパーツ",growthTitleStyle);
+            Label(150,112,800,65,"記憶とオーパーツ",growthTitleStyle);
+            if(GrowthButton(960,115,220,55,"新天地",!formalCampaign.HasPending))collectionTab=3;
             if(GrowthButton(1200,115,230,55,"万物の書へ",!formalCampaign.HasPending))CollectionBack();
+            if(collectionTab==3){DrawTerraformExperience();return;}
             if(plan8StoryTrial && trialPoemChapter!=null){DrawTrialPoemConditions();return;}
             if(ProductionStoryActive && trialPoemChapter!=null){DrawProductionPoemConditions();return;}
             if(GrowthButton(150,205,400,52,"詩・章の進捗",relicRequest==null,collectionTab==0))collectionTab=0;
