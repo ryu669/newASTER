@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "generator": "built-in image_gen",
+  "sourcePixelsModified": false,
+  "captureWidth": 1600,
+  "captureHeight": 900,
+  "physicalInputCount": 0,
+  "automaticChainAssertions": 7962,
+  "unityCompileSourceFiles": 194,
+  "buildLog": "tmp/heroine-framing/build-portraits-v2-final.log",
+  "assets": [
+    {
+      "heroineId": "heroine.r",
+      "resourcePath": "Illustrations/heroine-portrait-r-v2",
+      "sourcePath": "game/art-source/heroine-portraits-v2/r.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 174.08,
+      "transparentPixels": 164496,
+      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "resourcePath": "Illustrations/heroine-portrait-annihilator-v2",
+      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 153.6,
+      "transparentPixels": 275544,
+      "sha256": "9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "resourcePath": "Illustrations/heroine-portrait-annihilator-holy-v2",
+      "sourcePath": "game/art-source/heroine-portraits-v2/annihilator-holy.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "transparentPixels": 316965,
+      "sha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "resourcePath": "Illustrations/heroine-portrait-oriflamme-v2",
+      "sourcePath": "game/art-source/heroine-portraits-v2/oriflamme.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 174.08,
+      "transparentPixels": 268799,
+      "sha256": "fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db",
+      "sourceAndResourceIdentical": true
+    },
+    {
+      "heroineId": "heroine.shell",
+      "resourcePath": "Illustrations/heroine-portrait-shell-v2",
+      "sourcePath": "game/art-source/heroine-portraits-v2/shell.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "facePixels": 184.32,
+      "transparentPixels": 398427,
+      "sha256": "06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641",
+      "sourceAndResourceIdentical": true
+    }
+  ],
+  "captures": [
+    {
+      "case": "roster",
+      "image": "tmp/plan10-ui/player-1600x900/ui-roster.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-roster.log",
+      "sha256": "8bc06e4ddcf8cde8f21a166daf8a00d193a5e04ea8a45081ab3d7c07460df83b",
+      "visuallyInspected": true
+    },
+    {
+      "case": "roster-second",
+      "image": "tmp/plan10-ui/player-1600x900/ui-roster-second.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-roster-second.log",
+      "sha256": "ff0b933823a4b6b69db6477d2a06db0bfc431b1ba98a36e0c9648f0c83cd426c",
+      "visuallyInspected": true
+    },
+    {
+      "case": "formation-roster-second",
+      "image": "tmp/plan10-ui/player-1600x900/ui-formation-roster-second.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-formation-roster-second.log",
+      "sha256": "d82e2509285459c6187ebbb47cfd6cd2cb2c04f2340cc52d38b926a8536ca64f",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-r",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-r.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-r.log",
+      "sha256": "ec3c6f4787927c66f2128b09b3e97e3b61163422e4fd510628ef3a1a6856d536",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-annihilator",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator.log",
+      "sha256": "79337a29e08f03a42f2f637d88f4b5fffba49a0db0920c1aec99b2a0a8f76fd2",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-annihilator-holy",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator-holy.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-annihilator-holy.log",
+      "sha256": "777a55a3e4a88cec566eb820fd906abfa6458782c9d062face4459f248fdde7b",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-oriflamme",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-oriflamme.log",
+      "sha256": "1611f54b6e5d8545ef78c6cd3618a25fe4d447692e24237f000c4004e0c9cd77",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-shell",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-shell.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-shell.log",
+      "sha256": "bc210481cc5669681e7e1d6ca9e69e6d8a4ba7165cff2ad1604eb4fa218e06e2",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-iconoclast",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-iconoclast.log",
+      "sha256": "7eb882125b33a94fa0438526f79b22121aff767c6d58b9d9e8640b34b46c6e5d",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-undermine",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-undermine.log",
+      "sha256": "7faea8850c34a3efb49aa79ddd3c635199fa440d9c9bae8d457db7e16063387d",
+      "visuallyInspected": true
+    },
+    {
+      "case": "detail-echidna",
+      "image": "tmp/plan10-ui/player-1600x900/ui-detail-echidna.png",
+      "log": "tmp/plan10-ui/player-1600x900/ui-detail-echidna.log",
+      "sha256": "bcbceb36618e3f149db3740ce42cb6d71b7e3b0c163b4f83959d2b2fed23250e",
+      "visuallyInspected": true
+    }
+  ]
+}

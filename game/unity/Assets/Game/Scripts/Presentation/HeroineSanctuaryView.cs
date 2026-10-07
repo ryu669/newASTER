@@ -16,30 +16,16 @@ namespace NewAster.Presentation
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
         private readonly Dictionary<string,Texture2D> heroinePortraits=new Dictionary<string,Texture2D>();
         private readonly Color parchment=new Color(.94f,.89f,.77f),paperInk=new Color(.13f,.18f,.22f);
-        [Serializable] private sealed class PortraitFramingCatalog
-        {
-            public int schemaVersion;
-            public float faceHeightRatio,faceCenterYRatio;
-            public PortraitFraming[] entries;
-        }
-        [Serializable] private sealed class PortraitFraming
-        {
-            public string heroineId,resourcePath;
-            public float faceCenterX,faceCenterY,faceHeight;
-        }
-        private PortraitFramingCatalog portraitFraming;
-        private PortraitFraming HeroFraming(string id)
+        private HeroinePortraitCatalog portraitFraming;
+        private HeroinePortraitDef HeroFraming(string id)
         {
             if(portraitFraming==null){
                 var source=Resources.Load<TextAsset>("UI/heroine-portrait-framing");
                 if(source==null)throw new InvalidOperationException("Missing heroine portrait framing catalog.");
-                portraitFraming=JsonUtility.FromJson<PortraitFramingCatalog>(source.text);
-                if(portraitFraming.schemaVersion!=1 || portraitFraming.entries==null || portraitFraming.faceHeightRatio<=0 || portraitFraming.faceHeightRatio>=1 || portraitFraming.faceCenterYRatio<=0 || portraitFraming.faceCenterYRatio>=1
-                    || portraitFraming.entries.Select(e=>e.heroineId).Distinct().Count()!=portraitFraming.entries.Length
-                    || portraitFraming.entries.Any(e=>string.IsNullOrEmpty(e.resourcePath) || e.faceHeight<=0 || e.faceHeight>1 || e.faceCenterX<0 || e.faceCenterX>1 || e.faceCenterY<0 || e.faceCenterY>1))
-                    throw new InvalidOperationException("Invalid heroine portrait framing catalog.");
+                portraitFraming=JsonUtility.FromJson<HeroinePortraitCatalog>(source.text);
+                portraitFraming.Validate();
             }
-            return portraitFraming.entries.SingleOrDefault(e=>e.heroineId==id);
+            return portraitFraming.Entry(id);
         }
         private Texture2D HeroPortrait(string id,bool framed=false)
         {
@@ -48,6 +34,7 @@ namespace NewAster.Presentation
                 var framing=framed?HeroFraming(id):null;
                 string path=framed?framing?.resourcePath:"Illustrations/"+id.Substring("heroine.".Length)+"-portrait-candidate-v1";
                 texture=path==null?null:Resources.Load<Texture2D>(path);
+                if(framed){if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
                 heroinePortraits[key]=texture;
             }
             return texture;
@@ -58,7 +45,7 @@ namespace NewAster.Presentation
         {
             var texture=HeroPortrait(id,true);var framing=HeroFraming(id);
             if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
-            float scale=panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight);
+            float scale=Mathf.Min(HeroinePortraitCatalog.MaximumDisplayScale,panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight));
             float w=texture.width*scale,h=texture.height*scale;
             GUI.BeginGroup(panel);
             GUI.DrawTexture(new Rect(panel.width*.5f-framing.faceCenterX*w,panel.height*portraitFraming.faceCenterYRatio-framing.faceCenterY*h,w,h),texture,ScaleMode.ScaleToFit,true);

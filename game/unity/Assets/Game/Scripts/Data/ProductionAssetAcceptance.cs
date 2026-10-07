@@ -421,6 +421,11 @@ namespace NewAster.Data
             {"Illustrations/shangrila-event-2-cg-candidate-v1","96ec82d9fec1163b3264cb1cd03fd3c54c93dd6259d1b5dcb7a3e4cff2d47115"},
             {"Illustrations/shangrila-event-3-cg-candidate-v1","f01162be08162691ac0649803c2937c24577a39cf27df2442d0c5fc15190117b"},
             {"Illustrations/shangrila-event-4-cg-candidate-v1","f89276354ee6040d445cb3ecabc3e9d5f56f64053dff5ddea9ae65e02401d96e"},
+            {"Illustrations/heroine-portrait-r-v2","3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050"},
+            {"Illustrations/heroine-portrait-annihilator-v2","9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9"},
+            {"Illustrations/heroine-portrait-annihilator-holy-v2","ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146"},
+            {"Illustrations/heroine-portrait-oriflamme-v2","fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db"},
+            {"Illustrations/heroine-portrait-shell-v2","06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641"},
         });
         public static void Adopt(HomeExperienceCatalog home)
         {

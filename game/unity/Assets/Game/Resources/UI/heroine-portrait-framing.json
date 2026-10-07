@@ -1,112 +1,127 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "faceHeightRatio": 0.18,
   "faceCenterYRatio": 0.4,
   "entries": [
     {
       "heroineId": "heroine.annihilator-holy",
-      "resourcePath": "Illustrations/annihilator-holy-portrait-candidate-v1",
-      "faceCenterX": 0.53,
-      "faceCenterY": 0.39,
-      "faceHeight": 0.16
+      "resourcePath": "Illustrations/heroine-portrait-annihilator-holy-v2",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.38,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.annihilator",
-      "resourcePath": "Illustrations/annihilator-portrait-candidate-v1",
-      "faceCenterX": 0.55,
-      "faceCenterY": 0.36,
-      "faceHeight": 0.115
+      "resourcePath": "Illustrations/heroine-portrait-annihilator-v2",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.38,
+      "faceHeight": 0.15,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.arcane-academy",
       "resourcePath": "Illustrations/arcane-academy-portrait-candidate-v1",
       "faceCenterX": 0.52,
       "faceCenterY": 0.32,
-      "faceHeight": 0.1
+      "faceHeight": 0.1,
+      "legacyPortrait": true
     },
     {
       "heroineId": "heroine.arcane",
       "resourcePath": "Illustrations/arcane-portrait-candidate-v1",
       "faceCenterX": 0.53,
       "faceCenterY": 0.3,
-      "faceHeight": 0.095
+      "faceHeight": 0.095,
+      "legacyPortrait": true
     },
     {
       "heroineId": "heroine.echidna",
       "resourcePath": "Illustrations/echidna-portrait-candidate-v1",
       "faceCenterX": 0.51,
       "faceCenterY": 0.29,
-      "faceHeight": 0.15
+      "faceHeight": 0.15,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.excalipan",
       "resourcePath": "Illustrations/excalipan-portrait-candidate-v1",
       "faceCenterX": 0.49,
       "faceCenterY": 0.34,
-      "faceHeight": 0.2
+      "faceHeight": 0.2,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.iconoclast",
       "resourcePath": "Illustrations/iconoclast-portrait-candidate-v1",
       "faceCenterX": 0.5,
       "faceCenterY": 0.34,
-      "faceHeight": 0.2
+      "faceHeight": 0.2,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.nighthawk",
       "resourcePath": "Illustrations/nighthawk-portrait-candidate-v1",
       "faceCenterX": 0.48,
       "faceCenterY": 0.33,
-      "faceHeight": 0.12
+      "faceHeight": 0.12,
+      "legacyPortrait": true
     },
     {
       "heroineId": "heroine.oriflamme",
-      "resourcePath": "Illustrations/oriflamme-portrait-candidate-v1",
-      "faceCenterX": 0.53,
-      "faceCenterY": 0.18,
-      "faceHeight": 0.065
+      "resourcePath": "Illustrations/heroine-portrait-oriflamme-v2",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.32,
+      "faceHeight": 0.17,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.r",
-      "resourcePath": "Illustrations/r-standing-candidate-v1",
-      "faceCenterX": 0.535,
-      "faceCenterY": 0.312,
-      "faceHeight": 0.05
+      "resourcePath": "Illustrations/heroine-portrait-r-v2",
+      "faceCenterX": 0.52,
+      "faceCenterY": 0.45,
+      "faceHeight": 0.17,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.shangrila",
       "resourcePath": "Illustrations/shangrila-portrait-candidate-v1",
       "faceCenterX": 0.52,
       "faceCenterY": 0.45,
-      "faceHeight": 0.12
+      "faceHeight": 0.12,
+      "legacyPortrait": true
     },
     {
       "heroineId": "heroine.shell",
-      "resourcePath": "Illustrations/shell-portrait-candidate-v1",
-      "faceCenterX": 0.54,
-      "faceCenterY": 0.36,
-      "faceHeight": 0.13
+      "resourcePath": "Illustrations/heroine-portrait-shell-v2",
+      "faceCenterX": 0.48,
+      "faceCenterY": 0.42,
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.slayer",
       "resourcePath": "Illustrations/slayer-portrait-candidate-v1",
       "faceCenterX": 0.49,
       "faceCenterY": 0.37,
-      "faceHeight": 0.18
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     },
     {
       "heroineId": "heroine.slayer-swim",
       "resourcePath": "Illustrations/slayer-swim-portrait-candidate-v1",
       "faceCenterX": 0.51,
       "faceCenterY": 0.35,
-      "faceHeight": 0.13
+      "faceHeight": 0.13,
+      "legacyPortrait": true
     },
     {
       "heroineId": "heroine.undermine",
       "resourcePath": "Illustrations/undermine-portrait-candidate-v1",
       "faceCenterX": 0.51,
       "faceCenterY": 0.37,
-      "faceHeight": 0.18
+      "faceHeight": 0.18,
+      "legacyPortrait": false
     }
   ]
 }
