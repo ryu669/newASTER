@@ -83,7 +83,6 @@ namespace NewAster.Presentation
             Panel(0,0,1600,900,dark);
             if(available)DrawGardenScene(gardenViewport,state,garden,layout,false);
             else Label(100,270,930,160,layout.unmade?"この庭の景色は制作中です。":"世界を取り戻すと、この庭が開きます。",heading,Color.white);
-            if(available)DrawTerraformLandscape(gardenViewport,campaign.Terraform,false);
             Panel(0,0,1600,88,dark);Label(28,20,730,52,"万物の書 ／ "+NewAster.Data.ProductionGardenCatalog.GardenName(garden),heading,Color.white);
             Label(770,25,575,42,$"素材 {AvailableCollectionMaterials}　TP {campaign.Terraform.totalTp}　詩 {campaign.Progress.CollectedPoemIds.Count}",small,Color.white);
             bool interactive=homeRequest==null && !formalCampaign.HasPending && !formalProgression.HasPending;
@@ -134,7 +133,7 @@ namespace NewAster.Presentation
             else if(gardenPanel==GardenPanel.Furniture){
                 var data=HomeData();
                 gardenCraftScroll=GUI.BeginScrollView(new Rect(1064,204,470,150),gardenCraftScroll,new Rect(0,0,445,Math.Max(150,data.furniture.Length*52)));
-                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];int balance=HomeRules.Balance(formalCampaign.Snapshot,item.costs[0].resourceId);string source=NewAster.Data.WorldCatalog.Colossi.Single(c=>c.Id==data.materials.Single(m=>m.id==item.costs[0].resourceId).colossusId).DisplayName;if(Btn(0,i*52,440,46,GardenFurnitureName(item.id)+" ／ "+source+" "+balance+"/"+item.costs[0].amount,HomeOperationsAllowed && balance>=item.costs[0].amount))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
+                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];int balance=HomeRules.Balance(formalCampaign.Snapshot,item.costs[0].resourceId);string source=NewAster.Data.WorldCatalog.Colossi.Single(c=>c.Id==data.materials.Single(m=>m.id==item.costs[0].resourceId).colossusId).DisplayName;if(Btn(0,i*52,440,46,GardenFurnitureName(item.id)+(TerraformRules.FurnitureUnlocked(formalCampaign.Snapshot.world,item.id,state)?"":"（領域発展で解放）")+" ／ "+source+" "+balance+"/"+item.costs[0].amount,HomeOperationsAllowed && balance>=item.costs[0].amount && TerraformRules.FurnitureUnlocked(formalCampaign.Snapshot.world,item.id,state)))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
                 GUI.EndScrollView();
                 Label(1064,365,470,32,"持っている家具",small,Color.white);
                 gardenMenuScroll=GUI.BeginScrollView(new Rect(1064,407,470,170),gardenMenuScroll,new Rect(0,0,445,Math.Max(170,state.furnitureInstances.Length*50)));

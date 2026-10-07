@@ -55,6 +55,8 @@ namespace NewAster.Core
                     Owned(s,op.Owner);h.weaponEquipment=h.weaponEquipment.Where(e=>e.heroineId!=op.Owner).ToArray();
                     if(op.Target!="unequip"){var n=c.weaponNodes.Single(n0=>n0.id==op.Target);if(n.heroineId!=op.Owner || !h.weaponNodeIds.Contains(n.id))throw new ArgumentException("Unowned weapon.");h.weaponEquipment=h.weaponEquipment.Concat(new[]{new HomeWeaponEquipment{heroineId=op.Owner,nodeId=n.id}}).ToArray();}break;}
                 case "craft": {
+                    TerraformRules.RefreshUnlocks(s.world,h);
+                    if(!TerraformRules.FurnitureUnlocked(s.world,op.Target,h))throw new InvalidOperationException("対応する領域を発展させて家具を解放してください。");
                     var f=c.furniture.Single(f0=>f0.id==op.Target);if(!HomeExperienceCatalog.Id(op.Owner) || h.furnitureInstances.Any(i=>i.instanceId==op.Owner))throw new ArgumentException("Duplicate furniture instance.");Spend(s,f.costs);h.furnitureInstances=h.furnitureInstances.Concat(new[]{new HomeFurnitureInstance{instanceId=op.Owner,defId=f.id}}).ToArray();break;}
                 case "place": {
                     var i=h.furnitureInstances.Single(i0=>i0.instanceId==op.Target);var p=new HomePlacement{instanceId=i.instanceId,defId=i.defId,gardenId=op.Garden,zoneId=op.Zone,orientationId="orientation.default",x=op.X,y=op.Y};

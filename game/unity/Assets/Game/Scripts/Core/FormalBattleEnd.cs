@@ -65,10 +65,14 @@ namespace NewAster.Core
                 var expected=session.Finish(r.reason,current.world.poemIds,current.world.unlockedStoryIds);
                 if(!expected.acquiredPoemIds.SequenceEqual(r.acquiredPoemIds) || !expected.unlockedChapterIds.SequenceEqual(r.unlockedChapterIds))throw new ArgumentException("Collection result mismatch.");
                 var next=Snapshot;
+                TerraformRules.Synchronize(next,catalog);
                 if(r.reason==BattleEndReason.Victory){
+                    TerraformRules.RequireIntegration(next.world,b.colossusId);
+                    int priorTp=next.world.terraform.totalTp;
                     if(victoryWorld==null)throw new ArgumentNullException(nameof(victoryWorld));
                     writing=true;try{next.world=victoryWorld(next.world);}finally{writing=false;}
                     if(next.world==null || !next.world.claimedBattleIds.Contains(request.Id))throw new ArgumentException("Victory callback must claim current battle.");
+                    r.terraformingTp=next.world.terraform.totalTp-priorTp;
                     var rewards=new FormalVictoryRequest(request.Id,b.colossusId,b.level,request.Revision);
                     next.growth.nectar=checked(next.growth.nectar+rewards.Nectar);
                     next.growth.awakeningCrystals=checked(next.growth.awakeningCrystals+rewards.Crystals);
@@ -81,6 +85,7 @@ namespace NewAster.Core
                 if(next.collection==null)next.collection=new FormalCollectionLedger{contentVersion=catalog.contentVersion};
                 if(r.reason==BattleEndReason.Victory)ApplyHunt(next.collection,catalog,r);
                 next.collection.receipts=next.collection.receipts.Concat(new[]{r}).ToArray();
+                TerraformRules.Synchronize(next,catalog);
                 next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.Id,signature=request.Signature}}).ToArray();
                 next.growth.revision=checked(next.growth.revision+1);next.revision=checked(next.revision+1);
                 if(homeCatalog!=null){homeCatalog.Validate();HomeConditions.Refresh(next,homeCatalog);next.home?.ValidateContent(homeCatalog,next);}else if(next.home!=null)throw new ArgumentException("Home conditions must join the battle transaction.");

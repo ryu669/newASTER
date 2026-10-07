@@ -16,7 +16,7 @@ namespace NewAster.Presentation
         {
             var data=HomeData();
             var navigation=new BookNavigationState(data.subjects.Select(s=>new BookOrderedSubject(
-                s.bookmarkId=="colossi"?BookBookmark.Colossi:s.bookmarkId=="heroines"?BookBookmark.Heroines:s.bookmarkId=="gardens"?BookBookmark.Gardens:BookBookmark.Stories,s.subjectId,s.pageOrder)));
+                s.bookmarkId=="colossi"?BookBookmark.Colossi:s.bookmarkId=="heroines"?BookBookmark.Heroines:s.bookmarkId=="gardens"?BookBookmark.Gardens:BookBookmark.Stories,s.subjectId,s.pageOrder)).Concat(new[]{new BookOrderedSubject(BookBookmark.NewWorld,"terraform.new-world",0),new BookOrderedSubject(BookBookmark.PossibleWorlds,"terraform.possible-worlds",0)}));
             return navigation;
         }
         private void SyncBookSelectedLevel()

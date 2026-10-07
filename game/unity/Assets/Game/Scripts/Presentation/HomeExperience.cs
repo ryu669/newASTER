@@ -94,10 +94,12 @@ namespace NewAster.Presentation
             try{
                 var localArea=new Rect(0,0,area.width,area.height);
                 var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
+                if(garden=="garden.integrated-world")DrawTerraformLandscape(localArea,campaign.Terraform,true);
                 foreach(var asset in layout.middleAssetIds){var layer=AdvTexture(asset);if(layer!=null)GUI.DrawTexture(localArea,layer,ScaleMode.ScaleAndCrop,true);}
                 var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
                 foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
                 foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.ScaleAndCrop,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
+                DrawTerraformLandscape(localArea,campaign.Terraform,false);
                 if(names)DrawGardenResidentLabels(localArea,state,garden);
             }finally{GUI.EndGroup();}
         }

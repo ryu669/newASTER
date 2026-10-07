@@ -44,7 +44,6 @@ namespace NewAster.Presentation
         private CampaignSaveV2 BuildVictoryWorld(CampaignSaveV2 snapshot)
         {
             var next=new CampaignState(WorldCatalog.ColossusIds,snapshot);
-            SeedTerraformHistory(next.Terraform);
             int priorTp=next.Terraform.totalTp;
             var c=WorldCatalog.Colossi.First(x=>x.Id==formalVictoryRequest.ColossusId);
             var band=collectionCatalog.rewardBands.Single(x=>x.ownerId==c.Id && formalVictoryRequest.Level>=x.minLevel && formalVictoryRequest.Level<=x.maxLevel);

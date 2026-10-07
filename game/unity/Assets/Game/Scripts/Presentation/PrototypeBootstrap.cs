@@ -193,6 +193,7 @@ namespace NewAster.Presentation
             PreparePlan10ArcaneAcademyCapture(args);
             PreparePlan10ShangrilaCapture(args);
             PreparePlan10UiAuditCapture(args);
+            PreparePlan11Capture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -218,6 +219,7 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
                 else if(placing){placing=false;selectedFurniture=null;}
@@ -349,6 +351,7 @@ namespace NewAster.Presentation
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
                 return;
             }
+            if(!title && encounter==null && (book.Bookmark==BookBookmark.NewWorld || book.Bookmark==BookBookmark.PossibleWorlds)){DrawTerraformBookPage();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens && book.HasSubject){DrawGardenHome();return;}
             if(title) { DrawFormalTitle(); return; }
             DrawFormalBookSurface(); Panel(0,0,1600,80,dark);
@@ -370,13 +373,13 @@ namespace NewAster.Presentation
         }
         private void DrawBook()
         {
-            string[] tabs={"巨神獣","誓女・育成","庭","物語"};
-            for(int i=0;i<4;i++) if(Btn(28+i*242,100,230,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i],BookInputAllowed && !book.IsTransitioning))RequestBookBookmark((BookBookmark)i);
+            string[] tabs={"巨神獣","誓女・育成","庭","物語","新天地","可能世界"};
+            for(int i=0;i<tabs.Length;i++) if(Btn(28+i*160,100,150,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i],BookInputAllowed && !book.IsTransitioning))RequestBookBookmark((BookBookmark)i);
             if(Btn(28,160,180,42,"‹ 前のページ",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
             if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
             if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"召喚・交換",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
-            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
+            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  TP {campaign.Terraform.totalTp}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
             bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
@@ -413,7 +416,7 @@ namespace NewAster.Presentation
                 if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
                 if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
                 var missing=TerraformRules.Index(c.Id)==14?TerraformRules.MissingIntegration(campaign.Terraform):Array.Empty<string>();
-                Label(32,612,925,58,missing.Length>0?"受入条件不足（Lv3必要）："+string.Join("・",missing):"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
+                Label(32,612,925,58,missing.Length>0?"受入条件不足（Lv3必要）："+string.Join("・",missing.Select(TerraformCatalog.DomainName)):"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
                 if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id) && missing.Length==0)) StartBattle(c.Id);
             }
         }

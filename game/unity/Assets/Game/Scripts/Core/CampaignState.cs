@@ -37,8 +37,8 @@ namespace NewAster.Core
         public CampaignState(IEnumerable<string> colossusIds, CampaignSaveV2 save = null)
         {
             save = save ?? new CampaignSaveV2();
-            Terraform = TerraformRules.Migrate(save);
-            migration = save.migration;
+            Terraform = TerraformRules.Copy(TerraformRules.Migrate(save));
+            migration = new TerraformMigration { plan11TerraformCompleted=save.migration.plan11TerraformCompleted,plan11ContentUnlocksCompleted=save.migration.plan11ContentUnlocksCompleted };
             Progress = new ProgressState(save);
             ColossusUnlocks = new ColossusUnlockState(colossusIds, save?.firstClearIds);
             Terraforming = new TerraformingState(save?.appliedColossusIds, save?.environmentTags);
@@ -49,7 +49,7 @@ namespace NewAster.Core
         public CampaignSaveV2 CreateSave()
         {
             var save = new CampaignSaveV2();
-            save.terraform = Terraform; save.migration = migration;
+            save.terraform = TerraformRules.Copy(Terraform); save.migration = new TerraformMigration {plan11TerraformCompleted=migration.plan11TerraformCompleted,plan11ContentUnlocksCompleted=migration.plan11ContentUnlocksCompleted};
             Progress.CopyTo(save); ColossusUnlocks.CopyTo(save); Terraforming.CopyTo(save); Gardens.CopyTo(save);
             Playable.CopyTo(save);
             return save;

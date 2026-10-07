@@ -17,7 +17,7 @@ namespace NewAster.Presentation
         private int AvailableCollectionMaterials=>formalCampaign?.Snapshot.collection?.materials.Sum(m=>m.amount)??campaign.Progress.Materials;
         private CollectionCatalog CollectionData()=>collectionCatalog??(collectionCatalog=SelectCollectionCatalog());
         private string CollectionOwnerName(CollectionOwnerDef owner)=>owner.kind=="colossus"?(campaign.ColossusUnlocks.IsUnlocked(owner.id)?WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName:"未解放の巨神獣"):combatDefinitions.Hero(owner.id).name;
-        private void CollectionBack(){if(formalCampaign.HasPending)return;if(relicRequest!=null){relicRequest=null;relicError=null;return;}trialPoemChapter=null;collectionOpen=false;}
+        private void CollectionBack(){if(formalCampaign.HasPending)return;if(terraformRequest!=null){terraformRequest=null;terraformWarning=false;return;}if(relicRequest!=null){relicRequest=null;relicError=null;return;}trialPoemChapter=null;collectionOpen=false;}
         private void RelicSelect(CollectionRelic relic,RelicOperation operation,string heroineId=null){relicRequest=new FormalRelicRequest("relic."+Guid.NewGuid().ToString("N"),relic.id,heroineId,formalCampaign.Snapshot.revision,operation,CollectionData().contentVersion);relicError=null;}
         private void RelicCommit()
         {
@@ -133,10 +133,10 @@ namespace NewAster.Presentation
             }
             if(resultTab==1)return $"聞いた巨神獣の詩 {r.battle.heardPoemIds.Length} ／ 新規 {r.acquiredPoemIds.Length}\n"+string.Join("\n",r.acquiredPoemIds.Select(id=>CollectionData().poems.Single(p=>p.id==id)).GroupBy(p=>p.ownerId).Select(g=>CollectionOwnerName(CollectionData().owners.Single(o=>o.id==g.Key))+"："+g.Count()+"詩"))+$"\n新しい章 {r.unlockedChapterIds.Length} ／ "+(plan8StoryTrial?"8章のオリジナル試遊本文":"本文未制作");
             if(resultTab==2){
-                if(r.reason!=BattleEndReason.Victory)return "敗北・撤退では世界復元・素材・初回解放は発生しません。\n聞いた詩と対応する人物詩・章を保存しました。";
+                if(r.reason!=BattleEndReason.Victory)return "敗北・撤退ではTP・素材・初回解放は発生しません。\n聞いた詩と対応する人物詩・章を保存しました。";
                 var source=WorldCatalog.Colossi.Single(c=>c.Id==r.battle.colossusId);var band=CollectionData().rewardBands.Single(b=>b.ownerId==source.Id && r.battle.level>=b.minLevel && r.battle.level<=b.maxLevel);
                 var saved=formalCampaign.Snapshot;int amount=saved.collection.materials.Where(m=>m.sourceColossusId==source.Id).Sum(m=>m.amount);
-                return $"記憶元：{source.WorldLineId??"世界統合"} ／ 環境：{string.Join("・",source.EnvironmentTags)}\n世界復元 +{band.terraforming} ／ 累積 {saved.world.terraformingExperience}\n巨神獣別素材 +{10+r.battle.level} ／ 保存後所持 {amount}\nページ・環境・庭の初回解放は一度だけ。再戦でも世界復元と素材を得られます。";
+                return $"記憶元：{source.WorldLineId??"世界統合"} ／ 環境：{string.Join("・",source.EnvironmentTags)}\nTP +{r.terraformingTp} ／ 保存後所持 {saved.world.terraform.totalTp}\n巨神獣別素材 +{10+r.battle.level} ／ 保存後所持 {amount}\nページ・環境・庭の初回解放は一度だけ。再戦でもTPと素材を得られます。";
             }
             return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。抽選1回の提供率は75%です。";
         }

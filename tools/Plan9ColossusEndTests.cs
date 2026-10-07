@@ -15,6 +15,7 @@ public static class Plan9ColossusEndTests
             var world=new CampaignState(WorldCatalog.ColossusIds);var entry=WorldCatalog.Colossi.Single(c=>c.Id==id);
             // Fixture prerequisites isolate this encounter; tested ending itself uses real battle commands.
             foreach(var previous in WorldCatalog.Colossi.TakeWhile(c=>c.Id!=id))world.ClaimColossusVictory(previous.Id,previous.EnvironmentTags,new VictoryReward("setup."+previous.Id,1,0,0,Array.Empty<string>()),Array.Empty<StoryRequirement>(),Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
+            if(TerraformRules.Index(id)==14)foreach(var d in world.Terraform.domains){d.currentLevel=3;d.maxReachedLevel=3;}
             var initial=new FormalCampaignSave{world=world.CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",heroines=combat.FormationIds.Select(h=>new FormalHeroineGrowth{heroineId=h,level=reason==BattleEndReason.Victory?10:1}).ToArray()},collection=new FormalCollectionLedger()};
             int level=reason==BattleEndReason.Defeat?50:1;var definition=ColossusCombatCatalog.Get(id);
             var battle=new PlayableBattle(level,new PlayableProgress(),79,combatDefinitions:combat,formalGrowth:initial.growth,colossusDefinition:definition);

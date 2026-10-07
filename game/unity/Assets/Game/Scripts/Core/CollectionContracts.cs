@@ -176,6 +176,7 @@ namespace NewAster.Core
         public BattleEndReason reason;
         public string[] acquiredPoemIds,unlockedChapterIds;
         public int relicDrawCount;
+        public int terraformingTp;
         public CollectionRelic[] relicDrops=Array.Empty<CollectionRelic>();
     }
     [Serializable] public sealed class FormalCollectionLedger
@@ -206,7 +207,7 @@ namespace NewAster.Core
                equipment==null || equipment.Any(x=>x==null || !CollectionCatalog.ValidId(x.heroineId) || !relics.Any(r=>r.id==x.relicId)) || equipment.Select(x=>x.heroineId).Distinct().Count()!=equipment.Length || equipment.Select(x=>x.relicId).Distinct().Count()!=equipment.Length)throw new ArgumentException("Invalid material or relic inventory.");
             foreach(var r in receipts){
                 r.battle.Validate();
-                if(r.relicDrawCount<0 || r.relicDrawCount>5 || r.relicDrops==null || r.relicDrops.Length>r.relicDrawCount || r.reason!=BattleEndReason.Victory && (r.relicDrawCount!=0 || r.relicDrops.Length!=0) || r.relicDrops.Any(x=>x==null || !CollectionCatalog.SupportedVersion(x.contentVersion) || !CollectionCatalog.ValidId(x.id) || x.level!=1 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || !Enum.IsDefined(typeof(BattleEndReason),r.reason) || r.acquiredPoemIds==null || r.unlockedChapterIds==null ||
+                if(r.terraformingTp<0 || r.reason!=BattleEndReason.Victory && r.terraformingTp!=0 || r.relicDrawCount<0 || r.relicDrawCount>5 || r.relicDrops==null || r.relicDrops.Length>r.relicDrawCount || r.reason!=BattleEndReason.Victory && (r.relicDrawCount!=0 || r.relicDrops.Length!=0) || r.relicDrops.Any(x=>x==null || !CollectionCatalog.SupportedVersion(x.contentVersion) || !CollectionCatalog.ValidId(x.id) || x.level!=1 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || !Enum.IsDefined(typeof(BattleEndReason),r.reason) || r.acquiredPoemIds==null || r.unlockedChapterIds==null ||
                    new[]{r.acquiredPoemIds,r.unlockedChapterIds}.Any(ids=>ids.Any(x=>!CollectionCatalog.ValidId(x)) || ids.Distinct().Count()!=ids.Length))throw new ArgumentException("Invalid collection receipt.");
             }
         }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NewAster.Core
 {
-    [Serializable] public sealed class TerraformMigration { public bool plan11TerraformCompleted; }
+    [Serializable] public sealed class TerraformMigration { public bool plan11TerraformCompleted,plan11ContentUnlocksCompleted; }
     [Serializable] public sealed class TerraformDomainState
     {
         public string domainId; public int currentLevel,maxReachedLevel;
@@ -22,6 +22,8 @@ namespace NewAster.Core
         public bool worldIntegrated,sevenExtremeGenesis,overgrowthWarningAccepted;
         public string customWorldName;
         public string activeWorldPhenomenonId;
+        public string[] unlockedFurnitureIds=Array.Empty<string>();
+        public TerraformOperationReceipt[] operationReceipts=Array.Empty<TerraformOperationReceipt>();
     }
     public static class TerraformRules
     {
@@ -41,19 +43,67 @@ namespace NewAster.Core
         public static readonly int[] PhenomenonCosts={1000,1000,1500,1500,2000,2000,2000,2500,3000,3000};
         public static TerraformSave Migrate(CampaignSaveV2 save)
         {
+            if(save==null)throw new ArgumentNullException(nameof(save));
+            bool legacy = save.terraform==null && (save.terraformingExperience>0 || (save.firstClearIds?.Length??0)>0);
             if(save.migration==null)save.migration=new TerraformMigration();
+            legacy |= save.terraform!=null && save.migration.plan11TerraformCompleted && !save.migration.plan11ContentUnlocksCompleted;
             if(save.terraform==null)save.terraform=new TerraformSave();
+            if(save.terraform.unlockedFurnitureIds==null)save.terraform.unlockedFurnitureIds=Array.Empty<string>();
+            if(save.terraform.operationReceipts==null)save.terraform.operationReceipts=Array.Empty<TerraformOperationReceipt>();
+            Validate(save.terraform);
+            if(string.IsNullOrWhiteSpace(save.terraform.customWorldName))save.terraform.customWorldName=null;
+            if(string.IsNullOrEmpty(save.terraform.activeWorldPhenomenonId))save.terraform.activeWorldPhenomenonId=null;
+            foreach(var domain in save.terraform.domains){if(string.IsNullOrEmpty(domain.activeDeepRecordId))domain.activeDeepRecordId=null;if(string.IsNullOrEmpty(domain.activeExtremeId))domain.activeExtremeId=null;}
             foreach(string id in DomainIds)if(!save.terraform.domains.Any(d=>d.domainId==id))save.terraform.domains=save.terraform.domains.Concat(new[]{new TerraformDomainState {domainId=id}}).ToArray();
             if(!save.migration.plan11TerraformCompleted){save.terraform.totalTp=checked(save.terraform.totalTp+save.terraformingExperience);save.migration.plan11TerraformCompleted=true;}
+            if(legacy)save.terraform.unlockedFurnitureIds=TerraformCatalog.Unlocks.Where(u=>u.furnitureId!=null).Select(u=>u.furnitureId).Union(save.terraform.unlockedFurnitureIds).ToArray();
+            save.migration.plan11ContentUnlocksCompleted=true;
+            save.terraform.worldIntegrated |= (save.firstClearIds??Array.Empty<string>()).Contains(ColossusIds[14]);
             return save.terraform;
         }
+        public static TerraformSave Copy(TerraformSave s) => s==null?null:new TerraformSave {
+            totalTp=s.totalTp,worldIntegrated=s.worldIntegrated,sevenExtremeGenesis=s.sevenExtremeGenesis,
+            overgrowthWarningAccepted=s.overgrowthWarningAccepted,customWorldName=s.customWorldName,activeWorldPhenomenonId=s.activeWorldPhenomenonId,
+            domains=s.domains.Select(d=>new TerraformDomainState {domainId=d.domainId,currentLevel=d.currentLevel,maxReachedLevel=d.maxReachedLevel,activeDeepRecordId=d.activeDeepRecordId,activeExtremeId=d.activeExtremeId}).ToArray(),
+            acquiredWorldRecords=s.acquiredWorldRecords.Select(r=>new TerraformRecord {colossusId=r.colossusId,tier=r.tier,highestLevel=r.highestLevel}).ToArray(),
+            acquiredDeepRecords=(string[])s.acquiredDeepRecords.Clone(),usedDeepRecords=(string[])s.usedDeepRecords.Clone(),
+            unlockedWorldPhenomena=(string[])s.unlockedWorldPhenomena.Clone(),unlockedFurnitureIds=(string[])(s.unlockedFurnitureIds??Array.Empty<string>()).Clone(),
+            discoveredExtremes=s.discoveredExtremes.Select(e=>new TerraformDiscovery {extremeId=e.extremeId,deepRecordId=e.deepRecordId,sequence=e.sequence}).ToArray()
+            ,operationReceipts=(s.operationReceipts??Array.Empty<TerraformOperationReceipt>()).Select(r=>new TerraformOperationReceipt {id=r.id,signature=r.signature}).ToArray()
+        };
+        public static void Synchronize(FormalCampaignSave campaign,CollectionCatalog catalog=null,HomeExperienceCatalog home=null)
+        {
+            var s=Migrate(campaign.world);
+            foreach(var group in (campaign.collection?.receipts??Array.Empty<CollectionReceipt>()).Where(r=>r.reason==BattleEndReason.Victory && Index(r.battle.colossusId)>=0).GroupBy(r=>r.battle.colossusId)){
+                int highest=group.Max(r=>r.battle.level);var record=s.acquiredWorldRecords.SingleOrDefault(r=>r.colossusId==group.Key);
+                if(record==null){record=new TerraformRecord {colossusId=group.Key};s.acquiredWorldRecords=s.acquiredWorldRecords.Concat(new[]{record}).ToArray();}
+                record.highestLevel=Math.Max(record.highestLevel,highest);record.tier=Math.Max(record.tier,Math.Min(5,highest/10+1));
+            }
+            foreach(string id in campaign.world.firstClearIds.Where(id=>Index(id)>=0)){
+                if(!s.acquiredWorldRecords.Any(r=>r.colossusId==id))s.acquiredWorldRecords=s.acquiredWorldRecords.Concat(new[]{new TerraformRecord {colossusId=id,tier=1,highestLevel=1}}).ToArray();
+            }
+            if(catalog!=null)RefreshDeep(s,campaign.world.readStoryIds,catalog);
+            else if(home!=null)RefreshDeep(s,campaign.world.readStoryIds,id=>home.chapters.Where(c=>c.ownerId==id).Select(c=>c.id).ToArray());
+            RefreshUnlocks(campaign.world,campaign.home);
+        }
+        public static void RefreshUnlocks(CampaignSaveV2 world,FormalHomeProgress home=null)
+        {
+            var s=Migrate(world);
+            var unlocked=TerraformCatalog.Unlocks.Where(u=>s.domains.Single(d=>d.domainId==u.domainId).maxReachedLevel>=u.requiredLevel).ToArray();
+            world.unlockedGardenIds=world.unlockedGardenIds.Union(unlocked.Where(u=>u.gardenId!=null).Select(u=>u.gardenId)).ToArray();
+            s.unlockedFurnitureIds=s.unlockedFurnitureIds.Union(unlocked.Where(u=>u.furnitureId!=null).Select(u=>u.furnitureId)).Union(home?.furnitureInstances.Select(f=>f.defId)??Enumerable.Empty<string>()).ToArray();
+            if(s.worldIntegrated && MissingIntegration(s).Length==0)world.unlockedGardenIds=world.unlockedGardenIds.Union(new[]{"garden.integrated-world"}).ToArray();
+        }
+        public static bool FurnitureUnlocked(CampaignSaveV2 world,string id,FormalHomeProgress home=null)=>!TerraformCatalog.Unlocks.Any(u=>u.furnitureId==id) || (world.terraform?.unlockedFurnitureIds??Array.Empty<string>()).Contains(id) || (home?.furnitureInstances.Any(f=>f.defId==id)??false);
         public static void Validate(TerraformSave s)
         {
             if(s==null)return;
             if(s.totalTp<0 || s.domains==null || s.domains.Any(d=>d==null || string.IsNullOrWhiteSpace(d.domainId) || d.currentLevel<0 || d.currentLevel>7 || d.maxReachedLevel<d.currentLevel || d.maxReachedLevel>7) || s.domains.Select(d=>d.domainId).Distinct().Count()!=s.domains.Length)throw new ArgumentException("Invalid terraform domains.");
             if(s.acquiredWorldRecords==null || s.acquiredWorldRecords.Any(r=>r==null || string.IsNullOrWhiteSpace(r.colossusId) || r.tier<1 || r.tier>5 || r.highestLevel<1 || r.highestLevel>50) || s.acquiredWorldRecords.Select(r=>r.colossusId).Distinct().Count()!=s.acquiredWorldRecords.Length)throw new ArgumentException("Invalid terraform records.");
-            foreach(var ids in new[]{s.acquiredDeepRecords,s.usedDeepRecords,s.unlockedWorldPhenomena})if(ids==null || ids.Any(string.IsNullOrWhiteSpace) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid terraform ID set.");
+            foreach(var ids in new[]{s.acquiredDeepRecords,s.usedDeepRecords,s.unlockedWorldPhenomena,s.unlockedFurnitureIds??Array.Empty<string>()})if(ids==null || ids.Any(string.IsNullOrWhiteSpace) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid terraform ID set.");
             if(s.discoveredExtremes==null || s.discoveredExtremes.Any(e=>e==null || string.IsNullOrWhiteSpace(e.extremeId) || e.sequence<1) || s.discoveredExtremes.Select(e=>e.extremeId).Distinct().Count()!=s.discoveredExtremes.Length || s.discoveredExtremes.Select(e=>e.sequence).Distinct().Count()!=s.discoveredExtremes.Length)throw new ArgumentException("Invalid terraform discoveries.");
+            var receipts=s.operationReceipts??Array.Empty<TerraformOperationReceipt>();
+            if(receipts.Any(r=>r==null || string.IsNullOrWhiteSpace(r.id) || string.IsNullOrWhiteSpace(r.signature)) || receipts.Select(r=>r.id).Distinct().Count()!=receipts.Length)throw new ArgumentException("Invalid terraform operation receipts.");
         }
         public static int Index(string id)=>ColossusIds.ToList().IndexOf(id);
         public static int BaseTp(int level)=>level==50?600:level>=40?400:level>=30?250:level>=20?150:level>=10?100:50;
@@ -69,18 +119,29 @@ namespace NewAster.Core
         }
         public static bool HasRecord(TerraformSave s,string domain,int tier)=>s.acquiredWorldRecords.Any(r=>Index(r.colossusId)>=0 && Index(r.colossusId)<14 && r.tier>=tier && ColossusDomains[Index(r.colossusId)].Contains(domain));
         public static string[] MissingIntegration(TerraformSave s)=>DomainIds.Where(id=>s.domains.Single(d=>d.domainId==id).currentLevel<3).ToArray();
+        public static void RequireIntegration(CampaignSaveV2 world,string colossusId)
+        {
+            if(Index(colossusId)!=14)return;
+            var s=Migrate(world);
+            if(ColossusIds.Take(14).Except(world.firstClearIds).Any() || MissingIntegration(s).Length>0)throw new InvalidOperationException("アステリアには14体初討伐・全7領域Lv3以上が必要です。");
+        }
         public static string[] DeepFor(TerraformSave s,string domain)=>s.acquiredDeepRecords.Where(id=>{int i=Array.IndexOf(DeepIds,id);return i>=0 && ColossusIds.Any(c=>Worlds[Index(c)]==i+1 && ColossusDomains[Index(c)].Contains(domain));}).ToArray();
         public static void RefreshDeep(TerraformSave s,string[] readIds,CollectionCatalog catalog)
         {
-            for(int i=0;i<7;i++)if(ColossusIds.Where(c=>Worlds[Index(c)]==i+1).All(c=>s.acquiredWorldRecords.Any(r=>r.colossusId==c && r.highestLevel==50) && catalog.owners.Single(o=>o.id==c).chapterIds.All(readIds.Contains)))
+            RefreshDeep(s,readIds,id=>catalog.owners.SingleOrDefault(o=>o.id==id)?.chapterIds??Array.Empty<string>());
+        }
+        private static void RefreshDeep(TerraformSave s,string[] readIds,Func<string,string[]> chapters)
+        {
+            for(int i=0;i<7;i++)if(ColossusIds.Where(c=>Worlds[Index(c)]==i+1).All(c=>s.acquiredWorldRecords.Any(r=>r.colossusId==c && r.highestLevel==50) && chapters(c).Length==3 && chapters(c).All(readIds.Contains)))
                 s.acquiredDeepRecords=s.acquiredDeepRecords.Concat(new[]{DeepIds[i]}).Distinct().ToArray();
         }
         public static string BlockReason(TerraformSave s,string domain,int level,string deep=null,string fusion=null,bool confirm=false)
         {
+            if(!DomainIds.Contains(domain))return "未対応の領域です。";
             var d=s.domains.Single(x=>x.domainId==domain);
-            if(level<1 || level>7 || level>d.maxReachedLevel+1)return "順番に領域を発展させてください。";
+            if(level<0 || level>7 || level>d.maxReachedLevel+1)return "順番に領域を発展させてください。";
             if(level<=5 && level>d.maxReachedLevel){if(!HasRecord(s,domain,level))return "対応する記述Tier "+level+" が必要です。";if(level>=4 && s.acquiredWorldRecords.Count(r=>Index(r.colossusId)>=0 && Index(r.colossusId)<14 && ColossusDomains[Index(r.colossusId)].Contains(domain))<2)return "異なる2体以上の記述が必要です。";}
-            if(level>=6){if(!s.worldIntegrated)return "アステリア初討伐が必要です。";if(!DeepFor(s,domain).Contains(deep))return "使用可能な深層記述を選択してください。";if(level==6 && !confirm)return "過剰再生の警告確認が必要です。";}
+            if(level>=6){if(!s.worldIntegrated)return "アステリア初討伐が必要です。";if(!DeepFor(s,domain).Contains(deep))return "使用可能な深層記述を選択してください。";if(level==6 && d.currentLevel!=6 && !confirm)return "過剰再生の警告確認が必要です。";if(level==6 && d.maxReachedLevel<6 && d.currentLevel!=5)return "対象領域をLv5 調和に設定してください。";}
             if(level==7){if(!s.acquiredWorldRecords.Any(r=>Index(r.colossusId)==14 && r.highestLevel==50))return "アステリアLv50討伐が必要です。";int i=Array.IndexOf(DomainIds,domain);if(!Fusions[i].Contains(fusion) || !HasRecord(s,fusion,1))return "融合先の領域記述が必要です。";}
             return s.totalTp<Cost(s,d,level,fusion)?"TPが不足しています。":null;
         }
@@ -96,7 +157,11 @@ namespace NewAster.Core
         }
         public static void UnlockPhenomenon(TerraformSave s,string id)
         {int i=Array.IndexOf(Phenomena,id);if(i<0 || !s.sevenExtremeGenesis || s.unlockedWorldPhenomena.Contains(id) || s.totalTp<PhenomenonCosts[i])throw new InvalidOperationException("世界現象の解放条件が不足しています。");s.totalTp-=PhenomenonCosts[i];s.unlockedWorldPhenomena=s.unlockedWorldPhenomena.Concat(new[]{id}).ToArray();}
-        public static string[] EnvironmentTags(TerraformSave s)=>s.domains.Select(d=>d.domainId+".level."+d.currentLevel).Concat(s.domains.Where(d=>d.activeDeepRecordId!=null).Select(d=>d.activeDeepRecordId)).ToArray();
+        public static void SelectPhenomenon(TerraformSave s,string id)
+        {if(id!=null && (!Phenomena.Contains(id) || !s.unlockedWorldPhenomena.Contains(id)))throw new InvalidOperationException("未解放の世界現象です。");s.activeWorldPhenomenonId=id;}
+        public static void RenameWorld(TerraformSave s,string name)
+        {if(!s.sevenExtremeGenesis)throw new InvalidOperationException("星名は七極創世で解放されます。");name=string.IsNullOrWhiteSpace(name)?null:name.Trim();if(name!=null && (name.Length>40 || name.Any(char.IsControl)))throw new ArgumentException("星名は40文字以内で入力してください。");s.customWorldName=name;}
+        public static string[] EnvironmentTags(TerraformSave s)=>s.domains.Select(d=>d.domainId+".level."+d.currentLevel).Concat(s.domains.Where(d=>d.activeDeepRecordId!=null).SelectMany(d=>new[]{d.activeDeepRecordId}.Concat(TerraformCatalog.DeepRecords.FirstOrDefault(r=>r.id==d.activeDeepRecordId)?.modifierTags??Array.Empty<string>()))).Distinct().ToArray();
         public static string[] ExtremeTags(TerraformSave s)=>s.domains.Where(d=>d.activeExtremeId!=null).Select(d=>d.activeExtremeId).ToArray();
     }
 }
