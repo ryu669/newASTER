@@ -16,9 +16,51 @@ namespace NewAster.Presentation
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
         private readonly Dictionary<string,Texture2D> heroinePortraits=new Dictionary<string,Texture2D>();
         private readonly Color parchment=new Color(.94f,.89f,.77f),paperInk=new Color(.13f,.18f,.22f);
+        [Serializable] private sealed class PortraitFramingCatalog
+        {
+            public int schemaVersion;
+            public float faceHeightRatio,faceCenterYRatio;
+            public PortraitFraming[] entries;
+        }
+        [Serializable] private sealed class PortraitFraming
+        {
+            public string heroineId,resourcePath;
+            public float faceCenterX,faceCenterY,faceHeight;
+        }
+        private PortraitFramingCatalog portraitFraming;
+        private PortraitFraming HeroFraming(string id)
+        {
+            if(portraitFraming==null){
+                var source=Resources.Load<TextAsset>("UI/heroine-portrait-framing");
+                if(source==null)throw new InvalidOperationException("Missing heroine portrait framing catalog.");
+                portraitFraming=JsonUtility.FromJson<PortraitFramingCatalog>(source.text);
+                if(portraitFraming.schemaVersion!=1 || portraitFraming.entries==null || portraitFraming.faceHeightRatio<=0 || portraitFraming.faceHeightRatio>=1 || portraitFraming.faceCenterYRatio<=0 || portraitFraming.faceCenterYRatio>=1
+                    || portraitFraming.entries.Select(e=>e.heroineId).Distinct().Count()!=portraitFraming.entries.Length
+                    || portraitFraming.entries.Any(e=>string.IsNullOrEmpty(e.resourcePath) || e.faceHeight<=0 || e.faceHeight>1 || e.faceCenterX<0 || e.faceCenterX>1 || e.faceCenterY<0 || e.faceCenterY>1))
+                    throw new InvalidOperationException("Invalid heroine portrait framing catalog.");
+            }
+            return portraitFraming.entries.SingleOrDefault(e=>e.heroineId==id);
+        }
         private Texture2D HeroPortrait(string id)
         {
-            if(!heroinePortraits.TryGetValue(id,out var texture)){texture=Resources.Load<Texture2D>("Illustrations/"+id.Substring("heroine.".Length)+"-portrait-candidate-v1");heroinePortraits[id]=texture;}return texture;
+            if(!heroinePortraits.TryGetValue(id,out var texture)){
+                var framing=HeroFraming(id);
+                texture=framing==null?null:Resources.Load<Texture2D>(framing.resourcePath);
+                heroinePortraits[id]=texture;
+            }
+            return texture;
+        }
+        // Face anchors are authored against the unmodified source PNG, using top-left coordinates.
+        // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
+        private void DrawHeroPortrait(Rect panel,string id)
+        {
+            var texture=HeroPortrait(id);var framing=HeroFraming(id);
+            if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
+            float scale=panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight);
+            float w=texture.width*scale,h=texture.height*scale;
+            GUI.BeginGroup(panel);
+            GUI.DrawTexture(new Rect(panel.width*.5f-framing.faceCenterX*w,panel.height*portraitFraming.faceCenterYRatio-framing.faceCenterY*h,w,h),texture,ScaleMode.StretchToFill,true);
+            GUI.EndGroup();
         }
         private void SanctuaryStyles()
         {
@@ -65,7 +107,7 @@ namespace NewAster.Presentation
                 var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
-                var portrait=HeroPortrait(entry.id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+6,111,154),portrait,ScaleMode.ScaleToFit,true);else DrawSanctuaryIcon(new Rect(x+32,y+45,65,65),"star",gold);
+                DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
                 var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
                 Label(x+134,y+23,212,41,entry.name,nameStyle);
                 Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
@@ -96,7 +138,7 @@ namespace NewAster.Presentation
             GrowthFrame(52,176,646,643);GrowthDiamond(373,414,204);GrowthDiamond(373,414,222);
             var heroineNameStyle=new GUIStyle(growthTitleStyle);while(heroineNameStyle.fontSize>21 && heroineNameStyle.CalcSize(new GUIContent(definition.name)).x>415)heroineNameStyle.fontSize--;
             Label(286,106,415,53,definition.name,heroineNameStyle,gold);
-            var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(69,187,609,410),portrait,ScaleMode.ScaleToFit,true);
+            DrawHeroPortrait(new Rect(69,187,609,344),id);
             GrowthFill(69,606,612,194,new Color(.045f,.095f,.135f,.97f));
             string[] stats={"HP  "+state.MaxHitPoints,"攻撃  "+state.Attack,"物理防御  "+state.PhysicalDefense,"魔法防御  "+state.MagicDefense,"速度  "+state.Speed,"会心  "+(state.CriticalChanceBp/100f).ToString("0.#")+"%"};
             for(int i=0;i<stats.Length;i++)Label(90+(i%2)*303,615+(i/2)*43,292,39,stats[i],growthTextStyle);

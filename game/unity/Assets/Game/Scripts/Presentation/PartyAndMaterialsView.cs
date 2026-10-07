@@ -24,8 +24,7 @@ namespace NewAster.Presentation
             }
             var ids=CurrentFormation();
             for(int i=0;i<5;i++){
-                float x=65+i*298;GrowthFrame(x,180,278,265);var portrait=HeroPortrait(ids[i]);
-                if(portrait!=null)GUI.DrawTexture(new Rect(x+8,188,262,160),portrait,ScaleMode.ScaleAndCrop,true);
+                float x=65+i*298;GrowthFrame(x,180,278,265);DrawHeroPortrait(new Rect(x+8,188,262,160),ids[i]);
                 Label(x+14,352,250,40,combatDefinitions.Hero(ids[i]).name,growthTextStyle);
                 if(GrowthButton(x+12,398,254,38,"編成枠 "+(i+1)+(formationSlot==i?"  選択中":""),homeRequest==null && BookInputAllowed,formationSlot==i))formationSlot=i;
             }
@@ -37,7 +36,7 @@ namespace NewAster.Presentation
             var entries=heroes.Skip(formationPage*10).Take(10).ToArray();
             for(int i=0;i<entries.Length;i++){
                 string id=entries[i].heroineId;float x=65+i%5*298,y=530+i/5*116;GrowthFrame(x,y,278,104);
-                var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+5,76,94),portrait,ScaleMode.ScaleAndCrop,true);
+                DrawHeroPortrait(new Rect(x+5,y+5,76,94),id);
                 if(GrowthButton(x+88,y+10,180,82,combatDefinitions.Hero(id).name+"\nLv."+entries[i].level,homeRequest==null && BookInputAllowed && ids[formationSlot]!=id))ProposeHome(new HomeOperation("formation",id,formationSlot.ToString()));
             }
             var guardStyle=new GUIStyle(button){fontSize=16,wordWrap=false,padding=new RectOffset(2,2,0,0),alignment=TextAnchor.MiddleCenter};

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "faceHeightRatio": 0.18,
+  "faceCenterYRatio": 0.4,
+  "entries": [
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "resourcePath": "Illustrations/annihilator-holy-portrait-candidate-v1",
+      "faceCenterX": 0.53,
+      "faceCenterY": 0.39,
+      "faceHeight": 0.16
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "resourcePath": "Illustrations/annihilator-portrait-candidate-v1",
+      "faceCenterX": 0.55,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.115
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "resourcePath": "Illustrations/arcane-academy-portrait-candidate-v1",
+      "faceCenterX": 0.52,
+      "faceCenterY": 0.32,
+      "faceHeight": 0.1
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "resourcePath": "Illustrations/arcane-portrait-candidate-v1",
+      "faceCenterX": 0.53,
+      "faceCenterY": 0.3,
+      "faceHeight": 0.095
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/echidna-portrait-candidate-v1",
+      "faceCenterX": 0.51,
+      "faceCenterY": 0.29,
+      "faceHeight": 0.15
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/excalipan-portrait-candidate-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.34,
+      "faceHeight": 0.2
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/iconoclast-portrait-candidate-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.34,
+      "faceHeight": 0.2
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "resourcePath": "Illustrations/nighthawk-portrait-candidate-v1",
+      "faceCenterX": 0.48,
+      "faceCenterY": 0.33,
+      "faceHeight": 0.12
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "resourcePath": "Illustrations/oriflamme-portrait-candidate-v1",
+      "faceCenterX": 0.53,
+      "faceCenterY": 0.18,
+      "faceHeight": 0.065
+    },
+    {
+      "heroineId": "heroine.r",
+      "resourcePath": "Illustrations/r-portrait-candidate-v1",
+      "faceCenterX": 0.6,
+      "faceCenterY": 0.65,
+      "faceHeight": 0.27
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "resourcePath": "Illustrations/shangrila-portrait-candidate-v1",
+      "faceCenterX": 0.52,
+      "faceCenterY": 0.45,
+      "faceHeight": 0.12
+    },
+    {
+      "heroineId": "heroine.shell",
+      "resourcePath": "Illustrations/shell-portrait-candidate-v1",
+      "faceCenterX": 0.54,
+      "faceCenterY": 0.36,
+      "faceHeight": 0.13
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/slayer-portrait-candidate-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.37,
+      "faceHeight": 0.18
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "resourcePath": "Illustrations/slayer-swim-portrait-candidate-v1",
+      "faceCenterX": 0.51,
+      "faceCenterY": 0.35,
+      "faceHeight": 0.13
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/undermine-portrait-candidate-v1",
+      "faceCenterX": 0.51,
+      "faceCenterY": 0.37,
+      "faceHeight": 0.18
+    }
+  ]
+}
