@@ -5,9 +5,10 @@ namespace NewAster.Core
     [Serializable] public sealed class ColossusActionCombatDef
     {
         public string name,targetRule="single",damageType="physical",requiredPartId;
+        public string[] attributes;
         public EnemyStatusDef[] statusEffects;
         public int damagePercent=100,gaugeGain=1,drainAmount=1,waitPercent=100;
-        public ColossusActionCombatDef Copy(){var c=(ColossusActionCombatDef)MemberwiseClone();c.statusEffects=statusEffects?.Select(e=>e.Copy()).ToArray();return c;}
+        public ColossusActionCombatDef Copy(){var c=(ColossusActionCombatDef)MemberwiseClone();c.statusEffects=statusEffects?.Select(e=>e.Copy()).ToArray();c.attributes=attributes?.ToArray();return c;}
     }
     [Serializable] public sealed class ColossusPartCombatDef
     {
@@ -29,10 +30,12 @@ namespace NewAster.Core
         public ColossusActionCombatDef[] actionCycle;
         public int enemySpeed=90,majorWaitPercent=150,enrageHpPercent=50,enrageDamagePercent=125,attackBreakDamagePercent=75;
         public string majorDamageType="magic";
+        public string[] majorAttributes;
         public AttributeResistanceDef[] attributeResistances;
         public EnemyStatusResistanceDef[] statusResistances;
         public void Validate()
         {
+            CombatAttributeRules.Validate(majorAttributes);foreach(var a in actionCycle??Array.Empty<ColossusActionCombatDef>())CombatAttributeRules.Validate(a.attributes);
             CombatAttributeRules.ValidateResistances(attributeResistances);new EnemyStatusState(statusResistances);foreach(var a in actionCycle??Array.Empty<ColossusActionCombatDef>())foreach(var e in a.statusEffects??Array.Empty<EnemyStatusDef>())e.Validate();
             if(schemaVersion!=1 || !SupportedVersion(contentVersion) || !(status=="trial" || contentVersion==ProductionVersion && status=="production-candidate") || !CollectionCatalog.ValidId(id) || baseHp<1 || hpPerLevel<0 || gaugeMax<2 || baseDamage<1 || damagePerLevel<0 || majorBonus<1 || ultimateBonus<majorBonus ||
                new[]{normalAction,enragedAction,majorAction,ultimateAction}.Any(string.IsNullOrWhiteSpace) ||
@@ -48,6 +51,7 @@ namespace NewAster.Core
         public ColossusCombatDef Copy()=>new ColossusCombatDef {
             statusResistances=statusResistances?.Select(r=>new EnemyStatusResistanceDef{kind=r.kind,resistanceBp=r.resistanceBp}).ToArray(),attributeResistances=attributeResistances?.Select(a=>a.Copy()).ToArray(),schemaVersion=schemaVersion,contentVersion=contentVersion,status=status,id=id,baseHp=baseHp,hpPerLevel=hpPerLevel,gaugeMax=gaugeMax,baseDamage=baseDamage,damagePerLevel=damagePerLevel,majorBonus=majorBonus,ultimateBonus=ultimateBonus,
             normalAction=normalAction,enragedAction=enragedAction,majorAction=majorAction,ultimateAction=ultimateAction,
+            majorAttributes=majorAttributes?.ToArray(),
             actionCycle=actionCycle?.Select(a=>a.Copy()).ToArray(),enemySpeed=enemySpeed,majorWaitPercent=majorWaitPercent,enrageHpPercent=enrageHpPercent,enrageDamagePercent=enrageDamagePercent,attackBreakDamagePercent=attackBreakDamagePercent,majorDamageType=majorDamageType,
             parts=parts.Select(p=>new ColossusPartCombatDef {id=p.id,role=p.role,breakEffect=p.breakEffect,baseHp=p.baseHp,hpPerLevel=p.hpPerLevel}).ToArray()
         };

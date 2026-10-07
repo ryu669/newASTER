@@ -89,7 +89,7 @@ namespace NewAster.Presentation
             unified.home?.ValidateContent(HomeData(),unified);
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
             campaign=new CampaignState(WorldCatalog.ColossusIds,unified.world);
-            formalProgression=new FormalProgression(unified.growth,combatDefinitions.FormationIds);
+            formalProgression=new FormalProgression(unified.growth,combatDefinitions.HeroineIds);
             book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
             TrialObserve("save","loaded","revision="+unified.revision);
@@ -97,8 +97,8 @@ namespace NewAster.Presentation
         }
         private bool SaveFormalGrowth(FormalGrowthSave next)
         {
-            if(formalDiagnostic)return acceptanceStore!=null && formalCampaign.CommitGrowth(next,SaveDiagnosticCampaign);
-            return formalCampaign.CommitGrowth(next,SaveTrialObservedCampaign);
+            if(formalDiagnostic)return acceptanceStore!=null && formalCampaign.CommitGrowth(next,SaveDiagnosticCampaign,ProductionStoryActive?HomeData():null);
+            return formalCampaign.CommitGrowth(next,SaveTrialObservedCampaign,ProductionStoryActive?HomeData():null);
         }
         private void DrawFormalGrowth() => DrawGrowthExperience();
     }

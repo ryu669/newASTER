@@ -24,7 +24,7 @@ namespace NewAster.Presentation
             try{
                 var outcome=formalCampaign.CommitRelic(relicRequest,CollectionData(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);
                 if(outcome==GrowthCommitResult.SaveFailed){relicError="保存待ちです。同じ強化・装備内容で再試行します。";return;}
-                formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);relicRequest=null;relicError="保存しました。能力は次の出撃から反映されます。";
+                formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);relicRequest=null;relicError="保存しました。能力は次の出撃から反映されます。";
             }catch(Exception e){relicError=e is ArgumentException?"素材数・80%条件・Lv上限・装備先を確認してください。":"保存できません。同じ内容で再試行してください。";Debug.LogException(e);}
         }
         private string RelicUnavailable(CollectionRelic relic,RelicOperation operation)
@@ -100,8 +100,9 @@ namespace NewAster.Presentation
             else if(relicRequest.Operation==RelicOperation.HpUp)info=$"HP抽選値 {r.hpRoll} → {Math.Min(1000,r.hpRoll+10)} / 1000\n80%以上の項目だけ直接強化できます。\n対応する巨神獣素材 {FormalRelicRules.UpgradeCost(r,relicRequest.Operation,CollectionData().contentVersion)} を消費します。";
             else info=RelicEquipmentComparison(r,relicRequest);
             Label(170,375,1260,175,info,growthTextStyle);
-            if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<5;i++){
-                var id=combatDefinitions.FormationIds[i];if(GrowthButton(170+i*250,565,230,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation,relicRequest.ContentVersion);
+            var ownedHeroes=combatDefinitions.HeroineIds.Where(id=>formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id)).ToArray();
+            if(relicRequest.Operation==RelicOperation.Equip && !formalCampaign.HasPending)for(int i=0;i<ownedHeroes.Length;i++){
+                var id=ownedHeroes[i];if(GrowthButton(170+i*210,565,200,48,combatDefinitions.Hero(id).name,true,id==relicRequest.HeroineId))relicRequest=new FormalRelicRequest(relicRequest.Id,relicRequest.RelicId,id,relicRequest.Revision,relicRequest.Operation,relicRequest.ContentVersion);
             }
             string unavailable=RelicUnavailable(r,relicRequest.Operation);
             if(relicError!=null || unavailable!=null)Label(170,635,1260,55,relicError??unavailable,growthSmallStyle);
@@ -115,9 +116,9 @@ namespace NewAster.Presentation
             var snapshot=formalCampaign.Snapshot;var current=FormalRelicRules.Equipped(snapshot.collection,request.HeroineId);
             var next=JsonUtility.FromJson<FormalCollectionLedger>(JsonUtility.ToJson(snapshot.collection));next.equipment=next.equipment.Where(e=>e.heroineId!=request.HeroineId && e.relicId!=request.RelicId).ToArray();
             if(request.Operation==RelicOperation.Equip)next.equipment=next.equipment.Concat(new[]{new CollectionEquipment{heroineId=request.HeroineId,relicId=request.RelicId}}).ToArray();
-            var before=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions,formalGrowth:snapshot.growth,collectionGrowth:snapshot.collection);
-            var after=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions,formalGrowth:snapshot.growth,collectionGrowth:next);
-            int index=Array.IndexOf(combatDefinitions.FormationIds,request.HeroineId);var a=before.State.Heroes[index];var b=after.State.Heroes[index];
+            var before=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:snapshot.collection);
+            var after=new PlayableBattle(1,campaign.Playable,1,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(request.HeroineId)),formalGrowth:snapshot.growth,collectionGrowth:next);
+            int index=Array.IndexOf(PreviewFormation(request.HeroineId),request.HeroineId);var a=before.State.Heroes[index];var b=after.State.Heroes[index];
             string equipped=current==null?"未装備":$"Lv{current.level} ／ HP +{FormalRelicRules.Hp(current)}・攻撃 +{FormalRelicRules.Attack(current)}";
             relicComparisonKey=key;return relicComparisonText=$"装備先：{combatDefinitions.Hero(request.HeroineId).name} ／ 現在 {equipped}\n出撃時HP {a.MaxHitPoints} → {b.MaxHitPoints} ／ 攻撃 {a.BaseAttack} → {b.BaseAttack}\n{(request.Operation==RelicOperation.Equip?"装備を置き換え、固有能力の攻撃 +5%も反映します。":"装備ステータスと攻撃 +5%を外します。")}\nチェイン率は変化しません。保存後の次の出撃から反映します。";
         }

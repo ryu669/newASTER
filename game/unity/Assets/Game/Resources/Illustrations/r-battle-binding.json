@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.r",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/r-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/r-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/r-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/r-cutin-candidate-v1"
+}

@@ -65,7 +65,7 @@ namespace NewAster.Presentation
             if(recoveryPreview!=null){
                 var s=recoveryPreview;
                 if(recoveryShowHeroes && !recoveryConfirm){
-                    string detail=string.Join("\n",s.growth.heroines.Take(5).Select(h=>$"{(combatDefinitions.FormationIds.Contains(h.heroineId)?combatDefinitions.Hero(h.heroineId).name:h.heroineId)}  Lv.{h.level}/{h.LevelCap} ／ 覚醒{h.awakeningStage} ／ 重複強化{h.duplicateRank}"));
+                    string detail=string.Join("\n",s.growth.heroines.Take(5).Select(h=>$"{(combatDefinitions.HeroineIds.Contains(h.heroineId)?combatDefinitions.Hero(h.heroineId).name:h.heroineId)}  Lv.{h.level}/{h.LevelCap} ／ 覚醒{h.awakeningStage} ／ 重複強化{h.duplicateRank}"));
                     Label(200,423,1200,160,detail,growthTextStyle);
                 }else Label(200,423,1200,140,$"バックアップの保存番号  {s.revision}\n人物 {s.growth.heroines.Length}人 ／ 討伐記録 {s.world.claimedBattleIds.Length}回 ／ 詩 {s.world.poemIds.Length}\nネクタル {s.growth.nectar} ／ 覚醒結晶 {s.growth.awakeningCrystals}\n石 {s.growth.stones} ／ ポイント {s.growth.kinderPoints} ／ 専用チケット {s.growth.tickets.Sum(t=>(long)t.count)}枚",growthTextStyle);
             }

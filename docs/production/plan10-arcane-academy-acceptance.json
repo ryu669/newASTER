@@ -1,0 +1,252 @@
+{
+  "form": "arcane-academy",
+  "artCount": 18,
+  "pixelEditing": false,
+  "buildLogs": [
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\unity-build.log"
+  ],
+  "playerCaptureCount": 30,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-battle.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "battle"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-buff-extension.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "buff-extension"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-chapter.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "chapter"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-event0.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event0"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-event1.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event1"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-event2.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-event3.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event3"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-event4.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event4"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-formation-member.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-formation-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-formation.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-garden.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "garden"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-journey.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "journey"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-recruit.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruit"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-recruitment.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruitment"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-slot-jackpot.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "slot-jackpot"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-slot-match.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "slot-match"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-slot-miss.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "slot-miss"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-status-extension.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "status-extension"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-status.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "status"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x720\\arcane-academy-weapon.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x960\\arcane-academy-detail.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x960\\arcane-academy-event2.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x960\\arcane-academy-slot-match.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "slot-match"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1280x960\\arcane-academy-weapon.png",
+      "size": [
+        1280,
+        960
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1600x900\\arcane-academy-event4.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "event4"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1600x900\\arcane-academy-formation-member.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-arcane-academy\\player-1600x900\\arcane-academy-garden.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "garden"
+    }
+  ],
+  "remarks": "Screens are isolated acceptance saves. Final art revisions require new captures; older screenshots are retained as QA history."
+}

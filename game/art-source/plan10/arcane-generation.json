@@ -1,0 +1,95 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "standing",
+      "prompt": "Correct this exact original character illustration's canvas composition only: recreate the same mature adult Arcane angel explorer, identical face, golden eyes, magenta curls, gray tailcoat, high-neck lace blouse, white hat pink ribbon, black skirt stockings boots, satchel, turquoise gold cane and handgun, gold clockwork feather wings and halo. Both outer wings are clipped by the left and right canvas edges in the reference; show BOTH COMPLETE wings including every outermost feather. Scale the whole character group smaller and add generous completely transparent padding on ALL sides, at least 8% of canvas width between each wing tip and either side. No parts touch the canvas edge. Do not add scenery or dark gradient background. True transparent background, softly painted premium original RPG standing sprite. Keep whole hat halo feet cane intact. Preserve identity and all costume motifs; no text or UI.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3430c42c-ad1a-4865-8c6d-0c3f7541f183.png"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. A single waist-up character portrait, warm confident expression, entire hat halo head and wings in frame. Transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-f406abe6-a0d1-4c9c-9b3d-ec3d3fcba6df.png"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Full-body standing sprite, joyful bright smile and open friendly eyes, exact proportions and original outfit, transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1c72b3e7-ddcc-4cb5-8b18-0e7683e8209c.png"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Full-body standing sprite, thoughtful puzzled gentle expression, exact proportions and original outfit, transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-a13eb517-e136-4d89-b6bd-97624ea95b03.png"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Full-body standing sprite, determined proud smile, exact proportions and original outfit, transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-18c92f2a-08a0-4fc3-87dc-b121397178d1.png"
+    },
+    {
+      "key": "attack",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Full-body battle pose firing her ornate antique teal/gold handgun forward, keep handgun clearly shaped as firearm, whole wings halo feet inside frame. Transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-62f6163d-134a-4f98-ac4e-a1b9d7abcf7d.png"
+    },
+    {
+      "key": "hit",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Full-body light battle-hit flinch pose, fully dressed uninjured adult, feather wings visible, no gore, transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-7c4eeb98-db52-4e9d-8bce-6e248eef0f2f.png"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Dynamic ultimate full-body firing stance framed by sparkling teal golden relic filigree, large white mechanical angel wings, wholly transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-11df9c2b-7026-4978-b746-dea566e12ecb.png"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. One cute single chibi standing idle, full body miniature of adult heroine with complete hat wings halo curls skirt, transparent background, no duplicate full-size adult.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0769e301-8bcd-4940-8cff-d4cc6b93d72c.png"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. One cute single chibi walking right, miniature of adult heroine with complete hat wings halo curls skirt, transparent background, no duplicate adult.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-653a52c6-42b3-4216-a74d-af7617ee9a62.png"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. One cute single chibi gesturing and talking with smile, miniature of adult heroine with complete hat wings halo curls skirt, transparent background, no duplicate adult.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-64312284-8ef5-4058-bcb5-149b2b07e8f4.png"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. One cute single chibi surprised happily, miniature of adult heroine with complete hat wings halo curls skirt, transparent background, no duplicate adult.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3ff6b340-1ab7-44cb-af38-81d384a48374.png"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Draw ONLY her ornate decorative equipment tree: a tall symmetrical oval of white feather wings, gold clockwork, teal relic cane branches and pink flower ornaments, open empty center, no people, no text, no icons or UI nodes. Transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-aff3d166-71e3-43cc-a074-23d3b82dd0b6.png"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Landscape 16:9 narrative CG, heroine and her adult male companion 30 years old fully clothed, beside museum display table unfolding expedition map, warm conservatory library with empty display cases. Tender shared curiosity. Opaque complete scene.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-e0850ad2-e633-4de0-b226-95551045ab95.png"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Landscape 16:9 narrative CG, heroine and same adult male companion fully clothed in garden workshop carefully placing a tiny old clock gear in velvet display box, affectionate hands close, soft daylight. Opaque complete scene.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3075cdd5-16bc-4594-b7f1-5410b7eeaaea.png"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Landscape 16:9 narrative CG, heroine and same adult male companion fully clothed quietly confessing feelings and holding hands seated side by side in closed museum with warm lamps and relic displays. Mutual tender affection. Opaque complete scene.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-65e216d1-90d3-440d-b844-8c990257e05b.png"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Landscape 16:9 narrative CG, heroine and same adult male companion fully clothed sharing tea by a rainy museum window, closed book on table, leaning gently together by consent, peaceful afternoon. Opaque complete scene.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8a346cac-5816-4668-8801-588cd728cdb4.png"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Use the provided original Arcane illustration as exact character reference: one mature adult 27-year-old aristocratic angel explorer, magenta corkscrew curls and gold eyes, gray tailcoat fully covered lace blouse black skirt opaque stockings, white pink-ribbon hat, teal and gold clockwork feather wings and halo, satchel and ornate gun/cane. Keep consistent face and costume. Premium anime RPG painted illustration, no text or logos. Landscape 16:9 narrative CG, heroine and same adult male companion fully clothed each holding one ornate key while opening a shared archive cabinet with maps and memories, warm morning garden museum. Opaque complete scene.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-48990c82-d310-43b6-abcf-a9e17ac03c1f.png"
+    }
+  ]
+}

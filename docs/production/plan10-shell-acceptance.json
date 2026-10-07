@@ -1,0 +1,545 @@
+{
+  "date": "2026-10-06",
+  "status": "accepted",
+  "heroineId": "heroine.shell",
+  "jobId": "job.panzer",
+  "formsTotal": 9,
+  "peopleTotal": 8,
+  "jobsTotal": 8,
+  "coreAssertions": 8137,
+  "windowsBuild": "D:\\AIGAME\\newASTER\\game\\Builds\\plan10-shell\\newASTER.exe",
+  "buildBytes": 1868835862,
+  "artCount": 19,
+  "storyPages": 30,
+  "poems": 18,
+  "events": 5,
+  "screenCount": 30,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-attack.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.77833441840278,
+        101.48833550347223,
+        90.02449110243056
+      ],
+      "pixelStddev": [
+        71.52710752655057,
+        65.63808054662911,
+        57.76945379606744
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-bare.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        90.18524197048612,
+        99.22314344618056,
+        85.54459201388889
+      ],
+      "pixelStddev": [
+        69.46160326389318,
+        65.13759729822256,
+        55.869656342540246
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-battle.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.53809244791667,
+        100.64510525173611,
+        87.592705078125
+      ],
+      "pixelStddev": [
+        70.04969398594429,
+        64.94027056051479,
+        55.84846995881545
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-call.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.796767578125,
+        100.80976671006944,
+        87.75091362847222
+      ],
+      "pixelStddev": [
+        70.12397472582629,
+        64.91341911179268,
+        55.818053590098955
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-chapter.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        74.31713541666667,
+        84.58969075520834,
+        86.26144205729166
+      ],
+      "pixelStddev": [
+        65.06496516601372,
+        63.66082377894794,
+        59.82687067802671
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-defense.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        90.18247395833333,
+        99.21876410590278,
+        85.5418674045139
+      ],
+      "pixelStddev": [
+        69.46065212554457,
+        65.13695125624685,
+        55.86829543716603
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-detail.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.1461208767361,
+        98.31005533854167,
+        96.94808268229167
+      ],
+      "pixelStddev": [
+        101.89707856374751,
+        94.66292124395264,
+        82.43585909484396
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-event0.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        102.21751953125,
+        91.7315353732639,
+        89.01500759548611
+      ],
+      "pixelStddev": [
+        83.2511066378945,
+        72.95006686142382,
+        64.30485393679736
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-event1.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        74.5623459201389,
+        67.01862630208333,
+        72.66953667534722
+      ],
+      "pixelStddev": [
+        70.27934502050049,
+        58.12787326997894,
+        53.680288942443156
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-event2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        83.11676649305555,
+        69.02178927951388,
+        69.28317491319444
+      ],
+      "pixelStddev": [
+        77.41834776921596,
+        60.30945080311608,
+        50.72233527657722
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-event3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        103.422646484375,
+        92.818994140625,
+        91.34106011284722
+      ],
+      "pixelStddev": [
+        83.65895945385869,
+        72.26977348083281,
+        64.29323890795568
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-event4.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        108.39119032118056,
+        98.26718967013889,
+        98.44431098090278
+      ],
+      "pixelStddev": [
+        89.00091326214279,
+        77.01376754427872,
+        67.7287803891668
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-formation.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        61.91492621527778,
+        56.107401258680554,
+        61.237230902777775
+      ],
+      "pixelStddev": [
+        75.87370863034626,
+        64.42147722439663,
+        59.37182792818063
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-garden.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.821806640625,
+        113.47009982638889,
+        93.95920789930555
+      ],
+      "pixelStddev": [
+        67.78922323206092,
+        63.07877219646045,
+        58.27211959742024
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-guard.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.535,
+        100.64029296875,
+        87.58953884548612
+      ],
+      "pixelStddev": [
+        70.0478831070417,
+        64.93896609470228,
+        55.84660376871641
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-journey.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        126.28263129340277,
+        128.42948350694445,
+        122.77797417534723
+      ],
+      "pixelStddev": [
+        104.22101403701858,
+        94.87271868639853,
+        81.85284784544716
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-recruit.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        44.83722222222222,
+        42.22734049479167,
+        46.808525390625
+      ],
+      "pixelStddev": [
+        56.82333841816529,
+        47.66038346488532,
+        43.43950708312661
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-recruitment.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        24.211826171875,
+        32.276638454861114,
+        46.68133572048611
+      ],
+      "pixelStddev": [
+        31.962886438659087,
+        26.147027674952586,
+        18.191991658387405
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-repair.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.53546875,
+        100.64070638020833,
+        87.58979383680555
+      ],
+      "pixelStddev": [
+        70.04828943101201,
+        64.93944511627511,
+        55.8471276025834
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-roster.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        47.04309895833333,
+        44.50031032986111,
+        50.35362087673611
+      ],
+      "pixelStddev": [
+        61.4577418766506,
+        51.30013230121775,
+        46.98528178762674
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-setup-pending.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        18.503455946180555,
+        27.112030164930555,
+        42.47287543402778
+      ],
+      "pixelStddev": [
+        24.050509210093026,
+        20.235700171684847,
+        15.86749829384402
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-setup-save.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.53090277777778,
+        100.63871961805556,
+        87.58854275173611
+      ],
+      "pixelStddev": [
+        70.0615501804058,
+        64.94982904102092,
+        55.85091732613439
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-setup.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        24.190190972222222,
+        32.28462022569445,
+        47.612903645833335
+      ],
+      "pixelStddev": [
+        32.1811301566302,
+        26.5330130533965,
+        19.961113186872083
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-status.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        84.53181966145833,
+        94.718857421875,
+        80.61712999131944
+      ],
+      "pixelStddev": [
+        70.4022355226665,
+        66.20400479049903,
+        53.9627782331951
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1280\\shell-weapon.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        75.90141710069445,
+        74.99332356770833,
+        75.74091471354167
+      ],
+      "pixelStddev": [
+        88.29434022510709,
+        81.82556793338762,
+        71.65292510297542
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1600\\shell-bare.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        89.83590138888889,
+        98.87059027777778,
+        85.24513888888889
+      ],
+      "pixelStddev": [
+        69.63010965277121,
+        65.38834378636452,
+        56.06472001656893
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1600\\shell-battle.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        91.23250416666667,
+        100.3895388888889,
+        87.45120138888889
+      ],
+      "pixelStddev": [
+        70.24992881673921,
+        65.26929002651364,
+        56.17206884827684
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1600\\shell-detail.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        101.59979166666666,
+        98.79069652777778,
+        97.43901666666666
+      ],
+      "pixelStddev": [
+        102.18387011200794,
+        94.97761494879765,
+        82.72384909329855
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1600\\shell-event2.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        83.21248819444445,
+        69.09912013888889,
+        69.28855763888889
+      ],
+      "pixelStddev": [
+        77.66659867318553,
+        60.582052710474684,
+        50.89939794901677
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shell\\player-1600\\shell-setup.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        24.49954375,
+        32.55891666666667,
+        47.70571180555555
+      ],
+      "pixelStddev": [
+        33.3268041490905,
+        27.525134139218004,
+        20.3395485893793
+      ]
+    }
+  ],
+  "verified": [
+    "previous eight forms unchanged",
+    "armor rejects ordinary healing",
+    "flesh allows only defense",
+    "exact Clock300 call, no resurrection of dead flesh",
+    "finite two-slot tools never refill on call",
+    "wounded flesh carried through successive armor breaks",
+    "physical/magic/fire armor selection persisted atomically",
+    "source three skills and burning-target synergy",
+    "five formation positions",
+    "additive saves and idempotent free recruitment",
+    "all three chapters and five events persisted/reloaded",
+    "19 original images, alpha/import/hash validation",
+    "1280x720 and 1600x900"
+  ],
+  "referenceLimit": "Sampled screen evidence; authored voice is separate from untranscribed source audio."
+}

@@ -1,0 +1,95 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "standing",
+      "path": "C:/Users/nishi/.codex/generated_images/01a110e0-1db7-7301-b5c5-7186337a9dac/exec-608f19f4-6b55-4856-96f3-e9744aeaf7e0.png",
+      "prompt": "Use case: stylized-concept. Asset: newASTER full-body standing sprite, Slayer summer/swimsuit alternate adult form. Use referenced existing Slayer only as character identity/style reference; replace outfit entirely. One clearly adult 27-year-old angel woman with mature adult proportions and face, golden blond chin-length bob, blue-green eyes, calm confident warm smile. White and deep navy elegant athletic one-piece swimsuit with pink hibiscus ribbon details, light white beach jacket resting naturally open over it, short opaque wrap skirt, white summer sandals. Large white feather angel wings with small pink flowers and a delicate gold halo above head. Wide-brim white sun hat with navy ribbon, white feathers and tropical flowers. Holds a closed ornate white/gold sun parasol as a command standard, upright relaxed standing stance. High-quality ornate Japanese fantasy game illustration matching reference rendering. Entire figure and wings fit with generous margins in tall canvas; symmetrical natural anatomy, two arms/two legs, no distortion. Clean separate silhouette, no scenery, no typography, no UI, no ground plane. Truly transparent background, preserve alpha. Adult, tasteful beach costume, no sexual pose."
+    },
+    {
+      "key": "portrait",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-642e063f-5f08-46e5-827e-f79c30903bd8.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Upper body portrait, warm composed expression, same costume and wings, preserve proportions, transparent background."
+    },
+    {
+      "key": "expression-joy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fe950fc2-3c0f-45b0-a370-dfeee12f080e.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Same full-body standing composition, visibly joyful open warm smile, all body/outfit/wing geometry stays consistent, transparent background."
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-297b180f-5bbe-46ec-a792-798cb3db2605.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Same full-body standing composition, thoughtful slightly concerned face, all body/outfit/wing geometry stays consistent, transparent background."
+    },
+    {
+      "key": "expression-determined",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8bd4af67-85c5-4521-bce0-c1bb2b78c864.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Same full-body standing composition, confident determined face, all body/outfit/wing geometry stays consistent, transparent background."
+    },
+    {
+      "key": "hit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-eeaa2cc5-5eb9-49ef-aba5-5e4a4961f581.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. One full-body adult angel bracing against an impact, alert face, two natural arms/legs, parasol held defensively, wings readable, no wounds, transparent."
+    },
+    {
+      "key": "cutin",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-6a3c4106-4b10-4578-9084-6af7fa11e4b4.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. One dramatic full-body adult angel opening her white/navy/gold parasol as a command banner with hibiscus petals and golden sunlight, wings and halo unmistakable, entire body within canvas with generous margins, transparent."
+    },
+    {
+      "key": "sd-idle",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-62c0393a-17ff-40ac-a37b-ad31366eb0e4.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Single chibi SD version of this adult character only, idle standing, keep hat swimsuit wrap skirt parasol halo and wings, clean complete silhouette, no second realistic figure, transparent."
+    },
+    {
+      "key": "sd-talk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-973f0e59-d08c-4c7c-8c3f-22357df0bfbc.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Single chibi SD version only, talking gesture with one hand and parasol in other, keep costume and angel motifs, transparent."
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-ed46a6c7-3b0b-4980-9727-ada8ffe90762.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. An ornate vertical oval equipment-tree frame formed from white feathers, gold parasol ribs, navy ribbons and hibiscus flowers, empty central interior for game nodes; no person, no labels, transparent background."
+    },
+    {
+      "key": "event-0-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-fbb258fb-c834-4cf9-bbd6-ee5a716b2a06.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Wide landscape story CG. Adult woman and adult 28-year-old black-haired male protagonist in a linen summer shirt sit beside a shaded beach library table reading a map, two adults exchanging natural warm smiles. Angel wings and sunhat remain. Clear believable hands, no exaggerated anatomy, seaside garden, beautiful natural sunlight, opaque painted background."
+    },
+    {
+      "key": "event-1-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0a6b9177-ddbf-409e-b3c1-54e30f14048f.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Wide landscape story CG. Adult couple walk on a shoreline beneath a shared white/navy sun parasol. Woman points to a shell on the sand, man listens attentively. Same adult faces and angel costume, calm natural moment, beautiful beach and blue sea, opaque background."
+    },
+    {
+      "key": "event-2-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-19b16a81-b8d2-4471-aedd-9328e2612a64.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Wide landscape story CG. Adult couple mutually holding hands beneath sunset light on a beach garden terrace, romantic sincere eye contact, mature adults, same outfit sunhat wings halo. Two correctly formed hands joined clearly. No sexual pose, rich ocean sunset, opaque background."
+    },
+    {
+      "key": "event-3-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-e6c9fdb5-386a-4ab1-ba80-24d38b36e297.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Wide landscape story CG. Adult couple peacefully sharing fruit tea on a shaded seaside veranda, woman sits beside man with shoulder gently touching his, parasol resting nearby, same adult costume/identity. Relaxed wholesome romantic afternoon, no sexual scene, opaque background."
+    },
+    {
+      "key": "event-4-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-61bc91fd-13fa-41b7-9134-9827b9f6adba.png",
+      "prompt": "newASTER original fantasy illustration. Use the referenced Slayer summer sprite as identity and exact outfit reference: adult 27-year-old angel, golden chin-length bob, blue-green eyes, white/navy swimsuit, white beach jacket, hibiscus wrap skirt, wide brim white/navy flower feather sun hat, white feather wings with pink flowers, thin gold halo, summer sandals. Keep mature adult proportions, coherent natural anatomy and the same face. No text, UI, watermark or duplicates. Wide landscape story CG. Adult couple standing hand in hand at the sea garden gate in the morning, woman's closed parasol in free hand as gentle command standard, same costume/halo/wings. Hopeful return journey, natural anatomy, wide beautiful ocean garden backdrop, opaque."
+    },
+    {
+      "key": "attack",
+      "prompt": "Create a dynamic full body battle attack pose of this exact adult angel summer swordswoman, thrusting her ornate parasol like a lance, clear complete silhouette, identical face hair hat costume white angel wings gold halo, transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-8c2815c2-150a-4a3e-a48a-ce08d488b439.png"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create one single cute chibi of this exact adult angel summer swordswoman walking toward right, complete white wings gold halo flower hat parasol, same hair and costume, transparent background. No duplicate people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-5e3b6e9c-eeac-4b67-89e9-c8c53086fb37.png"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create one single cute chibi of this exact adult angel summer swordswoman reacting with surprised happy hands up, complete wings halo hat, identical hair and costume, transparent background. No duplicate people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3a1ca63b-d8fe-4489-aeb6-4a0ae27fed30.png"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ namespace NewAster.Data
     {
         public static CollectionCatalog Collection(CombatDefinitionCatalog combat,ProductionStoryContent story)
         {
-            story.Validate(combat.FormationIds,WorldCatalog.ColossusIds.ToArray());
+            story.Validate(combat.HeroineIds,WorldCatalog.ColossusIds.ToArray());
             var catalog=CollectionContractFixture.Create(combat);
             catalog.contentVersion=CollectionCatalog.ProductionVersion;catalog.status="release";
             foreach(var chapter in story.chapters){
@@ -18,7 +18,7 @@ namespace NewAster.Data
                 if(!target.poemIds.SequenceEqual(chapter.poems.Select(p=>p.id)))throw new ArgumentException("Production poem membership differs from preserved IDs.");
                 target.textId="text.production."+chapter.id+".intro";
             }
-            catalog.links=story.chapters.Where(c=>combat.FormationIds.Contains(c.ownerId)).SelectMany(c=>c.poems.Select(p=>new CollectionLinkDef{
+            catalog.links=story.chapters.Where(c=>combat.HeroineIds.Contains(c.ownerId)).SelectMany(c=>c.poems.Select(p=>new CollectionLinkDef{
                 id="link.production."+p.id,ownerId=c.ownerId,sourcePoemId=p.sourcePoemId,targetPoemId=p.id})).ToArray();
             ProductionEconomyCatalog.ApplyCollection(catalog);catalog.Validate();return catalog;
         }
@@ -27,14 +27,16 @@ namespace NewAster.Data
             var collection=Collection(combat,story);
             // Reuse candidate art layout contracts, replace every fixture narrative and scene.
             var home=HomeExperienceFixture.Create(combat);
+            home.battleRoles=combat.heroines.Select(h=>new HomeBattleRole{heroineId=h.id,jobId=h.jobId}).ToArray();
+            home.personLinks=combat.heroines.Where(h=>!string.IsNullOrEmpty(h.personId)).Select(h=>new HomePersonLink{heroineId=h.id,personId=h.personId}).ToArray();
             home.contentVersion=HomeExperienceCatalog.ProductionVersion;home.status="release";
             home.texts=Array.Empty<HomeTextDef>();home.scripts=Array.Empty<HomeAdvScript>();
             var assets=home.assets.ToList();var texts=new List<HomeTextDef>();var scripts=new List<HomeAdvScript>();
             foreach(var chapter in story.chapters){
                 var target=home.chapters.Single(c=>c.id==chapter.id);target.sceneId="scene.production."+chapter.id;
                 target.requiredPoemIds=chapter.poems.Select(p=>p.id).ToArray();
-                AddScript(target.sceneId,combat.FormationIds.Contains(chapter.ownerId)?chapter.ownerId:null,chapter.backgroundResourcePath,null,
-                    new[]{chapter.introduction}.Concat(chapter.poems.Select(p=>p.body)).Concat(new[]{chapter.conclusion}).ToArray(),null,assets,texts,scripts);
+                AddScript(target.sceneId,combat.HeroineIds.Contains(chapter.ownerId)?chapter.ownerId:null,chapter.backgroundResourcePath,null,
+                    chapter.pages!=null && chapter.pages.Length>0?chapter.pages:new[]{chapter.introduction}.Concat(chapter.poems.Select(p=>p.body)).Concat(new[]{chapter.conclusion}).ToArray(),null,assets,texts,scripts);
             }
             foreach(var authored in story.events){
                 var target=home.events.Single(e=>e.id==authored.id);int index=int.Parse(authored.id.Substring(authored.id.LastIndexOf('.')+1));
@@ -56,6 +58,15 @@ namespace NewAster.Data
                 home.assets=home.assets.Concat(new[]{new HomeAssetDef{id=normal,kind="expression",resourcePath=standing.resourcePath,fullFrame=true,placeholder=true},new HomeAssetDef{id=pose,kind="pose",resourcePath=standing.resourcePath,fullFrame=true,placeholder=true}}).ToArray();
                 display.expressions.Single(e=>e.id=="expression.normal").assetId=normal;display.poses.Single(p=>p.id=="pose.idle").assetId=pose;
             }
+            Plan10RHomeArt.Apply(home);
+            Plan10AnnihilatorHomeArt.Apply(home);
+            Plan10ShellHomeArt.Apply(home);
+            Plan10OriflammeHomeArt.Apply(home);
+            Plan10NighthawkHomeArt.Apply(home);
+            Plan10SlayerSwimHomeArt.Apply(home);
+            Plan10ArcaneHomeArt.Apply(home);
+            Plan10ArcaneAcademyHomeArt.Apply(home);
+            Plan10ShangrilaHomeArt.Apply(home);
             var used=new HashSet<string>(home.displays.SelectMany(d=>new[]{d.standingAssetId}.Concat(d.expressions.Select(e=>e.assetId)).Concat(d.poses.Select(p=>p.assetId)))
                 .Concat(home.gardens.SelectMany(g=>new[]{g.backgroundAssetId}.Concat(g.middleAssetIds).Concat(g.foregroundAssetIds)))
                 .Concat(home.furniture.Select(f=>f.assetId)).Concat(home.scripts.SelectMany(s=>s.commands).SelectMany(c=>new[]{c.assetId,c.audioId}).Where(id=>id!=null)));

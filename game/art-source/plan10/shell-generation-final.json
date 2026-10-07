@@ -1,0 +1,101 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1a515715-eb1c-4bf2-8d81-f73695d35002.png",
+      "prompt": "Original master: preserve source silver hair crimson ribbon navy military costume, blue-gray armor and rotors, add angelic halo mechanical feather wings."
+    },
+    {
+      "key": "portrait",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Face and shoulders portrait, warm attentive composed look, halo and top of mechanical wings visible. transparent. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-6ff7173d-886a-4072-81a8-d6ec36aacde9.png"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Full-body same outfit and armor, gentle bright smile, slight blush, same standing framing. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-e0aba2fa-a963-4209-95ac-dd6f9d5a08f4.png"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Full-body same outfit and armor, uncertain thoughtful expression, tilting head slightly, same framing. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-24634cfd-aa97-4639-ac02-77b64bddc2c9.png"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Full-body same outfit and armor, firm red-eyed determined expression, same framing. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-de35775d-c0f9-4e4d-91dd-09486c00554f.png"
+    },
+    {
+      "key": "attack",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Full-body dynamic melee attack with right armored gauntlet extended, red sparks, mechanical feather wings spreading, pose all visible. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-026ff1ab-840b-45cd-9fc7-032e344f01b3.png"
+    },
+    {
+      "key": "hit",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Full-body bracing under impact, one shoulder shield cracked, face tense, silver wings protect her, no blood. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-a10f7fc9-4c35-4bf4-9f53-d8987f6e2181.png"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. Dramatic upper-body battle cut-in, determined face, large gauntlet and luminous wing feathers, horizontal composition on transparency. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Real transparent background, clean alpha edges, entire subject plus halo wings tips boots within 8 percent transparent margins.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-d057d4f7-ae70-456c-857e-5b95de8d3cb9.png"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Replace the whole reference canvas with exactly ONE SINGLE chibi figure in friendly relaxed idle standing, both hands lowered. Preserve EXACT referenced chibi style, silver-white long hair two narrow braids, red eyes big crimson ribbon gold halo, navy sleeveless red-trim military dress, black gloves, dark boots silver leg braces, small mechanical feather wings and tiny folded rotors. ONE small 2.5-head-tall character ONLY. Do not include the original pose anywhere, no adult full-size figure, no duplicate characters, no pose sheet or comparison. All head halo tips wings and both feet fully visible. IMPORTANT: figure occupies ONLY middle 70 percent of canvas with broad transparent padding of 15 percent above halo and below boots and at sides. Real transparent alpha background, no text, no collage, no scenery, polished chibi JRPG sprite.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-d7dc0a41-920f-43b8-8a31-18ff71ca46b2.png"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Replace the whole reference canvas with exactly ONE SINGLE chibi figure in one small step forward in walking pose, one arm swings, facing three quarters right. Preserve EXACT referenced chibi style, silver-white long hair two narrow braids, red eyes big crimson ribbon gold halo, navy sleeveless red-trim military dress, black gloves, dark boots silver leg braces, small mechanical feather wings and tiny folded rotors. ONE small 2.5-head-tall character ONLY. Do not include the original pose anywhere, no adult full-size figure, no duplicate characters, no pose sheet or comparison. All head halo tips wings and both feet fully visible. IMPORTANT: figure occupies ONLY middle 70 percent of canvas with broad transparent padding of 15 percent above halo and below boots and at sides. Real transparent alpha background, no text, no collage, no scenery, polished chibi JRPG sprite.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-5d8be097-2b3c-456e-9fd2-fa9ccd5cafb1.png"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Replace the whole reference canvas with exactly ONE SINGLE chibi figure in friendly conversational pose, one hand raised with open palm, mouth smiling. Preserve EXACT referenced chibi style, silver-white long hair two narrow braids, red eyes big crimson ribbon gold halo, navy sleeveless red-trim military dress, black gloves, dark boots silver leg braces, small mechanical feather wings and tiny folded rotors. ONE small 2.5-head-tall character ONLY. Do not include the original pose anywhere, no adult full-size figure, no duplicate characters, no pose sheet or comparison. All head halo tips wings and both feet fully visible. IMPORTANT: figure occupies ONLY middle 70 percent of canvas with broad transparent padding of 15 percent above halo and below boots and at sides. Real transparent alpha background, no text, no collage, no scenery, polished chibi JRPG sprite.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-06191a4b-08cb-401c-87f2-1a4435ab1296.png"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Replace the whole reference canvas with exactly ONE SINGLE chibi figure in surprised delighted expression, both hands raised near cheeks. Preserve EXACT referenced chibi style, silver-white long hair two narrow braids, red eyes big crimson ribbon gold halo, navy sleeveless red-trim military dress, black gloves, dark boots silver leg braces, small mechanical feather wings and tiny folded rotors. ONE small 2.5-head-tall character ONLY. Do not include the original pose anywhere, no adult full-size figure, no duplicate characters, no pose sheet or comparison. All head halo tips wings and both feet fully visible. IMPORTANT: figure occupies ONLY middle 70 percent of canvas with broad transparent padding of 15 percent above halo and below boots and at sides. Real transparent alpha background, no text, no collage, no scenery, polished chibi JRPG sprite.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-183dd8d6-4ed1-4c2c-b717-c4168b759889.png"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. ONE seamless wide romantic story illustration. Shell seated at a garden workshop table repairing a tiny windmill toy together with ONE young adult male companion wearing simple dark travel coat. Kind attentive expression, large mechanical wing armor folded safely behind. Afternoon sunlight, loose bolts and tiny windmill on table. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Opaque full detailed scenic background, horizontal 1536x1024.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-62c83f36-4d2e-41aa-b67f-b7e1212aedc6.png"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. ONE seamless wide story illustration. Shell in same navy military dress silver hair red ribbon halo seated next to ONE adult male companion in a sheltered workshop in evening rain. He holds a small lamp while she checks a gauntlet fastener. Caring quiet expression, hands near each other. Mechanical wings visible. Moody blue rain through window. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Opaque full detailed scenic background, horizontal 1536x1024.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-80129877-8f1f-4ed5-9304-f8e915a7f51f.png"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Create ONE seamless horizontal romantic garden illustration using referenced adult Shell in light support braces, no heavy armor. ONE woman Shell, silver long hair with two narrow braids crimson ribbon red eyes gold halo tiny ethereal feather wings navy black sleeveless military dress crimson lining gloves dark boots/light leg braces, seated on a wooden garden bench beside ONE adult man wearing simple dark travel coat. They gently clasp hands between them and look at each other, tender mutual confession, starry night with flowers and a toy windmill nearby. Empty heavy mechanical wing armor is PARKED as unmanned machinery at the FAR background wall, not worn. Woman's back and shoulders free, only small ethereal angel wings. Full opaque background, polished anime JRPG painting, ONE camera one continuous scene, no panels, no duplicates, no text, no UI. 1536x1024.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-9bd611ef-f543-421b-ba77-4f25ea7998eb.png"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. ONE seamless wide romantic domestic scene. Shell and ONE adult male companion sharing hot tea at a garden workbench in morning sun. Mechanical armored wings folded behind her. Navy military dress red ribbon silver twin braids golden halo. She listens warmly to him, small toy windmill in background. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Opaque full detailed scenic background, horizontal 1536x1024.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-47847919-16ce-417d-8da3-844319de56ff.png"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Use referenced Shell master strictly for ONE adult angel heroine's identity and costume. Silver white long hair twin slim braids, crimson ribbon, red eyes, navy sleeveless military dress crimson edging, black gloves, dark boots and leg braces, gold halo, blue-gray exoskeleton and mechanical feather wings/rotors. Original newASTER polished anime JRPG painterly art. ONE seamless wide emotional story scene. Shell same outfit silver hair red ribbon halo beside ONE adult male companion watching sunrise from reconstructed garden walkway. Luminous gold mechanical feather wings open softly. They stand holding hands, sense of choosing to return home together. Full scenery. ONE seamless image ONE camera. No panels, split screen, collage, diptych, duplicated figures, text, watermarks, logos, source UI. Opaque full detailed scenic background, horizontal 1536x1024.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-b79482ce-1f92-4764-85e6-3451ae9cd35e.png"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Create ONE abstract decorative game equipment progression frame on real transparent background. NO humans, NO characters, NO faces, NO hair, NO bodies. Symmetrical oval branching frame constructed exclusively from silver mechanical FEATHER blades, blue-gray metal plates with gold engravings and red accents. A golden halo ring and star at TOP CENTER, twelve small round EMPTY sockets along three branching circuits. Empty large TRANSPARENT interior. All frame wings within 8 percent padding. Elegant military angel mechanical motif, polished painterly JRPG art. No letters no numbers no text no UI, one seamless object. 1024x1536.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1ea6e5c1-27f1-4908-a00e-eb00d1be706f.png"
+    },
+    {
+      "key": "bare",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1e638dd3-33fa-4446-a2a4-116873b29d6e.png",
+      "prompt": "Armor Break state, navy dress with supportive leg braces, gold halo, small ethereal wings, heavy mechanical armor removed."
+    }
+  ]
+}

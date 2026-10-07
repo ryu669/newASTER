@@ -17,6 +17,16 @@ public static class AutomaticChainTests
         FormalRecoveryTests.Run(Check);
         FormalEngagementTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_R")=="1")Plan10RTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ANNIHILATOR")=="1")Plan10AnnihilatorTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_NIGHTHAWK")=="1")Plan10NighthawkTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SLAYER_SWIM")=="1")Plan10SlayerSwimTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ARCANE")=="1")Plan10ArcaneTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_UI")=="1")AspectLayoutTests.Run(Check);
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ACADEMY")=="1")Plan10ArcaneAcademyTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SHANGRILA")=="1")Plan10ShangrilaTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_ORIFLAMME")=="1")Plan10OriflammeTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        if(Environment.GetEnvironmentVariable("NEWASTER_PLAN10_SHELL")=="1")Plan10ShellTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         FormalKinderTests.Run(Check,JsonSerializer.Deserialize<FormalKinderBanner>(File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Economy/kinder-trial.json")),options));
         string formalJson=File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"battle-formal.json"));
         Func<CombatDefinitionCatalog> currentFormal=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(formalJson,options);
@@ -602,7 +612,7 @@ public static class AutomaticChainTests
         battle.DrainPresentationEvents();battle.Act(4,1,"body");collected=new List<BattlePresentationEvent>(battle.DrainPresentationEvents());
         while(battle.IsCasting(4) && !battle.Ended) {battle.Pass();collected.AddRange(battle.DrainPresentationEvents());}
         Check(hero.TimedEffects.All(e=>e.RemainingCommands==2) && !collected.Any(e=>e.Message.StartsWith("再生") && e.Actor==4),"Cast release is not another owner command or regeneration opportunity");
-        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("speed",20,3)};ExpectCombatFailure(catalog,"Unsupported speed buff rejected, not silently ignored");
+        catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("accuracy",20,3)};ExpectCombatFailure(catalog,"Unsupported accuracy buff rejected, not silently ignored");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects=new[]{Timed("attack",15,3),Timed("attack",20,3)};ExpectCombatFailure(catalog,"Duplicate effect kinds rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].turns=0;ExpectCombatFailure(catalog,"Zero duration rejected");
         catalog=SelfBuffCatalog(fresh,Timed("attack",15,3));catalog.Skill("hero-0",1).selfEffects[0].percent=0;ExpectCombatFailure(catalog,"Zero effect rejected");

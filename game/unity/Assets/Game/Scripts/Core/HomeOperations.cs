@@ -31,10 +31,17 @@ namespace NewAster.Core
         {
             var h=s.home;
             switch(op.Kind){
+                case "panzer-loadout": {
+                    Owned(s,op.Target);if(op.Target!="heroine.shell" || !c.heroineIds.Contains(op.Target))throw new ArgumentException("Unknown panzer.");var l=new PanzerLoadout(op.Owner,op.Garden,op.Zone);
+                    h.panzerEquipment=(h.panzerEquipment??Array.Empty<HomePanzerEquipment>()).Where(e=>e.heroineId!=op.Target).Concat(new[]{new HomePanzerEquipment{heroineId=op.Target,resistance=l.Resistance,firstTool=l.FirstTool,secondTool=l.SecondTool}}).ToArray();break;}
+                case "commander": {
+                    if(op.Target=="formation.auto"){h.commanderHeroineId=null;break;}Owned(s,op.Target);if(c.BattleJob(op.Target)!="job.general")throw new ArgumentException("指揮官にはジェネラルを選択してください。");h.commanderHeroineId=op.Target;break;}
+                case "sniper-support": {
+                    Owned(s,op.Target);Owned(s,op.Owner);if(c.BattleJob(op.Target)!="job.sniper" || op.Target==op.Owner)throw new ArgumentException("狙撃手と援護対象を選択してください。");h.sniperSupports=(h.sniperSupports??Array.Empty<HomeSniperSupport>()).Where(e=>e.heroineId!=op.Target).Concat(new[]{new HomeSniperSupport{heroineId=op.Target,targetId=op.Owner}}).ToArray();break;}
                 case "formation": {
                     Owned(s,op.Target);if(!c.heroineIds.Contains(op.Target) || !int.TryParse(op.Owner,out int slot) || slot<0 || slot>=5)throw new ArgumentException("編成枠を選択してください。");
                     var ids=h.formationIds==null || h.formationIds.Length==0?c.heroineIds.Take(5).ToArray():(string[])h.formationIds.Clone();
-                    if(ids.Length!=5)throw new ArgumentException("編成には5人が必要です。");int previous=Array.IndexOf(ids,op.Target);if(previous>=0)ids[previous]=ids[slot];ids[slot]=op.Target;h.formationIds=ids;break;}
+                    if(ids.Length!=5)throw new ArgumentException("編成には5人が必要です。");int previous=Array.FindIndex(ids,id=>c.PersonId(id)==c.PersonId(op.Target));if(previous>=0)ids[previous]=ids[slot];ids[slot]=op.Target;h.formationIds=ids;break;}
                 case "weapon": {
                     var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
                     if(!(n.abilityId=="ability.home-fixture.attack" && n.skillId=="skill.home-fixture.preview" || c.contentVersion==HomeExperienceCatalog.ProductionVersion && n.abilityId=="ability.production.weapon-attack" && n.skillId=="skill.production.weapon-basic"))throw new ArgumentException("この武器効果は未対応です。");
@@ -55,7 +62,7 @@ namespace NewAster.Core
                 case "remove":h.furniturePlacements=h.furniturePlacements.Where(p=>p.instanceId!=op.Target).ToArray();ClearUse(h,op.Target);break;
                 case "occupant": {
                     Owned(s,op.Target);if(!s.world.unlockedGardenIds.Contains(op.Garden) || !c.gardens.Any(g=>g.id==op.Garden && !g.unmade) || op.X<0 || op.X>1 || op.Y<0 || op.Y>1)throw new ArgumentException("Unavailable garden position.");
-                    h.occupants=h.occupants.Where(o=>o.heroineId!=op.Target).Concat(new[]{new HomeOccupant{heroineId=op.Target,gardenId=op.Garden,slotId="slot.idle",x=op.X,y=op.Y}}).ToArray();break;}
+                    h.occupants=h.occupants.Where(o=>c.PersonId(o.heroineId)!=c.PersonId(op.Target)).Concat(new[]{new HomeOccupant{heroineId=op.Target,gardenId=op.Garden,slotId="slot.idle",x=op.X,y=op.Y}}).ToArray();break;}
                 case "use": {
                     var o=h.occupants.Single(o0=>o0.heroineId==op.Target);var p=h.furniturePlacements.Single(p0=>p0.instanceId==op.Owner && p0.gardenId==o.gardenId);var f=c.furniture.Single(f0=>f0.id==p.defId);var slot=f.slots.FirstOrDefault(sl=>!h.occupants.Any(other=>other.heroineId!=o.heroineId && other.furnitureInstanceId==p.instanceId && other.slotId==sl.id));
                     // Placeholder SD has no action animation: show the reason, retain idle.

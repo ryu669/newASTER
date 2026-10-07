@@ -1,0 +1,244 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 18,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-standing-candidate-v1.png",
+      "sha256": "45b88bfc7770e2b84136a40c94d454927b3ca4fa89670e5fea43c7829a7b842e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-portrait-candidate-v1.png",
+      "sha256": "5968abd9ae25f12976d2fba09d720e1f369e92ba94a6e69c96627366e79f5d11",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-expression-joy-candidate-v1.png",
+      "sha256": "be42b169afaaac02b36e50aefe0b466b478a91088d2c5c3ff695b88b1e54f0b8",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-expression-determined-candidate-v1.png",
+      "sha256": "d3fbbd9f13dbce23d0a9b5314bc5a54856b79dd11a9bef0272ec1daa97a746d0",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-attack-candidate-v1.png",
+      "sha256": "bfea609f8dca917618c3d39c69e3b3a84dad4ba8294e762b3834ee51b81ad364",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-expression-puzzled-candidate-v1.png",
+      "sha256": "8a80efaa66385efce58247dc5353f04646d0c7df6e547578fd97dbc30a959652",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-hit-candidate-v1.png",
+      "sha256": "2f15c23302f59845bdfe9d598aeee0ec06dc610cfb873fabf2d13a8933dd7dab",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-cutin-candidate-v1.png",
+      "sha256": "624192aca8d2ee0313415f6285f5a032aa8874615060a0dcc7e09e90e033e04f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-sd-idle-candidate-v1.png",
+      "sha256": "500cab6b76168d0cf2074afa2e5e43dd1d6834786d9983c5493c6d47782d1fee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-sd-react-candidate-v1.png",
+      "sha256": "a4871efb6265b72fca5f8312b372d27667d11b31e5e68a72ea816c09e33c65ff",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-sd-walk-candidate-v1.png",
+      "sha256": "49587f3bce1b0e2bdb551e5e828caa139a52bf4ec4b03b5a884e5fea8ec1c2a0",
+      "size": [
+        1226,
+        1283
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-equipment-tree-v1.png",
+      "sha256": "4edcc5f8a60fb31d7336931145f845452ad8ca3ffece188e32b9d65f0cc5e2e6",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-event-0-cg-candidate-v1.png",
+      "sha256": "38a09354355a6f76c3cfecaf889ce042cd1394ceab90b5810c20419eda1f6971",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-sd-talk-candidate-v1.png",
+      "sha256": "94b0f83a90d16eecbf9f6b0bf7d70fed8e94558d8bf6d789a388b5b1e2e08009",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-event-1-cg-candidate-v1.png",
+      "sha256": "4c45a31117f8308a8ca3bc7c696a23190b32da1d3aa8e3623953e054c7c22e17",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-event-2-cg-candidate-v1.png",
+      "sha256": "96ec82d9fec1163b3264cb1cd03fd3c54c93dd6259d1b5dcb7a3e4cff2d47115",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-event-3-cg-candidate-v1.png",
+      "sha256": "f01162be08162691ac0649803c2937c24577a39cf27df2442d0c5fc15190117b",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\shangrila-event-4-cg-candidate-v1.png",
+      "sha256": "f89276354ee6040d445cb3ecabc3e9d5f56f64053dff5ddea9ae65e02401d96e",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    }
+  ]
+}

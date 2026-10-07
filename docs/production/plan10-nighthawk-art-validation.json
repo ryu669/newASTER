@@ -1,0 +1,262 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 18,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "form": "normal",
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-standing-candidate-v1.png",
+      "sha256": "640f77bb30de2af060eaaca81b0009f36859186b52bf17c23bcd54ff980c76eb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-portrait-candidate-v1.png",
+      "sha256": "ea978bfdfa6f0bfc803d631107dc9d62a2ef5fbd8902d1c580326f0ba8e250a9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-expression-joy-candidate-v1.png",
+      "sha256": "00c1bc0a4ef83c5f2c86b03e6febee832119f50360b980f997b450d4a6cbbe8e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-expression-puzzled-candidate-v1.png",
+      "sha256": "e976ca46fbb9bcbc3fe112ee40ff9e0dac33dc5bcc22026e132200d74835208b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-expression-determined-candidate-v1.png",
+      "sha256": "a22f8e8a0d888b14e2c51581e210716c30f28718bb6a6b9f6858afeccd5fee30",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-attack-candidate-v1.png",
+      "sha256": "5f3af068eca75e367a0bc14996d7474c798d46b094d482675f4ab168df0af6e0",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-hit-candidate-v1.png",
+      "sha256": "8de8f5fb8e8e24695caeb9ecf0bb154f7c72a83193e49849fc8bf948174970a4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-cutin-candidate-v1.png",
+      "sha256": "9bfea92677684bd9a87bbbc5949d301461e6d03df1bb13d079d27f418f8e47b4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-sd-idle-candidate-v1.png",
+      "sha256": "dd5f586d0ca130f668185bbb8b1766b60cdf28fbf176df483e14faf18aa98470",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-sd-walk-candidate-v1.png",
+      "sha256": "e85c01fd57d81c4679c4f1f8e98da934c95f118cc1c8322202fe53722c97b084",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-sd-talk-candidate-v1.png",
+      "sha256": "b26bd8971ac92003d9ae6c1ffc631ede4c576b928964e36eedde9bf5792b1f2c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-sd-react-candidate-v1.png",
+      "sha256": "486daec879065f0171a51b6f392edc1115f9cdf4d3fe8fe389dc3b0fe309a37b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-equipment-tree-v1.png",
+      "sha256": "0eeb93ae9f79cbf810a2794d102730fbdc72494908e87bb53c06466c3d22ad02",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-event-0-cg-candidate-v1.png",
+      "sha256": "4c49d02bca0db1dec2ff612e03d8d25d9a0deed67789068ded81652abc417ac1",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-event-1-cg-candidate-v1.png",
+      "sha256": "fa3cc32ff4dc3e2ce7de9eba74eae399793bf2be93d86f33598de2596cab059d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-event-2-cg-candidate-v1.png",
+      "sha256": "e983498a8d148f69bdabde0d2bb652206dc580ee2330e87119d717d8f135bf1a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-event-3-cg-candidate-v1.png",
+      "sha256": "da6e5bf51a6713063f4fe2aeb929174c29f8bad820f0aaf9ac1323832b510cd2",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\nighthawk-event-4-cg-candidate-v1.png",
+      "sha256": "bc0279894c3a9bff42b089ad0051551b501ad89d596eed2786114f245e7dee68",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    }
+  ]
+}

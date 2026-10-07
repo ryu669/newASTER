@@ -1,0 +1,133 @@
+{
+  "form": "slayer-swim",
+  "artCount": 18,
+  "pixelEditing": false,
+  "buildLogs": [
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\unity-build-final.log",
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\unity-build.log"
+  ],
+  "playerCaptureCount": 15,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-attack.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "attack"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-battle.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "battle"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-buff.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "buff"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-command.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "command"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-event2.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-formation-member.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-formation-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-formation.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-journey.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "journey"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-ultimate.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "ultimate"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1280\\slayer-swim-weapon.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1600\\slayer-swim-event2.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1600\\slayer-swim-formation-member.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-slayer-swim\\player-1600\\slayer-swim-weapon.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "weapon"
+    }
+  ],
+  "remarks": "Screens are isolated acceptance saves. Final art revisions require new captures; older screenshots are retained as QA history."
+}

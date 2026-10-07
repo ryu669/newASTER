@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.nighthawk",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/nighthawk-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/nighthawk-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/nighthawk-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/nighthawk-cutin-candidate-v1"
+}

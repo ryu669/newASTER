@@ -19,15 +19,16 @@ namespace NewAster.Presentation
             float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
             var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,615-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
-            if(expression!=null && standing!=null && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
+            if(expression!=null && standing!=null && expressionDef?.fullFrame!=true && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;
             var display=HomeData().displays.Single(d=>d.heroineId==actor.HeroineId && d.outfitId==actor.OutfitId);
             var portraitCrop=display.portraitCrop01;
             bool mappedPortrait=display.usePortraitCrop && portraitCrop!=null && standing!=null;
             if(mappedPortrait){
                 rect=new Rect(rect.center.x-325,rect.y,650,rect.height);
+                if(actor.HeroineId=="heroine.nighthawk" || actor.HeroineId=="heroine.oriflamme" || actor.HeroineId=="heroine.shell" || actor.HeroineId=="heroine.r" || actor.HeroineId.StartsWith("heroine.annihilator",StringComparison.Ordinal))rect=new Rect(375,120,850,495);
                 var face=expressionDef?.overlayRegion01;var source=expressionDef?.overlaySourceRegion01;
-                DrawMappedExpression(rect,standing,expressionDef?.mappedOverlay==true?expression:null,
+                DrawMappedExpression(rect,fullExpression?expression:standing,expressionDef?.mappedOverlay==true?expression:null,
                     face==null?new Rect():new Rect(face.x,face.y,face.width,face.height),source==null?new Rect():new Rect(source.x,source.y,source.width,source.height),new Rect(portraitCrop.x,portraitCrop.y,portraitCrop.width,portraitCrop.height));
             }
             else if(standing!=null && expressionDef?.mappedOverlay==true){
@@ -43,11 +44,8 @@ namespace NewAster.Presentation
         private static void DrawExpressionLayer(Rect destination,Texture2D standing,Texture2D expression,HomeRect region,HomeRect crop=null)
         {
             if(standing==null)return;
-            if(crop==null){
-                float scale=Math.Min(destination.width/standing.width,destination.height/standing.height);
-                destination=new Rect(destination.x+(destination.width-standing.width*scale)/2,destination.y+(destination.height-standing.height*scale)/2,standing.width*scale,standing.height*scale);
-                crop=new HomeRect{x=0,y=0,width=1,height=1};
-            }
+            if(crop==null)crop=new HomeRect{x=0,y=0,width=1,height=1};
+            destination=ContainImage(destination,standing.width*crop.width,standing.height*crop.height);
             GUI.BeginGroup(destination);
             try{
                 GUI.DrawTextureWithTexCoords(new Rect(0,0,destination.width,destination.height),standing,new Rect(crop.x,1-crop.y-crop.height,crop.width,crop.height),true);
@@ -105,7 +103,7 @@ namespace NewAster.Presentation
             bool previousAdvEnabled=GUI.enabled;GUI.enabled=previousAdvEnabled && !advBacklog && !advHelp;
             drawingModal=true;GrowthStyles();GrowthFill(0,0,1600,900,new Color(.09f,.17f,.22f));
             var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,515),background,ScaleMode.ScaleAndCrop);
-            if(ProductionStoryActive && adv.CgId!=null){var scene=AdvTexture(adv.CgId);if(scene!=null)GUI.DrawTexture(new Rect(0,100,1600,900),scene,ScaleMode.ScaleToFit);}
+            if(ProductionStoryActive && adv.CgId!=null){var scene=AdvTexture(adv.CgId);if(scene!=null)GUI.DrawTexture(new Rect(0,120,1600,495),scene,ScaleMode.ScaleToFit);}
             Label(45,25,1490,50,(ProductionStoryActive?ProductionStoryTitle(adv.SourceId):plan8StoryTrial?"オリジナル試遊 ／ "+OriginalStoryTitle(adv.SourceId):"機能検証用ADV ／ 正式本文未制作・美術候補")+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
             GrowthFill(0,80,1600,40,navy);
             Label(45,85,1490,35,ProductionStoryActive?"万物の書 ／ 物語":plan8StoryTrial?"試遊本文 ／ 美術・音は開発用見本です。":"背景："+adv.BackgroundId+" ／ BGM・SE：見本用の合成音候補",growthSmallStyle);

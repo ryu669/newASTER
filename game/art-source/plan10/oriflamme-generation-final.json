@@ -1,0 +1,96 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "C:/Users/nishi/.codex/generated_images/01a110e0-1db7-7301-b5c5-7186337a9dac/exec-e2c8527b-9504-495d-823f-4108552f9756.png",
+      "prompt": "Use case: stylized-concept. Asset: full-body standing character PNG for Japanese fantasy RPG newASTER. One adult angel heroine Oriflamme, mature woman, long flowing golden blonde hair with crimson streaks and red tips, red eyes, quiet resolute expression. Black spiked jeweled headband, white high collar blouse with narrow red necktie, fitted black military corset and short black layered skirt, black long coat with crimson lining, black gloves and opaque thigh-high armored boots. Large ornate black serrated sword with ember red cracks held beside shoulder. Behind her bright gold and pale blue crystalline feather wings interwoven with flame ribbons, explicit thin golden halo above head. Elegant detailed anime RPG painted illustration, matching polished fantasy game character art, controlled red/gold/black palette, no exaggerated anatomy. Full halo, wings, sword, boots wholly inside image with 8% margin. Single woman only, transparent background genuine alpha, no scenery, no text, no logo, no UI. Flame trails safely decorative. Calm frontal three-quarter stance."
+    },
+    {
+      "key": "portrait",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1203ff6a-a13c-4d37-bafd-a872d3469ac2.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. close upper-body portrait, restrained quiet gaze, halo fully visible. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "expression-joy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-1d1acb6b-dd72-46e9-880d-3e9c33f05b1d.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. full-body standing same pose with subtle warm small smile. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0a9e0b69-b0d2-4508-ab96-396f68442ea6.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. full-body standing same pose, hesitant concerned soft eyebrows. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "expression-determined",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-82ff891a-87b6-4850-95a4-f57746131f3e.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. full-body standing same pose, resolute intense expression. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "attack",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-242db082-cbea-4b91-99ed-e7a131dbdff2.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. full-body dynamic elegant sword slash casting controlled flaming magical sigils, sword complete. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "hit",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-b3b44d10-a1e0-49e9-94db-9c89b58fb3d4.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. full-body defensive recoil blocking incoming light with sword, alert eyes, no injuries. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "cutin",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-100bc682-1c09-4157-865c-da6617bd2fbf.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. dramatic upper-body diagonal sword pose, radiant fire wings, fully visible halo. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "sd-idle",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-051efb00-b799-4256-a679-0857b2617c54.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. ONE single 3-head-tall chibi cartoon sprite, calmly standing, tiny halo wings sword, no adult version. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "sd-walk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-865d3655-0bba-4d76-a1f7-e6798822613d.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. ONE single 3-head-tall chibi cartoon sprite walking sideways, tiny halo wings sword, no adult version. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "sd-talk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-3c4dac54-4dbf-4450-9421-2fc762faf76d.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. ONE single 3-head-tall chibi cartoon sprite speaking with hand slightly raised, tiny halo wings sword, no adult version. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "sd-react",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-d73989e7-6c24-45fe-b139-a4c8cf57830c.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. ONE single 3-head-tall chibi cartoon sprite surprised at a tiny spark near own palm, tiny halo wings sword, no adult version. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "equipment-tree-v1",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-894e0e88-c2bc-4a7a-adfb-b1286226e4b1.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. abstract ornate black sword and gold crystal flame feather frame for weapon tree UI, broad EMPTY dark transparent center for 13 nodes, NO woman NO person, no text. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Genuine alpha transparent background. No backdrop. No extra people. Full-body sprites include boots, sword, wings and halo without clipping."
+    },
+    {
+      "key": "event-0-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-640cbd83-57ef-4163-b116-42388e98444e.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. landscape narrative CG in stone garden at sunset, woman patiently lighting small glass lantern with fingertip fire, adult dark-haired man holding lantern from beside her, close friendly interaction. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Full painted environment, warm emotionally readable lighting, adult couple only, both clothed."
+    },
+    {
+      "key": "event-1-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-b1832f1b-5e00-4848-b72c-53b68a7cedc0.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. landscape narrative CG at cozy rain-lit workshop table, woman and adult dark-haired man sorting five colored alchemical crystal samples, black sword resting on wall behind, intimate calm. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Full painted environment, warm emotionally readable lighting, adult couple only, both clothed."
+    },
+    {
+      "key": "event-2-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-12166d70-72c1-4e99-9174-df2586095a80.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. landscape narrative CG moonlit garden, woman facing adult dark-haired man, two adults holding hands and making a mutual romantic promise, soft expression, sword safely resting apart. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Full painted environment, warm emotionally readable lighting, adult couple only, both clothed."
+    },
+    {
+      "key": "event-3-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-0ade475a-72ed-4d3b-b110-42b6f834ca1b.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. landscape narrative CG cozy quiet veranda, woman and adult dark-haired man sitting beside each other sharing hot tea, shoulders gently touching, small tame hearth fire. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Full painted environment, warm emotionally readable lighting, adult couple only, both clothed."
+    },
+    {
+      "key": "event-4-cg",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a110e0-1db7-7301-b5c5-7186337a9dac\\exec-c797837a-28ed-4718-abe6-acb40e131380.png",
+      "prompt": "Use case: stylized-concept. Create a distinct final Japanese fantasy RPG newASTER asset. Reference image defines adult Oriflamme identity, costume and art style; preserve blonde hair with crimson streaks, red eyes, black headband, white blouse red tie, black corset coat red lining, armored boots, ornate black ember sword, gold crystalline angel wings and gold halo. landscape narrative CG dawn at stone garden gate, woman and adult dark-haired man walking hand in hand towards hopeful path, flame wings gently curved protecting lantern, sword sheathed. Complete intended composition inside frame with margin, no text no UI no watermark, anatomical hands. Full painted environment, warm emotionally readable lighting, adult couple only, both clothed."
+    }
+  ]
+}

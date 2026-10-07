@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.shell",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/shell-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/shell-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/shell-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/shell-cutin-candidate-v1"
+}

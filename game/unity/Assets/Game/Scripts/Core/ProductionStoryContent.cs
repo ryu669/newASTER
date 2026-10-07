@@ -6,7 +6,7 @@ namespace NewAster.Core
     [Serializable] public sealed class ProductionStoryPoem
     { public string id,text,body,sourcePoemId,reason; }
     [Serializable] public sealed class ProductionStoryChapter
-    { public string id,ownerId,title,introduction,conclusion,backgroundResourcePath; public ProductionStoryPoem[] poems; }
+    { public string id,ownerId,title,introduction,conclusion,backgroundResourcePath; public ProductionStoryPoem[] poems; public string[] pages; }
     [Serializable] public sealed class ProductionStoryEvent
     { public string id,ownerId,title,cgResourcePath,backgroundResourcePath; public int affectionRequired; public bool establishesLover; public string[] paragraphs,expressions; }
     [Serializable] public sealed class ProductionStoryContent
@@ -21,12 +21,12 @@ namespace NewAster.Core
         public void Validate(string[] heroines,string[] colossi)
         {
             Require(schemaVersion==1 && contentVersion==Version && provenance=="newaster-original","Unknown production story identity.");
-            Require(heroines!=null && heroines.Length==5 && heroines.All(Text) && heroines.Distinct().Count()==5 && colossi!=null && colossi.Length==15 && colossi.All(Text) && colossi.Distinct().Count()==15 && !heroines.Intersect(colossi).Any(),"Production story requires five heroines and fifteen enemies.");
-            Require(chapters!=null && chapters.Length==60 && chapters.All(c=>c!=null) && chapters.Select(c=>c.id).Distinct().Count()==60,"Production story requires sixty distinct chapters.");
+            Require(heroines!=null && heroines.Length>=5 && heroines.All(Text) && heroines.Distinct().Count()==heroines.Length && colossi!=null && colossi.Length==15 && colossi.All(Text) && colossi.Distinct().Count()==15 && !heroines.Intersect(colossi).Any(),"Production story requires five heroines and fifteen enemies.");
+            Require(chapters!=null && chapters.Length==(colossi.Length+heroines.Length)*3 && chapters.All(c=>c!=null) && chapters.Select(c=>c.id).Distinct().Count()==chapters.Length,"Production story requires sixty distinct chapters.");
             var all=chapters.SelectMany(c=>c.poems??Array.Empty<ProductionStoryPoem>()).ToArray();
-            Require(all.Length==450 && all.All(p=>p!=null) && all.Select(p=>p.id).Distinct().Count()==450,"Production story requires 450 distinct poems.");
-            Require(all.All(p=>Text(p.text) && Text(p.body) && p.body.Contains(p.text)) && all.Select(p=>p.text).Distinct().Count()==450,"Every original poem must appear in its unique authored body.");
-            Require(all.Select(p=>p.body).Distinct().Count()==450,"Poem paragraphs must not be duplicated.");
+            Require(all.Length==colossi.Length*24+heroines.Length*18 && all.All(p=>p!=null) && all.Select(p=>p.id).Distinct().Count()==all.Length,"Production story requires 450 distinct poems.");
+            Require(all.All(p=>Text(p.text) && Text(p.body) && p.body.Contains(p.text)) && all.Select(p=>p.text).Distinct().Count()==all.Length,"Every original poem must appear in its unique authored body.");
+            Require(all.Select(p=>p.body).Distinct().Count()==all.Length,"Poem paragraphs must not be duplicated.");
             foreach(var owner in colossi.Concat(heroines)){
                 bool enemy=colossi.Contains(owner);int per=enemy?8:6;
                 var owned=chapters.Where(c=>c.ownerId==owner).ToArray();
@@ -36,6 +36,7 @@ namespace NewAster.Core
                     var chapter=owned.SingleOrDefault(c=>c.id==id);
                     Require(chapter!=null && Text(chapter.title) && Text(chapter.introduction) && Text(chapter.conclusion) && !string.IsNullOrWhiteSpace(chapter.backgroundResourcePath),"Missing authored chapter identity or narrative.");
                     Require(chapter.poems!=null && chapter.poems.Length==per,"Wrong owner poem count.");
+                    if(chapter.pages!=null && chapter.pages.Length>0)Require(chapter.pages.Length>=10 && chapter.pages.All(Text) && chapter.poems.All(p=>chapter.pages.Any(page=>page.Contains(p.body))),"Long-form chapter must include all poem bodies in at least ten pages.");
                     for(int i=0;i<per;i++){
                         var poem=chapter.poems[i];
                         Require(poem.id==owner+".collection.poem."+((index-1)*per+i+1).ToString("D2"),"Poem identity does not match chapter.");
@@ -45,9 +46,9 @@ namespace NewAster.Core
                 }
                 if(!enemy)Require(owned.SelectMany(c=>c.poems).Select(p=>p.sourcePoemId).Distinct().Count()==18,"Heroine sources must be individually selected.");
             }
-            Require(events!=null && events.Length==25 && events.All(e=>e!=null) && events.Select(e=>e.id).Distinct().Count()==25,"Production story requires twenty-five distinct events.");
+            Require(events!=null && events.Length==heroines.Length*5 && events.All(e=>e!=null) && events.Select(e=>e.id).Distinct().Count()==events.Length,"Production story requires twenty-five distinct events.");
             Require(events.All(e=>e.paragraphs!=null) && events.SelectMany(e=>e.paragraphs).Distinct().Count()==events.Sum(e=>e.paragraphs.Length),"Event narratives must be individually authored.");
-            Require(events.Select(e=>e.cgResourcePath).Distinct().Count()==25,"Events require twenty-five separate CG bindings.");
+            Require(events.Select(e=>e.cgResourcePath).Distinct().Count()==events.Length,"Events require twenty-five separate CG bindings.");
             foreach(string hero in heroines)for(int i=0;i<5;i++){
                 var e=events.SingleOrDefault(v=>v.id==hero+".event."+i);
                 Require(e!=null && e.ownerId==hero && Text(e.title) && e.affectionRequired==new[]{1,5,10,15,20}[i] && e.establishesLover==(i==2),"Invalid production event identity or progression.");

@@ -18,7 +18,7 @@ namespace NewAster.Presentation
                 var background=Resources.Load<Texture2D>(chapter.backgroundResourcePath);if(background!=null)GUI.DrawTexture(area,background,ScaleMode.ScaleAndCrop);
                 if(!bookIllustrations.TryGetValue(owner,out var art)){art=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(owner));bookIllustrations.Add(owner,art);}
                 art.DrawEnemyPreview(new Rect(1035,205,550,445),0);
-            }else if(combatDefinitions.FormationIds.Contains(owner)){
+            }else if(combatDefinitions.HeroineIds.Contains(owner)){
                 var image=Resources.Load<Texture2D>("Illustrations/"+owner.Substring("heroine.".Length)+"-standing-candidate-v1");
                 if(image!=null)GUI.DrawTexture(area,image,ScaleMode.ScaleToFit,true);
             }

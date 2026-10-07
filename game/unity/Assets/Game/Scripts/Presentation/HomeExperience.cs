@@ -94,10 +94,10 @@ namespace NewAster.Presentation
             try{
                 var localArea=new Rect(0,0,area.width,area.height);
                 var backgroundTexture=AdvTexture(layout.backgroundAssetId);if(backgroundTexture!=null)GUI.DrawTexture(localArea,backgroundTexture,ScaleMode.ScaleAndCrop);
-                foreach(var asset in layout.middleAssetIds){var layer=AdvTexture(asset);if(layer!=null)GUI.DrawTexture(localArea,layer,ScaleMode.StretchToFill,true);}
+                foreach(var asset in layout.middleAssetIds){var layer=AdvTexture(asset);if(layer!=null)GUI.DrawTexture(localArea,layer,ScaleMode.ScaleAndCrop,true);}
                 var entries=state.furniturePlacements.Where(p=>p.gardenId==garden).Select(p=>new{key=p.instanceId,y=p.y,zone=layout.zones.Single(z=>z.id==p.zoneId).order,p=p,o=(HomeOccupant)null}).Concat(state.occupants.Where(o=>o.gardenId==garden && GardenUsePlacement(o,state)==null).Select(o=>new{key=o.heroineId,y=o.y,zone=layout.zones[0].order,p=(HomePlacement)null,o=o})).OrderBy(e=>e.zone).ThenBy(e=>e.y).ThenBy(e=>e.key,StringComparer.Ordinal);
                 foreach(var e in entries){if(e.p!=null)DrawGardenFurniture(localArea,e.p,state);else DrawGardenResident(localArea,e.o);}
-                foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.StretchToFill,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
+                foreach(var asset in layout.foregroundAssetIds){var mask=AdvTexture(asset);if(mask!=null)GUI.DrawTexture(localArea,mask,ScaleMode.ScaleAndCrop,true);else GrowthFill(0,0,area.width,8,new Color(.1f,.2f,.14f));}
                 if(names)DrawGardenResidentLabels(localArea,state,garden);
             }finally{GUI.EndGroup();}
         }
@@ -110,7 +110,7 @@ namespace NewAster.Presentation
         private void DrawGardenResident(Rect area,HomeOccupant occupant)
         {
             float x=area.x+occupant.x*area.width,y=area.y+occupant.y*area.height;
-            if(combatDefinitions.FormationIds.Contains(occupant.heroineId)){
+            if(combatDefinitions.HeroineIds.Contains(occupant.heroineId)){
                 string action=occupant.actionId=="action.sit"?"sit":occupant.actionId=="action.work"?"work":occupant.actionId=="action.look"?"look":"idle";
                 string prefix=occupant.heroineId.Substring("heroine.".Length);
                 var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");

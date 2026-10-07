@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.annihilator",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/annihilator-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/annihilator-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/annihilator-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/annihilator-cutin-candidate-v1"
+}

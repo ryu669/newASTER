@@ -1,0 +1,309 @@
+{
+  "form": "shangrila",
+  "artCount": 18,
+  "pixelEditing": false,
+  "buildLogs": [
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\unity-build-final.log",
+    "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\unity-build.log"
+  ],
+  "playerCaptureCount": 37,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1024x768\\shangrila-detail.png",
+      "size": [
+        1024,
+        768
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1024x768\\shangrila-event2.png",
+      "size": [
+        1024,
+        768
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1024x768\\shangrila-formation-member.png",
+      "size": [
+        1024,
+        768
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1024x768\\shangrila-sniper-mode.png",
+      "size": [
+        1024,
+        768
+      ],
+      "view": "sniper-mode"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1024x768\\shangrila-weapon.png",
+      "size": [
+        1024,
+        768
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-battle.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "battle"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-cast-cancel.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "cast-cancel"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-cast-release.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "cast-release"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-chapter.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "chapter"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-detail.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-event0.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event0"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-event1.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event1"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-event2.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event2"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-event3.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event3"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-event4.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "event4"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-member.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-support-confirm.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-support-confirm"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-support-pending.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-support-pending"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-support-saved.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-support-saved"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation-weapon-return.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation-weapon-return"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-formation.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "formation"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-garden.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "garden"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-heal.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "heal"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-journey.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "journey"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-recoil.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recoil"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-recruit.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruit"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-recruitment.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "recruitment"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-roster.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "roster"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-sniper-mode.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "sniper-mode"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-status.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "status"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-support.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "support"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-ultimate.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "ultimate"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1280x720\\shangrila-weapon.png",
+      "size": [
+        1280,
+        720
+      ],
+      "view": "weapon"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1600x900\\shangrila-detail.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "detail"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1600x900\\shangrila-formation-member.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "formation-member"
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-shangrila\\player-1600x900\\shangrila-weapon.png",
+      "size": [
+        1600,
+        900
+      ],
+      "view": "weapon"
+    }
+  ],
+  "remarks": "Screens are isolated acceptance saves. Final art revisions require new captures; older screenshots are retained as QA history."
+}

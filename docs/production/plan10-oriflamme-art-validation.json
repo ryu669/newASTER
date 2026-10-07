@@ -1,0 +1,262 @@
+{
+  "tool": "builtin ImageGen",
+  "count": 18,
+  "pixelEditing": false,
+  "assets": [
+    {
+      "form": "normal",
+      "key": "standing",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-standing-candidate-v1.png",
+      "sha256": "a796799dee062d39d06dc6f074c96e305c8eb947d5871d949b90b3bba02fc158",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "portrait",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-portrait-candidate-v1.png",
+      "sha256": "49d275bc0be97e3070c378d866be489b9bdf8598a5e974037bf346577d3b9573",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-joy",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-expression-joy-candidate-v1.png",
+      "sha256": "8be70d837763a7d46217383014d568155f6e4428ae6de29f30088ee334619cc6",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-puzzled",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-expression-puzzled-candidate-v1.png",
+      "sha256": "ebf070f9044948235d5384d572bb452c3c030ea3f005f4916d7041186a3e07b2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "expression-determined",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-expression-determined-candidate-v1.png",
+      "sha256": "a881d92868b9c87059d8e65a6591aa4c261e8fdb1931beeea4a0fc69363f7f97",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "attack",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-attack-candidate-v1.png",
+      "sha256": "39aaa91019b5dd41692f9392dcbf4a8faf9ec83552227b8b5265cd7ebd9e0b00",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        253
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "hit",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-hit-candidate-v1.png",
+      "sha256": "44205a8ebccefe40ec4a2366c94d23d3deaae16a86ed8574ee541cd048ec2824",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "cutin",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-cutin-candidate-v1.png",
+      "sha256": "db0bdbd3b684836339d1bf5a9bf8a3e1a911139871475f3b716d18d84c2a96ef",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-idle",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-sd-idle-candidate-v1.png",
+      "sha256": "6fae6ce10683a877a4a878b037b549cb1b02a429ad813973d87d42f1f6d7e7d7",
+      "size": [
+        1202,
+        1309
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-walk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-sd-walk-candidate-v1.png",
+      "sha256": "9521bf1623b9473257225074eec3774e544bde8f2d599b3bbb2a81d37d2891d6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-talk",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-sd-talk-candidate-v1.png",
+      "sha256": "5441b46309abc65554058cc7d62ba84a2a44b843628031913e24069dd435aae0",
+      "size": [
+        1225,
+        1284
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "sd-react",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-sd-react-candidate-v1.png",
+      "sha256": "d7174175ff3875588ff553a3ca325e55288e790b69f0efe38d17f093a96c688c",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "equipment-tree-v1",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-equipment-tree-v1.png",
+      "sha256": "97db864b6f5059076c540722c4e46b8666758e58bb3559629807dae7d3a7e751",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ]
+    },
+    {
+      "form": "normal",
+      "key": "event-0-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-event-0-cg-candidate-v1.png",
+      "sha256": "1a69fb71985acefb9047cb469634fa75086226a78104d116d21c854e8a4a6dc1",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-1-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-event-1-cg-candidate-v1.png",
+      "sha256": "e9617f771e9c9480dcdbc524f64ad8fa8db9aa7619c40b419176dccba83b1fe5",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-2-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-event-2-cg-candidate-v1.png",
+      "sha256": "1c685bdf07432c7074a3bcfef3115214d2e96e9eb89ae67a6578ea5285d4d07b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-3-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-event-3-cg-candidate-v1.png",
+      "sha256": "954673297bbf7a00b580f37966a94c5e36db81ba1673a695199476da43f877b7",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    },
+    {
+      "form": "normal",
+      "key": "event-4-cg",
+      "path": "D:\\AIGAME\\newASTER\\game\\unity\\Assets\\Game\\Resources\\Illustrations\\oriflamme-event-4-cg-candidate-v1.png",
+      "sha256": "398ffe567727c52c8a4da8cfa9f833ec73bae04aec2e6c9a0997defaf4feb66c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alphaExtrema": null
+    }
+  ]
+}

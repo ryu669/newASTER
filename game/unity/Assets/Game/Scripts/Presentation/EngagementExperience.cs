@@ -59,7 +59,7 @@ namespace NewAster.Presentation
             try {
                 Func<FormalCampaignSave,bool> writer=plan8StoryTrial?SaveDiagnosticCampaign:formalDiagnostic?(s=>true):SaveTrialObservedCampaign;
                 if(formalCampaign.CommitEngagement(engagementRequest,engagementRules,DateTime.UtcNow,writer)==GrowthCommitResult.SaveFailed){engagementError="保存できませんでした。同じ報酬で再試行してください。";return;}
-                formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.FormationIds);engagementComplete=true;engagementError=null;
+                formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);engagementComplete=true;engagementError=null;
             }catch(Exception e){engagementError=formalCampaign.HasPending?"保存できませんでした。同じ報酬を保持しています。":"日付や保存状態が変わりました。戻って受取内容を再確認してください。";Debug.LogException(e);}
         }
         private void DrawEngagement()

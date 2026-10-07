@@ -1,0 +1,37 @@
+"""Idempotent shared integration; stage catalogs themselves are added one at a time."""
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];BASE=ROOT/'game/unity/Assets/Game/Scripts'
+def edit(file,old,new):
+ p=BASE/file;t=p.read_text(encoding='utf-8-sig')
+ if new in t:return
+ assert old in t,(file,old)
+ p.write_text(t.replace(old,new),encoding='utf8')
+edit('Core/CombatDefinitionCatalog.cs','ValidateFormal();','ValidateFormal();if(IsFormal)ValidateGeneralFormations();')
+edit('Core/PlayableBattle.cs','PanzerLoadout panzerLoadout=null)','PanzerLoadout panzerLoadout=null,BattleDeployment deployment=null)')
+edit('Core/PlayableBattle.cs','InitializeJobRules(useJobRulesV2,protectedSlot,panzerLoadout);','InitializeJobRules(useJobRulesV2,protectedSlot,panzerLoadout);InitializeGeneral(deployment,combatDefinitions);')
+edit('Core/PlayableBattleJobRules.cs','var h=State.Heroes[actor];var j=jobStates[actor];','var h=State.Heroes[actor];var j=jobStates[actor];UpdateGeneralFormationStats(actor);')
+edit('Core/PlayableBattleJobRules.cs','if(Job(actor,"chaser"))return "駆動','if(Job(actor,"general"))return actor==CommanderActor?"指揮 "+h.JobResource+"/"+h.JobResourceMax+(j.Empowered(Clock)?" ／ 5枠強化中":" ／ 指揮官・5枠の固有効果"):"非指揮官 ／ 3スキルのみ";\n            if(Job(actor,"chaser"))return "駆動')
+edit('Core/PlayableBattleJobRules.cs','private void GainJobCommandResource(int actor)\n        {','private void GainJobCommandResource(int actor)\n        {\n            if(Job(actor,"general") && actor==CommanderActor)State.Heroes[actor].GainResource(jobProfiles[actor].gainAtReady);')
+edit('Core/BattleState.cs','basePhysicalDefense*(100+JobAllStatsPercent)','basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent)')
+edit('Core/BattleState.cs','baseMagicDefense*(100+JobAllStatsPercent)','baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent)')
+edit('Core/BattleState.cs','EffectPercent("attack")+JobAllStatsPercent+JobAttackPercent','EffectPercent("attack")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent')
+edit('Core/BattleState.cs','JobSpeedPercent+TimedSpeedPercent','JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent')
+edit('Core/TimedSelfEffects.cs','+SongCriticalBonusBp);','+SongCriticalBonusBp+GeneralCriticalBp);')
+edit('Core/FormalHomeProgress.cs','public sealed class FormalHomeProgress','public sealed partial class FormalHomeProgress')
+edit('Core/FormalHomeProgress.cs','public void Validate()\n        {','public void Validate()\n        {\n            ValidateBattleDeploymentStructure();')
+edit('Core/FormalHomeProgress.cs','var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();','var heroes=campaign.growth.heroines.Select(h=>h.heroineId).ToArray();ValidateBattleDeploymentContent(catalog,heroes);')
+edit('Data/ProductionStoryCatalog.cs','home.personLinks=combat.heroines','home.battleRoles=combat.heroines.Select(h=>new HomeBattleRole{heroineId=h.id,jobId=h.jobId}).ToArray();\n            home.personLinks=combat.heroines')
+edit('Core/HomeOperations.cs','case "formation": {','case "commander": {\n                    if(op.Target=="formation.auto"){h.commanderHeroineId=null;break;}Owned(s,op.Target);if(c.BattleJob(op.Target)!="job.general")throw new ArgumentException("指揮官にはジェネラルを選択してください。");h.commanderHeroineId=op.Target;break;}\n                case "sniper-support": {\n                    Owned(s,op.Target);Owned(s,op.Owner);if(c.BattleJob(op.Target)!="job.sniper" || op.Target==op.Owner)throw new ArgumentException("狙撃手と援護対象を選択してください。");h.sniperSupports=(h.sniperSupports??Array.Empty<HomeSniperSupport>()).Where(e=>e.heroineId!=op.Target).Concat(new[]{new HomeSniperSupport{heroineId=op.Target,targetId=op.Owner}}).ToArray();break;}\n                case "formation": {')
+edit('Presentation/PrototypeBootstrap.cs','panzerLoadout:SavedPanzerLoadout());','panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));')
+edit('Core/CombatDefinitionCatalog.cs','public int enemyFireVulnerabilityPercent','public int enemyAttackReductionPercent,enemyAttackReductionTurns;\n        public int enemyFireVulnerabilityPercent')
+for f in ['Core/HeroineSkillRules.cs','Core/PlayableBattle.cs']:
+ edit(f,'enemyFireVulnerabilityPercent=s.enemyFireVulnerabilityPercent,','enemyAttackReductionPercent=s.enemyAttackReductionPercent,enemyAttackReductionTurns=s.enemyAttackReductionTurns,enemyFireVulnerabilityPercent=s.enemyFireVulnerabilityPercent,')
+edit('Core/CombatDefinitionCatalog.cs','if(skills.Any(s=>s.chainChanceBonusBp','if(skills.Any(s=>s.enemyAttackReductionPercent<0 || s.enemyAttackReductionPercent>50 || s.enemyAttackReductionTurns<0 || s.enemyAttackReductionTurns>10 || (s.enemyAttackReductionPercent==0)!=(s.enemyAttackReductionTurns==0)))throw new ArgumentException("Invalid enemy attack reduction.");\n            if(skills.Any(s=>s.chainChanceBonusBp')
+edit('Core/EnemyCombatStatus.cs','public int IgnitionFlags','public int AttackReductionPercent {get;private set;}\n        public int AttackReductionTurns {get;private set;}\n        public void SetAttackReduction(int percent,int turns){if(percent<1 || percent>50 || turns<1 || turns>10)throw new ArgumentException("Invalid attack reduction.");AttackReductionPercent=percent;AttackReductionTurns=turns;}\n        public int IgnitionFlags')
+edit('Core/EnemyCombatStatus.cs','public void Tick() {','public void Tick() {if(AttackReductionTurns>0 && --AttackReductionTurns==0)AttackReductionPercent=0;')
+edit('Core/EnemyCombatStatus.cs','IgnitionFlags=0;}','IgnitionFlags=AttackReductionPercent=AttackReductionTurns=0;}')
+edit('Core/EnemyCombatStatus.cs','public string Description =>','public string Description => (AttackReductionTurns>0?"攻撃−"+AttackReductionPercent+"%（残り"+AttackReductionTurns+"） / ":"")+')
+edit('Core/PlayableBattle.cs','if(d.enemyFireVulnerabilityPercent>0)','if(d.enemyAttackReductionPercent>0)foreach(string target in alchemyHitTargets)State.EnemyStatus(target).SetAttackReduction(d.enemyAttackReductionPercent,d.enemyAttackReductionTurns);\n            if(d.enemyFireVulnerabilityPercent>0)')
+edit('Core/PlayableBattle.cs','if(State.BossStatus.Active("burn") || RolePart("attack",1).Status.Active("burn")) damage=damage*80/100;','if(State.BossStatus.Active("burn") || RolePart("attack",1).Status.Active("burn")) damage=damage*80/100;damage=damage*(100-Math.Max(State.BossStatus.AttackReductionPercent,RolePart("attack",1).Status.AttackReductionPercent))/100;')
+edit('Core/HeroineSkillRules.cs','if(s.enemyFireVulnerabilityPercent>0)','if(s.enemyAttackReductionPercent>0)result+="対象の攻撃−"+s.enemyAttackReductionPercent+"%・"+s.enemyAttackReductionTurns+"ターン。";\n            if(s.enemyFireVulnerabilityPercent>0)')
+print('General deployment, identity-safe save preferences, and source skill contract integrated.')

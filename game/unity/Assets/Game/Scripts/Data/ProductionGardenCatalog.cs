@@ -45,7 +45,7 @@ namespace NewAster.Data
                 string material=collection.owners.Single(o=>o.id==owner.Id).materialIds[0];
                 furniture.Add(new HomeFurnitureLayout{id="furniture.production."+FurnitureStyles[i],assetId=art("furniture","Illustrations/garden-"+FurnitureStyles[i]+"-candidate-v1"),
                     size01=new HomePoint{x=.19f,y=.24f},drawAnchor=new HomePoint{x=.5f,y=1},footprint=new HomeRect{x=.15f,y=.78f,width=.7f,height=.22f},
-                    orientationIds=new[]{"orientation.default"},supportedHeroineIds=combat.FormationIds.ToArray(),costs=new[]{new HomeCost{resourceId=material,amount=4+i}},
+                    orientationIds=new[]{"orientation.default"},supportedHeroineIds=combat.HeroineIds.ToArray(),costs=new[]{new HomeCost{resourceId=material,amount=4+i}},
                     slots=new[]{new HomeFurnitureSlot{id="slot.use",offset=new HomePoint{x=1,y=.95f},actionIds=new[]{"action.look"}}}});
             }
             home.furniture=furniture.ToArray();home.assets=assets.ToArray();

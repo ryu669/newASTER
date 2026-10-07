@@ -1,17 +1,22 @@
-# 正式版ゲーム実装領域
+# Unityゲーム実装
 
-`core/`は縦切り用の描画非依存ルールを置く。現在は仕様検証のためのJavaScript実装であり、既存ブラウザ試作の`src/`とは独立している。
+現行は計画10、15形態・12人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan10ShangrilaBuild.ValidateAndBuild`、出力は `Builds/plan10-shangrila/newASTER.exe`。
 
-正式版のUnityプロジェクトは`unity/`にあり、使用バージョンは6000.6.3f1。`Assets/Game/Scenes/Bootstrap.unity`から起動する。WindowsビルドとUnity内検証は`PlayableBuild.ValidateAndBuild`を実行し、出力先は`Builds/playable/newASTER.exe`。URP採用はTBD。
+通常入口のResourcesは `Combat/battle-plan10-shangrila.json` と `Story/plan10-shangrila-story-content.json`。[実装とUI確認](../docs/production/plan10-four-heroines-and-ui.md)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
 
-Unityがライセンス接続で起動できない場合も、リポジトリのルートで`./tools/validate-unity-core.ps1`を実行すると、Unityに依存しないC#戦闘ルールを検証できる。この検証はWindowsビルド・画面の操作確認・Unityの保存検証を代替しない。
+## 実装の配置
 
-2026-09-30の戦闘判断UIと修正内容は[実装・検証記録](../docs/formal-battle-decisions-v0.1.md)を参照。
+- `unity/Assets/Game/Scripts/Core/`：描画に依存しない戦闘・ジョブ・成長・世界・保存規則。
+- `unity/Assets/Game/Scripts/Data/`：人物ID・物語・世界・経済・美術の実行カタログ。
+- `unity/Assets/Game/Scripts/Presentation/`：万物の書、人物・編成・戦闘・庭・ADV・保存確認のUI。
+- `unity/Assets/Game/Editor/`：素材・参照・Unity JSON往復・Windowsビルドの検証。
+- `unity/Assets/Game/Resources/`：ランタイムJSONと採用画像・音・日本語フォント。
+- `art-source/`：編集元、採用原本、生成指示。計画10は生成物の画素を加工せず採用する。
 
-育成画面には覚醒2段階（Lv上限50→80→120）と1・5・10Lvの一括育成を接続した。[覚醒・一括育成の仕様と検証](../docs/playable-awakening-v0.1.md)を参照。素材量は縦切り検証用で、正式バランスはTBD。
+## 検証
 
-Unity APIに対する全スクリプトのC#コンパイルは`./tools/compile-unity-scripts.ps1`で確認できる。Unity内の実行・保存検証とWindowsビルドは別途必要。
+リポジトリルートで `tools/validate-plan10-expanded-roster.ps1` を実行する。Core/Data8,546項目とUnity C#185ソースが合格。Playerの画面検証は最新ビルド後に `tools/validate-plan10-ui-player.ps1` と人物別スクリプトを実行する。隔離した保存データを使用し、撮影と同じ出力先への再ビルドを同時に行わない。
 
-キンダーガーデンの素材付与・重複強化・汎用素材への変換は[報酬実装記録](../docs/playable-kinder-rewards-v0.1.md)を参照。ガチャ結果は画面内に表示する。
+## 過去の試作
 
-実装順と完了条件は[正式版着手パッケージ](../docs/formal-production-start-v0.2.md)および[縦切り詳細仕様](../docs/vertical-slice-spec-v0.2.md)を参照する。
+`core/` のJavaScript縦切りと `Builds/playable/` は過去の試作。現在の正式カタログ・本文・ジョブをこれらの固定編成へ合わせない。旧セーブの扱いは[保存仕様](../docs/systems/save-and-migration.md)、当時のビルドや検証は[履歴](../docs/archive/README.md)を参照する。

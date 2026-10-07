@@ -1,0 +1,775 @@
+{
+  "date": "2026-10-07",
+  "captureCount": 76,
+  "uniqueViews": 65,
+  "physicalInput": 0,
+  "method": "Isolated saves; production screens and operation helpers; visual review of contact sheets and selected full-size frames.",
+  "screens": [
+    {
+      "view": "adv-help",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-adv-help.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "a3f493042683e4be06b223e518902371832c9f7e0c6c68625f7658ea73463527"
+    },
+    {
+      "view": "formation-general-confirm",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-formation-general-confirm.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "00cfe1bcaf614b0841b00e919e1401d141a58a7680f8b942bff01a7b10181732"
+    },
+    {
+      "view": "garden-events-last",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-garden-events-last.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "0b5d4cc573d79912dafbbf7294e1ca50945b13adf94e06fa77351fd60aac773b"
+    },
+    {
+      "view": "job-gambler",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-job-gambler.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "40c9fbe803525b27cb0bd2e3cf40d2b21f39012404f93a49f543ca12e4ca994f"
+    },
+    {
+      "view": "job-sniper",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-job-sniper.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "e858b0a5c7d40eac9fec4acaf8e5f25b63a1c077853257f4b1cae9ae4e3d23ca"
+    },
+    {
+      "view": "model",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-model.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "f099c65065b9a52cc9f04b03e1e95a944aa927d4bb7d8c91915c92f0d134a8f7"
+    },
+    {
+      "view": "roster-second",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-roster-second.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "0a86cc65d845396648034a09d3ee87cb38b0d17c3f49016e541667aea6d569f3"
+    },
+    {
+      "view": "settings",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1024x768\\ui-settings.png",
+      "size": [
+        1024,
+        768
+      ],
+      "sha256": "078a4915f4bd462465a7e357805bc244605b48919973bae22ac18c8e3918b023"
+    },
+    {
+      "view": "adv-backlog",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-adv-backlog.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "7e4024c28a26cff6143f302ab4a97ff1487081fd5b8322bf53be0bba4f7c0be5"
+    },
+    {
+      "view": "adv-help",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-adv-help.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f1e9c93887106f86e37b4a3cb4de7102c96c9c0733375a26315b396322096659"
+    },
+    {
+      "view": "battle-pause",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-battle-pause.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "bde4e05d637e981f82deac4384f89a21afe4b84747f83289776f193a9805b134"
+    },
+    {
+      "view": "battle-result",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-battle-result.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "a49a7e6e4269255ff5745b7513f8d5434c459b0d04edac0b9e646eaed3e45728"
+    },
+    {
+      "view": "battle-retreat",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-battle-retreat.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "e330b657af836829c5b6533093de8b20c9e95c7051d85f03b8ce3fb6a1c09969"
+    },
+    {
+      "view": "battle-targets",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-battle-targets.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9fef36950e034cfb86ae124c2ec7bee640655bda9be7c64714fd05db40dcdafb"
+    },
+    {
+      "view": "battle-timeline",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-battle-timeline.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9317c2aff125b8393a8ab9baa78b1c50027ab26df342fbc1df7d2ba0688254ef"
+    },
+    {
+      "view": "book-colossi",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-book-colossi.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "765706e5b50745320adb75d8b4f7c3f91032dde4db5b3cd092c2ae7e66e2a50e"
+    },
+    {
+      "view": "book-stories",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-book-stories.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "d3242f768fc0326a51586ff1641fa5bc31881bcfa1ddaccc52b29257ba989f4a"
+    },
+    {
+      "view": "book-world",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-book-world.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "e580396f4926c57eb684cccdc186445e552ca4421d1023ccec7c1148ab715db8"
+    },
+    {
+      "view": "collection",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-collection.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "46ff10f386cff1bff9692c08dcf497ecb49d7381ee59165ea9742c9703db11b2"
+    },
+    {
+      "view": "credits",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-credits.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "5ec38dac4eff4636def9e7568608bc835f81aef51c797f33e85666e615597a49"
+    },
+    {
+      "view": "detail",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-detail.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ef7d0bd1c8cd2f60b17d0c872db201b81b8f5144f09f002a775ebda0aa084c70"
+    },
+    {
+      "view": "empty",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-empty.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "7e7ca477a5f2b940998a744f3eb67cc1ecbea871dd208d4d708c6eaff1914486"
+    },
+    {
+      "view": "engagement",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-engagement.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "0d634e8b1b2ed6ebc1bdd626205c45a48b863a88f317ab43c798c16ca5efeb75"
+    },
+    {
+      "view": "formation-general-confirm",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-formation-general-confirm.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "0a039dcf13029dea3b283e79f84011f6340c018985441ce95cc49fe4ac62f602"
+    },
+    {
+      "view": "formation-general",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-formation-general.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "294c44895d118485ea769d27608454be987a1b1012df4193899598b7e6ebe0d5"
+    },
+    {
+      "view": "formation-roster-second",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-formation-roster-second.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "30f1e9250cf8892f8b25eb42af6d62d381287dc108f29de3d96014939a9af334"
+    },
+    {
+      "view": "garden-confirmation",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-confirmation.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "88a1347976dc9fc2954b34eccca956d3d63969559775eba269c0ff507c7ceae8"
+    },
+    {
+      "view": "garden-events-last",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-events-last.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "64bd0d83fbdd4e9039a562e741494b9dc40c6c19ecaf46a653ec06d871c94ccb"
+    },
+    {
+      "view": "garden-events",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-events.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "4490ae7aa855ca5f634855d2fb0076bb54c6ecc1bd6e9dd11b2b0fdeff154d54"
+    },
+    {
+      "view": "garden-expanded",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-expanded.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "32823899768a2dd45d470e8d00110e47035cc70fedf3624aeca122349228ce34"
+    },
+    {
+      "view": "garden-furniture",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-furniture.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9e21d1b175587607333bb62e0febf800b282ac1db2bf87e730a43906b632a26a"
+    },
+    {
+      "view": "garden-navigation",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-navigation.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "7f6c1640b7dc7045d050f0df731250a61781ce68b2f6c10ab1ee1f0bbe4b8d5a"
+    },
+    {
+      "view": "garden-residents-last",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-residents-last.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "2379ff314cdbddfcc7049eb9a08209f24e8aabe8d0ec33135e314de3c235deae"
+    },
+    {
+      "view": "garden-residents",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-garden-residents.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "82e96d10136e5ca29c2eec6ce6078aaca3d6f476d6bd23b11ec710ccb569d90d"
+    },
+    {
+      "view": "help",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-help.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "08ee58482e2d2acd850fa9a1f1c705b6235874b6a1be9b354cac04160148d9a3"
+    },
+    {
+      "view": "job-alchemist",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-alchemist.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "eafe8163a546950440af1ef55d368e01615ada10ca7bbfd1052402bb267b441e"
+    },
+    {
+      "view": "job-artist",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-artist.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f5b6fc008c054000359fb93e57ffae268c8096b0d54438e2f46854bec98cf0da"
+    },
+    {
+      "view": "job-berserker",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-berserker.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "26e9c7dfb9ff2e394522688a64eb08031b4c171df525c3d164555c740d3d8963"
+    },
+    {
+      "view": "job-blaster",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-blaster.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "1bf0441d81578a57f90f2c137402759d32ea7262a1359cb63b10be443a3db914"
+    },
+    {
+      "view": "job-chaser",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-chaser.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "76e8c565ab8d7aa39246ed41a7dc70b2ac2482d816f3e884109608bc0145514d"
+    },
+    {
+      "view": "job-defender",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-defender.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "3780433d676d2195eb7e9afc9c45db204e2cc67c241ab0d4a3f288f34424213f"
+    },
+    {
+      "view": "job-fighter",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-fighter.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9e802cbafa333e6e3bad9108c62d5a470fdf01d1d7f35096668f7c07f457a9b5"
+    },
+    {
+      "view": "job-gambler",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-gambler.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6031b68023927b2845eb30026b0fb281e2f80f6c6dc4f07752608c145130e81a"
+    },
+    {
+      "view": "job-general",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-general.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "3ca0cb65fa080db31256a305c5cf143d18575a6c1c1add15d2783bb5296daa5e"
+    },
+    {
+      "view": "job-gunner",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-gunner.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f5e15e99416b8a53779eb6d4f0010dab1cf138622caaadd973e12e0cfbb41303"
+    },
+    {
+      "view": "job-healer",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-healer.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "f42b855c5f75c93c04e8512608c2458f297be4fb9ab6ec4c5fda1f0db31aa759"
+    },
+    {
+      "view": "job-panzer",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-panzer.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "8e5dfa0634918baaa43943f5250461bd8cb0c4f167cf1c94030aed99b12d4ee8"
+    },
+    {
+      "view": "job-sniper",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-job-sniper.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6581ad5a93c528c1a989d107e5ac7312ef36932f02eb725d94ad98c779d453c0"
+    },
+    {
+      "view": "kinder-draw",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-kinder-draw.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "1878c0a6119bf75949f3e2b862a647c376245dc69acd63ce29aac899f9b3cecd"
+    },
+    {
+      "view": "kinder-exchange",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-kinder-exchange.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "105cddc1d585f9966ee72a1ca99f9b1de3a3ec95ca1358e929d2c632071972c4"
+    },
+    {
+      "view": "kinder-rates",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-kinder-rates.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "e984b425f9ac676f1ed9d01152809da69e5631286cda78d4782e8c1b0c53d39b"
+    },
+    {
+      "view": "kinder-tickets",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-kinder-tickets.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "bf889503dc573b69904f8edb0671ebc289d912bdbdfd408fe53c1bb14b9574dd"
+    },
+    {
+      "view": "kinder",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-kinder.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "74672761227835543cb531373f523b8d74d27d299bc0741dd00fefc9e8556a32"
+    },
+    {
+      "view": "level-confirm",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-level-confirm.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "94ade2912368d7506be52175cba4f0c504d229d1b7b3c848ff25751e0c45cbad"
+    },
+    {
+      "view": "level",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-level.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "44a62ffa245ee4a28648d3bb4359cd224891bd173cbd0c9dfd692538ac45bfce"
+    },
+    {
+      "view": "materials",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-materials.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "566073a8e72fada6d5a5c8649743eddc7ebcb914d0239303467bdd7749504559"
+    },
+    {
+      "view": "model",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-model.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "e6167456cd6153dafeb4a16d8860771b50edda6f544f896cf39e66afe5336454"
+    },
+    {
+      "view": "recruitment-second",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-recruitment-second.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "380697a596b9f56e94e0ebf2cc0104683ba8e5d6bf344e32b1a3d7d7b5514f95"
+    },
+    {
+      "view": "relics",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-relics.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "9508993646921d237247c25117a6351f08f06af8d4492f5ff0caf1c3aa350f34"
+    },
+    {
+      "view": "roster-second",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-roster-second.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6c52be63e1c7dd2c08f39b753dfb0ef40680dcc3987d142a1072c8fbf3b3e1e0"
+    },
+    {
+      "view": "roster",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-roster.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "143271a531ec1f4eb78baaca2ff75f2987031f9fbcd94946ed550fe412221871"
+    },
+    {
+      "view": "settings",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-settings.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "224df506de171ac9cfb7a3dbe20d701ef89ddf33a252c4c07391be53710b992b"
+    },
+    {
+      "view": "skill-pending",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-skill-pending.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "2e43eaee09b18b314d72f8871318e79ce6be92ce1d57aae633b7559991288cfd"
+    },
+    {
+      "view": "skill",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-skill.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "7be37136734f878c9cedf87dd1e9659a887cb2630489db34b83eef76d7c26190"
+    },
+    {
+      "view": "skillmax",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-skillmax.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "3c8f1f3397ba3b6184c32ee30fd870c4d3c1f0a075543a5fd7454760f3ec7b3f"
+    },
+    {
+      "view": "title-help",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-title-help.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6927a24004f3f837669407e56bcf5fad23637694858ed5ac6c3e12625552efa9"
+    },
+    {
+      "view": "title",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-title.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "4c6bc312d84b02ea3e958519910e327c06d6146771d529a6dc557cfa5c8b60ce"
+    },
+    {
+      "view": "train-arrival",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-train-arrival.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "ddeb6b873b24082779f63a2f056b93ae7607bd20b2b441bfb14519e50f021d45"
+    },
+    {
+      "view": "train-disembark",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-train-disembark.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "08f379c56fc57421bae4355bd5b7fde09b9f1e6fd66e8ebc3ac8cebaf11e33e2"
+    },
+    {
+      "view": "train-doors",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-train-doors.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "88a04cc143bb581e8bd2d08a2618a073f13ef0f86c7b2920be5edd37a49ef528"
+    },
+    {
+      "view": "trait",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-trait.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "6eee4b581b02f8b4748fd67d75d6e5afa699465053ee20ea287908535e52aec6"
+    },
+    {
+      "view": "tree-confirm",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-tree-confirm.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "dd9d84b879455de2737a014710549248da1d6d73471b0b4bf4456a59a95ae025"
+    },
+    {
+      "view": "tree-grown",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1600x900\\ui-tree-grown.png",
+      "size": [
+        1600,
+        900
+      ],
+      "sha256": "dc471063a971212a709e7486debb5f1f48d227e4240b4ef30c31dcc6955cbed3"
+    },
+    {
+      "view": "formation-general",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1720x720\\ui-formation-general.png",
+      "size": [
+        1720,
+        720
+      ],
+      "sha256": "baf30d02fae8f18eed81d3de0bbc490c7cde1d41eea9f8fc3b38773ded7aa66f"
+    },
+    {
+      "view": "job-gambler",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1720x720\\ui-job-gambler.png",
+      "size": [
+        1720,
+        720
+      ],
+      "sha256": "e2f1df8b49cb88f24aa1b466c07410beb17d8cfc63ba68d0b713e740031241c7"
+    },
+    {
+      "view": "title",
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-ui\\player-1720x720\\ui-title.png",
+      "size": [
+        1720,
+        720
+      ],
+      "sha256": "ada2a4f130fe0fa92dc2ce726aaf6f3c05b00d4dd1026a0559ac3ffe16627307"
+    }
+  ],
+  "fixes": [
+    "Uniform logical canvas and camera viewport preserve aspect ratios.",
+    "Portraits, expressions, weapon art and CG retain their aspect ratios.",
+    "CG fits above dialogue; weapon branches and hitboxes share coordinates.",
+    "Model viewer camera remains visible when opened from heroine screens.",
+    "Global help remains visible from heroine screens.",
+    "Garden residents and events use clipped scrolling lists; placement stays inside the garden.",
+    "Formation overview/member/roster hierarchy reserves one future OOPart per member.",
+    "Thirteen job resource images have distinct geometric silhouettes."
+  ],
+  "limitations": [
+    "OOPart equipment logic is intentionally deferred to a later request.",
+    "Capture scenarios use programmatic navigation, not physical mouse input."
+  ],
+  "distinctJobImageSilhouettes": 13,
+  "jobImages": [
+    {
+      "job": "fighter",
+      "sha256": "65366fb003dbe7b41140c5cec9e5792ed0368170df72b0e442294e7db03d4dae",
+      "alphaSha256": "5d32de5f0234cc400a365fa72be3f38134a0858ea7d843786c30bbebc0ceea0f"
+    },
+    {
+      "job": "berserker",
+      "sha256": "88704e2265b39043fb70ab8403cc54b18794d7f4ca30218805c4568a2ec2c00b",
+      "alphaSha256": "4506a339d03a907dc22cad2fd8ea5289a3f83c36bd379f90587eff9f52de82df"
+    },
+    {
+      "job": "defender",
+      "sha256": "3b79227bf67bf0acb2212685058bddda537639f22e12be6cce27a81eb52c0734",
+      "alphaSha256": "f42bf62cb975ba37d22956481b055e46e561479d1767adaf500f98d5df712ad9"
+    },
+    {
+      "job": "blaster",
+      "sha256": "44dd3531224cad72a0b85748fb3fc54af30822138a68c765a4f4617bc47edd55",
+      "alphaSha256": "d19474a9944f7fcb59b0673d45b8560afc7558c702ec945ec2b2bb92d2eddd27"
+    },
+    {
+      "job": "gunner",
+      "sha256": "007bbd347b4679c6c9a09520ab2db26d8a425580023f6670dde0d1c82e0af783",
+      "alphaSha256": "97d1019713a63ae31f91303e82bdf252732969b5533d27b9603c7fdcaf5289cb"
+    },
+    {
+      "job": "artist",
+      "sha256": "ca08572d821df7842749dc6eed5714ffffd5fcb2ca2a8e62c6e527f21ec22000",
+      "alphaSha256": "f161781072f739cedf5ee46479b156b54bf0fe3a4d99360c2b23974b7689a654"
+    },
+    {
+      "job": "healer",
+      "sha256": "42a1bf7bd01abe0831d1042f8d3c775e7427f405e687a0ebea4f689106ed5c01",
+      "alphaSha256": "24d398dfeda60f88e66c05981c1528a4287a1a557e71154034ad3498cdc5b9b1"
+    },
+    {
+      "job": "panzer",
+      "sha256": "02b6b84713719c70059aa609eedb2e78b87d6c2a3578649583185e290b8a948e",
+      "alphaSha256": "2db654e9ca08441a5d96d89c7f0dd8a6e7b27b76d95fab34b09913a9e7271f86"
+    },
+    {
+      "job": "alchemist",
+      "sha256": "72eeac7825c43f7ffaab787101661a67c8825afd078e7d1c59c0c4433cebe8eb",
+      "alphaSha256": "c05460c65ce66c1ddc1c9e7329f811e1efdaeed22d4a8840215a05aec6d16828"
+    },
+    {
+      "job": "chaser",
+      "sha256": "bfe838667acdb36f2edf6ac98c462eee288ef56886c24013fdab160c48214843",
+      "alphaSha256": "05428ef63087f577efbdcaf0d4d277fd5ffc463dd6c62b30bc400784eab611a9"
+    },
+    {
+      "job": "sniper",
+      "sha256": "f9695723104ac949fa6b21a10fcdf5826622a12ca2c045e8f7173b28fdf89fc5",
+      "alphaSha256": "d3c947a476ef6881ff287cce13242bcd59740f41db918eebff1b5a98e4eae75a"
+    },
+    {
+      "job": "gambler",
+      "sha256": "c0e327f7d56928addc035c33b879299e7e5ebbf5036a5957b798de14eeec423a",
+      "alphaSha256": "30d04991a92621d9fde6ad5af8d7659909cbd799216e8292a3319fd08b4f5d56"
+    },
+    {
+      "job": "general",
+      "sha256": "987b1856331b5b3b9312745e1a087d2f92a42becf43d261c85f8c946396eedee",
+      "alphaSha256": "4397def7e1be046ffaeec467304d9b580e19edab02fa4bc6bd668fe81d4c6e52"
+    }
+  ]
+}

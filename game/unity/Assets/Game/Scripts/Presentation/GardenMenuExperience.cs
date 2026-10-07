@@ -18,6 +18,8 @@ namespace NewAster.Presentation
         private string HomeOperationSummary()
         {
             string kind=homeOperation.Kind;
+            if(kind=="commander")return homeOperation.Target=="formation.auto"?"指揮官を編成順の自動選択へ戻します。":combatDefinitions.Hero(homeOperation.Target).name+"を指揮官へ指定します。";
+            if(kind=="sniper-support")return combatDefinitions.Hero(homeOperation.Target).name+"の支援対象を"+combatDefinitions.Hero(homeOperation.Owner).name+"に変更します。";
             if(kind=="formation")return "編成枠"+(int.Parse(homeOperation.Owner)+1)+"へ "+combatDefinitions.Hero(homeOperation.Target).name+"を配置します。";
             if(kind=="craft")return GardenFurnitureName(homeOperation.Target)+"を作ります。";
             if(kind=="place" || kind=="remove"){
@@ -58,6 +60,10 @@ namespace NewAster.Presentation
             if(scenario=="expanded")gardenMenuExpanded=true;
             else if(scenario=="furniture")OpenGardenPanel(GardenPanel.Furniture);
             else if(scenario=="residents")OpenGardenPanel(GardenPanel.Residents);
+            else if(scenario=="residents-last" || scenario=="events-last"){
+                bool events=scenario=="events-last";OpenGardenPanel(events?GardenPanel.Events:GardenPanel.Residents);
+                var heroes=formalCampaign.Snapshot.growth.heroines;selectedResident=heroes[heroes.Length-1].heroineId;gardenMenuScroll=new Vector2(0,heroes.Length*(events?40:48));
+            }
             else if(scenario=="events")OpenGardenPanel(GardenPanel.Events);
             else if(scenario=="navigation")OpenGardenPanel(GardenPanel.Navigation);
             else if(scenario=="placement"){
@@ -137,9 +143,12 @@ namespace NewAster.Presentation
                 Label(1064,665,470,35,"選んだ家具は「人物」から利用できます。",small,Color.white);
             }else{
                 var heroes=formalCampaign.Snapshot.growth.heroines;if(selectedResident==null && heroes.Length>0)selectedResident=heroes[0].heroineId;
-                for(int i=0;i<heroes.Length;i++){string hero=heroes[i].heroineId;int spacing=gardenPanel==GardenPanel.Events?40:48,height=gardenPanel==GardenPanel.Events?35:42;if(Btn(1064,204+i*spacing,470,height,(hero==selectedResident?"◆ ":"")+combatDefinitions.Hero(hero).name))selectedResident=hero;}
+                int spacing=gardenPanel==GardenPanel.Events?40:48,height=gardenPanel==GardenPanel.Events?35:42,viewportHeight=gardenPanel==GardenPanel.Events?200:240;
+                gardenMenuScroll=GUI.BeginScrollView(new Rect(1064,204,470,viewportHeight),gardenMenuScroll,new Rect(0,0,445,Math.Max(viewportHeight,heroes.Length*spacing)));
+                for(int i=0;i<heroes.Length;i++){string hero=heroes[i].heroineId;if(Btn(0,i*spacing,440,height,(hero==selectedResident?"◆ ":"")+combatDefinitions.Hero(hero).name))selectedResident=hero;}
+                GUI.EndScrollView();
                 if(gardenPanel==GardenPanel.Residents){
-                    if(Btn(1064,470,470,52,"この庭へ移動（家具利用を解除）",HomeOperationsAllowed && selectedResident!=null))ProposeHome(new HomeOperation("occupant",selectedResident,garden:garden,x:.15f+Array.FindIndex(heroes,h=>h.heroineId==selectedResident)*.16f,y:.72f));
+                    if(Btn(1064,470,470,52,"この庭へ移動（家具利用を解除）",HomeOperationsAllowed && selectedResident!=null))ProposeHome(new HomeOperation("occupant",selectedResident,garden:garden,x:.15f+(Array.FindIndex(heroes,h=>h.heroineId==selectedResident)%5)*.16f,y:.72f));
                     if(Btn(1064,535,470,52,"選んだ家具を使う",HomeOperationsAllowed && selectedFurniture!=null && state.furniturePlacements.Any(p=>p.instanceId==selectedFurniture && p.gardenId==garden) && state.occupants.Any(o=>o.heroineId==selectedResident && o.gardenId==garden)))ProposeHome(new HomeOperation("use",selectedResident,selectedFurniture));
                     Label(1064,610,470,85,selectedFurniture==null?"家具パネルで、利用する家具を選んでください。":"選択中："+GardenFurnitureName(state.furnitureInstances.Single(f=>f.instanceId==selectedFurniture).defId),small,Color.white);
                 }else if(selectedResident!=null){

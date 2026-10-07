@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.slayer-swim",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/slayer-swim-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/slayer-swim-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/slayer-swim-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/slayer-swim-cutin-candidate-v1"
+}

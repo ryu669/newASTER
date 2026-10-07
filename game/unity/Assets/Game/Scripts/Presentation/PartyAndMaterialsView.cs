@@ -12,10 +12,16 @@ namespace NewAster.Presentation
         private string formationQuery="";
         private string[] CurrentFormation()=>HomeState.formationIds!=null && HomeState.formationIds.Length==5?(string[])HomeState.formationIds.Clone():combatDefinitions.FormationIds;
         private void DrawFormation()
+        {DrawHierarchicalFormation();}
+        private void DrawLegacyFormation()
         {
+            bool previous=GUI.enabled;if(panzerSetupOpen)GUI.enabled=false;
             SanctuaryHeader("誓いの編成","5人の絆を、出撃の順番へ");
             if(GrowthButton(58,108,240,48,"‹ 誓女一覧",homeRequest==null && BookInputAllowed)){formationOpen=false;return;}
-            Label(330,112,1160,45,"上の枠を選び、下の顔カードで入れ替え。編成中の誓女同士は位置を交換します。",growthSmallStyle);
+            Label(330,112,850,45,"上の枠を選び、下の顔カードで入れ替え。",growthSmallStyle);
+            if(idsOwnShell() && GrowthButton(1180,108,355,48,"シェルの装甲・ツール設定",homeRequest==null && BookInputAllowed)){
+                var l=SavedPanzerLoadout();panzerResistance=Array.IndexOf(new[]{"physical","magic","fire"},l.Resistance);panzerTool0=Array.IndexOf(PlayableBattle.PanzerTools,l.FirstTool);panzerTool1=Array.IndexOf(PlayableBattle.PanzerTools,l.SecondTool);panzerSetupOpen=true;
+            }
             var ids=CurrentFormation();
             for(int i=0;i<5;i++){
                 float x=65+i*298;GrowthFrame(x,180,278,265);var portrait=HeroPortrait(ids[i]);
@@ -26,7 +32,7 @@ namespace NewAster.Presentation
             Label(65,465,260,38,"入れ替える誓女を選択",growthSmallStyle,gold);
             string query=ImageUiSkin.TextField(new Rect(345,462,680,45),formationQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=22});
             if(query!=formationQuery){formationQuery=query;formationPage=0;}
-            var heroes=formalProgression.Snapshot.heroines.Where(h=>combatDefinitions.Hero(h.heroineId).name.Contains(formationQuery)).ToArray();
+            var heroes=formalProgression.Snapshot.heroines.Where(h=>combatDefinitions.HeroineIds.Contains(h.heroineId) && combatDefinitions.Hero(h.heroineId).name.Contains(formationQuery)).ToArray();
             int pages=Math.Max(1,(heroes.Length+9)/10);formationPage=Mathf.Clamp(formationPage,0,pages-1);
             var entries=heroes.Skip(formationPage*10).Take(10).ToArray();
             for(int i=0;i<entries.Length;i++){
@@ -40,7 +46,9 @@ namespace NewAster.Presentation
             Label(450,800,640,42,"変更は保存後、次の出撃から反映 ／ 素材の消費なし",growthSmallStyle,gold);
             if(GrowthButton(1260,790,275,52,"次の10人 ›",formationPage+1<pages && homeRequest==null))formationPage++;
             if(homeRequest!=null)DrawSanctuaryHomeConfirmation("編成変更は無消費です。編成中の場合は2人の位置を交換します。");
+            GUI.enabled=previous;DrawPanzerSetup();
         }
+        private bool idsOwnShell()=>formalProgression.Snapshot.heroines.Any(h=>h.heroineId=="heroine.shell");
         private Color MaterialColor(int rarity)=>rarity>=4?gold:rarity==3?new Color(.78f,.57f,1):rarity==2?new Color(.4f,.78f,1):ivory;
         private void DrawMaterialInventory()
         {

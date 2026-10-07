@@ -6,6 +6,7 @@ namespace NewAster.Core
     [Serializable] public sealed class HeroineCombatDef
     {
         public string id,name,jobId,chainActionId;
+        public string personId,variantId;
         public int baseRarity;
         public string[] skills;
         public string traitId,weaponTreeId;
@@ -18,8 +19,18 @@ namespace NewAster.Core
         public string sourceSkillId,sourceFile,ruleOrigin;
         public int sourceSecond,observedSkillLevel;
         public int resourceCost,recoveryPercent,castPercent,targetCount,baseHealing;
+        public int resourceGain,alliesHealingBaseAttackPercent;
+        public bool cleanseAll;
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
+        public string targetStatusBonusKind;
+        public int targetStatusBonusPercent;
+        public int enemyAttackReductionPercent,enemyAttackReductionTurns;
+        public int bodyDamageBonusPercent,enemyStatusExtensionTurns,alliesEffectExtensionTurns;
+        public string[] enemyStatusExtensionKinds;
+        public TimedSelfEffectDef[] postAttackAlliesEffects;
+        public int enemyFireVulnerabilityPercent,enemyFireVulnerabilityTurns,allAlchemistResourceGain;
         public int criticalBonusBp,damageCap;
+        public int chainChanceBonusBp;
         public string damageType;
         public string[] attributes;
         public int ignoreDefenseBp;
@@ -58,9 +69,13 @@ namespace NewAster.Core
         public HeroineCombatDef Hero(string id) => heroines.Single(h=>h.id==id);
         public SkillCombatDef Skill(string heroId,int slot) => skills.Single(s=>s.id==Hero(heroId).skills[slot]);
         public string[] FormationIds => schemaVersion==1?Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray():(string[])formation.Clone();
+        public string[] HeroineIds => new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r"}.Where(id=>heroines.Any(h=>h.id==id)).Concat(heroines.Select(h=>h.id).Except(new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r"}).OrderBy(id=>id,StringComparer.Ordinal)).ToArray();
+        public string PersonId(string id)=>string.IsNullOrEmpty(Hero(id).personId)?id:Hero(id).personId;
+        public int WeaponSkillSlot(string id)=>(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.nighthawk")?Enumerable.Range(0,3).First(slot=>Skill(id,slot).effectRuleId=="effect.damage"):0;
         public CombatDefinitionCatalog WithFormation(string[] ids)
         {
             if(ids==null || ids.Length!=5 || ids.Distinct().Count()!=5 || ids.Any(id=>!heroines.Any(h=>h.id==id)))throw new ArgumentException("Invalid battle formation.");
+            if(ids.Select(PersonId).Distinct().Count()!=5)throw new ArgumentException("同じ人物の通常版と別衣装は同時に編成できません。");
             var copy=(CombatDefinitionCatalog)MemberwiseClone();copy.formation=(string[])ids.Clone();return copy;
         }
         public string HeroIdAt(int index) => FormationIds[index];
@@ -68,16 +83,22 @@ namespace NewAster.Core
         {
             if(enemyPhysicalDefense<0 || enemyMagicDefense<0) throw new ArgumentException("Enemy defense cannot be negative.");
             new EnemyStatusState(enemyStatusResistances);
+            if(heroines!=null && heroines.Any(h=>h!=null && !string.IsNullOrEmpty(h.personId) && (!Id(h.personId) || !heroines.Any(p=>p.id==h.personId))))throw new ArgumentException("Invalid shared person identity.");
             if(!((schemaVersion==1 && status=="placeholder" && (formation==null || formation.Length==0)) || ((schemaVersion==2 && status=="integration-trial" || IsFormal) && formation!=null && formation.Length==5 && formation.All(Id) && formation.Distinct().Count()==5))) throw new ArgumentException("Unsupported combat version/status/formation.");
-            if(heroines==null || heroines.Length!=5 || skills==null || skills.Length!=15 || chainActions==null || chainActions.Length!=5)
-                throw new ArgumentException("Combat slice requires 5 heroines, 15 skills and 5 chain actions.");
-            if(heroines.Any(h=>h==null || !Id(h.id) || !Id(h.jobId) || string.IsNullOrWhiteSpace(h.name) || h.baseRarity!=6 || h.skills==null || h.skills.Length!=3 || h.skills.Any(s=>!Id(s)) || h.skills.Distinct().Count()!=3 || !Id(h.chainActionId)) || heroines.Select(h=>h.id).Distinct().Count()!=5)
+            if(heroines==null || heroines.Length<5 || !IsFormal && heroines.Length!=5 || skills==null || skills.Length!=heroines.Length*3 || chainActions==null || chainActions.Length!=heroines.Length)
+                throw new ArgumentException("Roster requires three skills and one chain per heroine; formation remains five.");
+            if(heroines.Any(h=>h==null || !Id(h.id) || !Id(h.jobId) || string.IsNullOrWhiteSpace(h.name) || h.baseRarity!=6 || h.skills==null || h.skills.Length!=3 || h.skills.Any(s=>!Id(s)) || h.skills.Distinct().Count()!=3 || !Id(h.chainActionId)) || heroines.Select(h=>h.id).Distinct().Count()!=heroines.Length)
                 throw new ArgumentException("Invalid heroine combat definition.");
-            if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=15)
+            if(schemaVersion!=1 && formation.All(id=>heroines.Any(h=>h.id==id)) && formation.Select(PersonId).Distinct().Count()!=5)throw new ArgumentException("One person cannot occupy multiple formation slots.");
+            if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=skills.Length)
                 throw new ArgumentException("Invalid skill definition.");
-            if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || (s.effectRuleId!="effect.damage" && (s.selfHealingBaseAttackPercent!=0 || s.selfDamageMaxHpPercent!=0))))
+            if(skills.Any(s=>s.enemyAttackReductionPercent<0 || s.enemyAttackReductionPercent>50 || s.enemyAttackReductionTurns<0 || s.enemyAttackReductionTurns>10 || (s.enemyAttackReductionPercent==0)!=(s.enemyAttackReductionTurns==0)))throw new ArgumentException("Invalid enemy attack reduction.");
+            if(skills.Any(s=>s.chainChanceBonusBp<0 || s.chainChanceBonusBp>1500 || s.chainChanceBonusBp>0 && s.effectRuleId!="effect.damage"))throw new ArgumentException("Invalid authored chain bonus.");
+            if(skills.Any(s=>s.enemyFireVulnerabilityPercent<0 || s.enemyFireVulnerabilityPercent>100 || s.enemyFireVulnerabilityTurns<0 || s.enemyFireVulnerabilityTurns>10 || (s.enemyFireVulnerabilityPercent==0)!=(s.enemyFireVulnerabilityTurns==0) || s.enemyFireVulnerabilityPercent>0 && s.effectRuleId!="effect.damage" || s.allAlchemistResourceGain<0 || s.allAlchemistResourceGain>10 || s.allAlchemistResourceGain>0 && s.effectRuleId!="effect.allies-buff"))throw new ArgumentException("Invalid alchemy skill effects.");
+            if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || s.effectRuleId!="effect.damage" && s.effectRuleId!="effect.self-buff" && s.selfHealingBaseAttackPercent!=0 || s.effectRuleId!="effect.damage" && s.selfDamageMaxHpPercent!=0 || s.resourceGain<0 || s.resourceGain>10 || s.alliesHealingBaseAttackPercent<0 || s.alliesHealingBaseAttackPercent>1000 || s.alliesHealingBaseAttackPercent>0 && s.effectRuleId!="effect.damage" || s.cleanseAll && s.effectRuleId!="effect.heal"))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
+                if(skill.targetStatusBonusPercent<0 || skill.targetStatusBonusPercent>1000 || skill.targetStatusBonusPercent>0 && (skill.effectRuleId!="effect.damage" || !EnemyStatusState.Kinds.Contains(skill.targetStatusBonusKind)) || skill.targetStatusBonusPercent==0 && !string.IsNullOrEmpty(skill.targetStatusBonusKind))throw new ArgumentException("Invalid target status damage bonus.");
                 CombatAttributeRules.Validate(skill.attributes);
                 var statuses=skill.statusEffects??Array.Empty<EnemyStatusDef>();
                 if(statuses.Any(e=>e==null) || statuses.Select(e=>e.kind).Distinct().Count()!=statuses.Length) throw new ArgumentException("Invalid status effect list.");
@@ -88,16 +109,18 @@ namespace NewAster.Core
                 SkillConditionDef.ValidateAll(skill.conditions);
                 if(skill.criticalBonusBp<0 || skill.criticalBonusBp>10000 || skill.damageCap<0 || (skill.effectRuleId!="effect.damage" && (skill.criticalBonusBp!=0 || skill.damageCap!=0))) throw new ArgumentException("Critical bonus and damage cap require an attack.");
                 TimedSelfEffectDef.ValidateAll(skill.selfEffects);
-                if(skill.effectRuleId=="effect.self-buff") {
-                    if(skill.selfEffects==null || skill.selfEffects.Length==0 || skill.targetRuleId!="target.self" || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
+                ExtendedSkillEffects.Validate(skill);
+                if(skill.effectRuleId=="effect.self-buff" || skill.effectRuleId=="effect.allies-buff") {
+                    if(skill.selfEffects==null || skill.selfEffects.Length==0 || (skill.effectRuleId=="effect.self-buff"?skill.targetRuleId!="target.self":skill.targetRuleId!="target.all-living-allies" && !(skill.targetRuleId=="target.selected-allies" && skill.targetCount==1)) || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
                         throw new ArgumentException("Self-buff requires nonempty supported effects and self target without casting or chain.");
                 } else if(skill.effectRuleId!="effect.damage" && skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects require a self-buff or attack command.");
             }
-            if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=5)
+            if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=chainActions.Length)
                 throw new ArgumentException("Unsupported or invalid chain definition.");
             foreach(var action in chainActions) MakeChain(action);
-            for(int actor=0;actor<5;actor++) {
-                string heroId=HeroIdAt(actor);
+            var validationIds=FormationIds.Concat(HeroineIds.Except(FormationIds)).ToArray();
+            for(int actor=0;actor<validationIds.Length;actor++) {
+                string heroId=validationIds[actor];
                 var h=heroines.SingleOrDefault(x=>x.id==heroId);
                 if(h==null) throw new ArgumentException("Combat formation references a missing heroine.");
                 var a=chainActions.SingleOrDefault(x=>x.id==h.chainActionId);
@@ -105,7 +128,7 @@ namespace NewAster.Core
                 for(int slot=0;slot<3;slot++) {
                     var s=skills.SingleOrDefault(x=>x.id==h.skills[slot]);
                     if(s==null || s.ownerId!=heroId) throw new ArgumentException("Skill ownership mismatch.");
-                    if(s.effectRuleId=="effect.self-buff") {
+                    if(s.effectRuleId=="effect.self-buff" || s.effectRuleId=="effect.allies-buff") {
                         // Validated above; unlike legacy support, any heroine slot may own it.
                     } else if(s.effectRuleId=="effect.heal") {
                         if(s.castPercent!=0 || s.chainEligible || s.targetCount<1 || s.targetCount>5 || (s.targetRuleId!="target.self" && s.targetRuleId!="target.selected-allies" && s.targetRuleId!="target.all-living-allies") || (s.targetRuleId=="target.self" && s.targetCount!=1) || (s.targetRuleId=="target.all-living-allies" && s.targetCount!=5)) throw new ArgumentException("Unsupported healing definition.");
@@ -120,7 +143,7 @@ namespace NewAster.Core
                     }
                 }
             }
-            ValidateFormal();
+            ValidateFormal();if(IsFormal)ValidateGeneralFormations();
         }
         public SkillTimingDefinition[,] Timings()
         {
@@ -155,7 +178,8 @@ namespace NewAster.Core
                 case "target.all-living-allies": target=ChainTarget.AllLivingAllies;break;
                 default: throw new ArgumentException("Unsupported fixed chain target.");
             }
-            return new HeroineChainAction(a.heroineId,a.id,(decimal)a.powerScale,effect,target,a.baseHealing,a.presentationId,string.IsNullOrEmpty(a.damageType)?"physical":a.damageType,a.ignoreDefenseBp);
+            // Oriflamme adopts elemental fixed actions; preserve the previous nine forms' historical execution contract.
+            return new HeroineChainAction(a.heroineId,a.id,(decimal)a.powerScale,effect,target,a.baseHealing,a.presentationId,string.IsNullOrEmpty(a.damageType)?"physical":a.damageType,a.ignoreDefenseBp,a.heroineId=="heroine.oriflamme"?a.attributes:null);
         }
     }
 }

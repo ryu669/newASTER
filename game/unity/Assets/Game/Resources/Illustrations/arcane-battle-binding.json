@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.arcane",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/arcane-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/arcane-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/arcane-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/arcane-cutin-candidate-v1"
+}

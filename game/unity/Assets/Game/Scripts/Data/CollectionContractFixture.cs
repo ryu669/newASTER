@@ -9,8 +9,8 @@ namespace NewAster.Data
     {
         public static CollectionCatalog Create(CombatDefinitionCatalog combat)
         {
-            combat.Validate();var result=Create(combat.FormationIds);
-            foreach(var id in combat.FormationIds){
+            combat.Validate();var result=Create(combat.HeroineIds);
+            foreach(var id in combat.HeroineIds){
                 var hero=combat.Hero(id);var owner=result.owners.Single(o=>o.id==id);
                 if(!hero.poemChapters.SequenceEqual(owner.chapterIds) || hero.poemLinks.Except(result.links.Where(l=>l.ownerId==id).Select(l=>l.id)).Any())throw new ArgumentException("Collection definitions do not resolve heroine references.");
             }

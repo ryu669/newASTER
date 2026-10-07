@@ -1,0 +1,510 @@
+{
+  "date": "2026-10-06",
+  "status": "accepted",
+  "heroineId": "heroine.oriflamme",
+  "jobId": "job.alchemist",
+  "formsTotal": 10,
+  "peopleTotal": 9,
+  "jobsTotal": 9,
+  "coreAssertions": 8231,
+  "windowsBuild": "D:\\AIGAME\\newASTER\\game\\Builds\\plan10-oriflamme\\newASTER.exe",
+  "buildBytes": 1997355046,
+  "artCount": 18,
+  "storyPages": 30,
+  "poems": 18,
+  "events": 5,
+  "screenCount": 28,
+  "screens": [
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-alchemy.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.73328559027777,
+        98.93988715277777,
+        85.01708441840277
+      ],
+      "pixelStddev": [
+        70.83131884797213,
+        65.169485281018,
+        55.39288338725694
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-attack.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.830166015625,
+        101.53542426215277,
+        90.0669900173611
+      ],
+      "pixelStddev": [
+        71.55414585178981,
+        65.63172985915944,
+        57.75095579425568
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-battle.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.80309136284723,
+        98.96644097222222,
+        85.05070095486111
+      ],
+      "pixelStddev": [
+        70.8531217747423,
+        65.16385911876297,
+        55.3815312424988
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-buff.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.80674479166667,
+        98.96741102430556,
+        85.05119140625
+      ],
+      "pixelStddev": [
+        70.85137325788835,
+        65.16262243370682,
+        55.38168766923507
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-chapter.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        76.1487771267361,
+        83.99113389756944,
+        83.59484375
+      ],
+      "pixelStddev": [
+        67.91542456144518,
+        64.29164062967882,
+        59.35023743408724
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-detail.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.05655924479167,
+        97.39884440104167,
+        95.6400466579861
+      ],
+      "pixelStddev": [
+        101.92642986956986,
+        94.6091057591435,
+        82.36500878988537
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-event0.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        98.45094943576389,
+        70.49031141493056,
+        64.65852105034722
+      ],
+      "pixelStddev": [
+        84.99842250290955,
+        63.20792002558841,
+        50.54636106754221
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-event1.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        80.60694118923611,
+        61.95544704861111,
+        59.771639539930554
+      ],
+      "pixelStddev": [
+        72.15560191558791,
+        56.09116378918782,
+        48.71299288625203
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-event2.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        85.98594509548612,
+        74.04154839409722,
+        73.71280707465277
+      ],
+      "pixelStddev": [
+        78.59107088256489,
+        63.953372823297904,
+        54.72037156560114
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-event3.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        96.77719835069445,
+        74.34472764756944,
+        71.71371202256944
+      ],
+      "pixelStddev": [
+        82.29618152993312,
+        63.71453660836586,
+        55.384877277022596
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-event4.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        105.13501193576388,
+        85.9178786892361,
+        79.29776475694445
+      ],
+      "pixelStddev": [
+        88.59626674280118,
+        73.81572175950579,
+        60.89882377866765
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-formation.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        61.40725477430556,
+        55.07750108506944,
+        60.396513671875
+      ],
+      "pixelStddev": [
+        76.08273741533822,
+        63.98342192076935,
+        58.790125705118555
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-garden.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        101.96515299479167,
+        112.84493815104166,
+        93.17701822916666
+      ],
+      "pixelStddev": [
+        68.1235924922167,
+        63.20983276181108,
+        58.10040768629687
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-input.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.01506944444445,
+        99.14140516493056,
+        85.18500434027777
+      ],
+      "pixelStddev": [
+        70.90058390510937,
+        65.14025479143349,
+        55.367402079781726
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-journey.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        126.28263129340277,
+        128.42948350694445,
+        122.77797417534723
+      ],
+      "pixelStddev": [
+        104.22101403701858,
+        94.87271868639853,
+        81.85284784544716
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-recruit.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        44.73547526041666,
+        41.892339409722226,
+        46.356922743055556
+      ],
+      "pixelStddev": [
+        56.717151574621035,
+        47.215357210406964,
+        42.847896228288874
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-recruitment.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        24.163856336805555,
+        32.28212565104167,
+        46.65966037326389
+      ],
+      "pixelStddev": [
+        33.83160716383998,
+        27.500909319638048,
+        18.7031806394123
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-roster.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        48.252855902777775,
+        45.40892686631945,
+        51.270145399305555
+      ],
+      "pixelStddev": [
+        63.05782676705092,
+        52.34391289318218,
+        47.741011495163036
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-status.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        84.41392903645833,
+        94.53792100694444,
+        80.41124565972223
+      ],
+      "pixelStddev": [
+        70.34738454528464,
+        66.22204996051487,
+        53.91744413008881
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-ultimate.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        92.760361328125,
+        101.54168294270833,
+        90.05299479166666
+      ],
+      "pixelStddev": [
+        71.53067692600642,
+        65.62727514863819,
+        57.75575429911461
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-weakness.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        91.80744466145833,
+        98.97034288194445,
+        85.05338650173611
+      ],
+      "pixelStddev": [
+        70.85218670909669,
+        65.16321663238364,
+        55.38275407691085
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1280\\oriflamme-weapon.png",
+      "resolution": [
+        1280,
+        720
+      ],
+      "pixelMean": [
+        89.840185546875,
+        81.14880425347222,
+        79.43322591145834
+      ],
+      "pixelStddev": [
+        94.98954066102023,
+        85.39937379118241,
+        75.59251574188
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-alchemy.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        91.40450416666667,
+        98.6626611111111,
+        84.86378611111111
+      ],
+      "pixelStddev": [
+        71.00439766303394,
+        65.46635539408891,
+        55.68662910478826
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-battle.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        91.47857361111112,
+        98.69415972222222,
+        84.90222152777778
+      ],
+      "pixelStddev": [
+        71.03288013557034,
+        65.46818061345222,
+        55.68430899133608
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-detail.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        101.50536805555555,
+        97.87131111111111,
+        96.12247430555556
+      ],
+      "pixelStddev": [
+        102.21157010265837,
+        94.92574774529412,
+        82.65626687382331
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-event2.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        86.07909444444445,
+        74.11112222222222,
+        73.7111451388889
+      ],
+      "pixelStddev": [
+        78.83453050297447,
+        64.20838593263305,
+        54.888534318879096
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-input.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        91.70593819444444,
+        98.88733263888889,
+        85.05456597222222
+      ],
+      "pixelStddev": [
+        71.11301355170173,
+        65.4803065694324,
+        55.71049409595814
+      ]
+    },
+    {
+      "path": "D:\\AIGAME\\newASTER\\tmp\\plan10-oriflamme\\player-1600\\oriflamme-weakness.png",
+      "resolution": [
+        1600,
+        900
+      ],
+      "pixelMean": [
+        91.48247152777778,
+        98.6976548611111,
+        84.90454375
+      ],
+      "pixelStddev": [
+        71.03116057976399,
+        65.46684877181302,
+        55.68499119470467
+      ]
+    }
+  ],
+  "verified": [
+    "previous nine forms unchanged",
+    "five distinct alchemy attributes",
+    "resource inputs validated atomically and consumed once",
+    "READY Clock and chain preserved by alchemy",
+    "target-local fire vulnerability with exact tick expiry",
+    "fire amplification does not affect non-fire attacks",
+    "source three skills and burning-target synergy",
+    "five formation positions",
+    "compatible saves and idempotent free recruitment",
+    "all three chapters and five events read persisted and reloaded",
+    "18 original images alpha import hash validation",
+    "1280x720 and 1600x900"
+  ],
+  "referenceLimit": "Sampled screen evidence; authored speech separate from untranscribed source audio."
+}
