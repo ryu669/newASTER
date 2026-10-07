@@ -68,10 +68,10 @@
     },
     {
       "heroineId": "heroine.r",
-      "resourcePath": "Illustrations/r-portrait-candidate-v1",
-      "faceCenterX": 0.6,
-      "faceCenterY": 0.65,
-      "faceHeight": 0.27
+      "resourcePath": "Illustrations/r-standing-candidate-v1",
+      "faceCenterX": 0.535,
+      "faceCenterY": 0.312,
+      "faceHeight": 0.05
     },
     {
       "heroineId": "heroine.shangrila",

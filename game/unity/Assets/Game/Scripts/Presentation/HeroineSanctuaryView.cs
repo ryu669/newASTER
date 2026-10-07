@@ -41,12 +41,14 @@ namespace NewAster.Presentation
             }
             return portraitFraming.entries.SingleOrDefault(e=>e.heroineId==id);
         }
-        private Texture2D HeroPortrait(string id)
+        private Texture2D HeroPortrait(string id,bool framed=false)
         {
-            if(!heroinePortraits.TryGetValue(id,out var texture)){
-                var framing=HeroFraming(id);
-                texture=framing==null?null:Resources.Load<Texture2D>(framing.resourcePath);
-                heroinePortraits[id]=texture;
+            string key=framed?"framed."+id:id;
+            if(!heroinePortraits.TryGetValue(key,out var texture)){
+                var framing=framed?HeroFraming(id):null;
+                string path=framed?framing?.resourcePath:"Illustrations/"+id.Substring("heroine.".Length)+"-portrait-candidate-v1";
+                texture=path==null?null:Resources.Load<Texture2D>(path);
+                heroinePortraits[key]=texture;
             }
             return texture;
         }
@@ -54,12 +56,12 @@ namespace NewAster.Presentation
         // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
         private void DrawHeroPortrait(Rect panel,string id)
         {
-            var texture=HeroPortrait(id);var framing=HeroFraming(id);
+            var texture=HeroPortrait(id,true);var framing=HeroFraming(id);
             if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
             float scale=panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight);
             float w=texture.width*scale,h=texture.height*scale;
             GUI.BeginGroup(panel);
-            GUI.DrawTexture(new Rect(panel.width*.5f-framing.faceCenterX*w,panel.height*portraitFraming.faceCenterYRatio-framing.faceCenterY*h,w,h),texture,ScaleMode.StretchToFill,true);
+            GUI.DrawTexture(new Rect(panel.width*.5f-framing.faceCenterX*w,panel.height*portraitFraming.faceCenterYRatio-framing.faceCenterY*h,w,h),texture,ScaleMode.ScaleToFit,true);
             GUI.EndGroup();
         }
         private void SanctuaryStyles()
