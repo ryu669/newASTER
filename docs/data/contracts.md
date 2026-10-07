@@ -8,7 +8,7 @@
 追加効果は `postAttackAlliesEffects`、`enemyStatusExtensionTurns/Kinds`、`alliesEffectExtensionTurns`、`bodyDamageBonusPercent`、自己効果 `attack-reduction`。発症中・正の効果・本体限定の対象境界と数値範囲を検証する。配備は `BattleDeployment` に指揮官と支援対象を渡し、外部の配列や要素変更から防御コピーする。
 <!-- plan10-current:end -->
 
-更新：2026-10-07。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。仕様整理のみで実装完了を意味しません。
+更新：2026-10-07。状態：現行仕様。版はGit履歴で管理し、ファイル名に版番号を付けません。提供済みの範囲は計画10の実装・検証記録へ対応づけ、未提供機能は後続項目として明記します。
 
 ## 計画8の基準定義と診断境界
 

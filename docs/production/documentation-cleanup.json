@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-07",
+  "removedRedirectCount": 46,
+  "rewrittenDocumentCount": 2,
+  "redirects": [
+    {
+      "removed": "docs/2d-illustration-spec.md",
+      "destination": "docs/requirements/presentation.md"
+    },
+    {
+      "removed": "docs/angelica-client-analysis.md",
+      "destination": "docs/references/angelica-client-analysis.md"
+    },
+    {
+      "removed": "docs/angelica-elements.md",
+      "destination": "docs/archive/angelica-elements.md"
+    },
+    {
+      "removed": "docs/angelica-job-observations.md",
+      "destination": "docs/references/angelica-job-observations.md"
+    },
+    {
+      "removed": "docs/angelica-rules-followup.md",
+      "destination": "docs/references/angelica-rules-followup.md"
+    },
+    {
+      "removed": "docs/asset-production-policy-v0.2.md",
+      "destination": "docs/archive/asset-production-policy-v0.2.md"
+    },
+    {
+      "removed": "docs/battle-observations.md",
+      "destination": "docs/references/battle-observations.md"
+    },
+    {
+      "removed": "docs/battle-spec.md",
+      "destination": "docs/archive/battle-spec.md"
+    },
+    {
+      "removed": "docs/battle-speed-casting.md",
+      "destination": "docs/systems/battle-timing.md"
+    },
+    {
+      "removed": "docs/battle-video-ui-update.md",
+      "destination": "docs/archive/battle-video-ui-update.md"
+    },
+    {
+      "removed": "docs/concept.md",
+      "destination": "docs/archive/concept.md"
+    },
+    {
+      "removed": "docs/continuity-opening.md",
+      "destination": "docs/archive/continuity-opening.md"
+    },
+    {
+      "removed": "docs/five-hero-battle-review.md",
+      "destination": "docs/archive/five-hero-battle-review.md"
+    },
+    {
+      "removed": "docs/formal-battle-decisions-v0.1.md",
+      "destination": "docs/archive/formal-battle-decisions-v0.1.md"
+    },
+    {
+      "removed": "docs/formal-production-start-v0.2.md",
+      "destination": "docs/production/implementation-plan.md"
+    },
+    {
+      "removed": "docs/game-requirements-v2.md",
+      "destination": "docs/requirements/game.md"
+    },
+    {
+      "removed": "docs/heroine-research.md",
+      "destination": "docs/references/heroine-research.md"
+    },
+    {
+      "removed": "docs/implementation-roadmap-v0.2.md",
+      "destination": "docs/archive/implementation-roadmap-v0.2.md"
+    },
+    {
+      "removed": "docs/inherited-heroines.md",
+      "destination": "docs/archive/inherited-heroines.md"
+    },
+    {
+      "removed": "docs/kyoshin-ending-observations.md",
+      "destination": "docs/references/kyoshin-ending-observations.md"
+    },
+    {
+      "removed": "docs/model-production-contract-v0.1.md",
+      "destination": "docs/archive/model-production-contract-v0.1.md"
+    },
+    {
+      "removed": "docs/oath-rescue-prototype.md",
+      "destination": "docs/archive/oath-rescue-prototype.md"
+    },
+    {
+      "removed": "docs/playable-awakening-v0.1.md",
+      "destination": "docs/archive/playable-awakening-v0.1.md"
+    },
+    {
+      "removed": "docs/playable-kinder-rewards-v0.1.md",
+      "destination": "docs/archive/playable-kinder-rewards-v0.1.md"
+    },
+    {
+      "removed": "docs/presentation-production-status.md",
+      "destination": "docs/archive/presentation-production-status.md"
+    },
+    {
+      "removed": "docs/production-assets.md",
+      "destination": "docs/presentation/assets.md"
+    },
+    {
+      "removed": "docs/production-combat-update-v0.3.md",
+      "destination": "docs/archive/production-combat-update-v0.3.md"
+    },
+    {
+      "removed": "docs/production-gap-analysis-v0.2.md",
+      "destination": "docs/archive/production-gap-analysis-v0.2.md"
+    },
+    {
+      "removed": "docs/production-plan.md",
+      "destination": "docs/archive/production-plan.md"
+    },
+    {
+      "removed": "docs/production-ready-spec.md",
+      "destination": "docs/archive/production-ready-spec.md"
+    },
+    {
+      "removed": "docs/proposal.md",
+      "destination": "docs/archive/proposal.md"
+    },
+    {
+      "removed": "docs/prototype-release.md",
+      "destination": "docs/archive/prototype-release.md"
+    },
+    {
+      "removed": "docs/prototype-validation.md",
+      "destination": "docs/archive/prototype-validation.md"
+    },
+    {
+      "removed": "docs/references.md",
+      "destination": "docs/references/references.md"
+    },
+    {
+      "removed": "docs/requirements.md",
+      "destination": "docs/archive/requirements.md"
+    },
+    {
+      "removed": "docs/slayer-video-observations-v0.1.md",
+      "destination": "docs/references/slayer-video-observations-v0.1.md"
+    },
+    {
+      "removed": "docs/songs-affection-scenes.md",
+      "destination": "docs/archive/songs-affection-scenes.md"
+    },
+    {
+      "removed": "docs/spec-2d-assets-and-acceptance.md",
+      "destination": "docs/presentation/assets.md"
+    },
+    {
+      "removed": "docs/spec-2d-battle-presentation.md",
+      "destination": "docs/presentation/battle.md"
+    },
+    {
+      "removed": "docs/spec-2d-garden-and-adv.md",
+      "destination": "docs/presentation/garden-and-adv.md"
+    },
+    {
+      "removed": "docs/spec-battle-and-collection-v0.2.md",
+      "destination": "docs/systems/battle.md"
+    },
+    {
+      "removed": "docs/spec-implementation-contracts.md",
+      "destination": "docs/data/contracts.md"
+    },
+    {
+      "removed": "docs/spec-progression-ui-v0.2.md",
+      "destination": "docs/systems/progression.md"
+    },
+    {
+      "removed": "docs/vertical-slice-playtest-protocol-v0.1.md",
+      "destination": "docs/production/playtest.md"
+    },
+    {
+      "removed": "docs/vertical-slice-spec-v0.2.md",
+      "destination": "docs/production/vertical-slice.md"
+    },
+    {
+      "removed": "docs/world-memory-colossi-v0.2.md",
+      "destination": "docs/world/world-memory.md"
+    }
+  ]
+}

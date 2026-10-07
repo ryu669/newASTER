@@ -5,6 +5,7 @@
 - [angelica-elements.md](angelica-elements.md)
 - [asset-production-policy-v0.2.md](asset-production-policy-v0.2.md)
 - [battle-spec.md](battle-spec.md)
+- [初期5人のv1戦闘ルール](battle-v1-initial-five.md)
 - [battle-speed-casting-history.md](battle-speed-casting-history.md)
 - [battle-video-ui-update.md](battle-video-ui-update.md)
 - [concept.md](concept.md)

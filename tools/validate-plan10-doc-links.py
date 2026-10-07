@@ -1,10 +1,9 @@
-"""Check new/current documentation links without rewriting historical reports."""
+"""Check all repository documentation links, including preserved historical reports."""
 import re,subprocess
 from pathlib import Path
 from urllib.parse import unquote
 R=Path(__file__).resolve().parents[1]
-paths=subprocess.check_output(['git','diff','HEAD','--name-only','--','README.md','docs','game/README.md'],cwd=R).decode().splitlines()
-paths+=subprocess.check_output(['git','ls-files','--others','--exclude-standard','--','docs'],cwd=R).decode().splitlines()
+paths=['README.md','game/README.md']+[str(p.relative_to(R)) for p in (R/'docs').rglob('*.md')]
 missing=[];checked=0
 for rel in paths:
     p=R/rel
