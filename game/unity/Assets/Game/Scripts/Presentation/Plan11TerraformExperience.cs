@@ -128,7 +128,8 @@ namespace NewAster.Presentation
             string[] tabs={"極相 "+s.discoveredExtremes.Length+"/28","深層記述 "+s.acquiredDeepRecords.Count(TerraformRules.DeepIds.Contains)+"/7","世界現象","星名"};
             for(int i=0;i<4;i++)if(GrowthButton(135+i*325,240,310,44,tabs[i],ready,possibleWorldTab==i)){possibleWorldTab=i;terraformScroll=Vector2.zero;}
             if(possibleWorldTab==3){
-                Label(180,330,1200,75,s.sevenExtremeGenesis?"七極創世\n過去7世界のいずれにも該当しない世界が成立した":"全7領域の最大到達Lv7で、星名入力が解放されます。",growthTitleStyle);
+                Label(180,330,1200,60,s.sevenExtremeGenesis?"七極創世":"星名",growthTitleStyle);
+                Label(180,395,1200,54,s.sevenExtremeGenesis?"過去7世界のいずれにも該当しない世界が成立した":"全7領域の最大到達Lv7で、星名入力が解放されます。",growthSmallStyle);
                 if(worldNameInput==null || worldNameOwner!=s.customWorldName){worldNameInput=s.customWorldName??"";worldNameOwner=s.customWorldName;}
                 bool old=GUI.enabled;GUI.enabled=old && ready && s.sevenExtremeGenesis;worldNameInput=GUI.TextField(new Rect(180,465,1200,64),worldNameInput,40);GUI.enabled=old;
                 Label(180,555,1200,60,"40文字以内。後から変更可能です。空欄で既定の「新天地」に戻ります。",growthSmallStyle);
