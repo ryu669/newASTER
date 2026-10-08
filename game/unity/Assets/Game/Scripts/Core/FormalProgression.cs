@@ -27,18 +27,18 @@ namespace NewAster.Core
         public string saveId, contentVersion = ContentVersion;
         public long revision;
         public int nectar, awakeningCrystals, overflow;
-        public int stones, kinderPoints, totalKinderDraws;
+        public int stones, kinderPoints, totalKinderDraws, eternalRings;
         public HeroineTicket[] tickets=Array.Empty<HeroineTicket>();
         public FormalHeroineGrowth[] heroines = Array.Empty<FormalHeroineGrowth>();
         public GrowthReceipt[] receipts = Array.Empty<GrowthReceipt>();
         public FormalGrowthSave Copy() => new FormalGrowthSave {
             version=version, saveId=saveId, contentVersion=contentVersion, revision=revision,
-            nectar=nectar, awakeningCrystals=awakeningCrystals, overflow=overflow,stones=stones,kinderPoints=kinderPoints,totalKinderDraws=totalKinderDraws,tickets=tickets.Select(t=>t.Copy()).ToArray(),
+            nectar=nectar, awakeningCrystals=awakeningCrystals, overflow=overflow,stones=stones,eternalRings=eternalRings,kinderPoints=kinderPoints,totalKinderDraws=totalKinderDraws,tickets=tickets.Select(t=>t.Copy()).ToArray(),
             heroines=heroines.Select(h=>h.Copy()).ToArray(), receipts=receipts.Select(r=>r.Copy()).ToArray()
         };
         public void Validate()
         {
-            if(version!=2 || contentVersion!=ContentVersion || string.IsNullOrWhiteSpace(saveId) || revision<0 || nectar<0 || awakeningCrystals<0 || overflow<0 || stones<0 || kinderPoints<0 || totalKinderDraws<0)
+            if(version!=2 || contentVersion!=ContentVersion || string.IsNullOrWhiteSpace(saveId) || revision<0 || nectar<0 || awakeningCrystals<0 || overflow<0 || stones<0 || eternalRings<0 || kinderPoints<0 || totalKinderDraws<0)
                 throw new ArgumentException("Unsupported or invalid formal growth save.");
             if(tickets==null || tickets.Any(t=>t==null || string.IsNullOrWhiteSpace(t.heroineId) || t.count<0) || tickets.Select(t=>t.heroineId).Distinct().Count()!=tickets.Length) throw new ArgumentException("Invalid tickets.");
             if(heroines==null || heroines.Any(h=>h==null || string.IsNullOrWhiteSpace(h.heroineId) || h.awakeningStage<0 || h.awakeningStage>2 || h.level<1 || h.level>h.LevelCap || h.duplicateRank<0 || h.duplicateRank>5 || h.fragments<0 || h.duplicateRank==5 && h.fragments!=0) || heroines.Select(h=>h.heroineId).Distinct().Count()!=heroines.Length)

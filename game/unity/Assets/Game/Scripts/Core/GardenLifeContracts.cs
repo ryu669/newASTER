@@ -7,7 +7,7 @@ namespace NewAster.Core
     [Serializable] public sealed class GardenLifeAssignment
     { public string heroineId,gardenId,mode="Auto",interactionTag; public bool fixedPose,allowSocial=true; public float x=.5f,y=.7f; }
     [Serializable] public sealed class GardenLifeContext
-    { public string gardenId,timePhase,weather,phenomenonId,interactionTag,activityId,heroineId,partnerId,furnitureId; public bool covered,sharedScenery,quiet,asteriaCleared; public int socialSeconds; public TerraformDomainState[] domains=Array.Empty<TerraformDomainState>(); }
+    { public string gardenId,timePhase,weather,phenomenonId,interactionTag,activityId,heroineId,partnerId,furnitureId; public bool covered,sharedScenery,quiet,asteriaCleared; public int socialSeconds; public string[] participantIds=Array.Empty<string>(); public TerraformDomainState[] domains=Array.Empty<TerraformDomainState>(); }
     [Serializable] public sealed class GardenLifeRecord
     { public string discoveryId,transactionId; public GardenLifeContext context; public string[] grantedRecipeIds=Array.Empty<string>(); }
     [Serializable] public sealed class GardenLifeReceipt
@@ -47,7 +47,7 @@ namespace NewAster.Core
             if(lastGardenId!=null && !save.world.unlockedGardenIds.Contains(lastGardenId))throw new ArgumentException("Locked last garden.");
             if(favoriteGardenId!=null && !save.world.unlockedGardenIds.Contains(favoriteGardenId))throw new ArgumentException("Locked favorite garden.");
             if(settings.Any(s=>!unlockedFrameIds.Contains(s.frameId) || !s.autoWeather && !GardenLifeCatalog.AvailableWeathers(save,s.gardenId).Contains(s.weather)))throw new ArgumentException("Locked frame or fixed weather.");
-            foreach(var r in records){var d=GardenLifeCatalog.Discoveries.Single(x=>x.id==r.discoveryId);if(!GardenLifeDiscoveries.Matches(d.condition,r.context) || r.grantedRecipeIds==null || !r.grantedRecipeIds.SequenceEqual(d.recipeId==null?Array.Empty<string>():new[]{d.recipeId}))throw new ArgumentException("Invalid discovery condition or recipe grant.");if(d.recipeId!=null && !unlockedRecipeIds.Contains(d.recipeId))throw new ArgumentException("Discovery recipe missing.");}
+            foreach(var r in records){if(r.context.participantIds!=null && (r.context.participantIds.Distinct().Count()!=r.context.participantIds.Length || r.context.participantIds.Any(id=>!owned.Contains(id))))throw new ArgumentException("Invalid discovery participant.");var d=GardenLifeCatalog.Discoveries.Single(x=>x.id==r.discoveryId);if(!GardenLifeDiscoveries.Matches(d.condition,r.context) || r.grantedRecipeIds==null || !r.grantedRecipeIds.SequenceEqual(d.recipeId==null?Array.Empty<string>():new[]{d.recipeId}))throw new ArgumentException("Invalid discovery condition or recipe grant.");if(d.recipeId!=null && !unlockedRecipeIds.Contains(d.recipeId))throw new ArgumentException("Discovery recipe missing.");}
         }
         public static bool Coordinate(float v)=>!float.IsNaN(v) && !float.IsInfinity(v) && v>=0 && v<=1;
         private static void Unique<T>(T[] values,Func<T,string> key) where T:class
@@ -107,7 +107,7 @@ namespace NewAster.Core
             if(life.favoriteGardenId=="")life.favoriteGardenId=null;if(life.lastGardenId=="")life.lastGardenId=null;
             foreach(var a in life.assignments??Array.Empty<GardenLifeAssignment>()){if(a==null)continue;if(a.gardenId=="")a.gardenId=null;if(a.interactionTag=="")a.interactionTag=null;}
             foreach(var r in life.records??Array.Empty<GardenLifeRecord>()){
-                var c=r?.context;if(c==null)continue;if(c.phenomenonId=="")c.phenomenonId=null;if(c.interactionTag=="")c.interactionTag=null;if(c.activityId=="")c.activityId=null;if(c.heroineId=="")c.heroineId=null;if(c.partnerId=="")c.partnerId=null;if(c.furnitureId=="")c.furnitureId=null;
+                var c=r?.context;if(c==null)continue;if(c.participantIds==null)c.participantIds=Array.Empty<string>();if(c.phenomenonId=="")c.phenomenonId=null;if(c.interactionTag=="")c.interactionTag=null;if(c.activityId=="")c.activityId=null;if(c.heroineId=="")c.heroineId=null;if(c.partnerId=="")c.partnerId=null;if(c.furnitureId=="")c.furnitureId=null;
                 foreach(var d in c.domains??Array.Empty<TerraformDomainState>()){if(d==null)continue;if(d.activeDeepRecordId=="")d.activeDeepRecordId=null;if(d.activeExtremeId=="")d.activeExtremeId=null;}
             }
         }

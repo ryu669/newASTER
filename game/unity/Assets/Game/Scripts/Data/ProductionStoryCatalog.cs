@@ -38,16 +38,15 @@ namespace NewAster.Data
                 AddScript(target.sceneId,combat.HeroineIds.Contains(chapter.ownerId)?chapter.ownerId:null,chapter.backgroundResourcePath,null,
                     chapter.pages!=null && chapter.pages.Length>0?chapter.pages:new[]{chapter.introduction}.Concat(chapter.poems.Select(p=>p.body)).Concat(new[]{chapter.conclusion}).ToArray(),null,assets,texts,scripts);
             }
+            home.events=home.events.Where(e=>story.events.Any(a=>a.id==e.id)).ToArray();
             foreach(var authored in story.events){
-                var target=home.events.Single(e=>e.id==authored.id);int index=int.Parse(authored.id.Substring(authored.id.LastIndexOf('.')+1));
-                target.sceneId="scene.production."+authored.id;target.kind=index<3?"affinity":"lover";target.establishesLover=authored.establishesLover;
-                var conditions=new List<HomeCondition>{new HomeCondition{kind="atLeast",domain="affection",ownerId=authored.ownerId,value=authored.affectionRequired}};
-                if(index>0)conditions.Add(new HomeCondition{kind="flag",domain="eventRead",id=authored.ownerId+".event."+(index-1)});
-                if(index>2)conditions.Add(new HomeCondition{kind="flag",domain="lover",id=authored.ownerId});
-                target.unlockCondition=new HomeCondition{kind="all",items=conditions.ToArray()};
+                var target=home.events.SingleOrDefault(e=>e.id==authored.id);if(target==null){target=new HomeEventDef{id=authored.id,heroineId=authored.ownerId};home.events=home.events.Concat(new[]{target}).ToArray();}
+                target.sceneId="scene.production."+authored.id;target.kind=authored.establishesLover || authored.affectionRequired<15?"affinity":"lover";target.establishesLover=authored.establishesLover;
+                target.unlockCondition=new HomeCondition{kind="atLeast",domain="affection",ownerId=authored.ownerId,value=authored.affectionRequired};
                 AddScript(target.sceneId,authored.ownerId,authored.backgroundResourcePath,authored.cgResourcePath,authored.paragraphs,authored.expressions,assets,texts,scripts);
             }
             home.assets=assets.ToArray();home.texts=texts.ToArray();home.scripts=scripts.ToArray();
+            home.affectionEvents=story.affectionEvents??Array.Empty<HeroineEventDef>();
             home.materials=collection.resources.Where(r=>r.kind=="material" && WorldCatalog.ColossusIds.Contains(r.ownerId)).Select(r=>new HomeMaterialDef{id=r.id,colossusId=r.ownerId,name=r.name,rarity=r.rarity}).ToArray();
             home.resourceIds=home.resourceIds.Concat(home.materials.Select(r=>r.id)).Distinct().ToArray();
             ProductionGardenCatalog.Apply(home,combat,collection);

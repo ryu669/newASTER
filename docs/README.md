@@ -51,3 +51,5 @@
 
 - [Plan11-2 箱庭生活の実装と検証](production/plan11-2-garden-life.md)
 - [Plan11-2 提供仕様](production/plan11-2-garden-life-spec.md)
+
+- [Plan11-3 好感度・恋愛](production/plan11-3-affection.md) / [実装仕様 v1.0](production/plan11-3-affection-spec.md)

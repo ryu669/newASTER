@@ -73,7 +73,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && !gardenLifeCapture)return;
             if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;StopLifeAudio();}gardenViewing=false;return;}
             if(!LifeSnapshot().world.unlockedGardenIds.Contains(book.SubjectId))return;
-            if(gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
+            if(affectionInteraction!=null || affectionRequest!=null || affectionPanel || affectionShop || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(gardenLifeRuntime==null || gardenLifeRuntime.GardenId!=book.SubjectId){
                 string id=book.SubjectId;CommitLife("visit",id,s=>{s.gardenLife.Setting(id).visitCounter=checked(s.gardenLife.Setting(id).visitCounter+1);s.gardenLife.lastGardenId=id;},StartLifeScene);return;
             }
@@ -207,7 +207,7 @@ namespace NewAster.Presentation
         private void DrawLifeResidentMenu(FormalCampaignSave save)
         {
             string id=selectedResident;if(id==null)return;var agent=gardenLifeRuntime?.Agents.SingleOrDefault(a=>a.heroineId==id);Label(998,265,550,38,combatDefinitions.Hero(id).name,text,Color.white);
-            if(Btn(998,315,268,44,"話す",agent!=null)){gardenLifeRuntime.Greet(id);gardenLifeMessage="こちらに気づき、顔を向けています。";}
+            if(Btn(998,315,268,44,"話す",agent!=null)){BeginPlayerAffection(id,false);}
             if(Btn(1280,315,268,44,"観察",agent!=null))gardenLifeMessage=gardenLifeRuntime.Observe(id);
             var assignment=save.gardenLife.assignments.SingleOrDefault(a=>a.heroineId==id)??new GardenLifeAssignment{heroineId=id};
             string[] names={"この庭に固定","この庭を優先","自動で訪れる","生活から隠す"};
@@ -218,12 +218,12 @@ namespace NewAster.Presentation
             }
             if(Btn(998,621,268,44,"位置を指定")){gardenLifeResidentPlace=true;gardenLifePanel=null;}
             if(Btn(1280,621,268,44,"誓女の詳細")){gardenLifePanel=null;gardenLifeRuntime?.Stop();if(book.RequestSubject(BookBookmark.Heroines,id))bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;}
-            var events=ProductionGardenLifeCatalog.GetAvailableGardenEvents(save,HomeData(),id);if(Btn(998,680,550,42,"物語・回想（"+events.Length+"）"))gardenLifePanel="交流物語";
+            var events=ProductionGardenLifeCatalog.GetAvailableGardenEvents(save,HomeData(),id);if(Btn(998,680,268,42,"一緒に過ごす",agent!=null))BeginPlayerAffection(id,true);if(Btn(1280,680,268,42,"好感度・物語"))OpenAffection(id);
             if(assignment.fixedPose && Btn(998,733,550,42,"固定行動："+GardenLifeCatalog.InteractionName(assignment.interactionTag??"stand"))){string[] tags={"stand","sit","read","look","rest"};assignment.interactionTag=tags[(Array.IndexOf(tags,assignment.interactionTag??"stand")+1)%tags.Length];CommitLife("assignment",JsonUtility.ToJson(assignment),s=>s.gardenLife.assignments=s.gardenLife.assignments.Where(a=>a.heroineId!=id).Concat(new[]{assignment}).ToArray(),StartLifeScene);}
         }
         private void DrawLifeActivities(FormalCampaignSave save)
         {
-            if(gardenLifeRuntime?.ActivityId!=null && Btn(998,260,268,43,"催事を終える"))gardenLifeRuntime.EndActivity();
+            if(gardenLifeRuntime?.ActivityId!=null && Btn(998,260,268,43,"催事を終える"))FinishPlayerActivity();
             if(Btn(1280,260,268,43,"参加者："+(gardenActivityParticipants.Count==0?"自動":gardenActivityParticipants.Count+"人")))gardenLifePanel="催事参加者";
             for(int i=0;i<GardenLifeCatalog.Activities.Length;i++){var a=GardenLifeCatalog.Activities[i];bool unlocked=save.gardenLife.unlockedActivityIds.Contains(a.id);var selected=gardenActivityParticipants.Count==0?null:gardenActivityParticipants.ToArray();string reason=gardenLifeRuntime?.ActivityUnavailable(a.id,selected);if(Btn(998,318+i*44,550,39,a.name+(unlocked?reason==null?"を開く":" ／ "+reason:" ／ 領域発展で解放"),unlocked && reason==null && gardenLifeRuntime!=null))gardenLifeRuntime.StartActivity(a.id,selected);}
         }

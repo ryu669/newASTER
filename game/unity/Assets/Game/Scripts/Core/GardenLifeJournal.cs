@@ -44,6 +44,7 @@ namespace NewAster.Core
                     }
                 }
                 if(encode(probe)!=encode(before))throw new ArgumentException("Life operation changed protected campaign state.");
+                if(request.Kind=="discovery" && next.affection!=null){foreach(var record in next.gardenLife.records.Where(r=>!(before.gardenLife?.records??Array.Empty<GardenLifeRecord>()).Any(old=>old.discoveryId==r.discoveryId)))AffectionRewardService.Discovery(next,catalog,record.context.participantIds!=null && record.context.participantIds.Length>0?record.context.participantIds:new[]{record.context.heroineId,record.context.partnerId});AffectionEventResolver.Refresh(next,catalog);}
                 GardenLifeCatalog.RefreshUnlocks(next);next.gardenLife.ValidateContent(next,catalog);
                 if(before.gardenLife!=null && (before.gardenLife.records.Any(r=>!next.gardenLife.records.Any(n=>n.discoveryId==r.discoveryId && n.transactionId==r.transactionId)) || before.gardenLife.unlockedRecipeIds.Except(next.gardenLife.unlockedRecipeIds).Any() || before.gardenLife.unlockedFrameIds.Except(next.gardenLife.unlockedFrameIds).Any() || before.gardenLife.receipts.Any(r=>!next.gardenLife.receipts.Any(n=>n.transactionId==r.transactionId && n.signature==r.signature))))throw new ArgumentException("Life progress cannot be removed.");
                 if(request.Kind=="edit" || request.Kind=="craft")next.home.ValidateContent(catalog,next);

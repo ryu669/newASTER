@@ -112,6 +112,8 @@ namespace NewAster.Core
         }
         public void Validate(bool release=false)
         {
+            if(affectionEvents!=null && affectionEvents.Length>0)AffectionEventResolver.Validate(this);
+            if(initialAffections==null || initialAffections.Any(a=>a==null || a.level<0 || a.level>20 || !heroineIds.Any(id=>PersonId(id)==a.personId)) || initialAffections.Select(a=>a.personId).Distinct().Count()!=initialAffections.Length)throw new ArgumentException("Invalid initial affection definition.");
             if(schemaVersion!=1)Fail("UNKNOWN_SCHEMA","/schemaVersion",null,"未対応の定義版です。");
             if(!Id(contentVersion) || status!="fixture" && status!="release" && !(status=="development-trial" && contentVersion==TrialVersion) && !(status=="production-candidate" && contentVersion==CandidateVersion))Fail("UNRESOLVED_RULE","/contentVersion",contentVersion,"内容版と状態を指定してください。");
             if(release && status!="release")Fail("PLACEHOLDER_IN_RELEASE","/status",null,"検証パックを正式版へ採用できません。");

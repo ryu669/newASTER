@@ -29,6 +29,7 @@ namespace NewAster.Presentation
         private Camera viewCamera;
         private string capturePath;
         private int captureFrame,capturedAtFrame=-1;
+        private float capturedAtTime;
         private Vector2 scroll;
         private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
@@ -212,6 +213,7 @@ namespace NewAster.Presentation
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
             UpdateBookTransition();
+            UpdateAffection();
             UpdateGardenLife();
             UpdateAdv();
             UpdateEngagement();
@@ -221,6 +223,7 @@ namespace NewAster.Presentation
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(help)help=false;
+                else if(CloseAffectionLayer()){}
                 else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
@@ -287,9 +290,10 @@ namespace NewAster.Presentation
                 if(captureFrame==85 && Environment.GetCommandLineArgs().Contains("-bookTransition"))RequestBookFlip();
                 int captureAt=measureArt?(plan7ActiveCombat?1800:600):90;
                 bool ready=plan7FullCombat?plan7FullCombatComplete:Environment.GetCommandLineArgs().Contains("-validatePlan7Focus")?captureFrame>=captureAt && plan7FocusComplete:captureFrame==captureAt;
+                if(plan10UiCapture && !measureArt)ready=Time.realtimeSinceStartup>=10;
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
-                if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
-                if(capturedAtFrame>=0 && captureFrame==capturedAtFrame+60) Application.Quit();
+                if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
+                if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();
             }
         }
         private void UpdatePlayback()
@@ -333,7 +337,7 @@ namespace NewAster.Presentation
         {
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();DrawAffectionOverlay();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -687,7 +691,7 @@ namespace NewAster.Presentation
         private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
         private void Save(string successMessage="進行を保存しました。")
         {
-            if(formalDiagnostic && !Environment.GetCommandLineArgs().Contains("-gardenLifeManualSave"))return;
+            if(formalDiagnostic && !Environment.GetCommandLineArgs().Contains("-gardenLifeManualSave") && !Environment.GetCommandLineArgs().Contains("-affectionManualSave"))return;
             if(formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending){status="保存待ちの操作を先に完了してください。";return;}
             TrialObserve("save","start");
             try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }

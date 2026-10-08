@@ -52,6 +52,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(605,315,885,70,"石を使って誓女を迎える"))kinderScreen=KinderScreen.Draw;
                 if(GrowthButton(605,410,885,70,"100ポイントを専用チケットに交換"))kinderScreen=KinderScreen.Exchange;
                 if(GrowthButton(605,505,885,70,"所持チケットを使う"))kinderScreen=KinderScreen.Tickets;
+                if(GrowthButton(605,655,885,38,"特別交換 ／ 永遠の誓環",BookInputAllowed)){affectionShop=true;affectionPanel=false;}
                 if(GrowthButton(605,600,425,55,"提供割合・交換ルール"))kinderScreen=KinderScreen.Rates;
                 if(GrowthButton(1060,600,430,55,"星の恵み ／ 石を受け取る"))OpenEngagement();
                 if(GrowthButton(605,700,885,62,ProductionStoryActive?"旅立ちの祝福 ／ 初回3000石": "検証用・初回3000石を受け取る",formalProgression.KinderReceipt("grant.plan4-kinder-introduction")==null,true))ConfirmKinder(KinderOperation.IntroGrant,state);

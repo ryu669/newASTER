@@ -11,6 +11,7 @@ namespace NewAster.Core
     { public string id,ownerId,title,cgResourcePath,backgroundResourcePath; public int affectionRequired; public bool establishesLover; public string[] paragraphs,expressions; }
     [Serializable] public sealed class ProductionStoryContent
     {
+        public HeroineEventDef[] affectionEvents=Array.Empty<HeroineEventDef>();
         public const string Version="production-story-2026-10-04";
         public int schemaVersion;
         public string contentVersion,provenance;
@@ -46,15 +47,14 @@ namespace NewAster.Core
                 }
                 if(!enemy)Require(owned.SelectMany(c=>c.poems).Select(p=>p.sourcePoemId).Distinct().Count()==18,"Heroine sources must be individually selected.");
             }
-            Require(events!=null && events.Length==heroines.Length*5 && events.All(e=>e!=null) && events.Select(e=>e.id).Distinct().Count()==events.Length,"Production story requires twenty-five distinct events.");
+            Require(events!=null && events.All(e=>e!=null) && events.Select(e=>e.id).Distinct().Count()==events.Length,"Production story requires distinct registered events.");
             Require(events.All(e=>e.paragraphs!=null) && events.SelectMany(e=>e.paragraphs).Distinct().Count()==events.Sum(e=>e.paragraphs.Length),"Event narratives must be individually authored.");
-            Require(events.Select(e=>e.cgResourcePath).Distinct().Count()==events.Length,"Events require twenty-five separate CG bindings.");
-            foreach(string hero in heroines)for(int i=0;i<5;i++){
-                var e=events.SingleOrDefault(v=>v.id==hero+".event."+i);
-                Require(e!=null && e.ownerId==hero && Text(e.title) && e.affectionRequired==new[]{1,5,10,15,20}[i] && e.establishesLover==(i==2),"Invalid production event identity or progression.");
-                Require(e.paragraphs!=null && e.paragraphs.Length>=8 && e.paragraphs.All(Text) && e.paragraphs.Distinct().Count()==e.paragraphs.Length,"Event requires eight original narrative lines.");
+            Require(events.Where(e=>!string.IsNullOrEmpty(e.cgResourcePath)).Select(e=>e.cgResourcePath).Distinct().Count()==events.Count(e=>!string.IsNullOrEmpty(e.cgResourcePath)),"Events require separate CG bindings.");
+            foreach(var e in events){
+                Require(heroines.Contains(e.ownerId) && CollectionCatalog.ValidId(e.id) && Text(e.title) && e.affectionRequired>=0 && e.affectionRequired<=99 && (!e.establishesLover || e.affectionRequired>=10),"Invalid production event identity or progression.");
+                Require(e.paragraphs!=null && e.paragraphs.Length>=1 && e.paragraphs.All(Text) && e.paragraphs.Distinct().Count()==e.paragraphs.Length,"Event requires original narrative lines.");
                 Require(e.expressions!=null && e.expressions.Length==e.paragraphs.Length && e.expressions.All(x=>new[]{"normal","joy","puzzled","determined"}.Contains(x)),"Every event line requires a known expression.");
-                Require(!string.IsNullOrWhiteSpace(e.cgResourcePath) && !string.IsNullOrWhiteSpace(e.backgroundResourcePath),"Event art binding missing.");
+                Require(!string.IsNullOrWhiteSpace(e.backgroundResourcePath),"Event art binding missing.");
             }
         }
     }

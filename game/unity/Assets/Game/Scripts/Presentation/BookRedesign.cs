@@ -24,7 +24,7 @@ namespace NewAster.Presentation
             int current=Array.IndexOf(RibbonOrder,book.Bookmark);if(current<0)current=0;
             DrawRibbon(current,new Rect(4,0,46,Math.Max(180,68+RibbonNames[current].Length*27)),true);
             for(int i=0;i<RibbonOrder.Length;i++)if(i!=current)DrawRibbon(i,new Rect(552+i*100,0,48,104),false);
-            bool prior=GUI.enabled;GUI.enabled=prior && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen && !gardenDiscardConfirm && gardenPresetShortage==null && gardenLifeError==null && gardenLifeRequest==null;
+            bool prior=GUI.enabled;GUI.enabled=prior && !AffectionModalVisible && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen && !gardenDiscardConfirm && gardenPresetShortage==null && gardenLifeError==null && gardenLifeRequest==null;
             if(GrowthButton(1490,14,64,52,"？",true)){help=true;PlayProductionUiSound("決定");}
             GUI.enabled=prior;
             if(!help && !bookSystemOpen && book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.Stories && book.Bookmark!=BookBookmark.RelicHunt && book.Bookmark!=BookBookmark.Gardens && !formationOpen && !(book.Bookmark==BookBookmark.Heroines && growthScreen==GrowthScreen.Weapons)){if(GrowthButton(1060,842,215,40,"システム",CanOpenBookSystem))bookSystemOpen=true;}

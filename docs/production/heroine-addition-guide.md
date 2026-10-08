@@ -146,3 +146,14 @@ Editorの段階別Buildは18画像のハッシュ、戦闘・物語・Home参照
 生活AIから好感度・恋人・誓い・戦闘能力・物語既読を変更しない。庭の「話す」は短い反応、「観察」はシステム描写、既存交流物語は明示した入口からADVを開く。後続11-3の関係システムは既存イベントIDを維持する。
 
 `Plan12GardenLifeTests` と最新Windows Playerで、表示中8人以内、形態重複なし、本人SDの動作、家具利用、Social、庭移動・ADVからの復帰、保存失敗の再試行を確認する。最新Windowsビルドは `Plan12Build.Build`。
+
+
+## 12. Plan11-3の好感度・恋愛
+
+好感度は人物IDごとのLv／EXPを参照し、形態独自の好感度や恋人フラグを追加しない。初期Lvは必要な人物だけ `initialAffections` に登録する。衣装追加時は同じ `personId` を維持し、旧数値・既読を引き継ぐ。
+
+イベントは人数×5件という固定数を前提にしない。`ProductionStoryContent.events` に本文とscript用の元データを追加し、必要に応じて `affectionEvents` に `HeroineEventDef` を登録する。id・personId・任意のformId・requiredAffectionLevel・category・scriptId・visibility・displayOrderを指定する。形態を限定しない場合はformIdを省略する。基本イベントはLv0〜20に配置し、他イベントの既読を解放条件にしない。Lv21以降の任意の回想は報酬も必須の進行条件も持たせない。短いイベントやCGなしのイベントも登録できる。
+
+会話を追加するときは内容IDを安定させる。同じボタンから別の会話が成立した場合はその会話IDを報酬イベントへ渡す。キャンセル・失敗・観察では付与せず、完了後だけ共通の `AffectionRewardService` を使う。回想は必ずReplayで開き、EXP・財布・既読を変更しない。
+
+人物追加後にAF-01〜AF-14、衣装共有、イベント動的列挙、未読数とvisible／hint／hiddenを確認する。指輪と上限99のUIは共通の `AffectionView` を利用する。
