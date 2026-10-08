@@ -40,6 +40,9 @@ namespace NewAster.Core
         // Additive Plan11-2 progress. Runtime positions/actions are intentionally absent.
         public GardenLifeProgress gardenLife;
         public AffectionProgress affection;
+        public BookNavigationSave bookNavigation;
+        public PlayRewardState playRewards;
+        public string[] materialExchangeUnlockedIds=Array.Empty<string>();
         // Keep prior diagnostic narrative flags without treating them as authored read completion.
         public ProductionNarrativeArchive previousNarrative;
         public void Validate()
@@ -53,6 +56,7 @@ namespace NewAster.Core
             home?.Validate();
             gardenLife?.Validate();
             affection?.Validate();
+            playRewards?.Validate();
             previousNarrative?.Validate();
             if(home!=null && home.receipts.Any(r=>growth.receipts.Any(g=>g.transactionId==r.transactionId) || world.claimedBattleIds.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
             if(collection!=null)foreach(var r in collection.receipts)

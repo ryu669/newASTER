@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 namespace NewAster.Core
@@ -35,8 +35,12 @@ namespace NewAster.Core
         public IReadOnlyList<GardenLifeAgent> Agents{get;}
         public IReadOnlyList<GardenInteractionSlot> Slots=>slots;
         public string[] WarningOwnerIds{get;}
+        private string watchTarget;
+        private GardenLifeAgent[] watchAgents;
+        public IReadOnlyList<GardenLifeAgent> WatchAgents=>watchAgents??Agents;
+        public void SetWatchTarget(string id){if(id!=null && !Agents.Any(a=>a.heroineId==id))throw new ArgumentException("Unknown watch target.");watchTarget=id;if(id==null){watchAgents=null;return;}var target=Agents.First(a=>a.heroineId==id);watchAgents=Agents.OrderBy(a=>a==target?0:a.heroineId==target.partnerId?1:2).ThenBy(a=>(a.x-target.x)*(a.x-target.x)+(a.y-target.y)*(a.y-target.y)).Take(4).ToArray();foreach(var a in watchAgents)if(a.partnerId!=null && !watchAgents.Any(b=>b.heroineId==a.partnerId))EndSocial(a);}
         public event Action<string,GardenLifeContext> Trigger;
-        public GardenLifeRuntime(FormalCampaignSave save,HomeExperienceCatalog catalog,string gardenId,int seed=1,Dictionary<string,GardenBehaviorProfile> optionalProfiles=null)
+        public GardenLifeRuntime(FormalCampaignSave save,HomeExperienceCatalog catalog,string gardenId,int seed=1,Dictionary<string,GardenBehaviorProfile> optionalProfiles=null,string displayHeroineId=null)
         {
             GardenLifeCatalog.Migrate(save);home=catalog;GardenId=gardenId;setting=save.gardenLife.Setting(gardenId);terraform=TerraformRules.Copy(save.world.terraform);profiles=optionalProfiles??new Dictionary<string,GardenBehaviorProfile>();
             if(string.IsNullOrEmpty(terraform.activeWorldPhenomenonId))terraform.activeWorldPhenomenonId=null;foreach(var d in terraform.domains){if(string.IsNullOrEmpty(d.activeDeepRecordId))d.activeDeepRecordId=null;if(string.IsNullOrEmpty(d.activeExtremeId))d.activeExtremeId=null;}
@@ -47,6 +51,7 @@ namespace NewAster.Core
             var chosen=owned.Where(id=>!assignments.Any(a=>home.PersonId(a.heroineId)==home.PersonId(id) && (a.mode=="Hidden" || a.mode=="Fixed" && a.gardenId!=gardenId || a.heroineId!=id)))
                 .OrderBy(id=>{var a=assignments.SingleOrDefault(x=>x.heroineId==id);return a?.mode=="Fixed"?0:a?.mode=="Preferred" && a.gardenId==gardenId?1:2;})
                 .ThenBy(id=>{int i=Array.IndexOf(owned,id);return (i+setting.visitCounter)%Math.Max(1,owned.Length);}).GroupBy(home.PersonId).Select(g=>g.First()).Take(8).ToArray();
+            if(displayHeroineId!=null && owned.Contains(displayHeroineId))chosen=new[]{displayHeroineId}.Concat(chosen.Where(id=>home.PersonId(id)!=home.PersonId(displayHeroineId))).Take(4).ToArray();
             Agents=chosen.Select((id,i)=>{
                 var a=assignments.SingleOrDefault(x=>x.heroineId==id);var old=save.home?.occupants.SingleOrDefault(x=>x.heroineId==id && x.gardenId==gardenId);
                 return new GardenLifeAgent{heroineId=id,personId=home.PersonId(id),x=a?.mode=="Fixed"?a.x:old?.x??.15f+(i%4)*.21f,y=a?.mode=="Fixed"?a.y:old?.y??.7f+(i/4)*.12f,fixedPose=a?.fixedPose??false,allowSocial=a?.allowSocial??true,tag=a?.interactionTag??"stand"};
@@ -119,7 +124,7 @@ namespace NewAster.Core
         private void SeparateStoppedAgents()
         {
             var stopped=new List<GardenLifeAgent>();
-            foreach(var a in Agents){if(a.path.Count>0)continue;if(!a.fixedPose && a.slotId==null){
+            foreach(var a in WatchAgents){if(a.path.Count>0)continue;if(!a.fixedPose && a.slotId==null){
                 for(int radius=0;radius<12;radius++){bool found=false;for(int sign=0;sign<2;sign++){
                     float x=Math.Max(.065f,Math.Min(.935f,a.x+radius*.035f*(sign==0?1:-1)));
                     int cell=Cell(x,a.y);if(!blocked[cell%32,cell/32] && stopped.All(b=>Math.Abs(b.x-x)>.06f || Math.Abs(b.y-a.y)>.025f)){a.x=x;found=true;break;}
@@ -135,7 +140,7 @@ namespace NewAster.Core
         public void Tick(float seconds)
         {
             if(Paused || seconds<=0)return;seconds=Math.Min(seconds,.25f);clock+=seconds;
-            foreach(var a in Agents){
+            foreach(var a in WatchAgents){
                 if(a.fixedPose || !setting.autoLife)continue;a.remaining-=seconds;a.elapsed+=seconds;
                 if(a.path.Count>0){var p=a.path.Peek();float dx=p.x-a.x,dy=p.y-a.y,len=(float)Math.Sqrt(dx*dx+dy*dy),step=seconds*.05f;a.facing=dx<0?-1:1;if(len<=step){a.x=p.x;a.y=p.y;a.path.Dequeue();if(a.path.Count==0)Arrive(a);}else{a.x+=dx/len*step;a.y+=dy/len*step;}continue;}
                 if(a.kind=="Social"){if(a.socialState=="Face" && a.elapsed>=2)a.socialState="Interaction";if(a.socialState=="Interaction" && a.remaining<4)a.socialState="Reaction";}
@@ -177,8 +182,8 @@ namespace NewAster.Core
         }
         private bool TrySocial(GardenLifeAgent a)
         {
-            if(!a.allowSocial || a.fixedPose || Agents.Count(v=>v.partnerId!=null)>=4)return false;
-            var b=Agents.Where(b=>b!=a && b.allowSocial && b.activityId==a.activityId && b.partnerId==null && b.path.Count==0 && (!a.cooldowns.TryGetValue(b.heroineId,out float until) || until<=clock)).OrderBy(b=>(b.x-a.x)*(b.x-a.x)+(b.y-a.y)*(b.y-a.y)).FirstOrDefault();
+            if(!a.allowSocial || a.fixedPose || WatchAgents.Count(v=>v.partnerId!=null)>=4)return false;
+            var b=WatchAgents.Where(b=>b!=a && b.allowSocial && b.activityId==a.activityId && b.partnerId==null && b.path.Count==0 && (!a.cooldowns.TryGetValue(b.heroineId,out float until) || until<=clock)).OrderBy(b=>(b.x-a.x)*(b.x-a.x)+(b.y-a.y)*(b.y-a.y)).FirstOrDefault();
             if(b==null)return false;if(b.fixedPose){var moving=a;a=b;b=moving;}var own=a.slotId==null?null:slots.Single(s=>s.id==a.slotId);var sibling=own==null?null:slots.FirstOrDefault(s=>s.ownerId==own.ownerId && s.id!=own.id && Free(s));if(own!=null && sibling==null)return false;
             var path=Path(b.x,b.y,sibling?.x??Math.Min(.94f,a.x+.075f),sibling?.y??a.y);if(path.Length==0)return false;
             a.partnerId=b.heroineId;b.partnerId=a.heroineId;a.kind="Social";a.socialState="Approach";a.remaining=120;a.elapsed=0;Release(b);if(sibling!=null)Reserve(b,sibling);b.kind="Approach";b.socialState="Approach";b.path=new Queue<HomePoint>(path);b.remaining=120;
@@ -205,7 +210,7 @@ namespace NewAster.Core
             foreach(var a in Agents.Where(a=>selectedIds==null || selectedIds.Contains(a.heroineId))){a.fixedPose=false;a.activityId=id;Decide(a);}
             Trigger?.Invoke("activity",Context());
         }
-        public void EndActivity(){ActivityId=null;foreach(var a in Agents){a.activityId=null;if(a.partnerId!=null)EndSocial(a);else Idle(a);if(originalFixed.TryGetValue(a.heroineId,out bool fixedPose))a.fixedPose=fixedPose;}}
+        public void EndActivity(){ActivityId=null;foreach(var a in WatchAgents){a.activityId=null;if(a.partnerId!=null)EndSocial(a);else Idle(a);if(originalFixed.TryGetValue(a.heroineId,out bool fixedPose))a.fixedPose=fixedPose;}}
         public void Stop(){EndActivity();Paused=true;reservations.Clear();}
         public string Observe(string heroineId)
         {var a=Agents.Single(x=>x.heroineId==heroineId);return a.kind=="Social"?"二人で同じ時間を過ごしています。":a.kind=="Furniture"?"家具を使って過ごしています。":a.kind=="Scenery"?"庭の景色を眺めています。":a.path.Count>0?"庭を歩いています。":"静かにひと休みしています。";}

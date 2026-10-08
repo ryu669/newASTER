@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +20,7 @@ namespace NewAster.Core
     }
     [Serializable] public sealed class CollectionLinkDef { public string id,ownerId,sourcePoemId,targetPoemId; }
     [Serializable] public sealed class CollectionWeaponNodeDef { public string id,ownerId; public string[] materialIds,prerequisiteIds; }
-    [Serializable] public sealed class CollectionResourceDef { public string id,kind,ownerId,name; public int rarity,minDropLevel;
+    [Serializable] public sealed class CollectionResourceDef { public string id,kind,ownerId,name; public int rarity,minDropLevel; public bool partBreakOnly;
         public int DropAmount(int level)=>level<minDropLevel?0:rarity<=1?10+level:1+level/(rarity==2?10:rarity==3?20:30);
         public string RarityName=>rarity>=4?"SSR":rarity==3?"SR":rarity==2?"R":"N"; }
     [Serializable] public sealed class CollectionRelicDef
@@ -143,7 +143,7 @@ namespace NewAster.Core
                 poems=poems.Select(p=>new CollectionPoemDef {id=p.id,ownerId=p.ownerId,chapterId=p.chapterId}).ToArray(),
                 chapters=chapters.Select(c=>new CollectionChapterDef {id=c.id,ownerId=c.ownerId,poemIds=(string[])c.poemIds.Clone(),textId=c.textId}).ToArray(),
                 links=links.Select(l=>new CollectionLinkDef {id=l.id,ownerId=l.ownerId,sourcePoemId=l.sourcePoemId,targetPoemId=l.targetPoemId}).ToArray(),
-                resources=resources.Select(r=>new CollectionResourceDef {id=r.id,kind=r.kind,ownerId=r.ownerId,name=r.name,rarity=r.rarity,minDropLevel=r.minDropLevel}).ToArray(),
+                resources=resources.Select(r=>new CollectionResourceDef {id=r.id,kind=r.kind,ownerId=r.ownerId,name=r.name,rarity=r.rarity,minDropLevel=r.minDropLevel,partBreakOnly=r.partBreakOnly}).ToArray(),
                 relics=relics.Select(r=>new CollectionRelicDef {id=r.id,abilityId=r.abilityId,name=r.name,jobId=r.jobId,turnEffect=r.turnEffect,jobStatPercent=r.jobStatPercent,defensePercent=r.defensePercent,speedPercent=r.speedPercent,maxLevel=r.maxLevel,attackPercent=r.attackPercent,hpPercent=r.hpPercent,materialIds=(string[])r.materialIds.Clone()}).ToArray(),
                 rewardBands=rewardBands.Select(b=>new CollectionRewardBandDef {ownerId=b.ownerId,minLevel=b.minLevel,maxLevel=b.maxLevel,draws=b.draws,terraforming=b.terraforming,allowEmpty=b.allowEmpty,relicIds=(string[])b.relicIds.Clone()}).ToArray()
                 ,weaponNodes=weaponNodes.Select(n=>new CollectionWeaponNodeDef {id=n.id,ownerId=n.ownerId,materialIds=(string[])n.materialIds.Clone(),prerequisiteIds=(string[])n.prerequisiteIds.Clone()}).ToArray()

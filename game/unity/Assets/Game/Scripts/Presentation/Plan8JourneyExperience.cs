@@ -12,7 +12,7 @@ namespace NewAster.Presentation
         private bool plan8JourneyExchange;
         [Serializable] private sealed class TrialJourneyPoint
         {
-            public string stage;public int battles,nectar,crystals,stones,points,draws,material,furniture,weapons,readChapters;public int[] levels;
+            public string stage;public long stones;public int battles,nectar,crystals,points,draws,material,furniture,weapons,readChapters;public int[] levels;
         }
         [Serializable] private sealed class TrialJourneyReport
         {
@@ -92,7 +92,7 @@ namespace NewAster.Presentation
             formalVictoryDiagnosticFailure=false;
             AcceptanceCheck(formalProgression.CommitKinder(exchange,kinderBanner,null,SaveFormalGrowth)==GrowthCommitResult.Committed,"same failed exchange retries once");ReloadAcceptance();RecordTrialJourney("dedicated-ticket-exchanged");
             var ticket=new KinderRequest("journey.ticket",formalProgression.Snapshot.revision,KinderOperation.TicketDraw,heroineId:"heroine.slayer");
-            int stones=formalProgression.Snapshot.stones,fragments=formalProgression.Snapshot.heroines.Single(h=>h.heroineId=="heroine.slayer").fragments;
+            long stones=formalProgression.Snapshot.stones;int fragments=formalProgression.Snapshot.heroines.Single(h=>h.heroineId=="heroine.slayer").fragments;
             AcceptanceCheck(formalProgression.CommitKinder(ticket,kinderBanner,max=>throw new InvalidOperationException("Dedicated ticket must not roll."),SaveFormalGrowth)==GrowthCommitResult.Committed,"dedicated ticket guarantees chosen heroine without RNG");ReloadAcceptance();
             AcceptanceCheck(formalProgression.Snapshot.stones==stones && formalProgression.Snapshot.heroines.Single(h=>h.heroineId=="heroine.slayer").fragments==fragments+100 && formalProgression.CommitKinder(ticket,kinderBanner,null,SaveFormalGrowth)==GrowthCommitResult.AlreadyCommitted,"ticket survives physical reload without repeated cost or duplicate award");
             RecordTrialJourney("dedicated-ticket-used");

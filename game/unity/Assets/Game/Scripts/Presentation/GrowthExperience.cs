@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -67,10 +67,10 @@ namespace NewAster.Presentation
             if(formalProgression.HasPending || formalCampaign.HasPending)return;
             if(formationOpen){BackFormationLayer();return;}
             if(returnToFormationFromWeapon && growthScreen==GrowthScreen.Weapons){ReturnFromFormationWeapon();return;}
-            if(heroineRosterOpen){book.Close();book.Reenter();return;}
+            if(heroineRosterOpen){if(book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;}return;}
             if(growthScreen==GrowthScreen.Overview){heroineRosterOpen=true;selectedTrait=-1;return;}
             if(growthScreen==GrowthScreen.Confirmation){growthRequest=null;growthPreview=null;growthScreen=growthOrigin;return;}
-            if(book.Face==BookFace.Details)book.FlipPage();growthScreen=GrowthScreen.Overview;growthRequest=null;
+            if(growthScreen==GrowthScreen.Information){if(book.Face==BookFace.Details)book.FlipPage();growthScreen=GrowthScreen.Overview;}else growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;growthRequest=null;
         }
         private void GrowthSelect(GrowthScreen screen,FormalHeroineGrowth heroine)
         {growthScreen=screen;growthTargetLevel=Math.Min(heroine.LevelCap,heroine.level+1);if(screen==GrowthScreen.Information&&book.Face==BookFace.Overview)book.FlipPage();}
@@ -153,7 +153,7 @@ namespace NewAster.Presentation
             Action<bool> check=ok=>{checks++;if(!ok)throw new InvalidOperationException("Growth screen navigation assertion "+checks);};
             try {
                 formalProgression=new FormalProgression(save,combatDefinitions.HeroineIds);
-                string id=combatDefinitions.FormationIds[book.SubjectIndex];var hero=save.heroines.Single(h=>h.heroineId==id);
+                string id=book.SubjectId;var hero=save.heroines.Single(h=>h.heroineId==id);
                 GrowthSelect(GrowthScreen.Level,hero);check(growthScreen==GrowthScreen.Level);
                 GrowthConfirm(GrowthOperation.Level,id,save,hero.level+1);check(growthScreen==GrowthScreen.Confirmation && growthPreview.NectarCost==12);
                 GrowthBack();check(growthScreen==GrowthScreen.Level && growthRequest==null);
@@ -165,7 +165,10 @@ namespace NewAster.Presentation
                 check(growthScreen==GrowthScreen.Confirmation && formalProgression.HasPending);
                 check(JsonUtility.ToJson(formalProgression.Snapshot)==JsonUtility.ToJson(save));
                 formalProgression.Commit(growthRequest,s=>true);growthRequest=null;growthScreen=GrowthScreen.Complete;GrowthBack();
-                check(growthScreen==GrowthScreen.Overview && formalProgression.Snapshot.heroines[book.SubjectIndex].level==2);
+                check(growthScreen==GrowthScreen.Overview && formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id).level==hero.level+1);
+                book.FlipPage();GrowthSelect(GrowthScreen.Level,formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id));growthScreen=GrowthScreen.Complete;GrowthBack();
+                check(book.SubjectId==id && book.Face==BookFace.Details && growthScreen==GrowthScreen.Information);
+                GrowthBack();check(book.Face==BookFace.Overview);
                 Debug.Log("GROWTH_SCREEN_NAVIGATION_PASS "+checks+" assertions");
             } finally {formalProgression=original;growthRequest=null;growthPreview=null;growthScreen=GrowthScreen.Overview;growthOutcome=null;growthDelta=null;}
         }

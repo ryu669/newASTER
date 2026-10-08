@@ -93,7 +93,7 @@ namespace NewAster.Presentation
             Label(105, 404, 600, 72, "失われた世界の記憶が、\nあなたの開く一頁から芽吹く。", titleSubtitle, Color.white);
             if (TitleButton(140, 510, 530, 68, "万物の書をひらく", BookInputAllowed))
             {
-                book.Reenter(); title = false; CloseTitlePanel();
+                book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview; title = false; CloseTitlePanel();
             }
             if (TitleButton(140, 594, 255, 50, "設定")) OpenTitlePanel("settings");
             if (TitleButton(415, 594, 255, 50, "クレジット")) OpenTitlePanel("credits");

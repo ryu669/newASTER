@@ -1,0 +1,4289 @@
+{
+  "schemaVersion": 1,
+  "plans": [
+    "Plan11-5",
+    "Plan11-6"
+  ],
+  "generatedAssets": [
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-sit-candidate-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "93a300ea397d07edb91c0f10c8bc30364c106c738668133384238559b1ff2a15",
+      "nativeAlphaPreserved": true,
+      "fullyTransparentFraction": 0.32993877327798254,
+      "generator": "built-in image_gen; reference edit",
+      "reference": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-idle-candidate-v1.png",
+      "finalPrompt": "Create a production-ready transparent-background Japanese anime chibi garden-life sprite of the exact adult fantasy heroine in the reference. Reference image is character/style reference: preserve magenta twin spiral hair, amber eyes, white round hat with pink ribbon and gold blue-gem brooch, gold floating halo, white feathered wings with intricate gold and turquoise clock ornaments, white lace blouse, black ruffled corset dress, black tights and boots, pink shoulder bag. Match the reference's detailed hand-painted anime rendering, proportions, outline and palette. Full body and both wings fully within a square canvas, centered with clear transparent margins. One single character, no background, no ground, no text, no watermark, no other character. Pose: seated peacefully as if using a low garden bench, knees bent naturally and both boots visible, hands resting on lap, calm friendly expression. Do not draw the bench or any furniture; transparent behind and under her."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-work-candidate-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "db9faf08fa6a940b56d911c40c4f1ba3edfc7bfdbfbc8210adc3e74e8ad23a73",
+      "nativeAlphaPreserved": true,
+      "fullyTransparentFraction": 0.33166276209590234,
+      "generator": "built-in image_gen; reference edit",
+      "reference": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-idle-candidate-v1.png",
+      "finalPrompt": "Create a production-ready transparent-background Japanese anime chibi garden-life sprite of the exact adult fantasy heroine in the reference. Reference image is character/style reference: preserve magenta twin spiral hair, amber eyes, white round hat with pink ribbon and gold blue-gem brooch, gold floating halo, white feathered wings with intricate gold and turquoise clock ornaments, white lace blouse, black ruffled corset dress, black tights and boots, pink shoulder bag. Match the reference's detailed hand-painted anime rendering, proportions, outline and palette. Full body and both wings fully within a square canvas, centered with clear transparent margins. One single character, no background, no ground, no text, no watermark, no other character. Pose: gently tending a garden plant using a small elegant gold watering can held at waist level with both hands, leaning forward slightly, attentive friendly expression. No plant, soil, furniture or scenery; the watering can is the only added prop."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-look-candidate-v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "10829d17961e150c27165f9ceccaa9060039f649e961711a142ddc7ee96b7d13",
+      "nativeAlphaPreserved": true,
+      "fullyTransparentFraction": 0.3518959425532077,
+      "generator": "built-in image_gen; reference edit",
+      "reference": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-idle-candidate-v1.png",
+      "finalPrompt": "Create a production-ready transparent-background Japanese anime chibi garden-life sprite of the exact adult fantasy heroine in the reference. Reference image is character/style reference: preserve magenta twin spiral hair, amber eyes, white round hat with pink ribbon and gold blue-gem brooch, gold floating halo, white feathered wings with intricate gold and turquoise clock ornaments, white lace blouse, black ruffled corset dress, black tights and boots, pink shoulder bag. Match the reference's detailed hand-painted anime rendering, proportions, outline and palette. Full body and both wings fully within a square canvas, centered with clear transparent margins. One single character, no background, no ground, no text, no watermark, no other character. Pose: standing quietly in three-quarter view looking upward with curiosity at the distant sky, one hand shading her eyes lightly, other hand resting near the dress, relaxed posture. No added props or scenery."
+    }
+  ],
+  "authoredForms": 15,
+  "heroinePoseAudit": [
+    {
+      "heroineId": "heroine.slayer",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.r",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": [
+        "walk",
+        "talk",
+        "react"
+      ]
+    },
+    {
+      "heroineId": "heroine.shell",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "presentPoses": [
+        "idle",
+        "sit",
+        "work",
+        "look",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "presentPoses": [
+        "idle",
+        "walk",
+        "talk",
+        "react"
+      ],
+      "missingFurniturePoses": [
+        "sit",
+        "work",
+        "look"
+      ],
+      "optionalUnwiredPoses": []
+    }
+  ],
+  "missingFurniturePoseCount": 18,
+  "runtimeFallback": "Missing optional furniture poses remain visible using the heroine idle sprite; no hidden actors.",
+  "productionFindings": [
+    "256-person stable-ID navigation/search, twelve-card paging and affection save paths pass synthetic scale tests.",
+    "The production catalog contains 15 authored forms. It is not a finished 256-person content pack.",
+    "ProductionEconomyCatalog WeaponOwners/BranchNames/Attacks/Powers remain authored tables; another owner needs definitions.",
+    "Portrait framing, individual skills/traits, life poses, ADV/CG and event conditions need each heroine content registration.",
+    "GardenArtComposition furniture contact/masks need pose-specific art review; the watering-can work sprite is a gardening candidate.",
+    "Normal movement currently animates idle sprites. Optional walk/talk/react files are not automatically consumed."
+  ],
+  "balance": {
+    "schemaVersion": 1,
+    "scope": "deterministic functional difficulty; no performance or human timing",
+    "definition": "economy-initial-five-2026-10-05",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "equipment": "none",
+    "policy": "basic intact parts then body",
+    "criteria": "Lv1 versus Lv1 >=7/8; Lv1 versus Lv50 <=2/8; Lv30+ versus Lv50 >=6/8; no command caps",
+    "runs": 1920,
+    "failures": 0,
+    "rows": [
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 24.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 50.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 3,
+        "caps": 0,
+        "meanCommands": 114.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 111.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 20,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 39.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 105,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 108.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 14.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 29.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 79.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 85.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 7.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 14.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 36.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.green-return-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 29.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 59.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 117.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 70.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 109.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 5,
+        "caps": 0,
+        "meanCommands": 112.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 17.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 31.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 90.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 96.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 8.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 15.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 39.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.red-crystal-tyrant",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 42.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 30.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 58.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 94.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 67.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 110.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 117.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 18.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 32.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 87,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 91.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 8.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 15,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.memory-crystal-dragon",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 42.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 31.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 59.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 1,
+        "caps": 0,
+        "meanCommands": 119.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 89,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 49,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 111.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 7,
+        "caps": 0,
+        "meanCommands": 116.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 18.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 33.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 87,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 95,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 9,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 15.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.sky-tower-machine",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 41.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 32.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 61.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 100.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 95,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 26.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 50.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 109.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 3,
+        "caps": 0,
+        "meanCommands": 108.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 19.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 34.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 86.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 91.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 9.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 15.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 39.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.crystal-rose-princess",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 43.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 67.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 104,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 104,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 29.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 54.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 119.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 6,
+        "caps": 0,
+        "meanCommands": 125.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 21.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 37.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 93.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 97,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 10.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 17,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 41.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.silver-sea-whale",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 45.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 68,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 95,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 93.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 30.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 54.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 116,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 1,
+        "caps": 0,
+        "meanCommands": 110.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 22,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 37.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 91.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 95.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 10.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 16.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 42,
+        "accepted": true
+      },
+      {
+        "id": "colossus.heaven-tree-orochi",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 45.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 46,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 72.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 132,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 120.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 37.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 64.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 136.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 6,
+        "caps": 0,
+        "meanCommands": 145.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 44.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 97.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 106.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 12.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 20.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47,
+        "accepted": true
+      },
+      {
+        "id": "colossus.reenactment-yimir",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 52,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 39.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 67.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 61.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 46,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 30.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 54.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 89.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 81.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 23,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 37.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 88.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 91.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 10.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 17,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 41.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.emerald-star-astal",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 44.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 42.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 71.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 123.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 101,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 33.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 59.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 124,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 2,
+        "caps": 0,
+        "meanCommands": 129.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 91.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 97.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 11.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 18,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 44,
+        "accepted": true
+      },
+      {
+        "id": "colossus.amber-king-serpent",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 46.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 71.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 85,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 71,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 37.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 60.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 4,
+        "caps": 0,
+        "meanCommands": 123.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 104.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 25.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 41.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 94.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 99.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 12.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 19,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 45.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.white-divine-dragon-mother",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 48.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 48.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 75.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 150,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 148.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 39.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 65.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 136.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 144.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 27.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 45.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 99.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 106.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 13.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 19.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47,
+        "accepted": true
+      },
+      {
+        "id": "colossus.black-smoke-citadel",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 49.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 43,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 70,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 99,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 83,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 33.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 56.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 5,
+        "caps": 0,
+        "meanCommands": 116.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 106.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 23.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 38.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 86.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 90.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 12.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 17.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 40.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.dead-king-megadeath",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 44.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 48.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 69.875,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 51.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 48.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 40.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 62.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 76,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 67,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 27.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 43.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 88.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 94.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 13.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 19.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 43.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.final-flame-ice-phoenix",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 1,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 55.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 1,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 75.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 1,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 68,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 1,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 58,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 10,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 43.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 10,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 67.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 10,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 84.5,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 10,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 0,
+        "caps": 0,
+        "meanCommands": 81.25,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 30,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 30.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 30,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 47.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 30,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 95.375,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 30,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 102.125,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 120,
+        "enemyLevel": 1,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 14.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 120,
+        "enemyLevel": 10,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 21.75,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 120,
+        "enemyLevel": 45,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 46.625,
+        "accepted": true
+      },
+      {
+        "id": "colossus.newborn-asteria",
+        "heroLevel": 120,
+        "enemyLevel": 50,
+        "seeds": 8,
+        "wins": 8,
+        "caps": 0,
+        "meanCommands": 51.75,
+        "accepted": true
+      }
+    ]
+  },
+  "uiVerification": {
+    "uniqueViews": 96,
+    "verifiedFrames": 192,
+    "frames": [
+      {
+        "view": "adv-backlog",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "4063a3e0b7be0f431ec942f518df8003696b86a40d02d7299dac89039d2b2a00"
+      },
+      {
+        "view": "adv-help",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "c5e3629acd9e6578e8e421a8e49eaf2db823f9c07b6a2366e5c653c7b0ef11b3"
+      },
+      {
+        "view": "affection-cap20",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "77279defc02b2ca564687ef114c90f978f77c1011fef3354e629fc6a0a68673b"
+      },
+      {
+        "view": "affection-cap99",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "2fd040c1610d69bc6bb5f390948afbfc157798d2139c50598c7aa8c8f0c5be4c"
+      },
+      {
+        "view": "affection-confirm",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "0b0c15b050b5fadd4ced257a5c84ce0c4ec62c045544aeb25f55414741117eb1"
+      },
+      {
+        "view": "affection-lover",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "9513130421d68cb99fa412996e267a92f44530be4985f56eac3342fef114f2c7"
+      },
+      {
+        "view": "affection-max99",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "0212edebc8fe1134c97351d9798b32690d6f4fb44a9bdf5a1902b34d053e78fe"
+      },
+      {
+        "view": "affection-shop",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "3b29dd52f4030753ae6b60ba46eb9107d79134fcee1ec0375f0c630d586f1799"
+      },
+      {
+        "view": "affection-unread",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "77279defc02b2ca564687ef114c90f978f77c1011fef3354e629fc6a0a68673b"
+      },
+      {
+        "view": "battle-pause",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "ecaed2d6e89baef62ad62c0a2d30498fc769c6ed66d041b75dd5058edeb3d224"
+      },
+      {
+        "view": "battle-result",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "133ab45ef7874ec368179f00644581056301dee7fc11481de77564ee9717391d"
+      },
+      {
+        "view": "battle-retreat",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "9f4a5f868dcd317e2dbbcac4ec0e2fc379ad29ca13ffb099621b983708bfdf6b"
+      },
+      {
+        "view": "battle-targets",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "00303d0845578308b2ae0ec61e814b488d9b105d8942724b34bdbdd4dabd194f"
+      },
+      {
+        "view": "battle-timeline",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "62bc571e552303b9f7143e335a7738948713b66a6fb516595ef47c6163fe5711"
+      },
+      {
+        "view": "book-colossi",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "d1cf2538de8ac8443de7e5f8a9dfe32f43e9d42b23747857292a221bfb2e3f1f"
+      },
+      {
+        "view": "book-items-equip",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "11e4735bc37575363cbca3f064367e58fd19f180c616d6541989730123669d95"
+      },
+      {
+        "view": "book-materials",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "4ff1bad25d5741f4f6d4456b33f1ff95ce828fc358caa5cfdee58bbc6a8bba49"
+      },
+      {
+        "view": "book-new-world",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "6cdc7e48116c9f3699046c4794f89ebd4b2ee09c52e614e50a451ca39c6fb1bf"
+      },
+      {
+        "view": "book-possible-worlds",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "3ab640bed45ca1940570a8005f598a98b949dfae2f494e6116d1a2020121af04"
+      },
+      {
+        "view": "book-stories",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8d7ccaef779f01f7e742bb9e9e1d567fb5cbc90e700b086ca1d31dfbf001f01a"
+      },
+      {
+        "view": "book-system",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "579fb3510bfdadcb986599f9f224e78d2931b9433b736d5489e2f7140023604f"
+      },
+      {
+        "view": "book-world",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "3a804d2b1f8a9d41ec2bc94d3db938aa420d297ad46227800230ee4abebdb02c"
+      },
+      {
+        "view": "collection",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "34bee192560ebf31c1c1c54f06ed99dceee1a13d55f60c931914b7ca80899a89"
+      },
+      {
+        "view": "credits",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "178aa7fdbd8a726042c70e51ab977029652397442c4615b1b996efc4da51cdac"
+      },
+      {
+        "view": "detail",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "d99458c3f55e44d2a36adefc684e5e068ba9683f429878349b70ac02fe60144d"
+      },
+      {
+        "view": "detail-information",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "fa9e39eee86b58edaba726d718f56350b0d46c871bab2fb0d148e2549ef576d3"
+      },
+      {
+        "view": "detail-information-ring",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "fbb0750bc71f2d5e61b96c8fbc902aaae32d52a006cceff7e4809a612e243fbe"
+      },
+      {
+        "view": "empty",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "7fdd6bbe4b64e09e6d208ae1783eef5abe3ae16bc16b79a1598bfb180faf6c19"
+      },
+      {
+        "view": "engagement",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "18c7f609b573b3ff4e5f66516edd5e952df40fa46c2a2c64f54731f18d0f0529"
+      },
+      {
+        "view": "formation-general",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8735e1b5a8c61d1d79e3f02e653af216c2225818480f8c51b9805e3ec09d529a"
+      },
+      {
+        "view": "formation-general-confirm",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "70962e1b465902ad627570be5ae396fcfe9d3cab7f5688402dac04fff081beb1"
+      },
+      {
+        "view": "formation-roster-second",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8f6161e658ce138bb409e7a0bbd96bd618d74c388c62203ab2d5d73b72cd31af"
+      },
+      {
+        "view": "garden-confirmation",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "79d25a26b4dab77768d8d0db87daf82def0c54095e7b76238f82114015411c15"
+      },
+      {
+        "view": "garden-events",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8716d132920ce2f8eaf92fd2c9550978784be769aab813a9dcbbad91c3dfcdd9"
+      },
+      {
+        "view": "garden-events-last",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "185f7d7a469cb8b730454db6c0ac38c8fcea602710a7d0574348a7992ebbe24c"
+      },
+      {
+        "view": "garden-expanded",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "ddbb50d3bbc8754b7f1d949a8b0ff2547b460cf95f6325826a6619c1774792f7"
+      },
+      {
+        "view": "garden-furniture",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "1841a9466a991aa2126db46d790c86954615c4548a2e409004cf69b3b3028e50"
+      },
+      {
+        "view": "garden-life",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "037915e613fe6d22ede4b815879f2fce6adec8dc5addaeda8b7d08b416ab1c3d"
+      },
+      {
+        "view": "garden-life-level6",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "d8d2aa754373ddd2e8896323e71cd69889f617479f9433d4f68c92bb336ac718"
+      },
+      {
+        "view": "garden-life-level7",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "ede77405aa9ca3a2e0be1399b7dae51011f243bf5129579059a77117fe3c4095"
+      },
+      {
+        "view": "garden-life-records",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "609cf97a070876f0a496e775f83ad9d42558e9625b9fa5df882a80bd940cf90c"
+      },
+      {
+        "view": "garden-life-settings",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "4e35ff0cb235b75155460ceedb064d1c885075903d873abe3cf6b70cf2875777"
+      },
+      {
+        "view": "garden-life-social",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "38aa61c42ece5ee314d600d1d1eac567f70875a48577a6b0c2e33fbf646c520f"
+      },
+      {
+        "view": "garden-life-viewing",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "963886f1a53f841ee2fb2430fa8a9e6dfd09f9eb1751a78d04a5a63e9e2bb944"
+      },
+      {
+        "view": "garden-navigation",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "aa478c9bca4f0065e40243ef1aec40feb3eae044aff2cbb3054037f62d614054"
+      },
+      {
+        "view": "garden-residents",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "346980d58c5dcd6f09145baf1d3c4ad5c7ffd4897df70f8f9b10ce36af34a6a5"
+      },
+      {
+        "view": "garden-residents-last",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "1419fd9a74065b9a0751723d68a49dc3ae0ae1e8062c8b4b825e509456cba387"
+      },
+      {
+        "view": "help",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "9ec1404f4052cdc6327c0ba1884dae083a05be45f1dd8fdc571d9eb70f9544ab"
+      },
+      {
+        "view": "job-alchemist",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "60f0e52b9a97388642aea55e2106b46d29ee067f3b0f6950dbfee88246ea72be"
+      },
+      {
+        "view": "job-artist",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "de16d8565be716bd260bdae0eb491aa86a6e0e73212e8f3f4d15b0fa1c5f4cf3"
+      },
+      {
+        "view": "job-berserker",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "6a85783aa108e5b122a38dea7944585db63770463d9bb5c9f0613c16eb43302e"
+      },
+      {
+        "view": "job-blaster",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "e7783c51ee3bad262605eaf96f7ed72e2655c0027e2e21b44f4373db458521b1"
+      },
+      {
+        "view": "job-chaser",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "621e4cd0e9210975f9b5e22f860aad9b85539116637638fea6bfaafa96ea20cf"
+      },
+      {
+        "view": "job-defender",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "1b825d3762151c2ccdeb0261f5620a5625174dce612e945d19a42a945c599e59"
+      },
+      {
+        "view": "job-fighter",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "244ad233517c223e31196951fe18109efcb3afe59afecd29641c3bd3ee82ba11"
+      },
+      {
+        "view": "job-gambler",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "38aa9197cbe04f249994e5459e928de331c221dd9110e273be889a04a64d18ed"
+      },
+      {
+        "view": "job-general",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "074f2f57a250ada7c53696d689a9d655ea13efa91b72735ab2f78811e514e19c"
+      },
+      {
+        "view": "job-gunner",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "7c165b54054661f1cdfd232dce87743e247b78fb9151f45947db079ea0ddf087"
+      },
+      {
+        "view": "job-healer",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "30ff172f63e940ec6e81296091be2a60ed85530ba8ef00d1e8617199fcc0efc8"
+      },
+      {
+        "view": "job-panzer",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "db8f682e4b4c28e905d8d5f2e874222d981de5a81056984a3d931095bb6eca57"
+      },
+      {
+        "view": "job-sniper",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "00124d316d16fe0a6dce03e6d7cc7153e909b320ff9a15af6d4ecf8a2367ebaa"
+      },
+      {
+        "view": "kinder",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "06af5f1911b438372fd411d76972c7f521bec20e66ba373c9c8e411697603217"
+      },
+      {
+        "view": "kinder-draw",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8d6b32b257ae5485e7b0c21d0b582df9c83fbfb5e388da1ad13313708efa1434"
+      },
+      {
+        "view": "kinder-exchange",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "23c59e8c25bd8352a4b6cb04c11a7b3324afb7d3499c5da61832ac5a0de18bf4"
+      },
+      {
+        "view": "kinder-rates",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "db49d78a4afc6ae0afed0cd46bf88f9b90b116489153d8b8b1d681b8ec1fe11e"
+      },
+      {
+        "view": "kinder-tickets",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "936727f380867d6b951f603378669179103128b3899e7e383cf4d0e661f5247a"
+      },
+      {
+        "view": "level",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "a899eb3af39b535cca3322cedbc46a1ea43ae8d5b7507dd157067ea8b939b0ea"
+      },
+      {
+        "view": "level-confirm",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "d586e71a24fa2f29c995caa40c62f6053bb7a198505e2bb6436141d0b6229b94"
+      },
+      {
+        "view": "material-exchange",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "40f9da1fd5a7a4f6aafdd7a89b7c439b281f9adf558f2d5757cb3e6485a23201"
+      },
+      {
+        "view": "materials",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "3053cd8a7a8167a7e73bc09b6198c90e95fe0ebec3c3d958fadd8c32f702a66c"
+      },
+      {
+        "view": "model",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "f11b6643db185136c4c5cbb33025927f75e34a96fe936d16abbe38e71c74493f"
+      },
+      {
+        "view": "oopart-battle",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "1fef8021b4806f4bb309d246eccd52af1ddf99d42d23a9ef28b4e96b2d6f1648"
+      },
+      {
+        "view": "oopart-conditions",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8dbf737cb2803731eebe3ca26b66b2a689ba54c6217fdf97bdcde5312ff45010"
+      },
+      {
+        "view": "oopart-direct",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "0ced03ce64884382d6ddb7775989f2edd9816e978dc32288e4c5463d3be9d8ab"
+      },
+      {
+        "view": "oopart-empty-slot",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "0bd4d49c901e0d446e98cd1cc91ce74317af85794682c7632d4d502f178b1613"
+      },
+      {
+        "view": "oopart-items",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "6951b2cc6105a66432d4e46ddef3a12926b2861eb810f97d559817d93bdc3f59"
+      },
+      {
+        "view": "oopart-level",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "9e3e69c4caef9116a798e4b9993b4cb049f44b090a452009a71e83b72a681b01"
+      },
+      {
+        "view": "oopart-pending",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "971fd16774acea9fb090a69d8a9b960690eb16babb0472aa5aa314f80bdc2f0b"
+      },
+      {
+        "view": "oopart-presets",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "3c2a012266073918912a17ea6cd09b07b031c8e3091bfcf28b2accd11e23f4f7"
+      },
+      {
+        "view": "oopart-result",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "de0bb842812ac451faa603b8945322fe3316c55a2b468662e54be71d2cbc2289"
+      },
+      {
+        "view": "recruitment-second",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "27003f871c598ab94ebe8cacd217e3cffb61fa2396a576a4fa7e8926f91393c4"
+      },
+      {
+        "view": "relics",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "51fb7d4a71be93ac885f15b675933f799572f2f6c15592c391a36a79bd79a161"
+      },
+      {
+        "view": "roster",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "42f81c33ddabe5e1cdc5a744ac7f834edad3fdf4597367a40684f18b53089506"
+      },
+      {
+        "view": "roster-second",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "908f884660a8c29d4ed1cae37fec54d3d5475730218a65d4177c705f17b98ca2"
+      },
+      {
+        "view": "settings",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "2fca0e4515d6fed6ea66d235c74132071c8b2dc1ab207bc711a08839efaf85b8"
+      },
+      {
+        "view": "skill",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "84c0acd158f2c6e4dcf2b2af48ffee028b1cf69dbc5c852c6c7755a955583d1d"
+      },
+      {
+        "view": "skill-pending",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "63ebc26a19be81b03b9a6a559bea2b132752450967aea2dc0d6e526fca552c17"
+      },
+      {
+        "view": "skillmax",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "8a536dd7d9331cd3d4fbe89e8c0c74c8bc28e0a4c89f09cf127614bad7247a62"
+      },
+      {
+        "view": "title",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "d9a74ea9ea82963942644e0d2db2f88f5176e2997a2a450d1995b6308b59b2b6"
+      },
+      {
+        "view": "title-help",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "a34950d7a596e9104ad269edfb49d73bee3c8c62b37d13aa6dc4df215e3af676"
+      },
+      {
+        "view": "train-arrival",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "932038ef5bcc4097e5f7902e03d80a53b2150da523d17b8bb7db9cc4ae3ddd1a"
+      },
+      {
+        "view": "train-disembark",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "7f8156dce11a4f9b14a4bfd87aaedb6777b3f3ad111a1f393f636453802b0968"
+      },
+      {
+        "view": "train-doors",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "c98e061bc57421c47c10b7d97744a2e3b0b24922f60ad03578f3ec242e2d82b2"
+      },
+      {
+        "view": "trait",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "b53b6fc510a9e424bc88a0c3f7e5418f33d7a3aa74691649797b33264c5b4e23"
+      },
+      {
+        "view": "tree-confirm",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "ab625603888b60ef5aff2882d0f85e6c32050f6db84608c889df42e319e2d5c7"
+      },
+      {
+        "view": "tree-grown",
+        "size": [
+          1280,
+          720
+        ],
+        "sha256": "27584611c58ba88d77da178d9950242cbda70e9d821980218f33d43939ba3555"
+      },
+      {
+        "view": "adv-backlog",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "8a2730e9fd75426d8f2f4ed1e74d21b184ca1022d9f23236b6989b92b1587f59"
+      },
+      {
+        "view": "adv-help",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6f87f304f05f947ad6cf43ee3f3a308d98cc2b10a10f37b8983818cde4d9a1b9"
+      },
+      {
+        "view": "affection-cap20",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3367543431421293d8cab9d857e77f256134e95e2e9af99551ade1356faca390"
+      },
+      {
+        "view": "affection-cap99",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "18d0e01492b33b27f0b51dc5a1ed64500730ec9f4f01b781d96ca18c48d8f6e4"
+      },
+      {
+        "view": "affection-confirm",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "474d637f8b43d4faccecbb830d64811deefa03fc1f156ba424fed86663201fe1"
+      },
+      {
+        "view": "affection-lover",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "a056c050457b316115968541664a25370d522bb478d24c57150eca78f1ddb1c9"
+      },
+      {
+        "view": "affection-max99",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d1d5f098f0a65ef5f5d4672180b917d65a38249eef53ae72814e7273f9652be1"
+      },
+      {
+        "view": "affection-shop",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "15e956ffd9641865b6f84c99b908d8e593c21ba31cfab84d0da62b11e4558684"
+      },
+      {
+        "view": "affection-unread",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3367543431421293d8cab9d857e77f256134e95e2e9af99551ade1356faca390"
+      },
+      {
+        "view": "battle-pause",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "538fa0c936c96d9342060abffaf68650c808f236a813ec80fb6174f75e7c9edf"
+      },
+      {
+        "view": "battle-result",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "9976e03d903ea87f5205718bb0add11b99979f51db021e5dc5265e7aba745c18"
+      },
+      {
+        "view": "battle-retreat",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2661a769d5c864df989a33b6929a266599bdf2ac0f5f20e16a2fe578a1496a90"
+      },
+      {
+        "view": "battle-targets",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "4fb15b66b931630071af4c3b019e32334f86c5c761dd630e1e9e9c8a4d653ad7"
+      },
+      {
+        "view": "battle-timeline",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "e352e728764e7fdab9df84710d64382efd32daa4fda532f138db6d67beae3114"
+      },
+      {
+        "view": "book-colossi",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "8c1cbc4eee7ae7dd903cc59fe8d2899461499a31c2dd283615f5438c6504f64b"
+      },
+      {
+        "view": "book-items-equip",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "1694620e95119fc5dd00af0d77a8b2ef990497e645ddf88a5c8eb3c74c4f4f8e"
+      },
+      {
+        "view": "book-materials",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "44c2f251a2d003bd78edfa1a9f926f9fb5bd63d08fa4ff9269104b23c3145fb7"
+      },
+      {
+        "view": "book-new-world",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "cd152904ee4a5d301bd7a1f4cfb46515772664b4c6ee670f0b88fa847678e530"
+      },
+      {
+        "view": "book-possible-worlds",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "8686a6440f42f45c340a799eb3acaa76b9a5e99db2fd0abf055267803f51d5f2"
+      },
+      {
+        "view": "book-stories",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "b53e5928a77d318f5d890c8f748cdf1fdb3624b26db7cec0f690ec30b54ef3cb"
+      },
+      {
+        "view": "book-system",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3e16ee0e1ef2d35d28074968fab2601f26cc638c315325ba709bc858292287f9"
+      },
+      {
+        "view": "book-world",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "8c0de844aa1e06e48dbf54fef76822f0ba11188e7a1930ee599f76863a6fa3a5"
+      },
+      {
+        "view": "collection",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "5bc0e93414f5bc54bc475e2857279ade3f4f2c06f12df03ea7b71c7dbb93dc14"
+      },
+      {
+        "view": "credits",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "e2a2718927a4ee7fa094851b86ad20842c0b23ef8d5ea40c8cb0a080e1d40353"
+      },
+      {
+        "view": "detail",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "67596afa70f9c68c79087b9f8a68e1959788c58076fb84963089f927330032ba"
+      },
+      {
+        "view": "detail-information",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6dd628252699c2ee0f36135e281898d7505795804f46a95be37dce3d5bc9ccc1"
+      },
+      {
+        "view": "detail-information-ring",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "eec87c1f8f2404a5ca125a2324039eb6f00f6b2e7774b9f56d614449f13bd958"
+      },
+      {
+        "view": "empty",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "b9b0e72ed565d69ac378c5fdf4e984de3218314851965f1a1533237ef8071cff"
+      },
+      {
+        "view": "engagement",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "4ed8b30ddb7dd913b3ded74585115c8a3988b1924a49488f8401ae92d79e80ca"
+      },
+      {
+        "view": "formation-general",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d3b362d927c446f9ffa1a2cf59c84b32d819d08965ad356db8dc2b2551862cc3"
+      },
+      {
+        "view": "formation-general-confirm",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "f5a6c46988a47e72d73aab8b0ecd60be7b73d0f7031697054b3b938b8d5e4302"
+      },
+      {
+        "view": "formation-roster-second",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "74f9be2cba5bf9c94a298eeef09d304d63cd1f9226e14b2de0458c8508cfa787"
+      },
+      {
+        "view": "garden-confirmation",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6ffe8dbda2b0a0c7f95817265a5241a788cade58a35cd3b1fded1edbaa1450bb"
+      },
+      {
+        "view": "garden-events",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "16677d63afdfc01212449bfa45352d1e69feded0cc0fc0fb7143313e977343be"
+      },
+      {
+        "view": "garden-events-last",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2974e9afb52b1d2070b25bd05e5ccc138f1f1b197ba38a41d8dc4baf7a4053c2"
+      },
+      {
+        "view": "garden-expanded",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "e566e1a209d2e82ccb015096279349a15e544135990f6ad2c751f92bc3136996"
+      },
+      {
+        "view": "garden-furniture",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "c366fb9b158609c991efbefd3a52138bde25f963580f3bc9a56a8042fdd4124f"
+      },
+      {
+        "view": "garden-life",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6b72553ddac7d1cf4f0c712f9ca70a27a3c27e586882b2fcdfa201dc70f745ef"
+      },
+      {
+        "view": "garden-life-level6",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "bea54815987b6ace6238af0c3f89c1583954e4de2fefc3b5430132034c43940f"
+      },
+      {
+        "view": "garden-life-level7",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2bd64dbdeb9e3b64955f2e0dee5cef3ee7b7d9680efd8e235505522917460895"
+      },
+      {
+        "view": "garden-life-records",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3c618e531bd33142111da4a7e1f01500291ac817714a5b959b5bdce8d8d5d10d"
+      },
+      {
+        "view": "garden-life-settings",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "9b9cf21e06a749612ef2c74d26170d7c1a292299f1c9af4bb8cf3ffe76ac8e33"
+      },
+      {
+        "view": "garden-life-social",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d8a1a6a7b4355d7239c81d720c4b07da4a0924ba029a3e1f5f7b9fba02d139b8"
+      },
+      {
+        "view": "garden-life-viewing",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "7754dabf08277e8612e8696984ac21e1a6bfbe4ae2f54d9cc58dd8bb99773e4c"
+      },
+      {
+        "view": "garden-navigation",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "70c581a0694c4eab7239238b6891ee64ab06820437556777ac0bafce7e89c14f"
+      },
+      {
+        "view": "garden-residents",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "e510e692f3c3d6e3e57d915a7ca399f331ec68e2510bbfbf9bbd9522b8cdf472"
+      },
+      {
+        "view": "garden-residents-last",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "7cd48fe3a8a7b105f2c1701e6d59989bebbe56dea8dac747f3c2d67e6faea051"
+      },
+      {
+        "view": "help",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "9d96c5e056a852ea350a171cc9c11856d1601b54a58e46773a773dd8375524f4"
+      },
+      {
+        "view": "job-alchemist",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d0f17a4f30679cab7dafd1b52af47faf0cc1ff8c5bb8c336d23598e710975430"
+      },
+      {
+        "view": "job-artist",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "cf7facd8471a4f64c9ee881f26accfc80a29698f5ef2bc60f553b4f6741f23fe"
+      },
+      {
+        "view": "job-berserker",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "41b3060625234aa8a8ea1805fe035e741c1555bee226e106d3b4d3df34f35d2f"
+      },
+      {
+        "view": "job-blaster",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "10009a29d6d173ac39325b78685c319e42d219c6ebc035fa59a8a1f8ebd0b4c6"
+      },
+      {
+        "view": "job-chaser",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "0d127f3112ef228d8e4c456b9ce9cada180c1eee136c193ddfa0bcd187847230"
+      },
+      {
+        "view": "job-defender",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "108b8cf6b971edbe34957edd2bc041f4492370a10173edd479331d489213b44a"
+      },
+      {
+        "view": "job-fighter",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "7241e12f2c22b6f671583c72fe16019726796d88b3811176726fc51bb7f4c355"
+      },
+      {
+        "view": "job-gambler",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2e9fda74877ebd61d7ddc34a0fc96e20994947b143dc3a5c8c092d1c3e041eed"
+      },
+      {
+        "view": "job-general",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "68cb0cb5747cecd916f9b267fec03ce3e44f0e47e605bb78005d7188b75e2a2c"
+      },
+      {
+        "view": "job-gunner",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "842e532073b76d93831624ac91c87450005cad30c8194118a67ed6ec21d07d07"
+      },
+      {
+        "view": "job-healer",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "f417bc8dd1cda206e62547925e1e9769b92d5b80bed939c838d3d2fc2c154092"
+      },
+      {
+        "view": "job-panzer",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "8b5664bcbdbbcfff6d881323cc441bfad3bbef21de37121036a023f259ac2a18"
+      },
+      {
+        "view": "job-sniper",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "44e3b2f61ea06a8a339de1dd7f77ab31776a598dc5d87b1560faaafb7d39918a"
+      },
+      {
+        "view": "kinder",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "eca6f5468e12ea8b506405a7ad22ea0f307b93d114e8a78623ee486ae8456a1a"
+      },
+      {
+        "view": "kinder-draw",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "da5362b268a38a1b1a6c82dd86288441ab5f52819213267403261b325b824c1a"
+      },
+      {
+        "view": "kinder-exchange",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "92a45154bf14a2ac82559ef0d403039a5cb6337b7f60dc11840c8c3fb834caa4"
+      },
+      {
+        "view": "kinder-rates",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "412a2ec19e4de6340b2d17ac219cbcc82ed8511c32d6790e924ccd1719b2f8a7"
+      },
+      {
+        "view": "kinder-tickets",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "5cb5dd46fa144b9de6beecd0845d16f72c03935c035356867c7087393d30dff3"
+      },
+      {
+        "view": "level",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "600c31e366538f06e68ae47d9c493cdaa595c91fa688ed5c3bd799b246293c15"
+      },
+      {
+        "view": "level-confirm",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d9011ecbdc407d23bd773465b569dc85c304d35af2402e8017147e2eeb1616a5"
+      },
+      {
+        "view": "material-exchange",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "682811ba1dc37cdbf9cb6353538b88711b3016a9b700dc0080de6a6aa21d7f43"
+      },
+      {
+        "view": "materials",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "adf67246d007212a286bb7ce4846fa5e5d92ca7855ffd9d5bfe5b996cd80521a"
+      },
+      {
+        "view": "model",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "9bf8b501ebb7e15d685901d727346df481b0c45cb1277d4b87d358dc681fee8d"
+      },
+      {
+        "view": "oopart-battle",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "a05db89e58a1752d871954d53dff76d4f706f69ee17b0ad31f92ecee5e8241de"
+      },
+      {
+        "view": "oopart-conditions",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "934d5f06d08e4a7b78f37265a1f97954fa3762e3b90fcca157a1b318b6f95a06"
+      },
+      {
+        "view": "oopart-direct",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "ac4be3d1eaa6ad03122ca7f3abc8dfe43f31e89a069132d96ed8416cffa83a3c"
+      },
+      {
+        "view": "oopart-empty-slot",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "b9f3d8d1abeed1a2d4cfc61c0049693fc59243c65f8ed47da7742acd080111c8"
+      },
+      {
+        "view": "oopart-items",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3bfcaf107673103302e24495af09ada5b25c5a0b7f0a89d9487c0d7ac751a9b0"
+      },
+      {
+        "view": "oopart-level",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "b3ecff3f9c3061ce7c6b6f70fe3fc036da845e7cb731bf7798dc778019fc5697"
+      },
+      {
+        "view": "oopart-pending",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "6656d20a413c8d9cbeec1423a5d5a8b0233879d08e86351765b18f7f4b8e394f"
+      },
+      {
+        "view": "oopart-presets",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "4115c25f64141bbfc9265597557d9f083ef447a8ac62dc98a9066ea6134ab194"
+      },
+      {
+        "view": "oopart-result",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "a880d033ff7fdf3516a325e111fa3fd71e0624dab445279d0f822c16c04f3105"
+      },
+      {
+        "view": "recruitment-second",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "dc8e5e00d0ed30ab18e6df609ba6544d1b645f0788e853befccc160c890f77d7"
+      },
+      {
+        "view": "relics",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "a2f2afbb9ebdf0dbcfc7008cdabd9c6ee2a52838e07ded3810026407733e84f5"
+      },
+      {
+        "view": "roster",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2a7c055c9bbc05006f81ab84eaa95dbd708473f14e7b736ee0b7769986de6a9e"
+      },
+      {
+        "view": "roster-second",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "99c9b8689ae8c21a0881bae1fbe1e986eff271724f3ffce5928417a1239427f9"
+      },
+      {
+        "view": "settings",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "ffa70fcfb2cf71da9b927850c5a4b2529708759ba8b79e524945e4c2594e0b61"
+      },
+      {
+        "view": "skill",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "869385e42a070aefb4d2a884c6e4f563cb82395d445df3cc50a1cf636df3fdaf"
+      },
+      {
+        "view": "skill-pending",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "222777c65c023595ce8f78d6f929912b783655ed4e2c217741fd34c1641ec0af"
+      },
+      {
+        "view": "skillmax",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "3807d3aab2e2083021c1ec965cd734b4fbe3b7f25ec81a686442282ea8e47d01"
+      },
+      {
+        "view": "title",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "d810b31cf3e9f8996d390b9bfd988b78a7468bdf0029061523ae4572102247c6"
+      },
+      {
+        "view": "title-help",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "bc1848f6ffd629e37d311b790077fb26f5b51f9d762c832f6130aa4596c5b10d"
+      },
+      {
+        "view": "train-arrival",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "97102f611c38dc5f85890987dec5170516479c8178db8ee91c7a8de01826f31c"
+      },
+      {
+        "view": "train-disembark",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "af42e96bf52ddf391d3b3a74f5519984f57c8bed300b429ed932ca4ccd38b713"
+      },
+      {
+        "view": "train-doors",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "2e4095ca092688bdd4519228145ad46cfafc8f86375e2e91940ad9fbb91a36b2"
+      },
+      {
+        "view": "trait",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "93c04560223725d3e08da92a7144d31147f9124aa071981d55e2d59b2e1b98d6"
+      },
+      {
+        "view": "tree-confirm",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "b16388e02ae4b608a854a3abd7e36596777cfbd2e697624707c335ba79016c93"
+      },
+      {
+        "view": "tree-grown",
+        "size": [
+          1920,
+          1080
+        ],
+        "sha256": "5e4b6fb3ac05d155afc2ab64b69b015af32634ecc3d16b39712484958df3ea62"
+      }
+    ],
+    "method": "Unity Player rendered captures, log exception checks and visual contact-sheet review; physical input recorded separately"
+  },
+  "automaticAssertions": 9941,
+  "navigation1000RefreshMs": 18.73,
+  "search1000QueryMs": 30.68,
+  "sleepClockDocumentation": "https://learn.microsoft.com/en-us/windows/win32/api/realtimeapiset/nf-realtimeapiset-queryunbiasedinterrupttime",
+  "manualLimitations": [
+    "Full PC sleep/resume has not been performed during this remote run.",
+    "256-person tests use synthetic stable-ID/roster/affection data; rendered production UI uses the current 15 authored forms.",
+    "Native window resize drag was blocked by the automation surface boundary. Resizable style and aspect enforcement are implemented; free resize needs a hands-on check.",
+    "Physical minimize stopped rewards, but the automation surface could not restore that minimized window. Pause/resume state is covered by automatic tests."
+  ],
+  "physicalInputVerification": {
+    "platform": "Windows, Unity Player, native mouse/keyboard through computer-use",
+    "saveIsolation": "Dedicated plan15 manual fixture and watch.settings.plan15-test; no production campaign fixture edits",
+    "passed": [
+      "720p restart restores Arcane Academy, information face, and arcane search with two results",
+      "Page turns remain within the two search results; changing subject restores its overview",
+      "Arcane level 21 to 22 completes and returns to the same information face",
+      "Five low-level materials cost 2500 Nectar; inventory 10000 to 10005 and balance 19950 to 17450",
+      "Exchange confirmation survives automatic clock-save revisions and blocks bookmark input",
+      "Time reward crosses 1799.75 seconds, awards 100 stones, and restart does not duplicate the daily reward",
+      "Locked saved red colossus safely restores green colossus and retains selected level 32",
+      "Same native window switches to 480x270, shows at most four agents, and exposes only return",
+      "Topmost ON and OFF confirmed by native adapter logs; normal topmost state restored",
+      "Escape restores 1280x720; return button restores 1920x1080",
+      "1080p battle starts at green colossus level 32; skill damage and manual pause respond",
+      "Retreat saves its result and returns to green colossus level 32"
+    ],
+    "watchFpsLog": "tmp/plan15-16-manual/player-return-input.log",
+    "watchFpsObserved": "29.84 to 29.99 FPS over repeated 30-second intervals, four agents",
+    "growthControllerAssertions": 11,
+    "battleRegression": "Native 1080p skill action without Slayer: no exceptions after guarding the absent model actor index."
+  },
+  "unityBuild": {
+    "version": "6000.6.3f1",
+    "target": "Windows x64",
+    "result": "Succeeded",
+    "player": "game/Builds/plan11-5-6/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873"
+  }
+}
