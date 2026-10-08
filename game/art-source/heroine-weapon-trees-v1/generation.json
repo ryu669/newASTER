@@ -1,0 +1,213 @@
+{
+  "tool": "image_gen.imagegen",
+  "assets": [
+    {
+      "key": "slayer",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-46e90638-30fd-43e9-95cb-4564a49ad514.png",
+      "prompt": "Use case: stylized-concept. Create a production game asset: a magnificent sacred WEAPON TREE for the adult heroine Slayer, inspired ONLY by the reference heroine's pink flowers, white feathered wings, pearl chains, gold halo and pale warm gold costume. The heroine herself must NOT appear. Native 1536x1024 landscape, transparent RGBA background. A real organic tree: clearly readable thick wooden trunk, spreading roots at bottom, three graceful upward branching boughs, fine twigs and pink flowering foliage. Hand-painted ornate anime fantasy illustration matching the reference's quality. Entire tree fits inside canvas. Keep visible wooden branches instead of a solid foliage wall. Game layout: root junction at canvas (50%,88%); three main boughs pass through (35%,72%), (50%,72%), (65%,72%); next tier (23%,52%),(50%,52%),(77%,52%); next tier (16.5%,32%),(50%,32%),(83.5%,32%); upper tips (10%,12%),(50%,12%),(90%,12%). These 13 branch junctions should be visible small smooth wooden oval knots, room for externally rendered game nodes. Branches may curve naturally between these anchors. Foliage frames the branches and never obscures junctions. No labels, no letters, no buttons, no icons, no diagram lines, no person, no border, no background scene. Tree must unmistakably remain a natural branching tree decorated with subtle heroine motifs.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/slayer.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "4cefcb6b5651f7d1f8cbd63522db181e5aa490cc51bf5e1fe96b9fa1c5bc223f",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "annihilator-holy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-56cd7817-6aec-4d73-9417-a0d18850c938.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine annihilator-holy. Replace the first image's pink flowers and white feathers with crimson and black feathers, snowflakes, white frost, holly berries, gold stars, festive bells and red ribbons. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-holy-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/annihilator-holy.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "c61b8add0dd9af0696fc8285fa219bde2d2bf71452385fb6aceb8a2b6da3e68d",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "annihilator",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-d4af2bec-e8e9-47c2-a8e4-13f9b3fd35d0.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine annihilator. Replace the first image's pink flowers and white feathers with black-red feathers, crimson spider lilies, gold tassels, subtle oni-mask and horn ornaments, dark natural bark. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/annihilator.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "55ed07021e94e49c485a169ec37be6f0681629538cd0c2cfe1aadf728adf3133",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "arcane-academy",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-84c04880-ff5e-4988-9bd4-ed260ca1a8d0.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine arcane-academy. Replace the first image's pink flowers and white feathers with magenta rose foliage, white feathers, burgundy academy ribbons, miniature closed book ornaments, turquoise crystals, elegant brass library details. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-academy-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/arcane-academy.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "591019a98de898567bc776f059ff74b7bbdd8f7e0c47f36c8ec6ff60d74c7738",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "arcane",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-d0ba1419-cfb8-4b1b-a68b-80c8d9eaa65e.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine arcane. Replace the first image's pink flowers and white feathers with magenta blossoms, ivory feathers, turquoise crystals, antique brass compass and exploration-map ornaments. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/arcane.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "15383e001b1e51c707b926c84f75760a03603a749c6599c0498253f975a4181c",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "echidna",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-cb41ea22-e589-430d-8ed5-20d423bfebd1.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine echidna. Replace the first image's pink flowers and white feathers with indigo starry bat-wing-like leaves, golden thorn accents, vivid turquoise crystals, pale silver blossoms. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-echidna-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/echidna.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "758c88db33ff10934e9f81e3b07f5f672338b7d40c53e9ed244b0aff0548c36e",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "excalipan",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-d24a0d9a-a315-44a6-b1a7-42fd53ae980b.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine excalipan. Replace the first image's pink flowers and white feathers with royal-blue ribbon foliage, white feathers, golden wheat ears, subtle bread and crescent-prayer ornaments. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-excalipan-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/excalipan.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "4c5049089ddee132b235f30b255b9b5089148d1bb383f8b0e01f1cc90ada494e",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "weapon-effects",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-7bb8f1d0-2625-4d07-959d-a30771e90364.png",
+      "prompt": "Production game icon sprite atlas, native square 1024x1024 transparent RGBA, exactly 4 columns by 4 rows of evenly centered separated icons. Each icon entirely inside its equal square cell with at least 15% transparent padding. No text, no labels, no frames. Polished ornate anime fantasy golden metal and luminous gems, strong silhouette readable at 24 pixels. ROW 1 from left: crossed silver swords for attack; golden lightning bolt for skill power; solid blue steel shield for physical defense; violet shield with crescent rune for magic defense. ROW 2: turquoise wing for speed; golden crosshair for critical chance; red explosive starburst blade for critical damage; ornate gold crown with ruby for unique weapon trait. ROW 3: green heart for HP; rose healing flower; potion bottle; hourglass. ROW 4: flame; ice crystal; tree leaf for roots; white angel feather. All sixteen symbols visibly distinct; only symbols on actual transparent background.",
+      "resourcePath": "UI/weapon-effects-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/weapon-effects.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "sha256": "9766980f00a193eb8c8cfa54139218b4e3b9ba0237fa43e22871104752179940",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "iconoclast",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-a9aaf401-bcd9-470c-bcd0-7862e412504e.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine iconoclast. Replace the first image's pink flowers and white feathers with pink blossoms, white feathered leaves, red-and-gold military ribbon and star ornaments, turquoise jewel details. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-iconoclast-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/iconoclast.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "d755eb41144175260e03b19b6fb2117791632ddbfc3251fa9337fab115daddd8",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "nighthawk",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-aee12eee-aa3d-405a-9388-5e749b403b19.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine nighthawk. Replace the first image's pink flowers and white feathers with midnight-blue leaves, cyan stars and constellations, blue feather ornaments. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-nighthawk-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/nighthawk.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "7e85ff8b39436af949052b73479faa729aee36bf31b937629886c72f4c93086e",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "oriflamme",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-4e78d8c3-1122-4e6c-a703-cb36cc527b65.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine oriflamme. Replace the first image's pink flowers and white feathers with fiery orange-red leaves, black sword ornament, five-colored crystals. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-oriflamme-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/oriflamme.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "71202590e5025c6e09738a916178463778c94f944ff174d3b8ed1b97ac3c8139",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "r",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-da1d9cde-5503-4c0c-9909-a94d03d34523.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine r. Replace the first image's pink flowers and white feathers with cyan-magenta-violet feather leaves, gold speaker-ring and musical-note ornaments, luminous string filigree. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-r-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/r.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "b0a5cb8bcb13cb3a2ff34734fdb776322c4e2f551ed0659e221b6f1ce54f166b",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "shangrila",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-af9c7edc-6533-4aa8-b0c3-a5b5c2a4f051.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine shangrila. Replace the first image's pink flowers and white feathers with scarlet and black feather leaves, red roses, silver gun-barrel ornament, gold scope-like rings. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shangrila-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/shangrila.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "800217f322cc32a834c34818a32b9e572367290b27891ec325949707863557fe",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "shell",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-e1e0006e-8689-4161-ae5b-5b79c60f7a54.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine shell. Replace the first image's pink flowers and white feathers with steel-blue foliage, armored silver bark accents, shield plates and turbine ornaments. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shell-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/shell.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "slayer-swim",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-39e38539-c466-490b-b3f2-29648fbc8eac.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine slayer-swim. Replace the first image's pink flowers and white feathers with white feather leaves, sea-blue ribbons, pearl chains, seashells and white parasol lace motifs. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-swim-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/slayer-swim.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8",
+      "sourcePixelsModified": false
+    },
+    {
+      "key": "undermine",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a11600-4637-75e3-97c8-084f0a4779f3\\exec-c12fd63d-ddb9-4d86-9c86-b396ad3f42cd.png",
+      "prompt": "Edit FIRST reference tree into a heroine-specific sacred weapon tree. SECOND reference is ONLY the heroine's costume/color/motif reference; do not depict a person. Heroine undermine. Replace the first image's pink flowers and white feathers with purple and magenta medicinal blossoms, lavender feathers, subtle black cat-ear and healing staff ornaments, herbal leaves. Preserve EXACT canvas dimensions 1536x1024, root/trunk/branch silhouette, all wooden branch junction and oval socket center positions, their sizes and the full root placement from FIRST image. Keep real organic wooden bark and naturally branching tree form obvious. Change foliage and small decorative motifs around the branches; retain clear visible branch wood and empty socket centers for external game effect icons. Polished hand-painted anime fantasy game illustration. Entire tree inside canvas. Truly transparent RGBA background. No character, no UI, no labels, no text, no frame, no scene backdrop.",
+      "resourcePath": "Illustrations/heroine-weapon-tree-undermine-v1",
+      "sourcePath": "game/art-source/heroine-weapon-trees-v1/undermine.png",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "sha256": "d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8",
+      "sourcePixelsModified": false
+    }
+  ]
+}

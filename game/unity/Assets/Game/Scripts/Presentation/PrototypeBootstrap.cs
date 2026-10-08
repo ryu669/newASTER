@@ -193,6 +193,7 @@ namespace NewAster.Presentation
             PreparePlan10ArcaneAcademyCapture(args);
             PreparePlan10ShangrilaCapture(args);
             PreparePlan10UiAuditCapture(args);
+            PreparePlan11Capture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -211,6 +212,7 @@ namespace NewAster.Presentation
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
             UpdateBookTransition();
+            UpdateGardenLife();
             UpdateAdv();
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
@@ -218,14 +220,19 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                else if(help)help=false;
+                else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
                 else if(placing){placing=false;selectedFurniture=null;}
+                else if(CloseGardenLifeLayer()){}
                 else if(CloseGardenMenuLayer()){}
                 else if(recoveryActive)recoveryConfirm=false;
-                else if(collectionOpen)CollectionBack();
+                else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
+                else if(bookSystemOpen)bookSystemOpen=false;
+                else if(relicRequest!=null || collectionOpen)CollectionBack();
                 else if(engagementOpen)EngagementBack();
-                else if(kinderGarden && formalProgression!=null) KinderBack();
+                else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
                 else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
                 else if(modelViewer) modelViewer=false;
                 else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
@@ -269,7 +276,7 @@ namespace NewAster.Presentation
             UpdateArtAudio();
             if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
             if(stage!=null) stage.SetPortraitView(modelViewer);
-            bool bookPreviewVisible=title || modelViewer || book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
+            bool bookPreviewVisible=title || modelViewer || encounter!=null && book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
             if(!bookPreviewVisible)viewCamera.cullingMask=0;
             if(!modelViewer && !title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
             if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
@@ -324,8 +331,9 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{DrawGameGui();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -341,7 +349,8 @@ namespace NewAster.Presentation
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
             if(modelViewer) { DrawModelViewer(); return; }
-            if(!title && encounter==null && help) { DrawFormalBookSurface();drawingModal=true;DrawHelp();return; }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Summoning){DrawKinderExperience();return;}
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Items){DrawStandaloneItems();return;}
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
@@ -349,39 +358,28 @@ namespace NewAster.Presentation
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
                 return;
             }
+            if(!title && encounter==null && (book.Bookmark==BookBookmark.NewWorld || book.Bookmark==BookBookmark.PossibleWorlds)){DrawTerraformBookPage();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Gardens && book.HasSubject){DrawGardenHome();return;}
             if(title) { DrawFormalTitle(); return; }
-            DrawFormalBookSurface(); Panel(0,0,1600,80,dark);
-            Label(32,20,950,46,"newASTER  /  巨神と誓女2",heading,Color.white);
+            if(book.Bookmark==BookBookmark.Colossi || book.Bookmark==BookBookmark.RelicHunt || book.Bookmark==BookBookmark.Stories){DrawEncounterBookPage();return;}
+            DrawFormalBookSurface();
             Panel(1024,80,576,118,dark);
             Label(1050,100,510,70,encounter==null?"記憶が、新しい世界を育てる。":"巨神獣との空中戦",heading,Color.white);
-            if(ProductionStoryActive)DrawBookSubjectArt();
-            else if(encounter==null && book.HasSubject && book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0]) {
-                SampleImage(new Rect(1024,198,576,459),"forest-far",true);
-                SampleImage(new Rect(1050,208,510,430),"green-body");
-            }
-            if(!ProductionStoryActive && encounter==null && (!book.HasSubject || book.Bookmark!=BookBookmark.Colossi || book.SubjectId!=WorldCatalog.ColossusIds[0]))Label(1050,275,510,100,book.HasSubject?"この対象の絵は制作待ちです。":"表示する対象はありません。",text,Color.white);
+            if(book.HasSubject)DrawBookSubjectArt();
             Panel(1024,657,576,243,dark);
             if(encounter==null) DrawBook(); else DrawBattle();
-            Panel(0,812,1024,88,dark);if(encounter!=null || !book.IsTransitioning)Label(28,826,970,60,encounter==null?"しおりで分類、めくりで対象、裏返しで同じ対象の情報へ。":status,small,Color.white);
             if(encounter==null)DrawBookTransition();
             drawingModal=true;
             if(storyText!=null) DrawStory(); else if(help) DrawHelp(); else if(kinderGarden) DrawKinderGarden(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
         }
         private void DrawBook()
         {
-            string[] tabs={"巨神獣","誓女・育成","庭","物語"};
-            for(int i=0;i<4;i++) if(Btn(28+i*242,100,230,46,(int)book.Bookmark==i?"◆ "+tabs[i]:tabs[i],BookInputAllowed && !book.IsTransitioning))RequestBookBookmark((BookBookmark)i);
-            if(Btn(28,160,180,42,"‹ 前のページ",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
-            if(Btn(218,160,180,42,"次のページ ›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
-            if(Btn(408,160,180,42,book.Face==BookFace.Overview?"ページを裏返す":"表に戻す",BookInputAllowed && book.CanFlip))RequestBookFlip();
-            if(Btn(600,160,120,42,"保存",BookInputAllowed)) Save(); if(Btn(730,160,170,42,"召喚・交換",BookInputAllowed)) kinderGarden=true; if(Btn(910,160,70,42,"？",BookInputAllowed)) help=true;
-            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  世界復元 {campaign.Progress.TerraformingExperience}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
-            if(Btn(1050,814,510,42,"本を閉じて表紙へ",BookInputAllowed)){book.Close();title=true;}
+            DrawBookFooter();
+            Label(30,220,950,34,$"素材 {AvailableCollectionMaterials}  /  TP {campaign.Terraform.totalTp}  /  所持する詩 {campaign.Progress.CollectedPoemIds.Count}",small);
             if(!book.HasSubject){Label(32,320,920,110,"この分類にはまだ対象がありません。解放された対象はここで確認できます。",text);return;}
             bool previousBookEnabled=GUI.enabled;GUI.enabled=previousBookEnabled && (BookInputAllowed || placing || homeRequest!=null) && !book.IsTransitioning;
             switch(book.Bookmark) {
-                case BookBookmark.Colossi: DrawColossus(); break;
+                case BookBookmark.Colossi: case BookBookmark.RelicHunt: DrawColossus(); break;
                 case BookBookmark.Heroines: DrawHeroine(); break;
                 case BookBookmark.Gardens: DrawFormalGarden(); break;
                 case BookBookmark.Stories: DrawStories(); break;
@@ -412,8 +410,9 @@ namespace NewAster.Presentation
                 if(Btn(232,548,90,42,"− 5")) selectedLevel=Math.Max(1,selectedLevel-5);
                 if(Btn(332,548,90,42,"＋ 5")) selectedLevel=Math.Min(campaign.Playable.HighestLevel,selectedLevel+5);
                 if(Btn(432,548,180,42,"最高レベル")) selectedLevel=campaign.Playable.HighestLevel;
-                Label(32,612,925,58,"Lv45以上で極大技。勝利すると選択可能なLvが5上がります。",small);
-                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id))) StartBattle(c.Id);
+                var missing=TerraformRules.Index(c.Id)==14?TerraformRules.MissingIntegration(campaign.Terraform):Array.Empty<string>();
+                Label(32,612,925,58,missing.Length>0?"受入条件不足（Lv3必要）："+string.Join("・",missing.Select(TerraformCatalog.DomainName)):book.Bookmark==BookBookmark.RelicHunt?"遺物抽選 35% × レベル帯の抽選回数":"遺物抽選 5% ／ 勝利で挑戦上限Lv＋5",small);
+                if(Btn(32,692,910,70,ColossusCombatCatalog.CanSummon(c.Id)?book.Bookmark==BookBookmark.RelicHunt?"レリックハントに出撃":"5人の誓女と出撃する":"戦闘定義は未制作 ／ 出撃できません",BookInputAllowed && !book.IsTransitioning && ColossusCombatCatalog.CanSummon(c.Id) && missing.Length==0)) StartBattle(c.Id);
             }
         }
         private void DrawHeroine()
@@ -540,11 +539,12 @@ namespace NewAster.Presentation
         }
         private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(TerraformRules.Index(colossus)==14 && TerraformRules.MissingIntegration(campaign.Terraform).Length>0){status="アステリア受入条件：全7領域Lv3以上";return;}
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
-            activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
+            activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
@@ -647,7 +647,7 @@ namespace NewAster.Presentation
         private void DrawHelp()
         {
             Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,275,880,355,"1. 巨神獣のページから5人で出撃。\n2. 上の部位ボタンで対象を選ぶ。\n3. 行動可能な誓女の操作を開き、スキルやジョブ固有操作を選択。\n4. 接続成功で固定チェインが発動。固有資源で戦術を変える。\n5. 部位破壊で敵を弱め、報酬で育成・家具を作る。\n6. 詩を集めたら物語のしおりで読む。\n\nめくる＝対象変更。裏返す＝同じ対象の詳細。\nEsc＝一時停止。進行は操作・討伐後に自動保存。",text);
+            Label(340,260,880,370,BookHelpText(),text);
             if(Btn(340,656,890,62,"閉じる")) help=false;
         }
         private void DrawKinderGarden()
@@ -687,10 +687,10 @@ namespace NewAster.Presentation
         private void Mutate(bool success,string message) { if(success) Save(message); else status="素材が不足しているか、すでに最大まで開放されています。"; }
         private void Save(string successMessage="進行を保存しました。")
         {
-            if(formalDiagnostic)return;
+            if(formalDiagnostic && !Environment.GetCommandLineArgs().Contains("-gardenLifeManualSave"))return;
             if(formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending){status="保存待ちの操作を先に完了してください。";return;}
             TrialObserve("save","start");
-            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }
+            try { if(!formalCampaign.CommitWorld(campaign.CreateSave(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign))throw new System.IO.IOException("Save rejected");status=successMessage;TrialObserve("save","committed","revision="+formalCampaign.Snapshot.revision); }
             catch(Exception e) {campaign=new CampaignState(WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);status="保存できませんでした。今回の世界変更は確定していません。空き容量と権限を確認してください。";Debug.LogException(e);TrialObserve("save","failed",e.GetType().Name);}
         }
         private void Modal() { Panel(0,80,1600,820,dark); Panel(300,150,970,620,paper); }

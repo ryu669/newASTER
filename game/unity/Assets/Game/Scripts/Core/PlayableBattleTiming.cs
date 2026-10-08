@@ -119,7 +119,7 @@ namespace NewAster.Core
                 }
                 var next=UpcomingOrder().First(); AdvanceClock(next.At);if(Ended)break;
                 if(next.Actor<0) {
-                    ResolveEnemyAction(); EnemyActionCount++; Turn++;
+                    ResolveEnemyAction(); EnemyActionCount++; Turn++;UpdateRelicTurnEffects();
                     Guarded=false; Chain=0; chainPending=false; chainMembers.Clear();
                     bossAt=Clock+SkillTimingDefinition.Delay(EffectiveEnemySpeed,EnemyWaitPercent)+State.EnemyWaitPenalty;State.EnemyWaitPenalty=0;
                     continue;

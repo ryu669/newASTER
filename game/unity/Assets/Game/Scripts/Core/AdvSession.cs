@@ -83,6 +83,7 @@ namespace NewAster.Core
                 else if(ch!=null){if(ch.sceneId!=session.SceneId || !s.world.unlockedStoryIds.Contains(ch.id))throw new ArgumentException("Chapter is not unlocked.");s.world.readStoryIds=s.world.readStoryIds.Union(new[]{ch.id}).ToArray();rewards=ch.rewards;}
                 else throw new ArgumentException("Unknown scene source.");
                 if(rewards.Length>0 && !s.home.claimedRewardIds.Contains(session.SourceId)){HomeRules.Grant(s,c,rewards);s.home.claimedRewardIds=s.home.claimedRewardIds.Union(new[]{session.SourceId}).ToArray();}
+                TerraformRules.Synchronize(s,home:c);
                 HomeConditions.Refresh(s,c);return s;
             },save);
         }

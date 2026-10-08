@@ -17,7 +17,7 @@ namespace NewAster.Presentation
         private void StartCollection()
         {
             collectionCatalog=SelectCollectionCatalog();
-            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion);
+            collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion,activeRelicHunt);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.
             // No presentation callback or battle RNG participates in collection.
@@ -44,12 +44,13 @@ namespace NewAster.Presentation
         private CampaignSaveV2 BuildVictoryWorld(CampaignSaveV2 snapshot)
         {
             var next=new CampaignState(WorldCatalog.ColossusIds,snapshot);
+            int priorTp=next.Terraform.totalTp;
             var c=WorldCatalog.Colossi.First(x=>x.Id==formalVictoryRequest.ColossusId);
             var band=collectionCatalog.rewardBands.Single(x=>x.ownerId==c.Id && formalVictoryRequest.Level>=x.minLevel && formalVictoryRequest.Level<=x.maxLevel);
             var reward=next.ClaimColossusVictory(c.Id,c.EnvironmentTags,new VictoryReward(formalVictoryRequest.BattleId,formalVictoryRequest.Level,10,band.terraforming-(formalVictoryRequest.Level-1)/10,Array.Empty<string>()),Array.Empty<StoryRequirement>(),Array.Empty<TerraformingMilestone>(),GardenCatalog.Requirements);
             if(!reward.Reward.Claimed)throw new ArgumentException("Victory was already claimed.");
             next.Playable.RecordVictory(formalVictoryRequest.Level);
-            formalVictorySummary=$"討伐成功！\n素材 +{reward.Reward.Materials} ／ 世界復元 +{reward.Reward.Terraforming}\nネクタル +{formalVictoryRequest.Nectar} ／ 覚醒結晶 +{formalVictoryRequest.Crystals} ／ 石 +{formalVictoryRequest.Stones}";
+            formalVictorySummary=$"討伐成功！\n素材 +{reward.Reward.Materials} ／ TP +{next.Terraform.totalTp-priorTp}\nネクタル +{formalVictoryRequest.Nectar} ／ 覚醒結晶 +{formalVictoryRequest.Crystals} ／ 石 +{formalVictoryRequest.Stones}";
             if(reward.FirstClear)formalVictorySummary+="\n初回討伐：次のページと環境が開放されました。";
             if(reward.NewGardenIds.Count>0)formalVictorySummary+="\n庭が開放！庭のしおりから訪ねましょう。";
             return next.CreateSave();

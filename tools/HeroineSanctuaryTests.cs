@@ -5,8 +5,26 @@ using NewAster.Core;
 using NewAster.Data;
 public static class HeroineSanctuaryTests
 {
+    private static void PortraitQuality(Action<bool,string> check)
+    {
+        var portrait=new HeroinePortraitDef{heroineId="heroine.future",resourcePath="Illustrations/future-portrait-v1",faceCenterX=.5f,faceCenterY=.35f,faceHeight=.18f};
+        var catalog=new HeroinePortraitCatalog{schemaVersion=2,faceHeightRatio=.18f,faceCenterYRatio=.4f,entries=new[]{portrait}};
+        catalog.Validate();catalog.ValidateSource(portrait,1536,1024);
+        check(true,"New heroine accepts a native landscape upper-body portrait");
+        Action<Action,string> reject=(action,name)=>{bool failed=false;try{action();}catch(ArgumentException){failed=true;}check(failed,name);};
+        // Native sizes of the problematic previous R standing and Oriflamme portrait.
+        reject(()=>catalog.ValidateSource(portrait,1145,1374),"Previous full-body R source cannot pass new portrait adoption");
+        reject(()=>catalog.ValidateSource(portrait,1024,1536),"Previous vertical Oriflamme source cannot pass new portrait adoption");
+        portrait.faceHeight=.05f;
+        reject(()=>catalog.ValidateSource(portrait,1536,1024),"A small full-body face is rejected even on a landscape canvas");
+        portrait.faceHeight=.18f;portrait.legacyPortrait=true;
+        reject(()=>catalog.Validate(),"Future heroine cannot bypass portrait requirements with a legacy flag");
+        portrait.legacyPortrait=false;
+        reject(()=>catalog.Entry("heroine.missing"),"Missing selection portrait blocks adoption instead of showing a substitute");
+    }
     public static void Run(Action<bool,string> check,CombatDefinitionCatalog combat,string storyJson)
     {
+        PortraitQuality(check);
         var options=new JsonSerializerOptions{IncludeFields=true};Func<FormalCampaignSave,string> encode=s=>JsonSerializer.Serialize(s,options);Func<string,FormalCampaignSave> decode=s=>JsonSerializer.Deserialize<FormalCampaignSave>(s,options);
         var story=JsonSerializer.Deserialize<ProductionStoryContent>(storyJson,options);var home=ProductionStoryCatalog.Home(combat,story);var collection=ProductionStoryCatalog.Collection(combat,story);
         var save=new FormalCampaignSave{world=new CampaignState(WorldCatalog.ColossusIds).CreateSave(),growth=new FormalGrowthSave{saveId="newaster.formal-growth",nectar=50000,heroines=combat.FormationIds.Select(id=>new FormalHeroineGrowth{heroineId=id}).ToArray()},home=FormalHomeProgress.Empty(home.contentVersion),collection=new FormalCollectionLedger{contentVersion=collection.contentVersion,materials=home.materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray()}};
@@ -83,7 +101,7 @@ public static class HeroineSanctuaryTests
                 var n=home.weaponNodes.Single(x=>x.id==id+".weapon."+branch+".tier4");var equipment=decode(encode(save)).home;equipment.weaponNodeIds=home.weaponNodes.Select(x=>x.id).ToArray();equipment.weaponEquipment=new[]{new HomeWeaponEquipment{heroineId=id,nodeId=n.id}};equipment.weaponLevels=new[]{new HomeWeaponLevel{nodeId=n.id,level=7}};
                 var actual=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:save.growth,homeProgress:equipment,homeCatalog:home).State.Heroes[actor];
                 check(!string.IsNullOrEmpty(n.weaponTraitName) && WeaponGrowthRules.Trait(n).Contains("＋"),"Every final branch has a named effective trait");
-                check(branch=="alpha"?actual.Attack>baseline.Attack && actual.CriticalChanceBp>baseline.CriticalChanceBp && actual.Speed==baseline.Speed:branch=="beta"?actual.PhysicalDefense>baseline.PhysicalDefense && actual.MagicDefense>baseline.MagicDefense && actual.Speed==baseline.Speed:actual.Speed>baseline.Speed && actual.CriticalMultiplierPercent>baseline.CriticalMultiplierPercent,"Equipped branches differ in actual battle stats, including final traits");
+                check(branch=="alpha"?actual.Attack>baseline.Attack && actual.CriticalChanceBp>baseline.CriticalChanceBp && actual.Speed==baseline.Speed+WeaponGrowthRules.Speed(n,7):branch=="beta"?actual.PhysicalDefense>baseline.PhysicalDefense && actual.MagicDefense>baseline.MagicDefense && actual.Speed==baseline.Speed+WeaponGrowthRules.Speed(n,7):actual.Speed>baseline.Speed && actual.CriticalMultiplierPercent>baseline.CriticalMultiplierPercent,"Equipped branches differ in actual battle stats, including final traits");
                 check(branch=="alpha"?actual.BaseAttack==(int)((long)((FormalGrowthMath.Stat(combat.Job(combat.Hero(id).jobId).attack,combat.Hero(id).attackBp,save.growth.heroines[actor].level,save.growth.heroines[actor].duplicateRank)+WeaponGrowthRules.Attack(n,7))*110/100)*(10000+(combat.Hero(id).traitAttackPercent==0?0:FormalGrowthMath.TraitAmount(combat.Hero(id).traitAttackPercent*100,save.growth.heroines[actor].duplicateRank)))/10000):branch=="beta"?actual.PhysicalDefense==(baseline.PhysicalDefense+WeaponGrowthRules.Physical(n,7))*112/100:actual.Speed==(baseline.Speed+WeaponGrowthRules.Speed(n,7))*108/100,"Final trait applies once after its additive branch stat");
             }
         }

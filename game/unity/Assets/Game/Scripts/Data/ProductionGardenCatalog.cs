@@ -13,6 +13,7 @@ namespace NewAster.Data
         public static readonly string[] GardenNames={"草原と森林の庭","結晶高原の庭","花と水の庭","竹林と滝の庭","桜と星の庭","オアシスの庭","温泉の庭","雪原の庭","世界を結ぶ庭"};
         public static string FurnitureName(string id)
         {
+            if(id.StartsWith("furniture.memorial.")){int i=Array.IndexOf(GardenLifeCatalog.RecipeIds,id.Substring("furniture.memorial.".Length));return i<0?id:GardenLifeCatalog.RecipeNames[i];}
             if(id=="furniture.fixture.0")return "花のベンチ";
             if(id=="furniture.fixture.1")return "薬草の作業台";
             if(id=="furniture.fixture.2")return "庭の噴水";

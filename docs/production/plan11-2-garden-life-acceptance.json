@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-08",
+  "branch": "codex/plan11-2-garden-life",
+  "baseCommit": "cc9ad22",
+  "spec": "plan11-2-garden-life-spec.md",
+  "core": {
+    "status": "PASS",
+    "assertions": 9248,
+    "unitySources": 206,
+    "logSha256": "f3ed79dea9c8851300797a9b08e015d21a9794bd08ed26e00b9096bfae7dd1a4"
+  },
+  "windowsBuild": {
+    "status": "PASS",
+    "unityVersion": "6000.6.3f1",
+    "buildBytes": 2836628518,
+    "executable": "game/Builds/plan11-2/newASTER.exe",
+    "executableSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "assemblySha256": "b35148e069625aad656cca5c518de9011ee08dd17387596c53b1d087fc21c74c",
+    "buildLogSha256": "1a227fbb88348f9f2905d8744de7dcff468eee2072565a060aba4bccd7b44184"
+  },
+  "nativeCaptures": [
+    {
+      "view": "garden-life",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life.png",
+      "pngSha256": "605e15f5324144e9e1c41010c60e8a820856a4b122a8fff780a85933031069ff",
+      "logSha256": "80fd3b7658d874860898796181f6b3793ec4b3770d49378d930d5829c48baa9c"
+    },
+    {
+      "view": "garden-life-furniture",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-furniture.png",
+      "pngSha256": "85ea7c2e8ae3d0e5192f4488cf9f23c86066f86550e53b6424cfc9ffdb558a4b",
+      "logSha256": "cac2c441e6e455237b78f2ea5aca59fa47fa955ccbf9f49a241ae3aed18e13cd"
+    },
+    {
+      "view": "garden-life-social",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-social.png",
+      "pngSha256": "597d1370a2af2da9118a3ef3427008bc51e993e27875e4885c3a56c8be0f6583",
+      "logSha256": "a0409010766f5800e36fa0b2d1bce2d3ad18d934fd4edf6946c507f76393022d"
+    },
+    {
+      "view": "garden-life-editor",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-editor.png",
+      "pngSha256": "956fbe4f033cc2bb509dab4ca8da617f62b50e9dd9c0f23200823fef6c427f14",
+      "logSha256": "cc8a2326a127e17720a37cee684d4861e8c7eac9f804d347bc5b905eaacb1230"
+    },
+    {
+      "view": "garden-life-activity",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-activity.png",
+      "pngSha256": "51e78d26a53a48573fd97ac750b4a9694fb17c3d130880beaec4b0c740c9826b",
+      "logSha256": "7e6c8c1c58f0dac4deae242f1301fd4cc5c060dc3b8ee9c45e86edddb4d4f5b0"
+    },
+    {
+      "view": "garden-life-level5",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-level5.png",
+      "pngSha256": "5c3913bea9096efe78db4d3bdba8d112d72a3db2e15d3043cd45070af4aa46c9",
+      "logSha256": "7b947764162c5a5e50b21b603d8165e1b3ae0dfc2dc6b1951584b4ea6d72d777"
+    },
+    {
+      "view": "garden-life-level6",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-level6.png",
+      "pngSha256": "bb59daecb808d3dacb27eff426a6fc08376eefed8d277bd69f86bab592ff6a96",
+      "logSha256": "f12e6fe651ec4a662eeec2f8807c10f2b2c98081249d87131dd50c7cbee8de88"
+    },
+    {
+      "view": "garden-life-level7",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-level7.png",
+      "pngSha256": "ea270641190d1e227f952a4384b240e79d3da399d51842ff94087ecfd8beb06e",
+      "logSha256": "b828f1a966456a63342084611661235b077aaba6f09a799a0724ee7bb4b4b815"
+    },
+    {
+      "view": "garden-life-viewing",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-viewing.png",
+      "pngSha256": "1bb4f879e8df9a51c88f7d5f60a2251b926157172d67b6bbd5a404f236ff4adc",
+      "logSha256": "1f4e67db4e9773a7b0f5c4e56de3cf773e22f60187e0226e4c66de7bb58969d1"
+    },
+    {
+      "view": "garden-life-records",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-records.png",
+      "pngSha256": "cadb1d67392392ef81a39212a05fb11244ed06724795c05092e49e5b58c0d2cd",
+      "logSha256": "8dc9c86d65870e32f9b6f03d3367d672a888e69653f84a3c3a8a19cd34edf301"
+    },
+    {
+      "view": "garden-life-settings",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-settings.png",
+      "pngSha256": "2da23962ebc65c22f9ae68733922ac6a010c00de7c6fdebb4043160403b4d470",
+      "logSha256": "f3ca096cb698fc08669944ef29888c2c151675e5b9dc3c60004a1482330168e9"
+    },
+    {
+      "view": "garden-life-single",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "residentCount": 1,
+      "furnitureCount": 5,
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-single.png",
+      "pngSha256": "5fcadb13a0b7488a9d7a40ff643c4dc3face0e2bc2b35e72a402a63755a1a9fa",
+      "logSha256": "30fdab9dfbb675b78ee77b1be002f835da558a629ed48faab1844eae62b2f052"
+    },
+    {
+      "view": "garden-life-single-bare",
+      "size": [
+        1600,
+        900
+      ],
+      "status": "PASS",
+      "residentCount": 1,
+      "furnitureCount": 0,
+      "png": "tmp/plan10-ui/player-1600x900/ui-garden-life-single-bare.png",
+      "pngSha256": "14fe0d5f5a195e6e5a63b29365b82d7eae87c9db234abb75d86f673e35249969",
+      "logSha256": "03cbbad3d02408f344e7418ea6ae3a27e54d1077a7ff2135d5b12d0f188f95a2"
+    }
+  ],
+  "legacyGarden": {
+    "status": "PASS",
+    "furniture": 10,
+    "residents": 5,
+    "assertions": 137,
+    "physicalReload": true,
+    "pngSha256": "ecdd57ce8ecaf963151c1f24e0ca4a4dae65e74ca03d725355a667de067f7bcd",
+    "logSha256": "c19422b2c8556d1b0106d61a547a0d47cd618ce0c5c0a623c0474a1dcee1fd52"
+  },
+  "physicalMouse": {
+    "status": "PASS",
+    "inputAPI": "@oai/sky",
+    "isolatedSave": "tmp/plan10-ui/player-1600x900/manual-life-smoke.json",
+    "steps": [
+      "Open furniture editor",
+      "Move memorial books",
+      "Undo",
+      "Redo",
+      "Confirm layout",
+      "Open residents",
+      "Talk to Excalipan",
+      "Observe Excalipan",
+      "Start picnic",
+      "End picnic",
+      "Change to evening and night",
+      "Change fixed weather to rain",
+      "Switch to snowfield",
+      "Exit and restart Player",
+      "Open system and save",
+      "Verify saved layout and settings after reload"
+    ],
+    "savedBookPosition": {
+      "instanceId": "furniture.capture.life.2",
+      "defId": "furniture.memorial.books",
+      "gardenId": "garden.grassland-forest",
+      "zoneId": "zone.ground",
+      "orientationId": "orientation.default",
+      "x": 0.5556250214576721,
+      "y": 0.8273972868919373
+    },
+    "revisionBeforeSystemSave": 15,
+    "revisionAfterSystemSave": 16,
+    "layoutUnchangedBySystemSave": true,
+    "lastGardenId": "garden.snowfield",
+    "forestSettings": {
+      "gardenId": "garden.grassland-forest",
+      "timePhase": "night",
+      "weather": "rain",
+      "frameId": "book",
+      "autoLife": true,
+      "autoWeather": false,
+      "visitCounter": 0
+    },
+    "savedDiscoveryIds": [
+      "garden.discovery.social-first",
+      "garden.discovery.social-furniture",
+      "garden.discovery.level5",
+      "garden.discovery.read",
+      "garden.discovery.social-long",
+      "garden.discovery.stargaze_together",
+      "garden.discovery.picnic",
+      "garden.discovery.evening",
+      "garden.discovery.rain-scenery"
+    ],
+    "saveSha256": "1f7ed70a202787a09c10c7c93d25544bbb61c59a7bd459b5e2f8cac3c912b078"
+  },
+  "minuteObservation": {
+    "measurements": [
+      {
+        "log": "manual-life-reload.log",
+        "measurement": "GARDEN_LIFE_MINUTE_PASS seconds=60.00 frames=3332 fps=55.53 agents=8 kinds=Approach,Furniture,Idle,Move,Scenery,Social managedBytes=7380992 allocatedBytes=246710351",
+        "logSha256": "ce0f1e04e55c4cbc61662ed993dbf958140d24d45f5a490f18751c4ba522528e"
+      },
+      {
+        "log": "manual-life-final.log",
+        "measurement": "GARDEN_LIFE_MINUTE_PASS seconds=60.00 frames=3347 fps=55.78 agents=8 kinds=Approach,Idle,Move,Scenery,Social managedBytes=7127040 allocatedBytes=232095823",
+        "logSha256": "fa4c848e666abde4b41085978a455916e8ed85b04223d6dbdfb944d9cec4b3d1"
+      }
+    ],
+    "note": "Two focused 60-second observations with eight agents. These are local Player measurements, not one-minute measurements of every capture or a hardware-independent performance guarantee."
+  },
+  "assets": {
+    "imageGeneration": "../../game/art-source/garden-life-v1/generation.json",
+    "audioGeneration": "../../game/art-source/garden-life-v1/audio-generation.json",
+    "sharedPoseFallbacks": true,
+    "heroineSpecificDialogueDefined": false
+  }
+}

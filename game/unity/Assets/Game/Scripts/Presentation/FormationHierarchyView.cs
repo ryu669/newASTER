@@ -16,15 +16,14 @@ namespace NewAster.Presentation {
    if(GrowthButton(58,108,260,48,formationLayer==0?"‹ 誓女一覧":formationLayer==2?"‹ 隊員の設定":"‹ 5人の配置",interactive)){BackFormationLayer();return;}
    Label(344,115,1150, forty,"枠を選ぶと、その隊員の神器・装備枠・出撃時の役割を設定できます。",growthSmallStyle);
    for(int i=0;i<5;i++){
-    float x=65+i*298;GrowthFrame(x,176,278,254);var portrait=HeroPortrait(ids[i]);
-    if(portrait!=null)GUI.DrawTexture(new Rect(x+8,183,262,145),portrait,ScaleMode.ScaleToFit,true);
+    float x=65+i*298;GrowthFrame(x,176,278,254);DrawHeroPortrait(new Rect(x+8,183,262,145),ids[i]);
     var def=combatDefinitions.Hero(ids[i]);DrawSanctuaryIcon(new Rect(x+12,335,32,32),"resource."+def.jobId.Replace("job.",""),Color.white);
     Label(x+53,333,220,40,def.name,new GUIStyle(growthTextStyle){fontSize=20});
     if(GrowthButton(x+12,380,254,38,"第"+(i+1)+"枠・設定"+(formationSlot==i && formationLayer>0?" ◆":""),interactive,formationSlot==i && formationLayer>0)){formationSlot=i;formationLayer=1;}
    }
    if(formationLayer==0){
     GrowthFrame(65,456,1470,329);Label(95,480,1400, fifty,"5人の配置",growthTitleStyle,gold);
-    Label(95,547,1380,160,"各隊員のカードから神器と支援設定へ進みます。\n神器：1人1つ。オーパーツ：1人1枠分を準備（装備機能は後続実装）。\n指揮官とスナイパーの支援対象は出撃前に選び、保存後の次の戦闘へ反映します。\n同じ人物の衣装違いは、同時に編成できません。",growthTextStyle);
+    Label(95,547,1380,65,"神器 "+HomeState.weaponEquipment.Count(e=>ids.Contains(e.heroineId))+" / 5　　オーパーツ "+formalCampaign.Snapshot.collection.equipment.Count(e=>ids.Contains(e.heroineId))+" / 5",growthTextStyle);
    }else if(formationLayer==1){
     string id=ids[formationSlot];var def=combatDefinitions.Hero(id);GrowthFrame(65,456,1470,346);
     Label(90,476,760, fifty,"第"+(formationSlot+1)+"枠 ／ "+def.name,growthTitleStyle,gold);
@@ -54,7 +53,7 @@ namespace NewAster.Presentation {
     string query=ImageUiSkin.TextField(new Rect(345,448,830,42),formationQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=22});if(query!=formationQuery){formationQuery=query;formationPage=0;}
     var heroes=formalProgression.Snapshot.heroines.Where(h=>combatDefinitions.HeroineIds.Contains(h.heroineId) && combatDefinitions.Hero(h.heroineId).name.Contains(formationQuery)).ToArray();int pages=Math.Max(1,(heroes.Length+9)/10);formationPage=Mathf.Clamp(formationPage,0,pages-1);
     var entries=heroes.Skip(formationPage*10).Take(10).ToArray();
-    for(int i=0;i<entries.Length;i++){string id=entries[i].heroineId;float x=65+i%5*298,y=510+i/5*116;GrowthFrame(x,y,278,104);var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+5,76,94),portrait,ScaleMode.ScaleToFit,true);if(GrowthButton(x+88,y+10,180,82,combatDefinitions.Hero(id).name+"\nLv."+entries[i].level,interactive && ids[formationSlot]!=id))ProposeHome(new HomeOperation("formation",id,formationSlot.ToString()));}
+    for(int i=0;i<entries.Length;i++){string id=entries[i].heroineId;float x=65+i%5*298,y=510+i/5*116;GrowthFrame(x,y,278,104);DrawHeroPortrait(new Rect(x+5,y+5,76,94),id);if(GrowthButton(x+88,y+10,180,82,combatDefinitions.Hero(id).name+"\nLv."+entries[i].level,interactive && ids[formationSlot]!=id))ProposeHome(new HomeOperation("formation",id,formationSlot.ToString()));}
     if(GrowthButton(65,762,250, fifty,"‹ 前の10人",interactive && formationPage>0))formationPage--;Label(430,773,660, forty,"保存後、次の出撃から反映 ／ 無消費",growthSmallStyle,gold);if(GrowthButton(1260,762,275, fifty,"次の10人 ›",interactive && formationPage+1<pages))formationPage++;
    }
    if(homeRequest!=null)DrawSanctuaryHomeConfirmation("編成・役割の変更は無消費です。");DrawPanzerSetup();

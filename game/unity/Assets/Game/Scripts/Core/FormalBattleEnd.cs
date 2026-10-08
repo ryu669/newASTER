@@ -8,7 +8,7 @@ namespace NewAster.Core
         public long Revision {get;}
         public CollectionReceipt Receipt=>Copy(receipt);
         public string Id=>receipt.battle.battleId;
-        public string Signature=>"battle-end|"+receipt.battle.contentVersion+"|"+receipt.battle.combatVersion+"|"+receipt.battle.colossusVersion+"|"+receipt.reason+"|"+receipt.battle.colossusId+"|"+receipt.battle.level+"|"+receipt.battle.revision+"|"+receipt.battle.seed+"|"+string.Join(",",receipt.battle.formationIds)+"|"+string.Join(",",receipt.battle.heardPoemIds)+"|"+string.Join(",",receipt.acquiredPoemIds)+"|"+string.Join(",",receipt.unlockedChapterIds);
+        public string Signature=>"battle-end|"+receipt.battle.contentVersion+"|"+receipt.battle.combatVersion+"|"+receipt.battle.colossusVersion+"|"+receipt.reason+"|"+receipt.battle.colossusId+"|"+receipt.battle.level+"|"+receipt.battle.revision+"|"+receipt.battle.seed+"|"+string.Join(",",receipt.battle.formationIds)+"|"+string.Join(",",receipt.battle.heardPoemIds)+"|"+string.Join(",",receipt.acquiredPoemIds)+"|"+string.Join(",",receipt.unlockedChapterIds)+(receipt.battle.relicHunt?"|relic-hunt":"");
         public FormalBattleEndRequest(CollectionReceipt receipt,long revision)
         {
             new FormalCollectionLedger {contentVersion=receipt?.battle?.contentVersion,receipts=new[]{receipt}}.Validate();
@@ -32,9 +32,10 @@ namespace NewAster.Core
                 material.amount=checked(material.amount+amount);
             }
             var rng=new Random(unchecked(b.seed ^ 0x48554E54));var drops=new System.Collections.Generic.List<CollectionRelic>();
-            for(int i=0;i<band.draws;i++){
+            int draws=catalog.contentVersion==CollectionCatalog.ProductionVersion && !b.relicHunt?1:band.draws;
+            for(int i=0;i<draws;i++){
                 // Fixture: 75% per attempt. A pool that forbids empty results always grants.
-                if(band.allowEmpty && rng.Next(10000)>=7500)continue;
+                if(catalog.contentVersion==CollectionCatalog.ProductionVersion? rng.Next(10000)>=(b.relicHunt?3500:500):band.allowEmpty && rng.Next(10000)>=7500)continue;
                 var id=band.relicIds[rng.Next(band.relicIds.Length)];
                 var drop=new CollectionRelic {id=id,contentVersion=catalog.contentVersion,attackRoll=rng.Next(101),hpRoll=rng.Next(1001)};
                 drops.Add(drop);
@@ -45,7 +46,7 @@ namespace NewAster.Core
                     item.attackRoll=Math.Max(item.attackRoll,drop.attackRoll);item.hpRoll=Math.Max(item.hpRoll,drop.hpRoll);
                 }
             }
-            receipt.relicDrawCount=band.draws;receipt.relicDrops=drops.ToArray();
+            receipt.relicDrawCount=draws;receipt.relicDrops=drops.ToArray();
         }
         public GrowthCommitResult CommitBattleEnd(FormalBattleEndRequest request,CollectionCatalog catalog,Func<CampaignSaveV2,CampaignSaveV2> victoryWorld,Func<FormalCampaignSave,bool> save,HomeExperienceCatalog homeCatalog=null)
         {
@@ -60,15 +61,19 @@ namespace NewAster.Core
                 if(request.Revision!=current.revision || current.world.claimedBattleIds.Contains(request.Id))throw new ArgumentException("Stale battle end.");
                 catalog.Validate();current.collection?.ValidateContent(catalog);var r=request.Receipt;var b=r.battle;
                 if(b.revision>request.Revision || b.contentVersion!=catalog.contentVersion)throw new ArgumentException("Battle content revision mismatch.");
-                var session=new BattleCollectionSession(catalog,b.battleId,b.colossusId,b.level,b.revision,b.formationIds,b.seed,b.colossusVersion);
+                var session=new BattleCollectionSession(catalog,b.battleId,b.colossusId,b.level,b.revision,b.formationIds,b.seed,b.colossusVersion,b.relicHunt);
                 foreach(var poem in b.heardPoemIds)session.RecordCompletedSinging(poem);
                 var expected=session.Finish(r.reason,current.world.poemIds,current.world.unlockedStoryIds);
                 if(!expected.acquiredPoemIds.SequenceEqual(r.acquiredPoemIds) || !expected.unlockedChapterIds.SequenceEqual(r.unlockedChapterIds))throw new ArgumentException("Collection result mismatch.");
                 var next=Snapshot;
+                TerraformRules.Synchronize(next,catalog);
                 if(r.reason==BattleEndReason.Victory){
+                    TerraformRules.RequireIntegration(next.world,b.colossusId);
+                    int priorTp=next.world.terraform.totalTp;
                     if(victoryWorld==null)throw new ArgumentNullException(nameof(victoryWorld));
                     writing=true;try{next.world=victoryWorld(next.world);}finally{writing=false;}
                     if(next.world==null || !next.world.claimedBattleIds.Contains(request.Id))throw new ArgumentException("Victory callback must claim current battle.");
+                    r.terraformingTp=next.world.terraform.totalTp-priorTp;
                     var rewards=new FormalVictoryRequest(request.Id,b.colossusId,b.level,request.Revision);
                     next.growth.nectar=checked(next.growth.nectar+rewards.Nectar);
                     next.growth.awakeningCrystals=checked(next.growth.awakeningCrystals+rewards.Crystals);
@@ -81,6 +86,7 @@ namespace NewAster.Core
                 if(next.collection==null)next.collection=new FormalCollectionLedger{contentVersion=catalog.contentVersion};
                 if(r.reason==BattleEndReason.Victory)ApplyHunt(next.collection,catalog,r);
                 next.collection.receipts=next.collection.receipts.Concat(new[]{r}).ToArray();
+                TerraformRules.Synchronize(next,catalog);
                 next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.Id,signature=request.Signature}}).ToArray();
                 next.growth.revision=checked(next.growth.revision+1);next.revision=checked(next.revision+1);
                 if(homeCatalog!=null){homeCatalog.Validate();HomeConditions.Refresh(next,homeCatalog);next.home?.ValidateContent(homeCatalog,next);}else if(next.home!=null)throw new ArgumentException("Home conditions must join the battle transaction.");

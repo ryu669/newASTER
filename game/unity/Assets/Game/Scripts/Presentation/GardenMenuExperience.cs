@@ -78,15 +78,15 @@ namespace NewAster.Presentation
         private static string GardenFurnitureName(string id)=>NewAster.Data.ProductionGardenCatalog.FurnitureName(id);
         private void DrawGardenHome()
         {
+            if(ProductionStoryActive && (!plan10UiCapture || gardenLifeCapture)){DrawLifeGarden();return;}
             var catalog=HomeData();var snapshot=formalCampaign.Snapshot;var state=HomeState;string garden=book.SubjectId;
             var layout=catalog.gardens.Single(g=>g.id==garden);bool available=snapshot.world.unlockedGardenIds.Contains(garden) && !layout.unmade;
             Panel(0,0,1600,900,dark);
             if(available)DrawGardenScene(gardenViewport,state,garden,layout,false);
             else Label(100,270,930,160,layout.unmade?"この庭の景色は制作中です。":"世界を取り戻すと、この庭が開きます。",heading,Color.white);
             Panel(0,0,1600,88,dark);Label(28,20,730,52,"万物の書 ／ "+NewAster.Data.ProductionGardenCatalog.GardenName(garden),heading,Color.white);
-            Label(770,25,575,42,$"素材 {AvailableCollectionMaterials}　復元 {campaign.Progress.TerraformingExperience}　詩 {campaign.Progress.CollectedPoemIds.Count}",small,Color.white);
+            Label(770,25,575,42,$"素材 {AvailableCollectionMaterials}　TP {campaign.Terraform.totalTp}　詩 {campaign.Progress.CollectedPoemIds.Count}",small,Color.white);
             bool interactive=homeRequest==null && !formalCampaign.HasPending && !formalProgression.HasPending;
-            if(Btn(1400,18,165,50,"？",BookInputAllowed))help=true;
             if(placing && selectedFurniture!=null){
                 GrowthFill(gardenViewport.x+previewX*gardenViewport.width-55,gardenViewport.y+previewY*gardenViewport.height-40,110,40,new Color(.4f,.8f,.9f,.55f));
                 if(interactive && Event.current.type==EventType.MouseDown && gardenViewport.Contains(Event.current.mousePosition) && !gardenDrawer.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<750){
@@ -99,15 +99,12 @@ namespace NewAster.Presentation
                 gardenMenuExpanded=!gardenMenuExpanded;if(!gardenMenuExpanded)gardenPanel=GardenPanel.None;
             }
             if(gardenMenuExpanded){
-                string[] labels={"家具","人物","交流・物語","庭を切替","保存"};
+                string[] labels={"家具","人物","交流・物語","庭を切替"};
                 for(int i=0;i<labels.Length;i++)if(Btn(235+i*215,755,205,50,labels[i])){
-                    if(i==4)Save();else OpenGardenPanel(new[]{GardenPanel.Furniture,GardenPanel.Residents,GardenPanel.Events,GardenPanel.Navigation}[i]);
+                    OpenGardenPanel(new[]{GardenPanel.Furniture,GardenPanel.Residents,GardenPanel.Events,GardenPanel.Navigation}[i]);
                 }
             }
-            Panel(0,818,1600,82,dark);string[] navigation={"巨神獣","誓女・育成","庭","物語"};
-            for(int i=0;i<4;i++)if(Btn(28+i*258,835,246,48,(i==2?"◆ ":"")+navigation[i])){gardenPanel=GardenPanel.None;gardenMenuExpanded=false;RequestBookBookmark((BookBookmark)i);}
-            if(!ProductionStoryActive && Btn(1070,835,235,48,homeTrial?"通常セーブへ戻る":"庭の検証セーブ")){gardenPanel=GardenPanel.None;gardenMenuExpanded=false;if(homeTrial)ExitHomeTrial();else EnterHomeTrial();}
-            if(Btn(1325,835,245,48,"表紙へ")){book.Close();title=true;gardenPanel=GardenPanel.None;gardenMenuExpanded=false;}
+            if(Btn(1325,835,245,48,"システム",CanOpenBookSystem))bookSystemOpen=true;
             GUI.enabled=oldEnabled;
             if(homeRequest!=null){GrowthFill(0,0,1600,900,new Color(0,0,0,.5f));drawingModal=true;DrawHomeConfirmation();}
             if(help){drawingModal=true;DrawHelp();}
@@ -133,7 +130,7 @@ namespace NewAster.Presentation
             else if(gardenPanel==GardenPanel.Furniture){
                 var data=HomeData();
                 gardenCraftScroll=GUI.BeginScrollView(new Rect(1064,204,470,150),gardenCraftScroll,new Rect(0,0,445,Math.Max(150,data.furniture.Length*52)));
-                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];int balance=HomeRules.Balance(formalCampaign.Snapshot,item.costs[0].resourceId);string source=NewAster.Data.WorldCatalog.Colossi.Single(c=>c.Id==data.materials.Single(m=>m.id==item.costs[0].resourceId).colossusId).DisplayName;if(Btn(0,i*52,440,46,GardenFurnitureName(item.id)+" ／ "+source+" "+balance+"/"+item.costs[0].amount,HomeOperationsAllowed && balance>=item.costs[0].amount))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
+                for(int i=0;i<data.furniture.Length;i++){var item=data.furniture[i];int balance=HomeRules.Balance(formalCampaign.Snapshot,item.costs[0].resourceId);string source=NewAster.Data.WorldCatalog.Colossi.Single(c=>c.Id==data.materials.Single(m=>m.id==item.costs[0].resourceId).colossusId).DisplayName;if(Btn(0,i*52,440,46,GardenFurnitureName(item.id)+(TerraformRules.FurnitureUnlocked(formalCampaign.Snapshot.world,item.id,state)?"":"（領域発展で解放）")+" ／ "+source+" "+balance+"/"+item.costs[0].amount,HomeOperationsAllowed && balance>=item.costs[0].amount && TerraformRules.FurnitureUnlocked(formalCampaign.Snapshot.world,item.id,state)))ProposeHome(new HomeOperation("craft",item.id,"furniture."+Guid.NewGuid().ToString("N")));}
                 GUI.EndScrollView();
                 Label(1064,365,470,32,"持っている家具",small,Color.white);
                 gardenMenuScroll=GUI.BeginScrollView(new Rect(1064,407,470,170),gardenMenuScroll,new Rect(0,0,445,Math.Max(170,state.furnitureInstances.Length*50)));

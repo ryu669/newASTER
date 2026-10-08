@@ -37,14 +37,14 @@ namespace NewAster.Data
             var expanded=home.weaponNodes.ToList();
             foreach(string heroId in combat.HeroineIds){
                 int hero=WeaponOwner(heroId);
-                var root=expanded.Single(n=>n.heroineId==heroId && n.initial);root.treePosition=new HomePoint{x=.5f,y=.96f};
+                var root=expanded.Single(n=>n.heroineId==heroId && n.initial);root.treePosition=new HomePoint{x=.5f,y=.88f};
                 string[] routes={"alpha","beta","gamma"};
                 for(int route=0;route<3;route++){
-                    var first=expanded.Single(n=>n.id==heroId+".weapon."+routes[route]);first.treePosition=new HomePoint{x=.2f+route*.3f,y=.72f};
+                    var first=expanded.Single(n=>n.id==heroId+".weapon."+routes[route]);first.treePosition=new HomePoint{x=.35f+route*.15f,y=.72f};
                     string parent=first.id;
                     for(int step=2;step<=4;step++){
                         float bend=(hero%2==0?1:-1)*.025f*step;
-                        var n=new HomeWeaponNode{id=first.id+".tier"+step,heroineId=heroId,abilityId=first.abilityId,skillId=first.skillId,parentIds=new[]{parent},terminal=first.terminal+" "+(step==4?routes[route]=="alpha"?"α":routes[route]=="beta"?"β":"γ":step==2?"II":"III"),attackBonus=first.attackBonus+step*4,skillPower=first.skillPower+.08f*step,treePosition=new HomePoint{x=Math.Max(.08f,Math.Min(.92f,.2f+route*.3f+bend)),y=.72f-(step-1)*.2f},costs=first.costs.Select(c=>new HomeCost{resourceId=c.resourceId,amount=c.amount+step*4}).ToArray()};
+                        var n=new HomeWeaponNode{id=first.id+".tier"+step,heroineId=heroId,abilityId=first.abilityId,skillId=first.skillId,parentIds=new[]{parent},terminal=first.terminal+" "+(step==4?routes[route]=="alpha"?"α":routes[route]=="beta"?"β":"γ":step==2?"II":"III"),attackBonus=first.attackBonus+step*4,skillPower=first.skillPower+.08f*step,treePosition=new HomePoint{x=Math.Max(.08f,Math.Min(.92f,.5f+(route-1)*(.14f+step*.065f)+bend*.2f)),y=.72f-(step-1)*.2f},costs=first.costs.Select(c=>new HomeCost{resourceId=c.resourceId,amount=c.amount+step*4}).ToArray()};
                         expanded.Add(n);parent=n.id;
                     }
                 }
@@ -58,9 +58,9 @@ namespace NewAster.Data
                 if(tier>=2)n.costs=Enumerable.Range(0,tier==2?2:3).Select(i=>new HomeCost{resourceId=collection.owners.Single(o=>o.id==sources[i%sources.Length].Id).materialIds[tier==2?1:tier==3?2:i<2?3:2],amount=tier==2?4:tier==3?5:6}).ToArray();
                 n.attackBonus=route==0?8+tier*4:route==1?2+tier:4+tier*2;
                 n.skillPower=route==0?1.12f+tier*.06f:route==1?1.02f+tier*.025f:1.06f+tier*.04f;
-                n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1?10+tier*6:0;
-                n.speedBonus=route==2?3+tier*2:0;n.criticalBonusBp=route==0?200+tier*100:route==2?100+tier*50:0;
-                n.criticalDamageBonus=route==2?5+tier*3:0;
+                n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1 && tier>=2?10+tier*6:0;
+                n.speedBonus=route==2?3+tier*2:route!=2 && tier>=3?2+tier:0;n.criticalBonusBp=tier>=2?(route==0?200+tier*100:route==2?100+tier*50:0):0;
+                n.criticalDamageBonus=tier>=3 && route==2?5+tier*3:0;
                 if(tier==4){int hero=WeaponOwner(n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈","星音","紅蝶","雪灯","鋼翼","炎翼","夜星","海翼","遺翼","書翼","銃翼"};
                     n.weaponTraitName=motifs[hero]+(route==0?"の鋭刃":route==1?"の結界":"の疾風");
                     n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
@@ -84,7 +84,29 @@ namespace NewAster.Data
                 relic.attackPercent=i%3==0?6+i/3:i%3==1?0:3+i/3;
                 relic.hpPercent=i%3==1?6+i/3:i%3==2?3:0;
             }
+            var all=catalog.relics.ToList();
+            string[] jobs={"fighter","berserker","defender","blaster","gunner","healer","sniper","general","panzer","gambler","chaser","alchemist","artist"};
+            for(int j=0;j<jobs.Length;j++){
+                var owner=catalog.owners.Where(o=>o.kind=="colossus").ElementAt(j%15);
+                var d=new CollectionRelicDef{id="relic.job."+jobs[j]+".affinity",abilityId="ability.production.relic."+jobs[j]+".affinity",name=HeroineIdentityCatalog.JobName("job."+jobs[j])+"の職印",jobId="job."+jobs[j],materialIds=new[]{owner.materialIds[0]},jobStatPercent=30,attackPercent=0};all.Add(d);
+                foreach(var band in catalog.rewardBands.Where(b=>b.ownerId==owner.id))band.relicIds=band.relicIds.Concat(new[]{d.id}).ToArray();
+            }
+            string[] kinds={"attack","defense","speed","ramp","wane"},labels={"猛攻の牙","不壊の殻","疾風の羽","成長する時計","燃え尽きる灯"};
+            for(int k=0;k<kinds.Length;k++){
+                var d=new CollectionRelicDef{id="relic.special."+kinds[k],abilityId="ability.production.relic.special."+kinds[k],name=labels[k],materialIds=new[]{catalog.owners.First(o=>o.kind=="colossus").materialIds[0]},attackPercent=k==0?45:0,defensePercent=k==1?60:0,speedPercent=k==2?40:0,turnEffect=k==3?"ramp":k==4?"wane":null};all.Add(d);
+                foreach(var band in catalog.rewardBands)band.relicIds=band.relicIds.Concat(new[]{d.id}).ToArray();
+            }
+            foreach(var d in catalog.relics)d.name=WorldCatalog.Colossi.Single(c=>c.Id==d.id.Replace(".collection.relic","")).DisplayName+"の遺物";
+            catalog.relics=all.ToArray();
         }
-        public static string RelicAbility(CollectionRelicDef relic)=>"攻撃 ＋"+relic.attackPercent+"% ／ HP ＋"+relic.hpPercent+"%";
+        public static string RelicAbility(CollectionRelicDef r)
+        {
+            var terms=new System.Collections.Generic.List<string>();
+            if(r.attackPercent>0)terms.Add("攻撃 ＋"+r.attackPercent+"%");if(r.hpPercent>0)terms.Add("HP ＋"+r.hpPercent+"%");
+            if(r.defensePercent>0)terms.Add("両防御 ＋"+r.defensePercent+"%");if(r.speedPercent>0)terms.Add("速度 ＋"+r.speedPercent+"%");
+            if(r.jobStatPercent>0)terms.Add(HeroineIdentityCatalog.JobName(r.jobId)+"適性：HP・攻撃・両防御・速度 ＋"+r.jobStatPercent+"%");
+            if(r.turnEffect=="ramp")terms.Add("経過ターンごと攻撃 ＋5%（最大40%）");if(r.turnEffect=="wane")terms.Add("開幕攻撃 ＋50%、経過ターンごと−10%（最低0%）");
+            return string.Join(" ／ ",terms);
+        }
     }
 }

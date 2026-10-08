@@ -29,7 +29,7 @@ namespace NewAster.Presentation
                     GrowthLine(cx,cy,cx+170,cy,gold);GrowthLine(cx,cy+43,cx+170,cy+43,gold);
                     GrowthDiamond(cx,cy,4);GrowthDiamond(cx+170,cy+43,4);
                     if(r.kind=="heroine"){
-                        var portrait=HeroPortrait(r.heroineId);if(portrait!=null)GUI.DrawTexture(new Rect(cx+3,cy+3,37,37),portrait,ScaleMode.ScaleAndCrop,true);
+                        DrawHeroPortrait(new Rect(cx+3,cy+3,37,37),r.heroineId);
                         Label(cx+44,cy+5,123,36,combatDefinitions.Hero(r.heroineId).name,new GUIStyle(growthSmallStyle){fontSize=13},gold);
                     }else{
                         DrawSanctuaryIcon(new Rect(cx+7,cy+7,28,28),"star",ivory);

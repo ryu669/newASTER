@@ -16,6 +16,9 @@ namespace NewAster.Core
         public int JobAttackPercent {get;set;}
         public int SongCriticalBonusBp {get;set;}
         public int JobSpeedPercent {get;set;}
+        public int RelicAttackPercent {get;set;}
+        public int RelicDefensePercent {get;set;}
+        public int RelicSpeedPercent {get;set;}
         public int JobIncomingPercent {get;set;}=100;
         public int LifeMaxHpPercent {get;internal set;}
         public int OverhealLimitPercent {get;internal set;}
@@ -28,13 +31,13 @@ namespace NewAster.Core
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
         private readonly int basePhysicalDefense,baseMagicDefense;
-        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
-        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
+        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent+RelicDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
+        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent+RelicDefensePercent)/100)/(IsPanzer && !ArmorActive?5:1);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent+RelicAttackPercent))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
-        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
+        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent+RelicSpeedPercent)/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; internal set; }
 

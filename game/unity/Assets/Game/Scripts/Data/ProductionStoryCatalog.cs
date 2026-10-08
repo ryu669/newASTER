@@ -51,6 +51,7 @@ namespace NewAster.Data
             home.materials=collection.resources.Where(r=>r.kind=="material" && WorldCatalog.ColossusIds.Contains(r.ownerId)).Select(r=>new HomeMaterialDef{id=r.id,colossusId=r.ownerId,name=r.name,rarity=r.rarity}).ToArray();
             home.resourceIds=home.resourceIds.Concat(home.materials.Select(r=>r.id)).Distinct().ToArray();
             ProductionGardenCatalog.Apply(home,combat,collection);
+            ProductionGardenLifeCatalog.Apply(home);
             ProductionEconomyCatalog.ApplyHome(home,combat,collection);
             foreach(var display in home.displays){
                 var standing=home.assets.Single(a=>a.id==display.standingAssetId);

@@ -7,6 +7,29 @@ namespace NewAster.Data
     {
         public const string Version="plan9-initial-five-rc1-2026-10-05";
         public static readonly IReadOnlyDictionary<string,string> Hashes=new System.Collections.ObjectModel.ReadOnlyDictionary<string,string>(new Dictionary<string,string>{
+            {"Illustrations/heroine-weapon-tree-slayer-v1","4cefcb6b5651f7d1f8cbd63522db181e5aa490cc51bf5e1fe96b9fa1c5bc223f"},
+            {"Illustrations/heroine-weapon-tree-annihilator-holy-v1","c61b8add0dd9af0696fc8285fa219bde2d2bf71452385fb6aceb8a2b6da3e68d"},
+            {"Illustrations/heroine-weapon-tree-annihilator-v1","55ed07021e94e49c485a169ec37be6f0681629538cd0c2cfe1aadf728adf3133"},
+            {"Illustrations/heroine-weapon-tree-arcane-academy-v1","591019a98de898567bc776f059ff74b7bbdd8f7e0c47f36c8ec6ff60d74c7738"},
+            {"Illustrations/heroine-weapon-tree-arcane-v1","15383e001b1e51c707b926c84f75760a03603a749c6599c0498253f975a4181c"},
+            {"Illustrations/heroine-weapon-tree-echidna-v1","758c88db33ff10934e9f81e3b07f5f672338b7d40c53e9ed244b0aff0548c36e"},
+            {"Illustrations/heroine-weapon-tree-excalipan-v1","4c5049089ddee132b235f30b255b9b5089148d1bb383f8b0e01f1cc90ada494e"},
+            {"UI/weapon-effects-v1","9766980f00a193eb8c8cfa54139218b4e3b9ba0237fa43e22871104752179940"},
+            {"Illustrations/heroine-weapon-tree-iconoclast-v1","d755eb41144175260e03b19b6fb2117791632ddbfc3251fa9337fab115daddd8"},
+            {"Illustrations/heroine-weapon-tree-nighthawk-v1","7e85ff8b39436af949052b73479faa729aee36bf31b937629886c72f4c93086e"},
+            {"Illustrations/heroine-weapon-tree-oriflamme-v1","71202590e5025c6e09738a916178463778c94f944ff174d3b8ed1b97ac3c8139"},
+            {"Illustrations/heroine-weapon-tree-r-v1","b0a5cb8bcb13cb3a2ff34734fdb776322c4e2f551ed0659e221b6f1ce54f166b"},
+            {"Illustrations/heroine-weapon-tree-shangrila-v1","800217f322cc32a834c34818a32b9e572367290b27891ec325949707863557fe"},
+            {"Illustrations/heroine-weapon-tree-shell-v1","dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40"},
+            {"Illustrations/heroine-weapon-tree-slayer-swim-v1","ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8"},
+            {"Illustrations/heroine-weapon-tree-undermine-v1","d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8"},
+            {"UI/garden-memorial-furniture-v1","72e4c5fb63e3fb6f7bf746026056c89d2270940524c7dc7ad55fd084c5e348b4"},
+            {"UI/book-emblems-v1","7d557a87fea78badee8753039ca6b84865b7a3a49a2559a2a8eaab7a1ce98da8"},
+            {"Illustrations/heroine-portrait-shangrila-v2","410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e"},
+            {"Illustrations/heroine-portrait-arcane-academy-v2","05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047"},
+            {"Illustrations/heroine-portrait-arcane-v2","9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771"},
+            {"Illustrations/heroine-portrait-slayer-swim-v2","680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f"},
+            {"Illustrations/heroine-portrait-nighthawk-v2","9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab"},
             {"Illustrations/r-equipment-tree-v1","56d1b035c5ba8d195fbfad90888330cdf07f50bb81d126e8c8ac3d65ed6b0e78"},
             {"Audio/candidate-break-v2","f21e24e44297c7d2487f37d160993eb903649465a15b094389fe304a4203421a"},
             {"Audio/candidate-heal-v2","19307c3f0fa3706bd92cdb8def5e676ff947f4595d9a32040820edbfd1c8039a"},
@@ -421,6 +444,11 @@ namespace NewAster.Data
             {"Illustrations/shangrila-event-2-cg-candidate-v1","96ec82d9fec1163b3264cb1cd03fd3c54c93dd6259d1b5dcb7a3e4cff2d47115"},
             {"Illustrations/shangrila-event-3-cg-candidate-v1","f01162be08162691ac0649803c2937c24577a39cf27df2442d0c5fc15190117b"},
             {"Illustrations/shangrila-event-4-cg-candidate-v1","f89276354ee6040d445cb3ecabc3e9d5f56f64053dff5ddea9ae65e02401d96e"},
+            {"Illustrations/heroine-portrait-r-v2","3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050"},
+            {"Illustrations/heroine-portrait-annihilator-v2","9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9"},
+            {"Illustrations/heroine-portrait-annihilator-holy-v2","ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146"},
+            {"Illustrations/heroine-portrait-oriflamme-v2","fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db"},
+            {"Illustrations/heroine-portrait-shell-v2","06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641"},
         });
         public static void Adopt(HomeExperienceCatalog home)
         {

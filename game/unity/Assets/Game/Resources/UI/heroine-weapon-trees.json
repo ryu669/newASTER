@@ -1,0 +1,1460 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "heroineId": "heroine.slayer",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.slayer.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.slayer.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-holy-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator-holy.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.annihilator.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.annihilator.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-academy-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.arcane-academy.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.arcane-academy.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.arcane.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.arcane.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "resourcePath": "Illustrations/heroine-weapon-tree-echidna-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.echidna.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.echidna.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "resourcePath": "Illustrations/heroine-weapon-tree-excalipan-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.excalipan.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.excalipan.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "resourcePath": "Illustrations/heroine-weapon-tree-iconoclast-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.iconoclast.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.iconoclast.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "resourcePath": "Illustrations/heroine-weapon-tree-nighthawk-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.nighthawk.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.nighthawk.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "resourcePath": "Illustrations/heroine-weapon-tree-oriflamme-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.oriflamme.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.oriflamme.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.r",
+      "resourcePath": "Illustrations/heroine-weapon-tree-r-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.r.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.r.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shangrila-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.shangrila.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.shangrila.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.shell",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shell-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.shell.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.shell.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-swim-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.slayer-swim.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.slayer-swim.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "resourcePath": "Illustrations/heroine-weapon-tree-undermine-v1",
+      "nodes": [
+        {
+          "nodeId": "heroine.undermine.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.806
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.alpha",
+          "position": {
+            "x": 0.159,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.beta",
+          "position": {
+            "x": 0.5,
+            "y": 0.57
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.gamma",
+          "position": {
+            "x": 0.841,
+            "y": 0.523
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.alpha.tier2",
+          "position": {
+            "x": 0.317,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.42
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.gamma.tier2",
+          "position": {
+            "x": 0.685,
+            "y": 0.396
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.alpha.tier3",
+          "position": {
+            "x": 0.25,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.beta.tier3",
+          "position": {
+            "x": 0.5,
+            "y": 0.27
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.gamma.tier3",
+          "position": {
+            "x": 0.754,
+            "y": 0.25
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.alpha.tier4",
+          "position": {
+            "x": 0.125,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.beta.tier4",
+          "position": {
+            "x": 0.5,
+            "y": 0.105
+          }
+        },
+        {
+          "nodeId": "heroine.undermine.weapon.gamma.tier4",
+          "position": {
+            "x": 0.875,
+            "y": 0.105
+          }
+        }
+      ]
+    }
+  ]
+}

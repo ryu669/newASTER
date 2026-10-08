@@ -16,9 +16,40 @@ namespace NewAster.Presentation
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
         private readonly Dictionary<string,Texture2D> heroinePortraits=new Dictionary<string,Texture2D>();
         private readonly Color parchment=new Color(.94f,.89f,.77f),paperInk=new Color(.13f,.18f,.22f);
+        private HeroinePortraitCatalog portraitFraming;
+        private HeroinePortraitDef HeroFraming(string id)
+        {
+            if(portraitFraming==null){
+                var source=Resources.Load<TextAsset>("UI/heroine-portrait-framing");
+                if(source==null)throw new InvalidOperationException("Missing heroine portrait framing catalog.");
+                portraitFraming=JsonUtility.FromJson<HeroinePortraitCatalog>(source.text);
+                portraitFraming.Validate();
+            }
+            return portraitFraming.Entry(id);
+        }
         private Texture2D HeroPortrait(string id)
         {
-            if(!heroinePortraits.TryGetValue(id,out var texture)){texture=Resources.Load<Texture2D>("Illustrations/"+id.Substring("heroine.".Length)+"-portrait-candidate-v1");heroinePortraits[id]=texture;}return texture;
+            string key=id;
+            if(!heroinePortraits.TryGetValue(key,out var texture)){
+                var framing=HeroFraming(id);
+                string path=framing.resourcePath;
+                texture=path==null?null:Resources.Load<Texture2D>(path);
+                {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
+                heroinePortraits[key]=texture;
+            }
+            return texture;
+        }
+        // Face anchors are authored against the unmodified source PNG, using top-left coordinates.
+        // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
+        private void DrawHeroPortrait(Rect panel,string id)
+        {
+            var texture=HeroPortrait(id);var framing=HeroFraming(id);
+            if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
+            float scale=Mathf.Min(HeroinePortraitCatalog.MaximumDisplayScale,panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight));
+            float w=texture.width*scale,h=texture.height*scale;
+            GUI.BeginGroup(panel);
+            GUI.DrawTexture(new Rect(panel.width*.5f-framing.faceCenterX*w,panel.height*portraitFraming.faceCenterYRatio-framing.faceCenterY*h,w,h),texture,ScaleMode.ScaleToFit,true);
+            GUI.EndGroup();
         }
         private void SanctuaryStyles()
         {
@@ -30,7 +61,7 @@ namespace NewAster.Presentation
         private void SanctuaryHeader(string titleText,string subtitle)
         {
             GrowthFill(0,0,1600,900,ink);GrowthLine(55,79,1545,79,gold);GrowthDiamond(800,79,8);
-            Label(58,20,1000,43,titleText,growthTitleStyle);Label(1060,32,480,34,subtitle,growthSmallStyle,gold);
+
         }
         private void DrawGrowthExperience()
         {
@@ -48,7 +79,6 @@ namespace NewAster.Presentation
             bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen)GUI.enabled=false;
             SanctuaryHeader("誓女の星図","名前と顔から、会いたい誓女を選ぶ");
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
-            if(GrowthButton(58,108,190,48,"万物の書へ",BookInputAllowed)){book.Close();book.Reenter();return;}
             Label(278,111,110,38,"名前検索",growthSmallStyle);
             string query=ImageUiSkin.TextField(new Rect(383,108,455,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
             if(query!=heroineQuery){heroineQuery=query;heroinePage=0;}
@@ -65,7 +95,7 @@ namespace NewAster.Presentation
                 var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
-                var portrait=HeroPortrait(entry.id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+6,111,154),portrait,ScaleMode.ScaleToFit,true);else DrawSanctuaryIcon(new Rect(x+32,y+45,65,65),"star",gold);
+                DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
                 var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
                 Label(x+134,y+23,212,41,entry.name,nameStyle);
                 Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
@@ -96,7 +126,7 @@ namespace NewAster.Presentation
             GrowthFrame(52,176,646,643);GrowthDiamond(373,414,204);GrowthDiamond(373,414,222);
             var heroineNameStyle=new GUIStyle(growthTitleStyle);while(heroineNameStyle.fontSize>21 && heroineNameStyle.CalcSize(new GUIContent(definition.name)).x>415)heroineNameStyle.fontSize--;
             Label(286,106,415,53,definition.name,heroineNameStyle,gold);
-            var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(69,187,609,410),portrait,ScaleMode.ScaleToFit,true);
+            DrawHeroPortrait(new Rect(69,187,609,344),id);
             GrowthFill(69,606,612,194,new Color(.045f,.095f,.135f,.97f));
             string[] stats={"HP  "+state.MaxHitPoints,"攻撃  "+state.Attack,"物理防御  "+state.PhysicalDefense,"魔法防御  "+state.MagicDefense,"速度  "+state.Speed,"会心  "+(state.CriticalChanceBp/100f).ToString("0.#")+"%"};
             for(int i=0;i<stats.Length;i++)Label(90+(i%2)*303,615+(i/2)*43,292,39,stats[i],growthTextStyle);
@@ -105,7 +135,6 @@ namespace NewAster.Presentation
             if(GrowthButton(771,140,240,71,"Lv. "+growth.level+" / "+growth.LevelCap+"  ＋",BookInputAllowed,true))GrowthSelect(GrowthScreen.Level,growth);
             if(GrowthButton(1027,140,225,71,"覚醒  "+growth.awakeningStage+" / 2  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Awakening,growth);
             if(GrowthButton(1268,140,245,71,"誓い  "+growth.duplicateRank+" / 5  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Duplicate,growth);
-            Label(771,215,740,29,"能力の数値とスキルをクリックして強化",sanctuarySmall);
             for(int slot=0;slot<3;slot++){
                 var skill=DisplayHeroineSkill(id,slot);int level=growth.SkillLevel(slot);float y=253+slot*150;
                 GrowthFill(762,y,765,140,new Color(.985f,.955f,.86f));GrowthLine(771,y+138,1511,y+138,new Color(.67f,.55f,.33f));
@@ -113,7 +142,7 @@ namespace NewAster.Presentation
                 Label(869,y+9,490,36,skill.name,new GUIStyle(sanctuaryHeading){fontSize=24,wordWrap=false});
                 string description=HeroineSkillRules.Description(skill,level,job).Split('\n')[0];
                 if(description.Length>55)description=description.Substring(0,55)+"…";
-                description+="\n全文・消費・強化はクリック ›";
+
                 Label(869,y+51,633,86,description,sanctuarySmall);
                 Label(1361,y+12,145,32,"Lv."+level+" / 7  "+(level==7?"MAX":"＋"),sanctuaryBody);
                 if(ImageUiSkin.Button(new Rect(762,y,765,140),"",GUIStyle.none) && BookInputAllowed){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
@@ -127,7 +156,6 @@ namespace NewAster.Presentation
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
             if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}
-            Label(59,850,1470,33,"レベル → 育成   ·   スキル → Lv1〜7強化   ·   特性アイコン → 効果説明   ·   Escで一覧へ",growthSmallStyle);
             DrawBookTransition(true);
         }
         private const float sixty=60;

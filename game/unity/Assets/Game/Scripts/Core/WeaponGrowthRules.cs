@@ -4,6 +4,15 @@ namespace NewAster.Core
 {
     public static class WeaponGrowthRules
     {
+        public static string[] EffectKinds(HomeWeaponNode n)
+        {
+            var effects=new System.Collections.Generic.List<string>();
+            if(n.initial)effects.Add("root");
+            if(n.attackBonus>0)effects.Add("attack");if(n.skillPower>1)effects.Add("power");
+            if(n.physicalDefenseBonus>0)effects.Add("physical");if(n.magicDefenseBonus>0)effects.Add("magic");
+            if(n.speedBonus>0)effects.Add("speed");if(n.criticalBonusBp>0)effects.Add("critical");if(n.criticalDamageBonus>0)effects.Add("critical-damage");
+            if(!string.IsNullOrEmpty(n.weaponTraitName))effects.Add("trait");return effects.ToArray();
+        }
         public static int Attack(HomeWeaponNode n,int level) {HeroineSkillRules.Multiplier(level);return checked(n.attackBonus+(n.attackBonus>0?2*(level-1):0));}
         public static float Power(HomeWeaponNode n,int level)=>n.skillPower+.03f*(level-1);
         public static int Physical(HomeWeaponNode n,int level)=>n.physicalDefenseBonus+(n.physicalDefenseBonus>0?3*(level-1):0);

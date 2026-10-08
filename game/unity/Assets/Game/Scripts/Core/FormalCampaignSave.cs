@@ -37,6 +37,8 @@ namespace NewAster.Core
         public FormalCollectionLedger collection;
         // Missing or explicit null means no Plan 6 state; never infer from legacy arrays.
         public FormalHomeProgress home;
+        // Additive Plan11-2 progress. Runtime positions/actions are intentionally absent.
+        public GardenLifeProgress gardenLife;
         // Keep prior diagnostic narrative flags without treating them as authored read completion.
         public ProductionNarrativeArchive previousNarrative;
         public void Validate()
@@ -48,6 +50,7 @@ namespace NewAster.Core
             engagement?.Validate();
             collection?.Validate();
             home?.Validate();
+            gardenLife?.Validate();
             previousNarrative?.Validate();
             if(home!=null && home.receipts.Any(r=>growth.receipts.Any(g=>g.transactionId==r.transactionId) || world.claimedBattleIds.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
             if(collection!=null)foreach(var r in collection.receipts)
@@ -59,6 +62,7 @@ namespace NewAster.Core
         }
         public static void ValidateWorld(CampaignSaveV2 w)
         {
+            if(w!=null)TerraformRules.Validate(w.terraform);
             if(w==null || w.version!=2 || w.materials<0 || w.terraformingExperience<0 || w.highestBattleLevel<1 || w.highestBattleLevel>50 || w.kinderStones<0 || w.kinderDrawCount<0 || w.kinderExchangeCount<0 || w.overflowEnhancementMaterials<0)throw new ArgumentException("Invalid world wallet.");
             CheckArray(w.heroineLevels,5,1,120);CheckArray(w.heroineAwakenings,5,0,2);CheckArray(w.weaponBranches,15,0,3);CheckArray(w.affections,5,0,100);CheckArray(w.furnitureSlots,3,-1,2);CheckArray(w.heroineDuplicates,5,0,int.MaxValue);CheckArray(w.heroineTraitRanks,5,0,5);
             if(w.craftedFurniture==null || w.craftedFurniture.Length!=3)throw new ArgumentException("Invalid furniture state.");

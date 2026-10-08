@@ -8,6 +8,11 @@ internal static class Plan10ShangrilaTests {
  public static void Run(Action<bool,string> check,string resources){
   var options=new JsonSerializerOptions{IncludeFields=true};Func<CombatDefinitionCatalog> read=()=>JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(Path.Combine(resources,"Combat/battle-plan10-shangrila.json")),options);var c=read();c.Validate();
   check(c.HeroineIds.Length==15 && c.HeroineIds.Select(c.PersonId).Distinct().Count()==12 && c.jobs.Length==13,"All thirteen jobs and fifteen forms of twelve people");
+  var treeStory=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(Path.Combine(resources,"Story/plan10-shangrila-story-content.json")),options);var treeHome=ProductionStoryCatalog.Home(c,treeStory);
+  foreach(string hero in c.HeroineIds)foreach(string branch in new[]{"alpha","beta","gamma"}){
+   var previous=treeHome.weaponNodes.Single(n=>n.id==hero+".weapon."+branch);
+   for(int tier=2;tier<=4;tier++){var next=treeHome.weaponNodes.Single(n=>n.id==hero+".weapon."+branch+".tier"+tier);var before=WeaponGrowthRules.EffectKinds(previous);var after=WeaponGrowthRules.EffectKinds(next);check(before.All(after.Contains) && after.Length>before.Length,"All fifteen heroines gain an additional actual effect at each tree tier: "+next.id);previous=next;}
+  }
   Func<int,PlayableBattle> fixture=slot=>{var defs=read();foreach(var j in defs.jobs){j.hp=100000;j.speed=100;}foreach(var s in defs.skills)s.chainEligible=false;var ids=defs.FormationIds;ids[slot]="heroine.shangrila";var enemy=ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[0]);enemy.baseHp=10000000;enemy.hpPerLevel=1;enemy.enemySpeed=1;enemy.baseDamage=1;enemy.statusResistances=Array.Empty<EnemyStatusResistanceDef>();return new PlayableBattle(1,new PlayableProgress(),991,combatDefinitions:defs.WithFormation(ids),colossusDefinition:enemy,useJobRulesV2:true,deployment:new BattleDeployment(null,new[]{new HomeSniperSupport{heroineId="heroine.shangrila",targetId=ids[(slot+1)%5]}}));};
   Action<PlayableBattle,int> ready=(b,a)=>{int limit=0;while(b.AvailableHero!=a && !b.Ended && limit++<500)b.Pass();check(b.AvailableHero==a,"Actor reaches READY");};
   for(int i=0;i<5;i++){

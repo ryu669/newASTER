@@ -48,3 +48,6 @@
 ## 資料と履歴
 
 [参考資料](references/README.md)は原作の観察・調査。[履歴](archive/README.md)は失効した仕様と過去の制作・配布候補の記録。現行の必須規則として自動採用しない。古い移動案内は削除し、リンクを実際の定義元へ直接向ける。[今回の文書整理](production/documentation-cleanup.md)に削除・更新範囲を記録した。
+
+- [Plan11-2 箱庭生活の実装と検証](production/plan11-2-garden-life.md)
+- [Plan11-2 提供仕様](production/plan11-2-garden-life-spec.md)

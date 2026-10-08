@@ -18,14 +18,13 @@ namespace NewAster.Presentation
             bool previous=GUI.enabled;if(panzerSetupOpen)GUI.enabled=false;
             SanctuaryHeader("誓いの編成","5人の絆を、出撃の順番へ");
             if(GrowthButton(58,108,240,48,"‹ 誓女一覧",homeRequest==null && BookInputAllowed)){formationOpen=false;return;}
-            Label(330,112,850,45,"上の枠を選び、下の顔カードで入れ替え。",growthSmallStyle);
+
             if(idsOwnShell() && GrowthButton(1180,108,355,48,"シェルの装甲・ツール設定",homeRequest==null && BookInputAllowed)){
                 var l=SavedPanzerLoadout();panzerResistance=Array.IndexOf(new[]{"physical","magic","fire"},l.Resistance);panzerTool0=Array.IndexOf(PlayableBattle.PanzerTools,l.FirstTool);panzerTool1=Array.IndexOf(PlayableBattle.PanzerTools,l.SecondTool);panzerSetupOpen=true;
             }
             var ids=CurrentFormation();
             for(int i=0;i<5;i++){
-                float x=65+i*298;GrowthFrame(x,180,278,265);var portrait=HeroPortrait(ids[i]);
-                if(portrait!=null)GUI.DrawTexture(new Rect(x+8,188,262,160),portrait,ScaleMode.ScaleAndCrop,true);
+                float x=65+i*298;GrowthFrame(x,180,278,265);DrawHeroPortrait(new Rect(x+8,188,262,160),ids[i]);
                 Label(x+14,352,250,40,combatDefinitions.Hero(ids[i]).name,growthTextStyle);
                 if(GrowthButton(x+12,398,254,38,"編成枠 "+(i+1)+(formationSlot==i?"  選択中":""),homeRequest==null && BookInputAllowed,formationSlot==i))formationSlot=i;
             }
@@ -37,7 +36,7 @@ namespace NewAster.Presentation
             var entries=heroes.Skip(formationPage*10).Take(10).ToArray();
             for(int i=0;i<entries.Length;i++){
                 string id=entries[i].heroineId;float x=65+i%5*298,y=530+i/5*116;GrowthFrame(x,y,278,104);
-                var portrait=HeroPortrait(id);if(portrait!=null)GUI.DrawTexture(new Rect(x+5,y+5,76,94),portrait,ScaleMode.ScaleAndCrop,true);
+                DrawHeroPortrait(new Rect(x+5,y+5,76,94),id);
                 if(GrowthButton(x+88,y+10,180,82,combatDefinitions.Hero(id).name+"\nLv."+entries[i].level,homeRequest==null && BookInputAllowed && ids[formationSlot]!=id))ProposeHome(new HomeOperation("formation",id,formationSlot.ToString()));
             }
             var guardStyle=new GUIStyle(button){fontSize=16,wordWrap=false,padding=new RectOffset(2,2,0,0),alignment=TextAnchor.MiddleCenter};
@@ -59,7 +58,7 @@ namespace NewAster.Presentation
             if(GrowthButton(1250,280,180,50,"巨神獣 ›",materialPage+1<owners.Length))materialPage++;
             for(int i=0;i<owner.materialIds.Length;i++){
                 var r=CollectionData().resources.Single(m=>m.id==owner.materialIds[i]);float y=350+i*88;GrowthFrame(150,y,1280,78);
-                DrawSanctuaryIcon(new Rect(169,y+12,52,52),"star",MaterialColor(r.rarity));
+                DrawSanctuaryIcon(new Rect(169,y+12,52,52),"resource",MaterialColor(r.rarity));
                 Label(245,y+14,645,48,r.RarityName+"  "+r.name,growthTextStyle,MaterialColor(r.rarity));
                 Label(905,y+17,480,44,"所持 "+HomeRules.Balance(formalCampaign.Snapshot,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
             }

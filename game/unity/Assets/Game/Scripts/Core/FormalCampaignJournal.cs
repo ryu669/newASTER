@@ -27,9 +27,10 @@ namespace NewAster.Core
         private readonly Func<string,FormalCampaignSave> decode;
         private bool writing;
         public bool HasPending=>pending!=null;
+        public long Revision=>current.revision;
         public FormalCampaignSave Snapshot=>Copy(current);
         public FormalCampaignJournal(FormalCampaignSave save,Func<FormalCampaignSave,string> encode,Func<string,FormalCampaignSave> decode)
-        {save.Validate();this.encode=encode;this.decode=decode;current=Copy(save);}
+        {save.Validate();this.encode=encode;this.decode=decode;current=Copy(save);TerraformRules.Synchronize(current);}
         private FormalCampaignSave Copy(FormalCampaignSave s)=>decode(encode(s));
         private void Ready(){if(writing || HasPending)throw new InvalidOperationException("Finish pending campaign save first.");}
         public bool CommitGrowth(FormalGrowthSave growth,Func<FormalCampaignSave,bool> save,HomeExperienceCatalog home=null)
@@ -52,7 +53,7 @@ namespace NewAster.Core
             if(HasPending){if(pendingVictory==null || request.BattleId!=pendingVictory.BattleId||request.Signature!=pendingVictory.Signature||request.Revision!=pendingVictory.Revision)throw new InvalidOperationException("Retry the same victory.");}
             else{
                 if(request.Revision!=current.revision || current.world.claimedBattleIds.Contains(request.BattleId) || rewardWorld==null)throw new ArgumentException("Stale or already-claimed world victory.");
-                var next=Snapshot;writing=true;try{next.world=rewardWorld(next.world);}finally{writing=false;}
+                var next=Snapshot;TerraformRules.RequireIntegration(next.world,request.ColossusId);writing=true;try{next.world=rewardWorld(next.world);}finally{writing=false;}
                 if(next.world==null || !next.world.claimedBattleIds.Contains(request.BattleId))throw new ArgumentException("World callback must claim this battle.");
                 next=Copy(next);next.growth.nectar=checked(next.growth.nectar+request.Nectar);next.growth.awakeningCrystals=checked(next.growth.awakeningCrystals+request.Crystals);next.growth.stones=checked(next.growth.stones+request.Stones);
                 next.growth.revision=checked(next.growth.revision+1);next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.BattleId,signature=request.Signature}}).ToArray();next.revision=checked(next.revision+1);next.Validate();pending=next;pendingVictory=request;
