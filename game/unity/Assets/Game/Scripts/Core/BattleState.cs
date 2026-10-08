@@ -58,7 +58,8 @@ namespace NewAster.Core
             JobResourceMax = jobResourceMax;
         }
 
-        public void GainResource(int amount) {if(ResourceGainBlocked?.Invoke()==true)return;JobResource=(int)Math.Min(JobResourceMax,(long)JobResource+Math.Max(0,amount)*(100L+(OopartValue?.Invoke("gauge")??0))/100);}
+        private int permanentResourceRemainder; public int PermanentGaugePercent,PermanentRegenPercent,PermanentReductionPercent,PermanentDamagePercent;
+        public void GainResource(int amount) {if(ResourceGainBlocked?.Invoke()==true)return;long bonus=(long)Math.Max(0,amount)*PermanentGaugePercent+permanentResourceRemainder;permanentResourceRemainder=(int)(bonus%100);JobResource=(int)Math.Min(JobResourceMax,bonus/100+(long)JobResource+Math.Max(0,amount)*(100L+(OopartValue?.Invoke("gauge")??0))/100);}
         public bool SpendResource(int amount)
         {
             if (amount < 0 || JobResource < amount) return false;

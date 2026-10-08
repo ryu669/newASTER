@@ -116,7 +116,7 @@ namespace NewAster.Presentation
         {
             var skill=HeroineSkillRules.AtLevel(combatDefinitions.Skill(id,slot),1);if(slot!=combatDefinitions.WeaponSkillSlot(id) || skill.effectRuleId!="effect.damage")return skill;
             var equipped=HomeState.weaponEquipment.SingleOrDefault(e=>e.heroineId==id);if(equipped==null)return skill;
-            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);float power=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));skill.powerScale=(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.shell" || id=="heroine.oriflamme" || id=="heroine.nighthawk")?skill.powerScale*power:power;return skill;
+            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);if(node.initial)return skill;float power=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));skill.powerScale=(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.shell" || id=="heroine.oriflamme" || id=="heroine.nighthawk")?skill.powerScale*power:power;return skill;
         }
         private void DrawHeroineDetail()
         {
@@ -151,9 +151,9 @@ namespace NewAster.Presentation
             var traits=HeroineIdentityCatalog.Traits(definition,growth);
             GrowthFill(84,531,596,74,new Color(.035f,.065f,.10f,.94f));
             for(int i=0;i<traits.Length;i++){
-                var rect=new Rect(102+i*184,538,74,63);DrawSanctuaryIcon(rect,traits[i].icon,traits[i].active?gold:muted);
-                Label(rect.x+82,rect.y+2,95,59,traits[i].active?"特性\n詳細 ›":"熟達\n未解放",growthSmallStyle);
-                if(ImageUiSkin.Button(new Rect(rect.x,rect.y,174,63),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
+                var rect=new Rect(92+i*70,538,60,60);DrawSanctuaryIcon(rect,traits[i].icon,traits[i].active?gold:muted);
+                if(selectedTrait==i)GrowthDiamond(rect.center.x,rect.center.y,34);
+                if(ImageUiSkin.Button(new Rect(rect.x,rect.y,64,64),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
             if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}

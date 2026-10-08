@@ -38,6 +38,7 @@ Core回帰検証9,413項目、Unity C#221ソース、Windowsビルドが合格�
 - [Plan11-3 好感度・恋愛](docs/production/plan11-3-affection.md)
 - [Plan11-4 オーパーツ](docs/production/plan11-4-ooparts.md)
 - [編成・入れ替え画面](docs/production/formation-ui.md)
+- [人物特性・神器ノード・戦闘開始の修正](docs/production/heroine-abilities-and-battle-start.md)
 - [万物の書UIとオーパーツ](docs/production/book-ui-and-ooparts.md)
 - [ヒロイン追加方法](docs/production/heroine-addition-guide.md)
 - [計画10の台帳・進捗](docs/production/plan10-implementation-plan.md)

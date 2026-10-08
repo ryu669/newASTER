@@ -15,7 +15,7 @@ namespace NewAster.Core
         }
         public static void Refresh(FormalCampaignSave s,HomeExperienceCatalog c)
         {
-            c.SharePersonProgress(s);
+            WeaponGrowthRules.EnsureRoots(s,c);c.SharePersonProgress(s);
             s.world.unlockedStoryIds=s.world.unlockedStoryIds.Union(c.chapters.Where(ch=>ch.requiredPoemIds.All(s.world.poemIds.Contains)).Select(ch=>ch.id)).ToArray();
             if(s.affection!=null){AffectionEventResolver.Refresh(s,c);return;}
             if(s.home!=null)s.home.unlockedEventIds=s.home.unlockedEventIds.Union(c.events.Where(e=>s.growth.heroines.Any(h=>h.heroineId==e.heroineId) && Evaluate(e.unlockCondition,s,c)).Select(e=>e.id)).ToArray();

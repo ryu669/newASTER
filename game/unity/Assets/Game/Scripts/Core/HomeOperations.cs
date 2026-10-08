@@ -48,11 +48,12 @@ namespace NewAster.Core
                     if(!h.weaponNodeIds.Contains(n.id)){if(n.parentIds.Any(id=>!h.weaponNodeIds.Contains(id)))throw new ArgumentException("すべての親ノードが必要です。");Spend(s,n.costs);h.weaponNodeIds=h.weaponNodeIds.Concat(new[]{n.id}).ToArray();}break;}
                 case "weapon-level": {
                     var n=c.weaponNodes.Single(n0=>n0.id==op.Target);Owned(s,n.heroineId);
-                    if(c.contentVersion!=HomeExperienceCatalog.ProductionVersion || !h.weaponNodeIds.Contains(n.id) || !int.TryParse(op.Owner,out int next) || next!=h.WeaponLevel(n.id)+1 || next>7)throw new ArgumentException("取得済み神器を次のLvへ強化してください。");
+                    if(n.initial || c.contentVersion!=HomeExperienceCatalog.ProductionVersion || !h.weaponNodeIds.Contains(n.id) || !int.TryParse(op.Owner,out int next) || next!=h.WeaponLevel(n.id)+1 || next>7)throw new ArgumentException("取得済み神器を次のLvへ強化してください。");
                     Spend(s,WeaponGrowthRules.Costs(n,h.WeaponLevel(n.id),c));
                     h.weaponLevels=(h.weaponLevels??Array.Empty<HomeWeaponLevel>()).Where(w=>w.nodeId!=n.id).Concat(new[]{new HomeWeaponLevel{nodeId=n.id,level=next}}).ToArray();break;}
                 case "equip": {
                     Owned(s,op.Owner);h.weaponEquipment=h.weaponEquipment.Where(e=>e.heroineId!=op.Owner).ToArray();
+                    if(op.Target=="unequip" && c.contentVersion==HomeExperienceCatalog.ProductionVersion){var root=c.weaponNodes.Single(n=>n.heroineId==op.Owner && n.initial);h.weaponEquipment=h.weaponEquipment.Concat(new[]{new HomeWeaponEquipment{heroineId=op.Owner,nodeId=root.id}}).ToArray();}
                     if(op.Target!="unequip"){var n=c.weaponNodes.Single(n0=>n0.id==op.Target);if(n.heroineId!=op.Owner || !h.weaponNodeIds.Contains(n.id))throw new ArgumentException("Unowned weapon.");h.weaponEquipment=h.weaponEquipment.Concat(new[]{new HomeWeaponEquipment{heroineId=op.Owner,nodeId=n.id}}).ToArray();}break;}
                 case "craft": {
                     TerraformRules.RefreshUnlocks(s.world,h);

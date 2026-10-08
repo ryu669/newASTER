@@ -70,7 +70,7 @@ namespace NewAster.Core
         {
             if(!IsAlive) return 0;
             int before=HitPoints;
-            Heal((int)Math.Min(int.MaxValue,(long)Attack*EffectPercent("regen")/100));
+            Heal((int)Math.Min(int.MaxValue,(long)Attack*EffectPercent("regen")/100+(long)MaxHitPoints*PermanentRegenPercent/100));
             return HitPoints-before;
         }
         public int ProtectPhysicalDamage(int damage)

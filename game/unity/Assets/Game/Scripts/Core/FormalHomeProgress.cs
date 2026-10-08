@@ -29,7 +29,7 @@ namespace NewAster.Core
         public HomeWeaponEquipment[] weaponEquipment=Array.Empty<HomeWeaponEquipment>();
         public HomePanzerEquipment[] panzerEquipment=Array.Empty<HomePanzerEquipment>();
         public HomeWeaponLevel[] weaponLevels=Array.Empty<HomeWeaponLevel>();
-        public int WeaponLevel(string nodeId)=>weaponLevels?.SingleOrDefault(w=>w.nodeId==nodeId)?.level??1;
+        public int WeaponLevel(string nodeId)=>nodeId.EndsWith(".weapon.root",StringComparison.Ordinal)?0:weaponLevels?.SingleOrDefault(w=>w.nodeId==nodeId)?.level??1;
         public static FormalHomeProgress Empty(string contentVersion)=>new FormalHomeProgress{version=1,contentVersion=contentVersion};
         private static void Set(string[] ids){if(ids==null || ids.Any(id=>!HomeExperienceCatalog.Id(id)) || ids.Distinct().Count()!=ids.Length)throw new ArgumentException("Invalid home ID set.");}
         private static void Index<T>(T[] entries,Func<T,string> key) where T:class

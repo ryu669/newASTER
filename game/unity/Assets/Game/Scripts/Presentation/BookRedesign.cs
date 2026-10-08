@@ -91,7 +91,8 @@ namespace NewAster.Presentation
             Label(87,555,845,80,book.Bookmark==BookBookmark.RelicHunt?"遺物 35% × "+band.draws+"回抽選 ／ 候補 "+band.relicIds.Length+"種類":"遺物 5% × 1回抽選 ／ TP・素材・詩",small);
             var missing=TerraformRules.Index(c.Id)==14?TerraformRules.MissingIntegration(campaign.Terraform):Array.Empty<string>();
             if(missing.Length>0)Label(87,637,845,55,"必要領域Lv3："+string.Join("・",missing.Select(TerraformCatalog.DomainName)),small);
-            if(Btn(87,708,845,60,book.Bookmark==BookBookmark.RelicHunt?"レリックハントに出撃":"5人の誓女と出撃",BookInputAllowed && !book.IsTransitioning && missing.Length==0))StartBattle(c.Id);
+            bool complete=CurrentFormation().All(id=>!string.IsNullOrEmpty(id));
+            if(Btn(87,708,845,60,!complete?"編成を整える":book.Bookmark==BookBookmark.RelicHunt?"レリックハントに出撃":"5人の誓女と出撃",BookInputAllowed && !book.IsTransitioning && missing.Length==0)){if(complete)StartBattle(c.Id);else OpenFormationPage();}
         }
         private void DrawStoryBookContent()
         {

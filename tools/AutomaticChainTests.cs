@@ -11,6 +11,7 @@ public static class AutomaticChainTests
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main(string[] args)
     {
+        HeroineAbilityTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         Plan11TerraformTests.Run(Check);
         Plan12GardenLifeTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         Plan14OopartTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));

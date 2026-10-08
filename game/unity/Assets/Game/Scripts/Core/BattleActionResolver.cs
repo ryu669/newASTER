@@ -95,7 +95,7 @@ namespace NewAster.Core
             decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,battle.AttributeResistances)*((skill.AttackSnapshot??hero.Attack)+(hero.OopartTargetAttack?.Invoke(skill,targetId)??0))*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
             if(skill.Attributes.Contains("火"))raw*=1m+(hero.FireAmplificationPercent+battle.EnemyStatus(targetId).FireVulnerabilityPercent)/100m;
             if(battle.ReferenceStatusRules){var status=battle.EnemyStatus(targetId);if(status.Active("sickness"))raw*=1.25m;if(status.Active("electrified") && skill.Attributes.Contains("雷"))raw*=1.25m;}
-            raw*=1m+(hero.OopartDamage?.Invoke(skill,targetId)??0)/100m;
+            raw*=1m+((hero.OopartDamage?.Invoke(skill,targetId)??0)+hero.PermanentDamagePercent+HeroinePersonalAbility.Damage(hero,skill,targetId))/100m;
             if(targetId=="body")raw*=1m+skill.BodyDamageBonusPercent/100m;
             if(part!=null) raw*=skill.PerTargetPartScale;
             else if(skill.BodyPartProtection) {

@@ -23,7 +23,7 @@ namespace NewAster.Presentation
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Level)return "必要素材と到達Lvを確認して強化を確定します。素材は保存が成功すると消費されます。";
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Awakening)return "覚醒によりLv上限が上がります。必要素材と上限の変化を確認して確定してください。";
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Duplicate)return "誓いを重ねると表示された能力が強化されます。必要な資源と変化を確認して確定してください。";
-     if(!heroineRosterOpen && growthScreen==GrowthScreen.Weapons)return "枝に沿って神器ノードを取得すると効果が追加されます。ノードの画像は効果を表します。取得した神器を選び、装備すると編成に適用されます。";
+     if(!heroineRosterOpen && growthScreen==GrowthScreen.Weapons)return "根は初期状態で解放・装備済みで、Lvや固有能力はありません。枝のノードには通常能力に加えて固有能力が一つあり、その能力のアイコンを表示します。取得した神器を選んで装備すると能力が適用されます。根を装備で初期状態に戻せます。";
      return "画像を選ぶと人物の詳細を開きます。Lv、覚醒、誓い、スキル、神器を各ページで育成できます。必要素材と変化を確認して確定してください。\n\n部隊の入れ替えは編成のしおりから行います。神器の枝に沿ってノードを取得すると効果が追加されます。";
     case BookBookmark.Items:return "オーパーツと素材の所持数を確認できます。オーパーツは編成枠に装備します。巨神獣撃破時に低確率で入手でき、レリックハントでは対象を狙えます。";
     case BookBookmark.Gardens:return "住民や家具を配置して箱庭の暮らしを見守れます。話す、一緒に過ごす、催事や発見への参加で好感度EXPを得ます。観察だけではEXPは増えません。\n\n模様替えでは配置を編集し、確定で保存します。";

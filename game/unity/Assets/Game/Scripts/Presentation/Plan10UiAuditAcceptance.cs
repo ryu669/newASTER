@@ -29,6 +29,7 @@ namespace NewAster.Presentation {
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
+   else if(view.StartsWith("ability-",StringComparison.Ordinal))PrepareAbilityCapture(view);
    else if(view.StartsWith("formation-ui",StringComparison.Ordinal))PrepareFormationUiCapture(view);
    else if(view.StartsWith("oopart-",StringComparison.Ordinal))PrepareOopartCapture(view);
    else if(view.StartsWith("affection-",StringComparison.Ordinal))PrepareAffectionCapture(view);

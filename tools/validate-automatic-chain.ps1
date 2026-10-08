@@ -13,6 +13,7 @@ $lines=@('-nologo','-nostdlib+','-target:exe','-langversion:9',('-out:"'+$assemb
 $lines+=$refs | ForEach-Object {'-r:"'+$_.FullName+'"'}
 $lines+=$sources | ForEach-Object {'"'+$_.FullName+'"'}
 $lines+='"'+(Join-Path $PSScriptRoot 'AutomaticChainTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'HeroineAbilityTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalProgressionTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalKinderTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalCampaignTests.cs')+'"'
