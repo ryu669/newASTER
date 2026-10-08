@@ -224,6 +224,7 @@ namespace NewAster.Presentation
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(help)help=false;
                 else if(CloseAffectionLayer()){}
+                else if(CloseOoparts()){}
                 else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
@@ -337,7 +338,7 @@ namespace NewAster.Presentation
         {
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();DrawAffectionOverlay();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -354,6 +355,7 @@ namespace NewAster.Presentation
             if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Summoning){DrawKinderExperience();return;}
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Formation){SanctuaryStyles();DrawFormation();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Items){DrawStandaloneItems();return;}
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
@@ -547,8 +549,10 @@ namespace NewAster.Presentation
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
+            if(CurrentFormation().Any(id=>id==null)){status="出撃には5人の編成が必要です。";return;}
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
+            formalCampaign.LockOopartsForBattle();
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
@@ -648,11 +652,13 @@ namespace NewAster.Presentation
             if(Btn(790,656,420,62,"読了して戻る",storyPage==pages.Length-1)) CloseStory(true);
         }
         private void CloseStory(bool completed=false) { if(completed && storyId!=null) campaign.Progress.MarkStoryRead(storyId); storyText=null; storyId=null; storyPage=0; Save(); }
+        private Vector2 contextualHelpScroll;
         private void DrawHelp()
         {
-            Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,260,880,370,BookHelpText(),text);
-            if(Btn(340,656,890,62,"閉じる")) help=false;
+            Modal();Label(340,185,880,64,BookHelpTitle(),heading);
+            var body=BookHelpText();float height=Math.Max(370,text.CalcHeight(new GUIContent(body),845)+24);
+            contextualHelpScroll=GUI.BeginScrollView(new Rect(340,260,880,370),contextualHelpScroll,new Rect(0,0,845,height));Label(0,0,845,height,body,text);GUI.EndScrollView();
+            if(Btn(340,656,890,62,"閉じる"))help=false;
         }
         private void DrawKinderGarden()
         {

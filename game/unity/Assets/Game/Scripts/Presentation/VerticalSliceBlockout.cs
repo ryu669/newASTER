@@ -23,7 +23,8 @@ namespace NewAster.Presentation
         public void SetFormation(string[] defaults,string[] ids)
         {
             if(originalParty==null)originalParty=party.ToArray();party.Clear();
-            foreach(var id in ids)party.Add(originalParty[System.Array.IndexOf(defaults,id)]);
+            var used=new HashSet<int>();var indices=ids.Select(id=>System.Array.IndexOf(defaults,id)).ToArray();foreach(int index in indices.Where(i=>i>=0))used.Add(index);
+            for(int i=0;i<indices.Length;i++){if(indices[i]<0){indices[i]=Enumerable.Range(0,originalParty.Length).First(n=>!used.Contains(n));used.Add(indices[i]);}party.Add(originalParty[indices[i]]);}
             slayerActor=System.Array.IndexOf(ids,defaults[0]);
         }
         public void SetPortraitView(bool value)

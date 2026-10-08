@@ -61,7 +61,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(605,411,427,68,(kinderCount==1?"◆ ":"")+"1回 ／ 300石"))kinderCount=1;
                 if(GrowthButton(1062,411,427,68,(kinderCount==10?"◆ ":"")+"10回 ／ 3000石"))kinderCount=10;
                 Label(605,535,880,100,$"付与ポイント  {kinderCount}\n★6合計3% ／ 対象5人は均等 ／ 10回に確定枠はありません。",growthTextStyle);
-                Label(605,657,880,38,state.stones>=300*kinderCount?"確認するだけでは抽選・消費しません。":"石が不足しています。",growthSmallStyle);
+                Label(605,657,880,38,state.stones>=300*kinderCount?"":"石が不足しています。",growthSmallStyle);
                 if(GrowthButton(605,709,885,62,"費用を確認する",state.stones>=300*kinderCount,true))ConfirmKinder(KinderOperation.StoneDraw,state);
             }else if(kinderScreen==KinderScreen.Exchange || kinderScreen==KinderScreen.Tickets){
                 bool exchange=kinderScreen==KinderScreen.Exchange;
@@ -83,7 +83,7 @@ namespace NewAster.Presentation
                 string name=kinderRequest.HeroineId==null?"":combatDefinitions.Hero(kinderRequest.HeroineId).name;
                 string description=kinderRequest.Operation==KinderOperation.StoneDraw?$"{kinderRequest.Count}回の抽選\n消費石  {300*kinderRequest.Count} ／ 所持 {state.stones}\n付与ポイント  {kinderRequest.Count}":kinderRequest.Operation==KinderOperation.Exchange?$"{name} 専用チケット1枚\n消費ポイント 100 ／ 所持 {state.kinderPoints}\n人物の付与はチケット使用時です。":kinderRequest.Operation==KinderOperation.TicketDraw?$"{name} を100%付与\n専用チケット1枚を消費\n所持済みなら専用欠片100、最大後なら汎用100。":"旅立ちの祝福 3000石\n費用なし ／ この保存につき1回のみ。";
                 Label(605,329,885,220,description,growthTextStyle);
-                Label(605,605,885,86,kinderSaveError??"確定後に抽選し、費用と全報酬を一括保存します。\n保存失敗時は再抽選せず同じ結果を再保存します。",growthSmallStyle);
+                Label(605,605,885,86,kinderSaveError??"",growthSmallStyle);
                 if(GrowthButton(605,719,570,62,formalProgression.HasPending?"同じ結果で保存を再試行":"この内容で確定する",true,true)){
                     try{
                         if(formalProgression.CommitKinder(kinderRequest,kinderBanner,KinderRandom.NextBelow,SaveFormalGrowth)!=GrowthCommitResult.SaveFailed){kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=kinderReceipt.kinderOutcomes.Length>0?KinderScreen.Revealing:KinderScreen.Result;kinderRevealStarted=Time.unscaledTime;kinderSaveError=null;}

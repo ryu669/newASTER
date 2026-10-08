@@ -66,6 +66,7 @@ namespace NewAster.Data
                     n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
                 }
             }
+            foreach(var n in expanded.Where(n=>!n.initial)){int tier=n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;int route=n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;n.uniqueAbilityKind=new[]{"damage","regen","reduction","gauge"}[(route+tier+WeaponOwner(n.heroineId))%4];n.uniqueAbilityPercent=n.uniqueAbilityKind=="regen"?tier:n.uniqueAbilityKind=="gauge"?tier*10:tier*4;}
             home.weaponNodes=expanded.ToArray();
         }
         public static void ApplyCollection(CollectionCatalog catalog)
@@ -98,6 +99,7 @@ namespace NewAster.Data
             }
             foreach(var d in catalog.relics)d.name=WorldCatalog.Colossi.Single(c=>c.Id==d.id.Replace(".collection.relic","")).DisplayName+"の遺物";
             catalog.relics=all.ToArray();
+            ProductionOopartCatalog.Apply(catalog);
         }
         public static string RelicAbility(CollectionRelicDef r)
         {

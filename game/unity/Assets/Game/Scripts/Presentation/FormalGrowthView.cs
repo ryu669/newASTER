@@ -16,6 +16,7 @@ namespace NewAster.Presentation
             if(value.affection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"affection");
             if(value.gardenLife==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"gardenLife");
             if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
+            if(value.collection!=null && value.collection.ooparts==null){var collection=FormalCampaignJsonShape.RootMemberJson(text,"collection");text=FormalCampaignJsonShape.WithRootMemberJson(text,"collection",FormalCampaignJsonShape.WithNullRootMember(collection,"ooparts"));}
             if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
             if(value.previousNarrative==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"previousNarrative");
             return text;
@@ -33,6 +34,13 @@ namespace NewAster.Presentation
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
             NormalizeKinderOptionalFields(value.growth);
+            string collectionJson=FormalCampaignJsonShape.RootMemberJson(text,"collection");
+            if(value.collection!=null && (collectionJson==null || collectionJson=="null" || !FormalCampaignJsonShape.HasRootMember(collectionJson,"ooparts") || FormalCampaignJsonShape.RootMemberIsNull(collectionJson,"ooparts")))value.collection.ooparts=null;
+            if(value.collection?.ooparts!=null){
+                var inventory=value.collection.ooparts;
+                foreach(var slots in new[]{inventory.slots}.Concat((inventory.presets??Array.Empty<OopartFormationPreset>()).Where(p=>p!=null).Select(p=>p.slots))){if(slots==null)continue;foreach(var slot in slots){if(slot==null)continue;if(slot.heroineFormId=="")slot.heroineFormId=null;if(slot.equippedOopartId=="")slot.equippedOopartId=null;}}
+            }
+            if(value.home?.allowEmptyFormationSlots==true && value.home.formationIds!=null)for(int i=0;i<value.home.formationIds.Length;i++)if(value.home.formationIds[i]=="")value.home.formationIds[i]=null;
             return value;
         }
         private static void NormalizeKinderOptionalFields(FormalGrowthSave growth)
@@ -91,7 +99,7 @@ namespace NewAster.Presentation
         {
             lifeSnapshotCached=null;gardenLifeRuntime?.Stop();gardenLifeRuntime=null;StopLifeAudio();
             if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
-            if(ProductionStoryActive){AffectionSaveAdapter.Migrate(unified,HomeData());AffectionEventResolver.Refresh(unified,HomeData());AffectionSaveAdapter.ValidateContent(unified,HomeData());}
+            if(ProductionStoryActive){WeaponGrowthRules.EnsureRoots(unified,HomeData());OopartSaveAdapter.Migrate(unified.collection,CollectionData(),unified.home?.formationIds.Length==5?unified.home.formationIds:combatDefinitions.FormationIds);AffectionSaveAdapter.Migrate(unified,HomeData());AffectionEventResolver.Refresh(unified,HomeData());AffectionSaveAdapter.ValidateContent(unified,HomeData());}
             unified.collection?.ValidateContent(SelectCollectionCatalog());
             unified.home?.ValidateContent(HomeData(),unified);
             unified.gardenLife?.ValidateContent(unified,HomeData());

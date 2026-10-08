@@ -1,0 +1,239 @@
+{
+  "plan": "Plan11-4",
+  "date": "2026-10-08",
+  "branch": "codex/plan11-4-ooparts",
+  "status": "passed",
+  "requiredTests": [
+    "OP-01",
+    "OP-02",
+    "OP-03",
+    "OP-04",
+    "OP-05",
+    "OP-06",
+    "OP-07",
+    "OP-08",
+    "OP-09",
+    "OP-10",
+    "OP-11",
+    "OP-12",
+    "OP-13",
+    "OP-14",
+    "OP-15",
+    "OP-16",
+    "OP-17",
+    "OP-18"
+  ],
+  "coreAssertions": 9413,
+  "unityScriptSources": 221,
+  "regressionLogSha256": "2d0501cc7295b4c0724a5f4ae71bf666e29342e15d15cee8b8058bde6179243b",
+  "unityVersion": "6000.6.3f1",
+  "player": "game/Builds/plan11-4/newASTER.exe",
+  "buildLogSha256": "161a04823a8005eea7013e959adea5b27f4ae24230bccf042d58032d4c83e03c",
+  "playerAssemblySha256": "b6dfc0e3d516dd6e79536b90b41f4fbf6da004eee449b3443eb711c30d2f1bde",
+  "oopartTypes": 42,
+  "isolatedSaves": true,
+  "actualBattleDropComparison": true,
+  "nativeScreenshots": [
+    {
+      "view": "oopart-detail",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-detail.png",
+      "sha256": "81baef18608bff4b23aa195e0d06e302c792a9f93db926c536975051b6e8270c",
+      "logSha256": "cbdd48a7af57367b8487e77981be094a731d923354bd61ef7c57dd6316373cd9",
+      "passed": true
+    },
+    {
+      "view": "oopart-conditions",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-conditions.png",
+      "sha256": "385025bcac9393bc7cad40de1637b906c33b67e42cf57b90dc17ee372b11e981",
+      "logSha256": "1e7cf2bce0abfe75eded4353ae26cc3da9d39c44f78b51f599a6b5daa31babec",
+      "passed": true
+    },
+    {
+      "view": "oopart-turn",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-turn.png",
+      "sha256": "6b1c58778d7b82a43b5ce3afd43629018e1088e8291efcc7b874dfd8a153b9f0",
+      "logSha256": "9758cf6404c8f51ffdc3ce3497efc295650f0ba55dfc2c585b50d11a11339725",
+      "passed": true
+    },
+    {
+      "view": "oopart-direct",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-direct.png",
+      "sha256": "4dd75de729c90d516f117e02fb1104233b72e6a953e2c298ec176309923fffab",
+      "logSha256": "e676da84abc2a7107147d660bafa5b4df1a44fbd2309d2d2e8a8dc3c4fb20e25",
+      "passed": true
+    },
+    {
+      "view": "oopart-level",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-level.png",
+      "sha256": "9e71361af5da526d129f5e239d2355e21f7eea66c7b6e01979ea0988e6803e84",
+      "logSha256": "ce87e5e7c52d16c66ce680fb9775940afcd010375be02395c73abfc273157386",
+      "passed": true
+    },
+    {
+      "view": "oopart-pending",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-pending.png",
+      "sha256": "82f95bde512f216acb5a29c4d1dd245fa4e0488f5ff9dba0787e801699cdc89f",
+      "logSha256": "2a1cfce2c8a4f7a66e8115e9bfda7b6cd4cd94393d20dd4dff05815acee67e2b",
+      "passed": true
+    },
+    {
+      "view": "oopart-empty-slot",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-empty-slot.png",
+      "sha256": "85317309c3ef6ddd4077c3bf1853c78aefa1610aa9653dbb6f9bf9ee9f720837",
+      "logSha256": "ff0b206b15053131e36a0c4b394ce00ffca4d7751d75ba3dce150174f3e52d8f",
+      "passed": true
+    },
+    {
+      "view": "oopart-presets",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-presets.png",
+      "sha256": "d882341fbee7b33448d803aeaac59a406c0b224723a5b643a97bcbabe172454e",
+      "logSha256": "c9c0292ec2e924ed99300d696620d71897f207774bea231addb412e3e5a532f1",
+      "passed": true
+    },
+    {
+      "view": "oopart-items",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-items.png",
+      "sha256": "f67e9ac5582c8e15e91cc3e53cdb0d49a83101df516e5f6cf857985588c29179",
+      "logSha256": "352f25c70f8e4de8c6ec0b0ca2b1bc4c644cb76a0034a3bd6085653ebcab3e7d",
+      "passed": true
+    },
+    {
+      "view": "oopart-battle",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-battle.png",
+      "sha256": "54f8b53a14d5eb351efcb5836a62b9806e992e29027b9b36369151c4061ce0f5",
+      "logSha256": "c90f80f13848b98093921c9b5e498aaed77f8c01867f253687c47606f39efc69",
+      "passed": true
+    },
+    {
+      "view": "oopart-result",
+      "width": 1280,
+      "height": 720,
+      "path": "tmp/plan10-ui/player-1280x720/ui-oopart-result.png",
+      "sha256": "4e3d49c8798caebcd1a6f6d14a2b94aa3a169e762676b571edc0f9f56458e37f",
+      "logSha256": "babf002ffb489f92e499e31c6d6b56703b2717274a6285dd6d1714e51f581f1c",
+      "passed": true
+    },
+    {
+      "view": "oopart-detail",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-detail.png",
+      "sha256": "ec07796bf88f8c6f610b6cca8f48b80864f0d922419e1e688bf257d0ffe010ea",
+      "logSha256": "e8f6c6272248437d4895ec94505f492fd902b7e33e8f24b5e7a7e123276df24b",
+      "passed": true
+    },
+    {
+      "view": "oopart-conditions",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-conditions.png",
+      "sha256": "29348a7de7b57782befb4db0fada705fed430adb97a8d977d559f1cce1f8ffd3",
+      "logSha256": "87de99dbf93ee0b4556554c9de7886a81eda365fbac569c6de12fe63df0d0561",
+      "passed": true
+    },
+    {
+      "view": "oopart-turn",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-turn.png",
+      "sha256": "6cc94d7e3f4cdb2572924fd165830e6b2e4a2ae8cd3e4190b315a0c7553ebd10",
+      "logSha256": "6635923bd9f436a5aa4996410035db1678d753d1dde8d38247f98486dfddf87f",
+      "passed": true
+    },
+    {
+      "view": "oopart-direct",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-direct.png",
+      "sha256": "22a3d2afbcff6bebf42188b39701fc2fdc5e6949587e86973da4d5d137d3c3c4",
+      "logSha256": "043756aa2bd9b10d55eda1d747d348491b734e534da6fbe5ce33e83ec779e1be",
+      "passed": true
+    },
+    {
+      "view": "oopart-level",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-level.png",
+      "sha256": "2d9a20d90b28f5a6cf25026a98d3fbd7ffbe1052a7c3f829284aaf28ca870198",
+      "logSha256": "cd478de3f6a5c523243c6f782b0af5be20ea707fcd83220446ead7d000da8ff4",
+      "passed": true
+    },
+    {
+      "view": "oopart-pending",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-pending.png",
+      "sha256": "967a92f9f92cb403b872a150ea72f6ba267806d0761c57ae9484c63b270a942d",
+      "logSha256": "8d44fbb7b54eeb9c59286240f84ffbf98b12088872272f98d29056d7c6d7a217",
+      "passed": true
+    },
+    {
+      "view": "oopart-empty-slot",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-empty-slot.png",
+      "sha256": "aa9b926a9a59590eb0c081be868a10faf08c363700512451460ca6b633c03a95",
+      "logSha256": "1b6de77ad28e99ca8437de65084d53ee60d7a1d6fb5caa87cb4f9f347d109cb8",
+      "passed": true
+    },
+    {
+      "view": "oopart-presets",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-presets.png",
+      "sha256": "dcb7cb8eb66eca73886c25a9edd4a809351a014611302b09e3bd6047fc815119",
+      "logSha256": "6206c46b5b3a600685dfa8f90ed7a9f4a6cbd7d68390f235b9b5336988ddd23d",
+      "passed": true
+    },
+    {
+      "view": "oopart-items",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-items.png",
+      "sha256": "d488b914123cea6c67f370e31235bc2472b69685ed9ed1f3c83175d440234e23",
+      "logSha256": "1418d9d5c1417364baf0292b02d4b551e2fac93585f80c7106d9f7fd64f16ce1",
+      "passed": true
+    },
+    {
+      "view": "oopart-battle",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-battle.png",
+      "sha256": "890e8affeca8919eff33b6a6d555ba348f162a4c0b7211128255500da98cee3e",
+      "logSha256": "89dd0bd83819e5e00935d73ada8e8a7969cbf07936e97e44342eeefd0484817a",
+      "passed": true
+    },
+    {
+      "view": "oopart-result",
+      "width": 1920,
+      "height": 1080,
+      "path": "tmp/plan10-ui/player-1920x1080/ui-oopart-result.png",
+      "sha256": "30937b48d7db247659a74c05da229453b6a996ffb4d849bf0c78eadc3e7e195f",
+      "logSha256": "0f060303d89d21af4beba11509b60463c8a712354f61784ca727da8ae1252561",
+      "passed": true
+    }
+  ],
+  "physicalInput": "Skipped at user request",
+  "balance": "Provisional stats, costs and drop rates",
+  "legacyHp": "Preserve values exceeding new400 cap with per-item legacy1000 ceiling"
+}

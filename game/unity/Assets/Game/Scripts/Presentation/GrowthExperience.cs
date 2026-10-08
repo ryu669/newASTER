@@ -135,7 +135,7 @@ namespace NewAster.Presentation
                 string change=growthRequest.Operation==GrowthOperation.Level?$"Lv.{heroine.level} → Lv.{growthPreview.HeroineAfter.level}":growthRequest.Operation==GrowthOperation.Awaken?$"覚醒 {heroine.awakeningStage} → {growthPreview.HeroineAfter.awakeningStage}":$"重複強化 {heroine.duplicateRank} → {growthPreview.HeroineAfter.duplicateRank}";
                 Label(605,310,880,90,change,growthTextStyle);Label(605,425,880,100,growthDelta,growthTextStyle);
                 string cost=growthRequest.Operation==GrowthOperation.Level?$"ネクタル  {growthPreview.NectarCost}":growthRequest.Operation==GrowthOperation.Awaken?$"覚醒結晶  {growthPreview.CrystalCost}":$"専用欠片 {growthPreview.FragmentCost} ＋ 汎用 {growthPreview.OverflowCost}（汎用化 {growthPreview.OverflowGrant}）";
-                Label(605,567,880,52,"消費："+cost,growthTextStyle,gold);Label(605,637,880,52,growthOutcome??"保存成功後に確定。取消では素材を消費しません。",growthSmallStyle);
+                Label(605,567,880,52,"消費："+cost,growthTextStyle,gold);Label(605,637,880,52,growthOutcome??"",growthSmallStyle);
                 if(GrowthButton(605,709,570,62,formalProgression.HasPending?"同じ内容で保存を再試行":"この内容で確定する",true,true)){
                     try{if(formalProgression.Commit(growthRequest,SaveFormalGrowth)!=GrowthCommitResult.SaveFailed){growthRequest=null;growthScreen=GrowthScreen.Complete;growthOutcome="新しい力を、次の出撃へ。";}else growthOutcome="保存できませんでした。所持量は変更していません。";}
                     catch(Exception e){growthOutcome="保存できませんでした。所持量は変更していません。";Debug.LogException(e);}

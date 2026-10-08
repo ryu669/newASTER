@@ -43,7 +43,8 @@ namespace NewAster.Presentation
             Meter(24,77,595,5,bossHp,s.BossMaxHitPoints,new Color(.7f,.2f,.33f));
             Label(655,12,400,62,"次の敵行動\n"+encounter.NextEnemyAction+(encounter.IsEnraged?" ／ 怒り":""),small,new Color(1,.87f,.59f));
             if(visual!=null && (visual.FullChain || visual.Chain>1))Label(1080,15,250,50,visual.FullChain?"FULL CHAIN\n追加 "+(visual.ChainActionCount-visual.Chain):"CHAIN "+visual.Chain,text,new Color(1,.85f,.5f));
-            if(Btn(1380,18,190,48,paused?"手動で再開":"一時停止",result==null && !retreat && !help && !selectingAlly))paused=!paused;
+            if(Btn(1280,18,190,48,paused?"手動で再開":"一時停止",result==null && !retreat && !help && !selectingAlly))paused=!paused;
+            if(Btn(1490,18,64,48,"？",result==null && !retreat && !help && !selectingAlly)){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
 
             string message=breakNoticeRemaining>0?breakNotice:visual!=null?(visual.Actor<0?"巨神獣":Names[visual.Actor])+" ／ "+visual.Message:paused?"一時停止中。手動で再開できます。":"行動と対象を選べます。";
             if(breakNoticeRemaining>0 || visual!=null || paused){
@@ -61,7 +62,7 @@ namespace NewAster.Presentation
             }
             if(battleMenuExpanded){
                 if(Btn(620,762,190,48,"行動順",!selectingAlly))OpenBattlePanel(BattlePanel.Timeline);
-                if(Btn(820,762,165,48,"ヘルプ",!selectingAlly)){ResetBattleMenu();help=true;paused=true;}
+
                 if(Btn(995,762,165,48,"撤退",!selectingAlly)){ResetBattleMenu();retreat=true;paused=true;}
             }
             if(playback.Busy){

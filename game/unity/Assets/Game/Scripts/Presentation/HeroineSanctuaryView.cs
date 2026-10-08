@@ -66,7 +66,7 @@ namespace NewAster.Presentation
         private void DrawGrowthExperience()
         {
             SanctuaryStyles();
-            if(formationOpen){DrawFormation();return;}
+            if(formationOpen){OpenFormationPage();return;}
             if(heroineRosterOpen){DrawHeroineRoster();return;}
             if(!book.HasSubject){heroineRosterOpen=true;DrawHeroineRoster();return;}
             if(growthScreen==GrowthScreen.Overview || growthScreen==GrowthScreen.Information){DrawHeroineDetail();return;}
@@ -89,7 +89,7 @@ namespace NewAster.Presentation
             var snapshot=formalProgression.Snapshot;var entries=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).ToArray();
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
             int people=snapshot.heroines.Select(h=>combatDefinitions.PersonId(h.heroineId)).Distinct().Count();
-            Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人    ·    能力・スキル・神器を開く":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
+            Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
             DrawRRecruitment();
             var page=entries.Skip(heroinePage*HeroinePageSize).Take(HeroinePageSize).ToArray();
             for(int i=0;i<page.Length;i++){
@@ -104,9 +104,9 @@ namespace NewAster.Presentation
                 if(hover)GrowthLine(x+124,y+156,x+338,y+156,gold,2);
                 if(ImageUiSkin.Button(rect,"",GUIStyle.none) && BookInputAllowed){if(book.SubjectId!=entry.id)book.RequestSubject(BookBookmark.Heroines,entry.id);heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;bookTransitionElapsed=0;PlayProductionUiSound("決定");}
             }
-            if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"条件に合う誓女がいません。検索やジョブを変更してください。",growthTextStyle);}
+            if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"該当なし",growthTextStyle);}
             if(GrowthButton(62,808,210,52,"‹ 前の12人",heroinePage>0 && BookInputAllowed))heroinePage--;
-            if(GrowthButton(320,808,280,52,"編成 ／ 5人を入れ替える",BookInputAllowed)){formationOpen=true;formationSlot=0;}
+
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
             GUI.enabled=previousEnabled;DrawAnnihilatorRecruitmentDialog();
@@ -116,7 +116,7 @@ namespace NewAster.Presentation
         {
             var skill=HeroineSkillRules.AtLevel(combatDefinitions.Skill(id,slot),1);if(slot!=combatDefinitions.WeaponSkillSlot(id) || skill.effectRuleId!="effect.damage")return skill;
             var equipped=HomeState.weaponEquipment.SingleOrDefault(e=>e.heroineId==id);if(equipped==null)return skill;
-            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);float power=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));skill.powerScale=(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.shell" || id=="heroine.oriflamme" || id=="heroine.nighthawk")?skill.powerScale*power:power;return skill;
+            var node=HomeData().weaponNodes.Single(n=>n.id==equipped.nodeId);if(node.initial)return skill;float power=WeaponGrowthRules.Power(node,HomeState.WeaponLevel(node.id));skill.powerScale=(id.StartsWith("heroine.annihilator",StringComparison.Ordinal) || id=="heroine.shell" || id=="heroine.oriflamme" || id=="heroine.nighthawk")?skill.powerScale*power:power;return skill;
         }
         private void DrawHeroineDetail()
         {
@@ -151,9 +151,9 @@ namespace NewAster.Presentation
             var traits=HeroineIdentityCatalog.Traits(definition,growth);
             GrowthFill(84,531,596,74,new Color(.035f,.065f,.10f,.94f));
             for(int i=0;i<traits.Length;i++){
-                var rect=new Rect(102+i*184,538,74,63);DrawSanctuaryIcon(rect,traits[i].icon,traits[i].active?gold:muted);
-                Label(rect.x+82,rect.y+2,95,59,traits[i].active?"特性\n詳細 ›":"熟達\n未解放",growthSmallStyle);
-                if(ImageUiSkin.Button(new Rect(rect.x,rect.y,174,63),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
+                var rect=new Rect(92+i*70,538,60,60);DrawSanctuaryIcon(rect,traits[i].icon,traits[i].active?gold:muted);
+                if(selectedTrait==i)GrowthDiamond(rect.center.x,rect.center.y,34);
+                if(ImageUiSkin.Button(new Rect(rect.x,rect.y,64,64),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
             if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}
@@ -171,8 +171,8 @@ namespace NewAster.Presentation
             Label(208,285,528,46,"現在  Lv."+level,sanctuaryHeading);Label(208,350,528,194,HeroineSkillRules.Description(skill,level,job),sanctuaryBody);
             Label(814,285,570,46,level==7?"最大Lvに到達しました":"次の強化  Lv."+(level+1),sanctuaryHeading);
             Label(814,350,570,194,HeroineSkillRules.Description(skill,Math.Min(7,level+1),job),sanctuaryBody);
-            int cost=level==7?0:HeroineSkillRules.UpgradeCost(level);Label(187,582,1225,45,level==7?"このスキルは最大Lv7です。":$"ネクタル 必要 {cost} ／ 所持 {formalProgression.Snapshot.nectar}    ·    確定まで消費しません",growthTextStyle,gold);
-            Label(187,639,1225,49,growthOutcome??"Lv強化では待機・詠唱・資源消費・チェイン率は変わりません。",growthSmallStyle);
+            int cost=level==7?0:HeroineSkillRules.UpgradeCost(level);Label(187,582,1225,45,level==7?"このスキルは最大Lv7です。":$"ネクタル 必要 {cost} ／ 所持 {formalProgression.Snapshot.nectar}",growthTextStyle,gold);
+            Label(187,639,1225,49,growthOutcome??"",growthSmallStyle);
             if(GrowthButton(184,710,1228, sixty,formalProgression.HasPending?"同じ内容で保存を再試行":level==7?"MAX ／ すべてのスキルLv7で熟達特性が解放":"Lv."+(level+1)+"へ強化する",formalProgression.HasPending || level<7 && formalProgression.Snapshot.nectar>=cost,true)){
                 if(growthRequest==null)growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,formalProgression.Snapshot.revision,GrowthOperation.Skill,level+1,skillSlot:selectedSkillSlot);
                 var result=formalProgression.Commit(growthRequest,SaveFormalGrowth);growthOutcome=result==GrowthCommitResult.SaveFailed?"保存できませんでした。費用とスキルLvは変更せず、同じ内容を再試行します。":"スキル強化を保存しました。";if(result!=GrowthCommitResult.SaveFailed){growthRequest=null;PlayProductionUnlock();}

@@ -31,6 +31,7 @@ namespace NewAster.Core
                 if(material==null){material=new CollectionMaterial {id=id,sourceColossusId=b.colossusId};ledger.materials=ledger.materials.Concat(new[]{material}).ToArray();}
                 material.amount=checked(material.amount+amount);
             }
+            OopartSaveAdapter.Migrate(ledger,catalog,b.formationIds);
             var rng=new Random(unchecked(b.seed ^ 0x48554E54));var drops=new System.Collections.Generic.List<CollectionRelic>();
             int draws=catalog.contentVersion==CollectionCatalog.ProductionVersion && !b.relicHunt?1:band.draws;
             for(int i=0;i<draws;i++){
@@ -38,6 +39,7 @@ namespace NewAster.Core
                 if(catalog.contentVersion==CollectionCatalog.ProductionVersion? rng.Next(10000)>=(b.relicHunt?3500:500):band.allowEmpty && rng.Next(10000)>=7500)continue;
                 var id=band.relicIds[rng.Next(band.relicIds.Length)];
                 var drop=new CollectionRelic {id=id,contentVersion=catalog.contentVersion,attackRoll=rng.Next(101),hpRoll=rng.Next(1001)};
+                if(ledger.ooparts!=null){var roll=OopartService.Roll(catalog.Oopart(id),rng);drop.randomStats=roll;var previous=OopartService.Merge(ledger.ooparts,catalog.Oopart(id),roll);drop.previousRandomStats=previous;drop.resultRandomStats=ledger.ooparts.progress.Single(p=>p.oopartId==id).accumulatedRandomStats.Copy();drop.attackRoll=roll.attack;drop.hpRoll=roll.hp;}
                 drops.Add(drop);
                 var item=ledger.relics.SingleOrDefault(x=>x.id==id);
                 if(item==null)ledger.relics=ledger.relics.Concat(new[]{new CollectionRelic {id=id,contentVersion=drop.contentVersion,attackRoll=drop.attackRoll,hpRoll=drop.hpRoll}}).ToArray();
@@ -93,7 +95,7 @@ namespace NewAster.Core
                 next=Copy(next);next.Validate();pending=next;pendingBattleEnd=request;
             }
             if(!Persist(pending,save))return GrowthCommitResult.SaveFailed;
-            pending=null;pendingBattleEnd=null;return GrowthCommitResult.Committed;
+            pending=null;pendingBattleEnd=null;OopartBattleActive=false;return GrowthCommitResult.Committed;
         }
     }
 }

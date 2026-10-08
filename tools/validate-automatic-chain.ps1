@@ -13,6 +13,7 @@ $lines=@('-nologo','-nostdlib+','-target:exe','-langversion:9',('-out:"'+$assemb
 $lines+=$refs | ForEach-Object {'-r:"'+$_.FullName+'"'}
 $lines+=$sources | ForEach-Object {'"'+$_.FullName+'"'}
 $lines+='"'+(Join-Path $PSScriptRoot 'AutomaticChainTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'HeroineAbilityTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalProgressionTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalKinderTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalCampaignTests.cs')+'"'
@@ -53,6 +54,7 @@ $lines+='"'+(Join-Path $PSScriptRoot 'Plan10FormContinuityTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan11TerraformTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan12GardenLifeTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan13AffectionTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'Plan14OopartTests.cs')+'"'
 $response=Join-Path $output 'compile.rsp'
 [IO.File]::WriteAllLines($response,$lines,[Text.UTF8Encoding]::new($false))
 & $DotNet (Join-Path $sdk.FullName 'Roslyn/bincore/csc.dll') ('@'+$response)

@@ -38,14 +38,14 @@ namespace NewAster.Presentation
         private void ProposeHome(HomeOperation op){if(!HomeOperationsAllowed)return;if(homeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;homeOperation=op;homeRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),op.Kind=="equip"?"weapon":op.Kind=="remove"?"place":op.Kind=="use"?"occupant":op.Kind,formalCampaign.Snapshot.revision,HomeData().contentVersion,op.Key);homeError=null;}
         private void ConfirmHome()
         {
-            try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}homeRequest=null;homeOperation=null;placing=false;homeError=null;}
+            try{var result=formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);if(result==GrowthCommitResult.SaveFailed){homeError="保存できません。同じ内容で再試行してください。";return;}bool formationChanged=homeOperation.Kind=="formation";homeRequest=null;homeOperation=null;placing=false;homeError=null;lifeSnapshotCached=null;if(formationChanged && book.Bookmark==BookBookmark.Formation)formationLayer=0;}
             catch(ArgumentException e){homeError=e.Message;}catch(InvalidOperationException e){homeError=e.Message;}
             if(homeRequest==null)PlayProductionUnlock();
         }
         private void DrawHomeConfirmation(bool growth=false)
         {
             if(homeRequest==null)return;
-            Panel(590,580,920,220,dark);Label(610,590,870,85,(homeError??"確定すると保存します。取消は無消費です。")+"\n"+HomeOperationSummary(),small,Color.white);
+            Panel(590,580,920,220,dark);Label(610,590,870,85,(homeError??"")+"\n"+HomeOperationSummary(),small,Color.white);
             if(Btn(610,704,530,58,formalCampaign.HasPending?"同じ内容で保存を再試行":"確定する"))ConfirmHome();
             if(Btn(1160,704,330,58,"取消",!formalCampaign.HasPending)){homeRequest=null;homeOperation=null;homeError=null;}
         }

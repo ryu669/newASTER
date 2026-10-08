@@ -22,6 +22,7 @@ namespace NewAster.Core
         public bool FullVolley { get; internal set; }
         public bool Singing { get; internal set; }
         public int SongStage { get; internal set; }
+        internal int SongOopartBoost;
         public string ArmorResistance {get;internal set;}="physical";
         public string[] PanzerTools {get;}=new[]{"repair","guard"};
         public int[] ToolUses {get;}=new[]{2,2};
@@ -53,13 +54,13 @@ namespace NewAster.Core
             var j=jobStates[actor];var h=State.Heroes[actor];
             if(Job(actor,"sniper"))return "狙撃 "+h.JobResource+"/"+h.JobResourceMax+(IsSniping(actor)?" ／ 詠唱中・全員支援":" ／ 支援対象："+HeroineName(sniperTargets[actor]));
             if(Job(actor,"gambler"))return "SLOT ／ 資源なし・3×3・5ライン"+(lastSlotSymbols.Length==9?" ／ "+"結果は下の9マス ／ "+LastSlotTriggerCount+"発動":"");
-            if(Job(actor,"general"))return actor==CommanderActor?"指揮 "+h.JobResource+"/"+h.JobResourceMax+(j.Empowered(Clock)?" ／ 5枠強化中":" ／ 指揮官・5枠の固有効果"):"非指揮官 ／ 3スキルのみ";
+            if(Job(actor,"general"))return actor==CommanderActor?"指揮 "+h.JobResource+"/"+h.JobResourceMax+(JobEmpowered(actor)?" ／ 5枠強化中":" ／ 指揮官・5枠の固有効果"):"非指揮官 ／ 3スキルのみ";
             if(Job(actor,"chaser"))return "駆動 "+h.JobResource+"/"+h.JobResourceMax+" ／ GEAR "+j.Gear+" ／ NITRO "+j.NitroCount+"/10"+(j.NitroSelected?"・次回WT0":"");
             if(Job(actor,"alchemist"))return "錬成 "+h.JobResource+"/"+h.JobResourceMax+" ／ 5属性を投入・行動消費なし";
             if(Job(actor,"panzer"))return (h.ArmorActive?"ARMOR "+h.HitPoints+"/"+h.MaxHitPoints+" ／ 耐性 "+(j.ArmorResistance=="physical"?"物理":j.ArmorResistance=="magic"?"魔法":"火"):"生身 "+h.HitPoints+"/"+h.MaxHitPoints+" ／ CALLまで "+Math.Max(0,h.ArmorCallAt-Clock))+" ／ ツール "+j.ToolUses[0]+"・"+j.ToolUses[1];
-            if(Job(actor,"fighter"))return "珠 "+h.JobResource+" / BOOST "+j.Gauge+"/100 / "+(j.Reckless?"捨て身":"通常")+(j.Empowered(Clock)?" / 全能力強化中":"");
-            if(Job(actor,"berserker"))return "捕食 "+j.Predation+"/10 / ゲージ "+h.JobResource+"/"+h.JobResourceMax+(j.Empowered(Clock)?" / 二重発動中":"");
-            if(Job(actor,"defender"))return "護衛："+HeroineName(guardTarget)+" / ゲージ "+h.JobResource+"/"+h.JobResourceMax+(j.Empowered(Clock)?" / 全員護衛・反撃中":"");
+            if(Job(actor,"fighter"))return "珠 "+h.JobResource+" / BOOST "+j.Gauge+"/100 / "+(j.Reckless?"捨て身":"通常")+(JobEmpowered(actor)?" / 全能力強化中":"");
+            if(Job(actor,"berserker"))return "捕食 "+j.Predation+"/10 / ゲージ "+h.JobResource+"/"+h.JobResourceMax+(JobEmpowered(actor)?" / 二重発動中":"");
+            if(Job(actor,"defender"))return "護衛："+HeroineName(guardTarget)+" / ゲージ "+h.JobResource+"/"+h.JobResourceMax+(JobEmpowered(actor)?" / 全員護衛・反撃中":"");
             if(Job(actor,"blaster"))return ResourceName(actor)+" "+h.JobResource+" / 詠唱 "+j.CastPercent+"% / ×"+j.Repeat;
             if(Job(actor,"artist"))return "歌唱ゲージ "+h.JobResource+"/"+h.JobResourceMax+(j.Singing?" / 歌唱中・共鳴 "+j.SongStage+"/5 / 毎ターン2消費":" / 通常行動で＋2、3以上で歌唱開始");
             if(Job(actor,"healer"))return "生命 "+h.JobResource+"/"+h.JobResourceMax+" / 固有操作：回復・超過・最大HP・蘇生・投資";
@@ -82,7 +83,7 @@ namespace NewAster.Core
             if(Job(actor,"fighter")){if(j.Gauge<100)return false;j.Gauge=0;}
             else if(Job(actor,"berserker") || Job(actor,"defender")){if(h.JobResource<h.JobResourceMax)return false;h.SpendResource(h.JobResourceMax);}
             else return false;
-            j.EmpoweredUntil=Clock+300;UpdateJobStats(actor);
+            j.EmpoweredUntil=Clock+300;if(UsesOoparts)h.AddOopartBuff(new BuffInstance{sourceActorId=h.Id,sourceId="job.gauge",kind="job.empowered",initialValue=25*(100+OopartBonus(actor,"buff-power"))/100,value=25*(100+OopartBonus(actor,"buff-power"))/100,expiresAt=Clock+300});UpdateJobStats(actor);
             RecordPresentation(BattlePresentationKind.Support,actor,"body","固有ゲージ解放 / 3 Battle Turn",standalone:true);return true;
         }
         public bool SelectBlaster(int actor,int castPercent,int repeats)
@@ -137,7 +138,7 @@ namespace NewAster.Core
             if(Job(actor,"gunner") && j.FullVolley)return Math.Max(1,j.Magazines[j.SelectedMagazine]);
             return 1m;
         }
-        private int JobRepeat(int actor) => Job(actor,"berserker") && jobStates[actor].Empowered(Clock)?2:Job(actor,"blaster")?jobStates[actor].Repeat:1;
+        private int JobRepeat(int actor) => Job(actor,"berserker") && JobEmpowered(actor)?2:Job(actor,"blaster")?jobStates[actor].Repeat:1;
         private bool JobCanCommand(int actor,int slot) => !UsesJobRulesV2 || (!Job(actor,"gambler") || resolvingGamblerSlot && gamblerSlotActor==actor) && !RequiresPanzerDefense(actor) && ChaserCommandValid(actor) && !(Job(actor,"artist") && jobStates[actor].Singing) && (!Job(actor,"gunner") || !IsAttackSkill(actor,slot) || jobStates[actor].Magazines[jobStates[actor].SelectedMagazine]>0);
         private void ConsumeJobCommand(int actor,int cost,bool attack)
         {
@@ -149,10 +150,10 @@ namespace NewAster.Core
         {
             var j=jobStates[actor];var h=State.Heroes[actor];
             UpdateGeneralFormationStats(actor);
-            int all=Job(actor,"berserker")?j.Predation*5:Job(actor,"fighter") && j.Empowered(Clock)?25:0;
-            int song=jobStates.Where((s,i)=>s.Singing && State.Heroes[i].IsAlive).Select(s=>s.SongStage).DefaultIfEmpty(0).Max();
-            h.JobAllStatsPercent=all;h.JobAttackPercent=(Job(actor,"fighter") && j.Reckless?30:0)+song*5;
-            h.SongCriticalBonusBp=song*100;
+            int all=Job(actor,"berserker")?j.Predation*5:Job(actor,"fighter") && JobEmpowered(actor)?(UsesOoparts?h.OopartBuffs.First(b=>b.kind=="job.empowered").value:25):0;
+            int song=jobStates.Where((s,i)=>s.Singing && State.Heroes[i].IsAlive).Select(s=>s.SongStage*5*(100+s.SongOopartBoost)/100).DefaultIfEmpty(0).Max();
+            h.JobAllStatsPercent=all;h.JobAttackPercent=(Job(actor,"fighter") && j.Reckless?30:0)+song;
+            h.SongCriticalBonusBp=song*20;
             h.JobSpeedPercent=Job(actor,"fighter") && j.Reckless?20:0;h.JobIncomingPercent=Job(actor,"fighter") && j.Reckless?130:100;
             h.ClampJobHitPoints();
         }
@@ -179,26 +180,26 @@ namespace NewAster.Core
         private int GuardRecipient(int intended,int[] allTargets)
         {
             if(!UsesJobRulesV2 || allTargets.Length==5 || NextAttackIsMajor || NextColossusStep?.targetRule=="all")return intended;
-            for(int i=0;i<5;i++)if(Job(i,"defender") && State.Heroes[i].IsAlive && !State.Heroes[i].Status.Active("stun") && !State.Heroes[i].Status.Active("absent") && (jobStates[i].Empowered(Clock) || !allTargets.Contains(i) && intended==guardTarget))return i;
+            for(int i=0;i<5;i++)if(Job(i,"defender") && State.Heroes[i].IsAlive && !State.Heroes[i].Status.Active("stun") && !State.Heroes[i].Status.Active("absent") && (JobEmpowered(i) || !allTargets.Contains(i) && intended==guardTarget))return i;
             return intended;
         }
         private void DefenderReaction(int actor)
         {
-            if(!Job(actor,"defender") || !jobStates[actor].Empowered(Clock) || !State.Heroes[actor].IsAlive || Ended)return;
+            if(!Job(actor,"defender") || !JobEmpowered(actor) || !State.Heroes[actor].IsAlive || Ended)return;
             var hit=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,new BattleSkill("reaction.defender",.6m,0),"body",max=>random.Next(max));
             if(hit.Accepted)RecordPresentation(BattlePresentationKind.Attack,actor,"body","護衛反撃 / "+hit.Damage,damage:hit.Damage,targetIds:hit.TargetIds);
         }
         private void AdvanceClock(long target)
         {
-            if(!UsesJobRulesV2){Clock=target;return;}
+            if(!UsesJobRulesV2){Clock=target;foreach(var h in State.Heroes)h.TickOopartBuffs();return;}
             // Process every boundary before the event at that time; READY never calls this.
             while(!Ended){
                 long boundary=(Clock/100+1)*100;
                 long call=State.Heroes.Where(h=>h.IsPanzer && !h.ArmorActive && h.IsAlive && h.ArmorCallAt>Clock).Select(h=>h.ArmorCallAt).DefaultIfEmpty(long.MaxValue).Min();
-                long next=Math.Min(boundary,call);if(next>target)break;Clock=next;TickPanzerCalls();
+                long next=Math.Min(boundary,call);if(next>target)break;Clock=next;foreach(var hero in State.Heroes)hero.TickOopartBuffs();TickPanzerCalls();
                 if(next==boundary){TickChaserResources();TickSongs();for(int i=0;i<5;i++){UpdateJobStats(i);State.Heroes[i].TickBattleTurn();}State.BossStatus.Tick();foreach(var p in State.Parts)p.Status.Tick();}
             }
-            Clock=target;
+            Clock=target;foreach(var hero in State.Heroes)hero.TickOopartBuffs();
             TickPanzerCalls();
             for(int i=0;i<5;i++)if(jobStates[i].Singing && !State.Heroes[i].IsAlive){jobStates[i].Singing=false;jobStates[i].SongStage=0;}
             for(int i=0;i<5;i++)UpdateJobStats(i);
@@ -206,7 +207,7 @@ namespace NewAster.Core
         public bool StartSong(int actor)
         {
             if(!JobReady(actor) || !Job(actor,"artist") || jobStates[actor].Singing || State.Heroes[actor].JobResource<3)return false;
-            jobStates[actor].Singing=true;jobStates[actor].SongStage=1;
+            jobStates[actor].Singing=true;jobStates[actor].SongStage=1;jobStates[actor].SongOopartBoost=OopartBonus(actor,"buff-power");
             RefreshSongStats();CompleteJobUtility(actor,100,"Rの歌唱開始：味方の攻撃と会心を支援");return true;
         }
         public bool ContinueSong(int actor)

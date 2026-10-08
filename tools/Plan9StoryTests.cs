@@ -160,8 +160,8 @@ public static class Plan9StoryTests
         foreach(var relic in collection.relics.Where(r=>!r.id.StartsWith("relic.",StringComparison.Ordinal))){
             ledger.relics=new[]{new CollectionRelic{id=relic.id,contentVersion=collection.contentVersion,attackRoll=100,hpRoll=1000}};ledger.equipment=new[]{new CollectionEquipment{heroineId=Heroes[0],relicId=relic.id}};
             var battle=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth,collectionGrowth:ledger,relicCatalog:collection);
-            check(battle.State.Heroes[0].Attack==((rawAttack+110)*(100+relic.attackPercent)/100)*(100+heroDef.traitAttackPercent)/100,"Own relic attack ability reaches battle projection before own trait");
-            check(battle.State.Heroes[0].MaxHitPoints==((rawHp+1050)*(100+relic.hpPercent)/100)*(100+heroDef.traitHpPercent)/100,"Own relic HP ability reaches battle projection before own trait");
+            check(battle.State.Heroes[0].Attack==((rawAttack*(100+heroDef.traitAttackPercent)/100+110)*(100+relic.attackPercent)/100),"Own relic attack ability reaches battle projection as a separate slot bonus after own growth");
+            check(battle.State.Heroes[0].MaxHitPoints==((rawHp*(100+heroDef.traitHpPercent)/100+1050)*(100+relic.hpPercent)/100),"Own relic HP ability reaches battle projection as a separate slot bonus after own growth");
             check(Enumerable.Range(0,5).All(i=>battle.ChainRate(i)==baseline.ChainRate(i)),"Production equipment preserves common chain probability");
         }
         var copy=collection.Copy();check(copy.relics.Select(r=>r.attackPercent+":"+r.hpPercent).SequenceEqual(collection.relics.Select(r=>r.attackPercent+":"+r.hpPercent)),"Catalog copy preserves every own relic ability");

@@ -1,0 +1,45 @@
+{
+  "resolution": [
+    1920,
+    1080
+  ],
+  "automatedAssertions": 9663,
+  "unitySources": 227,
+  "battleStartCases": 150,
+  "imageGenerationDeferredByUser": true,
+  "legacyBalanceCheck": "Fails on both HEAD baseline and current changes; unrelated legacy difficulty gate",
+  "playerBuild": "game/Builds/plan11-4/newASTER.exe",
+  "playerSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+  "buildMarker": "PLAN14_BUILD_PASS 2846544630 bytes",
+  "physicalInputSkippedByUser": true,
+  "frames": [
+    {
+      "view": "ability-battle",
+      "sha256": "30122a916d4bad1748b2bf80008671a5311b2137ea467aaf5e74181c98d3941e"
+    },
+    {
+      "view": "ability-battle-legacy",
+      "sha256": "30122a916d4bad1748b2bf80008671a5311b2137ea467aaf5e74181c98d3941e"
+    },
+    {
+      "view": "ability-root",
+      "sha256": "c68c5bba3dabab55168309fdbb34408eb17f13b92436ffc20abbe3a115db2370"
+    },
+    {
+      "view": "ability-tree",
+      "sha256": "d33ffccb59f71aae83ac39c904805f4166870d3b99e82c18c8f112c5a1588aea"
+    },
+    {
+      "view": "ability-trait",
+      "sha256": "1be9bec30d703d8f68c706df82799ca7ad54f48c479965c38febf9511b3156c3"
+    },
+    {
+      "view": "tree-grown",
+      "sha256": "6b9432c99f7f4baa556a8de3026cc070cca5415ea89feb7e8f566ec9bce11e80"
+    },
+    {
+      "view": "formation-ui-hero",
+      "sha256": "75282b9bb74794f16e3aa72ad88bc3d7e1bb837064b4a92724b8c4cd7c6ea369"
+    }
+  ]
+}

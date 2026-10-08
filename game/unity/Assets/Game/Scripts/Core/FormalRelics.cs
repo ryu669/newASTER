@@ -11,6 +11,7 @@ namespace NewAster.Core
     {
         public string id,contentVersion=CollectionCatalog.FixtureVersion;
         public int level=1,attackRoll,hpRoll;
+        public StatValues randomStats,previousRandomStats,resultRandomStats;
     }
     [Serializable] public sealed class CollectionEquipment {public string heroineId,relicId;}
     public static class FormalRelicRules
@@ -59,6 +60,7 @@ namespace NewAster.Core
                 if(pendingRelic==null || pendingRelic.Id!=request.Id || pendingRelic.Signature!=request.Signature || pendingRelic.Revision!=request.Revision)throw new InvalidOperationException("Retry same relic operation.");
             }else{
                 catalog.Validate();
+                if(current.collection?.ooparts!=null)throw new ArgumentException("Use formation-slot oopart operations.");
                 if(catalog.contentVersion!=request.ContentVersion)throw new ArgumentException("Relic request content mismatch.");
                 current.collection?.ValidateContent(catalog);
                 if(request.Revision!=current.revision || current.collection==null)throw new ArgumentException("Stale or missing relic inventory.");

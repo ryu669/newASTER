@@ -19,7 +19,8 @@ namespace NewAster.Core
         internal bool PanzerFireResistance;
         internal Func<long> PanzerClock;
         internal Action ArmorBroke;
-        private int OrdinaryMaxHp => (int)Math.Min(int.MaxValue,(long)baseMaxHitPoints*(100+JobAllStatsPercent+LifeMaxHpPercent)/100);
+        private int OrdinaryMaxHp => (int)Math.Min(int.MaxValue,(long)baseMaxHitPoints*(100+JobAllStatsPercent+LifeMaxHpPercent+OopartStatPercent("hp"))/100);
+        internal int OopartReferenceMaxHp=>IsPanzer?(ArmorActive?baseMaxHitPoints*3:Math.Max(1,baseMaxHitPoints/5)):baseMaxHitPoints;
         public int ArmorMaxHitPoints => (int)Math.Min(int.MaxValue,(long)OrdinaryMaxHp*3);
         public int FleshMaxHitPoints => Math.Max(1,OrdinaryMaxHp/5);
         internal void InitializePanzer(Func<long> clock){IsPanzer=true;ArmorActive=true;PanzerClock=clock;FleshHitPoints=FleshMaxHitPoints;HitPoints=ArmorMaxHitPoints;}
@@ -39,15 +40,15 @@ namespace NewAster.Core
             string tool=jobStates[actor].PanzerTools[slot];
             if(tool=="repair")return State.Heroes[actor].HitPoints<State.Heroes[actor].MaxHitPoints;
             if(tool=="rally")return ally>=0 && ally<5 && State.Heroes[ally].IsAlive;
-            return tool!="extend" || State.Heroes.Any(h=>h.IsAlive && h.TimedEffects.Count>0);
+            return tool!="extend" || State.Heroes.Any(h=>h.IsAlive && (h.TimedEffects.Any(e=>e.Kind!="attack-reduction") || h.OopartBuffs.Any(b=>b.extendable && b.kind!="attack-reduction" && b.value>0)));
         }
         public bool UsePanzerTool(int actor,int slot,int ally=0)
         {
             if(!CanUsePanzerTool(actor,slot,ally))return false;
             var j=jobStates[actor];string tool=j.PanzerTools[slot];j.ToolUses[slot]--;
             if(tool=="repair")State.Heroes[actor].RepairArmor(State.Heroes[actor].ArmorMaxHitPoints*40/100);
-            else if(tool=="guard")State.Heroes[actor].ApplySelfEffects(new[]{new TimedSelfEffectDef{kind="physical-protection",percent=35,turns=3}});
-            else if(tool=="rally")State.Heroes[ally].ApplySelfEffects(new[]{new TimedSelfEffectDef{kind="attack",percent=25,turns=3}});
+            else if(tool=="guard")ApplySourceBuffs(actor,actor,"panzer.guard",new[]{new TimedSelfEffectDef{kind="physical-protection",percent=35,turns=3}});
+            else if(tool=="rally"){var buffs=new[]{new TimedSelfEffectDef{kind="attack",percent=25,turns=3}};if(State.Heroes[ally].OopartClock!=null)State.Heroes[ally].ApplyOopartBuffs(buffs,State.Heroes[actor].Id,"panzer.rally",OopartBonus(actor,"buff-power"));else State.Heroes[ally].ApplySelfEffects(buffs);}
             else foreach(var h in State.Heroes.Where(h=>h.IsAlive))h.ExtendTimedEffects();
             Chain=0;chainPending=false;chainMembers.Clear();CompleteJobUtility(actor,100,PanzerToolName(tool)+" ／ 残り "+j.ToolUses[slot]+"回");return true;
         }

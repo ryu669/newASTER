@@ -247,7 +247,7 @@ namespace NewAster.Presentation
                 if(Btn(970,755,560,45,"編集パネルへ戻る"))gardenLifeEditPlace=false;
                 if(GUI.enabled && Event.current.type==EventType.MouseDown && view.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<745 && selectedFurniture!=null){var item=home.furnitureInstances.Single(i=>i.instanceId==selectedFurniture);var old=home.furniturePlacements.SingleOrDefault(p=>p.instanceId==selectedFurniture);var point=Event.current.mousePosition;LifeEditorTry(()=>gardenLifeEditor.Place(new HomePlacement{instanceId=item.instanceId,defId=item.defId,gardenId=garden,zoneId="zone.ground",orientationId=old?.orientationId??"orientation.default",x=(point.x-view.x)/view.width,y=(point.y-view.y)/view.height},gardenGridStep));Event.current.Use();}return;
             }
-            Panel(970,190,600,615,dark);Label(998,205,550,40,"模様替え ／ 確定まで保存しません",text,Color.white);
+            Panel(970,190,600,615,dark);Label(998,205,550,40,"模様替え",text,Color.white);
             var items=home.furnitureInstances;gardenLifeScroll=GUI.BeginScrollView(new Rect(998,260,550,250),gardenLifeScroll,new Rect(0,0,525,Math.Max(250,items.Length*48)));
             for(int i=0;i<items.Length;i++){var item=items[i];if(Btn(0,i*48,520,42,(selectedFurniture==item.instanceId?"◆ ":"")+GardenFurnitureName(item.defId)+" "+(i+1))){selectedFurniture=item.instanceId;gardenLifeEditPlace=true;}}GUI.EndScrollView();
             if(Btn(998,524,170,42,"戻す "+gardenLifeEditor.UndoCount))gardenLifeEditor.Undo();if(Btn(1180,524,170,42,"やり直す"))gardenLifeEditor.Redo();if(Btn(1362,524,170,42,"全て収納"))gardenLifeEditor.StoreAll();

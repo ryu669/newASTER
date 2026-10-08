@@ -13,8 +13,8 @@ namespace NewAster.Core {
   private void ApplyExtendedSkillEffects(int actor,int slot){
    var d=commandDefinitions?[actor,slot];if(d==null)return;
    if(d.enemyStatusExtensionTurns>0)foreach(var target in alchemyHitTargets.Distinct())State.EnemyStatus(target).ExtendActive(d.enemyStatusExtensionKinds,d.enemyStatusExtensionTurns);
-   if(d.postAttackAlliesEffects!=null)foreach(var hero in State.Heroes.Where(h=>h.IsAlive))hero.ApplySelfEffects(d.postAttackAlliesEffects);
-   for(int n=0;n<d.alliesEffectExtensionTurns;n++)foreach(var hero in State.Heroes.Where(h=>h.IsAlive))hero.ExtendPositiveTimedEffects();
+   if(d.postAttackAlliesEffects!=null)foreach(var hero in State.Heroes.Where(h=>h.IsAlive))ApplySourceBuffs(actor,State.Heroes.ToList().IndexOf(hero),d.id,d.postAttackAlliesEffects);
+   for(int n=0;!UsesOoparts && n<d.alliesEffectExtensionTurns;n++)foreach(var hero in State.Heroes.Where(h=>h.IsAlive))hero.ExtendPositiveTimedEffects();
   }
  }
 }

@@ -55,8 +55,9 @@ namespace NewAster.Core
             for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) result[i,slot]=new SkillTimingDefinition(slot==0?100:slot==1?125:150,i==4 && slot==1?150:0);
             return result;
         }
-        public long RecoveryDelay(int actor,int slot) => Job(actor,"chaser")?ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),ChaserSelectedRecovery(actor)):SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
-        public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).CastPercent);
+        public long RecoveryDelay(int actor,int slot) => Math.Max(0,BaseRecoveryDelay(actor,slot)-OopartBonus(actor,"wt",IsAttackSkill(actor,slot)?"attack":"skill",slot));
+        private long BaseRecoveryDelay(int actor,int slot) => Job(actor,"chaser")?ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),ChaserSelectedRecovery(actor)):SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
+        public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Math.Max(0,Timing(actor,slot).CastPercent*(100-OopartBonus(actor,"cast-percent",slot:slot))/100));
         public bool IsCasting(int actor) => actor>=0 && actor<5 && casting[actor]!=null;
         public long NextAt(int actor) => readyAt[actor];
         public string TimingDescription(int actor,int slot)

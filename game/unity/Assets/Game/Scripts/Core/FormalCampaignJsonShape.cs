@@ -23,9 +23,19 @@ namespace NewAster.Core
         }
         // Used only on serializer-produced JSON: Unity's inline serialization can
         // turn a null serializable object into a default object. Preserve true absence.
-        public static string WithNullRootMember(string json,string member)
+        public static string WithNullRootMember(string json,string member)=>WithRootMemberJson(json,member,"null");
+        public static string RootMemberJson(string json,string member)
+        {
+            int start=FindRootMemberValue(json,member);return start<0?null:json.Substring(start,EndOfValue(json,start)-start);
+        }
+        // Replacement is a fragment produced by the serializer, never arbitrary user text.
+        public static string WithRootMemberJson(string json,string member,string replacement)
         {
             int start=FindRootMemberValue(json,member);if(start<0)return json;
+            return json.Substring(0,start)+replacement+json.Substring(EndOfValue(json,start));
+        }
+        private static int EndOfValue(string json,int start)
+        {
             int depth=0;bool quoted=false,escaped=false;int end=start;
             for(;end<json.Length;end++){
                 char c=json[end];
@@ -35,7 +45,7 @@ namespace NewAster.Core
                 if(c=='}' || c==']'){if(depth==0)break;depth--;if(depth==0){end++;break;}continue;}
                 if(depth==0 && (c==',' || char.IsWhiteSpace(c)))break;
             }
-            return json.Substring(0,start)+"null"+json.Substring(end);
+            return end;
         }
         private static int FindRootMemberValue(string json,string member)
         {
