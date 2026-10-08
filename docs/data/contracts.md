@@ -493,3 +493,16 @@ resource.nectarはLv育成専用の単一数量資源として定義し、Materi
 `FormalGrowthMath`はジョブ基準を引数に取る純粋算式。Lvの基礎値は最後に一度切捨て、重複の+2%／段階を別に切捨てる。特性量は明示単位の基準量に対して算出する。bp特性を整数percentへ先に丸めない。
 
 正式5人の通常育成・戦闘への接続を実装済み。`PlayableBattle.formalGrowth`は正式定義でのみ受理し、出撃5人全員の所持を必須とする。成長値は出撃時に導出して固定する。現行5ジョブの実行基準は`battle-formal.json.jobs`で、旧試遊のLv／枝／重複配列は使用しない。物理／魔法防御に同じ人物defenseBpと成長式を適用する。HP／攻撃の人物特性は明示されたtraitHpPercent／traitAttackPercentだけをbpへ変換し、rankの成長を掛けた後、基礎値・重複の外側へ乗算する。Lv50や最大rankでも速度とチェイン確率は変えない。追加特性種別を勝手に同じ式へ補完しない。
+
+
+## Plan11-4 オーパーツ共通契約
+
+`CollectionCatalog.oopartDefs` は既存遺物IDに対応する `OopartDef` を持つ。Lv固定成長、5種類の `RandomStatDef`、0～2個の `OopartEffectDef`、直接強化の費用・高Lv素材を検証する。全5項目の存在、上限、条件木の深さとAND/OR、同種行動不能付与品の重複を検査する。
+
+`FormalCollectionLedger.ooparts` は旧セーブではnull。初回移行で `OopartInventorySave`（version=1）へ所持品と5枠装備を引き継ぐ。`OopartProgress` はID、Lv1～120、5累積値、旧HP超過品の上限を持つ。`FormationSlot` はnullableな形態IDと装備ID。プリセットは独立した5枠コピーを保存する。未所持品・同一編成の装備重複・同一人物の衣装重複を拒否する。
+
+`OopartRequest` は操作ID・基準revision・種類・対象・枠・数量・能力を不変保持する。確定前に保存候補全体を凍結し、費用と装備を一括保存する。成功済みID再送は再消費しない。ドロップreceiptは抽選された5値と更新前後を持ち、失敗後の再試行で再抽選しない。
+
+Unity JSONでは未移行のnested `collection.ooparts` のnullを明示維持し、nullableな装備・形態の空文字を復元する。空枠を含む編成は `allowEmptyFormationSlots` を持つ。旧形式の必須5人チェックを一律に緩めず、旧所持・Lv・数値・既読を保持する。
+
+`BuffInstance` は発動者/元ID、初期/現在量、減衰量/周期、論理期限、延長可否を持つ。被弾回数とともに戦闘インスタンス内だけで保持し、通常保存へは含めない。仕様・検証は[Plan11-4](../production/plan11-4-ooparts.md)。

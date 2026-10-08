@@ -10,7 +10,7 @@ namespace NewAster.Presentation
         private string rRecruitError;
         private string[] PreviewFormation(string heroId=null)
         {
-            var ids=CurrentFormation();
+            var ids=CurrentFormation();for(int i=0;i<5;i++)if(ids[i]==null){string replacement=formalProgression.Snapshot.heroines.Select(h=>h.heroineId).First(id=>!ids.Where(x=>x!=null).Any(x=>combatDefinitions.PersonId(x)==combatDefinitions.PersonId(id)));ids[i]=replacement;}
             if(heroId!=null && !ids.Contains(heroId)){int same=Array.FindIndex(ids,id=>combatDefinitions.PersonId(id)==combatDefinitions.PersonId(heroId));ids[same<0?0:same]=heroId;}
             return ids;
         }

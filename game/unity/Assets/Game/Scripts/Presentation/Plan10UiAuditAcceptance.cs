@@ -16,7 +16,7 @@ namespace NewAster.Presentation {
    else if(view=="book-summoning" || view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials" || view=="book-hunt" || view=="book-new-world" || view=="book-possible-worlds" || view=="book-system"){
     book.ChangeBookmark(view=="book-summoning"?BookBookmark.Summoning:view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials"?BookBookmark.Items:view=="book-hunt"?BookBookmark.RelicHunt:view=="book-new-world"?BookBookmark.NewWorld:view=="book-possible-worlds"?BookBookmark.PossibleWorlds:BookBookmark.Colossi);
     heroineRosterOpen=false;formationOpen=false;collectionOpen=false;kinderGarden=false;book.CompleteTransition();collectionTab=view=="book-materials"?2:1;if(view=="book-system")bookSystemOpen=true;
-    if(view.StartsWith("book-items",StringComparison.Ordinal)){var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.collection.relics=CollectionData().relics.Select(r=>new CollectionRelic{id=r.id,contentVersion=CollectionData().contentVersion,attackRoll=80,hpRoll=800}).ToArray();BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();if(view=="book-items-added")collectionRelicPage=4;if(view=="book-items-special")collectionRelicPage=7;if(view=="book-items-fading")collectionRelicPage=8;if(view=="book-items-equip")RelicSelect(formalCampaign.Snapshot.collection.relics.Single(r=>r.id=="relic.special.speed"),RelicOperation.Equip,"heroine.shangrila");}
+    if(view.StartsWith("book-items",StringComparison.Ordinal)){var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.collection.relics=CollectionData().relics.Select(r=>new CollectionRelic{id=r.id,contentVersion=CollectionData().contentVersion,attackRoll=80,hpRoll=800}).ToArray();BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();if(view=="book-items-added")collectionRelicPage=4;if(view=="book-items-special")collectionRelicPage=7;if(view=="book-items-fading")collectionRelicPage=8;if(view=="book-items-equip")OpenOoparts(0,"relic.special.speed");}
     AcceptanceCheck(book.Bookmark==(view=="book-summoning"?BookBookmark.Summoning:view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials"?BookBookmark.Items:view=="book-hunt"?BookBookmark.RelicHunt:view=="book-new-world"?BookBookmark.NewWorld:view=="book-possible-worlds"?BookBookmark.PossibleWorlds:BookBookmark.Colossi),"Capture displays requested bookmark: "+view);
    }
    else if(view=="model")modelViewer=true;
@@ -29,6 +29,7 @@ namespace NewAster.Presentation {
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
+   else if(view.StartsWith("oopart-",StringComparison.Ordinal))PrepareOopartCapture(view);
    else if(view.StartsWith("affection-",StringComparison.Ordinal))PrepareAffectionCapture(view);
    else if(view.StartsWith("garden-life",StringComparison.Ordinal))PrepareGardenLifeCapture(view);
    else if(view.StartsWith("garden-",StringComparison.Ordinal)){
@@ -46,7 +47,7 @@ namespace NewAster.Presentation {
     ReadProductionDiagnosticScene("heroine.shangrila.poem-chapter.1",false);BeginAdv("heroine.shangrila.poem-chapter.1",true);AdvanceAdv();AdvanceAdv();advBacklog=view=="adv-backlog";advHelp=!advBacklog;
    }
    else PrepareHeroineSanctuaryCapture(args.Concat(new[]{"-heroineView",view,"-heroineId","heroine.shangrila"}).ToArray());
-   if(formationOpen || heroineRosterOpen){book.RequestSubject(BookBookmark.Heroines,formationOpen?CurrentFormation()[formationSlot]:"heroine.slayer");book.CompleteTransition();}
+   if(formationOpen || heroineRosterOpen){book.RequestSubject(BookBookmark.Heroines,formationOpen?(CurrentFormation()[formationSlot]??"heroine.slayer"):"heroine.slayer");book.CompleteTransition();}
    Debug.Log("PLAN10_UI_AUDIT_PLAYER_PASS view="+view+" isolated=true physicalInput=0");
   }
  }

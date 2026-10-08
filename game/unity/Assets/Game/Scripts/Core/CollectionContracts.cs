@@ -38,7 +38,7 @@ namespace NewAster.Core
         public bool allowEmpty;
         public string[] relicIds;
     }
-    [Serializable] public sealed class CollectionCatalog
+    [Serializable] public sealed partial class CollectionCatalog
     {
         public const string TrialVersion="collection-trial-story-2026-10-04";
         public const string CandidateVersion="collection-production-story-2026-10-04";
@@ -69,6 +69,7 @@ namespace NewAster.Core
         }
         public void Validate()
         {
+            ValidateOopartDefinitions();
             if(schemaVersion!=1 || !(contentVersion==FixtureVersion && status=="fixture" || contentVersion==TrialVersion && status=="development-trial" || contentVersion==CandidateVersion && status=="production-candidate" || contentVersion==ProductionVersion && status=="release"))
                 throw new ArgumentException("Unsupported collection content.");
             var os=Index(owners,x=>x.id);var ps=Index(poems,x=>x.id);var cs=Index(chapters,x=>x.id);
@@ -137,7 +138,7 @@ namespace NewAster.Core
         {
             // Keep the combat/session boundary independent of serializers and Unity.
             return new CollectionCatalog {
-                schemaVersion=schemaVersion,contentVersion=contentVersion,status=status,
+                schemaVersion=schemaVersion,contentVersion=contentVersion,status=status,oopartDefs=(oopartDefs??Array.Empty<OopartDef>()).Select(d=>d.Copy()).ToArray(),
                 owners=owners.Select(o=>new CollectionOwnerDef {id=o.id,kind=o.kind,previousOwnerId=o.previousOwnerId,integration=o.integration,poemIds=(string[])o.poemIds.Clone(),chapterIds=(string[])o.chapterIds.Clone(),environmentIds=(string[])o.environmentIds.Clone(),materialIds=(string[])o.materialIds.Clone()}).ToArray(),
                 poems=poems.Select(p=>new CollectionPoemDef {id=p.id,ownerId=p.ownerId,chapterId=p.chapterId}).ToArray(),
                 chapters=chapters.Select(c=>new CollectionChapterDef {id=c.id,ownerId=c.ownerId,poemIds=(string[])c.poemIds.Clone(),textId=c.textId}).ToArray(),
@@ -181,7 +182,7 @@ namespace NewAster.Core
         public int terraformingTp;
         public CollectionRelic[] relicDrops=Array.Empty<CollectionRelic>();
     }
-    [Serializable] public sealed class FormalCollectionLedger
+    [Serializable] public sealed partial class FormalCollectionLedger
     {
         public int version=1;
         public string contentVersion=CollectionCatalog.FixtureVersion;
@@ -189,9 +190,10 @@ namespace NewAster.Core
         public CollectionMaterial[] materials=Array.Empty<CollectionMaterial>();
         public CollectionRelic[] relics=Array.Empty<CollectionRelic>();
         public CollectionEquipment[] equipment=Array.Empty<CollectionEquipment>();
+        public OopartInventorySave ooparts;
         public void ValidateContent(CollectionCatalog catalog)
         {
-            Validate();catalog.Validate();if(contentVersion!=catalog.contentVersion)throw new ArgumentException("Collection ledger content version mismatch.");
+            Validate();catalog.Validate();ooparts?.ValidateContent(catalog);if(contentVersion!=catalog.contentVersion)throw new ArgumentException("Collection ledger content version mismatch.");
             foreach(var receipt in receipts){
                 var b=receipt.battle;
                 if(!catalog.owners.Any(o=>o.id==b.colossusId && o.kind=="colossus") || b.formationIds.Any(id=>!catalog.owners.Any(o=>o.id==id && o.kind=="heroine")) ||
@@ -203,6 +205,7 @@ namespace NewAster.Core
         }
         public void Validate()
         {
+            ooparts?.Validate();
             if(version!=1 || !CollectionCatalog.SupportedVersion(contentVersion) || receipts==null || receipts.Any(x=>x==null || x.battle==null) || receipts.Select(x=>x.battle.battleId).Distinct().Count()!=receipts.Length)throw new ArgumentException("Invalid collection ledger.");
             if(materials==null || materials.Any(x=>x==null || !CollectionCatalog.ValidId(x.id) || !CollectionCatalog.ValidId(x.sourceColossusId) || x.amount<0) || materials.Select(x=>x.id).Distinct().Count()!=materials.Length ||
                relics==null || relics.Any(x=>x==null || !CollectionCatalog.ValidId(x.id) || !CollectionCatalog.SupportedVersion(x.contentVersion) || x.level<1 || x.level>120 || x.attackRoll<0 || x.attackRoll>100 || x.hpRoll<0 || x.hpRoll>1000) || relics.Select(x=>x.id).Distinct().Count()!=relics.Length ||

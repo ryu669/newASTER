@@ -16,11 +16,11 @@ public static class BookRedesignTests
                 previous=next;
             }
         }
-        var added=catalog.relics.Where(r=>r.id.StartsWith("relic.",StringComparison.Ordinal)).ToArray();
+        var added=catalog.relics.Where(r=>r.id.StartsWith("relic.",StringComparison.Ordinal) && !r.id.StartsWith("relic.tactic.",StringComparison.Ordinal)).ToArray();
         check(added.Length==18 && added.Count(r=>r.jobStatPercent>0)==13 && added.Count(r=>r.jobId==null)==5,"Relics add thirteen job emblems plus five independent special items, without a job/type product");
         check(added.All(r=>new[]{r.jobStatPercent,r.attackPercent,r.defensePercent,r.speedPercent,r.turnEffect==null?0:1}.Count(n=>n>0)==1),"Every additional relic has exactly one independent effect category");
         foreach(var d in added.Where(r=>r.jobStatPercent>0)){check(FormalRelicRules.JobBonus(d,d.jobId)==30 && FormalRelicRules.JobBonus(d,"job.unknown")==0,"Job affinity only rewards its matching job");}
-        var copy=catalog.Copy();check(copy.relics.Where(r=>r.id.StartsWith("relic.",StringComparison.Ordinal)).Select(r=>r.name+"|"+r.jobId+"|"+r.turnEffect+"|"+r.jobStatPercent+"|"+r.defensePercent+"|"+r.speedPercent).SequenceEqual(added.Select(r=>r.name+"|"+r.jobId+"|"+r.turnEffect+"|"+r.jobStatPercent+"|"+r.defensePercent+"|"+r.speedPercent)),"Session catalog copies preserve all new effects");
+        var copy=catalog.Copy();check(copy.relics.Where(r=>r.id.StartsWith("relic.",StringComparison.Ordinal) && !r.id.StartsWith("relic.tactic.",StringComparison.Ordinal)).Select(r=>r.name+"|"+r.jobId+"|"+r.turnEffect+"|"+r.jobStatPercent+"|"+r.defensePercent+"|"+r.speedPercent).SequenceEqual(added.Select(r=>r.name+"|"+r.jobId+"|"+r.turnEffect+"|"+r.jobStatPercent+"|"+r.defensePercent+"|"+r.speedPercent)),"Session catalog copies preserve all new effects");
         var ramp=added.Single(r=>r.turnEffect=="ramp");var wane=added.Single(r=>r.turnEffect=="wane");
         check(FormalRelicRules.TurnBonus(ramp,1)==0 && FormalRelicRules.TurnBonus(ramp,2)==5 && FormalRelicRules.TurnBonus(ramp,9)==40 && FormalRelicRules.TurnBonus(ramp,int.MaxValue)==40,"Growing relic starts at zero and caps after eight elapsed turns");
         check(FormalRelicRules.TurnBonus(wane,1)==50 && FormalRelicRules.TurnBonus(wane,2)==40 && FormalRelicRules.TurnBonus(wane,6)==0 && FormalRelicRules.TurnBonus(wane,100)==0,"Fading relic never falls below zero");
@@ -30,7 +30,7 @@ public static class BookRedesignTests
             var baseline=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth);
             var b=new PlayableBattle(1,new PlayableProgress(),combatDefinitions:combat,formalGrowth:growth,collectionGrowth:inventory,relicCatalog:catalog);
             check(b.ChainRate(0)==baseline.ChainRate(0),"Relic does not alter chain probability");
-            check(b.State.Heroes[0].RelicAttackPercent==d.attackPercent+FormalRelicRules.JobBonus(d,combat.Hero(combat.FormationIds[0]).jobId)+FormalRelicRules.TurnBonus(d,1),"Relic percentage contributions are added, without multiplying effect factors");
+            check(b.State.Heroes[0].RelicAttackPercent==0 && b.State.Heroes.Skip(1).Select(h=>h.Attack).SequenceEqual(baseline.State.Heroes.Skip(1).Select(h=>h.Attack)),"Slot oopart engine replaces legacy percentage fields without party-wide bonuses");
             if(d.defensePercent>0)check(b.State.Heroes[0].PhysicalDefense>baseline.State.Heroes[0].PhysicalDefense && b.State.Heroes[0].MagicDefense>baseline.State.Heroes[0].MagicDefense,"Defense item boosts both actual defenses");
             if(d.speedPercent>0)check(b.State.Heroes[0].Speed>baseline.State.Heroes[0].Speed,"Speed item affects actual action timing speed");
             if(d.turnEffect!=null){int first=b.State.Heroes[0].Attack,guard=0;while(b.Turn==1 && guard++<500)b.Pass();check(b.Turn==2 && (d.turnEffect=="ramp"?b.State.Heroes[0].Attack>first:b.State.Heroes[0].Attack<first),"Elapsed enemy turns change equipped relic attack in live combat");}

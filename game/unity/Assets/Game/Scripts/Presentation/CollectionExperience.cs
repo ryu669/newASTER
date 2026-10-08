@@ -112,7 +112,7 @@ namespace NewAster.Presentation
                 var saved=formalCampaign.Snapshot;int amount=saved.collection.materials.Where(m=>m.sourceColossusId==source.Id).Sum(m=>m.amount);
                 return $"記憶元：{source.WorldLineId??"世界統合"} ／ 環境：{string.Join("・",source.EnvironmentTags)}\nTP +{r.terraformingTp} ／ 保存後所持 {saved.world.terraform.totalTp}\n巨神獣別素材 +{10+r.battle.level} ／ 保存後所持 {amount}\nページ・環境・庭の初回解放は一度だけ。再戦でもTPと素材を得られます。";
             }
-            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000")))+"\n同名は項目ごとの高値を保持。提供率 "+(r.battle.contentVersion==CollectionCatalog.ProductionVersion?(r.battle.relicHunt?"35%":"5%"):"75%")+"。";
+            return $"レリックハント 抽選 {r.relicDrawCount}回 ／ 獲得 {r.relicDrops.Length}個\n"+(r.relicDrops.Length==0?"今回の遺物獲得はありません。":string.Join("\n",r.relicDrops.Select(x=>x.resultRandomStats==null?$"攻撃 {x.attackRoll}/100 ／ HP {x.hpRoll}/1000":CollectionData().Oopart(x.id).name+" ／ "+string.Join("・",StatValues.Names.Select(k=>StatName(k)+" "+x.previousRandomStats.Get(k)+"→"+x.resultRandomStats.Get(k))))))+"\n同名は項目ごとの高値を保持。提供率 "+(r.battle.contentVersion==CollectionCatalog.ProductionVersion?(r.battle.relicHunt?"35%":"5%"):"75%")+"。";
         }
         private void PrepareCollectionCapture(string[] args)
         {

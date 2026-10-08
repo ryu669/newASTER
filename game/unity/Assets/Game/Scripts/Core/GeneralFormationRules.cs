@@ -48,6 +48,7 @@ namespace NewAster.Core
         private GeneralFormationDef[] generalProfiles=Array.Empty<GeneralFormationDef>();
         public int CommanderActor {get;private set;}=-1;
         private GeneralFormationDef activeGeneral;
+        private int generalOopartBoost;
         private void InitializeGeneral(BattleDeployment deployment,CombatDefinitionCatalog definitions)
         {
             if(!UsesJobRulesV2)return;
@@ -63,13 +64,13 @@ namespace NewAster.Core
         public string GeneralSlotDescription(int slot)
         {
             if(slot<0 || slot>=5)throw new ArgumentOutOfRangeException(nameof(slot));
-            return activeGeneral==null?"指揮官なし":activeGeneral.slots.Single(s=>s.slot==slot).label+(jobStates[CommanderActor].Empowered(Clock)?" ／ 指揮強化中":"");
+            return activeGeneral==null?"指揮官なし":activeGeneral.slots.Single(s=>s.slot==slot).label+(JobEmpowered(CommanderActor)?" ／ 指揮強化中":"");
         }
         private void UpdateGeneralFormationStats(int actor)
         {
             var h=State.Heroes[actor];h.GeneralAttackPercent=h.GeneralPhysicalDefensePercent=h.GeneralMagicDefensePercent=h.GeneralSpeedPercent=h.GeneralCriticalBp=0;
             if(activeGeneral==null || !State.Heroes[CommanderActor].IsAlive)return;
-            var s=activeGeneral.slots.Single(e=>e.slot==actor);int scale=100+(jobStates[CommanderActor].Empowered(Clock)?activeGeneral.strengthenPercent:0);
+            var s=activeGeneral.slots.Single(e=>e.slot==actor);int scale=UsesOoparts?100+generalOopartBoost+(State.Heroes[CommanderActor].OopartBuffs.FirstOrDefault(b=>b.kind=="job.empowered")?.value??0):100+(JobEmpowered(CommanderActor)?activeGeneral.strengthenPercent:0);
             h.GeneralAttackPercent=s.attackPercent*scale/100;h.GeneralPhysicalDefensePercent=s.physicalDefensePercent*scale/100;h.GeneralMagicDefensePercent=s.magicDefensePercent*scale/100;h.GeneralSpeedPercent=s.speedPercent*scale/100;h.GeneralCriticalBp=s.criticalBp*scale/100;
         }
         public bool ActivateGeneralCommand(int actor)
@@ -77,6 +78,7 @@ namespace NewAster.Core
             if(!JobReady(actor) || !Job(actor,"general") || actor!=CommanderActor || activeGeneral==null)return false;
             var h=State.Heroes[actor];if(h.JobResource<h.JobResourceMax || !h.SpendResource(h.JobResourceMax))return false;
             jobStates[actor].EmpoweredUntil=Clock+activeGeneral.durationClock;
+            if(UsesOoparts){State.Heroes[actor].AddOopartBuff(new BuffInstance{sourceActorId=h.Id,sourceId="general.command",kind="job.empowered",initialValue=activeGeneral.strengthenPercent*(100+OopartBonus(actor,"buff-power"))/100,value=activeGeneral.strengthenPercent*(100+OopartBonus(actor,"buff-power"))/100,expiresAt=Clock+activeGeneral.durationClock});}
             for(int i=0;i<5;i++)UpdateGeneralFormationStats(i);
             RecordPresentation(BattlePresentationKind.Support,actor,"body","夏の指揮：5枠の効果を強化 ／ "+activeGeneral.durationClock+" Clock",standalone:true);return true;
         }

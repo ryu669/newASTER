@@ -13,6 +13,7 @@ public static class AutomaticChainTests
     {
         Plan11TerraformTests.Run(Check);
         Plan12GardenLifeTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        Plan14OopartTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         Plan13AffectionTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         CollectionContractTests.Run(Check);
         FormalProgressionTests.Run(Check);

@@ -98,6 +98,7 @@ namespace NewAster.Data
             }
             foreach(var d in catalog.relics)d.name=WorldCatalog.Colossi.Single(c=>c.Id==d.id.Replace(".collection.relic","")).DisplayName+"の遺物";
             catalog.relics=all.ToArray();
+            ProductionOopartCatalog.Apply(catalog);
         }
         public static string RelicAbility(CollectionRelicDef r)
         {

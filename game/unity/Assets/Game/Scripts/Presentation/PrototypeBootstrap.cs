@@ -224,6 +224,7 @@ namespace NewAster.Presentation
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(help)help=false;
                 else if(CloseAffectionLayer()){}
+                else if(CloseOoparts()){}
                 else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
                 else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
                 else if(panzerSetupOpen)panzerSetupOpen=false;
@@ -337,7 +338,7 @@ namespace NewAster.Presentation
         {
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();DrawAffectionOverlay();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();DrawAffectionOverlay();DrawOopartOverlay();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -547,8 +548,10 @@ namespace NewAster.Presentation
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
+            if(CurrentFormation().Any(id=>id==null)){status="出撃には5人の編成が必要です。";return;}
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
+            formalCampaign.LockOopartsForBattle();
             illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);

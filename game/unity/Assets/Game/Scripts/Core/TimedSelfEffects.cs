@@ -34,8 +34,8 @@ namespace NewAster.Core
     public sealed partial class BattleHero
     {
         private readonly List<TimedSelfEffectSnapshot> timedEffects=new List<TimedSelfEffectSnapshot>();
-        public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.ToArray());
-        private int EffectPercent(string kind) => timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0;
+        public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.Concat(OopartBuffs.Where(b=>!b.kind.StartsWith("stat.",StringComparison.Ordinal)).Select(b=>new TimedSelfEffectSnapshot(b.kind,b.value,(int)Math.Max(1,(b.expiresAt-(OopartClock?.Invoke()??0)+99)/100)))).ToArray());
+        private int EffectPercent(string kind) => (timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0)+OopartBuffPercent(kind);
         public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100+SongCriticalBonusBp+GeneralCriticalBp);
         public int CriticalMultiplierPercent => (150+WeaponCriticalDamageBonus)*(100+JobAllStatsPercent)/100+EffectPercent("critical-damage");
         public int TimedSpeedPercent=>EffectPercent("speed");
@@ -44,6 +44,7 @@ namespace NewAster.Core
         public bool ApplySelfEffects(IEnumerable<TimedSelfEffectDef> definitions)
         {
             var items=(definitions??Array.Empty<TimedSelfEffectDef>()).ToArray();TimedSelfEffectDef.ValidateAll(items);
+            if(OopartClock!=null)return ApplyOopartBuffs(items,Id,"self",OopartValue?.Invoke("buff-power")??0);
             if(!IsAlive) return false;
             foreach(var effect in items) {
                 timedEffects.RemoveAll(e=>e.Kind==effect.kind);
@@ -63,8 +64,8 @@ namespace NewAster.Core
             var next=timedEffects.Where(e=>e.RemainingCommands>1).Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.RemainingCommands-1)).ToArray();
             timedEffects.Clear();timedEffects.AddRange(next);
         }
-        internal void ExtendTimedEffects(){var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,Math.Min(10,e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
-        internal void ExtendPositiveTimedEffects(){var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.Kind=="attack-reduction"?e.RemainingCommands:Math.Min(10,e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
+        internal void ExtendTimedEffects(){ExtendOopartBuffs();var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.Kind=="attack-reduction"?e.RemainingCommands:checked(e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
+        internal void ExtendPositiveTimedEffects(){var next=timedEffects.Select(e=>new TimedSelfEffectSnapshot(e.Kind,e.Percent,e.Kind=="attack-reduction"?e.RemainingCommands:checked(e.RemainingCommands+1))).ToArray();timedEffects.Clear();timedEffects.AddRange(next);}
         public int RegenerateAtOwnerReady()
         {
             if(!IsAlive) return 0;
@@ -75,7 +76,7 @@ namespace NewAster.Core
         public int ProtectPhysicalDamage(int damage)
         {
             if(damage<0) throw new ArgumentOutOfRangeException(nameof(damage));
-            return (int)((long)damage*(100-EffectPercent("physical-protection"))/100);
+            return (int)((long)damage*(Math.Max(0,100-EffectPercent("physical-protection")))/100);
         }
     }
 }
