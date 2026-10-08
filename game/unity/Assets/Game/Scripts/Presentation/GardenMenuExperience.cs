@@ -118,7 +118,7 @@ namespace NewAster.Presentation
             if(Btn(1500,138,45,45,"×",interactive && !placing)){gardenPanel=GardenPanel.None;return;}
             bool oldEnabled=GUI.enabled;GUI.enabled=oldEnabled && interactive && !help;
             if(placing){
-                Label(1064,210,470,75,"庭をクリックして接地位置を選択\nX "+previewX.ToString("0.000")+" ／ Y "+previewY.ToString("0.000"),small,Color.white);
+                Label(1064,210,470,75,"X "+previewX.ToString("0.000")+" ／ Y "+previewY.ToString("0.000"),small,Color.white);
                 if(Btn(1064,330,470,55,"この位置を確認"))ProposeHome(new HomeOperation("place",selectedFurniture,garden:garden,zone:HomeData().gardens.Single(g=>g.id==garden).zones[0].id,x:previewX,y:previewY));
                 if(Btn(1064,410,470,55,"配置を撤去"))ProposeHome(new HomeOperation("remove",selectedFurniture));
                 if(Btn(1064,490,470,55,"プレビューを取消"))placing=false;

@@ -338,7 +338,7 @@ namespace NewAster.Presentation
         {
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();DrawAffectionOverlay();DrawOopartOverlay();}finally{RecordMeasuredGui(started);}
+            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -355,6 +355,7 @@ namespace NewAster.Presentation
             if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
             if(modelViewer) { DrawModelViewer(); return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Summoning){DrawKinderExperience();return;}
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Formation){SanctuaryStyles();DrawFormation();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Items){DrawStandaloneItems();return;}
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
@@ -651,11 +652,13 @@ namespace NewAster.Presentation
             if(Btn(790,656,420,62,"読了して戻る",storyPage==pages.Length-1)) CloseStory(true);
         }
         private void CloseStory(bool completed=false) { if(completed && storyId!=null) campaign.Progress.MarkStoryRead(storyId); storyText=null; storyId=null; storyPage=0; Save(); }
+        private Vector2 contextualHelpScroll;
         private void DrawHelp()
         {
-            Modal(); Label(340,185,880,64,"遊び方",heading);
-            Label(340,260,880,370,BookHelpText(),text);
-            if(Btn(340,656,890,62,"閉じる")) help=false;
+            Modal();Label(340,185,880,64,BookHelpTitle(),heading);
+            var body=BookHelpText();float height=Math.Max(370,text.CalcHeight(new GUIContent(body),845)+24);
+            contextualHelpScroll=GUI.BeginScrollView(new Rect(340,260,880,370),contextualHelpScroll,new Rect(0,0,845,height));Label(0,0,845,height,body,text);GUI.EndScrollView();
+            if(Btn(340,656,890,62,"閉じる"))help=false;
         }
         private void DrawKinderGarden()
         {

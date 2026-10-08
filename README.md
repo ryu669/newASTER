@@ -12,7 +12,7 @@ Plan11-2では、9庭の自律生活、二人の交流、10種類の催事、30�
 
 Plan11-3では、人物ごとの好感度Lv／EXP、Lv10の恋人自動成立、繰り返し交流・戦闘EXP、Lvだけで解放する可変回想と、永遠の誓環による上限20→99を追加した。
 
-Plan11-4では、編成枠のオーパーツ装備、5能力のLv成長と累積抽選、独立した最大2効果、パンツァーのバフ延長、編成プリセット、原子的強化と旧セーブ移行を追加した。所持だけの全体補正は廃止した。
+Plan11-4では、編成枠のオーパーツ装備、5能力のLv成長と累積抽選、独立した最大2効果、パンツァーのバフ延長、編成プリセット、原子的強化と旧セーブ移行を追加した。所持だけの全体補正は廃止した。編成は独立したしおりへ移動し、誓女の画像と直下のオーパーツ枠から入れ替える。入れ替えは左に詳細・右に候補を並べ、「決定」で反映する。
 
 ## 起動・ビルド
 
@@ -37,6 +37,7 @@ Core回帰検証9,413項目、Unity C#221ソース、Windowsビルドが合格�
 - [Plan11-2 箱庭生活](docs/production/plan11-2-garden-life.md)
 - [Plan11-3 好感度・恋愛](docs/production/plan11-3-affection.md)
 - [Plan11-4 オーパーツ](docs/production/plan11-4-ooparts.md)
+- [編成・入れ替え画面](docs/production/formation-ui.md)
 - [万物の書UIとオーパーツ](docs/production/book-ui-and-ooparts.md)
 - [ヒロイン追加方法](docs/production/heroine-addition-guide.md)
 - [計画10の台帳・進捗](docs/production/plan10-implementation-plan.md)

@@ -1,0 +1,70 @@
+{
+  "resolution": [
+    1920,
+    1080
+  ],
+  "automatedAssertions": 9413,
+  "unitySources": 225,
+  "playerBuild": "game/Builds/plan11-4/newASTER.exe",
+  "playerSha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+  "buildMarker": "PLAN14_BUILD_PASS 2846532854 bytes",
+  "physicalInputSkippedByUser": true,
+  "frames": [
+    {
+      "view": "formation-ui",
+      "sha256": "eb2867fe0e8e2d6648cac2d08e90bd4345a1c6a437ad1efc7b1a393600eccbde"
+    },
+    {
+      "view": "formation-ui-hero",
+      "sha256": "75282b9bb74794f16e3aa72ad88bc3d7e1bb837064b4a92724b8c4cd7c6ea369"
+    },
+    {
+      "view": "formation-ui-oopart",
+      "sha256": "7fb64564ee60cebb87c47272611c3525ad6c02aa0a39cd72f723a5d16979bb77"
+    },
+    {
+      "view": "formation-ui-oopart-last",
+      "sha256": "da704e00c9eb847effc2495a10853b2abed67100207332bf38e96c530ee7c9c8"
+    },
+    {
+      "view": "formation-ui-hero-saved",
+      "sha256": "53c61c10ac84a12921d25243efc85557ed7122488423c6e16d71042479450c48"
+    },
+    {
+      "view": "formation-ui-oopart-saved",
+      "sha256": "e65c49474ae2d7b16c01b1a321dafcb9a1c8890975ba9a03615824e2c313b5ec"
+    },
+    {
+      "view": "formation-ui-help",
+      "sha256": "452ac8c7e9f4d5763ed9ee79974cde5998e51cb99884c129f2a72e63aac20dd2"
+    },
+    {
+      "view": "formation-ui-hero-help",
+      "sha256": "d37a328af29e4a9ee02c6e148775b1ee0a032a8c7eca45785cdc91e3f81214b9"
+    },
+    {
+      "view": "formation-ui-oopart-help",
+      "sha256": "d03bdf3ea4f5d0bdf0c78baa157e3da800cb258d56be4e3093162db7ea2d3f7b"
+    },
+    {
+      "view": "formation-general",
+      "sha256": "5758262be3dbf22df9da07400a1f663be18aa26d8ecb929d6d9045af5581eb6c"
+    },
+    {
+      "view": "tree-grown",
+      "sha256": "1cd328d98193dcf2ea13e7c5ac5b118eb0b221d22c226dbe130bedfec6434a4d"
+    },
+    {
+      "view": "battle-targets",
+      "sha256": "4fb15b66b931630071af4c3b019e32334f86c5c761dd630e1e9e9c8a4d653ad7"
+    },
+    {
+      "view": "book-items",
+      "sha256": "3f08fbacbc8736cff2cf3c6894c39ad2700490c9bb750cfce3b83179dab0117d"
+    },
+    {
+      "view": "skill",
+      "sha256": "f3e29255e42b91a96e1fb8cbb08c629457a5005a5200abc7b771c10b7ed2f4f3"
+    }
+  ]
+}

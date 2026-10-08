@@ -115,7 +115,7 @@ namespace NewAster.Presentation
                 string title=!open && ev.visibility=="hint"?"これから紡ぐ物語":ProductionStoryActive?ProductionStoryTitle(ev.id):ev.id;
                 if(GrowthButton(0,i*54,995,48,(read?"回想":open?"未読":"Lv"+ev.requiredAffectionLevel+"で解放")+" ／ "+title,open)){affectionPanel=false;gardenLifePanel=null;BeginAdv(ev.id,read);}
             }GUI.EndScrollView();
-            Label(285,625,1030,40,affectionMessage??"戦闘能力への補正はありません。Lv21以降は交流を重ねた証です。",growthSmallStyle);
+            Label(285,625,1030,40,affectionMessage??"",growthSmallStyle);
             if(GrowthButton(285,700,650,55,"永遠の誓環を使用する ／ 所持 "+save.growth.eternalRings+"個",a.level==20 && a.levelCap==20 && save.growth.eternalRings>0,true)){affectionConfirmKind="ring-use";affectionConfirm=true;}
             if(GrowthButton(965,700,350,55,"特別交換へ")){affectionPanel=false;affectionShop=true;}
         }

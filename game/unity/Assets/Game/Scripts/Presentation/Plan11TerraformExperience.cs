@@ -114,7 +114,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(720,640,650,60,"警告を確認して適用する"))TerraformCommit();
             }else{
                 Label(230,300,1140,60,"新天地の変更を保存待ち",growthTitleStyle);
-                Label(230,405,1140,160,terraformMessage??"同じ変更を保存します。TPの消費・発見記録は保存完了時に確定します。",growthTextStyle);
+                Label(230,405,1140,160,terraformMessage??"",growthTextStyle);
                 if(GrowthButton(230,640,1140,60,"同じ変更の保存を再試行"))TerraformCommit();
             }
         }

@@ -7,8 +7,8 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool bookSystemOpen, activeRelicHunt;
-        private static readonly BookBookmark[] RibbonOrder={BookBookmark.Colossi,BookBookmark.Heroines,BookBookmark.Gardens,BookBookmark.Stories,BookBookmark.Summoning,BookBookmark.Items,BookBookmark.RelicHunt,BookBookmark.NewWorld,BookBookmark.PossibleWorlds};
-        private static readonly string[] RibbonNames={"巨神獣","誓女","庭","物語","召喚","アイテム","レリックハント","新天地","可能世界"};
+        private static readonly BookBookmark[] RibbonOrder={BookBookmark.Colossi,BookBookmark.Heroines,BookBookmark.Formation,BookBookmark.Gardens,BookBookmark.Stories,BookBookmark.Summoning,BookBookmark.Items,BookBookmark.RelicHunt,BookBookmark.NewWorld,BookBookmark.PossibleWorlds};
+        private static readonly string[] RibbonNames={"巨神獣","誓女","編成","庭","物語","召喚","アイテム","レリックハント","新天地","可能世界"};
         private Texture2D bookEmblemAtlas;
         private void DrawBookEmblem(Rect rect,int index)
         {
@@ -23,20 +23,19 @@ namespace NewAster.Presentation
             GrowthStyles();GrowthFill(0,0,1600,88,ink);
             int current=Array.IndexOf(RibbonOrder,book.Bookmark);if(current<0)current=0;
             DrawRibbon(current,new Rect(4,0,46,Math.Max(180,68+RibbonNames[current].Length*27)),true);
-            for(int i=0;i<RibbonOrder.Length;i++)if(i!=current)DrawRibbon(i,new Rect(552+i*100,0,48,104),false);
-            bool prior=GUI.enabled;GUI.enabled=prior && !AffectionModalVisible && !OopartModalVisible && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen && !gardenDiscardConfirm && gardenPresetShortage==null && gardenLifeError==null && gardenLifeRequest==null;
-            if(GrowthButton(1490,14,64,52,"？",true)){help=true;PlayProductionUiSound("決定");}
+            for(int i=0;i<RibbonOrder.Length;i++)if(i!=current)DrawRibbon(i,new Rect(452+i*100,0,48,104),false);
+            bool prior=GUI.enabled;GUI.enabled=prior && !help;
+            if(GrowthButton(1490,14,64,52,"？",true)){help=true;contextualHelpScroll=Vector2.zero;PlayProductionUiSound("決定");}
             GUI.enabled=prior;
             if(!help && !bookSystemOpen && book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.Stories && book.Bookmark!=BookBookmark.RelicHunt && book.Bookmark!=BookBookmark.Gardens && !formationOpen && !(book.Bookmark==BookBookmark.Heroines && growthScreen==GrowthScreen.Weapons)){if(GrowthButton(1060,842,215,40,"システム",CanOpenBookSystem))bookSystemOpen=true;}
-            if(help){drawingModal=true;DrawHelp();}
-            else if(bookSystemOpen)DrawBookSystem();
+            if(bookSystemOpen)DrawBookSystem();
         }
         private void DrawRibbon(int index,Rect rect,bool selected)
         {
             var color=selected?new Color(.36f,.26f,.16f):new Color(.13f+.025f*(index%3),.20f,.25f);
             GrowthFill(rect.x,rect.y,rect.width,rect.height-14,color);
             for(int row=0;row<14;row++){float inset=row*rect.width/28;GrowthFill(rect.x+inset,rect.y+rect.height-14+row,rect.width-inset*2,1,color);}
-            DrawBookEmblem(new Rect(rect.x+5,8,rect.width-10,rect.width-10),index);
+            DrawBookEmblem(new Rect(rect.x+5,8,rect.width-10,rect.width-10),index==2?12:index>2?index-1:index);
             if(selected){var verticalStyle=new GUIStyle(growthTitleStyle){fontSize=21,alignment=TextAnchor.MiddleCenter};for(int i=0;i<RibbonNames[index].Length;i++)Label(rect.x,52+i*27,rect.width,27,RibbonNames[index][i].ToString(),verticalStyle,gold);}
             bool enabled=BookInputAllowed && !book.IsTransitioning && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen;
             bool prior=GUI.enabled;GUI.enabled=prior&&enabled;
@@ -68,20 +67,6 @@ namespace NewAster.Presentation
             if(GrowthButton(150,130,590,58,"オーパーツ",relicRequest==null,collectionTab!=2))collectionTab=1;
             if(GrowthButton(790,130,640,58,"素材",relicRequest==null,collectionTab==2))collectionTab=2;
             if(relicRequest!=null)DrawRelicConfirmation();else if(collectionTab==2)DrawMaterialInventory();else DrawModernRelics();
-        }
-        private string BookHelpText()
-        {
-            string common="上部の画像しおりでページを切り替えます。開いているしおりは左側に移動し、名前が縦に表示されます。ほかのしおりの位置は固定です。\n下部の ‹ › で対象を変更、詳細／概要で同じ対象の情報を切り替えます。\n保存・表紙への移動は下部のシステムから。操作確定・討伐後は自動保存します。\n\n";
-            if(encounter!=null)return "対象の部位を選び、READYの誓女のスキルを使います。\nジョブの固有資源は操作メニューで確認できます。\n部位破壊で敵を弱体化。チェイン率は装備では変わりません。\nEscで一時停止。撤退は確認してから実行します。";
-            switch(book.Bookmark){
-                case BookBookmark.Heroines:return common+"顔画像から誓女を選択。レベル・覚醒・誓いで育成します。\nスキル・特性の画像は詳細を開きます。神器の木は枝上のノードを選び、素材と効果を確認して解放・強化・装備します。\n装備は神器1つ、オーパーツ1つ。Escで前の画面へ。";
-                case BookBookmark.Items:return common+"オーパーツ／素材を切り替えます。装備先は所持している全誓女から選べます。\n同名の抽選値は各項目の高値を保持。攻撃80／100、HP800／1000以上から直接強化できます。Lv上限120。\nジョブ適性は一致したジョブのみ。時計は敵の行動完了を1ターンと数え、戦闘ごとに戻ります。";
-                case BookBookmark.Summoning:return common+"石・チケットで召喚し、ポイントで交換できます。費用と提供割合は召喚前に確認できます。保存成功後に結果が確定します。";
-                case BookBookmark.Stories:return common+"章ごとに詩を集めると物語が解放されます。読む／再開で本文へ、回想で読了した章を読み直します。";
-                case BookBookmark.Gardens:return common+"家具・人物・催事・環境を下部メニューで選びます。人物の「話す」は短い反応、「観察」は現在の暮らしを説明します。\n模様替えは家具を選んで庭をクリックし、編集パネルから確定します。戻す／やり直すは50操作まで。取消では保存しません。\n生活記録は新天地、鑑賞ではフレームと動作の停止を選べます。";
-                case BookBookmark.NewWorld:case BookBookmark.PossibleWorlds:return common+"領域を選び、到達Lv・深度記録・極みを設定します。Lv6への変更は確認を表示します。可能世界では記述が生む現象を確認できます。";
-                default:return common+"挑戦レベルを選んで5人で出撃します。通常討伐の遺物は5%で1回抽選。レリックハントは各35%、レベル帯に応じ1〜5回抽選。\n部位破壊後に本体を攻めると安全です。Lv45以上は極大技に注意。アステリアは全7領域Lv3が必要です。";
-            }
         }
         private void DrawEncounterBookPage()
         {

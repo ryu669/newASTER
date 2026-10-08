@@ -85,7 +85,7 @@ namespace NewAster.Presentation
         private void DrawSanctuaryHomeConfirmation(string cost)
         {
             GrowthFill(0,0,1600,900,new Color(0,0,0,.65f));GrowthFrame(374,262,852,390);Label(412,289,770,48,homeOperation.Kind=="formation" || homeOperation.Kind=="commander" || homeOperation.Kind=="sniper-support"?"編成・役割の変更を確認":"神器の変更を確認",growthTitleStyle,gold);
-            Label(412,351,772,180,HomeOperationSummary()+"\n"+(homeOperation.Kind=="equip"?"装備変更は無消費です。":cost)+"\n"+(homeError??"保存成功後に確定。取消では素材を消費しません。"),new GUIStyle(growthTextStyle){fontSize=18});
+            Label(412,351,772,180,HomeOperationSummary()+"\n"+(homeOperation.Kind=="equip"?"":cost)+"\n"+(homeError??""),new GUIStyle(growthTextStyle){fontSize=18});
             if(GrowthButton(412,548,500, sixty,formalCampaign.HasPending?"同じ内容で保存を再試行":"この内容で確定する",true,true))ConfirmHome();
             if(GrowthButton(930,548,256, sixty,"取消",!formalCampaign.HasPending)){homeRequest=null;homeOperation=null;homeError=null;}
         }

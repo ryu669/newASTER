@@ -16,17 +16,17 @@ namespace NewAster.Presentation
         private void ProposeOopart(string kind,string target=null,int count=1,string stat=null){if(oopartRequest!=null || formalCampaign.HasPending || encounter!=null)return;oopartRequest=new OopartRequest(Guid.NewGuid().ToString("N"),formalCampaign.Revision,kind,target,oopartSlot,count,stat);oopartError=null;}
         private void CommitOopart()
         {
-            try{var request=oopartRequest;var result=formalCampaign.CommitOopart(request,CollectionData(),combatDefinitions.FormationIds,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign,HomeData());if(result==GrowthCommitResult.SaveFailed){oopartError="保存できませんでした。同じ内容で再試行してください。";return;}oopartRequest=null;oopartError=null;oopartMessage="変更を保存しました。次の出撃から反映します。";formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);lifeSnapshotCached=null;}catch(Exception e)when(e is ArgumentException || e is InvalidOperationException || e is System.IO.IOException){oopartError=e.Message;if(!formalCampaign.HasPending)oopartRequest=null;}
+            try{var request=oopartRequest;var result=formalCampaign.CommitOopart(request,CollectionData(),combatDefinitions.FormationIds,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign,HomeData());if(result==GrowthCommitResult.SaveFailed){oopartError="保存できませんでした。同じ内容で再試行してください。";return;}oopartRequest=null;oopartError=null;oopartMessage="保存済み";if(book.Bookmark==BookBookmark.Formation && (request.Kind=="equip" || request.Kind=="clear-slot")){oopartPanel=false;formationLayer=0;}formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);lifeSnapshotCached=null;}catch(Exception e)when(e is ArgumentException || e is InvalidOperationException || e is System.IO.IOException){oopartError=e.Message;if(!formalCampaign.HasPending)oopartRequest=null;}
         }
         private bool CloseOoparts(){if(oopartRequest!=null){if(!formalCampaign.HasPending)oopartRequest=null;return true;}if(!oopartPanel)return false;oopartPanel=false;return true;}
         private void DrawOopartInventoryPage()
         {
             var s=OopartSnapshot();var o=s.collection.ooparts;int pages=Math.Max(1,(o.progress.Length+3)/4);collectionRelicPage=Mathf.Clamp(collectionRelicPage,0,pages-1);
-            if(o.progress.Length==0)Label(190,300,1200,90,"まだオーパーツを所持していません。巨神獣討伐・レリックハントで入手できます。",growthTextStyle);
+            if(o.progress.Length==0)Label(190,300,1200,90,"未所持",growthTextStyle);
             foreach(var pair in o.progress.Skip(collectionRelicPage*4).Take(4).Select((p,i)=>new{p,i})){
                 var d=CollectionData().Oopart(pair.p.oopartId);float y=220+pair.i*130;GrowthFrame(150,y,1280,120);DrawBookEmblem(new Rect(168,y+15,65,65),6);Label(249,y+10,750,35,d.name+" ／ Lv"+pair.p.level,growthTextStyle);Label(249,y+46,750,30,StatText(OopartService.Fixed(pair.p,d)),new GUIStyle(growthSmallStyle){fontSize=16});
-                int place=Array.FindIndex(o.slots,x=>x.equippedOopartId==d.id);Label(249,y+82,750,27,place<0?"未装備 ／ 1種類につき1個":"第"+(place+1)+"枠に装備 ／ 人物入替後も保持",growthSmallStyle);
-                if(GrowthButton(1025,y+28,380,60,"詳細・強化・装備先",BookInputAllowed))OpenOoparts(place<0?formationSlot:place,d.id);
+                int place=Array.FindIndex(o.slots,x=>x.equippedOopartId==d.id);Label(249,y+82,750,27,place<0?"未装備":"第"+(place+1)+"枠",growthSmallStyle);
+                if(GrowthButton(1025,y+28,380,60,"詳細",BookInputAllowed))OpenOoparts(place<0?formationSlot:place,d.id);
             }
             if(GrowthButton(150,753,190,40,"‹",collectionRelicPage>0))collectionRelicPage--;Label(365,757,160,32,(collectionRelicPage+1)+" / "+pages,growthSmallStyle);if(GrowthButton(555,753,190,40,"›",collectionRelicPage+1<pages))collectionRelicPage++;
         }
@@ -41,7 +41,7 @@ namespace NewAster.Presentation
         private string OopartComparison(FormalCampaignSave save,OopartProgress selected)
         {
             var slots=save.collection.ooparts.slots;string form=slots[oopartSlot].heroineFormId;
-            if(form==null)return "空枠の装備を保持します。隊員を置くまで効果はありません。";
+            if(form==null)return "—";
             string key=save.revision+"|"+oopartSlot+"|"+selected.oopartId+"|"+slots[oopartSlot].equippedOopartId;
             if(oopartCompareKey==key)return oopartCompareText;
             var ids=PreviewFormation(form);int actor=Array.IndexOf(ids,form);
@@ -62,7 +62,7 @@ namespace NewAster.Presentation
         }
         private string OopartOperationSummary(FormalCampaignSave save)
         {
-            if(oopartRequest.Kind!="level" && oopartRequest.Kind!="direct")return "無料で変更します。装備は編成枠に残ります。";
+            if(oopartRequest.Kind!="level" && oopartRequest.Kind!="direct")return oopartRequest.Kind=="equip"?(oopartRequest.Target==null?"未装備":CollectionData().Oopart(oopartRequest.Target).name):oopartRequest.Kind=="preset-load" || oopartRequest.Kind=="preset-save"?"編成 "+(oopartPresetIndex+1):"第"+(oopartRequest.Slot+1)+"枠";
             var next=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(save));
             try{
                 var old=save.collection.ooparts.progress.Single(p=>p.oopartId==oopartRequest.Target);oopartRequest.Apply(next,CollectionData(),CurrentFormation());var changed=next.collection.ooparts.progress.Single(p=>p.oopartId==oopartRequest.Target);
@@ -79,7 +79,7 @@ namespace NewAster.Presentation
                 string cost=OopartOperationSummary(s);
                 Label(160,285,1280,130,"変更内容："+(oopartRequest.Kind=="direct"?StatName(oopartRequest.Stat)+"の直接強化":oopartRequest.Kind=="level"?"Lv ＋"+(oopartRequest.Count==120?"MAX":oopartRequest.Count.ToString()):oopartRequest.Kind=="equip"?"装備変更":oopartRequest.Kind=="clear-slot"?"隊員を外す":oopartRequest.Kind=="preset-save"?"編成プリセット保存":"編成プリセット読込")+"\n"+cost,growthTextStyle);
                 if(oopartError!=null)Label(160,445,1280,90,oopartError,growthSmallStyle);
-                if(GrowthButton(160,650,620, sixty,formalCampaign.HasPending?"同じ内容で保存を再試行":"確定して保存",true,true))CommitOopart();if(GrowthButton(820,650,620, sixty,"取消",!formalCampaign.HasPending))oopartRequest=null;return;
+                if(GrowthButton(160,650,620, sixty,formalCampaign.HasPending?"再試行":"確定して保存",true,true))CommitOopart();if(GrowthButton(820,650,620, sixty,"取消",!formalCampaign.HasPending))oopartRequest=null;return;
             }
             string equipped=o.slots[oopartSlot].equippedOopartId;Label(95,188,1170,23,"現在装備："+(equipped==null?"なし":CollectionData().Oopart(equipped).name),new GUIStyle(growthSmallStyle){fontSize=16});
             if(GrowthButton(1290,150,210,42,"閉じる")){oopartPanel=false;return;}
@@ -91,14 +91,14 @@ namespace NewAster.Presentation
             for(int i=0;i<o.progress.Length;i++){var p=o.progress[i];var d=CollectionData().Oopart(p.oopartId);int owner=Array.FindIndex(o.slots,x=>x.equippedOopartId==p.oopartId);if(GrowthButton(0,i*66,410,60,d.name+" ／ Lv"+p.level+"\n"+(owner<0?"未装備":"第"+(owner+1)+"枠に装備"),true,selectedOopart==p.oopartId))selectedOopart=p.oopartId;}GUI.EndScrollView();
             string currentForm=o.slots[oopartSlot].heroineFormId;
             if(GrowthButton(95,768,210,40,"装備を外す",o.slots[oopartSlot].equippedOopartId!=null))ProposeOopart("equip");if(GrowthButton(320,768,215,40,"隊員を外す",currentForm!=null))ProposeOopart("clear-slot");
-            var selected=o.progress.SingleOrDefault(p=>p.oopartId==selectedOopart);if(selected==null){Label(570,300,875,80,"所持するオーパーツを選んでください。",growthTextStyle);return;}var def=CollectionData().Oopart(selected.oopartId);var fixedStats=def.levelStats.At(selected.level);
+            var selected=o.progress.SingleOrDefault(p=>p.oopartId==selectedOopart);if(selected==null){Label(570,300,875,80,"未所持",growthTextStyle);return;}var def=CollectionData().Oopart(selected.oopartId);var fixedStats=def.levelStats.At(selected.level);
             Label(570,275,920,50,def.name+" ／ Lv"+selected.level+" / 120",new GUIStyle(growthTitleStyle){fontSize=28});
             for(int i=0;i<5;i++){string stat=StatValues.Names[i];var r=def.randomStats.Single(v=>v.stat==stat);float y=327+i*38;int max=OopartService.Maximum(selected,r);Label(570,y,655,34,StatName(stat)+"　Lv固定 +"+fixedStats.Get(stat)+" ／ 累積 +"+selected.accumulatedRandomStats.Get(stat)+" / "+max,new GUIStyle(growthSmallStyle){fontSize=18});bool possible=OopartService.DirectEligible(selected,r) && s.growth.nectar>=def.directNectarCost && HomeRules.Balance(s,def.directMaterialId)>=def.directMaterialCost;if(GrowthButton(1250,y,230,32,"直接強化",possible))ProposeOopart("direct",selected.oopartId,stat:stat);}
             string form=o.slots[oopartSlot].heroineFormId;var context=new OopartEffectContext{inBattle=false,jobId=form==null?null:combatDefinitions.Hero(form).jobId,formationJobs=o.slots.Where(i=>i.heroineFormId!=null).Select(i=>combatDefinitions.Hero(i.heroineFormId).jobId).ToArray()};
-            for(int i=0;i<def.effects.Length;i++){var e=def.effects[i];bool? active=OopartEffectEngine.Active(e,context);if(active==true && (e.scalingType!="constant" || e.durationClock>0))active=null;Label(570,527+i*58,915,54,EffectText(e)+"\n"+(form==null?"空枠：効果なし":active==null?"戦闘中に判定":active.Value?"有効":"条件不一致：この効果のみ無効")+" ／ "+(e.conditions.Length==0?"常時":string.Join(" かつ ",e.conditions.Select(OopartConditionText))),new GUIStyle(growthSmallStyle){fontSize=16});}
+            for(int i=0;i<def.effects.Length;i++){var e=def.effects[i];bool? active=OopartEffectEngine.Active(e,context);if(active==true && (e.scalingType!="constant" || e.durationClock>0))active=null;Label(570,527+i*58,915,54,EffectText(e)+"\n"+(form==null?"空枠":active==null?"戦闘中に判定":active.Value?"有効":"無効")+" ／ "+(e.conditions.Length==0?"常時":string.Join(" かつ ",e.conditions.Select(OopartConditionText))),new GUIStyle(growthSmallStyle){fontSize=16});}
             Label(570,652,915,44,OopartComparison(s,selected),new GUIStyle(growthSmallStyle){fontSize=17});
             bool elsewhere=o.slots.Where((v,i)=>i!=oopartSlot).Any(v=>v.equippedOopartId==selected.oopartId);
-            if(GrowthButton(570,707,330,45,elsewhere?"他の編成枠で装備中":"この枠に装備",!elsewhere && o.slots[oopartSlot].equippedOopartId!=selected.oopartId,true))ProposeOopart("equip",selected.oopartId);
+            if(GrowthButton(570,707,330,45,elsewhere?"他の編成枠で装備中":"装備",!elsewhere && o.slots[oopartSlot].equippedOopartId!=selected.oopartId,true))ProposeOopart("equip",selected.oopartId);
             int balance=FormalRelicRules.MaterialBalance(s.collection,CollectionData().relics.Single(r=>r.id==selected.oopartId));int[] amounts={1,10,120};for(int i=0;i<3;i++)if(GrowthButton(920+i*190,707,175,45,amounts[i]==120?"Lv MAX":"Lv ＋"+amounts[i],selected.level<120 && balance>=selected.level))ProposeOopart("level",selected.oopartId,amounts[i]);
             if(oopartError!=null || oopartMessage!=null)Label(570,772,915,35,oopartError??oopartMessage,growthSmallStyle);
         }

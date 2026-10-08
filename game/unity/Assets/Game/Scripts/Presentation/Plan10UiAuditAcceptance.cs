@@ -29,6 +29,7 @@ namespace NewAster.Presentation {
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
+   else if(view.StartsWith("formation-ui",StringComparison.Ordinal))PrepareFormationUiCapture(view);
    else if(view.StartsWith("oopart-",StringComparison.Ordinal))PrepareOopartCapture(view);
    else if(view.StartsWith("affection-",StringComparison.Ordinal))PrepareAffectionCapture(view);
    else if(view.StartsWith("garden-life",StringComparison.Ordinal))PrepareGardenLifeCapture(view);
@@ -47,7 +48,8 @@ namespace NewAster.Presentation {
     ReadProductionDiagnosticScene("heroine.shangrila.poem-chapter.1",false);BeginAdv("heroine.shangrila.poem-chapter.1",true);AdvanceAdv();AdvanceAdv();advBacklog=view=="adv-backlog";advHelp=!advBacklog;
    }
    else PrepareHeroineSanctuaryCapture(args.Concat(new[]{"-heroineView",view,"-heroineId","heroine.shangrila"}).ToArray());
-   if(formationOpen || heroineRosterOpen){book.RequestSubject(BookBookmark.Heroines,formationOpen?(CurrentFormation()[formationSlot]??"heroine.slayer"):"heroine.slayer");book.CompleteTransition();}
+   if(formationOpen){book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();}
+   else if(heroineRosterOpen){book.RequestSubject(BookBookmark.Heroines,"heroine.slayer");book.CompleteTransition();}
    Debug.Log("PLAN10_UI_AUDIT_PLAYER_PASS view="+view+" isolated=true physicalInput=0");
   }
  }
