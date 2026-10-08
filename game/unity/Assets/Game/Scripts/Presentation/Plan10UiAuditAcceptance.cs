@@ -29,6 +29,7 @@ namespace NewAster.Presentation {
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
+   else if(view.StartsWith("affection-",StringComparison.Ordinal))PrepareAffectionCapture(view);
    else if(view.StartsWith("garden-life",StringComparison.Ordinal))PrepareGardenLifeCapture(view);
    else if(view.StartsWith("garden-",StringComparison.Ordinal)){
     string garden=HomeData().gardens[0].id;ProposeHome(new HomeOperation("occupant","heroine.shangrila",garden:garden,x:.5f,y:.65f));ConfirmHome();book.ChangeBookmark(BookBookmark.Gardens);book.CompleteTransition();selectedResident="heroine.shangrila";PrepareGardenMenuCapture(view.Substring(7));

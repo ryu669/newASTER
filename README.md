@@ -10,11 +10,13 @@ Plan11-2では、9庭の自律生活、二人の交流、10種類の催事、30�
 
 ![追加した4形態の実行画面](docs/production/images/four-heroines-game-comparison.jpg)
 
+Plan11-3では、人物ごとの好感度Lv／EXP、Lv10の恋人自動成立、繰り返し交流・戦闘EXP、Lvだけで解放する可変回想と、永遠の誓環による上限20→99を追加した。
+
 ## 起動・ビルド
 
-ローカルの最新実行ファイルは `game/Builds/plan11-2/newASTER.exe`。実行ファイルと元動画はGitへ同梱しない。
+ローカルの最新実行ファイルは `game/Builds/plan11-3/newASTER.exe`。実行ファイルと元動画はGitへ同梱しない。
 
-Unity **6000.6.3f1**で `game/unity` を開き、`Assets/Game/Scenes/Bootstrap.unity` を再生する。WindowsビルドはEditorの `Plan12Build.Build` を実行する。通常入口は `Combat/battle-plan10-shangrila.json` と `Story/plan10-shangrila-story-content.json`。
+Unity **6000.6.3f1**で `game/unity` を開き、`Assets/Game/Scenes/Bootstrap.unity` を再生する。WindowsビルドはEditorの `Plan13Build.Build` を実行する。通常入口は `Combat/battle-plan10-shangrila.json` と `Story/plan10-shangrila-story-content.json`。
 
 万物の書の「誓女・育成」から「新しい天使を迎える」で計画10の追加形態へ無償加入できる。所持する異なる人物から5人を編成し、巨神獣のページから出撃する。衣装違いは好感度・恋人関係を共有し、育成・神器・読書進行は形態別に保持する。
 
@@ -26,11 +28,12 @@ Unity **6000.6.3f1**で `game/unity` を開き、`Assets/Game/Scenes/Bootstrap.u
 python tools/validate-plan10-doc-links.py
 ```
 
-Core回帰検証9,248項目、Unity C#206ソース、Windowsビルドが合格。UI採取は隔離した保存データの自動シナリオで、物理マウス操作による試験とは区別する。最新ビルドの後にPlayer検証を実行し、同じ出力先のビルドと撮影を同時に行わない。
+Core回帰検証9,300項目、Unity C#213ソース、Windowsビルドが合格。UI採取は隔離した保存データの自動シナリオで、物理マウス操作による試験とは区別する。最新ビルドの後にPlayer検証を実行し、同じ出力先のビルドと撮影を同時に行わない。
 
 - [文書索引と定義元](docs/README.md)
 - [計画10の実装とUI確認](docs/production/plan10-four-heroines-and-ui.md)
 - [Plan11-2 箱庭生活](docs/production/plan11-2-garden-life.md)
+- [Plan11-3 好感度・恋愛](docs/production/plan11-3-affection.md)
 - [万物の書UIとオーパーツ](docs/production/book-ui-and-ooparts.md)
 - [ヒロイン追加方法](docs/production/heroine-addition-guide.md)
 - [計画10の台帳・進捗](docs/production/plan10-implementation-plan.md)

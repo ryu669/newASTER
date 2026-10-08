@@ -1,0 +1,141 @@
+{
+  "plan": "Plan11-3",
+  "date": "2026-10-08",
+  "branch": "codex/plan11-3-affection",
+  "core": {
+    "assertions": 9300,
+    "requiredTests": "AF-01..AF-14",
+    "unitySourceFiles": 213,
+    "log": "tmp/plan11-3-regression.log",
+    "fullProgression": "Lv0 -> 20 -> ring purchase/use -> 99; durable serialization",
+    "atomicRetry": "interaction, battle, discovery, ring purchase/use and Lv99 acknowledgement"
+  },
+  "player": {
+    "build": "game/Builds/plan11-3/newASTER.exe",
+    "assemblySha256": "98882e2f44410e5a5afd0f88c21803493dd0795e501fdcccbd206500f7fbb2dc",
+    "buildLog": "tmp/plan11-3-build.log",
+    "nativeLog": "tmp/plan11-3-native.log",
+    "captureMode": "isolated automatic native Player scenarios; visually reviewed",
+    "views": [
+      {
+        "view": "affection-detail",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "65d2d61278f452b52a990a1598ed07b2fa545401b71e1023475538f1d02e9695",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-detail.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-detail.log"
+      },
+      {
+        "view": "affection-lover",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "4df6a40e01567c4396da69e1108a8090d02fa2885e909be300d3712e5280bcb2",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-lover.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-lover.log"
+      },
+      {
+        "view": "affection-cap20",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "5a1b64fb67e4a1f6ce361b51d0c2e8621c391bc06e32923242992ca5581ccc31",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-cap20.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-cap20.log"
+      },
+      {
+        "view": "affection-cap99",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "15d85ece9f8df0eff9feebc9676ae23fd136e539bc1fadd5d72f876185272b4d",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-cap99.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-cap99.log"
+      },
+      {
+        "view": "affection-shop",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "546250e15e2fd8667ac4354a680b443f6f82eded63284018e261eb4f0967d247",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-shop.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-shop.log"
+      },
+      {
+        "view": "affection-confirm",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "5183d2147db934c74cc1fce97607a74cc0c7ba8f6b162e3f1cd457ce9e9e9c9c",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-confirm.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-confirm.log"
+      },
+      {
+        "view": "affection-unread",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "5a1b64fb67e4a1f6ce361b51d0c2e8621c391bc06e32923242992ca5581ccc31",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-unread.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-unread.log"
+      },
+      {
+        "view": "affection-max99",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "3ad7db5ed3b537e2e6c4b9049405a25d4cba251418ddcc6dc5f5c70a20864734",
+        "path": "tmp/plan10-ui/player-1600x900/ui-affection-max99.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-affection-max99.log"
+      },
+      {
+        "view": "garden-life",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "8c609fa774114f8244cd4f83d9ee8d09035f7c8d719fac319ff8592330376ab0",
+        "path": "tmp/plan10-ui/player-1600x900/ui-garden-life.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-garden-life.log"
+      },
+      {
+        "view": "battle-result",
+        "size": [
+          1600,
+          900
+        ],
+        "sha256": "75c6e257097e52f21b5f740d2c4654dd02193dad282200e4fc86125aef576b7c",
+        "path": "tmp/plan10-ui/player-1600x900/ui-battle-result.png",
+        "playerLog": "tmp/plan10-ui/player-1600x900/ui-battle-result.log"
+      }
+    ]
+  },
+  "physicalMouse": {
+    "status": "skipped",
+    "reason": "User explicitly requested skipping physical interaction confirmation",
+    "notClaimedAsPassed": true
+  },
+  "originalRing": {
+    "tool": "image_gen.imagegen",
+    "mode": "built-in generate",
+    "prompt": "Use case: stylized-concept. Asset type: production fantasy RPG inventory icon, one original Eternal Vow Ring. One elegant gold ring with intertwined infinity-shaped filigree, a luminous blue-white star gemstone and subtle tiny wing motifs. Three-quarter view with the circular band clearly visible, readable silhouette at 64 pixels, sophisticated painted anime fantasy item art matching a navy and antique-gold illustrated book UI. Single isolated item, centered, generous transparent margins, no characters, no scenery, no box, no lettering or numbers, no logo, no border. Truly transparent RGBA background, native highest available resolution; preserve delicate gold details and gemstone highlights.",
+    "originalGeneratedPath": "C:/Users/nishi/.codex/generated_images/01a11600-4637-75e3-97c8-084f0a4779f3/exec-677abb4f-2932-4643-907c-3dfc4c6aba6b.png",
+    "sourcePath": "game/art-source/affection-v1/eternal-vow-ring-v1.png",
+    "resourcePath": "UI/eternal-vow-ring-v1",
+    "sourcePixelsModified": false,
+    "sha256": "50f81e8e0132657801441224d96ea1747e9826317888b7231908b5ade37cd2e4",
+    "nativeSize": [
+      1289,
+      1221
+    ]
+  }
+}

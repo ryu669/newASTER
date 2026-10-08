@@ -89,7 +89,7 @@ namespace NewAster.Core
                 TerraformRules.Synchronize(next,catalog);
                 next.growth.receipts=next.growth.receipts.Concat(new[]{new GrowthReceipt {transactionId=request.Id,signature=request.Signature}}).ToArray();
                 next.growth.revision=checked(next.growth.revision+1);next.revision=checked(next.revision+1);
-                if(homeCatalog!=null){homeCatalog.Validate();HomeConditions.Refresh(next,homeCatalog);next.home?.ValidateContent(homeCatalog,next);}else if(next.home!=null)throw new ArgumentException("Home conditions must join the battle transaction.");
+                if(homeCatalog!=null){homeCatalog.Validate();if(next.affection!=null)AffectionRewardService.Battle(next,homeCatalog,b.formationIds,r.reason);HomeConditions.Refresh(next,homeCatalog);next.home?.ValidateContent(homeCatalog,next);}else if(next.home!=null)throw new ArgumentException("Home conditions must join the battle transaction.");
                 next=Copy(next);next.Validate();pending=next;pendingBattleEnd=request;
             }
             if(!Persist(pending,save))return GrowthCommitResult.SaveFailed;

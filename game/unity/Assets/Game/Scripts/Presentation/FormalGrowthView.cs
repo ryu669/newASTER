@@ -13,6 +13,7 @@ namespace NewAster.Presentation
         {
             if(value==null)throw new ArgumentNullException(nameof(value));string text=JsonUtility.ToJson(value,true);
             if(value.home==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"home");
+            if(value.affection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"affection");
             if(value.gardenLife==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"gardenLife");
             if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
             if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
@@ -27,6 +28,7 @@ namespace NewAster.Presentation
             if(!FormalCampaignJsonShape.HasRootMember(text,"previousNarrative") || FormalCampaignJsonShape.RootMemberIsNull(text,"previousNarrative"))value.previousNarrative=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"gardenLife") || FormalCampaignJsonShape.RootMemberIsNull(text,"gardenLife"))value.gardenLife=null;
+            if(!FormalCampaignJsonShape.HasRootMember(text,"affection") || FormalCampaignJsonShape.RootMemberIsNull(text,"affection"))value.affection=null;
             GardenLifeCatalog.NormalizeOptionalFields(value.gardenLife);
             if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
             if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
@@ -89,6 +91,7 @@ namespace NewAster.Presentation
         {
             lifeSnapshotCached=null;gardenLifeRuntime?.Stop();gardenLifeRuntime=null;StopLifeAudio();
             if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
+            if(ProductionStoryActive){AffectionSaveAdapter.Migrate(unified,HomeData());AffectionEventResolver.Refresh(unified,HomeData());AffectionSaveAdapter.ValidateContent(unified,HomeData());}
             unified.collection?.ValidateContent(SelectCollectionCatalog());
             unified.home?.ValidateContent(HomeData(),unified);
             unified.gardenLife?.ValidateContent(unified,HomeData());

@@ -28,7 +28,7 @@ public static class Plan9StoryTests
         reject(p=>p.chapters.First(c=>c.ownerId==Heroes[0]).poems[0].reason="");
         reject(p=>{var c=p.chapters.First(v=>v.ownerId==Heroes[0]);c.poems[1].sourcePoemId=c.poems[0].sourcePoemId;});
         reject(p=>{var c=p.chapters.First(v=>v.ownerId==WorldCatalog.ColossusIds[0]);c.poems[0].sourcePoemId="unexpected";});
-        reject(p=>p.events=null);reject(p=>p.events=p.events.Take(24).ToArray());reject(p=>p.events[0]=null);
+        reject(p=>p.events=null);var variableEvents=fresh();variableEvents.events=variableEvents.events.Take(24).ToArray();variableEvents.Validate(Heroes,WorldCatalog.ColossusIds.ToArray());check(variableEvents.events.Length==24,"Production narrative accepts variable event counts");reject(p=>p.events[0]=null);
         reject(p=>p.events[0].id=p.events[1].id);reject(p=>p.events[0].ownerId="unknown");
         reject(p=>p.events[0].affectionRequired=999);reject(p=>p.events[0].establishesLover=!p.events[0].establishesLover);
         reject(p=>p.events[0].paragraphs=new[]{"too short"});reject(p=>p.events[0].paragraphs=null);
@@ -60,8 +60,8 @@ public static class Plan9StoryTests
         }
         foreach(var e in pack.events){
             var target=home.events.Single(v=>v.id==e.id);int index=int.Parse(e.id.Substring(e.id.LastIndexOf('.')+1));
-            check(target.unlockCondition.items.Any(c=>c.domain=="affection" && c.value==e.affectionRequired) && (index==0 || target.unlockCondition.items.Any(c=>c.domain=="eventRead" && c.id==e.ownerId+".event."+(index-1))),"Production event combines affection and preceding read completion");
-            check(index<3 || target.unlockCondition.items.Any(c=>c.domain=="lover" && c.id==e.ownerId),"Post-confession events require actual lover state");
+            check(target.unlockCondition.kind=="atLeast" && target.unlockCondition.domain=="affection" && target.unlockCondition.value==e.affectionRequired,"Production events unlock solely by affection level");
+            check(target.unlockCondition.items.Length==0,"Production events have no prerequisite-read or independent lover-flag gate");
             var script=home.scripts.Single(s=>s.id==target.sceneId);
             check(script.commands.Count(c=>c.kind=="cg")==1 && script.commands.Count(c=>c.kind=="hideCg")==1 && script.commands.Where(c=>c.kind=="actor").Select(c=>c.expressionId).SequenceEqual(e.expressions.Select(x=>"expression."+x)),"Each event owns one CG and preserves all expression cues and return");
         }
@@ -86,7 +86,7 @@ public static class Plan9StoryTests
         check(encode(migrated).Contains("previousNarrative") && migrated.previousNarrative.readStoryIds.Contains(oldChapter) && migrated.previousNarrative.readEventIds.SequenceEqual(prior.home.readEventIds) && migrated.previousNarrative.readLineKeys[0].sceneId==prior.home.readLineKeys[0].sceneId,"Diagnostic read flags and scene keys remain archived");
         check(!migrated.world.readStoryIds.Contains(oldChapter) && !migrated.home.readEventIds.Any() && !migrated.home.loverHeroineIds.Any() && !migrated.home.readLineKeys.Any(),"Diagnostic reads and relationship never imply authored production completion");
         check(migrated.world.poemIds.SequenceEqual(prior.world.poemIds) && migrated.world.unlockedStoryIds.Contains(oldChapter) && migrated.growth.nectar==123 && migrated.growth.stones==7 && migrated.collection.materials[0].amount==17 && migrated.home.affections[0].value==20,"Migration preserves poems unlocks wallet inventory and affection");
-        check(migrated.home.unlockedEventIds.SequenceEqual(new[]{hero0+".event.0"}),"High affection alone cannot skip the authored event chain");
+        check(home.events.Where(e=>e.heroineId==hero0).All(e=>migrated.home.unlockedEventIds.Contains(e.id)),"Migration unlocks all Lv-qualified events without a read chain");
         check(!ProductionStoryMigration.Required(migrated) && encode(ProductionStoryMigration.Prepare(migrated,combat,pack,clone))==encode(migrated),"Completed migration is idempotent without a new revision");
         bool trialRejected=false;var trial=clone(prior);trial.home.contentVersion=HomeExperienceCatalog.TrialVersion;
         try{ProductionStoryMigration.Prepare(trial,combat,pack,clone);}catch(ArgumentException){trialRejected=true;}

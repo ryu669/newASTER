@@ -1,0 +1,14 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in generate",
+  "prompt": "Use case: stylized-concept. Asset type: production fantasy RPG inventory icon, one original Eternal Vow Ring. One elegant gold ring with intertwined infinity-shaped filigree, a luminous blue-white star gemstone and subtle tiny wing motifs. Three-quarter view with the circular band clearly visible, readable silhouette at 64 pixels, sophisticated painted anime fantasy item art matching a navy and antique-gold illustrated book UI. Single isolated item, centered, generous transparent margins, no characters, no scenery, no box, no lettering or numbers, no logo, no border. Truly transparent RGBA background, native highest available resolution; preserve delicate gold details and gemstone highlights.",
+  "originalGeneratedPath": "C:/Users/nishi/.codex/generated_images/01a11600-4637-75e3-97c8-084f0a4779f3/exec-677abb4f-2932-4643-907c-3dfc4c6aba6b.png",
+  "sourcePath": "game/art-source/affection-v1/eternal-vow-ring-v1.png",
+  "resourcePath": "UI/eternal-vow-ring-v1",
+  "sourcePixelsModified": false,
+  "sha256": "50f81e8e0132657801441224d96ea1747e9826317888b7231908b5ade37cd2e4",
+  "nativeSize": [
+    1289,
+    1221
+  ]
+}
