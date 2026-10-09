@@ -49,6 +49,7 @@ namespace NewAster.Presentation
         }
         private void OnDestroy()
         {
+            illustrationView?.Dispose();
             plan9FacePatches.Clear();if(plan9FaceMaterial!=null)Destroy(plan9FaceMaterial);
             gardenLayers.Clear();
         }

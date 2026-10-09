@@ -47,7 +47,8 @@ namespace NewAster.Presentation
             if(Btn(1490,18,64,48,"？",result==null && !retreat && !help && !selectingAlly)){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
 
             if(!playback.Busy && (battlePanel==BattlePanel.None || battlePanel==BattlePanel.Actions))DrawBattleOrderStrip();
-            string message=breakNoticeRemaining>0?breakNotice:visual!=null?(visual.Actor<0?"巨神獣":Names[visual.Actor])+" ／ "+visual.Message:paused?"一時停止中":"行動と対象を選べます。";
+            string actionMessage=visual==null?null:System.Text.RegularExpressions.Regex.Replace(visual.Message??"","（会心判定 [0-9]+）","");
+            string message=breakNoticeRemaining>0?breakNotice:visual!=null?(visual.Actor<0?"巨神獣":Names[visual.Actor])+" ／ "+actionMessage:paused?"一時停止中":"行動と対象を選べます。";
             if(breakNoticeRemaining>0 || visual!=null || paused){
                 GrowthFill(20,708,1560,42,new Color(.025f,.05f,.065f,.82f));
                 var noticeStyle=new GUIStyle(small){padding=new RectOffset(0,0,0,0)};
@@ -86,7 +87,7 @@ namespace NewAster.Presentation
                 if(combatDefinitions.HeroineIds.Contains(hero.Id))DrawHeroPortrait(new Rect(x+5,835,40,40),hero.Id);
                 Meter(x,886,303,5,hp,hero.MaxHitPoints,hp*3<hero.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
-            status=visual?.Message??message;
+            status=actionMessage??message;
             if(selectingAlly)DrawAllySelection();
         }
         private void DrawBattleDrawer()

@@ -176,7 +176,7 @@ namespace NewAster.Core
             for(int n=1;n<count && !Ended && State.Heroes[actor].IsAlive;n++){
                 var hit=BattleActionResolver.Resolve(State,State.Heroes[actor].Id,snapshot??AttackDefinition(actor,slot,AttackPower(actor,slot,target,1),0),target,max=>random.Next(max));
                 if(!hit.Accepted)break;
-                RecordPresentation(BattlePresentationKind.Attack,actor,target,"固有能力：追加発動 / "+hit.Damage+"ダメージ",damage:hit.Damage,broken:hit.PartBroken,targetIds:hit.TargetIds);
+                RecordPresentation(BattlePresentationKind.Attack,actor,target,"固有能力：追加発動 / "+hit.Damage+"ダメージ",damage:hit.Damage,broken:hit.PartBroken,targetIds:hit.TargetIds,presentationId:commandDefinitions?[actor,slot].id);
                 RecordAttackFollowUps(actor,hit);ApplyCommandAttackEffects(actor,slot);ApplyAttackTimedEffects(actor,slot,false);
             }
         }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 using NewAster.Core;
@@ -10,6 +10,8 @@ namespace NewAster.Presentation
     {
         private BattleIllustrationManifest manifest;
         private string warning;
+        private BattleImpactEffects impactEffects;
+        public void Dispose(){impactEffects?.Dispose();impactEffects=null;}
         public bool Ready=>manifest!=null && body!=null;
         public int PartCount=>manifest?.parts.Length??0;
         private Texture2D background,body,middle,foreground,enemyMajor;
@@ -95,6 +97,7 @@ namespace NewAster.Presentation
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=!ArtSampleSettings.ReducedMotion && e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
             var actorRect=new Rect(890+movement,104,650,550);
+            if(e!=null){impactEffects=impactEffects??new BattleImpactEffects();if(e.Kind==BattlePresentationKind.Enemy)actorRect.position+=impactEffects.Offset(e,elapsed);}
             if(actor>=0 && actor<5) {
                 int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Texture2D art=binding>=0?LoadLayer(manifest.heroes[binding].resourcePath):null;
@@ -115,6 +118,7 @@ namespace NewAster.Presentation
                 }
             }
             var enemy=new Rect(90,86,620,620);
+            if(e!=null && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease))enemy.position+=impactEffects.Offset(e,elapsed);
             if(body==null) {
                 Fill(enemy,new Color(.12f,.21f,.22f));
                 GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
@@ -124,6 +128,13 @@ namespace NewAster.Presentation
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
             if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.ScaleAndCrop,true);
+            if(e!=null){
+                var points=e.Kind==BattlePresentationKind.Enemy || e.Kind==BattlePresentationKind.Healing || e.Kind==BattlePresentationKind.Support?new[]{actorRect.center}:e.TargetIds.Take(4).Select(id=>{
+                    var part=manifest?.parts.FirstOrDefault(p=>p.partId==id);
+                    return part==null?enemy.center:new Vector2(enemy.x+(part.x+part.width*.5f)*enemy.width,enemy.y+(part.y+part.height*.5f)*enemy.height);
+                }).ToArray();
+                (impactEffects??(impactEffects=new BattleImpactEffects())).Draw(e,elapsed,points,style);
+            }
             if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(sceneRect,tint);}
             if(body!=null && manifest!=null && canSelect && Event.current.type==EventType.MouseDown && Event.current.button==0 && enemy.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<708) {
                 var mouse=Event.current.mousePosition;
@@ -148,9 +159,9 @@ namespace NewAster.Presentation
             if(showActorLabel && actor>=0 && actor<5){int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Fill(new Rect(900,666,650,32),new Color(.035f,.065f,.08f,.78f));
                 GUI.Label(new Rect(914,669,620,28),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
-            if(e!=null && (e.Damage>0 || e.Kind==BattlePresentationKind.CastStart)) {
+            if(e!=null && e.Kind==BattlePresentationKind.CastStart) {
                 Fill(new Rect(100,666,650,32),new Color(.035f,.065f,.08f,.78f));
-                GUI.Label(new Rect(114,669,620,28),e.Kind==BattlePresentationKind.CastStart?"詠唱開始（まだダメージなし）":"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
+                GUI.Label(new Rect(114,669,620,28),"詠唱開始",small);
             }
             return target;
         }

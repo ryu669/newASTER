@@ -1,0 +1,665 @@
+{
+  "profiles": [
+    {
+      "skillId": "heroine.slayer.1",
+      "family": "slash",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.slayer.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.slayer.3",
+      "family": "slash",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.iconoclast.1",
+      "family": "slash",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.iconoclast.2",
+      "family": "slash",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.iconoclast.3",
+      "family": "slash",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.undermine.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.undermine.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.undermine.3",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.echidna.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.echidna.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.echidna.3",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.excalipan.1",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.excalipan.2",
+      "family": "shot",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.excalipan.3",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.r.1",
+      "family": "magic",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.r.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.r.3",
+      "family": "magic",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.annihilator.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.annihilator.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.annihilator.3",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.annihilator-holy.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.annihilator-holy.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.annihilator-holy.3",
+      "family": "magic",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.shell.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.shell.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.shell.3",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.oriflamme.1",
+      "family": "magic",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.oriflamme.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.oriflamme.3",
+      "family": "slash",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.nighthawk.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.nighthawk.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.nighthawk.3",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.slayer-swim.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.slayer-swim.2",
+      "family": "impact",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.slayer-swim.3",
+      "family": "magic",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.arcane.1",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.arcane.2",
+      "family": "shot",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.arcane.3",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.95,
+      "blue": 0.5
+    },
+    {
+      "skillId": "heroine.arcane-academy.1",
+      "family": "impact",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.arcane-academy.2",
+      "family": "slash",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.65,
+      "blue": 0.25
+    },
+    {
+      "skillId": "heroine.arcane-academy.3",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.3,
+      "blue": 0.08
+    },
+    {
+      "skillId": "heroine.shangrila.1",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46,
+        0.6000000000000001
+      ],
+      "sizes": [
+        0.65,
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.shangrila.2",
+      "family": "shot",
+      "times": [
+        0.32
+      ],
+      "sizes": [
+        1.45
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    },
+    {
+      "skillId": "heroine.shangrila.3",
+      "family": "shot",
+      "times": [
+        0.32,
+        0.46
+      ],
+      "sizes": [
+        0.65,
+        1.15
+      ],
+      "red": 1,
+      "green": 0.85,
+      "blue": 1
+    }
+  ]
+}

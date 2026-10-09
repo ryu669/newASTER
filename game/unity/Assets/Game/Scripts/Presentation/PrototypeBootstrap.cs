@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using NewAster.Core;
@@ -490,7 +490,7 @@ namespace NewAster.Presentation
             if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             formalCampaign.LockOopartsForBattle();
-            illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus),ScheduleHeroineAssetCleanup);
+            illustrationView?.Dispose();illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus),ScheduleHeroineAssetCleanup);
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();

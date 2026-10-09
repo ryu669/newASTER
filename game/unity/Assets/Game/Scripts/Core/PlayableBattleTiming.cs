@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 namespace NewAster.Core
@@ -136,7 +136,7 @@ namespace NewAster.Core
                     Log+="\n味方"+(actor+1)+(outcome.Accepted?"：詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.PartBroken?" / 部位破壊":""):"：対象消失により詠唱不発（消費済み）");
                     LastCastResolvedActor=outcome.Accepted?actor:-1;
                     LastFullChain=false;LastChainActionCount=0;LastActionChain=outcome.Accepted?1:0;LastChainChecks=Array.Empty<ChainConnection>();
-                    RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.Critical?" / CRITICAL":"")+(outcome.CriticalRoll>=0?"（会心判定 "+outcome.CriticalRoll+"）":""):"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage,targetIds:outcome.TargetIds);
+                    RecordPresentation(outcome.Accepted?BattlePresentationKind.CastRelease:BattlePresentationKind.CastCanceled,actor,pending.Target,outcome.Accepted?"詠唱発動 / "+outcome.Damage+"ダメージ"+(outcome.Critical?" / CRITICAL":"")+(outcome.CriticalRoll>=0?"（会心判定 "+outcome.CriticalRoll+"）":""):"対象消失により詠唱不発（消費済み）",broken:outcome.PartBroken,damage:outcome.Damage,presentationId:commandDefinitions?[actor,pending.Slot].id,targetIds:outcome.TargetIds);
                     if(outcome.Accepted) RecordAttackFollowUps(actor,outcome);
                     if(outcome.Accepted) ApplyAttackTimedEffects(actor,pending.Slot,false);
                     if(outcome.Accepted) ApplyCommandAttackEffects(actor,pending.Slot);

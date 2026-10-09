@@ -370,7 +370,7 @@ namespace NewAster.Core
                 chainPending = !UsesTimeline && roll < ChainRate(heroIndex);
                 Log = $"{Chain} CHAIN / {result.Damage} ダメージ" + (result.Critical?" / CRITICAL":"")+(result.CriticalRoll>=0?"（会心判定 "+result.CriticalRoll+"）":"")+(result.PartBroken ? " / 部位破壊！" : "")
                     + (chainPending ? " / 次の攻撃へ接続" : " / チェイン終了");
-                RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage,targetIds:result.TargetIds);
+                RecordPresentation(BattlePresentationKind.Attack,heroIndex,target,Log,broken:result.PartBroken,damage:result.Damage,presentationId:commandDefinitions?[heroIndex,skill].id,targetIds:result.TargetIds);
                 RecordAttackFollowUps(heroIndex,result);
                 ApplyCommandAttackEffects(heroIndex,skill);
                 commandCompleted=ApplyAttackTimedEffects(heroIndex,skill,true);

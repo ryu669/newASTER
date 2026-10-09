@@ -146,6 +146,16 @@ namespace NewAster.Presentation {
     string job="job."+view.Substring(4);var ids=combatDefinitions.FormationIds;string id=combatDefinitions.heroines.First(h=>h.jobId==job).id;int actor=Array.IndexOf(ids,id);if(actor<0){actor=0;ids[0]=id;}
     var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds=ids;BindFormalCampaign(save);StartBattle(WorldCatalog.ColossusIds[0],1137);int guard=0;while(encounter.AvailableHero!=actor && guard++<250)encounter.Pass();AcceptanceCheck(encounter.AvailableHero==actor,"Job reaches READY: "+job);encounter.State.Heroes[actor].GainResource(15);encounter.DrainPresentationEvents();selectedHero=actor;ResetBattleMenu();battlePanel=BattlePanel.Actions;
    }
+   else if(view.StartsWith("battle-fx-",StringComparison.Ordinal)){
+    var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds[0]="heroine.slayer";BindFormalCampaign(save);StartBattle(WorldCatalog.ColossusIds[0],1137);
+    int guard=0;while(encounter.AvailableHero!=0 && guard++<250)encounter.Pass();encounter.DrainPresentationEvents();encounter.State.Heroes[0].GainResource(15);
+    int slot=view=="battle-fx-triple"?2:0;AcceptanceCheck(ChooseBattleSkill(slot),"FX capture invokes actual skill");
+    guard=0;while(playback.Current!=null && playback.Current.Kind!=BattlePresentationKind.Attack && guard++<25)playback.Tick(5,false);
+    AcceptanceCheck(playback.Current!=null && playback.Current.PresentationId==combatDefinitions.Skill("heroine.slayer",slot).id,"Skill ID reaches presentation unchanged");
+    var effects=new BattleImpactEffects();foreach(var skill in combatDefinitions.skills)AcceptanceCheck(effects.For(skill.id).skillId==skill.id,"Explicit impact profile "+skill.id);
+    var profile=effects.For(playback.Current.PresentationId);AcceptanceCheck(profile.times.Length==(slot==0?1:3),"Single and triple skills use distinct cosmetic hit counts");
+    effects.Dispose();illustrationElapsed=BattleVisualCue.Duration(playback.Current.Kind,playback.Current.Major)*profile.times[slot==0?0:1]+.05f;shownEvent=playback.Current.Sequence;paused=true;ResetBattleMenu();
+   }
    else if(view.StartsWith("battle-",StringComparison.Ordinal)){
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
     if(view.StartsWith("battle-menu-",StringComparison.Ordinal))PrepareBattleMenuCapture(view.Substring(12));else if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
