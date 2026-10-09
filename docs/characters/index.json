@@ -1,0 +1,106 @@
+{
+  "updatedAt": "2026-10-10",
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json",
+  "people": [
+    {
+      "personId": "heroine.slayer",
+      "name": "スレイヤー",
+      "profile": "docs/characters/slayer.md",
+      "formIds": [
+        "heroine.slayer",
+        "heroine.slayer-swim"
+      ]
+    },
+    {
+      "personId": "heroine.iconoclast",
+      "name": "アイコノクラスト",
+      "profile": "docs/characters/iconoclast.md",
+      "formIds": [
+        "heroine.iconoclast"
+      ]
+    },
+    {
+      "personId": "heroine.undermine",
+      "name": "アンダーマイン",
+      "profile": "docs/characters/undermine.md",
+      "formIds": [
+        "heroine.undermine"
+      ]
+    },
+    {
+      "personId": "heroine.echidna",
+      "name": "エキドナ",
+      "profile": "docs/characters/echidna.md",
+      "formIds": [
+        "heroine.echidna"
+      ]
+    },
+    {
+      "personId": "heroine.excalipan",
+      "name": "エクスカリパン",
+      "profile": "docs/characters/excalipan.md",
+      "formIds": [
+        "heroine.excalipan"
+      ]
+    },
+    {
+      "personId": "heroine.r",
+      "name": "R",
+      "profile": "docs/characters/r.md",
+      "formIds": [
+        "heroine.r"
+      ]
+    },
+    {
+      "personId": "heroine.annihilator",
+      "name": "アナイアレイター",
+      "profile": "docs/characters/annihilator.md",
+      "formIds": [
+        "heroine.annihilator",
+        "heroine.annihilator-holy"
+      ]
+    },
+    {
+      "personId": "heroine.shell",
+      "name": "シェル",
+      "profile": "docs/characters/shell.md",
+      "formIds": [
+        "heroine.shell"
+      ]
+    },
+    {
+      "personId": "heroine.oriflamme",
+      "name": "オリフラム",
+      "profile": "docs/characters/oriflamme.md",
+      "formIds": [
+        "heroine.oriflamme"
+      ]
+    },
+    {
+      "personId": "heroine.nighthawk",
+      "name": "ナイトホーク",
+      "profile": "docs/characters/nighthawk.md",
+      "formIds": [
+        "heroine.nighthawk"
+      ]
+    },
+    {
+      "personId": "heroine.arcane",
+      "name": "アルケイン",
+      "profile": "docs/characters/arcane.md",
+      "formIds": [
+        "heroine.arcane",
+        "heroine.arcane-academy"
+      ]
+    },
+    {
+      "personId": "heroine.shangrila",
+      "name": "シャングリラ",
+      "profile": "docs/characters/shangrila.md",
+      "formIds": [
+        "heroine.shangrila"
+      ]
+    }
+  ]
+}

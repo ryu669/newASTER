@@ -1,12 +1,13 @@
 # newASTER 文書索引
 
-更新：2026-10-08。計画10は15形態・12人・13ジョブ、90章630詩・75交流。現行の実装と受入れは[計画10の実装記録](production/plan10-four-heroines-and-ui.md)へ集約する。
+更新：2026-10-10。計画10は15形態・12人・13ジョブ、90章630詩・75交流。現行の実装と受入れは[計画10の実装記録](production/plan10-four-heroines-and-ui.md)へ集約する。
 
 ## 制作を進める
 
 - [ヒロイン追加方法](production/heroine-addition-guide.md)：資料確認、人物・形態ID、戦闘、物語、18画像、接続、保存、検証の順序。
 - [人物台帳](production/plan10-heroine-roster.json)と[計画10](production/plan10-implementation-plan.md)：制作順と提供済み形態。
-- [人物資料](references/README.md)：動画の観察時刻、性格、口調、概要、元の意匠と本作の創作。
+- [物語制作用人物資料](characters/README.md)：実装済み12人物・15形態の性格、口調、概要、葛藤、収録章・交流ID。
+- [参考観察](references/README.md)：原作動画の時刻、意匠、確認範囲。本作の採用設定とは区別する。
 - [物語本文一覧](story-text/README.txt)：詩・章・交流の本文。
 - [実装順と後続範囲](production/implementation-plan.md)：人物追加ロット、最終バランス調整など。
 
@@ -39,7 +40,7 @@
 - [アルケイン学園](production/plan10-arcane-academy-implementation.md)
 - [シャングリラ](production/plan10-shangrila-implementation.md)
 
-段階別の提供人数、テスト件数、ビルドと美術記録は、その段階の履歴。現在の数量へ一律に書き換えない。通常入口の最新数量は冒頭の計画10を参照する。
+段階別の提供人数、テスト件数、ビルドと美術記録は、その段階の履歴。現在の数量へ一律に書き換えない。通常入口の最新人物数は[物語制作用人物索引](characters/README.md)を参照する。
 
 ## Plan11の継続実装
 

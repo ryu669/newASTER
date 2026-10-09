@@ -1,4 +1,4 @@
-﻿# ヒロイン・別衣装の追加方法
+# ヒロイン・別衣装の追加方法
 
 2026-10-09更新。Plan11-9／Plan12向けの制作手順。1形態ごとに参照調査 → データと本文 → 専用画像 → 戦闘・保存検証 → Unityビルド → 実行版の画面確認を終え、その後に次の形態へ進む。
 
@@ -6,7 +6,7 @@
 
 `heroine.<key>` は形態ID、`personId` は同じ人物の通常形態ID、`variantId` は `normal`・`swim`・`academy` 等。別衣装でも同じ人物なら好感度と恋人関係を共有する。Lv・スキル・神器・章とイベントの既読は形態別。同じ人物を同時に編成・庭へ重複配置しない。
 
-新しい人物と既存人物の別衣装を混同しない。例：スレイヤー水着の `personId=heroine.slayer`。アルケイン学園の `personId=heroine.arcane`。年齢、外見、性格、口調、好きなもの、物語での成長、通常形態との連続性を `docs/references/characters/<key>.md` に残す。
+新しい人物と既存人物の別衣装を混同しない。例：スレイヤー水着の `personId=heroine.slayer`。アルケイン学園の `personId=heroine.arcane`。本作で採用する概要、性格、口調、一人称・呼称、好きなもの、葛藤、関係の成長、避ける描写、収録本文IDを `docs/characters/<person-key>.md` に残す。別衣装は同じ人物資料へ追記し、`docs/characters/index.json` に全形態を登録する。原作動画の観察・時刻・未確認範囲は `docs/references/characters/<key>.md` に分けて残す。追加後は `python tools/validate-character-docs.py` で全人物の網羅と本文参照を確認する。
 
 ## 2. 参考動画を調べる
 
