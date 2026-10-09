@@ -21,7 +21,8 @@ namespace NewAster.Presentation
             string baseSound=type=="forest" || type=="flower"?"forest":type=="lakeside" || type=="hotspring"?"water":"wind";
             string terraformSound=snapshot.world.terraform.domains.Single(d=>d.domainId=="water").currentLevel>=3?"water":"wind";
             string effect=gardenLifeRuntime.Weather=="rain"?"rain":gardenLifeRuntime.Weather=="snow"?"snow":gardenLifeRuntime.Context().phenomenonId!=null?"phenomenon":null;
-            string[] names={baseSound,terraformSound,effect};
+            // A shared base/Terraform clip needs only one source; doubling it changes its gain.
+            string[] names={baseSound,terraformSound==baseSound?null:terraformSound,effect};
             for(int i=0;i<3;i++){
                 var source=gardenAmbient[i];
                 var clip=names[i]==null?null:Resources.Load<AudioClip>("Audio/garden-life-"+names[i]+"-v1");

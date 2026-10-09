@@ -47,11 +47,21 @@ namespace NewAster.Presentation
                 AcceptanceCheck(gardenAmbient.All(a=>a.clip==null || a.isPlaying) && !gardenLifeSe.isPlaying,"11-9D focus return resumes ambience behind a modal without replaying stale footsteps");
                 affectionShop=shopBefore;gardenLifeRuntime=EnvironmentAudioFixture("clear");yield return new WaitForSecondsRealtime(.8f);
                 AcceptanceCheck(gardenAmbient[2].clip==null && !gardenAmbient[2].isPlaying,"11-9D weather effect fades out when no longer needed");
+                var duplicateSave=formalCampaign.Snapshot;
+                bool waterAmbience=duplicateSave.world.terraform.domains.Single(d=>d.domainId=="water").currentLevel>=3;
+                string duplicateGarden=GardenLifeCatalog.GardenIds[waterAmbience?3:1];
+                duplicateSave.world.unlockedGardenIds=duplicateSave.world.unlockedGardenIds.Concat(new[]{duplicateGarden}).Distinct().ToArray();
+                duplicateSave.world.terraform.activeWorldPhenomenonId=null;
+                var duplicateSetting=duplicateSave.gardenLife.Setting(duplicateGarden);duplicateSetting.autoWeather=false;duplicateSetting.weather="clear";
+                book.RequestSubject(BookBookmark.Gardens,duplicateGarden);book.CompleteTransition();
+                gardenLifeRuntime=new GardenLifeRuntime(duplicateSave,HomeData(),duplicateGarden,119){Paused=true};
+                yield return new WaitForSecondsRealtime(.8f);
+                AcceptanceCheck(gardenAmbient[0].clip.name=="garden-life-"+(waterAmbience?"water":"wind")+"-v1" && gardenAmbient[0].isPlaying && gardenAmbient[1].clip==null && !gardenAmbient[1].isPlaying,"11-9D identical base and Terraform ambience plays on one source only");
                 StopLifeAudio();AcceptanceCheck(gardenAmbient.All(a=>!a.isPlaying) && !gardenLifeSe.isPlaying,"11-9D scene/load cleanup stops every garden audio source");
                 AcceptanceCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"11-9D weather audio fixtures mutate no player progress");
-            }finally{affectionShop=shopBefore;StopLifeAudio();gardenLifeRuntime=original;original.Paused=pausedBefore;OnApplicationFocus(true);}
+            }finally{affectionShop=shopBefore;StopLifeAudio();book.RequestSubject(BookBookmark.Gardens,original.GardenId);book.CompleteTransition();gardenLifeRuntime=original;original.Paused=pausedBefore;OnApplicationFocus(true);}
             quality119EnvironmentAudioComplete=true;
-            Debug.Log("PLAN11_9_ENVIRONMENT_AUDIO_PASS weather=clear,rain,snow fade=true focusPause=true modalResume=true staleSeStopped=true saveUnchanged=true physicalInput=0 listening=0");
+            Debug.Log("PLAN11_9_ENVIRONMENT_AUDIO_PASS weather=clear,rain,snow fade=true duplicateLayers=false focusPause=true modalResume=true staleSeStopped=true saveUnchanged=true physicalInput=0 listening=0");
         }
     }
 }

@@ -17,6 +17,8 @@ foreach($check in $Checks){
     if($check -notin @('streaming','cold-book','audio','environment-audio')){throw "Unknown quality check: $check"}
     $name=if($check -eq 'streaming'){'player-streaming'}else{$check}
     $log=Join-Path $output "$name.log";$png=Join-Path $output "$name.png"
+    # Never accept a previous capture or stop on a stale exception before this Player opens its log.
+    foreach($previousOutput in @($log,$png)){if(Test-Path -LiteralPath $previousOutput){Remove-Item -LiteralPath $previousOutput}}
     $view=if($check -eq 'cold-book'){'roster'}elseif($check -eq 'audio'){'garden-expanded'}else{'garden-life'}
     $flags=@('-screen-width',"$Width",'-screen-height',"$Height",'-screen-fullscreen','0','-logFile',$log,'-presentationCapture',$png,'-capturePlan10Ui','-uiView',$view)
     if($check -eq 'streaming'){

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "sourceBaseline": "71a32c1",
+  "scope": "Current content; Plan12 and manual interaction excluded",
+  "status": "automated-pass",
+  "coreAssertions": 12270,
+  "compiledSourceFiles": 262,
+  "waveformClips": 25,
+  "waveformFixtureTests": 6,
+  "developmentVersion": "0.9.5-rc.2",
+  "candidateVersion": "1.0.0-rc.1",
+  "distributionFilesPerPackage": 161,
+  "environmentAudio": "Both development and release candidate: weather fades, focus, duplicate prevention, save unchanged",
+  "manualInput": 0,
+  "listeningAcceptance": "not performed",
+  "balanceAcceptance": "Current thirteen-job final balance not established by legacy Plan9 tests",
+  "records": [
+    {
+      "path": "tmp/plan11-9/audio-dedup-core.log",
+      "sha256": "6f5725f753730bfcaeea7a18cf83ed54bf8fbdba60d18763a5ab4d7b3b139c22"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-build-verified.log",
+      "sha256": "9c62465e9031759384285a328e58113145b555b5422522ac596dbace793c99cd"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-candidate-build.log",
+      "sha256": "6e1a616a80206b942c9e1f12b2c91533bc1cb4c9fd1b8b28ea8a6e43c1cc28c4"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-development-environment.log",
+      "sha256": "778d3887e9612154daa0410ea0fedde14c5baae7894d7b771dfd0c62ba0e0d77"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-development-audio.log",
+      "sha256": "5b9bd7668b2d35ef49e89407b85bceb526896679a2689792dc5f63b30b9c3912"
+    },
+    {
+      "path": "tmp/plan11-9/environment-audio.log",
+      "sha256": "94c656d9359b4e289bce9e638a849fa089b64ddc5f69aefa53314665f3673246"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-waveform.log",
+      "sha256": "a5d50802a95ed6f7359fdba19967928f0b26fae825d12efb4bdf8f6b4623491f"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-waveform-tests.log",
+      "sha256": "56629e598318da15e9d4d89e7770598ec63a285570233c47248dac1c6f435520"
+    },
+    {
+      "path": "tmp/plan11-9/audio-levels.json",
+      "sha256": "bf5ae65683c8cdb6aaaa6777dfacfc2169bcf800648eb09b7bec49eb9ccf263a"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-package-dev.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/audio-dedup-package-rc.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    }
+  ]
+}
