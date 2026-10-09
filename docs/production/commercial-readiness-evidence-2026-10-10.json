@@ -1,0 +1,184 @@
+{
+  "date": "2026-10-10",
+  "codeBaseline": "87ad78b",
+  "target": "Paid full release; current 15 forms / 13 jobs",
+  "excluded": [
+    "Plan12 heroine/content mass production",
+    "Physical operation acceptance per user"
+  ],
+  "verdict": "Not yet cleared for paid full release",
+  "forms": 15,
+  "jobs": 13,
+  "content": [
+    {
+      "form": "heroine.slayer",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 1784,
+      "eventCharacters": 3324
+    },
+    {
+      "form": "heroine.iconoclast",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 1656,
+      "eventCharacters": 3446
+    },
+    {
+      "form": "heroine.undermine",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 1555,
+      "eventCharacters": 3286
+    },
+    {
+      "form": "heroine.echidna",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 1550,
+      "eventCharacters": 3710
+    },
+    {
+      "form": "heroine.excalipan",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 1597,
+      "eventCharacters": 3573
+    },
+    {
+      "form": "heroine.r",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 4762,
+      "eventCharacters": 2896
+    },
+    {
+      "form": "heroine.annihilator",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2360,
+      "eventCharacters": 1994
+    },
+    {
+      "form": "heroine.annihilator-holy",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2221,
+      "eventCharacters": 2031
+    },
+    {
+      "form": "heroine.shell",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2560,
+      "eventCharacters": 1961
+    },
+    {
+      "form": "heroine.oriflamme",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2499,
+      "eventCharacters": 1842
+    },
+    {
+      "form": "heroine.nighthawk",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2468,
+      "eventCharacters": 1806
+    },
+    {
+      "form": "heroine.slayer-swim",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2446,
+      "eventCharacters": 1753
+    },
+    {
+      "form": "heroine.arcane",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2371,
+      "eventCharacters": 1573
+    },
+    {
+      "form": "heroine.arcane-academy",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2274,
+      "eventCharacters": 1536
+    },
+    {
+      "form": "heroine.shangrila",
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "events": 5,
+      "chapterCharacters": 2597,
+      "eventCharacters": 1761
+    }
+  ],
+  "newChecks": [
+    "cold-book PASS 451.846ms, uncontrolled OS cache, excludes process startup and GPU fence",
+    "production audio callbacks PASS; human listening not performed",
+    "environment audio callbacks PASS; human listening not performed"
+  ],
+  "logs": [
+    {
+      "path": "tmp/plan11-9/commercial-readiness-quality.log",
+      "sha256": "b0326bd7643467609fab4debaac6397b9b6b4a10247b330dbf3c9c5144972b1f"
+    },
+    {
+      "path": "tmp/plan11-9/cold-book.log",
+      "sha256": "60866d147f99f5ff808ca7a91e3c40432a667bc98ae2d675ecfffa106d54249f"
+    },
+    {
+      "path": "tmp/plan11-9/audio.log",
+      "sha256": "8b7843ea78a01ff1392ad49c7a982ca4ac65ddc2db1a6d7843770494159c98ba"
+    },
+    {
+      "path": "tmp/plan11-9/environment-audio.log",
+      "sha256": "af5a6061ddd998426e5e93751a6180a314062ae25bcb5c27ed63b1dc566aa4a8"
+    }
+  ],
+  "assemblySha256": "c9f6423e78d95d3fe1d49ff7b73865a06ecac81e8d2a6ca9cbf936cda1d067b6",
+  "priorVerifiedEvidence": [
+    "navigation-route-validation.json",
+    "plan11-8-save-validation.json",
+    "plan11-9-quality-validation.json"
+  ],
+  "releaseFolderMissing": [
+    "README.txt",
+    "CREDITS.txt",
+    "PACKAGE-MANIFEST.json",
+    "ASSET-ADOPTION.json"
+  ]
+}
