@@ -1,0 +1,641 @@
+{
+  "date": "2026-10-09",
+  "productionPersons": 12,
+  "productionForms": 15,
+  "jobs": 13,
+  "traitStandard": {
+    "job": 2,
+    "character": 3,
+    "interaction": 3,
+    "total": 8
+  },
+  "interactionCatalogCount": 27,
+  "productionTraitAudit": "PASS all 15 forms; missing-slot negative test passed",
+  "coreAssertions": 12270,
+  "compileSources": 260,
+  "battleArtAspect": {
+    "images": 61,
+    "status": "PASS",
+    "sourceImagesModified": false,
+    "setting": "TextureImporterNPOTScale.None"
+  },
+  "corePerformance": {
+    "forms": 320,
+    "persons": 256,
+    "personMapping": "forms 0..255 canonical; 256..319 variants of 0..63 (test-only)",
+    "productionForms": 15,
+    "productionPersons": 12,
+    "catalogOpenMs": 0.6853,
+    "searchMaxMs": 0.844,
+    "saveMs": 52.4517,
+    "loadMs": 13.7127,
+    "garden600TicksMs": 13.6521,
+    "gardenVisibleActors": 8,
+    "daily320SelectionsMs": 34.1315,
+    "portraitCacheLimit": 24,
+    "treeCacheLimit": 3,
+    "scope": "Core roster/search/garden/daily/save timings; excludes Unity rendering, texture residency, and book opening"
+  },
+  "playerMeasurement": "bookCreateMs=3.374 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+  "finalPlayerChecks": [
+    "trait / artist / blaster / gunner 1920x1080",
+    "trait / artist 1280x720",
+    "annihilator battle 1920x1080 and 1280x720",
+    "watch mute / enter / restore / FPS"
+  ],
+  "earlierQualityBuildChecks": "24 main/job screens at 1920x1080 and 9 at 1280x720 passed before final trait-count and battle-import fixes; changed paths rechecked above",
+  "limits": [
+    "320 synthetic imported textures use a separate LZ4 AssetBundle; not 320 finished heroines or production Resources packaging.",
+    "256-person / 320-form roster, affection and save behavior are covered by paired Core fixtures; Player production catalog has 15 forms.",
+    "Process working set is measured externally at 100 ms intervals. Compressed texture bytes are an estimate, not VRAM.",
+    "Cold book measurement excludes process startup, physical input, GPU completion and controlled OS disk-cache eviction.",
+    "Audio PCM checks and automated scene/focus callbacks do not replace human listening or physical input acceptance."
+  ],
+  "interactionAssignments": {
+    "heroine.slayer": [
+      "hair.blonde",
+      "personality.active",
+      "taste.flowers"
+    ],
+    "heroine.iconoclast": [
+      "personality.active",
+      "taste.mechanics",
+      "body.slender"
+    ],
+    "heroine.undermine": [
+      "personality.shy",
+      "taste.mechanics",
+      "personality.cool"
+    ],
+    "heroine.echidna": [
+      "hair.silver",
+      "appearance.horns",
+      "taste.flowers"
+    ],
+    "heroine.excalipan": [
+      "hair.red",
+      "taste.cooking",
+      "taste.sweets"
+    ],
+    "heroine.r": [
+      "personality.active",
+      "taste.mechanics",
+      "body.slender"
+    ],
+    "heroine.annihilator": [
+      "taste.flowers",
+      "personality.cool",
+      "appearance.horns"
+    ],
+    "heroine.annihilator-holy": [
+      "taste.flowers",
+      "personality.cool",
+      "outfit.christmas"
+    ],
+    "heroine.shell": [
+      "hair.silver",
+      "taste.mechanics",
+      "personality.shy"
+    ],
+    "heroine.oriflamme": [
+      "hair.blonde",
+      "personality.active",
+      "taste.mechanics"
+    ],
+    "heroine.nighthawk": [
+      "taste.books",
+      "personality.night",
+      "personality.shy"
+    ],
+    "heroine.slayer-swim": [
+      "hair.blonde",
+      "personality.active",
+      "outfit.swimsuit"
+    ],
+    "heroine.arcane": [
+      "taste.books",
+      "taste.mechanics",
+      "personality.active"
+    ],
+    "heroine.arcane-academy": [
+      "taste.books",
+      "personality.active",
+      "outfit.school"
+    ],
+    "heroine.shangrila": [
+      "hair.silver",
+      "appearance.glasses",
+      "personality.cool"
+    ]
+  },
+  "evidence": {
+    "tmp/plan11-9/core-final.log": "fd87882d48c87540062d329b6e4973d8afe12f2cb3d02a20a23294c8984246c9",
+    "tmp/plan11-9/unity-build-final.log": "943498791adb7f233a6cf2965459b5b25595f724f02622c6a2e9c30f57fc3739",
+    "tmp/plan11-9/player-quality.log": "2b113b71e496a6097674a558a5a4912979c1591743c3222f48cf081e43d275ca",
+    "tmp/plan11-9/ui-final.log": "b89dcb2c61dbcc8da9341b5efc84c84f130e547bb533d7c756ce065abaa03266",
+    "game/Builds/plan11-9/newASTER_Data/Managed/Assembly-CSharp.dll": "b2b07bd0bef52284e28a0a5760201547901b5c2ef3f8fa3173dea7e78f19fc2f",
+    "game/Builds/plan11-9/newASTER_Data/resources.assets": "39b68011679032a9ec03c5e8f63cbb0da6ceaa0fc84c8c281aa88a71f77f8212",
+    "tmp/plan11-9/core-streaming-final.log": "6cd08ffcc29886c1032437b6d4c8791a95537c8be7dfb331f3af22b4ccee1bb7",
+    "tmp/plan11-9/unity-streaming-final-build.log": "8d5c320ee7d3e9cf5e544cbc3c41fb8607d50ce65d4fe4f11680eee423203a82",
+    "tmp/plan11-9/player-streaming.log": "f7b532931cf599264730e9462000af62dd40c778df68baea01f52747580788a6",
+    "tmp/plan11-9/cold-book.log": "2922f620c7f0784a9aa577aa75e029fdb6c801bc664dddd19a8f28d276c08974",
+    "tmp/plan11-9/audio.log": "a05e1fcc84192748cfbfddd32fa41989a41ac893e07d7adc9a2c44e699352f34",
+    "tmp/plan11-9/texture-stress.json": "42ad33927feb0e4e24b45a93067d45ef3c50297b292236c36e6c22c73713c4a8",
+    "tmp/plan11-9/audio-levels.json": "ef4c083a7cd508db86f9c41909dd99947c48b8bee70e6d004abcd8b7b131ae43",
+    "tmp/plan11-9/process-memory.json": "e33e4340eccaf8791d6bd9a11242db485aa1bab9e2a49c4601114ec96a6f222b",
+    "tmp/plan11-9/normal-frame-times-ms.txt": "560cde2f195dc47d94d41ca7734c7f1f191d854624d1154ee20bf8ad62104d25",
+    "tmp/plan11-9/ui-streaming-final.log": "f48d3a3ad9032fbf15ded30e5125c39588feb42519780156c7ffbb670e035878",
+    "tmp/plan11-9/normal-frame-costs.json": "b7fb9e49a99f5b9f21cee9a121d7345ee531acbece07ad9711ffc4df01bf02cd",
+    "tmp/plan11-9/environment-audio.log": "4504d84632f74774d892382de9af2e622516840749bfd26e315200597829527c"
+  },
+  "normalFrameMeasurement": "p95Ms=16.697 maxMs=16.697 progressSnapshotCopies=0 scope=isolatedGardenWithImmediateDiagnosticPersistence",
+  "coldBookFirstRenderedFrameMs": 447.167,
+  "coldBookScope": "First title Open Book handler to first fully loaded portrait page frame end; no portraits preloaded. Startup, OS disk-cache control, physical input and GPU fence excluded.",
+  "imageStreaming": {
+    "images": 320,
+    "persons": 256,
+    "width": 1536,
+    "height": 1024,
+    "cacheLimit": 24,
+    "maxResidentImages": 24,
+    "maxResidentBeforeCleanup": 26,
+    "finalResidentImages": 0,
+    "faceCacheLimit": 12,
+    "maxResidentFacePatches": 12,
+    "finalResidentFacePatches": 0,
+    "bundleBytes": 36838106,
+    "peakTextureStorageEstimateBytes": 40894464,
+    "maxPageFrameMs": 204.4546,
+    "p95PageFrameMs": 119.44420000000001,
+    "meanPageFrameMs": 120.57715185185182,
+    "maxLoadingFrameMs": 216.8388068675995,
+    "bundleOpenMs": 219.65990000000002,
+    "maxPortraitLoadCpuMs": 0.8913000000001503,
+    "maxPendingRequests": 12,
+    "portraitLoadsPerFrameLimit": 2,
+    "portraitBatchCpuBudgetMs": 4.0,
+    "pageFrameMs": [
+      204.4546,
+      118.31800000000001,
+      118.4672,
+      118.751,
+      118.6623,
+      118.8512,
+      118.5673,
+      119.0625,
+      118.70660000000001,
+      118.26620000000001,
+      118.82770000000001,
+      118.6053,
+      119.44420000000001,
+      118.74180000000001,
+      118.4105,
+      119.2518,
+      118.393,
+      118.7219,
+      117.8264,
+      118.5759,
+      118.59100000000001,
+      118.4435,
+      118.6148,
+      118.7226,
+      118.42060000000001,
+      118.2746,
+      85.6106
+    ],
+    "textureFormat": "DXT5",
+    "scope": "320 synthetic textures through production portrait cache / framing / drawing; person count belongs to paired Core stress fixture. LZ4 asset I/O, not product artwork or Resources packaging. Fixture container opening is measured separately before page readiness starts. Queued page readiness includes waiting for all portraits and one complete draw; not placeholder-only timing. DXT5 storage estimate excludes driver, allocator, bundle, and upload overhead; not measured VRAM. Process memory sampled externally.",
+    "loadingFrameScope": "Unscaled frame intervals observed while the portrait queue is pending; the entry interval can overlap preceding fixture-container opening. Page readiness is measured by a separate stopwatch after container opening."
+  },
+  "imageCacheLimits": {
+    "portrait": 24,
+    "weaponTree": 3,
+    "battleLayersPerView": 36,
+    "sd": 48,
+    "adv": 24,
+    "faceRenderTargets": 12,
+    "gardenCompositePairs": 24,
+    "queuedPortraitLoads": 12
+  },
+  "processMemory": [
+    {
+      "check": "streaming",
+      "measurementContext": "Recording and other game activity are not controlled or observed",
+      "sampleIntervalMs": 100,
+      "samples": 258,
+      "peakObservedWorkingSetBytes": 671924224,
+      "peakProcessWorkingSetBytes": 672182272,
+      "elapsedMs": 29352.6656,
+      "scope": "Whole Windows Player working set, includes startup; not texture-only memory or VRAM",
+      "log": "tmp/plan11-9/player-streaming.log",
+      "sha256": "F7B532931CF599264730E9462000AF62DD40C778DF68BAEA01F52747580788A6"
+    },
+    {
+      "check": "cold-book",
+      "measurementContext": "Recording and other game activity are not controlled or observed",
+      "sampleIntervalMs": 100,
+      "samples": 127,
+      "peakObservedWorkingSetBytes": 620650496,
+      "peakProcessWorkingSetBytes": 620691456,
+      "elapsedMs": 14456.9812,
+      "scope": "Whole Windows Player working set, includes startup; not texture-only memory or VRAM",
+      "log": "tmp/plan11-9/cold-book.log",
+      "sha256": "2922F620C7F0784A9AA577AA75E029FDB6C801BC664DDDD19A8F28D276C08974"
+    },
+    {
+      "check": "audio",
+      "measurementContext": "Recording and other game activity are not controlled or observed",
+      "sampleIntervalMs": 100,
+      "samples": 157,
+      "peakObservedWorkingSetBytes": 629514240,
+      "peakProcessWorkingSetBytes": 630857728,
+      "elapsedMs": 17463.0408,
+      "scope": "Whole Windows Player working set, includes startup; not texture-only memory or VRAM",
+      "log": "tmp/plan11-9/audio.log",
+      "sha256": "A05E1FCC84192748CFBFDDD32FA41989A41AC893E07D7ADC9A2C44E699352F34"
+    },
+    {
+      "check": "environment-audio",
+      "measurementContext": "Recording and other game activity are not controlled or observed",
+      "sampleIntervalMs": 100,
+      "samples": 108,
+      "peakObservedWorkingSetBytes": 690151424,
+      "peakProcessWorkingSetBytes": 690151424,
+      "elapsedMs": 12229.1182,
+      "scope": "Whole Windows Player working set, includes startup; not texture-only memory or VRAM",
+      "log": "tmp/plan11-9/environment-audio.log",
+      "sha256": "4504D84632F74774D892382DE9AF2E622516840749BFD26E315200597829527C"
+    }
+  ],
+  "audioWaveforms": {
+    "status": "waveform-pass",
+    "clips": [
+      {
+        "kind": "bgm",
+        "name": "title",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 32.0,
+        "peak": 0.1192626953125,
+        "rmsDbFS": -31.938158122317084,
+        "sha256": "074ff73409ea87eebaa6cb0b82d5ef7b6df89f208c5079806e4a0e25a6bbd508"
+      },
+      {
+        "kind": "bgm",
+        "name": "garden",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 40.0,
+        "peak": 0.113372802734375,
+        "rmsDbFS": -32.5256738808974,
+        "sha256": "8dcf35772578e4843ed490aa8fa3ab7afd723e0f569662948c820fffe524f6f4"
+      },
+      {
+        "kind": "bgm",
+        "name": "battle",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 24.0,
+        "peak": 0.132415771484375,
+        "rmsDbFS": -30.40119009375659,
+        "sha256": "142f4cca9e9e8fd22ec9f6eb2a251b652b4df7ec221d17f1b25cbbebdb7c34d5"
+      },
+      {
+        "kind": "bgm",
+        "name": "adv",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 48.0,
+        "peak": 0.110443115234375,
+        "rmsDbFS": -32.94969564412545,
+        "sha256": "ef922a470217f1d033770b9515327958b76c09ebc439fa99d6b21479d0bd4dc5"
+      },
+      {
+        "kind": "se",
+        "name": "confirm",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 0.52,
+        "peak": 0.138671875,
+        "rmsDbFS": -28.72538015915886,
+        "sha256": "8e33989147e3ea990b67da063d230a2897722e637563c39740031afc9c3a887d"
+      },
+      {
+        "kind": "se",
+        "name": "cancel",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 0.52,
+        "peak": 0.1357421875,
+        "rmsDbFS": -28.726537336387167,
+        "sha256": "ec533235a9f2093b4d77be9b25b415420761bfb711e5c06dded25c7087e42917"
+      },
+      {
+        "kind": "se",
+        "name": "page",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 0.7,
+        "peak": 0.137115478515625,
+        "rmsDbFS": -28.256258432597008,
+        "sha256": "980718e3ac97a7d9f3ec73f6bcfff8150c593b888d30bb25eeb8c8cb90aa0f11"
+      },
+      {
+        "kind": "se",
+        "name": "unlock",
+        "sampleRate": 44100,
+        "channels": 2,
+        "seconds": 0.88,
+        "peak": 0.137542724609375,
+        "rmsDbFS": -28.000680201419172,
+        "sha256": "85b3b43a9a1a85f2721cdfcb1d07bbea466d104bc99af383ced7bebf9f426cff"
+      }
+    ],
+    "rmsSpreadDb": {
+      "bgm": 2.5485055503688585,
+      "se": 0.7258571349679954
+    },
+    "provisionalSpreadLimitDb": 6,
+    "sourceModified": false,
+    "scope": "Full-clip PCM peak and RMS, not perceived loudness, mixer output, or listening acceptance.",
+    "listeningAcceptance": "manual-pending"
+  },
+  "audioTransitions": "PASS title / garden / battle / ADV, four UI sounds, focus loss / return, explicit resume, no overlapping legacy ADV BGM, saved progress unchanged (AI visit updates excluded by isolated audio fixture).",
+  "followupUI": [
+    "UI_PLAYER_PASS title 1920x1080",
+    "UI_PLAYER_PASS roster 1920x1080",
+    "UI_PLAYER_PASS detail 1920x1080",
+    "UI_PLAYER_PASS formation-ui 1920x1080",
+    "UI_PLAYER_PASS affection-unread 1920x1080",
+    "UI_PLAYER_PASS daily-talk 1920x1080",
+    "UI_PLAYER_PASS garden-life 1920x1080",
+    "UI_PLAYER_PASS save-main 1920x1080",
+    "UI_PLAYER_PASS save-restore 1920x1080",
+    "UI_PLAYER_PASS save-delete-second 1920x1080",
+    "UI_PLAYER_PASS model 1920x1080",
+    "UI_PLAYER_PASS adv-backlog 1920x1080",
+    "UI_PLAYER_PASS adv-help 1920x1080",
+    "UI_PLAYER_PASS battle-pause 1920x1080",
+    "UI_PLAYER_PASS job-fighter 1920x1080",
+    "UI_PLAYER_PASS job-berserker 1920x1080",
+    "UI_PLAYER_PASS job-defender 1920x1080",
+    "UI_PLAYER_PASS job-blaster 1920x1080",
+    "UI_PLAYER_PASS job-gunner 1920x1080",
+    "UI_PLAYER_PASS job-artist 1920x1080",
+    "UI_PLAYER_PASS job-healer 1920x1080",
+    "UI_PLAYER_PASS job-panzer 1920x1080",
+    "UI_PLAYER_PASS job-alchemist 1920x1080",
+    "UI_PLAYER_PASS job-chaser 1920x1080",
+    "UI_PLAYER_PASS job-sniper 1920x1080",
+    "UI_PLAYER_PASS job-gambler 1920x1080",
+    "UI_PLAYER_PASS job-general 1920x1080"
+  ],
+  "remainingIssues": [
+    {
+      "severity": "Medium",
+      "id": "manual-listening",
+      "detail": "SE and BGM human listening acceptance remains pending."
+    }
+  ],
+  "productionAudit": [
+    {
+      "formId": "heroine.slayer",
+      "personId": "heroine.slayer",
+      "jobId": "job.fighter",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "personId": "heroine.iconoclast",
+      "jobId": "job.berserker",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.undermine",
+      "personId": "heroine.undermine",
+      "jobId": "job.defender",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.echidna",
+      "personId": "heroine.echidna",
+      "jobId": "job.blaster",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "personId": "heroine.excalipan",
+      "jobId": "job.gunner",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.r",
+      "personId": "heroine.r",
+      "jobId": "job.artist",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "personId": "heroine.annihilator",
+      "jobId": "job.fighter",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "personId": "heroine.annihilator",
+      "jobId": "job.healer",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.shell",
+      "personId": "heroine.shell",
+      "jobId": "job.panzer",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "personId": "heroine.oriflamme",
+      "jobId": "job.alchemist",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "personId": "heroine.nighthawk",
+      "jobId": "job.chaser",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "personId": "heroine.slayer",
+      "jobId": "job.general",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.arcane",
+      "personId": "heroine.arcane",
+      "jobId": "job.gunner",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "personId": "heroine.arcane",
+      "jobId": "job.gambler",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "personId": "heroine.shangrila",
+      "jobId": "job.sniper",
+      "skills": 3,
+      "jobTraits": 2,
+      "characterTraits": 3,
+      "interactionTraits": 3,
+      "chapters": 3,
+      "pages": 30,
+      "poems": 18,
+      "buildValidation": "PASS"
+    }
+  ],
+  "normalFrameCosts": {
+    "scope": "Frame interval with previous-frame callback CPU costs; save is included within Update, not additive. GPU, engine wait and other behaviours are outside these CPU scopes.",
+    "samples": 180,
+    "focusedFrames": 180,
+    "updateMaxMs": 1.2378,
+    "guiMaxMs": 2.0846999999999998,
+    "saveMaxMs": 0.0,
+    "gcCollections": 27,
+    "slowFrames": []
+  },
+  "gardenMaskMeasurement": "pixels=1572864 elapsedMs=1.100",
+  "environmentAudio": "weather=clear,rain,snow fade=true focusPause=true modalResume=true staleSeStopped=true saveUnchanged=true physicalInput=0 listening=0",
+  "historicalFrameSpike": {
+    "measuredMs": 200.162,
+    "attribution": "unconfirmed",
+    "userContext": "User reported other game startup / recording as a possible source of contention.",
+    "reproduction": "Not reproduced in subsequent runs; historical recording and co-running application state was not logged. Do not classify as a confirmed game defect or claim the external cause is proven."
+  },
+  "performanceRuns": [
+    {
+      "playerLog": "tmp/plan11-9/performance-history/2bae32ec3d323d535418ea61a59918b766086ef236ffcd9889aab2f9f80c2dab.log",
+      "playerLogSha256": "2bae32ec3d323d535418ea61a59918b766086ef236ffcd9889aab2f9f80c2dab",
+      "assemblySha256": "0d7798108fd55fc8ccf5a47bbffd201db98dc966dfb42983b141220141c40d68",
+      "measurement": "bookCreateMs=3.156 pageProcessMs=0.001 normalFps=58.38 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+      "frameMeasurement": "p95Ms=16.775 maxMs=33.363 progressSnapshotCopies=0 scope=isolatedGardenWithImmediateDiagnosticPersistence",
+      "context": "Recording and other game activity are not controlled or observed"
+    },
+    {
+      "playerLog": "tmp/plan11-9/performance-history/e645f8babf82e9c7de03aca661d97ef5b979683cec5f6ca5a695456e5f44a721.log",
+      "playerLogSha256": "e645f8babf82e9c7de03aca661d97ef5b979683cec5f6ca5a695456e5f44a721",
+      "assemblySha256": "0d7798108fd55fc8ccf5a47bbffd201db98dc966dfb42983b141220141c40d68",
+      "measurement": "bookCreateMs=3.036 pageProcessMs=0.001 normalFps=60.01 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+      "frameMeasurement": "p95Ms=16.664 maxMs=16.664 progressSnapshotCopies=0 scope=isolatedGardenWithImmediateDiagnosticPersistence",
+      "context": "Recording and other game activity are not controlled or observed"
+    },
+    {
+      "playerLog": "tmp/plan11-9/performance-history/f7b532931cf599264730e9462000af62dd40c778df68baea01f52747580788a6.log",
+      "playerLogSha256": "f7b532931cf599264730e9462000af62dd40c778df68baea01f52747580788a6",
+      "assemblySha256": "b2b07bd0bef52284e28a0a5760201547901b5c2ef3f8fa3173dea7e78f19fc2f",
+      "measurement": "bookCreateMs=3.374 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+      "frameMeasurement": "p95Ms=16.697 maxMs=16.697 progressSnapshotCopies=0 scope=isolatedGardenWithImmediateDiagnosticPersistence",
+      "context": "Recording and other game activity are not controlled or observed"
+    }
+  ]
+}

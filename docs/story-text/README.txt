@@ -1,3 +1,6 @@
+﻿物語制作の人物資料：docs/characters/README.md（実装済み12人物・15形態）。
+性格・口調・概要・関係の段階を確認してから本文を推敲する。
+
 2026-10-07 計画10の現行本文は90章630詩・75交流。今回追加した4形態は各3章30表示ページ・18詩・5交流。
 個別原稿：スレイヤー水着の物語.txt、アルケインの物語.txt、アルケイン学園の物語.txt、シャングリラの物語.txt。
 現行収録：game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json。

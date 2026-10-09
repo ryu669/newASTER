@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-10",
+  "physicalInput": "excluded by user",
+  "bookmarkRoundTrips": 90,
+  "navigationChecks": 222,
+  "coreAssertions": 12270,
+  "compiledSources": 261,
+  "broadRegressionBeforeFinalSafetyAndLayoutAdditions": {
+    "log": "tmp/plan11-9/navigation-routes-ui.log",
+    "sha256": "122cb5a4e9936d38b6efdbf3178fdfad37766575f64f3ed82d2436919b484aa5",
+    "passed": [
+      "UI_PLAYER_PASS navigation-routes 1920x1080",
+      "UI_PLAYER_PASS recruitment-second 1920x1080",
+      "UI_PLAYER_PASS formation-ui 1920x1080",
+      "UI_PLAYER_PASS formation-ui-hero 1920x1080",
+      "UI_PLAYER_PASS formation-ui-oopart 1920x1080",
+      "UI_PLAYER_PASS level-confirm 1920x1080",
+      "UI_PLAYER_PASS detail 1920x1080",
+      "UI_PLAYER_PASS roster 1920x1080",
+      "UI_PLAYER_PASS garden-navigation 1920x1080",
+      "UI_PLAYER_PASS garden-confirmation 1920x1080",
+      "UI_PLAYER_PASS garden-life 1920x1080",
+      "UI_PLAYER_PASS book-summoning 1920x1080",
+      "UI_PLAYER_PASS book-system 1920x1080",
+      "UI_PLAYER_PASS model 1920x1080",
+      "UI_PLAYER_PASS adv-backlog 1920x1080",
+      "UI_PLAYER_PASS adv-help 1920x1080",
+      "UI_PLAYER_PASS battle-targets 1920x1080",
+      "UI_PLAYER_PASS battle-timeline 1920x1080",
+      "UI_PLAYER_PASS battle-pause 1920x1080",
+      "UI_PLAYER_PASS battle-retreat 1920x1080",
+      "UI_PLAYER_PASS battle-result 1920x1080",
+      "UI_PLAYER_PASS save-main 1920x1080",
+      "UI_PLAYER_PASS save-restore 1920x1080",
+      "UI_PLAYER_PASS save-delete-second 1920x1080",
+      "UI_PLAYER_PASS settings 1920x1080",
+      "UI_PLAYER_PASS title 1920x1080"
+    ]
+  },
+  "finalChangedPaths": {
+    "log": "tmp/plan11-9/navigation-routes-ui-final.log",
+    "sha256": "489dbe681b4926607201e5d11597a0761fd684803a5d7f09719cf7814916c904",
+    "passed": [
+      "UI_PLAYER_PASS navigation-routes 1920x1080",
+      "UI_PLAYER_PASS recruitment-second 1920x1080",
+      "UI_PLAYER_PASS formation-weapon-return 1920x1080",
+      "UI_PLAYER_PASS garden-life 1920x1080",
+      "UI_PLAYER_PASS battle-pause 1920x1080",
+      "UI_PLAYER_PASS battle-retreat 1920x1080",
+      "UI_PLAYER_PASS battle-result 1920x1080"
+    ],
+    "playerLogs": [
+      {
+        "view": "navigation-routes",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-navigation-routes.log",
+        "sha256": "04dbc00519b9e16e37da527f47d26513b6797807e3aae1af208193dc8de7c593"
+      },
+      {
+        "view": "recruitment-second",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-recruitment-second.log",
+        "sha256": "e162c4656e1a49df6f78bb2eab93c36c68897c2438dfdd841244539da936d09d"
+      },
+      {
+        "view": "formation-weapon-return",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-formation-weapon-return.log",
+        "sha256": "52426a4c12c888471fe4e5241cdc7fe5444feceddf834dc205c33d2b349a2522"
+      },
+      {
+        "view": "garden-life",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-garden-life.log",
+        "sha256": "f9d588c9118d3ba13d7922580fa06517030e314bca4974b0f8abed64633b8882"
+      },
+      {
+        "view": "battle-pause",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-battle-pause.log",
+        "sha256": "abcc54614980802e760a0c95b99ce3aa3a7ad414b0547f167552fb0a04603015"
+      },
+      {
+        "view": "battle-retreat",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-battle-retreat.log",
+        "sha256": "cf1ccc53787391bd73f64f346fb61ccead5a75ff2c7a65c5a905d78eabb3fd7d"
+      },
+      {
+        "view": "battle-result",
+        "path": "tmp/plan10-ui/player-1920x1080/ui-battle-result.log",
+        "sha256": "1fc8903262876c1b347d48d512087e624cfdded066595843b041cd55df3ed18c"
+      }
+    ]
+  },
+  "final720p": {
+    "log": "tmp/plan11-9/navigation-routes-ui-720.log",
+    "sha256": "cb4cb319b0e7458b6b0c12038c4042b9407d3bc8f8c57c0bfceeff7adea5be90",
+    "passed": [
+      "UI_PLAYER_PASS recruitment-second 1280x720",
+      "UI_PLAYER_PASS battle-pause 1280x720"
+    ],
+    "playerLogs": [
+      {
+        "view": "recruitment-second",
+        "path": "tmp/plan10-ui/player-1280x720/ui-recruitment-second.log",
+        "sha256": "86afc5fe1fcff6ce0c0c97b5657d2757cb50693f09251e76816569deaf7c0d28"
+      },
+      {
+        "view": "battle-pause",
+        "path": "tmp/plan10-ui/player-1280x720/ui-battle-pause.log",
+        "sha256": "62e8291f189d5082426d91bc67adbe89f1685f875e772cf5b358f28a58eb8ba1"
+      }
+    ]
+  },
+  "buildLog": {
+    "path": "tmp/plan11-9/navigation-routes-build-final.log",
+    "sha256": "f7b99f28579b2f570b48e2b8f1ae12ad888da70782568bb24692780c51bbfd60"
+  },
+  "assembly": {
+    "path": "game/Builds/plan11-9/newASTER_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "c9f6423e78d95d3fe1d49ff7b73865a06ecac81e8d2a6ca9cbf936cda1d067b6"
+  },
+  "scope": "Screen/state routes in plan11-9-navigation-route-audit.txt; not all possible input interleavings."
+}

@@ -162,7 +162,6 @@ public static partial class PlayableBuild
         ValidatePlan9Story();
         ValidatePlayback();
         ValidateVisualCues();
-        ValidateSlayerModel();
         ValidateTimeline();
         ValidateDistinctSupport();
         ValidateEncounterPhase();
@@ -557,47 +556,6 @@ public static partial class PlayableBuild
         Check(BattleVisualCue.Travel(0)==0 && BattleVisualCue.Travel(.56f)==1,"Projectile reaches selected target at hit phase");
         Check(BattleVisualCue.Impact(.55f)==0 && BattleVisualCue.Impact(.56f)==1 && BattleVisualCue.Impact(1)==0,"Impact starts after travel and fades to zero");
         Check(BattleVisualCue.Duration(BattlePresentationKind.CastStart,false)==.7f && BattleVisualCue.Duration(BattlePresentationKind.Enemy,true)==1.1f,"Playback and effects share provisional duration definitions");
-    }
-    private static void ValidateSlayerModel()
-    {
-        const string path="Assets/Game/Resources/Characters/Slayer/slayer-beauty-v2.fbx";
-        AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate);
-        var asset=AssetDatabase.LoadAssetAtPath<GameObject>(path);
-        Check(asset!=null,"Slayer FBX is available to runtime Resources");
-        var meshes=asset.GetComponentsInChildren<SkinnedMeshRenderer>(true);
-        var body=meshes.Single(r=>r.name=="Body_Common");
-        Check(body.sharedMesh.vertexCount>10000 && body.bones.Length>15,"Full body mesh has a deforming common skeleton");
-        Check(meshes.Any(r=>r.name.StartsWith("Outfit_Rose")) && meshes.Any(r=>r.name.StartsWith("Outfit_Training")),"Two distinct garment sets exist without replacing the body");
-        Check(body.bones.Any(b=>b.name=="Hand.R") && body.bones.Any(b=>b.name=="Head") && body.bones.Any(b=>b.name=="Finger3.L"),"Hand head and finger bones survive export");
-        Check(meshes.Any(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Blink deformation survives FBX import");
-        Check(Resources.Load<Shader>("HeroineBeauty")!=null,"Character close-up shader is packaged with the player");
-        foreach(var part in new[]{"Hair_Styled","WingWing.L","WingWing.R"}) {
-            var renderer=meshes.Single(r=>r.name==part);
-            string expected=part=="Hair_Styled"?"Head":part.Substring(4);
-            Check(renderer.sharedMesh.boneWeights.All(w=>
-                (w.weight0==0 || renderer.bones[w.boneIndex0].name==expected) &&
-                (w.weight1==0 || renderer.bones[w.boneIndex1].name==expected) &&
-                (w.weight2==0 || renderer.bones[w.boneIndex2].name==expected) &&
-                (w.weight3==0 || renderer.bones[w.boneIndex3].name==expected)),"Repeated mesh parts retain intended bone binding: "+part);
-        }
-        foreach(var prefix in new[]{"Eye_White","Eye_Iris","Eye_Lid"}) {
-            var parts=meshes.Where(r=>r.name.StartsWith(prefix)).ToArray();
-            Check(parts.Length==(prefix=="Eye_Lid"?4:2) && parts.All(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Blink"))),"Both eyes have coordinated blink geometry: "+prefix);
-        }
-        Check(meshes.Any(r=>r.name=="Mouth" && Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith("Smile"))),"Smile deformation survives FBX import");
-        foreach(var expression in new[]{"Talk","Sad","Angry","Surprise"})
-            Check(meshes.Any(r=>Enumerable.Range(0,r.sharedMesh.blendShapeCount).Any(i=>r.sharedMesh.GetBlendShapeName(i).EndsWith(expression))),"Portrait expression survives FBX import: "+expression);
-        var clips=AssetDatabase.LoadAllAssetsAtPath(path).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
-        Debug.Log("SLAYER_IMPORTED_CLIPS "+string.Join(",",clips.Select(c=>c.name)));
-        foreach(var name in new[]{"Idle","Attack","Cast","Hit","Victory"}) Check(clips.Any(c=>c.name==name && c.length>0 && c.legacy),"Slayer motion imported: "+name);
-        var copy=UnityEngine.Object.Instantiate(asset);
-        try {
-            foreach(var clip in clips) {
-                clip.SampleAnimation(copy,clip.length*.5f);
-                var head=copy.GetComponentsInChildren<Transform>().First(t=>t.name=="Head");
-                Check(!float.IsNaN(head.position.x) && !float.IsInfinity(head.position.y),"Sampled model pose remains finite: "+clip.name);
-            }
-        } finally { UnityEngine.Object.DestroyImmediate(copy); }
     }
     private static void ValidatePlayback()
     {

@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-10",
+  "baseCommit": "15038ae",
+  "changes": [
+    "Remove notification count labels from bookmark ribbons; retain page notifications.",
+    "Draw system entry once per GUI pass across pages and fallback chrome.",
+    "Add common upper-right Back button using Escape routing; preserve watch mode existing return button.",
+    "Disable Back on title root, initialization failure or pending save; root book returns to title after flush.",
+    "Recovery Back cancels confirmation or returns to title; completed battle results return to book."
+  ],
+  "assertions": 12270,
+  "compileSources": 261,
+  "uiViews": {
+    "1920x1080": [
+      "roster",
+      "detail",
+      "level",
+      "formation-ui",
+      "garden-life",
+      "book-items",
+      "book-system",
+      "help",
+      "adv-backlog",
+      "battle-pause",
+      "battle-result",
+      "save-main",
+      "save-delete-second",
+      "model",
+      "settings",
+      "title"
+    ],
+    "1280x720": [
+      "detail",
+      "roster",
+      "garden-life"
+    ]
+  },
+  "physicalInputAcceptance": "Excluded by user request. Computer Use stopped by user physical Escape; no further UI actions issued.",
+  "supplementaryObservation": "Before exclusion, two OS-injected clicks of common Back observed: Shangrila level view -> same person detail -> roster. Not a completion gate or exhaustive input acceptance.",
+  "limits": [
+    "No human listening or new performance benchmark performed.",
+    "19 captured views validate presentation and existing callbacks; do not claim every button boundary tested."
+  ],
+  "assemblySha256": "64d4719a9004f43f79474a6ca900cec7e4b4628e5eff2853f009699814ac4387",
+  "evidence": [
+    {
+      "path": "tmp/plan11-9/navigation-chrome-core.log",
+      "sha256": "b2099ec56bd4c5a59d5e0e89ab36a583a5ce79962395627cee7f0faa311cb782"
+    },
+    {
+      "path": "tmp/plan11-9/navigation-chrome-build.log",
+      "sha256": "da44058a5c6bab6a344d081a46609fa0037d9564df9278b7b4a95742e9139e7e"
+    },
+    {
+      "path": "tmp/plan11-9/navigation-chrome-ui.log",
+      "sha256": "8116aa84530a6f8d984f3a6c7fefb66a98b78ca348ca778749977e17870da523"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-roster.log",
+      "sha256": "1cfcb407897ddb4e4eb0972f7cb79a45e00b68e8855d32ef2e93883f0d750e0e"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-detail.log",
+      "sha256": "a10d7fb58c6f4a3b324a9f8e655bdb90e67b968fa1b877b46308c17368c853fe"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-level.log",
+      "sha256": "f329b3b7d91b28469b631c46dde4bd2303b981a1a8fa16d35525c80ca345e3a7"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-formation-ui.log",
+      "sha256": "da46d0830eb074c5036db4ee1c7974a2c775aae3c7c994159da49c4625f2ebe0"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-garden-life.log",
+      "sha256": "3e41bc8f987a18cea5467b6d0743b7e09f1e2ffdf622b4f1078c7689f06294e5"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-book-items.log",
+      "sha256": "c2831fa72925603af12edd13ad7e28ccdb7c7717c578ec521aafcdc7bc316b75"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-book-system.log",
+      "sha256": "9b60fbb58b1eb1656f8367b38f6a325fa5abaadf866164cbdef0e631d2115ec8"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-help.log",
+      "sha256": "404c78755f6264cbc0ce7a773196251a0c6caac75c94d8f166f93a0bd136e5ea"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-adv-backlog.log",
+      "sha256": "ba3659dc9ed4d58f7f65e9a1ba4e16cb1275e97cab3c2c3a9b08f69a82425b65"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-pause.log",
+      "sha256": "8ba4c673675bdff7344cc416fd361a4083b2381a6060cb22444fd677f137d038"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-result.log",
+      "sha256": "eeee9d4ed02b2a46981f7733bd9849b0ec274c1633174da5584200968d396fe2"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-main.log",
+      "sha256": "cef1959644e4c7ec0856425cafe4f1f37b9b1b9077dc6e61136335d076cb9d39"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-delete-second.log",
+      "sha256": "8630704fac87dcf072937b8fc3bcf92aff749345a74c18156d2e10b14445a915"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-model.log",
+      "sha256": "9a04e171099525006925ad69422037e878f6074fed9140c6450ac78db9439008"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-settings.log",
+      "sha256": "ab4d5902826089121ffcf65b0f191d467ac02cd4728d6faed8fc717f361bd75e"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-title.log",
+      "sha256": "53c758e7aae0ac1aec4d9dbf99b6639abe824e88abf6f24083eb38e28c43c181"
+    },
+    {
+      "path": "tmp/plan11-9/navigation-chrome-ui-720.log",
+      "sha256": "a03079768dabda6953c4bc863cce21467e697ba7809b4c08ce0e27181878193a"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-detail.log",
+      "sha256": "f97dea89268d87a0b3ff49481a3d309f5c4dd2fbf4590e034584811792ab319a"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-roster.log",
+      "sha256": "ee05f78a4bfe9a1f390a04b5a00350723a58e2379b2ddcaa744563eb01c1a601"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-garden-life.log",
+      "sha256": "90b21b0668a99599ba45b81a0c7fd6859c4fe48c0a771d396a6313717212b6e3"
+    }
+  ]
+}

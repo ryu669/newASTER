@@ -4,6 +4,18 @@ namespace NewAster.Core
 {
     public static class WeaponGrowthRules
     {
+        public static int Route(HomeWeaponNode n)=>n.initial?-1:n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;
+        public static int Tier(HomeWeaponNode n)=>n.initial?0:n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;
+        public static string Branch(HomeWeaponNode n)=>n.initial?"根":new[]{"攻撃","守護","技巧"}[Route(n)];
+        public static string Compare(HomeWeaponNode from,int fromLevel,HomeWeaponNode to,int toLevel)
+        {
+            var rows=new System.Collections.Generic.List<string>();
+            void Stat(string name,float before,float after,string suffix=""){if(Math.Abs(before-after)>.0001f)rows.Add(name+" "+before.ToString("0.##")+suffix+" → "+after.ToString("0.##")+suffix);}
+            Stat("攻撃",Attack(from,fromLevel),Attack(to,toLevel));Stat("物防",Physical(from,fromLevel),Physical(to,toLevel));Stat("魔防",Magic(from,fromLevel),Magic(to,toLevel));Stat("速度",Speed(from,fromLevel),Speed(to,toLevel));
+            Stat("会心",Critical(from,fromLevel)/100f,Critical(to,toLevel)/100f,"%");Stat("会心威力",CriticalDamage(from,fromLevel),CriticalDamage(to,toLevel),"%");Stat("技倍率",Power(from,fromLevel)*100,Power(to,toLevel)*100,"%");
+            Stat("攻撃補正",from.traitAttackPercent,to.traitAttackPercent,"%");Stat("防御補正",from.traitDefensePercent,to.traitDefensePercent,"%");Stat("速度補正",from.traitSpeedPercent,to.traitSpeedPercent,"%");
+            return rows.Count==0?"変化なし":string.Join("\n",rows);
+        }
         public static string[] EffectKinds(HomeWeaponNode n)
         {
             var effects=new System.Collections.Generic.List<string>();

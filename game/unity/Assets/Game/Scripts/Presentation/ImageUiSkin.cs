@@ -10,6 +10,7 @@ namespace NewAster.Presentation
         private static readonly Dictionary<string,Texture2D> images=new Dictionary<string,Texture2D>();
         private static readonly Dictionary<GUIStyle,GUIStyle> textButtons=new Dictionary<GUIStyle,GUIStyle>();
         private static GUISkin appliedSkin;
+        public static bool ValidateTextBounds;
         public static Texture2D Image(string name)
         {
             if(images.TryGetValue(name,out var image))return image;
@@ -56,6 +57,16 @@ namespace NewAster.Presentation
             if(caption.Length==0 || source==GUIStyle.none)return GUI.Button(rect,caption,source);
             ButtonArt(rect,GUI.enabled,primary);
             var label=TextButton(source);
+            label.fontSize=source.fontSize>0?source.fontSize:16;
+            label.contentOffset=Vector2.zero;label.clipping=TextClipping.Clip;
+            int horizontal=Mathf.CeilToInt(Mathf.Min(24,rect.width*.14f)+4);
+            int vertical=rect.height<40 || caption.Contains("\n")?3:Mathf.CeilToInt(Mathf.Min(10,rect.height*.16f)+2);
+            label.padding.left=Math.Max(horizontal,source.padding.left);label.padding.right=Math.Max(horizontal,source.padding.right);
+            label.padding.top=Math.Max(vertical,source.padding.top);label.padding.bottom=Math.Max(vertical,source.padding.bottom);
+            var content=new GUIContent(caption);
+            bool Fits()=>label.CalcHeight(content,rect.width)<=rect.height+.1f && (label.wordWrap || label.CalcSize(content).x<=rect.width+.1f);
+            while(label.fontSize>12 && !Fits())label.fontSize--;
+            if(ValidateTextBounds && Event.current.type==EventType.Repaint && !Fits())throw new InvalidOperationException("Button text exceeds safe frame: "+caption+" / "+rect+" / font "+label.fontSize);
             // Caller-owned styles can change their text colour after the cache is created.
             label.normal.textColor=source.normal.textColor;label.hover.textColor=source.hover.textColor;
             return GUI.Button(rect,caption,label);

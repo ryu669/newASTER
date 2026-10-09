@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -11,7 +11,7 @@ namespace NewAster.Presentation
         private long bookNoticeRevision=-1;
         private void RefreshBookNotices(){if(formalCampaign==null || bookNoticeRevision==formalCampaign.Revision)return;bookNotices.Refresh(formalCampaign.Snapshot,HomeData(),CollectionData());bookNoticeRevision=formalCampaign.Revision;}
         private static readonly BookBookmark[] RibbonOrder={BookBookmark.Colossi,BookBookmark.Heroines,BookBookmark.Formation,BookBookmark.Gardens,BookBookmark.Stories,BookBookmark.Summoning,BookBookmark.Items,BookBookmark.RelicHunt,BookBookmark.NewWorld,BookBookmark.PossibleWorlds};
-        private static readonly string[] RibbonNames={"巨神獣","誓女","編成","庭","物語","召喚","アイテム","レリックハント","新天地","可能世界"};
+        private static readonly string[] RibbonNames={"巨神獣","誓女","編成","箱庭","物語","召喚","アイテム","レリックハント","新天地","可能世界"};
         private Texture2D bookEmblemAtlas;
         private void DrawBookEmblem(Rect rect,int index)
         {
@@ -20,17 +20,16 @@ namespace NewAster.Presentation
             GUI.DrawTextureWithTexCoords(rect,bookEmblemAtlas,new Rect(index%4*.25f,1-(index/4+1)*.25f,.25f,.25f),true);
         }
         private bool CanOpenBookSystem=>BookInputAllowed && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !engagementOpen;
-        private bool IsBookScreen=>!title && encounter==null && adv==null && !modelViewer && !recoveryActive && combatDefinitionError==null && !artSample && plan9EnemyPreview==null && plan9Expression==null && plan9Cg==null;
+        private bool IsBookScreen=>!saveManagementOpen && !title && encounter==null && adv==null && !recoveryActive && combatDefinitionError==null && !artSample && plan9EnemyPreview==null && plan9Expression==null && plan9Cg==null;
         private void DrawBookRibbon()
         {
             RefreshBookNotices();GrowthStyles();GrowthFill(0,0,1600,88,ink);
             int current=Array.IndexOf(RibbonOrder,book.Bookmark);if(current<0)current=0;
-            DrawRibbon(current,new Rect(4,0,46,Math.Max(180,68+RibbonNames[current].Length*27)),true);
-            for(int i=0;i<RibbonOrder.Length;i++)if(i!=current)DrawRibbon(i,new Rect(452+i*100,0,48,104),false);
+            for(int i=0;i<RibbonOrder.Length;i++)DrawRibbon(i,new Rect(16+i*124,0,116,84),i==current);
             bool prior=GUI.enabled;GUI.enabled=prior && !help;
             if(GrowthButton(1490,14,64,52,"？",true)){help=true;contextualHelpScroll=Vector2.zero;PlayProductionUiSound("決定");}
             GUI.enabled=prior;
-            if(!help && !bookSystemOpen && book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.Stories && book.Bookmark!=BookBookmark.RelicHunt && book.Bookmark!=BookBookmark.Gardens && !formationOpen && !(book.Bookmark==BookBookmark.Heroines && (growthScreen==GrowthScreen.Weapons || !heroineRosterOpen && (growthScreen==GrowthScreen.Overview || growthScreen==GrowthScreen.Information)))){if(GrowthButton(1060,842,215,40,"システム",CanOpenBookSystem))bookSystemOpen=true;}
+            if(!help && !bookSystemOpen && !bookSystemButtonDrawn)DrawSingleBookSystemButton(CanOpenBookSystem);
             if(bookSystemOpen)DrawBookSystem();
         }
         private void DrawRibbon(int index,Rect rect,bool selected)
@@ -38,9 +37,14 @@ namespace NewAster.Presentation
             var color=selected?new Color(.36f,.26f,.16f):new Color(.13f+.025f*(index%3),.20f,.25f);
             GrowthFill(rect.x,rect.y,rect.width,rect.height-14,color);
             for(int row=0;row<14;row++){float inset=row*rect.width/28;GrowthFill(rect.x+inset,rect.y+rect.height-14+row,rect.width-inset*2,1,color);}
-            DrawBookEmblem(new Rect(rect.x+5,8,rect.width-10,rect.width-10),index==2?12:index>2?index-1:index);
-            int count=bookNotices.Count(HomeData().subjects.Where(x=>(x.bookmarkId=="heroines"?BookBookmark.Heroines:x.bookmarkId=="stories"?BookBookmark.Stories:x.bookmarkId=="colossi"?BookBookmark.Colossi:BookBookmark.Gardens)==RibbonOrder[index]).Select(x=>x.subjectId).Concat(RibbonOrder[index]==BookBookmark.Items?new[]{"items.main"}:RibbonOrder[index]==BookBookmark.NewWorld?TerraformRules.DomainIds.Select(id=>"terraform.domain."+id).ToArray():Array.Empty<string>()));if(count>0)Label(rect.x,rect.height-42,rect.width,24,count.ToString(),small,gold);
-            if(selected){var verticalStyle=new GUIStyle(growthTitleStyle){fontSize=21,alignment=TextAnchor.MiddleCenter};for(int i=0;i<RibbonNames[index].Length;i++)Label(rect.x,52+i*27,rect.width,27,RibbonNames[index][i].ToString(),verticalStyle,gold);}
+            DrawBookEmblem(new Rect(rect.center.x-14,5,28,28),index==2?12:index>2?index-1:index);
+            var nameStyle=new GUIStyle(growthTextStyle){fontSize=16,alignment=TextAnchor.MiddleCenter,wordWrap=false};
+            string caption=RibbonNames[index]=="レリックハント"?"レリック\nハント":RibbonNames[index];
+            var content=new GUIContent(caption);
+            while(nameStyle.fontSize>12 && (nameStyle.CalcSize(content).x>rect.width-28 || nameStyle.CalcHeight(content,rect.width-28)>40))nameStyle.fontSize--;
+            if(caption.Contains("\n")){nameStyle.fontSize=Math.Min(nameStyle.fontSize,14);Label(rect.x+14,32,rect.width-28,34,caption,nameStyle,selected?gold:Color.white);}
+            else Label(rect.x+14,34,rect.width-28,40,caption,nameStyle,selected?gold:Color.white);
+            if(selected)GrowthLine(rect.x+8,rect.y+76,rect.xMax-8,rect.y+76,gold,3);
             bool enabled=BookInputAllowed && !book.IsTransitioning && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen;
             bool prior=GUI.enabled;GUI.enabled=prior&&enabled;
             if(ImageUiSkin.Button(rect,"",GUIStyle.none) && !selected){collectionOpen=false;kinderGarden=false;trialPoemChapter=null;RequestBookBookmark(RibbonOrder[index]);}
@@ -53,18 +57,20 @@ namespace NewAster.Presentation
             if(Btn(40,836,190,44,"‹",BookInputAllowed && book.CanTurnPrevious))RequestBookTurn(-1);
             Label(247,840,140,36,(book.SubjectIndex+1)+" / "+Math.Max(1,book.SubjectCount),small,gold);
             if(Btn(400,836,190,44,"›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
-            if(bookNotices.For(book.SubjectId)!=BookNotice.None)Label(870,840,400,36,"通知："+BookNoticeText(bookNotices.For(book.SubjectId)),small,gold);
-            if(Btn(610,836,230,44,book.Face==BookFace.Overview?"詳細":"概要",BookInputAllowed && book.CanFlip))RequestBookFlip();
-            if(Btn(1310,836,245,44,"システム",CanOpenBookSystem))bookSystemOpen=true;
+            if(!heroine && bookNotices.For(book.SubjectId)!=BookNotice.None)Label(870,840,400,36,"通知："+BookNoticeText(bookNotices.For(book.SubjectId)),small,gold);
+            if(heroine){
+                if(Btn(610,836,155,44,(book.Face==BookFace.Overview?"✓ ":"")+"能力",BookInputAllowed && book.CanFlip && book.Face!=BookFace.Overview))RequestBookFlip();
+                if(Btn(780,836,210,44,(book.Face==BookFace.Details?"✓ ":"")+"交流・回想",BookInputAllowed && book.CanFlip && book.Face!=BookFace.Details))RequestBookFlip();
+            }else if(Btn(610,836,230,44,book.Face==BookFace.Overview?((book.Bookmark==BookBookmark.Colossi || book.Bookmark==BookBookmark.RelicHunt)?"部位・報酬":"詳細"):"概要",BookInputAllowed && book.CanFlip))RequestBookFlip();
         }
         private void DrawBookSystem()
         {
             drawingModal=true;if(titlePanel!=null){DrawTitlePanel();return;}GrowthFill(0,0,1600,900,new Color(0,0,0,.75f));GrowthFrame(430,220,740,450);
             Label(470,255,660,55,"システム",growthTitleStyle,gold);
-            if(GrowthButton(480,340,640,55,"保存",BookInputAllowed,true)){Save();}
+            if(GrowthButton(480,340,640,55,"セーブ管理",BookInputAllowed,true)){OpenSaveManagement();}
             if(GrowthButton(480,415,300,55,"設定")){OpenTitlePanel("settings");}
-            if(GrowthButton(800,415,320,55,"表紙へ",BookInputAllowed)){book.Close();title=true;bookSystemOpen=false;}
-            if(GrowthButton(480,550,640,40,"ページ演出："+(book.ShortTransitions?"短縮":"通常"))){book.ShortTransitions=!book.ShortTransitions;bookNavigationDirty=true;}
+            if(GrowthButton(800,415,320,55,"表紙へ",BookInputAllowed)){if(FlushSaveChanges()){book.Close();title=true;bookSystemOpen=false;}}
+            if(GrowthButton(480,550,640,40,"ページ演出："+(book.ShortTransitions?"短縮":"通常"))){book.ShortTransitions=!book.ShortTransitions;PlayerPrefs.SetInt("book.short-transitions",book.ShortTransitions?1:0);RequestSettingsSave();}
             if(GrowthButton(480,490,640,55,"閉じる"))bookSystemOpen=false;
             if(status.Contains("保存"))Label(480,570,640,55,status,growthSmallStyle);
         }

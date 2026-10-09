@@ -15,7 +15,14 @@ namespace NewAster.Presentation
         private void DrawExpansionRecruitmentButton()
         {
             int count=UnownedExpansionForms().Length;if(count==0)return;
-            if(GrowthButton(975,170,570,48,"新しい天使を迎える ／ "+count+"形態・無償",BookInputAllowed && homeRequest==null && !formalCampaign.HasPending))expansionRecruitmentOpen=true;
+            if(GrowthButton(80,118,430,48,"デバッグ：新しい天使を迎える",BookInputAllowed && homeRequest==null && !formalCampaign.HasPending))expansionRecruitmentOpen=true;
+        }
+        private void CloseExpansionRecruitment()
+        {
+            // Keep the visible dialog and its retry request while a save is unresolved.
+            if(expansionRecruitRequest!=null)return;
+            expansionRecruitmentOpen=false;
+            expansionRecruitError=null;
         }
         private GrowthCommitResult RecruitExpansionForm(string id)
         {
@@ -31,8 +38,8 @@ namespace NewAster.Presentation
         {
             if(!expansionRecruitmentOpen)return;drawingModal=true;
             GrowthFill(0,0,1600,900,new Color(0,0,0,.75f));GrowthFrame(285,65,1030,780);
-            Label(330,95,940,48,"新しい天使を迎える",growthTitleStyle,gold);
-            Label(330,156,940,58,"加入は無償。衣装違いは同じ人物として扱います。\n好感度・恋人関係を共有し、衣装とジョブの育成は形態ごとに進めます。",growthSmallStyle);
+            Label(330,95,940,48,"デバッグ：新しい天使を迎える",growthTitleStyle,gold);
+
             var allForms=UnownedExpansionForms();int pages=Math.Max(1,(allForms.Length+4)/5);expansionRecruitmentPage=Mathf.Clamp(expansionRecruitmentPage,0,pages-1);var forms=allForms.Skip(expansionRecruitmentPage*5).Take(5).ToArray();
             for(int i=0;i<forms.Length;i++){
                 string id=forms[i];var hero=combatDefinitions.Hero(id);
@@ -44,7 +51,7 @@ namespace NewAster.Presentation
             Label(660,619,260,40,(expansionRecruitmentPage+1)+" / "+pages,growthSmallStyle);
             if(GrowthButton(1010,610,260,48,"次の5形態 ›",expansionRecruitmentPage+1<pages && expansionRecruitRequest==null))expansionRecruitmentPage++;
             if(expansionRecruitError!=null)Label(330,665,940,40,expansionRecruitError,growthSmallStyle);
-            if(GrowthButton(970,765,300,48,"一覧へ戻る",expansionRecruitRequest==null,true))expansionRecruitmentOpen=false;
+            if(GrowthButton(970,765,300,48,book.Bookmark==BookBookmark.Summoning?"召喚へ戻る":"一覧へ戻る",expansionRecruitRequest==null,true))CloseExpansionRecruitment();
         }
     }
 }

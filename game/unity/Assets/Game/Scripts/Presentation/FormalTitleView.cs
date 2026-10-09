@@ -1,10 +1,18 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
+        private void OpenFormalBook()
+        {
+            if(saveSlotBlocked || saveSlotDeleted){OpenSaveManagement();return;}
+            BeginQuality119ColdBook();
+            book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
+            title=false;CloseTitlePanel();
+        }
         private string titlePanel;
         private readonly Color titleGold = new Color(.79f, .65f, .37f);
         private readonly Color titleInk = new Color(.035f, .05f, .10f);
@@ -42,7 +50,7 @@ namespace NewAster.Presentation
                 PlayerPrefs.SetInt("art.shortened",titleDraftShortened?1:0);
                 PlayerPrefs.SetInt("art.motion",titleDraftMotion?1:0);PlayerPrefs.SetInt("art.flash",titleDraftFlash?1:0);
                 PlayerPrefs.SetInt("art.large-text",titleDraftLargeText?1:0);PlayerPrefs.SetInt("art.fullscreen",titleDraftFullscreen?1:0);
-                PlayerPrefs.Save();
+                RequestSettingsSave();
                 if(!formalDiagnostic)Screen.fullScreenMode=titleDraftFullscreen?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
                 text=null;heading=null;small=null;button=null;skillButton=null;
                 growthTitleStyle=null;growthTextStyle=null;growthSmallStyle=null;growthButtonStyle=null;
@@ -93,8 +101,9 @@ namespace NewAster.Presentation
             Label(105, 404, 600, 72, "失われた世界の記憶が、\nあなたの開く一頁から芽吹く。", titleSubtitle, Color.white);
             if (TitleButton(140, 510, 530, 68, "万物の書をひらく", BookInputAllowed))
             {
-                book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview; title = false; CloseTitlePanel();
+                OpenFormalBook();
             }
+            if(saveSlots!=null && TitleButton(140,724,530,40,"セーブ管理"))OpenSaveManagement();
             if (TitleButton(140, 594, 255, 50, "設定")) OpenTitlePanel("settings");
             if (TitleButton(415, 594, 255, 50, "クレジット")) OpenTitlePanel("credits");
             if (TitleButton(140, 660, 255, 50, "操作説明")) OpenTitlePanel("help");
@@ -143,7 +152,7 @@ namespace NewAster.Presentation
             else if (titlePanel == "credits")
             {
                 Label(400, 185, 750, 60, "クレジット", heading, titleGold);
-                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n計画10 追加天使を含む開発版\n人物・巨神獣・背景・家具・CG：\nnewASTER用に制作したAI生成美術\n本文・戦闘ルール・UI・音：独自制作\nBGM4曲と操作音4種、戦闘音5種を収録。\n\n参考ゲーム映像は制作上の観察資料です。\n原作の画像・音声を本配布物へ収録しません。\n\n素材ごとの採用記録と既知の制限は\n同梱のCREDITS・READMEを参照してください。";
+                string credits="newASTER / 巨神と誓女2\nVersion "+Application.version+"\n\n日本語フォント：Noto Sans CJK JP\nSIL Open Font License 1.1\n\n同梱の ThirdPartyNotices/NotoSansCJKjp に\nライセンス全文とNOTICEを収録。\n\n収録："+combatDefinitions.heroines.Select(h=>combatDefinitions.PersonId(h.id)).Distinct().Count()+"人物・"+combatDefinitions.heroines.Length+"形態・"+combatDefinitions.jobs.Length+"ジョブ\n人物・巨神獣・背景・家具・CG：\nnewASTER用に制作したAI生成美術\n本文・戦闘ルール・UI・音：独自制作\nBGM4曲と操作音4種、戦闘音5種を収録。\n\n参考ゲーム映像は制作上の観察資料です。\n原作の画像・音声を本配布物へ収録しません。\n\n同梱物の説明とライセンスは\nCREDITS・README・ThirdPartyNoticesを\n参照してください。";
                 float height=Math.Max(320,text.CalcHeight(new GUIContent(credits),700));
                 titleCreditsScroll=GUI.BeginScrollView(new Rect(400,275,750,320),titleCreditsScroll,new Rect(0,0,700,height));
                 Label(0,0,700,height,credits,text,Color.white);GUI.EndScrollView();

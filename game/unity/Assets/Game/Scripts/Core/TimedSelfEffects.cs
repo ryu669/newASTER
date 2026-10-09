@@ -36,8 +36,8 @@ namespace NewAster.Core
         private readonly List<TimedSelfEffectSnapshot> timedEffects=new List<TimedSelfEffectSnapshot>();
         public IReadOnlyList<TimedSelfEffectSnapshot> TimedEffects => Array.AsReadOnly(timedEffects.Concat(OopartBuffs.Where(b=>!b.kind.StartsWith("stat.",StringComparison.Ordinal)).Select(b=>new TimedSelfEffectSnapshot(b.kind,b.value,(int)Math.Max(1,(b.expiresAt-(OopartClock?.Invoke()??0)+99)/100)))).ToArray());
         private int EffectPercent(string kind) => (timedEffects.FirstOrDefault(e=>e.Kind==kind)?.Percent??0)+OopartBuffPercent(kind);
-        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100+SongCriticalBonusBp+GeneralCriticalBp);
-        public int CriticalMultiplierPercent => (150+WeaponCriticalDamageBonus)*(100+JobAllStatsPercent)/100+EffectPercent("critical-damage");
+        public int CriticalChanceBp => Math.Min(10000,BaseCriticalChanceBp*(100+JobAllStatsPercent)/100+EffectPercent("critical")*100+SongCriticalBonusBp+GeneralCriticalBp+TraitEffect("critical-bp"));
+        public int CriticalMultiplierPercent => (150+WeaponCriticalDamageBonus)*(100+JobAllStatsPercent)/100+EffectPercent("critical-damage")+TraitEffect("critical-damage");
         public int TimedSpeedPercent=>EffectPercent("speed");
         public int FireAmplificationPercent=>EffectPercent("fire-amplification");
         public bool ForcedTarget => IsAlive && EffectPercent("forced-target")>0;

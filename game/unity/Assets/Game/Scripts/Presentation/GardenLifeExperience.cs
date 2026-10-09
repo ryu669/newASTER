@@ -33,16 +33,16 @@ namespace NewAster.Presentation
             var slot=a.slotId==null?null:gardenLifeRuntime.Slots.Single(s=>s.id==a.slotId);
             var placement=slot==null?null:state.furniturePlacements.SingleOrDefault(p=>p.instanceId==slot.ownerId);
             var use=placement==null?null:GardenUse(placement.defId,a.heroineId);
-            string action=a.tag=="sit" || a.tag=="sit_together" || a.tag=="rest" || a.tag=="eat" || a.tag=="drink" || a.tag=="read"?"action.sit":a.tag=="care_plant"?"action.work":a.kind=="Scenery" || a.kind=="Social"?"action.look":null;
+            string action=a.tag=="sit" || a.tag=="sit_together" || a.tag=="rest" || a.tag=="eat" || a.tag=="drink" || a.tag=="read"?"action.sit":a.tag=="care_plant"?"action.work":a.kind=="Scenery" || a.kind=="Social" || a.kind=="DailyInteraction"?"action.look":null;
             bool compose=a.kind=="Furniture" && use!=null && !placement.orientationId.Contains("rotate");
             return new HomeOccupant{heroineId=a.heroineId,gardenId=garden,slotId="slot.idle",x=a.x,y=a.y,actionId=compose?"action."+use.action:action,furnitureInstanceId=compose?placement.instanceId:null};
         }
-        private int lifeSnapshotFrame=-1;
+        private int lifeSnapshotCopies;
         private long lifeSnapshotRevision=-1;
         private FormalCampaignSave lifeSnapshotCached;
         private FormalCampaignSave LifeSnapshot()
         {
-            if(lifeSnapshotCached==null || lifeSnapshotFrame!=Time.frameCount || lifeSnapshotRevision!=formalCampaign.Revision){lifeSnapshotCached=formalCampaign.Snapshot;GardenLifeCatalog.Migrate(lifeSnapshotCached);lifeSnapshotFrame=Time.frameCount;lifeSnapshotRevision=formalCampaign.Revision;}
+            if(lifeSnapshotCached==null || lifeSnapshotRevision!=formalCampaign.Revision){lifeSnapshotCached=formalCampaign.Snapshot;GardenLifeCatalog.Migrate(lifeSnapshotCached);lifeSnapshotRevision=formalCampaign.Revision;lifeSnapshotCopies++;}
             return lifeSnapshotCached;
         }
         private void CommitLife(string kind,string payload,Action<FormalCampaignSave> build,Action after=null,string transactionId=null)
@@ -64,26 +64,29 @@ namespace NewAster.Presentation
             gardenLifeRuntime=new GardenLifeRuntime(save,HomeData(),id,113711);
             lastLifeGarden=id;string visit=id+"/"+save.gardenLife.Setting(id).visitCounter;
             if(!gardenDiscoveryVisits.TryGetValue(visit,out gardenDiscoveries)){gardenDiscoveries=new GardenLifeDiscoveries(GardenLifeRuntime.StableSeed(113711,id,save.gardenLife.Setting(id).visitCounter));gardenDiscoveryVisits[visit]=gardenDiscoveries;}
-            gardenLifeRuntime.Trigger+=(trigger,context)=>{gardenLifeTriggers.Enqueue(Tuple.Create(trigger,context));PlayLifeSound(trigger,context);};
+            gardenLifeRuntime.Trigger+=(trigger,context)=>{gardenLifeTriggers.Enqueue(Tuple.Create(trigger,context));PlayLifeSound(trigger,context);if(trigger=="social")DailyAutonomousSocial(context);};
             gardenLifeTriggers.Enqueue(Tuple.Create("environment",gardenLifeRuntime.Context()));gardenLifeTriggers.Enqueue(Tuple.Create("terraform",gardenLifeRuntime.Context()));
         }
         private void UpdateGardenLife()
         {
-            bool visible=formalCampaign!=null && book!=null && !title && encounter==null && adv==null && !modelViewer && !collectionOpen && !engagementOpen && book.Bookmark==BookBookmark.Gardens && !book.IsTransitioning;
+            bool visible=formalCampaign!=null && book!=null && !title && encounter==null && adv==null && !collectionOpen && !engagementOpen && book.Bookmark==BookBookmark.Gardens && !book.IsTransitioning;
             if(capturePath!=null && !gardenLifeCapture)return;
-            if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;StopLifeAudio();}gardenViewing=false;return;}
+            if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;}StopLifeAudio();gardenViewing=false;return;}
             if(!LifeSnapshot().world.unlockedGardenIds.Contains(book.SubjectId))return;
-            if(affectionInteraction!=null || affectionRequest!=null || affectionPanel || affectionShop || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
+            if(gardenLifeRuntime?.GardenId==book.SubjectId)SyncLifeAudio();
+            if(affectionRequest!=null || affectionPanel || affectionShop || dailyDateForm!=null || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(gardenLifeRuntime==null || gardenLifeRuntime.GardenId!=book.SubjectId){
                 string id=book.SubjectId;CommitLife("visit",id,s=>{s.gardenLife.Setting(id).visitCounter=checked(s.gardenLife.Setting(id).visitCounter+1);s.gardenLife.lastGardenId=id;},StartLifeScene);return;
             }
             if(!gardenLifeRuntime.Paused && !help && !bookSystemOpen && Application.isFocused)gardenLifeRuntime.Tick(Time.unscaledDeltaTime);
-            SyncLifeAudio();MeasureLifeAcceptance();
+            MeasureLifeAcceptance();
             if(gardenLifeFinds.Count==0 && gardenLifeTriggers.Count>0){var t=gardenLifeTriggers.Dequeue();foreach(var d in gardenDiscoveries.Evaluate(t.Item1,t.Item2,LifeSnapshot().gardenLife))gardenLifeFinds.Enqueue(Tuple.Create(d,t.Item2));}
             if(gardenLifeFinds.Count>0){var found=gardenLifeFinds.Dequeue();var transaction=new GardenDiscoveryTransaction(Guid.NewGuid().ToString("N"),found.Item1.id,found.Item2);CommitLife("discovery",found.Item1.id+"/"+JsonUtility.ToJson(found.Item2),transaction.Apply,()=>{gardenLifeMessage="生活発見："+found.Item1.name+(found.Item1.recipeId==null?"":" ／ 記念家具のレシピを記録しました。");},transaction.Id);}
         }
         private bool CloseGardenLifeLayer()
         {
+            if(gardenLifeRequest!=null)return true;
+            if(gardenLifeError!=null){gardenLifeError=null;return true;}
             if(gardenLifeRecords){gardenLifeRecords=false;return true;}
             if(book==null || book.Bookmark!=BookBookmark.Gardens || title || encounter!=null)return false;
             if(gardenViewing){gardenViewing=false;return true;}
@@ -92,6 +95,7 @@ namespace NewAster.Presentation
             if(gardenLifeResidentPlace){gardenLifeResidentPlace=false;return true;}
             if(gardenLifeEditPlace){gardenLifeEditPlace=false;return true;}
             if(gardenLifeEditor!=null){gardenDiscardConfirm=true;return true;}
+            if(gardenLifePanel=="催事参加者"){gardenLifePanel="催事";return true;}
             if(gardenLifePanel!=null){gardenLifePanel=null;return true;}return false;
         }
         private void DrawLifeGarden()
@@ -128,7 +132,6 @@ namespace NewAster.Presentation
                     if(i==5){gardenViewing=true;gardenLifePanel=null;}else{gardenLifePanel=gardenLifePanel==tabs[i]?null:tabs[i];gardenLifeScroll=Vector2.zero;gardenLifeQuery="";}
                 }
             }
-            if(Btn(1325,835,245,48,"システム",CanOpenBookSystem && gardenLifeEditor==null))bookSystemOpen=true;
             if(gardenLifePanel!=null)DrawLifeDrawer(save);
             if(gardenLifeMessage!=null){Panel(85,190,800,55,dark);Label(105,196,760,43,gardenLifeMessage,new GUIStyle(small){fontSize=18},Color.white);if(Btn(895,195,45,42,"×"))gardenLifeMessage=null;}
             GUI.enabled=backgroundEnabled;DrawLifeSaveError();
@@ -222,6 +225,7 @@ namespace NewAster.Presentation
             if(Btn(1280,621,268,44,"誓女の詳細")){gardenLifePanel=null;gardenLifeRuntime?.Stop();if(book.RequestSubject(BookBookmark.Heroines,id))bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;}
             var events=ProductionGardenLifeCatalog.GetAvailableGardenEvents(save,HomeData(),id);if(Btn(998,680,268,42,"一緒に過ごす",agent!=null))BeginPlayerAffection(id,true);if(Btn(1280,680,268,42,"好感度・物語"))OpenAffection(id);
             if(assignment.fixedPose && Btn(998,733,550,42,"固定行動："+GardenLifeCatalog.InteractionName(assignment.interactionTag??"stand"))){string[] tags={"stand","sit","read","look","rest"};assignment.interactionTag=tags[(Array.IndexOf(tags,assignment.interactionTag??"stand")+1)%tags.Length];CommitLife("assignment",JsonUtility.ToJson(assignment),s=>s.gardenLife.assignments=s.gardenLife.assignments.Where(a=>a.heroineId!=id).Concat(new[]{assignment}).ToArray(),StartLifeScene);}
+            if(Btn(998,783,550,42,"デートに誘う ／ 好感度Lv10から",agent!=null && AffectionService.State(save,HomeData(),id).level>=10))dailyDateForm=id;
         }
         private void DrawLifeActivities(FormalCampaignSave save)
         {

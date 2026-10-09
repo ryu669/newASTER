@@ -36,9 +36,10 @@ namespace NewAster.Presentation
             Debug.Log("PLAN8_FIRST_REPAINT engineElapsedSeconds="+Time.realtimeSinceStartup.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" splashFinished="+UnityEngine.Rendering.SplashScreen.isFinished);
             if(measuredHomeScene!=null)Debug.Log("PLAN8_HOME_LOAD scene="+measuredHomeScene+" prepareToFirstRepaintMs="+((MeasurementClock-measuredHomeStarted)*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" firstGuiCpuMs="+duration.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" assetsPrevalidated=true osCache=uncontrolled");
         }
-        private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
+        private NewAster.Core.BoundedCache<string,Texture2D> artTextures;
         private Texture2D SampleImage(string name,bool optional=false)
         {
+            if(artTextures==null)artTextures=new NewAster.Core.BoundedCache<string,Texture2D>(48,ScheduleHeroineAssetCleanup);
             if(!artTextures.TryGetValue(name,out var texture)){string version=name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null && !optional)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
             return texture;
         }
@@ -75,7 +76,7 @@ namespace NewAster.Presentation
         }
         private void OnApplicationFocus(bool focused)
         {if(watchModeActive)return;lastRewardClock=WatchWindowAdapter.RewardClock;TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
-            artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
+            artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();PauseLifeAudio();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}
         private void PrepareArtSample(string[] args)

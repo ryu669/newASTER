@@ -21,7 +21,7 @@ namespace NewAster.Core
         internal Action ArmorBroke;
         private int OrdinaryMaxHp => (int)Math.Min(int.MaxValue,(long)baseMaxHitPoints*(100+JobAllStatsPercent+LifeMaxHpPercent+OopartStatPercent("hp"))/100);
         internal int OopartReferenceMaxHp=>IsPanzer?(ArmorActive?baseMaxHitPoints*3:Math.Max(1,baseMaxHitPoints/5)):baseMaxHitPoints;
-        public int ArmorMaxHitPoints => (int)Math.Min(int.MaxValue,(long)OrdinaryMaxHp*3);
+        public int ArmorMaxHitPoints => (int)Math.Min(int.MaxValue,(long)OrdinaryMaxHp*3*(100+TraitEffect("armor-hp"))/100);
         public int FleshMaxHitPoints => Math.Max(1,OrdinaryMaxHp/5);
         internal void InitializePanzer(Func<long> clock){IsPanzer=true;ArmorActive=true;PanzerClock=clock;FleshHitPoints=FleshMaxHitPoints;HitPoints=ArmorMaxHitPoints;}
         private void PanzerBreak(){ArmorActive=false;ArmorCallAt=PanzerClock()+300;HitPoints=Math.Min(FleshMaxHitPoints,FleshHitPoints);ArmorBroke?.Invoke();}

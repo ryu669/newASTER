@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using UnityEngine;
 using NewAster.Core;
@@ -9,34 +9,35 @@ namespace NewAster.Presentation
     public sealed class BattleIllustrationView
     {
         private BattleIllustrationManifest manifest;
-        private Texture2D[] portraits;
         private string warning;
+        private BattleImpactEffects impactEffects;
+        public void Dispose(){impactEffects?.Dispose();impactEffects=null;}
         public bool Ready=>manifest!=null && body!=null;
         public int PartCount=>manifest?.parts.Length??0;
         private Texture2D background,body,middle,foreground,enemyMajor;
         private readonly string[] args=Environment.GetCommandLineArgs();
         private string Inspection { get {int i=Array.IndexOf(args,"-inspectPlan7Battle");return i>=0 && i+1<args.Length?args[i+1]:null;} }
-        private System.Collections.Generic.Dictionary<string,Texture2D> layers=new System.Collections.Generic.Dictionary<string,Texture2D>();
-        private Texture2D LoadLayer(string path)
+        private readonly BoundedCache<string,Texture2D> layers;
+        public int CachedLayerCount=>layers.Count;
+        private Texture2D LoadLayer(string path,bool optional=false)
         {
             if(string.IsNullOrWhiteSpace(path)) return null;
             if(layers.TryGetValue(path,out var found)) return found;
             var image=Resources.Load<Texture2D>(path);
-            if(image==null) throw new ArgumentException("Image missing: "+path);
-            layers.Add(path,image);return image;
+            if(image==null && !optional) throw new ArgumentException("Image missing: "+path);
+            layers[path]=image;return image;
         }
-        public BattleIllustrationView(string resource="Illustrations/battle-preview")
+        public BattleIllustrationView(string resource="Illustrations/battle-preview",Action cleanup=null)
         {
+            layers=new BoundedCache<string,Texture2D>(36,cleanup);
             try {
                 var source=Resources.Load<TextAsset>(resource);
                 if(source==null) throw new ArgumentException("battle-preview manifest missing");
                 manifest=JsonUtility.FromJson<BattleIllustrationManifest>(source.text);manifest.Validate();
                 foreach(var binding in Resources.LoadAll<TextAsset>("Illustrations").Where(a=>a.name.EndsWith("-battle-binding",StringComparison.Ordinal))){var hero=JsonUtility.FromJson<HeroIllustrationBinding>(binding.text);if(!manifest.heroes.Any(h=>h.heroineId==hero.heroineId))manifest.heroes=manifest.heroes.Concat(new[]{hero}).ToArray();}
-                portraits=manifest.heroes.Select(h=>string.IsNullOrEmpty(h.resourcePath)?null:Resources.Load<Texture2D>(h.resourcePath)).ToArray();
                 background=LoadLayer(manifest.backgroundResourcePath);body=LoadLayer(manifest.bodyResourcePath);
                 middle=LoadLayer(manifest.middleResourcePath);foreground=LoadLayer(manifest.foregroundResourcePath);
                 enemyMajor=LoadLayer(manifest.enemyMajorResourcePath);
-                foreach(var hero in manifest.heroes)foreach(var path in new[]{hero.attackResourcePath,hero.hitResourcePath,hero.cutinResourcePath})LoadLayer(path);
                 foreach(var part in manifest.parts) {
                     foreach(var path in new[]{part.resourcePath,part.destroyedResourcePath}) {
                         var layer=LoadLayer(path);
@@ -44,8 +45,7 @@ namespace NewAster.Presentation
                             throw new ArgumentException("Enemy layer canvas mismatch: "+path);
                     }
                 }
-                for(int i=0;i<manifest.heroes.Length;i++) if(!string.IsNullOrEmpty(manifest.heroes[i].resourcePath) && portraits[i]==null) throw new ArgumentException("Image missing: "+manifest.heroes[i].resourcePath);
-            } catch(Exception e) { manifest=null;portraits=null;background=null;body=null;middle=null;foreground=null;enemyMajor=null;layers.Clear();warning=e.Message;Debug.LogWarning("ILLUSTRATION_MANIFEST_WARNING "+warning); }
+            } catch(Exception e) { manifest=null;background=null;body=null;middle=null;foreground=null;enemyMajor=null;layers.Clear();warning=e.Message;Debug.LogWarning("ILLUSTRATION_MANIFEST_WARNING "+warning); }
         }
         private void DrawEnemyLayer(PartIllustrationBinding part,Rect canvas,PlayableBattle battle,BattlePresentationEvent e)
         {
@@ -54,7 +54,7 @@ namespace NewAster.Presentation
             int hp=e?.PartHp[index]??battle.State.Parts[index].HitPoints;
             if(Inspection==part.partId)hp=0; // diagnostic drawing only, state remains unchanged
             string path=BattleIllustrationManifest.PartResource(part,hp);
-            if(path!=null && layers.TryGetValue(path,out var art)) GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);
+            if(path!=null){var art=LoadLayer(path);GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);}
         }
         public static Rect PartCanvas(Rect canvas,PartIllustrationBinding part)
         =>LayerCanvas(canvas,part.placement);
@@ -72,7 +72,7 @@ namespace NewAster.Presentation
         }
         public void DrawEnemyMajorPreview(Rect canvas){if(enemyMajor!=null)GUI.DrawTexture(canvas,enemyMajor,ScaleMode.ScaleToFit,true);}
         private void DrawPreviewPart(PartIllustrationBinding part,Rect canvas,int mask)
-        {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null && layers.TryGetValue(path,out var art))GUI.DrawTexture(PartCanvas(canvas,part),art,ScaleMode.ScaleToFit,true);}
+        {int index=Array.IndexOf(manifest.parts,part);string path=BattleIllustrationManifest.PartResource(part,(mask&(1<<index))!=0?0:1);if(path!=null)GUI.DrawTexture(PartCanvas(canvas,part),LoadLayer(path),ScaleMode.ScaleToFit,true);}
         private static void Fill(Rect rect,Color color) { ImageUiSkin.Surface(rect,color); }
         public string Draw(PlayableBattle battle,BattlePresentationEvent e,float elapsed,string target,bool canSelect,GUIStyle style,GUIStyle small,string[] names,string[] partNames,bool showActorLabel=true)
         {
@@ -97,15 +97,20 @@ namespace NewAster.Presentation
             float progress=e==null?0:BattleVisualCue.Progress(elapsed,e.Kind,e.Major);
             float movement=!ArtSampleSettings.ReducedMotion && e!=null && e.Kind==BattlePresentationKind.Attack?24*Mathf.Sin(progress*Mathf.PI):0;
             var actorRect=new Rect(890+movement,104,650,550);
+            if(e!=null){impactEffects=impactEffects??new BattleImpactEffects();if(e.Kind==BattlePresentationKind.Enemy)actorRect.position+=impactEffects.Offset(e,elapsed);}
             if(actor>=0 && actor<5) {
                 int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
-                Texture2D art=binding>=0?portraits[binding]:null;
+                Texture2D art=binding>=0?LoadLayer(manifest.heroes[binding].resourcePath):null;
                 if(binding>=0){var hero=manifest.heroes[binding];string path=Inspection=="hit" || victim?hero.hitResourcePath:Inspection=="cutin" || e!=null && e.Actor==actor && (e.Major || e.FullChain)?hero.cutinResourcePath:Inspection=="attack" || e!=null && e.Actor==actor && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease)?hero.attackResourcePath:null;
-                    if(path!=null && layers.TryGetValue(path,out var pose))art=pose;}
+                    if(path!=null){var pose=LoadLayer(path,true);if(pose!=null)art=pose;}}
                 if(battle.State.Heroes[actor].Id=="heroine.shell" && battle.RequiresPanzerDefense(actor))art=LoadLayer("Illustrations/shell-bare-candidate-v1");
                 if(art!=null) {
                     if(manifest.heroes[binding].fullCanvas) GUI.DrawTexture(actorRect,art,ScaleMode.ScaleToFit,true);
-                    else GUI.DrawTextureWithTexCoords(actorRect,art,new Rect(380f/1672,1-750f/941,912f/1672,650f/941));
+                    else {
+                        var uv=new Rect(380f/1672,1-750f/941,912f/1672,650f/941);
+                        var fit=AspectLayout.Contain(actorRect.x,actorRect.y,actorRect.width,actorRect.height,art.width*uv.width,art.height*uv.height);
+                        GUI.DrawTextureWithTexCoords(new Rect(fit.X,fit.Y,fit.Width,fit.Height),art,uv);
+                    }
                 }
                 else {
                     Fill(new Rect(960,580,490,75),new Color(.035f,.065f,.08f,.8f));
@@ -113,6 +118,7 @@ namespace NewAster.Presentation
                 }
             }
             var enemy=new Rect(90,86,620,620);
+            if(e!=null && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease))enemy.position+=impactEffects.Offset(e,elapsed);
             if(body==null) {
                 Fill(enemy,new Color(.12f,.21f,.22f));
                 GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
@@ -122,6 +128,13 @@ namespace NewAster.Presentation
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
             }
             if(foreground!=null)GUI.DrawTexture(sceneRect,foreground,ScaleMode.ScaleAndCrop,true);
+            if(e!=null){
+                var points=e.Kind==BattlePresentationKind.Enemy || e.Kind==BattlePresentationKind.Healing || e.Kind==BattlePresentationKind.Support?new[]{actorRect.center}:e.TargetIds.Take(4).Select(id=>{
+                    var part=manifest?.parts.FirstOrDefault(p=>p.partId==id);
+                    return part==null?enemy.center:new Vector2(enemy.x+(part.x+part.width*.5f)*enemy.width,enemy.y+(part.y+part.height*.5f)*enemy.height);
+                }).ToArray();
+                (impactEffects??(impactEffects=new BattleImpactEffects())).Draw(e,elapsed,points,style);
+            }
             if(e!=null && !ArtSampleSettings.ReducedFlash && elapsed<.25f){Color tint=e.PartBroken?new Color(1,.65f,.2f,.12f):e.Kind==BattlePresentationKind.Healing?new Color(.25f,1,.55f,.10f):e.Kind==BattlePresentationKind.Support?new Color(.3f,.65f,1,.10f):new Color(1,1,1,.06f);Fill(sceneRect,tint);}
             if(body!=null && manifest!=null && canSelect && Event.current.type==EventType.MouseDown && Event.current.button==0 && enemy.Contains(Event.current.mousePosition) && Event.current.mousePosition.y<708) {
                 var mouse=Event.current.mousePosition;
@@ -145,10 +158,10 @@ namespace NewAster.Presentation
             // Parts without image bindings remain selectable in the on-demand target drawer.
             if(showActorLabel && actor>=0 && actor<5){int binding=manifest!=null?manifest.HeroIndex(battle.State.Heroes[actor].Id):-1;
                 Fill(new Rect(900,666,650,32),new Color(.035f,.065f,.08f,.78f));
-                GUI.Label(new Rect(914,669,620,28),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && portraits[binding]!=null && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
-            if(e!=null && (e.Damage>0 || e.Kind==BattlePresentationKind.CastStart)) {
+                GUI.Label(new Rect(914,669,620,28),(inspectStanding?"素材確認 / ":victim?"被弾対象 / ":"行動者 "+(actor+1)+" / ")+names[actor]+(binding>=0 && manifest.heroes[binding].placeholder?"（候補絵）":""),small);}
+            if(e!=null && e.Kind==BattlePresentationKind.CastStart) {
                 Fill(new Rect(100,666,650,32),new Color(.035f,.065f,.08f,.78f));
-                GUI.Label(new Rect(114,669,620,28),e.Kind==BattlePresentationKind.CastStart?"詠唱開始（まだダメージなし）":"合計 −"+e.Damage+" / "+e.TargetIds.Count+"対象",small);
+                GUI.Label(new Rect(114,669,620,28),"詠唱開始",small);
             }
             return target;
         }

@@ -1,0 +1,285 @@
+{
+  "date": "2026-10-10",
+  "baseCommit": "cd3418f",
+  "scope": [
+    "Extract scene camera, legacy 3D stage visibility and model viewer into ScenePresentation",
+    "Extract Escape routing into BackNavigation",
+    "Remove unreachable duplicate help branch and reuse model expression label arrays"
+  ],
+  "before": {
+    "assertions": 12270,
+    "compileSources": 258,
+    "ui1080": [
+      "title",
+      "roster",
+      "detail",
+      "formation-ui",
+      "affection-unread",
+      "daily-talk",
+      "garden-life",
+      "save-main",
+      "save-restore",
+      "save-delete-second",
+      "model",
+      "adv-backlog",
+      "adv-help",
+      "battle-pause",
+      "job-fighter",
+      "job-berserker",
+      "job-defender",
+      "job-blaster",
+      "job-gunner",
+      "job-artist",
+      "job-healer",
+      "job-panzer",
+      "job-alchemist",
+      "job-chaser",
+      "job-sniper",
+      "job-gambler",
+      "job-general"
+    ],
+    "assemblySha256": "88B8BF7242A0B3C13E26A482794C80EAF6FA363AD03C52D8B852324ABC6AFD7E",
+    "performance": "bookCreateMs=3.061 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+    "coldBook": "firstRenderedFrameMs=450.206 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded"
+  },
+  "after": {
+    "assertions": 12270,
+    "compileSources": 260,
+    "ui1080": [
+      "title",
+      "roster",
+      "detail",
+      "formation-ui",
+      "affection-unread",
+      "daily-talk",
+      "garden-life",
+      "save-main",
+      "save-restore",
+      "save-delete-second",
+      "model",
+      "adv-backlog",
+      "adv-help",
+      "battle-pause",
+      "job-fighter",
+      "job-berserker",
+      "job-defender",
+      "job-blaster",
+      "job-gunner",
+      "job-artist",
+      "job-healer",
+      "job-panzer",
+      "job-alchemist",
+      "job-chaser",
+      "job-sniper",
+      "job-gambler",
+      "job-general"
+    ],
+    "ui720": [
+      "model",
+      "detail",
+      "garden-life",
+      "save-main"
+    ],
+    "assemblySha256": "b2b07bd0bef52284e28a0a5760201547901b5c2ef3f8fa3173dea7e78f19fc2f",
+    "performance": "bookCreateMs=3.374 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=246045260 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+    "coldBook": "firstRenderedFrameMs=447.167 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded"
+  },
+  "qualityChecks": [
+    "streaming",
+    "cold-book",
+    "audio",
+    "environment-audio"
+  ],
+  "limitations": [
+    "Automated callbacks and framebuffer checks; physical input and human listening remain pending.",
+    "External game activity, recording and OS caches are uncontrolled; no performance improvement attribution.",
+    "Legacy 3D assets and behavior retained; no save format change."
+  ],
+  "testSetupCorrection": {
+    "invalidCase": "daily-social",
+    "result": "Timed out due to unsupported fixture name, not classified as a product defect.",
+    "rerun": "daily-talk passed before and after; correct 13 job IDs used."
+  },
+  "evidence": [
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/audio.log",
+      "sha256": "be9f77f000d179c98216ab8d80dc6b0af84e39ab91ad4cd92da1a75090906703"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/cold-book.log",
+      "sha256": "116e07f78cfe5ae0a6f2080b8ed7535816a6b5e50fa71c7dc71d4499ea500177"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/environment-audio.log",
+      "sha256": "2eb7bf53fa8738d49cf0dcd92d657c4c6b6f8690b4d77f825fc191548e83a68d"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/player-streaming.log",
+      "sha256": "30f63f601813e5d6fa64b9aa545a1e24f703691b2eb53ed6d8a0cdff62032e71"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/refactor-before-core.log",
+      "sha256": "f0176d47a48233dd5b4120339e9c9dda72826c4f749da991cd4ed2b80f687b3c"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/refactor-before-quality.log",
+      "sha256": "656b1c07f883f25049d87c1d4e9eadbb0a763f64c5f403357d073a93cce10151"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/refactor-before-ui-remaining.log",
+      "sha256": "fdf71687ebd3f7f85b4a05dfa4bfe395581740e195204a1e5d0cb512386f5abd"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/refactor-before-ui.log",
+      "sha256": "79a87ffdadce1762fa4d06497c39f93d3f86cb3bd432714a26a76cafcdff48a4"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-adv-backlog.log",
+      "sha256": "eb71284cb1ecbce7d2205bc5d3e1dbcedfd16fac611df5ec3166cbda8cc05874"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-adv-help.log",
+      "sha256": "e5e93b541de05a0b875ffd0db41903532df6ce6a54a3efffcc62528883a940e0"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-affection-unread.log",
+      "sha256": "1e03b77a84fe2f3dbc1599c1ef6c0ed6091c0e4dd138c2b951d4e6fc5befa378"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-battle-pause.log",
+      "sha256": "75ac5c3750697618b7d3ef0791778477a1949cf91ad7d63618c6b5678ef1e3f1"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-daily-talk.log",
+      "sha256": "457fc8f23b159897fc0bfc5a6c937607a813ce0033bbdd54a9cdd2a87eb8fb3c"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-detail.log",
+      "sha256": "70797c791aeb43bab8024a7d422d3cca9ca2b321cb66a4cee12c75d362aec0fc"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-formation-ui.log",
+      "sha256": "fd023f46b472b8a9af19af7aac4142cb7f73929a1a038633f0e3032d0b34b8bd"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-garden-life.log",
+      "sha256": "a19503c702701ce5596cc60a937d84028c2ed49a723b9b17de7b65918dbba273"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-alchemist.log",
+      "sha256": "770d9ae7e95f1b84330087f0658830a0ade879f88142d549471cf1e075f9139c"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-artist.log",
+      "sha256": "5bbde4f7f34f5d3a3ba638a17865d5ccff416b4f79606a7292e5042e8dfa1157"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-berserker.log",
+      "sha256": "0231d5bce8976f6bc5ca863f5c8e72dbe0f8bdd4ee510c9b3098454a305489b2"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-blaster.log",
+      "sha256": "e340e40551f36d935343a4ea9a2f76f1508f02e4d7a84f4be8ebf001b5e12503"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-chaser.log",
+      "sha256": "620d6b43e930341d4e3b790cb21f217972636bea13e45d987b94016990400f5c"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-defender.log",
+      "sha256": "55991f43afa84631cc1add5f4b793f92a786651c681ac60f689b01de00a2ca95"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-fighter.log",
+      "sha256": "cad95ba4625a7c26274c4b08a8bd02842387cb8d33d5bd0d64ae70ab07c61559"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-gambler.log",
+      "sha256": "f5fdcc47b52c916306b472465f3ebc7734457a2f1b963412b4bd4e08b093792f"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-general.log",
+      "sha256": "263f15014253c1f9e8e234b393c823922f71bf51f9a906364e8cf65041f978ba"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-gunner.log",
+      "sha256": "510ee8ed1fb38e28aa81402ba156c05051640d12234a714dca827a658799c907"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-healer.log",
+      "sha256": "35ccfb02bb46e982135a0d08dce6523ce63e00e2145781d319ec60ad993aecaf"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-panzer.log",
+      "sha256": "9cdde5719587e30a06afda6b3011f23388648195524f900f229bd7bfd91a91ae"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-job-sniper.log",
+      "sha256": "ef672d140e3bc368ce804a83a73178b5fe93e2c033dc58058afb25da657af9ba"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-model.log",
+      "sha256": "d00331d658e1ace01d57fb97cf694dfc43fbeb50e71c4bf1f0184f6296019042"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-roster.log",
+      "sha256": "5f7afc6e0f5382caa42c285c0c70ccb3198f6bdae46a5b5dd791793fffdfc825"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-save-delete-second.log",
+      "sha256": "5ffa8720cad2d4d4a4279e6e4621eff735f9545c799d449756ab9852cfaf00a6"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-save-main.log",
+      "sha256": "4fa4571f3700566bf95d78e2aa4ded3fdd1433f29efcdd81e7c2e938345334d3"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-save-restore.log",
+      "sha256": "9e32a2a0d685b67530fa73a9e78c2e79baf89319cfa6ad7ee68f52a8939089f1"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-evidence/ui-title.log",
+      "sha256": "cc4786baa70c16c8e619e5efdf2cad2be6ea3581e06422559fec378e6ccc0b0e"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-before-assembly.json",
+      "sha256": "c546140283b8a252cf5eaa0cc51d07c5ebdbd83e2ec2cb8d30b9ca680753ffc4"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-after-core.log",
+      "sha256": "6cd08ffcc29886c1032437b6d4c8791a95537c8be7dfb331f3af22b4ccee1bb7"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-after-build.log",
+      "sha256": "8d5c320ee7d3e9cf5e544cbc3c41fb8607d50ce65d4fe4f11680eee423203a82"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-after-ui.log",
+      "sha256": "f48d3a3ad9032fbf15ded30e5125c39588feb42519780156c7ffbb670e035878"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-after-quality.log",
+      "sha256": "b1b5a2a18687215e140271e473288d4e2d123c66c3bced6fd77abcaa731fb530"
+    },
+    {
+      "path": "tmp/plan11-9/refactor-after-ui-720.log",
+      "sha256": "a07ca1b3812f731d0d895bf489d2c616d6086e04997e6646ffd5fb8f368f7b0f"
+    },
+    {
+      "path": "tmp/plan11-9/player-streaming.log",
+      "sha256": "f7b532931cf599264730e9462000af62dd40c778df68baea01f52747580788a6"
+    },
+    {
+      "path": "tmp/plan11-9/cold-book.log",
+      "sha256": "2922f620c7f0784a9aa577aa75e029fdb6c801bc664dddd19a8f28d276c08974"
+    },
+    {
+      "path": "tmp/plan11-9/audio.log",
+      "sha256": "a05e1fcc84192748cfbfddd32fa41989a41ac893e07d7adc9a2c44e699352f34"
+    },
+    {
+      "path": "tmp/plan11-9/environment-audio.log",
+      "sha256": "4504d84632f74774d892382de9af2e622516840749bfd26e315200597829527c"
+    }
+  ]
+}

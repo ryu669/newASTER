@@ -29,7 +29,7 @@ namespace NewAster.Core
             if(state==null || actor<0 || actor>=state.Heroes.Count) throw new ArgumentException("Invalid condition context.");
             var hero=state.Heroes[actor];
             return hero.IsAlive && items.All(c=>c.kind=="resource-at-least" || c.kind=="job-resource-at-least"?hero.JobResource>=c.threshold:
-                c.kind=="trait-equipped"?hero.TraitId==c.referenceId:
+                c.kind=="trait-equipped"?hero.HasVisibleTrait(c.referenceId):
                 c.kind=="boss-status-active"?state.BossStatus.Active(c.referenceId):
                 c.kind=="hp-at-most-percent"?(long)hero.HitPoints*100<=(long)hero.MaxHitPoints*c.threshold:
                 state.Parts.Count(p=>p.IsBroken)>=c.threshold);

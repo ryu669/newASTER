@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using NewAster.Core;
@@ -26,12 +26,10 @@ namespace NewAster.Presentation
         private GUIStyle text, heading, small, button, skillButton;
         private Font font;
         private Texture2D paper, dark, teal;
-        private Camera viewCamera;
         private string capturePath;
         private int captureFrame,capturedAtFrame=-1;
         private float capturedAtTime;
         private Vector2 scroll;
-        private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
         private CombatDefinitionCatalog combatDefinitions;
         private HeroineReferenceCatalog heroineReferences;
@@ -39,9 +37,6 @@ namespace NewAster.Presentation
         private float illustrationElapsed;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
-        private bool slayerReview;
-        private bool modelViewer, portraitFace=true;
-        private float portraitYaw=-20, portraitZoom=1;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] Furniture = { "根のベンチ", "苔のランタン", "花のテーブル" };
@@ -71,20 +66,19 @@ namespace NewAster.Presentation
                 if (!font.HasCharacter(glyph)) throw new InvalidOperationException("Bundled font is missing glyph: " + glyph);
             Debug.Log("PLAN7_BUNDLED_FONT_PASS NotoSansCJKjp-Regular");
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.075f,.145f,.20f));
-            illustrationView=new BattleIllustrationView("Illustrations/battle-formal");
-            viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
+            illustrationView=new BattleIllustrationView("Illustrations/battle-formal",ScheduleHeroineAssetCleanup);
+            var viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
+            viewCamera.cullingMask=0;
             viewCamera.gameObject.AddComponent<AudioListener>();
-            viewCamera.transform.position = new Vector3(2,6,-10); viewCamera.transform.rotation = Quaternion.Euler(24,0,0);
             viewCamera.backgroundColor = new Color(.045f,.10f,.11f);
             viewCamera.allowMSAA=true; QualitySettings.antiAliasing=4;
-            var light = new GameObject("Sun").AddComponent<Light>(); light.type = LightType.Directional; light.transform.rotation = Quaternion.Euler(45,-30,0); light.intensity = 1.4f;
             RenderSettings.ambientLight = new Color(.45f,.55f,.5f);
             try {
                 var referenceSource=Resources.Load<TextAsset>("Combat/heroine-reference");
                 if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
                 heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
                 Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
-                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-capturePlan10Ui")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureShangrila")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureArcaneAcademy")?"Combat/battle-plan10-arcane-academy":Environment.GetCommandLineArgs().Contains("-captureArcane")?"Combat/battle-plan10-arcane":Environment.GetCommandLineArgs().Contains("-captureSlayerSwim")?"Combat/battle-plan10-slayer-swim":Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan10-shangrila");
+                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-capturePlan10Ui")?"Combat/battle-plan11-7":Environment.GetCommandLineArgs().Contains("-captureShangrila")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureArcaneAcademy")?"Combat/battle-plan10-arcane-academy":Environment.GetCommandLineArgs().Contains("-captureArcane")?"Combat/battle-plan10-arcane":Environment.GetCommandLineArgs().Contains("-captureSlayerSwim")?"Combat/battle-plan10-slayer-swim":Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan11-7");
                 if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes="+combatDefinitions.heroines.Length+" skills="+combatDefinitions.skills.Length+" chains="+combatDefinitions.chainActions.Length);
@@ -105,7 +99,6 @@ namespace NewAster.Presentation
             int cgIndex=Array.IndexOf(args,"-inspectPlan9Cg");
             if(cgIndex>=0 && cgIndex+1<args.Length)plan9Cg=args[cgIndex+1];
             if(plan9Cg!=null)Debug.Log("PLAN9_CG_CAPTURE heroine="+plan9ArtHero+" event="+plan9Cg);
-            slayerReview=args.Contains("-captureSlayerCloseup");
             for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureSixParts")) PrepareSixPartCapture(args);
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
@@ -179,11 +172,6 @@ namespace NewAster.Presentation
                 playback.Enqueue(encounter.DrainPresentationEvents());
                 paused=true;
             }
-            if(slayerReview) {
-                modelViewer=true; encounter=null;
-                portraitFace=!args.Contains("-captureSlayerFull");
-                portraitYaw=args.Contains("-captureSlayerProfile")?90:args.Contains("-captureSlayerFront")?0:-20;
-            }
             PreparePlan10RCapture(args);
             PreparePlan10AnnihilatorCapture(args);
             PreparePlan10ShellCapture(args);
@@ -195,6 +183,7 @@ namespace NewAster.Presentation
             PreparePlan10ShangrilaCapture(args);
             PreparePlan10UiAuditCapture(args);
             PreparePlan11Capture(args);
+            PrepareQuality119ColdBook(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -210,6 +199,11 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            using var qualityCost=new Quality119CostScope(this,0);
+            TryStartQuality119();
+            TryStartEnvironmentAudio119();
+            TryOpenQuality119ColdBook();
+            UpdateSaveScheduling();
             if(watchModeActive){UpdateWatchMode();UpdateEngagement();return;}
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
@@ -220,73 +214,10 @@ namespace NewAster.Presentation
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
             if(capturePath!=null && ProductionStoryActive)TryStartProductionAudioCapture();
-            if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
-                if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
-                else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
-                else if(help)help=false;
-                else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
-                else if(CloseAffectionLayer()){}
-                else if(CloseOoparts()){}
-                else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
-                else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
-                else if(panzerSetupOpen)panzerSetupOpen=false;
-                else if(placing){placing=false;selectedFurniture=null;}
-                else if(CloseGardenLifeLayer()){}
-                else if(CloseGardenMenuLayer()){}
-                else if(recoveryActive)recoveryConfirm=false;
-                else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
-                else if(bookSystemOpen)bookSystemOpen=false;
-                else if(relicRequest!=null || collectionOpen)CollectionBack();
-                else if(engagementOpen)EngagementBack();
-                else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
-                else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
-                else if(modelViewer) modelViewer=false;
-                else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
-                else if(storyText!=null) CloseStory();
-                else if(help) help=false;
-                else if(kinderGarden) kinderGarden=false;
-                else if(retreat) { retreat=false; paused=false; }
-                else if(CloseBattleMenuLayer()){}
-                else if(title && titlePanel!=null)CloseTitlePanel();
-                else if(title && FormalEntranceVisible)formalEntranceComplete=true;
-                else if(title)OpenTitlePanel("exit");
-                else if(encounter!=null && result==null) paused=!paused;
-                else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
-                else if(result==null) help=true;
-            }
-            bool battleView=encounter!=null;
-            bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
-            viewCamera.cullingMask=modelViewer?~0:recoveryActive || engagementOpen || battleView || formalHeroView?0:~0;
-            viewCamera.orthographic=modelViewer;
-            viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
-            viewCamera.rect=LogicalCameraRect(battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f));
-            viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
-            viewCamera.fieldOfView=battleView?35f:60f;
-            bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
-            viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
-            viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
-            if(modelViewer) {
-                var canvas=NewAster.Core.AspectLayout.Contain(0,0,Screen.width,Screen.height,1600,900);
-                var mouse=new Vector2((Input.mousePosition.x-canvas.X)/canvas.Scale,(Screen.height-Input.mousePosition.y-canvas.Y)/canvas.Scale);
-                bool overPortrait=new Rect(0,125,1600,680).Contains(mouse);
-                if(Input.GetMouseButton(0) && overPortrait)portraitYaw+=Input.GetAxis("Mouse X")*4;
-                if(overPortrait)portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
-                viewCamera.rect=LogicalCameraRect(new Rect(0,0,1,1));viewCamera.aspect=1600f/900f;
-                var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
-                float angle=portraitYaw*Mathf.Deg2Rad;
-                viewCamera.transform.position=focus+new Vector3(Mathf.Cos(angle)*3,.025f,Mathf.Sin(angle)*3);
-                viewCamera.transform.LookAt(focus); viewCamera.orthographicSize=(portraitFace?.19f:.73f)*portraitZoom;
-            }
-            if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
+            if(Input.GetKeyDown(KeyCode.Escape))HandleEscapeNavigation();
             UpdatePlayback();
             UpdatePlan7ActiveCombat();
             UpdateArtAudio();
-            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
-            if(stage!=null) stage.SetPortraitView(modelViewer);
-            bool bookPreviewVisible=title || modelViewer || encounter!=null && book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
-            if(!bookPreviewVisible)viewCamera.cullingMask=0;
-            if(!modelViewer && !title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
-            if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
             if(capturePath!=null && !Environment.GetCommandLineArgs().Contains("-plan9ManualSmoke") && Time.realtimeSinceStartup>=8) {
@@ -296,6 +227,8 @@ namespace NewAster.Presentation
                 bool ready=plan7FullCombat?plan7FullCombatComplete:Environment.GetCommandLineArgs().Contains("-validatePlan7Focus")?captureFrame>=captureAt && plan7FocusComplete:captureFrame==captureAt;
                 if(plan10UiCapture && !measureArt)ready=Time.realtimeSinceStartup>=10;
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
+                if(Quality119Capture)ready=quality119Complete;
+                if(Quality119EnvironmentAudioCapture)ready=quality119EnvironmentAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();
             }
@@ -313,22 +246,13 @@ namespace NewAster.Presentation
             if(e!=null && e.Sequence!=shownEvent) {
                 TrialObserve("battle","presentation",$"kind={e.Kind};actor={e.Actor};target={e.Target};damage={e.Damage};broken={e.PartBroken};major={e.Major};chain={e.Chain};actions={e.ChainActionCount};bossHp={e.BossHp};heroes={string.Join(",",e.HeroHp)};resources={string.Join(",",e.Resources)}",battleId+"/presentation/"+e.Sequence,e.Clock,BattleVisualCue.Duration(e.Kind,e.Major));
                 illustrationElapsed=0; shownEvent=e.Sequence; if(e.Actor>=0) selectedHero=e.Actor;
-                if(stage!=null) {
-                    stage.ClearActionEffects();
-                    stage.BeginPresentation(e);
-                    switch(e.Kind) {
-                        case BattlePresentationKind.Healing: stage.PlayHealing(e.Actor,e.HealingTargets); break;
-                        case BattlePresentationKind.Support: stage.PlayAction(e.Actor,true,e.Target); break;
-                        case BattlePresentationKind.Enemy: stage.PlayEnemyAction(e.Major); break;
-                    }
-                }
                 if(e.PartBroken) {
                     var indices=Enumerable.Range(0,encounter.State.Parts.Count).Where(i=>e.TargetIds.Contains(encounter.State.Parts[i].Id) && e.PartHp[i]==0).ToArray();
                     if(indices.Length>0) {breakNotice=string.Join(" / ",indices.Select(i=>ColossusCombatCatalog.PartName(encounter.State.Parts[i],i)+"：部位破壊！ "+ColossusCombatCatalog.PartEffect(encounter.State.Parts[i])));breakNoticeRemaining=6f;}
                 }
             }
             if(!playback.Busy && shownEvent!=0) {
-                shownEvent=0; if(stage!=null) stage.ClearActionEffects(); SelectNextHero(); FinishCheck();
+                shownEvent=0; SelectNextHero(); FinishCheck();
             }
         }
         private void QueueBattleEvents()
@@ -339,15 +263,17 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            using var qualityCost=new Quality119CostScope(this,1);
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}}finally{RecordMeasuredGui(started);}
+            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles();ImageUiSkin.ApplyControls(GUI.skin);BeginAspectCanvas();drawingModal=false;
+            if(saveManagementOpen){DrawSaveManagement();return;}
             if(recoveryActive){DrawSaveRecovery();return;}
             if(plan9EnemyPreview!=null){DrawPlan9EnemyArt();return;}
             if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
@@ -357,12 +283,11 @@ namespace NewAster.Presentation
             if(collectionOpen){DrawCollectionExperience();return;}
             if(engagementOpen){DrawEngagement();return;}
             if(combatDefinitionError!=null) { DrawFormalStartupError();return; }
-            if(modelViewer) { DrawModelViewer(); return; }
             if(!title && encounter==null && book.Bookmark==BookBookmark.Summoning){DrawKinderExperience();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Formation){SanctuaryStyles();DrawFormation();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Items){DrawStandaloneItems();return;}
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
-            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();
@@ -436,11 +361,6 @@ namespace NewAster.Presentation
                 var recovery=previewBattle.HealingSkill(h,1);
                 Label(32,398,900,125,$"スキル：通常攻撃 / {(recovery==null?"資源3の強撃":recovery.Name+"（味方1人・資源3）")} / {PlayableBattle.SupportName(h)}\n支援：{previewBattle.SupportDescription(h)}（資源3・チェイン終了）\n重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank}：HP ＋{p.TraitRanks[h]*PlayableProgress.DuplicateHitPointGain} / 攻撃 ＋{p.TraitRanks[h]*PlayableProgress.DuplicateAttackGain}",text);
                 Label(32,545,925,150,"毎回5人で出撃します。速度と使用スキルで行動順が変わります。\n長い待機と、発動までの詠唱は別の時間です。\n花の枝を育てると支援スキルが強化されます。",text);
-                if(h==0 && stage!=null) {
-                    if(Btn(32,700,905,40,"スレイヤーを全画面で見る")) { modelViewer=true; portraitFace=true; portraitYaw=-20; portraitZoom=1; }
-                    if(Btn(32,746,445,44,"ローズ衣装")) stage.SetSlayerOutfit("rose");
-                    if(Btn(492,746,445,44,"訓練衣装")) stage.SetSlayerOutfit("training");
-                }
                 return;
             }
             int[] steps={1,5,10};
@@ -468,22 +388,6 @@ namespace NewAster.Presentation
                 : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
             if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
             if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
-        }
-        private void DrawModelViewer()
-        {
-            Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
-            if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
-            string[] expressions={"Neutral","Smile","Joy","Sad","Angry","Surprise","Talk"};
-            string[] labels={"通常","微笑み","喜び","悲しみ","怒り","驚き","口の動き"};
-            for(int i=0;i<expressions.Length;i++) if(Btn(32+i*117,82,108,36,labels[i]) && stage!=null) stage.SetSlayerExpression(expressions[i]);
-            Panel(20,815,1560,66,dark);
-            if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }
-            if(Btn(187,827,145,42,"顔")) { portraitFace=true; portraitZoom=1; }
-            if(Btn(342,827,145,42,"正面")) portraitYaw=0;
-            if(Btn(497,827,145,42,"斜め")) portraitYaw=-25;
-            if(Btn(652,827,145,42,"横顔")) portraitYaw=90;
-            if(Btn(807,827,210,42,"衣装を替える") && stage!=null) stage.SetSlayerOutfit(stage.SlayerOutfitId=="rose"?"training":"rose");
-            Label(1040,835,500,32,"ドラッグで回転・ホイールで拡大",small,Color.white);
         }
         private void DrawWeaponTree(int hero)
         {
@@ -549,21 +453,21 @@ namespace NewAster.Presentation
         }
         private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(!FlushSaveChanges())return;
             if(TerraformRules.Index(colossus)==14 && TerraformRules.MissingIntegration(campaign.Terraform).Length>0){status="アステリア受入条件：全7領域Lv3以上";return;}
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
             var id=Guid.NewGuid();
             if(CurrentFormation().Any(id=>id==null)){status="出撃には5人の編成が必要です。";return;}
-            if(stage!=null)stage.SetFormation(combatDefinitions.FormationIds,CurrentFormation());
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             formalCampaign.LockOopartsForBattle();
-            illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus));
+            illustrationView?.Dispose();illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus),ScheduleHeroineAssetCleanup);
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();
             target="body"; paused=false; result=null; status="対象を選び、威力とチェイン率を確認して行動してください。";
             selectedHero=encounter.AvailableHero;
-            playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects();
+            playback.Reset(); shownEvent=0;
             selectingAlly=false; selectedAllies.Clear(); breakNotice=""; breakNoticeRemaining=0;
             ResetBattleMenu();
         }
@@ -641,7 +545,7 @@ namespace NewAster.Presentation
         {
             Modal(); Label(340,245,880,90,"撤退しますか？",heading); Label(340,365,870,125,"聞いた詩と対応する人物の詩は持ち帰ります。素材・石・世界復元は勝利時だけ取得できます。",text);
             if(Btn(340,605,420,64,"戦闘へ戻る")) { retreat=false; paused=false; }
-            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; if(stage!=null) stage.ClearActionEffects(); retreat=false; PrepareFormalBattleEnd(BattleEndReason.Retreat); }
+            if(Btn(780,605,420,64,"撤退する")) { playback.Reset(); shownEvent=0; retreat=false; PrepareFormalBattleEnd(BattleEndReason.Retreat); }
         }
         private void DrawStory()
         {
@@ -723,6 +627,6 @@ namespace NewAster.Presentation
             TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
             GUI.enabled=old; if(clicked){TrialObserve("navigation","button",value);PlayProductionUiSound(value);}return clicked;
         }
-        private void OnApplicationQuit() { if(watchModeActive)SaveWatchSettings(); if(!recoveryActive && campaign!=null && (capturePath==null || plan15Manual) && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){SaveBookNavigation();FlushActiveTime();Save();} FinishTrialTelemetry(); }
+        private void OnApplicationQuit() { if(watchModeActive)SaveWatchSettings(); FlushSettingsSave(); if(!saveSlotBlocked && !saveSlotDeleted && !recoveryActive && campaign!=null && (capturePath==null || plan15Manual) && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){SaveBookNavigation();FlushActiveTime();Save();FlushSaveChanges();} FinishTrialTelemetry(); }
     }
 }

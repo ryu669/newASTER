@@ -112,6 +112,7 @@ namespace NewAster.Core
         }
         public void Validate(bool release=false)
         {
+            ValidateDailyContent();
             if(affectionEvents!=null && affectionEvents.Length>0)AffectionEventResolver.Validate(this);
             if(initialAffections==null || initialAffections.Any(a=>a==null || a.level<0 || a.level>20 || !heroineIds.Any(id=>PersonId(id)==a.personId)) || initialAffections.Select(a=>a.personId).Distinct().Count()!=initialAffections.Length)throw new ArgumentException("Invalid initial affection definition.");
             if(schemaVersion!=1)Fail("UNKNOWN_SCHEMA","/schemaVersion",null,"未対応の定義版です。");

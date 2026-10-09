@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -8,15 +8,21 @@ namespace NewAster.Presentation
     {
         private bool affectionPanel,affectionShop,affectionConfirm;
         private bool AffectionMaxPending=>formalCampaign!=null && formalCampaign.HasAffection && IsBookScreen && LifeSnapshot().affection.pendingMaxLevelPersonIds.Length>0;
-        private bool AffectionModalVisible=>affectionPanel || affectionShop || affectionConfirm || affectionError!=null || affectionRequest!=null || affectionInteraction!=null || AffectionMaxPending;
+        private bool AffectionModalVisible=>dailyDateForm!=null || affectionPanel || affectionShop || affectionConfirm || affectionError!=null || affectionRequest!=null || affectionInteraction!=null || AffectionMaxPending;
         private string affectionForm,affectionMessage,affectionError,affectionConfirmKind;
         private AffectionRequest affectionRequest;
-        private AffectionInteractionSession affectionInteraction;
+        private DailyInteractionSession affectionInteraction;
         private Vector2 affectionScroll;
         private int affectionRosterFilter;
         private Texture2D eternalRingArt;
         private void OpenAffection(string form)
         {if(!BookInputAllowed)return;affectionForm=form;affectionPanel=true;affectionShop=false;affectionScroll=Vector2.zero;}
+        private void ReturnAffectionToRoster()
+        {
+            if(book.Bookmark!=BookBookmark.Heroines || affectionRequest!=null || formalCampaign.HasPending || formalProgression.HasPending || affectionInteraction!=null)return;
+            affectionPanel=false;affectionShop=false;affectionConfirm=false;affectionError=null;affectionMessage=null;
+            heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;selectedTrait=-1;
+        }
         private string AffectionSummary(string form)
         {
             if(!formalCampaign.HasAffection)return "好感度・恋愛";
@@ -36,26 +42,20 @@ namespace NewAster.Presentation
         private void RetryAffection()
         {
             try{
-                var request=affectionRequest;var result=formalCampaign.CommitAffection(request,HomeData(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);
+                var request=affectionRequest;var result=formalCampaign.CommitAffection(request,HomeData(),formalDiagnostic?SaveDiagnosticCampaign:request.Kind=="interaction" || request.Kind=="activity"?SaveDelayedCampaign:SaveTrialObservedCampaign);
                 if(result==GrowthCommitResult.SaveFailed){affectionError="保存できませんでした。同じ内容で再試行してください。";return;}
                 affectionRequest=null;affectionError=null;affectionConfirm=false;lifeSnapshotCached=null;
                 formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);
                 affectionMessage=request.Kind=="ring-purchase"?"永遠の誓環を1個購入しました。":request.Kind=="ring-use"?"好感度上限が99になりました。":request.Kind=="max-display"?"長く重ねた日々の証 — 好感度Lv99に到達しました。":"交流を記録しました。";
-                if(gardenLifeRuntime!=null && affectionInteraction!=null){affectionInteraction=null;gardenLifeRuntime.Paused=false;gardenLifeMessage=affectionMessage;}
+                if(affectionInteraction!=null){affectionInteraction=null;gardenLifeMessage=affectionMessage;}
             }catch(Exception e)when(e is ArgumentException || e is InvalidOperationException || e is System.IO.IOException){affectionError=e.Message;if(!formalCampaign.HasPending)affectionRequest=null;}
         }
         private void BeginPlayerAffection(string form,bool together)
         {
-            if(affectionInteraction!=null || affectionRequest!=null || gardenLifeRuntime==null || gardenLifeRuntime.Paused || formalCampaign.HasPending)return;
-            var actor=gardenLifeRuntime.Agents.SingleOrDefault(a=>a.heroineId==form);if(actor==null)return;
-            var context=gardenLifeRuntime.Context(actor);
-            if(together && (actor.kind!="Furniture" && actor.kind!="Scenery" || string.IsNullOrEmpty(context.furnitureId))){gardenLifeMessage="家具や景観を利用している時に、一緒に過ごせます。";return;}
-            string content=together?"together/"+context.furnitureId+"/"+context.interactionTag:"conversation.generic.greeting";
-            affectionInteraction=new AffectionInteractionSession(Guid.NewGuid().ToString("N"),form,content,book.SubjectId,together?8:4);
-            gardenLifeRuntime.Greet(form);gardenLifeRuntime.Paused=true;gardenLifeMessage=together?"同じ場所で一緒に過ごしています。":"こちらに顔を向け、言葉を交わしています。";
+            BeginDailyInteraction(form,together?"together":"conversation");
         }
         private void CancelPlayerAffection()
-        {if(affectionInteraction==null || affectionRequest!=null)return;affectionInteraction.Cancel();affectionInteraction=null;if(gardenLifeRuntime!=null)gardenLifeRuntime.Paused=false;gardenLifeMessage="交流を取り消しました。";}
+        {if(affectionInteraction==null || affectionRequest!=null)return;affectionInteraction.Cancel();affectionInteraction=null;gardenLifeMessage="交流を取り消しました。";}
         private void FinishPlayerActivity()
         {
             if(gardenLifeRuntime?.ActivityId==null || formalCampaign.HasPending)return;
@@ -66,13 +66,15 @@ namespace NewAster.Presentation
         {
             if(affectionInteraction==null || affectionRequest!=null)return;
             bool visible=!title && encounter==null && adv==null && book.Bookmark==BookBookmark.Gardens && book.SubjectId==affectionInteraction.GardenId && gardenLifeRuntime!=null;
-            if(!visible){CancelPlayerAffection();return;}
-            affectionInteraction.Tick(Time.unscaledDeltaTime,Application.isFocused && !help && !bookSystemOpen && !affectionPanel);
-            if(affectionInteraction.Completed)ProposeAffection("interaction",new[]{affectionInteraction.FormId},affectionInteraction.ContentId,affectionInteraction.Id);
+            if(!visible || !affectionInteraction.Completed && !gardenLifeRuntime.OwnsDailySession(affectionInteraction.Id)){CancelPlayerAffection();return;}
+            affectionInteraction.Tick(Time.unscaledDeltaTime,Application.isFocused && !help && !bookSystemOpen && !affectionPanel && !dailyAcceptanceFrozen);
+            if(affectionInteraction!=null && !affectionInteraction.Completed){gardenLifeMessage=affectionInteraction.Current.title+" ／ "+(affectionInteraction.Transitioning?"次の場所へ移動しています。":affectionInteraction.Current.description);var actor=gardenLifeRuntime.Agents.FirstOrDefault(a=>a.kind=="DailyInteraction");if(actor!=null)actor.tag=affectionInteraction.State.gesture=="sit"?"sit":"look";}
         }
         private bool CloseAffectionLayer()
         {
+            if(dailyDateForm!=null){dailyDateForm=null;return true;}
             if(affectionRequest!=null)return true;
+            if(affectionError!=null){affectionError=null;return true;}
             if(affectionInteraction!=null){CancelPlayerAffection();return true;}
             if(affectionConfirm){affectionConfirm=false;return true;}
             if(affectionPanel || affectionShop){affectionPanel=false;affectionShop=false;return true;}return false;
@@ -81,7 +83,8 @@ namespace NewAster.Presentation
         {
             if(formalCampaign==null || !formalCampaign.HasAffection)return;
             GrowthStyles();
-            if(affectionInteraction!=null){GrowthFrame(70,185,825,85);Label(90,200,585,50,gardenLifeMessage,growthTextStyle);if(GrowthButton(695,205,170,45,"交流を取消",affectionRequest==null))CancelPlayerAffection();}
+            if(dailyDateForm!=null){DrawDailyDateMenu();return;}
+            if(affectionInteraction!=null){GrowthFrame(70,185,1000,145);Label(90,200,745,115,gardenLifeMessage,growthTextStyle);if(GrowthButton(865,225,170,45,"交流を取消",affectionRequest==null))CancelPlayerAffection();}
             var save=LifeSnapshot();
             if(!affectionPanel && !affectionShop && affectionError==null){
                 var person=save.affection.pendingMaxLevelPersonIds.FirstOrDefault();
@@ -96,6 +99,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(965,630,350, sixty,"取消"))affectionConfirm=false;return;
             }
             if(GrowthButton(1145,155,170,45,"閉じる")){affectionPanel=false;affectionShop=false;affectionMessage=null;return;}
+            if(book.Bookmark==BookBookmark.Heroines && GrowthButton(285,755,245,40,"‹ 誓女一覧へ",affectionRequest==null && !formalCampaign.HasPending && !formalProgression.HasPending)){ReturnAffectionToRoster();return;}
             if(affectionShop){
                 Label(285,180,810,60,"召喚・交換 ／ 特別交換",growthTitleStyle);DrawEternalRing(new Rect(365,290,230,230));
                 Label(685,295,590,200,"永遠の誓環\n召喚石 10,000個\n所持指輪 "+save.growth.eternalRings+"個 ／ 召喚石 "+save.growth.stones,growthTextStyle);

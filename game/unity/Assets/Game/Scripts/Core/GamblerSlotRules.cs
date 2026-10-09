@@ -33,7 +33,8 @@ namespace NewAster.Core {
   internal bool SpinGamblerSlot(int actor,string selectedTarget,Func<int,int> draw){
    if(!JobReady(actor) || !Job(actor,"gambler") || EnemyAttackTargets.Resolve(State,"target.selected-enemy",selectedTarget).Length==0)return false;
    if(draw==null)throw new ArgumentNullException(nameof(draw));
-   var board=Enumerable.Range(0,9).Select(_=>draw(GamblerSlotRules.SymbolCount)).ToArray();
+   int seven=State.Heroes[actor].TraitEffect("seven-bp");
+   var board=Enumerable.Range(0,9).Select(_=>{if(seven==0)return draw(GamblerSlotRules.SymbolCount);int roll=draw(60000);return roll<10000+seven*6?5:(roll-10000-seven*6)*5/(50000-seven*6);}).ToArray();
    var triggers=GamblerSlotRules.Evaluate(board);lastSlotSymbols=board;LastSlotTriggerCount=triggers.Count;
    LastHealingTargets=Array.Empty<int>();LastActionWasCastStart=false;LastFullChain=false;LastActionChain=0;LastChainActionCount=0;LastChainChecks=Array.Empty<ChainConnection>();
    Log="SLOT ／ "+string.Join(" ",board.Select(GamblerSlotRules.Label));RecordPresentation(BattlePresentationKind.Support,actor,"body",Log,standalone:true);

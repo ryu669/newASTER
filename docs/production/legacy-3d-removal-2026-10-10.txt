@@ -1,0 +1,11 @@
+旧3Dの撤去（2026-10-10）
+
+対象：スレイヤーFBX2点、旧3D専用シェーダー2点、SlayerModelView、VerticalSliceBlockout、BattleStageEffects、ScenePresentation、専用インポーターと各meta。
+Blender原本・中間FBX、3D生成／鑑賞ツール、旧2D対3D比較ページと比較画像も削除。
+起動時の試作3Dステージ、方向ライト、3D人物鑑賞入口、3D再生・スキップ同期を撤去。
+旧FBX必須のビルド検証と3D鑑賞キャプチャを廃止。全形態の編成開始試験は2Dで維持。
+Plan119BuildValidationでAssets/Gameのモデル資産が0件であることを検証する。
+
+2Dの肖像、立ち絵、表情、SD、箱庭、命中演出、2D制作原本は削除しない。
+3D時代の設計・制作記録は履歴資料として維持し、Plan12引き継ぎの残存記述を更新する。
+削除前に変更されていたFBX.metaはtmp/plan11-9/slayer-beauty-v2-before-removal.fbx.metaへ退避。

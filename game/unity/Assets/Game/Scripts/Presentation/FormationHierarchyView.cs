@@ -11,8 +11,16 @@ namespace NewAster.Presentation
         private const float forty=40;
         private bool returnToFormationFromWeapon;
         private void OpenFormationPage(){RequestBookBookmark(BookBookmark.Formation);}
-        private void BackFormationLayer(){if(formationLayer>0)formationLayer=0;else RequestBookBookmark(BookBookmark.Colossi);}
-        private void ReturnFromFormationWeapon(){growthScreen=GrowthScreen.Overview;if(returnToFormationFromWeapon){returnToFormationFromWeapon=false;book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;formationLayer=1;}}
+        private void BackFormationLayer(){if(formationLayer>0)formationLayer=0;else BackBookPage();}
+        private void ReturnFromFormationWeapon()
+        {
+            if(returnToFormationFromWeapon){
+                BackBookPage();
+                if(book.Bookmark!=BookBookmark.Formation)return;
+                book.CompleteTransition();formationOpen=true;formationLayer=1;
+            }
+            growthScreen=GrowthScreen.Overview;
+        }
         private void OpenFormationHeroReplacement(int slot){formationSlot=slot;formationLayer=2;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;formationPage=0;formationQuery="";formationCandidateHero=CurrentFormation()[slot];}
         private void OpenFormationOopartReplacement(int slot){formationSlot=slot;oopartSlot=slot;formationLayer=3;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;oopartPickerPage=0;oopartPickerQuery="";formationCandidateOopart=OopartSnapshot().collection.ooparts.slots[slot].equippedOopartId;}
         private void DrawHierarchicalFormation()
@@ -37,7 +45,6 @@ namespace NewAster.Presentation
                 }
             }
             if(GrowthButton(1115,112,185,46,"編成保存",interactive)){ProposeOopart("preset-save","preset."+(oopartPresetIndex+1));CommitOopart();}
-            if(GrowthButton(1320,112,215,46,"システム",CanOpenBookSystem))bookSystemOpen=true;
             for(int i=0;i<5;i++){
                 int slot=i;float x=65+i*298;GrowthFrame(x,210,278,520);
                 var portrait=new Rect(x+9,247,260,302);string id=ids[i];
@@ -61,10 +68,10 @@ namespace NewAster.Presentation
             Label(350,113,1050,50,"第"+(formationSlot+1)+"枠 ／ "+(def?.name??"—"),growthTitleStyle);if(id!=null)DrawHeroPortrait(new Rect(95,215,490,480),id);
             var equip=HomeState.weaponEquipment.SingleOrDefault(e=>e.heroineId==id);string weapon=equip==null?"未装備":HomeData().weaponNodes.Single(n=>n.id==equip.nodeId).terminal;
             Label(665,230,820,48,"神器 ／ "+weapon,growthTextStyle);
-            if(GrowthButton(665,300,820,60,"神器",interactive && id!=null)){returnToFormationFromWeapon=true;formationOpen=false;heroineRosterOpen=false;book.RequestSubject(BookBookmark.Heroines,id);growthScreen=GrowthScreen.Weapons;selectedNode=null;}
-            if(GrowthButton(665,390,820,55,protectedFormationSlot==formationSlot?"護衛対象 ◆":"護衛対象",interactive))protectedFormationSlot=formationSlot;
+            if(GrowthButton(665,300,820,60,"神器へ",interactive && id!=null)){returnToFormationFromWeapon=true;formationOpen=false;heroineRosterOpen=false;book.RequestSubject(BookBookmark.Heroines,id);growthScreen=GrowthScreen.Weapons;selectedNode=null;}
+            if(GrowthButton(665,390,820,55,protectedFormationSlot==formationSlot?"✓ 護衛対象に指定中":"護衛対象に指定",interactive))protectedFormationSlot=formationSlot;
             if(def?.jobId=="job.general"){
-                bool selected=HomeState.commanderHeroineId==id;if(GrowthButton(665,490,820,55,selected?"指揮官 ◆":"指揮官",interactive && !selected))ProposeHome(new HomeOperation("commander",id));if(GrowthButton(665,570,820,55,"自動",interactive && HomeState.commanderHeroineId!=null))ProposeHome(new HomeOperation("commander","formation.auto"));
+                bool selected=HomeState.commanderHeroineId==id;if(GrowthButton(665,490,820,55,selected?"✓ 指揮官に指定中":"指揮官に指定",interactive && !selected))ProposeHome(new HomeOperation("commander",id));if(GrowthButton(665,570,820,55,"指揮官を自動選択",interactive && HomeState.commanderHeroineId!=null))ProposeHome(new HomeOperation("commander","formation.auto"));
             }else if(def?.jobId=="job.sniper"){
                 string chosen=HomeState.sniperSupports?.SingleOrDefault(s=>s.heroineId==id)?.targetId;Label(665,490,820,40,"支援対象",growthTextStyle);int n=0;
                 for(int j=0;j<5;j++){if(j==formationSlot || ids[j]==null)continue;string target=ids[j];if(GrowthButton(665+n%2*420,555+n/2*70,400,55,(chosen==target?"◆ ":"")+combatDefinitions.Hero(target).name,interactive && chosen!=target))ProposeHome(new HomeOperation("sniper-support",id,target));n++;}

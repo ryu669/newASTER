@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-10",
+  "automaticAssertions": 12513,
+  "compiledSources": 262,
+  "navigationChecks": 236,
+  "playerCaptures": 6,
+  "manualOperation": "excluded by user",
+  "rootCause": "Zero filtered subjects bypassed the heroine roster renderer. Recruitment button also occupied overlapping filter coordinates.",
+  "fixes": [
+    "Render heroine roster for zero results",
+    "Move free debug recruitment entry to summoning entrance",
+    "Preserve summoning and origin history when closing debug dialog",
+    "Disable underlying summoning controls during debug dialog"
+  ],
+  "logs": [
+    {
+      "path": "tmp/plan11-9/roster-filter-core.log",
+      "sha256": "d4fb8f981e09cd1d61e78ccd9417935e370cb447882ddd2640651aafdf95dd84"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-ui.log",
+      "sha256": "dae5372f8951d678370fad7e89c839bec8ae52467d90bd2675ce705e41196f5a"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-ui-720.log",
+      "sha256": "42c49147df6082794547a79703d6469712f9d1fa31bad94e1a738a0dcbd8a48f"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-build-dev.log",
+      "sha256": "e71688cba0fe1209d571823a28a316e0cdf191072965ceacfe0a0f8d178946c9"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-build-candidate.log",
+      "sha256": "4a4774d4b7a6c85d4a37c92743f79ee273737fb0fb093d1648eb3e23d501a7a2"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-package-dev.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/roster-filter-package-candidate.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    }
+  ],
+  "images": [
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-roster-filter-empty.png",
+      "sha256": "e9480bfd391f19f15d44082734d1092a945d0420d9f6015f4dc171b6250e504e"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-summoning-debug.png",
+      "sha256": "6d5f94949cdcfa46a0e61c42acb10abb4d46738bcf83202ed98cda411ed69242"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-summoning-debug-dialog.png",
+      "sha256": "826b42f58abfd1f0d29182eff57b759ad00b8f2a7e0988da87484575b9e631d6"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-roster-filter-empty.png",
+      "sha256": "26281b5b4176daedb7e4274aebd7c75564bdd5a75124686592640f173e793c9a"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-summoning-debug-dialog.png",
+      "sha256": "9f4f1834850dae6bf5549c56b896e19b8ded04453b36c25b2e554939e72eb6e5"
+    }
+  ]
+}

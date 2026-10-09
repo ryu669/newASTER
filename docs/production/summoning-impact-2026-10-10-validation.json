@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-10",
+  "scope": "Simplified summoning and skill-specific cosmetic battle impacts / 15 forms, 45 skills",
+  "automaticAssertions": 12513,
+  "compiledSourceFiles": 263,
+  "navigationChecks": 236,
+  "playerCapturePasses": {
+    "tmp/plan11-9/summoning-impact-ui.log": 9,
+    "tmp/plan11-9/summoning-impact-720-ui.log": 5,
+    "tmp/plan11-9/summoning-impact-candidate-ui.log": 3
+  },
+  "manualOperation": "excluded by user",
+  "builds": {
+    "development": "0.9.5-rc.2",
+    "releaseCandidate": "1.0.0-rc.1",
+    "packageFilesEach": 161
+  },
+  "notes": [
+    "Initial 1080p captures preceded final repaint-only drawing guard, repeated attack skill ID, chain/break intensity and removal of internal critical roll text. Final 720p and release candidate 1080p captures include these refinements.",
+    "Single and triple captures invoke real Slayer skills and validate all 45 explicit impact profile IDs. Cosmetic hit count does not execute battle actions.",
+    "Direct summon tests reject a repeated open and verify cancel returns to landing without changing balances.",
+    "Combat balance remains Plan11-10."
+  ],
+  "logs": [
+    {
+      "path": "tmp/plan11-9/summoning-impact-final-core.log",
+      "sha256": "a058a8efcc710166afc5dc1df1d069886e5be49c4719fcc95bbfa37a9a8fd08a"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-ui.log",
+      "sha256": "ef9ae327973556efe912568f17968df430ff49609bc0973764a61b7bd08d30d0"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-720-ui.log",
+      "sha256": "8ef037e3c43c3d9e3d347adc5e5b59875aa2bb2bd5c6435ec7265010e72e1b15"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-final-build.log",
+      "sha256": "09bec2207b96d609c4814ca10951a19eb735243e6403ef5383105e077391d325"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-candidate-build.log",
+      "sha256": "ad34aa5319c2934e494cb44d07a4598aea689dcf78cde2148691e351971ec309"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-dev-package.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-candidate-package.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    },
+    {
+      "path": "tmp/plan11-9/summoning-impact-candidate-ui.log",
+      "sha256": "919682019f43b2ad97c287216ee3029b1b4588caa39eba925155e9652eaa86b2"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder.png",
+      "sha256": "11d4eb98b89d235f9613bd45ab5bb55c6a39953b053a4752ae64b7e62dcd6e73"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder-confirm-one.png",
+      "sha256": "ca22520dd15571db951f743c44655f42c6e222e0aaea3a7de524d094e0fd3043"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder-confirm-ten.png",
+      "sha256": "6c01301f8d2168eebb747114b2b77d3b74b3df5a79f3594e1712c794c9df43f6"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder-confirm-exchange.png",
+      "sha256": "1add36bb24fb9d2e165fd16c6ba38d4d0685d14be3ddf413c8097179c27fbe97"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder-confirm-ticket.png",
+      "sha256": "4aa147fd488fe5fcd281029646db2e85c05a6fd80f0d5f7670072406d13f70d2"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder-targets.png",
+      "sha256": "17b7c7c6a571bf8b7d2d164b8a0c408d4d6f83598eb249e67465711192fc9c1c"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-fx-single.png",
+      "sha256": "1f95d22e56ffc69a0f97b0a8cf18a5a872b0196f18d70d1b24791f741b567ba6"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-fx-triple.png",
+      "sha256": "5cc00e5a78c0a559adc941748275332ca2fc037037b1d8df6f1d9cecfc1ddc1d"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-kinder-confirm-ten.png",
+      "sha256": "13857cb8c24024aa36014a94192b08fa86a22df8aac9bcfdbb3718926a1f4868"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-kinder-confirm-exchange.png",
+      "sha256": "1741fd1fd6df83d63fdfe330efd1be40b53d16b33e168bfcbec47513ac5c1fb7"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-kinder-confirm-ticket.png",
+      "sha256": "1aff5725722b78016ef74de64a30526a8cad064a1841da20c8a39d4e883db665"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-fx-single.png",
+      "sha256": "1e3817c9beb6a29e2159701bcc584aaf8636e9c01f2a96689d47a4c960cc8053"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-fx-triple.png",
+      "sha256": "1d6d887ee2856fc38af37447fd9515bc74e1b56ef230989ca40351aedce395dc"
+    }
+  ]
+}

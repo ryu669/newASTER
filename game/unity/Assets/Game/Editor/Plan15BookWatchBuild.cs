@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using NewAster.Core;
@@ -22,6 +22,7 @@ public static class Plan15BookWatchBuild
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Game/Scenes/Bootstrap.unity"},locationPathName=player,target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
         if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Plan11-5/6 build failed: "+report.summary.result);
         string notices=Path.Combine(Path.GetDirectoryName(player),"ThirdPartyNotices/NotoSansCJKjp");Directory.CreateDirectory(notices);foreach(var f in new[]{"OFL.txt","NOTICE.txt"})File.Copy("Assets/Game/Resources/Fonts/"+f,Path.Combine(notices,f),true);
+        CommercialPackageWriter.Write(player);
         Debug.Log("PLAN15_16_BUILD_PASS "+report.summary.totalSize+" bytes");
     }
 }

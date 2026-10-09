@@ -33,6 +33,9 @@ namespace NewAster.Core
             var kinds=new[]{"trait","weapon-tree","poem-chapter","poem-link","affinity-event","lover-event"};
             if(contentReferences==null || contentReferences.Any(r=>r==null || !Id(r.id) || !Id(r.ownerId) || !kinds.Contains(r.kind) || (r.status!="reserved" && r.status!="implemented")) || contentReferences.Select(r=>r.id).Distinct().Count()!=contentReferences.Length) throw new ArgumentException("Invalid heroine content registry.");
             foreach(var hero in heroines) {
+                if(combatTraitVersion<0 || combatTraitVersion>1 || combatTraitVersion==1 && string.IsNullOrEmpty(hero.secondTraitId))throw new ArgumentException("Missing required common combat traits.");
+                InteractionTraitCatalog.Validate(hero);
+                if(!string.IsNullOrEmpty(hero.reactionStyleMain))new ReactionStyleProfile{main=hero.reactionStyleMain,sub=string.IsNullOrEmpty(hero.reactionStyleSub)?null:hero.reactionStyleSub}.Validate();
                 var job=jobs.SingleOrDefault(j=>j.id==hero.jobId);if(job==null) throw new ArgumentException("Missing heroine job.");
                 if(hero.hpBp<9000 || hero.hpBp>11000 || hero.attackBp<9000 || hero.attackBp>11000 || hero.defenseBp<9000 || hero.defenseBp>11000 || hero.hpBp+hero.attackBp+hero.defenseBp!=30000 || hero.speedBp<9500 || hero.speedBp>10500 || (long)job.speed*hero.speedBp/10000<1) throw new ArgumentException("Invalid character stat construction.");
                 ValidateReference(hero,hero.traitId,"trait");ValidateReference(hero,hero.weaponTreeId,"weapon-tree");
@@ -48,7 +51,7 @@ namespace NewAster.Core
                     if(skill.sourceSkillId!=skill.id || !observed && !authored)throw new ArgumentException("Missing or contradictory skill evidence provenance.");
                     if(skill.resourceCost>job.resourceMax || (skill.effectRuleId=="effect.damage" && string.IsNullOrEmpty(skill.damageType))) throw new ArgumentException("Formal skill needs explicit attack profile and reachable resource cost.");
                     if(skill.effectRuleId=="effect.damage" && skill.damageCap<=0) throw new ArgumentException("Formal damage cap must be explicit.");
-                    if((skill.conditions??Array.Empty<SkillConditionDef>()).Any(c=>c.kind=="trait-equipped" && c.referenceId!=hero.traitId || c.kind=="job-resource-at-least" && c.threshold>job.resourceMax)) throw new ArgumentException("Unreachable or cross-owner formal skill condition.");
+                    if((skill.conditions??Array.Empty<SkillConditionDef>()).Any(c=>c.kind=="trait-equipped" && !InteractionTraitCatalog.VisibleIds(hero).Contains(c.referenceId) || c.kind=="job-resource-at-least" && c.threshold>job.resourceMax)) throw new ArgumentException("Unreachable or cross-owner formal skill condition.");
                 }
             }
             if(chainActions.Any(a=>a.ruleOrigin!="newaster-original")) throw new ArgumentException("Fixed actions must be explicitly authored original definitions.");

@@ -14,7 +14,7 @@ namespace NewAster.Core {
   public bool IsSniping(int actor)=>IsCasting(actor) && casting[actor].Sniper;
   public bool StartSniperMode(int actor,string target){
    if(!JobReady(actor) || !Job(actor,"sniper") || State.Heroes[actor].JobResource<State.Heroes[actor].JobResourceMax || EnemyAttackTargets.Resolve(State,"target.selected-enemy",target).Length==0)return false;
-   var h=State.Heroes[actor];var shot=new BattleSkill("job.sniper.cast-shot",5m,0,attackSnapshot:h.Attack,criticalChanceBp:h.CriticalChanceBp,criticalMultiplierPercent:h.CriticalMultiplierPercent,damageCap:10000,bodyPartProtection:true,attributes:new[]{"銃弾"});
+   var h=State.Heroes[actor];var shot=new BattleSkill("job.sniper.cast-shot",5m,0,attackSnapshot:h.Attack,criticalChanceBp:h.CriticalChanceBp,criticalMultiplierPercent:h.CriticalMultiplierPercent,damageCap:10000,bodyPartProtection:true,attributes:new[]{"銃弾"},traitResourceSpent:true);
    if(!h.SpendResource(h.JobResourceMax))return false;
    casting[actor]=new PendingCast{Sniper=true,Slot=-1,Target=target,Skill=shot};readyAt[actor]=Clock+SkillTimingDefinition.Delay(h.Speed,200);Acted[actor]=true;AvailableHero=-1;
    LastActionWasCastStart=true;LastActionChain=0;LastHealingTargets=Array.Empty<int>();LastFullChain=false;LastChainActionCount=0;LastChainChecks=Array.Empty<ChainConnection>();
@@ -33,7 +33,7 @@ namespace NewAster.Core {
    string target=targets.FirstOrDefault(t=>t=="body" || State.Parts.Any(p=>p.Id==t && !p.IsBroken));if(target==null)return;
    for(int i=0;i<5;i++){
     if(i==attackingActor || !Job(i,"sniper") || !State.Heroes[i].IsAlive || State.Heroes[i].Status.Active("stun") || State.Heroes[i].Status.Active("absent") || !IsSniping(i) && sniperTargets[i]!=attackingActor || Ended)continue;
-    var h=State.Heroes[i];var shot=new BattleSkill("job.sniper.support",.45m,0,criticalChanceBp:h.CriticalChanceBp,criticalMultiplierPercent:h.CriticalMultiplierPercent,damageCap:10000,bodyPartProtection:true,attributes:new[]{"銃弾"});
+    var h=State.Heroes[i];var shot=new BattleSkill("job.sniper.support",.45m,0,criticalChanceBp:h.CriticalChanceBp,criticalMultiplierPercent:h.CriticalMultiplierPercent,damageCap:10000,bodyPartProtection:true,attributes:new[]{"銃弾"},traitResourceSpent:true);
     var hit=BattleActionResolver.Resolve(State,h.Id,shot,target,max=>random.Next(max));
     if(hit.Accepted)RecordPresentation(BattlePresentationKind.Attack,i,target,"支援射撃 ／ 資源・通常WT消費なし",damage:hit.Damage,broken:hit.PartBroken,targetIds:hit.TargetIds,standalone:true);
    }

@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-09",
+  "scope": "Plan11-7 daily interactions and combat common traits",
+  "coreAssertions": 10661,
+  "coreResult": "pass",
+  "scalePersons": 256,
+  "scaleSelectionMilliseconds": 28.7,
+  "unityBuild": "pass",
+  "buildLog": "tmp/plan11-7-combat-build-release.log",
+  "player": "game/Builds/plan11-7/newASTER.exe",
+  "captureCount": 14,
+  "resolutions": [
+    "1280x720",
+    "1920x1080"
+  ],
+  "views": [
+    "daily-dates",
+    "daily-talk",
+    "daily-date-walk",
+    "daily-date-meal",
+    "daily-date-stars",
+    "daily-date-tea",
+    "daily-date-water"
+  ],
+  "captureErrors": 0,
+  "physicalInputVerified": false,
+  "captures": [
+    {
+      "file": "tmp/plan11-7-captures/daily-date-meal-1080.png",
+      "bytes": 3684637
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-meal-720.png",
+      "bytes": 1798935
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-stars-1080.png",
+      "bytes": 3683197
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-stars-720.png",
+      "bytes": 1799395
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-tea-1080.png",
+      "bytes": 3682653
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-tea-720.png",
+      "bytes": 1799583
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-walk-1080.png",
+      "bytes": 3683913
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-walk-720.png",
+      "bytes": 1798169
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-water-1080.png",
+      "bytes": 3678129
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-date-water-720.png",
+      "bytes": 1798171
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-dates-1080.png",
+      "bytes": 2900333
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-dates-720.png",
+      "bytes": 1443467
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-talk-1080.png",
+      "bytes": 3690315
+    },
+    {
+      "file": "tmp/plan11-7-captures/daily-talk-720.png",
+      "bytes": 1802105
+    }
+  ],
+  "pending": [
+    "Final numerical balance tuning",
+    "Physical mouse/keyboard end-to-end operation",
+    "Additional heroine-specific dialogue and presentation assets"
+  ],
+  "combatDefinitions": 30,
+  "combatForms": 15,
+  "combatJobs": 13,
+  "combatCaptureCount": 6,
+  "combatCaptures": [
+    {
+      "file": "tmp/plan11-7-combat-captures/job-general.png",
+      "bytes": 1760910
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/job-healer.png",
+      "bytes": 1797708
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/job-panzer.png",
+      "bytes": 1776963
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait-rank5.png",
+      "bytes": 3131084
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait-second.png",
+      "bytes": 1517000
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait.png",
+      "bytes": 1518720
+    }
+  ],
+  "combatCaptureErrors": 0,
+  "combatCaptureReview": "Viewed all six rendered screens; eight trait icons and Rank 1 / Rank 5 descriptions visible"
+}

@@ -19,7 +19,7 @@ namespace NewAster.Presentation
             if(combatDefinitions.HeroineIds.Contains("heroine.annihilator")){DrawExpansionRecruitmentButton();return;}
             if(!combatDefinitions.HeroineIds.Contains("heroine.r") || formalProgression.Snapshot.heroines.Any(h=>h.heroineId=="heroine.r"))return;
             bool enabled=BookInputAllowed && homeRequest==null && !formalCampaign.HasPending && (!formalProgression.HasPending || rRecruitRequest!=null);
-            if(GrowthButton(975,170,570,48,rRecruitError??"Rを迎える ／ アーティスト・無償",enabled)){
+            if(GrowthButton(80,118,430,48,rRecruitError??"デバッグ：Rを迎える",enabled)){
                 try{
                     rRecruitRequest=rRecruitRequest??new GrowthRequest(Guid.NewGuid().ToString("N"),"heroine.r",formalProgression.Snapshot.revision,GrowthOperation.ReceiveHeroine);
                     var committed=formalProgression.Commit(rRecruitRequest,SaveFormalGrowth);

@@ -18,7 +18,7 @@ namespace NewAster.Presentation
             string id="colossus."+args[index+1];var definition=WorldCatalog.Colossi.SingleOrDefault(c=>c.Id==id);
             if(definition==null)throw new ArgumentException("Unknown enemy art review");
             plan9EnemyName=definition.DisplayName;
-            plan9EnemyPreview=new BattleIllustrationView("Illustrations/battle-"+args[index+1]+"-candidate-v1");
+            plan9EnemyPreview=new BattleIllustrationView("Illustrations/battle-"+args[index+1]+"-candidate-v1",ScheduleHeroineAssetCleanup);
             if(!plan9EnemyPreview.Ready)throw new InvalidOperationException("Enemy art manifest unavailable");
             int mask=Array.IndexOf(args,"-inspectPlan9EnemyBroken");
             if(mask>=0 && (mask+1>=args.Length || !int.TryParse(args[mask+1],out plan9EnemyBrokenMask) || plan9EnemyBrokenMask<0 || plan9EnemyBrokenMask>((1<<plan9EnemyPreview.PartCount)-1)))throw new ArgumentException("Invalid enemy break review mask");

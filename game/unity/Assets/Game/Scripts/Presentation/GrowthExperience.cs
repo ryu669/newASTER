@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -67,7 +67,7 @@ namespace NewAster.Presentation
             if(formalProgression.HasPending || formalCampaign.HasPending)return;
             if(formationOpen){BackFormationLayer();return;}
             if(returnToFormationFromWeapon && growthScreen==GrowthScreen.Weapons){ReturnFromFormationWeapon();return;}
-            if(heroineRosterOpen){if(book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;}return;}
+            if(heroineRosterOpen){BackBookPage();return;}
             if(growthScreen==GrowthScreen.Overview){heroineRosterOpen=true;selectedTrait=-1;return;}
             if(growthScreen==GrowthScreen.Confirmation){growthRequest=null;growthPreview=null;growthScreen=growthOrigin;return;}
             if(growthScreen==GrowthScreen.Information){if(book.Face==BookFace.Details)book.FlipPage();growthScreen=GrowthScreen.Overview;}else growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;growthRequest=null;

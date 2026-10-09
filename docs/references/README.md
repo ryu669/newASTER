@@ -1,5 +1,7 @@
 # 参考・観察資料
 
+物語制作は[本作の人物資料](../characters/README.md)から始める。このフォルダは参考観察を保存し、原作の未確認事項と本作で決めた設定を混同しない。
+
 <!-- plan10-current:start -->
 ## 今回追加した人物記録
 
@@ -21,6 +23,7 @@
 - [kyoshin-ending-observations.md](kyoshin-ending-observations.md)
 - [references.md](references.md)
 - [slayer-video-observations-v0.1.md](slayer-video-observations-v0.1.md)
+- [スレイヤー戦闘動画の追加確認データ](characters/slayer-battle-observations.json)：2026年10月9日。特性7項目、祝福、ブースト5枠、ラストリゾートの時刻付き観察。
 - [Rの性格・口調・人物概要](characters/r.md) — 計画10で正式追加したアーティスト。戦闘・人物動画の時刻付き観察と本作用の創作候補。
 
 - [アナイアレイター通常版・聖夜版の人物と実装](characters/annihilator.md)

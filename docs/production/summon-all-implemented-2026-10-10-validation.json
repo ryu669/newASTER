@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "status": "automated-pass",
+  "forms": 15,
+  "persons": 12,
+  "heroineTotalPercent": 3,
+  "perFormPercent": 0.2,
+  "coreAssertions": 12332,
+  "sourceFiles": 262,
+  "navigationChecks": 226,
+  "manualInput": 0,
+  "records": [
+    {
+      "path": "tmp/plan11-9/summon-affection-core-final.log",
+      "sha256": "56073c0d08817e9e10ba3a351bd1180d74b86cb72c9636f2796b8b5835ca71a8"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-build.log",
+      "sha256": "4f799ae23eed680a8b03d164c9c0077ce22975992623de5110bad9b177935298"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-candidate-build.log",
+      "sha256": "5d4233bafde76022a31bca10212413c08c57c00c0a4d9cfe2bf9f7fbce509c69"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-ui.log",
+      "sha256": "de296085b7256a3d4ae4ab32b70143e4cb8905cc4a94260f5644da2e08d6ff1f"
+    },
+    {
+      "path": "tmp/plan11-9/summon-all-last-page.log",
+      "sha256": "12d80c5bb97fd95388c646f3dc3000ef8092148225d57b426196bfb57a106ea2"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-720.log",
+      "sha256": "b445eaf098223f893ef1cff60e7374558056f32b04654f89765fb04b2ec4e06c"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-package-dev.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/summon-affection-package-rc.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    }
+  ]
+}

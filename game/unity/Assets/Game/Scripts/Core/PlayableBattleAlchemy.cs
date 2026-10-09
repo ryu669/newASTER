@@ -33,7 +33,7 @@ namespace NewAster.Core
         {
             var units=inputs?.ToArray();if(!CanTransmute(actor,units,target,weakness))return false;
             var attributes=AlchemyAttributes(actor).Where((a,i)=>units[i]>0).ToArray();int cost=units.Sum();
-            if(weakness){State.Heroes[actor].SpendResource(cost);State.EnemyStatus(target).SetFireVulnerability(Math.Min(50,cost*10),3);RecordPresentation(BattlePresentationKind.Support,actor,target,"錬成：火弱点＋"+Math.Min(50,cost*10)+"%・3ターン ／ READYを維持",standalone:true);}
+            if(weakness){State.Heroes[actor].SpendResource(cost);State.EnemyStatus(target).SetFireVulnerability(Math.Min(100,cost*10*(100+State.Heroes[actor].TraitEffect("resource-effect"))/100),3);RecordPresentation(BattlePresentationKind.Support,actor,target,"錬成：火弱点＋"+Math.Min(100,cost*10*(100+State.Heroes[actor].TraitEffect("resource-effect"))/100)+"%・3ターン ／ READYを維持",standalone:true);}
             else{
                 decimal power=.35m*cost+(units.Count(n=>n>0)>=3?.25m:0m);
                 var skill=new BattleSkill("alchemy.oriflamme",power,cost,criticalChanceBp:State.Heroes[actor].CriticalChanceBp,damageCap:10000,damageType:"magic",attributes:attributes,statusEffects:units[0]>0?new[]{new EnemyStatusDef{kind="burn",amount=units[0]*20}}:null);

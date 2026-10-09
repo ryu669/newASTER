@@ -1,0 +1,34 @@
+{
+  "plan": "11-8",
+  "date": "2026-10-09",
+  "regression": {"command": "tools/validate-automatic-chain.ps1", "passedAssertions": 10724},
+  "saveTests": {
+    "source": "tools/SaveSlotTests.cs",
+    "passed": ["two-independent-slots", "active-slot-restart", "manual-and-auto-save", "five-second-last-change-debounce", "force-flush", "critical-save-supersedes-pending", "two-backups", "restore-preserves-current", "restore-failure-preserves-bytes", "stale-restore-refused", "checksum-and-malformed-json-refused", "restore-corrupt-main", "two-delete-confirmations", "other-slot-isolation", "delete-corrupt-pointer", "empty-slot-reuse", "no-delete-all-api", "shared-exclusive-lock", "stale-writer-refused", "unsafe-path-refused", "generation-separation", "future-schema-refused", "ordered-schema-migration", "missing-migration-refused", "256-person-roundtrip", "affection-ring-oopart-growth-material-roundtrip", "terraform-furniture-assignment-discovery-roundtrip", "book-search-face-level-roundtrip", "receipt-replay-after-reload"],
+    "forcedProcessKill": {"count": 4, "passedStages": ["latest-verified", "backups-verified", "before-publish", "after-publish"]},
+    "existingCoverage": "Existing regression includes gacha/victory receipt replay, affection, Terraform, garden, oopart, book, story and economy transactions. The new slot writer retains their unified payload."
+  },
+  "unityBuild": {
+    "editor": "6000.6.3f1",
+    "platform": "Windows x64",
+    "exitCode": 0,
+    "log": "tmp/plan11-8-build.log",
+    "executable": "game/Builds/plan11-8/newASTER.exe"
+  },
+  "windowsPlayer": {
+    "mode": "Production UI handlers invoked automatically in isolated save directories",
+    "marker": "SV18_WINDOWS_PLAYER_PASS",
+    "passedFlow": ["manual-save", "load", "restore-and-reload", "two-confirmation-individual-delete", "reuse-empty-slot", "active-slot-delete-returns-title"],
+    "views": [
+      {"name": "save-management", "resolution": "1280x720"},
+      {"name": "save-restore", "resolution": "1280x720"},
+      {"name": "save-delete-first", "resolution": "1920x1080"},
+      {"name": "save-delete-second", "resolution": "1920x1080"},
+      {"name": "save-empty", "resolution": "1280x720"}
+    ],
+    "artifacts": "tmp/plan11-8-captures/<view>.png and <view>.log",
+    "physicalMouseInputVerified": false
+  },
+  "notVerified": ["physical mouse interaction", "actual power loss", "real disk capacity exhaustion", "every historical development save"],
+  "preservation": "Original user asset metadata and project-setting changes remain unstaged. Existing player saves are not modified by capture tests."
+}

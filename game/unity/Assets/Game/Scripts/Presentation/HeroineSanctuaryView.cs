@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using NewAster.Core;
@@ -9,6 +9,7 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool heroineRosterOpen=true;
+        private bool rosterFilterOpen,rosterFilterJob;
         private string heroineQuery="";
         private int heroinePage,heroineJobFilter,selectedTrait=-1,selectedSkillSlot;
         private const int HeroinePageSize=12;
@@ -16,11 +17,29 @@ namespace NewAster.Presentation
         private HeroineRosterEntry[] bookHeroineResults;
         private string bookHeroineResultKey;
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
-        private readonly Dictionary<string,Texture2D> heroinePortraits=new Dictionary<string,Texture2D>();
+        private BoundedCache<string,Texture2D> heroinePortraits;
+        private bool heroineAssetCleanupPending;
+        private void EnsureHeroineImageCaches()
+        {
+            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
+            if(sanctuaryTrees==null)sanctuaryTrees=new BoundedCache<string,Texture2D>(3,ScheduleHeroineAssetCleanup);
+        }
+        private void ScheduleHeroineAssetCleanup()
+        {
+            if(heroineAssetCleanupPending)return;
+            heroineAssetCleanupPending=true;StartCoroutine(ReleaseUnusedHeroineImages());
+        }
+        private System.Collections.IEnumerator ReleaseUnusedHeroineImages()
+        {
+            yield return new WaitForEndOfFrame();
+            yield return Resources.UnloadUnusedAssets();
+            heroineAssetCleanupPending=false;
+        }
         private readonly Color parchment=new Color(.94f,.89f,.77f),paperInk=new Color(.13f,.18f,.22f);
         private HeroinePortraitCatalog portraitFraming;
         private HeroinePortraitDef HeroFraming(string id)
         {
+            if(quality119FixtureFraming!=null && quality119FixtureFraming.TryGetValue(id,out var fixture))return fixture;
             if(portraitFraming==null){
                 var source=Resources.Load<TextAsset>("UI/heroine-portrait-framing");
                 if(source==null)throw new InvalidOperationException("Missing heroine portrait framing catalog.");
@@ -31,21 +50,51 @@ namespace NewAster.Presentation
         }
         private Texture2D HeroPortrait(string id)
         {
+            EnsureHeroineImageCaches();
             string key=id;
             if(!heroinePortraits.TryGetValue(key,out var texture)){
+                double started=quality119Started?MeasurementClock:0;
                 var framing=HeroFraming(id);
                 string path=framing.resourcePath;
-                texture=path==null?null:Resources.Load<Texture2D>(path);
+                texture=quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)?quality119FixtureBundle.LoadAsset<Texture2D>(path):path==null?null:Resources.Load<Texture2D>(path);
                 {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
                 heroinePortraits[key]=texture;
+                if(quality119Started)quality119MaxPortraitLoadCpuMs=Math.Max(quality119MaxPortraitLoadCpuMs,(MeasurementClock-started)*1000);
             }
             return texture;
+        }
+        // Spread new visible portraits across frames; cap the queue and drop stale pages.
+        private readonly Dictionary<string,int> heroinePortraitRequests=new Dictionary<string,int>();
+        private bool heroinePortraitWorker;
+        private Texture2D RequestHeroPortrait(string id)
+        {
+            EnsureHeroineImageCaches();
+            if(heroinePortraits.TryGetValue(id,out var texture))return texture;
+            if(heroinePortraitRequests.ContainsKey(id))heroinePortraitRequests[id]=Time.frameCount;
+            else if(heroinePortraitRequests.Count<HeroinePageSize)heroinePortraitRequests.Add(id,Time.frameCount);
+            if(!heroinePortraitWorker && heroinePortraitRequests.Count>0){heroinePortraitWorker=true;StartCoroutine(LoadQueuedHeroPortraits());}
+            return null;
+        }
+        private System.Collections.IEnumerator LoadQueuedHeroPortraits()
+        {
+            try{
+                while(heroinePortraitRequests.Count>0){
+                    yield return null;
+                    double batchStarted=MeasurementClock;
+                    for(int i=0;i<2 && heroinePortraitRequests.Count>0;i++){
+                        var next=heroinePortraitRequests.First();heroinePortraitRequests.Remove(next.Key);
+                        if(Time.frameCount-next.Value<=2)HeroPortrait(next.Key);
+                        // A single resource load is indivisible; stop scheduling more work once over budget.
+                        if((MeasurementClock-batchStarted)*1000>=4)break;
+                    }
+                }
+            }finally{heroinePortraitWorker=false;}
         }
         // Face anchors are authored against the unmodified source PNG, using top-left coordinates.
         // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
         private void DrawHeroPortrait(Rect panel,string id)
         {
-            var texture=HeroPortrait(id);var framing=HeroFraming(id);
+            var texture=RequestHeroPortrait(id);var framing=HeroFraming(id);
             if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
             float scale=Mathf.Min(HeroinePortraitCatalog.MaximumDisplayScale,panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight));
             float w=texture.width*scale,h=texture.height*scale;
@@ -78,7 +127,7 @@ namespace NewAster.Presentation
         }
         private void DrawHeroineRoster()
         {
-            bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen)GUI.enabled=false;
+            bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen || rosterFilterOpen)GUI.enabled=false;
             SanctuaryHeader("誓女の星図","名前と顔から、会いたい誓女を選ぶ");
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
             Label(278,111,110,38,"名前検索",growthSmallStyle);
@@ -87,25 +136,24 @@ namespace NewAster.Presentation
             if(GrowthButton(853,108,95,48,"クリア",heroineQuery.Length>0)){heroineQuery="";heroinePage=0;}
             var jobs=combatDefinitions.jobs.Select(j=>j.id).OrderBy(id=>id,StringComparer.Ordinal).ToArray();
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);
-            if(GrowthButton(975,108,570,48,"ジョブ  ／  "+(heroineJobFilter==0?"すべて":HeroineIdentityCatalog.JobName(jobs[heroineJobFilter-1]))+"  ›",BookInputAllowed)){heroineJobFilter=(heroineJobFilter+1)%(jobs.Length+1);heroinePage=0;}
+            if(GrowthButton(975,108,570,48,"ジョブ  ／  "+(heroineJobFilter==0?"すべて":HeroineIdentityCatalog.JobName(jobs[heroineJobFilter-1]))+"  ›",BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=true;}
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);
-            if(GrowthButton(1060,167,485,40,"交流で絞り込む："+new[]{"全員","恋人","未読イベント","Lv10以上","Lv20以上"}[affectionRosterFilter],BookInputAllowed)){affectionRosterFilter=(affectionRosterFilter+1)%5;heroinePage=0;}
+            if(GrowthButton(1060,167,485,40,"交流で絞り込む："+new[]{"全員","恋人","未読イベント","Lv10以上","Lv20以上"}[affectionRosterFilter],BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=false;}
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);var snapshot=LifeSnapshot().growth;string resultKey=heroineQuery+"|"+heroineJobFilter+"|"+affectionRosterFilter+"|"+formalCampaign.Revision;if(bookHeroineResults==null || bookHeroineResultKey!=resultKey){bookHeroineResults=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).ToArray();bookHeroineResultKey=resultKey;}var entries=bookHeroineResults;
             var saved=book.PageState;var activeFilters=new[]{heroineJobFilter.ToString(),affectionRosterFilter.ToString()};if(saved.searchQuery!=heroineQuery || !(saved.filterIds??Array.Empty<string>()).SequenceEqual(activeFilters)){saved.searchQuery=heroineQuery;saved.filterIds=activeFilters;bookNavigationDirty=true;}book.SetResults(BookBookmark.Heroines,entries.Select(e=>e.id));
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
             int people=snapshot.heroines.Select(h=>combatDefinitions.PersonId(h.heroineId)).Distinct().Count();
             Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
-            DrawRRecruitment();
             var page=entries.Skip(heroinePage*HeroinePageSize).Take(HeroinePageSize).ToArray();
             for(int i=0;i<page.Length;i++){
                 var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
                 DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
-                var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
-                Label(x+134,y+23,212,41,entry.name,nameStyle);
-                Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
-                Label(x+134,y+119,204,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
+                var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>198)nameStyle.fontSize--;
+                Label(x+134,y+23,198,41,entry.name,nameStyle);
+                Label(x+134,y+75,198,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
+                Label(x+134,y+119,198,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
                 if(hover)GrowthLine(x+124,y+156,x+338,y+156,gold,2);
                 if(ImageUiSkin.Button(rect,"",GUIStyle.none) && BookInputAllowed){if(book.SubjectId!=entry.id)book.RequestSubject(BookBookmark.Heroines,entry.id);heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;bookTransitionElapsed=0;PlayProductionUiSound("決定");}
             }
@@ -114,7 +162,24 @@ namespace NewAster.Presentation
 
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
-            GUI.enabled=previousEnabled;DrawAnnihilatorRecruitmentDialog();
+            GUI.enabled=previousEnabled;if(rosterFilterOpen)DrawRosterFilter(jobs);DrawAnnihilatorRecruitmentDialog();
+        }
+        private void SelectRosterFilter(int index)
+        {
+            if(rosterFilterJob)heroineJobFilter=index;else affectionRosterFilter=index;
+            heroinePage=0;rosterFilterOpen=false;
+        }
+        private void DrawRosterFilter(string[] jobs)
+        {
+            drawingModal=true;GrowthFill(0,0,1600,900,new Color(0,0,0,.78f));GrowthFill(340,150,920,610,ink);GrowthFrame(340,150,920,610);
+            Label(385,185,720,50,rosterFilterJob?"ジョブで絞り込む":"交流で絞り込む",growthTitleStyle,gold);
+            if(GrowthButton(1150,185,65,48,"×")){rosterFilterOpen=false;return;}
+            var labels=rosterFilterJob?new[]{"すべて"}.Concat(jobs.Select(HeroineIdentityCatalog.JobName)).ToArray():new[]{"全員","恋人","未読イベント","Lv10以上","Lv20以上"};
+            for(int i=0;i<labels.Length;i++){
+                bool selected=i==(rosterFilterJob?heroineJobFilter:affectionRosterFilter);
+                if(GrowthButton(385+i%3*280,270+i/3*78,260,62,(selected?"✓ ":"")+labels[i]))SelectRosterFilter(i);
+            }
+            if(GrowthButton(905,690,310,48,"キャンセル"))rosterFilterOpen=false;
         }
         private PlayableBattle HeroinePreview(FormalGrowthSave growth=null,string heroId=null)=>new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(heroId)),formalGrowth:growth??formalProgression.Snapshot,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),collectionGrowth:formalCampaign.Snapshot.collection,relicCatalog:CollectionData());
         private SkillCombatDef DisplayHeroineSkill(string id,int slot)
@@ -136,24 +201,24 @@ namespace NewAster.Presentation
             GrowthFill(69,606,612,194,new Color(.045f,.095f,.135f,.97f));
             string[] stats={"HP  "+state.MaxHitPoints,"攻撃  "+state.Attack,"物理防御  "+state.PhysicalDefense,"魔法防御  "+state.MagicDefense,"速度  "+state.Speed,"会心  "+(state.CriticalChanceBp/100f).ToString("0.#")+"%"};
             for(int i=0;i<stats.Length;i++)Label(90+(i%2)*303,615+(i/2)*43,292,39,stats[i],growthTextStyle);
-            if(GrowthButton(90,753,530,40,AffectionSummary(id),BookInputAllowed))OpenAffection(id);
+            if(GrowthButton(90,753,530,40,"交流へ  ›  好感度 Lv"+AffectionService.State(LifeSnapshot(),HomeData(),id).level,BookInputAllowed))OpenAffection(id);
             GrowthFill(737,104,811,715,parchment);GrowthLine(754,118,1531,118,gold,2);GrowthLine(754,801,1531,801,gold,2);
-            if(GrowthButton(771,140,240,71,"Lv. "+growth.level+" / "+growth.LevelCap+"  ＋",BookInputAllowed,true))GrowthSelect(GrowthScreen.Level,growth);
+            if(GrowthButton(771,140,240,71,"Lv強化  "+growth.level+" / "+growth.LevelCap,BookInputAllowed,true))GrowthSelect(GrowthScreen.Level,growth);
             if(GrowthButton(1027,140,225,71,"覚醒  "+growth.awakeningStage+" / 2  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Awakening,growth);
-            if(GrowthButton(1268,140,245,71,"誓い  "+growth.duplicateRank+" / 5  ＋",BookInputAllowed))GrowthSelect(GrowthScreen.Duplicate,growth);
+            if(GrowthButton(1268,140,245,71,"重複強化  "+growth.duplicateRank+" / 5",BookInputAllowed))GrowthSelect(GrowthScreen.Duplicate,growth);
             if(bookNotices.For(id)!=BookNotice.None)Label(771,216,743,28,"通知："+BookNoticeText(bookNotices.For(id)),growthSmallStyle,gold);
             if(book.Face==BookFace.Details && formalCampaign.HasAffection)DrawBookHeroineInformation(id);
             else for(int slot=0;slot<3;slot++){
                 var skill=DisplayHeroineSkill(id,slot);int level=growth.SkillLevel(slot);float y=253+slot*150;
                 GrowthFill(762,y,765,140,new Color(.985f,.955f,.86f));GrowthLine(771,y+138,1511,y+138,new Color(.67f,.55f,.33f));
-                DrawSanctuaryIcon(new Rect(782,y+27,69,69),skill.effectRuleId=="effect.self-buff"?"star":skill.damageType=="magic"?"moon":"sword",slot==1?new Color(.35f,.32f,.60f):new Color(.65f,.26f,.30f));
+                DrawHeroineSkillIcon(new Rect(782,y+27,69,69),skill,slot);
                 Label(869,y+9,490,36,skill.name,new GUIStyle(sanctuaryHeading){fontSize=24,wordWrap=false});
                 string description=HeroineSkillRules.Description(skill,level,job).Split('\n')[0];
                 if(description.Length>55)description=description.Substring(0,55)+"…";
 
-                Label(869,y+51,633,86,description,sanctuarySmall);
-                Label(1361,y+12,145,32,"Lv."+level+" / 7  "+(level==7?"MAX":"＋"),sanctuaryBody);
-                if(ImageUiSkin.Button(new Rect(762,y,765,140),"",GUIStyle.none) && BookInputAllowed){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
+                Label(869,y+51,480,86,description,sanctuarySmall);
+                Label(1361,y+12,145,32,"Lv."+level+" / 7",sanctuaryBody);
+                if(GrowthButton(1361,y+80,145,44,level==7?"詳細":"強化",BookInputAllowed)){selectedSkillSlot=slot;growthScreen=GrowthScreen.Skill;growthOutcome=null;PlayProductionUiSound("決定");}
             }
             var traits=HeroineIdentityCatalog.Traits(definition,growth);
             GrowthFill(84,531,596,74,new Color(.035f,.065f,.10f,.94f));
@@ -184,7 +249,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(0,i*58,710,52,(read?"回想":open?"未読":"Lv"+ev.requiredAffectionLevel+"で解放")+" ／ "+title,open && BookInputAllowed))BeginAdv(ev.id,read);
             }
             GUI.EndScrollView();
-            if(GrowthButton(771,666,743,44,"好感度・指輪の操作をひらく",BookInputAllowed))OpenAffection(id);
+            if(GrowthButton(771,666,743,44,"交流・指輪へ",BookInputAllowed))OpenAffection(id);
         }
         private const float sixty=60;
         private void DrawHeroineSkillUpgrade()
@@ -193,7 +258,7 @@ namespace NewAster.Presentation
             SanctuaryHeader("スキルの研鑽",combatDefinitions.Hero(id).name+"  ／  "+skill.name);
             GrowthFrame(145,146,1310,650);
             if(GrowthButton(180,172,195,48,"‹ 能力へ戻る",!formalProgression.HasPending)){growthScreen=GrowthScreen.Overview;return;}
-            DrawSanctuaryIcon(new Rect(430,177,65,65),skill.damageType=="magic"?"moon":"sword",gold);Label(518,184,800, fifty,skill.name,growthTitleStyle);
+            DrawHeroineSkillIcon(new Rect(430,177,65,65),skill,selectedSkillSlot);Label(518,184,800, fifty,skill.name,growthTitleStyle);
             GrowthFill(184,267,584,294,parchment);GrowthFill(788,267,626,294,parchment);
             Label(208,285,528,46,"現在  Lv."+level,sanctuaryHeading);Label(208,350,528,194,HeroineSkillRules.Description(skill,level,job),sanctuaryBody);
             Label(814,285,570,46,level==7?"最大Lvに到達しました":"次の強化  Lv."+(level+1),sanctuaryHeading);

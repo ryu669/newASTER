@@ -46,7 +46,7 @@ namespace NewAster.Presentation
                 }
             }
             else if(view=="formation-weapon-return"){
-                formationSlot=0;returnToFormationFromWeapon=true;formationOpen=false;growthScreen=GrowthScreen.Weapons;ReturnFromFormationWeapon();AcceptanceCheck(formationOpen && formationLayer==1 && formationSlot==0,"Weapon return preserves selected member and hierarchy");
+                book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationSlot=0;formationLayer=1;returnToFormationFromWeapon=true;formationOpen=false;book.RequestSubject(BookBookmark.Heroines,hero);book.CompleteTransition();growthScreen=GrowthScreen.Weapons;ReturnFromFormationWeapon();AcceptanceCheck(formationOpen && formationLayer==1 && formationSlot==0,"Weapon return preserves selected member and hierarchy");
             }
             else{
                 StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();AcceptanceCheck(encounter.JobState(0).Id=="job.sniper","Shangrila uses Sniper");

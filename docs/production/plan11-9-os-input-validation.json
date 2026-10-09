@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-10",
+  "testedCommit": "987d875",
+  "inputMethod": "computer-use @oai/sky Windows OS keyboard and mouse injection",
+  "humanPhysicalInput": false,
+  "osInputInjected": true,
+  "humanListening": false,
+  "clientResolution": [
+    1600,
+    900
+  ],
+  "fixture": "save-main with plan9ManualSmoke; fresh save-acceptance directory",
+  "fixtureRoot": "D:\\AIGAME\\newASTER\\tmp\\plan11-9\\save-acceptance-a4d70a9749584fa6bf2f8e7102a85986",
+  "actions": 16,
+  "results": [
+    {
+      "case": "delete-confirmation-back",
+      "result": "PASS",
+      "observed": "Click deletion -> confirmation 1/2 -> confirmation 2/2; Escape -> 1/2; Escape -> slot list. Slot1 still ready and active."
+    },
+    {
+      "case": "backup-cancel",
+      "result": "PASS",
+      "observed": "Click backup1 -> summary and rollback warning; Escape -> slot list."
+    },
+    {
+      "case": "empty-slot-disabled-load",
+      "result": "PASS",
+      "observed": "Select empty slot2 -> selected check moves to slot2, active slot remains1; Load is disabled; clicking Load leaves state unchanged."
+    },
+    {
+      "case": "close-save-management",
+      "result": "PASS",
+      "observed": "Escape closes management and reveals the colossus bookmark."
+    },
+    {
+      "case": "hero-page-turn",
+      "result": "PASS",
+      "observed": "Click heroine bookmark -> R at1/15; click next -> Iconoclast at2/15."
+    },
+    {
+      "case": "help-keeps-selection",
+      "result": "PASS",
+      "observed": "Click help then Escape -> Iconoclast remains2/15."
+    },
+    {
+      "case": "growth-back-keeps-selection",
+      "result": "PASS",
+      "observed": "Click Lv button opens nectar growth for Iconoclast; Escape returns to Iconoclast Lv1 at2/15."
+    },
+    {
+      "case": "player-close",
+      "result": "PASS",
+      "observed": "Alt+F4 exits isolated Player and log shows clean input/engine shutdown."
+    }
+  ],
+  "limits": [
+    "Only observed button centers and listed routes tested; no exhaustive hitbox boundary or rapid-input acceptance.",
+    "No final deletion or restoration performed through UI in this run; automated fixtures cover those operations separately.",
+    "Initial log markers say physicalInput=0 because fixture setup runs before OS actions. This report records subsequent OS actions, not human physical input.",
+    "Screenshots observed through Computer Use in conversation; no persistent screenshot file claimed."
+  ],
+  "assemblySha256": "b2b07bd0bef52284e28a0a5760201547901b5c2ef3f8fa3173dea7e78f19fc2f",
+  "log": "tmp/plan11-9/manual-input.log",
+  "logSha256": "1a0e35713403917dd84ed7d5a02c3f1a44228460aa1b43dd73926ec2e64c8d20"
+}

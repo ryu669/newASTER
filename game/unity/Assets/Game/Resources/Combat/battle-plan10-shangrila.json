@@ -644,7 +644,9 @@
         "heroine.annihilator-holy.lover.2"
       ],
       "personId": "heroine.annihilator",
-      "variantId": "holy-night"
+      "variantId": "holy-night",
+      "interactionTraitIds": ["taste.flowers","personality.cool","outfit.christmas"],
+      "profileTraitIds": ["hair.black","appearance.horns"]
     },
     {
       "id": "heroine.shell",
@@ -812,7 +814,9 @@
         "heroine.nighthawk.lover.2"
       ],
       "personId": "heroine.nighthawk",
-      "variantId": "normal"
+      "variantId": "normal",
+      "interactionTraitIds": ["taste.books","personality.night"],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.slayer-swim",
@@ -868,7 +872,9 @@
         "heroine.slayer-swim.lover.2"
       ],
       "personId": "heroine.slayer",
-      "variantId": "swim"
+      "variantId": "swim",
+      "interactionTraitIds": ["hair.blonde","personality.active","outfit.swimsuit"],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.arcane",
@@ -924,7 +930,9 @@
         "heroine.arcane.lover.2"
       ],
       "personId": "heroine.arcane",
-      "variantId": "normal"
+      "variantId": "normal",
+      "interactionTraitIds": ["taste.books","taste.mechanics","personality.active"],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.arcane-academy",
@@ -980,7 +988,9 @@
         "heroine.arcane-academy.lover.2"
       ],
       "personId": "heroine.arcane",
-      "variantId": "academy"
+      "variantId": "academy",
+      "interactionTraitIds": ["taste.books","personality.active","outfit.school"],
+      "profileTraitIds": ["taste.mechanics"]
     },
     {
       "id": "heroine.shangrila",
@@ -1036,7 +1046,9 @@
         "heroine.shangrila.lover.2"
       ],
       "personId": "heroine.shangrila",
-      "variantId": "normal"
+      "variantId": "normal",
+      "interactionTraitIds": ["hair.silver","appearance.glasses","personality.cool"],
+      "profileTraitIds": ["appearance.horns"]
     }
   ],
   "skills": [

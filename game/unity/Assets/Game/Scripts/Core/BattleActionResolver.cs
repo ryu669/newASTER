@@ -10,6 +10,7 @@ namespace NewAster.Core
         private readonly string[] attributes;
         public string[] Attributes => attributes.ToArray();
         public int ResourceCost { get; }
+        public bool TraitResourceSpent {get;}
         public int SelfHealingBaseAttackPercent { get; }
         public int SelfDamageMaxHpPercent { get; }
         public int? AttackSnapshot { get; }
@@ -25,7 +26,7 @@ namespace NewAster.Core
         private readonly EnemyStatusDef[] statusEffects;
         public System.Collections.Generic.IReadOnlyList<EnemyStatusDef> StatusEffects => Array.AsReadOnly(statusEffects.Select(e=>e.Copy()).ToArray());
 
-        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false,string[] attributes=null,int bodyDamageBonusPercent=0)
+        public BattleSkill(string id, decimal power, int resourceCost,int selfHealingBaseAttackPercent=0,int selfDamageMaxHpPercent=0,int? attackSnapshot=null,int criticalChanceBp=0,int criticalMultiplierPercent=150,int damageCap=0,string damageType="physical",int ignoreDefenseBp=0,string targetRule="target.selected-enemy",EnemyStatusDef[] statusEffects=null,decimal perTargetPartScale=1m,bool bodyPartProtection=false,string[] attributes=null,int bodyDamageBonusPercent=0,bool traitResourceSpent=false)
         {
             if(perTargetPartScale<=0 || perTargetPartScale>100) throw new ArgumentOutOfRangeException(nameof(perTargetPartScale));
             CombatAttributeRules.Validate(attributes);this.attributes=(attributes??Array.Empty<string>()).ToArray();
@@ -47,6 +48,7 @@ namespace NewAster.Core
             Id = id ?? throw new ArgumentNullException(nameof(id));
             Power = power;
             ResourceCost = resourceCost;
+            TraitResourceSpent=resourceCost>0 || traitResourceSpent;
             SelfHealingBaseAttackPercent=selfHealingBaseAttackPercent;
             SelfDamageMaxHpPercent=selfDamageMaxHpPercent;
             AttackSnapshot=attackSnapshot;
@@ -92,10 +94,11 @@ namespace NewAster.Core
             int defense=skill.DamageType=="magic"?(part?.MagicDefense??battle.BossMagicDefense):(part?.PhysicalDefense??battle.BossPhysicalDefense);
             decimal effectiveDefense=(decimal)defense*(10000-skill.IgnoreDefenseBp)/10000m;
             if(!battle.ReferenceStatusRules && battle.EnemyStatus(targetId).Active("fracture")) effectiveDefense*=.7m;
-            decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,battle.AttributeResistances)*((skill.AttackSnapshot??hero.Attack)+(hero.OopartTargetAttack?.Invoke(skill,targetId)??0))*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
+            var resistances=(battle.AttributeResistances??Array.Empty<AttributeResistanceDef>()).Select(r=>new AttributeResistanceDef{attribute=r.attribute,resistanceBp=r.resistanceBp>0?r.resistanceBp*(10000-hero.TraitEffect("resistance-penetration-bp"))/10000:r.resistanceBp}).ToArray();
+            decimal raw=CombatAttributeRules.Multiplier(skill.Attributes,resistances)*((skill.AttackSnapshot??hero.Attack)+(hero.OopartTargetAttack?.Invoke(skill,targetId)??0))*skill.Power*(critical?skill.CriticalMultiplierPercent/100m:1m)*1000m/(1000m+effectiveDefense);
             if(skill.Attributes.Contains("火"))raw*=1m+(hero.FireAmplificationPercent+battle.EnemyStatus(targetId).FireVulnerabilityPercent)/100m;
             if(battle.ReferenceStatusRules){var status=battle.EnemyStatus(targetId);if(status.Active("sickness"))raw*=1.25m;if(status.Active("electrified") && skill.Attributes.Contains("雷"))raw*=1.25m;}
-            raw*=1m+((hero.OopartDamage?.Invoke(skill,targetId)??0)+hero.PermanentDamagePercent+HeroinePersonalAbility.Damage(hero,skill,targetId))/100m;
+            raw*=1m+((hero.OopartDamage?.Invoke(skill,targetId)??0)+hero.PermanentDamagePercent+HeroinePersonalAbility.Damage(hero,skill,targetId)+hero.TraitDamage(battle,skill,targetId))/100m;
             if(targetId=="body")raw*=1m+skill.BodyDamageBonusPercent/100m;
             if(part!=null) raw*=skill.PerTargetPartScale;
             else if(skill.BodyPartProtection) {
