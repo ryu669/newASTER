@@ -23,6 +23,14 @@ namespace NewAster.Presentation
             else DrawBookEmblem(rect,kind=="sword"?9:kind=="leaf"?10:kind=="moon"?11:kind=="crown"?12:kind=="flame"?13:kind=="resource"?14:15);
             GUI.color=prior;
         }
+        private void DrawHeroineSkillIcon(Rect rect,SkillCombatDef skill,int slot)
+        {
+            string effect=skill.effectRuleId=="effect.heal"?"heal":skill.effectRuleId=="effect.allies-buff" || skill.effectRuleId=="effect.self-buff"?"trait":skill.selfHealingBaseAttackPercent>0?"heal":slot==2?"critical-damage":skill.damageType=="magic"?"magic":"attack";
+            DrawWeaponEffect(rect,effect);
+            var badge=new Rect(rect.xMax-25,rect.yMax-25,25,25);
+            GrowthFill(badge.x,badge.y,badge.width,badge.height,ink);
+            Label(badge.x,badge.y,badge.width,badge.height,(slot+1).ToString(),new GUIStyle(growthSmallStyle){fontSize=17,alignment=TextAnchor.MiddleCenter},ivory);
+        }
         private NewAster.Data.HeroineWeaponTreeCatalog weaponTreeCatalog;
         private Texture2D weaponEffectAtlas;
         private NewAster.Data.HeroineWeaponTreeDef WeaponTreeLayout(string hero)

@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-10",
+  "scope": "Commercial quality fixes phase 1; excludes Plan12 mass production and physical operation",
+  "coreAssertions": 12270,
+  "compiledSources": 262,
+  "logs": [
+    {
+      "path": "tmp/plan11-9/commercial-fixes-core.log",
+      "sha256": "ed85472bf505908b368f49c265cd46e347a53f2ab134a565c0f925a8f15b246d"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-compile-final.log",
+      "sha256": "141c22c784a5b7fbb4f7f0e5a75fffd40c926b5f2b9569b8fd0a54fb72812094"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-build-final.log",
+      "sha256": "439a2b5b2f86fb9ba5f0c64ea924a1f0bac2cb0fc3631a7697b8a9e77d41bee8"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-candidate-build-final.log",
+      "sha256": "5223e128008b64c5eba0e2e1f5984389b7623c355d6b016a05d00e273727ef7b"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-package-final.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-candidate-package-final.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-ui.log",
+      "sha256": "636d63849f9e0c206a29768757100f42095d843b564244649b509785b678cf9e"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-ui-720.log",
+      "sha256": "e1d6d950cff5bd79bf3bf015e096764f0584b339b4c5fa3a3ccfd0a721b5e488"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-fixes-credits-final.log",
+      "sha256": "b59c55ef1b8803d21770c11707abf93b38e5f64fa7156e3be11acff31d97687d"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-candidate-ui-final.log",
+      "sha256": "c309cbd5047d99834628a86d216021bcd4a56f400d2e8b9de7b3307406578ee2"
+    },
+    {
+      "path": "tmp/plan11-9/commercial-package-negative-tests.log",
+      "sha256": "8f420f93929e57def7ec749c400406dea32159ab5213a630d100e957bf19a1e7"
+    }
+  ],
+  "releaseGenerationEvidence": {
+    "path": "tmp/plan10-ui/player-1920x1080/ui-release-generation.log",
+    "sha256": "f15add67514c6b8f67171de1895f443348d649033e239e6e82ea0a6e8fd6fc92"
+  },
+  "packages": [
+    {
+      "directory": "game/Builds/plan11-9",
+      "version": "0.9.5-rc.2",
+      "manifestSha256": "ede9cad937dd14c8aa943c60f6c2718a6dd72687326e4c0ebe1830fe2cca7d28",
+      "filesVerified": 161,
+      "assemblySha256": "aa6db9206607e323fc806c79ca568c8d03a9d3190e1beec140af77f82c93be51"
+    },
+    {
+      "directory": "game/Builds/commercial-candidate",
+      "version": "1.0.0-rc.1",
+      "manifestSha256": "edc1c6a501a1b0136998dabb99b12a8fe8c15198ddc81f2607655c590451b3fc",
+      "filesVerified": 161,
+      "assemblySha256": "aa6db9206607e323fc806c79ca568c8d03a9d3190e1beec140af77f82c93be51"
+    }
+  ],
+  "initialAttempt": {
+    "result": "UI player timeout save-restore while separate Unity build was active",
+    "rerun": "Final candidate, isolated run PASS",
+    "cause": "Unconfirmed; do not attribute to Unity contention as proven cause"
+  },
+  "remaining": [
+    "Plan11-10 final balance",
+    "Existing 15 forms art/expression/CG final review",
+    "Audio quality final review",
+    "Minimum hardware requirements"
+  ],
+  "distributionPublished": false
+}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using NewAster.Core;
@@ -194,7 +194,7 @@ namespace NewAster.Presentation
             else for(int slot=0;slot<3;slot++){
                 var skill=DisplayHeroineSkill(id,slot);int level=growth.SkillLevel(slot);float y=253+slot*150;
                 GrowthFill(762,y,765,140,new Color(.985f,.955f,.86f));GrowthLine(771,y+138,1511,y+138,new Color(.67f,.55f,.33f));
-                DrawSanctuaryIcon(new Rect(782,y+27,69,69),skill.effectRuleId=="effect.self-buff"?"star":skill.damageType=="magic"?"moon":"sword",slot==1?new Color(.35f,.32f,.60f):new Color(.65f,.26f,.30f));
+                DrawHeroineSkillIcon(new Rect(782,y+27,69,69),skill,slot);
                 Label(869,y+9,490,36,skill.name,new GUIStyle(sanctuaryHeading){fontSize=24,wordWrap=false});
                 string description=HeroineSkillRules.Description(skill,level,job).Split('\n')[0];
                 if(description.Length>55)description=description.Substring(0,55)+"…";
@@ -241,7 +241,7 @@ namespace NewAster.Presentation
             SanctuaryHeader("スキルの研鑽",combatDefinitions.Hero(id).name+"  ／  "+skill.name);
             GrowthFrame(145,146,1310,650);
             if(GrowthButton(180,172,195,48,"‹ 能力へ戻る",!formalProgression.HasPending)){growthScreen=GrowthScreen.Overview;return;}
-            DrawSanctuaryIcon(new Rect(430,177,65,65),skill.damageType=="magic"?"moon":"sword",gold);Label(518,184,800, fifty,skill.name,growthTitleStyle);
+            DrawHeroineSkillIcon(new Rect(430,177,65,65),skill,selectedSkillSlot);Label(518,184,800, fifty,skill.name,growthTitleStyle);
             GrowthFill(184,267,584,294,parchment);GrowthFill(788,267,626,294,parchment);
             Label(208,285,528,46,"現在  Lv."+level,sanctuaryHeading);Label(208,350,528,194,HeroineSkillRules.Description(skill,level,job),sanctuaryBody);
             Label(814,285,570,46,level==7?"最大Lvに到達しました":"次の強化  Lv."+(level+1),sanctuaryHeading);

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
+using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
@@ -24,4 +25,14 @@ public sealed class Plan119BuildValidation:IPreprocessBuildWithReport
         Debug.Log("PLAN11_9_PRODUCTION_BUILD_PASS forms="+combat.heroines.Length+" people="+combat.heroines.Select(h=>combat.PersonId(h.id)).Distinct().Count()+" jobs="+combat.heroines.Select(h=>h.jobId).Distinct().Count());
     }
     public static void Build(){Validate();Plan15BookWatchBuild.Build();}
+    public static void BuildReleaseCandidate()
+    {
+        var args=Environment.GetCommandLineArgs();
+        int at=Array.IndexOf(args,"-buildOutput");
+        if(at<0 || at+1>=args.Length)throw new ArgumentException("Release candidate requires a separate explicit output.");
+        if(string.Equals(Path.GetFullPath(args[at+1]),Path.GetFullPath("../Builds/plan11-9/newASTER.exe"),StringComparison.OrdinalIgnoreCase))throw new ArgumentException("Preserve the development build; choose a separate candidate directory.");
+        string previous=PlayerSettings.bundleVersion;
+        try{PlayerSettings.bundleVersion="1.0.0-rc.1";Build();}
+        finally{PlayerSettings.bundleVersion=previous;AssetDatabase.SaveAssets();}
+    }
 }

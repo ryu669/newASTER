@@ -134,6 +134,19 @@ namespace NewAster.Presentation {
    else if(view=="formation-general" || view=="formation-general-confirm"){
     var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds[0]="heroine.slayer-swim";BindFormalCampaign(save);formationOpen=true;formationSlot=0;formationLayer=1;if(view.EndsWith("confirm",StringComparison.Ordinal))ProposeHome(new HomeOperation("commander","heroine.slayer-swim"));else{ProposeHome(new HomeOperation("commander","heroine.slayer-swim"));ConfirmHome();AcceptanceCheck(HomeState.commanderHeroineId=="heroine.slayer-swim","Commander commits through production UI");}
    }
+   else if(view=="release-generation"){
+    AcceptanceCheck(Application.version.StartsWith("1.",StringComparison.Ordinal),"Release candidate uses generation-one version");
+    string root=System.IO.Path.Combine(System.IO.Path.GetDirectoryName(capturePath),"release-generation-"+Guid.NewGuid().ToString("N"));
+    var original=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
+    InitializeSaveSlots(root,0);saveSlots.Save(1,original,DateTime.UtcNow);
+    InitializeSaveSlots(root,1);AcceptanceCheck(saveSlots.Inspect(1).Status==SaveSlotStatus.Empty,"Release does not load development slot");
+    var release=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(original));release.revision++;
+    saveSlots.Save(1,release,DateTime.UtcNow);saveSlots.Save(2,original,DateTime.UtcNow);
+    AcceptanceCheck(saveSlots.Load(1).revision==release.revision && saveSlots.Load(2).revision==original.revision,"Release slots save and load independently");
+    InitializeSaveSlots(root,0);AcceptanceCheck(saveSlots.Load(1).revision==original.revision,"Release save preserves development data");
+    InitializeSaveSlots(root,1);ResetForSlotLoad(saveSlots.Load(1));OpenSaveManagement();
+    Debug.Log("COMMERCIAL_RELEASE_GENERATION_PASS version="+Application.version+" physicalInput=0");
+   }
    else if(view=="navigation-routes"){ValidateNavigationRoutes();}
    else if(view=="recruitment-second"){
     var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.growth.heroines=save.growth.heroines.Where(h=>combatDefinitions.FormationIds.Contains(h.heroineId)).ToArray();save.home=FormalHomeProgress.Empty(HomeData().contentVersion);save.affection=null;HomeConditions.Refresh(save,HomeData());BindFormalCampaign(save);heroineRosterOpen=true;expansionRecruitmentOpen=true;expansionRecruitmentPage=1;
