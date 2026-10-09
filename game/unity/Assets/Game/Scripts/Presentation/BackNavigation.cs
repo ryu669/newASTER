@@ -15,7 +15,8 @@ namespace NewAster.Presentation
             if(formationOpen)formationLayer=0;
             heroineRosterOpen=book.Bookmark==BookBookmark.Heroines;
             growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
-            returnToFormationFromWeapon=false;
+            if(book.Bookmark==BookBookmark.Heroines && weaponMaterialReturnHero==book.SubjectId){heroineRosterOpen=false;growthScreen=GrowthScreen.Weapons;weaponMaterialReturnHero=null;}
+            else returnToFormationFromWeapon=false;
         }
         private void HandleEscapeNavigation()
         {

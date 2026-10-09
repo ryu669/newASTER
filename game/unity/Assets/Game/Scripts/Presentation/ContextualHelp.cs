@@ -1,12 +1,19 @@
-using NewAster.Core;
+﻿using NewAster.Core;
 namespace NewAster.Presentation
 {
  public sealed partial class PrototypeBootstrap
  {
   private string BookHelpTitle()=>encounter!=null?"戦闘":oopartRequest!=null?"オーパーツの確定":oopartPanel?"オーパーツ強化":bookSystemOpen?"システム":affectionShop?"特別交換":affectionPanel?"好感度":book.Bookmark==BookBookmark.Formation?(formationLayer==2?"誓女の入れ替え":formationLayer==3?"オーパーツの入れ替え":formationLayer==1?"戦闘設定":"編成"):RibbonNames[System.Array.IndexOf(RibbonOrder,book.Bookmark)];
+  private string BattleHelpText()
+  {
+   int actor=encounter.AvailableHero>=0?encounter.AvailableHero:selectedHero;
+   string value=encounter.HeroineName(actor)+"\n"+encounter.JobDescription(actor)+"\n\nWTは待機時間、詠唱は発動までの時間です。上部の行動順は現在からの残りWTを表示します。防御部位の破壊で本体へのダメージが増えます。\n";
+   for(int slot=0;slot<3;slot++)value+="\n"+encounter.SkillName(actor,slot)+"\n"+(encounter.IsAllyBuff(actor,slot)?encounter.HealingDescription(actor,slot):encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):encounter.HealingSkill(actor,slot)!=null?encounter.HealingDescription(actor,slot):encounter.AttackTargetDescription(actor,slot))+"\n"+encounter.TimingDescription(actor,slot)+"\n";
+   return value;
+  }
   private string BookHelpText()
   {
-   if(encounter!=null)return "行動できる誓女を選び、スキルと対象を決定します。行動順は速度と待機時間で変わります。待機と詠唱は別の時間です。連携可能な行動をつなぐとチェインになります。\n\n対象・部位で攻撃先を選び、人物・状態で能力と効果を、行動順で予定を確認できます。一時停止から手動で再開できます。撤退では好感度EXPを得ません。";
+   if(encounter!=null)return BattleHelpText()+"\n\n"+"行動できる誓女を選び、スキルと対象を決定します。行動順は速度と待機時間で変わります。待機と詠唱は別の時間です。連携可能な行動をつなぐとチェインになります。\n\n対象・部位で攻撃先を選び、人物・状態で能力と効果を、行動順で予定を確認できます。一時停止から手動で再開できます。撤退では好感度EXPを得ません。";
    if(oopartPanel || oopartRequest!=null)return "固定能力と強化で得た能力は加算されます。特殊効果は最大2つで、条件を満たすと有効になります。ジョブ条件が合わない場合も固定能力は有効です。\n\n強化内容と消費を確認して確定してください。保存に失敗した場合は同じ内容で再試行できます。装備の変更に費用はかかりません。";
    if(bookSystemOpen)return "保存で現在の進行を記録します。設定から音量などを変更できます。表紙へ戻っても進行は保持されます。";
    if(affectionShop)return "永遠の誓環は召喚石10,000個で購入できます。好感度Lv20の人物に1個使うと上限が99になります。同じ人物への再使用、返品、付け替えはできません。";
@@ -23,7 +30,7 @@ namespace NewAster.Presentation
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Level)return "必要素材と到達Lvを確認して強化を確定します。素材は保存が成功すると消費されます。";
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Awakening)return "覚醒によりLv上限が上がります。必要素材と上限の変化を確認して確定してください。";
      if(!heroineRosterOpen && growthScreen==GrowthScreen.Duplicate)return "誓いを重ねると表示された能力が強化されます。必要な資源と変化を確認して確定してください。";
-     if(!heroineRosterOpen && growthScreen==GrowthScreen.Weapons)return "根は初期状態で解放・装備済みで、Lvや固有能力はありません。枝のノードには通常能力に加えて固有能力が一つあり、その能力のアイコンを表示します。取得した神器を選んで装備すると能力が適用されます。根を装備で初期状態に戻せます。";
+     if(!heroineRosterOpen && growthScreen==GrowthScreen.Weapons)return "根は初期状態で解放・装備済みです。枝は攻撃・守護・技巧の3系統、各4段階です。攻撃は攻撃力と与ダメージ、守護は両防御と被ダメージ軽減（ヒーラーは継続回復）、技巧は速度・会心・資源獲得を伸ばします。同じ枝の次段階Lv1は前段階Lv7以上の性能になります。\n\n解放しただけでは効果は発動せず、装備したノードの通常能力と固有能力だけが有効です。金の枠は選択、青い枠は装備中です。選択経路に沿って親を解放します。装備比較と全Lvを切り替えられます。素材欄は所持数／必要数、括弧内は不足数です。入手先から巨神獣を確認し、戻ると選択中の木へ戻ります。根を装備すると初期性能へ戻ります。";
      return "画像を選ぶと人物の詳細を開きます。Lv、覚醒、誓い、スキル、神器を各ページで育成できます。必要素材と変化を確認して確定してください。\n\n部隊の入れ替えは編成のしおりから行います。神器の枝に沿ってノードを取得すると効果が追加されます。";
     case BookBookmark.Items:return "オーパーツと素材の所持数を確認できます。オーパーツは編成枠に装備します。巨神獣撃破時に低確率で入手でき、レリックハントでは対象を狙えます。";
     case BookBookmark.Gardens:return "住民や家具を配置して箱庭の暮らしを見守れます。話す、一緒に過ごす、催事や発見への参加で好感度EXPを得ます。観察だけではEXPは増えません。\n\n模様替えでは配置を編集し、確定で保存します。";

@@ -23,6 +23,14 @@ internal static class HeroineAbilityTests
             var traits=HeroineIdentityCatalog.Traits(combat.Hero(id),save.growth.heroines.Single(g=>g.heroineId==id));
             check(traits.Length<=8 && traits.All(t=>!t.id.EndsWith(".trait.job")) && traits.Single(t=>t.id.EndsWith(".trait.personal")).description==HeroinePersonalAbility.For(id).Description,"Personal trait matches its combat definition: "+id);
             foreach(var n in home.weaponNodes.Where(n=>n.heroineId==id && !n.initial))check(new[]{"damage","regen","reduction","gauge"}.Contains(n.uniqueAbilityKind) && n.uniqueAbilityPercent>0 && !string.IsNullOrEmpty(WeaponGrowthRules.Icon(n)),"One ability and one icon per nonroot node");
+            foreach(int route in new[]{0,1,2}){
+                var branch=home.weaponNodes.Where(n=>n.heroineId==id && WeaponGrowthRules.Route(n)==route).OrderBy(WeaponGrowthRules.Tier).ToArray();
+                check(branch.Length==4 && branch.Select(n=>n.uniqueAbilityKind).Distinct().Count()==1,"Branch identity remains stable across its four stages: "+id+" / "+route);
+                for(int tier=1;tier<branch.Length;tier++){
+                    var previous=branch[tier-1];var next=branch[tier];
+                    check(next.uniqueAbilityPercent>previous.uniqueAbilityPercent && WeaponGrowthRules.Attack(next,1)>WeaponGrowthRules.Attack(previous,7) && WeaponGrowthRules.Power(next,1)>WeaponGrowthRules.Power(previous,7) && WeaponGrowthRules.Physical(next,1)>=WeaponGrowthRules.Physical(previous,7) && WeaponGrowthRules.Magic(next,1)>=WeaponGrowthRules.Magic(previous,7) && WeaponGrowthRules.Speed(next,1)>=WeaponGrowthRules.Speed(previous,7) && WeaponGrowthRules.Critical(next,1)>=WeaponGrowthRules.Critical(previous,7) && WeaponGrowthRules.CriticalDamage(next,1)>=WeaponGrowthRules.CriticalDamage(previous,7),"Next stage at Lv1 exceeds prior stage at Lv7 without losing its ability: "+next.id);
+                }
+            }
         }
         var eight=Enumerable.Range(0,8).Select(i=>new HeroineTraitCard{id="trait."+i,name="固有"+i,icon="star",description="固有効果"+i}).ToArray();HeroineIdentityCatalog.ValidateTraits(eight);bool over=false;try{HeroineIdentityCatalog.ValidateTraits(eight.Concat(new[]{new HeroineTraitCard{id="trait.9",name="9",description="9"}}).ToArray());}catch(ArgumentException){over=true;}check(over,"Ninth trait is rejected rather than silently clipped");
         var old=clone(save);string advanced="heroine.slayer.weapon.alpha";old.home.weaponNodeIds=old.home.weaponNodeIds.Concat(new[]{advanced}).ToArray();old.home.weaponEquipment[0].nodeId=advanced;old.home.weaponLevels=new[]{new HomeWeaponLevel{nodeId="heroine.slayer.weapon.root",level=7},new HomeWeaponLevel{nodeId=advanced,level=4}};old.home.readEventIds=new[]{"preserved.event"};
@@ -34,9 +42,9 @@ internal static class HeroineAbilityTests
             return new PlayableBattle(1,new PlayableProgress(),11,combatDefinitions:combat.WithFormation(ids),formalGrowth:s.growth,homeProgress:s.home,homeCatalog:home,useJobRulesV2:true);
         };
         foreach(string kind in new[]{"damage","regen","reduction","gauge"}){
-            var n=home.weaponNodes.First(x=>x.heroineId=="heroine.slayer" && x.uniqueAbilityKind==kind);var b=battle(n.heroineId,n.id);var h=b.State.Heroes[0];
+            var n=home.weaponNodes.Where(x=>x.uniqueAbilityKind==kind).OrderByDescending(x=>x.uniqueAbilityPercent).First();var b=battle(n.heroineId,n.id);var h=b.State.Heroes[0];
             if(kind=="damage"){var skill=new BattleSkill("ability-check",1m,0);int with=BattleActionResolver.CalculateDamage(b.State,h,skill,"body");h.PermanentDamagePercent=0;check(with>BattleActionResolver.CalculateDamage(b.State,h,skill,"body"),"Equipped damage ability increases real skill damage");}
-            if(kind=="regen"){h.TakeDamage(100);int before=h.HitPoints;h.TickBattleTurn();check(h.HitPoints-before==Math.Min(100,h.MaxHitPoints*n.uniqueAbilityPercent/100),"Equipped regeneration heals by maximum HP on a battle turn");}
+            if(kind=="regen"){var baseHero=battle(n.heroineId,n.heroineId+".weapon.root").State.Heroes[0];check(h.PermanentRegenPercent==baseHero.PermanentRegenPercent+n.uniqueAbilityPercent,"Weapon regeneration adds to existing personal and job regeneration");h.TakeDamage(100);int before=h.HitPoints;h.TickBattleTurn();check(h.HitPoints-before==Math.Min(100,h.MaxHitPoints*h.PermanentRegenPercent/100),"Equipped regeneration heals by maximum HP on a battle turn");}
             if(kind=="reduction"){int with=b.PreviewEnemyDamage(0);h.PermanentReductionPercent=0;check(with<b.PreviewEnemyDamage(0),"Equipped protection reduces actual enemy attack damage");}
             if(kind=="gauge"){h.SpendResource(h.JobResource);for(int i=0;i<5;i++)h.GainResource(1);check(h.JobResource==Math.Min(h.JobResourceMax,5+5*n.uniqueAbilityPercent/100),"Small resource gains accumulate fractional ability bonus");}
         }

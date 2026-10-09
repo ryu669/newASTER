@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-10",
+  "scope": "15 forms / weapon tree and battle UI",
+  "automaticAssertions": 12513,
+  "compiledSourceFiles": 262,
+  "navigationChecks": 228,
+  "playerCapturePasses": {
+    "tree-battle-ui.log": 8,
+    "tree-battle-ui-720.log": 7,
+    "tree-battle-candidate-ui.log": 3,
+    "tree-battle-tree-final-720.log": 1,
+    "tree-battle-tree-final-1080.log": 2
+  },
+  "manualOperation": "excluded by user",
+  "builds": {
+    "development": "0.9.5-rc.2",
+    "releaseCandidate": "1.0.0-rc.1",
+    "packageFilesEach": 161
+  },
+  "notes": [
+    "Battle captures passed before final tree-only text/scroll refinement; final tree captures and navigation rerun after refinement.",
+    "Legacy Plan7 script requires absent prototype forest-mid sample; production Plan10 diagnostics replace this test entry.",
+    "Healing selection uses isolated test-only skill; missing test portrait handled without using another person image.",
+    "Full combat balance remains Plan11-10."
+  ],
+  "logs": [
+    {
+      "path": "tmp/plan11-9/tree-battle-core.log",
+      "sha256": "2073c67744f789733990cbd22e528560a8e66c8c2f61d6b6f3ac989b4f87f742"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-compile.log",
+      "sha256": "91b0ecae78e4c4ed9cecd2fa04e6a1df5f658d15b0096526a111e5eacf583a68"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-ui.log",
+      "sha256": "485a9dd8e126c9ad7163aedcfbae590c92a26dcab55c104dfa5118b14ff5c1a5"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-ui-720.log",
+      "sha256": "960b4c2bd0271623c5005e6268e7dc3fbfb728dfd36932cf0ca1a46d1e92f150"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-candidate-ui.log",
+      "sha256": "618d19e99b659f31cc9dee6e7588cbf90172aa876c4b48e281eaa82890ffbddd"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-tree-final-720.log",
+      "sha256": "51f7f9d81b66cdaa3c767c7ecf57a6278c83f9b28c51f48a8364b281d2aee2dc"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-tree-final-1080.log",
+      "sha256": "d93ea761deaa38a856bbcc5a64fd277e5f9caf95722f6cb2463a89fd6dd4e435"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-build-candidate.log",
+      "sha256": "f7d4b36bdc1a9cc382fdab33216133ef9d96c127b8c8ba35def4c607464d6702"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-build-final.log",
+      "sha256": "2628036e8570a8a247c3589ff3d161606199fb918ea717a850367f3fb760a3cb"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-package-dev.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/tree-battle-package-candidate.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    }
+  ],
+  "sources": [
+    {
+      "path": "docs/production/battle-screen-quality-2026-10-10.txt",
+      "sha256": "3afa6f5919dca36a4ed6fa86473def55f018f913407f5792328ff99ecd4e5752"
+    },
+    {
+      "path": "docs/production/heroine-addition-guide.md",
+      "sha256": "02b5b0d016359c10d2097ab14b010f17a4765754a16e279f5aeccb19420d0947"
+    },
+    {
+      "path": "docs/production/weapon-tree-quality-2026-10-10.txt",
+      "sha256": "dfcc38d5d82e37870adc97389d82617df1d5025c736e9a66621cd4e92839a1f1"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/PlayableBattle.cs",
+      "sha256": "eaf4deb1a47335a6a9c2fdf2a407431f60a3e8b5d54cad478a60cbc77598123a"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/WeaponGrowthRules.cs",
+      "sha256": "85c767b8e7bc8b53ea7a5bad5b9f2066000d280bda4512f510efe9d7f110a6b5"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/ProductionEconomyCatalog.cs",
+      "sha256": "1046ae48ef9b548b9cc1a811bf93644ddb7def6ede74514f2e688c92be40223e"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/BackNavigation.cs",
+      "sha256": "c99d1ab1f6fc60dabf1602bb36b5f451ccb9de068c670670281aeda1fe3e168f"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/BattleMenuExperience.cs",
+      "sha256": "0c61120f2fdac56ed5af807fedb552bdd900116d87578ade1608a4b30babb7fb"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/ContextualHelp.cs",
+      "sha256": "4e2d558fed1f984049ff0413919a398b5d067e8a72106fa882d4d20463709408"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/HeroineSanctuaryArt.cs",
+      "sha256": "f2bbfc540375f55cf0797457f70f70853a0e7eb254b6310e3deea1f88b29e4ad"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10UiAuditAcceptance.cs",
+      "sha256": "3d98c1b0cfe6527110729d0c2687e683ad311a36f69d12878293869a5397f34e"
+    },
+    {
+      "path": "tools/HeroineAbilityTests.cs",
+      "sha256": "c7d78f5deed49e1821f425f2b65b2f876d7aebc79ff076266385d90a809bb7eb"
+    },
+    {
+      "path": "tools/validate-plan10-ui-player.ps1",
+      "sha256": "0ee09cc0570b8944346a9d170aaeb7c26b5eb9536b1958e70a79a1e0f8cf6ee0"
+    }
+  ],
+  "inspectedImages": [
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-tree-grown.png",
+      "sha256": "0261476f8596beb860c309c3ce315f25c6925937ce1ce4c8a6365e360ebd9d9c"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-tree-beta.png",
+      "sha256": "b87b6815dad67f4bcdadbf613ff772798305b543e7f8b51e9a2b0c553abcb28f"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-tree-gamma.png",
+      "sha256": "8f1ab7859850be20c12f4592aee5162ea8e57b78c42063e25883bc2e6eb68aa5"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-job-fighter.png",
+      "sha256": "9d7985037bf250a515f2a75b21cce89fbd94dcff0dcd46d20ccf9e37f31b8da8"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-targets.png",
+      "sha256": "e9bb5109a674c70cf2b017484c90b370a5139e67d748fabb95cf261cacd20e83"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-menu-actions.png",
+      "sha256": "0bf66e52eecf19b55a101c4b34f36a88626a9c82ba3cc818ec13fa17fee74920"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-menu-status.png",
+      "sha256": "945d60978313da4cd21c1a3fd68d1ce8b3c4aed061374d518327fe3f609dc7bc"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-menu-help.png",
+      "sha256": "24e26584087db90784e0d6b126d9b73c7ddf7379cebbe061c65f1e698b9e80cc"
+    }
+  ]
+}

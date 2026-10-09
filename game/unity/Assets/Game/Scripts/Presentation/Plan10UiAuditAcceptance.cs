@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -52,6 +52,11 @@ namespace NewAster.Presentation {
    heroineRosterOpen=false;book.FlipPage();growthScreen=GrowthScreen.Information;OpenAffection(subject);
    HandleEscapeNavigation();check(!affectionPanel && !heroineRosterOpen,"Back closes affection to heroine information");
    HandleEscapeNavigation();HandleEscapeNavigation();check(heroineRosterOpen && BookInputAllowed,"Affection information back chain reaches usable roster");
+   heroineRosterOpen=false;growthScreen=GrowthScreen.Weapons;selectedNode=subject+".weapon.alpha";
+   OpenWeaponMaterialSource(subject,NewAster.Data.WorldCatalog.ColossusIds[0]);book.CompleteTransition();
+   check(book.Bookmark==BookBookmark.Colossi,"Weapon material source opens corresponding beast");
+   HandleEscapeNavigation();book.CompleteTransition();check(book.Bookmark==BookBookmark.Heroines && growthScreen==GrowthScreen.Weapons && !heroineRosterOpen && selectedNode==subject+".weapon.alpha","Material source back retains weapon tree and selected node");
+   heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;
    help=true;bookSystemOpen=true;HandleEscapeNavigation();check(!help && bookSystemOpen && heroineRosterOpen,"Help closes before system");
    HandleEscapeNavigation();check(!bookSystemOpen && heroineRosterOpen,"System closes before roster");
    affectionPanel=true;affectionConfirm=true;HandleEscapeNavigation();check(!affectionConfirm && affectionPanel,"Ring confirmation returns to affection");
@@ -125,7 +130,7 @@ namespace NewAster.Presentation {
    }
    else if(view.StartsWith("battle-",StringComparison.Ordinal)){
     StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyShangrila();encounter.DrainPresentationEvents();selectedHero=0;ResetBattleMenu();
-    if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
+    if(view.StartsWith("battle-menu-",StringComparison.Ordinal))PrepareBattleMenuCapture(view.Substring(12));else if(view=="battle-targets")battlePanel=BattlePanel.Targets;else if(view=="battle-timeline")battlePanel=BattlePanel.Timeline;else if(view=="battle-pause")paused=true;else if(view=="battle-retreat"){paused=true;retreat=true;}else if(view=="battle-result")PrepareVictoryCapture(args);else throw new ArgumentException("Unknown battle UI case");
    }
    else if(view.StartsWith("ability-",StringComparison.Ordinal))PrepareAbilityCapture(view);
    else if(view.StartsWith("formation-ui",StringComparison.Ordinal))PrepareFormationUiCapture(view);

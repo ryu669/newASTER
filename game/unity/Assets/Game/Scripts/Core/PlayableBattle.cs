@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 namespace NewAster.Core
@@ -460,6 +460,6 @@ namespace NewAster.Core
             bossAt+=d.enemyWaitAdd+State.EnemyWaitPenalty;State.EnemyWaitPenalty=0;
             if(before!=State.Heroes[actor].JobResource || d.enemyWaitAdd>0) RecordPresentation(BattlePresentationKind.Support,actor,"body",ResourceName(actor)+" ＋"+(State.Heroes[actor].JobResource-before)+(d.enemyWaitAdd>0?" / 巨神獣の待機 ＋"+d.enemyWaitAdd:""),targetIds:new[]{State.Heroes[actor].Id},standalone:true);
         }
-        private long CommandRecoveryDelay(int actor,int slot) => Job(actor,"chaser")?Math.Max(0,ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),jobStates[actor].ChaserRecoveryPercent)-OopartBonus(actor,"wt",IsAttackSkill(actor,slot)?"attack":"skill",slot)):Math.Max(1,RecoveryDelay(actor,slot)*(100-(commandDefinitions?[actor,slot].selfWaitReductionPercent??0))/100);
+        public long CommandRecoveryDelay(int actor,int slot) => Job(actor,"chaser")?Math.Max(0,ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),jobStates[actor].ChaserRecoveryPercent)-OopartBonus(actor,"wt",IsAttackSkill(actor,slot)?"attack":"skill",slot)):Math.Max(1,RecoveryDelay(actor,slot)*(100-(commandDefinitions?[actor,slot].selfWaitReductionPercent??0))/100);
     }
 }

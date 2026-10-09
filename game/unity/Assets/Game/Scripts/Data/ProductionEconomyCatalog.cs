@@ -56,17 +56,22 @@ namespace NewAster.Data
                 int sourceIndex=Array.FindIndex(WorldCatalog.Colossi.ToArray(),c=>c.WorldLineId=="W0"+(heroIndex<6?heroIndex+1:heroIndex==6?1:heroIndex==7?2:6));
                 var sources=Enumerable.Range(0,3).Select(i=>WorldCatalog.Colossi[(sourceIndex+i)%WorldCatalog.Colossi.Count]).ToArray();
                 if(tier>=2)n.costs=Enumerable.Range(0,tier==2?2:3).Select(i=>new HomeCost{resourceId=collection.owners.Single(o=>o.id==sources[i%sources.Length].Id).materialIds[tier==2?1:tier==3?2:i<2?3:2],amount=tier==2?4:tier==3?5:6}).ToArray();
-                n.attackBonus=route==0?8+tier*4:route==1?2+tier:4+tier*2;
-                n.skillPower=route==0?1.12f+tier*.06f:route==1?1.02f+tier*.025f:1.06f+tier*.04f;
-                n.physicalDefenseBonus=route==1?12+tier*6:0;n.magicDefenseBonus=route==1 && tier>=2?10+tier*6:0;
-                n.speedBonus=route==2?3+tier*2:route!=2 && tier>=3?2+tier:0;n.criticalBonusBp=tier>=2?(route==0?200+tier*100:route==2?100+tier*50:0):0;
-                n.criticalDamageBonus=tier>=3 && route==2?5+tier*3:0;
+                n.attackBonus=(route==0?12:route==1?3:6)+(tier-1)*14;
+                n.skillPower=(route==0?1.18f:route==1?1.045f:1.10f)+(tier-1)*.20f;
+                n.physicalDefenseBonus=route==1?18+(tier-1)*20:0;n.magicDefenseBonus=route==1 && tier>=2?18+(tier-2)*20:0;
+                n.speedBonus=route==2?5+(tier-1)*8:tier>=3?2+(tier-3)*8:0;
+                n.criticalBonusBp=tier>=2?(route==0?200+(tier-2)*400:route==2?100+(tier-2)*400:0):0;
+                n.criticalDamageBonus=tier>=3 && route==2?14+(tier-3)*14:0;
                 if(tier==4){int hero=WeaponOwner(n.heroineId);string[] motifs={"花翼","理砕","森命","紅蓮","月祈","星音","紅蝶","雪灯","鋼翼","炎翼","夜星","海翼","遺翼","書翼","銃翼"};
                     n.weaponTraitName=motifs[hero]+(route==0?"の鋭刃":route==1?"の結界":"の疾風");
                     n.traitAttackPercent=route==0?10:0;n.traitDefensePercent=route==1?12:0;n.traitSpeedPercent=route==2?8:0;
                 }
             }
-            foreach(var n in expanded.Where(n=>!n.initial)){int tier=n.id.EndsWith("tier4")?4:n.id.EndsWith("tier3")?3:n.id.EndsWith("tier2")?2:1;int route=n.id.Contains(".alpha")?0:n.id.Contains(".beta")?1:2;n.uniqueAbilityKind=new[]{"damage","regen","reduction","gauge"}[(route+tier+WeaponOwner(n.heroineId))%4];n.uniqueAbilityPercent=n.uniqueAbilityKind=="regen"?tier:n.uniqueAbilityKind=="gauge"?tier*10:tier*4;}
+            foreach(var n in expanded.Where(n=>!n.initial)){
+                int tier=WeaponGrowthRules.Tier(n),route=WeaponGrowthRules.Route(n);
+                n.uniqueAbilityKind=route==0?"damage":route==2?"gauge":combat.Hero(n.heroineId).jobId=="job.healer"?"regen":"reduction";
+                n.uniqueAbilityPercent=n.uniqueAbilityKind=="regen"?new[]{1,2,3,5}[tier-1]:route==2?new[]{8,16,28,40}[tier-1]:new[]{3,6,10,16}[tier-1];
+            }
             home.weaponNodes=expanded.ToArray();
         }
         public static void ApplyCollection(CollectionCatalog catalog)

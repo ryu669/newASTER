@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -46,7 +46,8 @@ namespace NewAster.Presentation
             if(Btn(1280,18,120,48,paused?"再開":"一時停止",result==null && !retreat && !help && !selectingAlly))paused=!paused;
             if(Btn(1490,18,64,48,"？",result==null && !retreat && !help && !selectingAlly)){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
 
-            string message=breakNoticeRemaining>0?breakNotice:visual!=null?(visual.Actor<0?"巨神獣":Names[visual.Actor])+" ／ "+visual.Message:paused?"一時停止中。手動で再開できます。":"行動と対象を選べます。";
+            if(!playback.Busy && (battlePanel==BattlePanel.None || battlePanel==BattlePanel.Actions))DrawBattleOrderStrip();
+            string message=breakNoticeRemaining>0?breakNotice:visual!=null?(visual.Actor<0?"巨神獣":Names[visual.Actor])+" ／ "+visual.Message:paused?"一時停止中":"行動と対象を選べます。";
             if(breakNoticeRemaining>0 || visual!=null || paused){
                 GrowthFill(20,708,1560,42,new Color(.025f,.05f,.065f,.82f));
                 var noticeStyle=new GUIStyle(small){padding=new RectOffset(0,0,0,0)};
@@ -73,7 +74,7 @@ namespace NewAster.Presentation
                 SelectNextHero();OpenBattlePanel(BattlePanel.Actions);
             }
             GrowthFill(0,820,1600,80,new Color(.025f,.05f,.065f,.88f));
-            var cardStyle=new GUIStyle(button){fontSize=16,padding=new RectOffset(8,8,3,3)};
+            var cardStyle=new GUIStyle(button){fontSize=16,padding=new RectOffset(52,8,3,3)};
             for(int i=0;i<5;i++){
                 float x=20+i*315;var hero=s.Heroes[i];int hp=visual?.HeroHp[i]??hero.HitPoints;
                 bool casting=visual?.Casting[i]??encounter.IsCasting(i),healed=visual!=null && visual.Kind==BattlePresentationKind.Healing && visual.HealingTargets.Contains(i);
@@ -82,6 +83,7 @@ namespace NewAster.Presentation
                 if(Btn(x,830,303,53,Names[i]+"　"+state+"\n"+(hero.IsPanzer && hero.ArmorActive?"ARMOR ":"HP ")+hp+"/"+hero.MaxHitPoints,!selectingAlly,cardStyle)){
                     selectedHero=i;battlePanel=BattlePanel.Status;battleDetailsScroll=Vector2.zero;
                 }
+                if(combatDefinitions.HeroineIds.Contains(hero.Id))DrawHeroPortrait(new Rect(x+5,835,40,40),hero.Id);
                 Meter(x,886,303,5,hp,hero.MaxHitPoints,hp*3<hero.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
             status=visual?.Message??message;
@@ -103,7 +105,7 @@ namespace NewAster.Presentation
             }else{
                 int actor=selectedHero;var hero=encounter.State.Heroes[actor];var visual=playback.Current;
                 var effects=visual?.HeroEffects[actor]??hero.TimedEffects;
-                details=Names[actor]+" ／ "+Jobs[actor]+"\nHP "+(visual?.HeroHp[actor]??hero.HitPoints)+"/"+hero.MaxHitPoints+"\n"+BattleResourceLine(actor,hero,visual)+"　速度 "+hero.Speed+"\n\n次の行動 T "+encounter.NextAt(actor)+"\n敵からの予測ダメージ "+encounter.PreviewEnemyDamage(actor)+"\n\nチェイン基本50% ／ 最大70%\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>Names[i]))+"\n固定行動："+encounter.ChainActionDescription(actor)+"\n\n"+string.Join("\n",effects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+(encounter.UsesJobRulesV2?"ターン）":"行動）")))+"\n"+encounter.JobDescription(actor)+"\n\n状態異常："+(visual?.HeroStatuses[actor]??hero.Status.Description)+"\n"+string.Join("\n",EnemyStatusState.Kinds.Where(k=>hero.Status.Active(k)).Select(k=>EnemyStatusState.Label(k)+"："+EnemyStatusState.EffectDescription(k)))+"\n\n能力・神器・スキルの効果は出撃時の育成を反映します。";
+                details=Names[actor]+" ／ "+Jobs[actor]+"\nHP "+(visual?.HeroHp[actor]??hero.HitPoints)+"/"+hero.MaxHitPoints+"\n"+BattleResourceLine(actor,hero,visual)+"　速度 "+hero.Speed+"\n\n次の行動 T "+encounter.NextAt(actor)+"\n敵からの予測ダメージ "+encounter.PreviewEnemyDamage(actor)+"\n\nチェイン基本50% ／ 最大70%\n+5%累積対象："+string.Join("・",Enumerable.Range(0,5).Where(encounter.HasCumulativeChainBonus).Select(i=>Names[i]))+"\n固定行動："+encounter.ChainActionDescription(actor)+"\n\n"+string.Join("\n",effects.Select(e=>TimedSelfEffectDef.Label(e.Kind)+(e.Kind=="forced-target"?"":e.Percent+"%")+"（残り"+e.RemainingCommands+(encounter.UsesJobRulesV2?"ターン）":"行動）")))+"\n\n状態異常："+(visual?.HeroStatuses[actor]??hero.Status.Description)+"\n"+string.Join("\n",EnemyStatusState.Kinds.Where(k=>hero.Status.Active(k)).Select(k=>EnemyStatusState.Label(k)+"："+EnemyStatusState.EffectDescription(k)));
             }
             var style=new GUIStyle(text);style.normal.textColor=Color.white;
             float height=Mathf.Max(465,style.CalcHeight(new GUIContent(details),460)+20);
@@ -127,10 +129,11 @@ namespace NewAster.Presentation
             if(encounter.JobState(actor).Id=="job.gambler")DrawGamblerSlotGrid(actor);
             else for(int slot=0;slot<3;slot++){
                 int cost=encounter.SkillResourceCost(actor,slot);var healing=encounter.HealingSkill(actor,slot);
-                string description=encounter.IsSelfBuff(actor,slot)?encounter.SelfBuffDescription(actor,slot):healing!=null?encounter.HealingDescription(actor,slot):encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target);
-                string caption=encounter.SkillName(actor,slot)+"\n"+encounter.SkillAttributes(actor,slot)+"\n"+description+"\n"+(cost>0?encounter.ResourceName(actor)+" "+cost+"消費・強化":"リソース消費なし")+"\n"+encounter.TimingDescription(actor,slot);
-                var style=new GUIStyle(skillButton){fontSize=16};while(style.fontSize>11 && style.CalcHeight(new GUIContent(caption),253)>(encounter.UsesJobRulesV2?100:120))style.fontSize--;
-                if(Btn(34+slot*280,encounter.UsesJobRulesV2?543:524,270,encounter.UsesJobRulesV2?104:122,caption,enabled && encounter.ConditionsSatisfied(actor,slot),style))ChooseBattleSkill(slot);
+                string effect=encounter.IsSelfBuff(actor,slot)?(encounter.IsAllyBuff(actor,slot)?"味方強化":"自己強化"):healing!=null?"回復":encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target);
+                string availability=hero.JobResource<cost?"不足":!encounter.ConditionsSatisfied(actor,slot)?"条件未達":"";
+                string caption=encounter.SkillName(actor,slot)+"\n"+encounter.SkillAttributes(actor,slot)+" ／ "+effect+"\n"+(cost>0?encounter.ResourceName(actor)+" −"+cost:"消費 0")+"　WT "+encounter.CommandRecoveryDelay(actor,slot)+(encounter.CastDelay(actor,slot)>0?"　詠唱 "+encounter.CastDelay(actor,slot):"")+(availability.Length>0?"\n"+availability:"");
+                var style=new GUIStyle(skillButton){fontSize=18};while(style.fontSize>14 && style.CalcHeight(new GUIContent(caption),253)>(encounter.UsesJobRulesV2?100:120))style.fontSize--;
+                if(Btn(34+slot*280,encounter.UsesJobRulesV2?543:524,270,encounter.UsesJobRulesV2?104:122,caption,CanChooseBattleSkill(actor,slot),style))ChooseBattleSkill(slot);
             }
             if(Btn(34,653,540,37,"対象："+BattleTargetName(target)+" ／ 対象を変更",enabled))battlePanel=BattlePanel.Targets;
             if(Btn(590,653,274,37,encounter.RequiresPanzerDefense(actor)?"防御・装甲を待つ":"パス",enabled && (encounter.RequiresPanzerDefense(actor) || encounter.CanPass(actor)))){ResetBattleMenu();if(encounter.RequiresPanzerDefense(actor))encounter.DefendPanzer(actor);else encounter.Pass();QueueBattleEvents();}
@@ -145,11 +148,29 @@ namespace NewAster.Presentation
                 GUI.Box(new Rect(34+(i%3)*280,543+(i/3)*35,270,32),label,style);
             }
         }
+        private bool CanChooseBattleSkill(int actor,int slot)
+        {
+            return BattleInputAllowed && actor>=0 && actor==encounter.AvailableHero && slot>=0 && slot<3 && encounter.State.Heroes[actor].IsAlive && !encounter.Acted[actor] && encounter.State.Heroes[actor].JobResource>=encounter.SkillResourceCost(actor,slot) && encounter.ConditionsSatisfied(actor,slot);
+        }
+        private void DrawBattleOrderStrip()
+        {
+            int index=0;
+            foreach(var entry in encounter.UpcomingOrder().Take(6)){
+                float x=24+index*170;
+                GrowthFill(x,100,162,55,entry.Actor<0?new Color(.32f,.10f,.13f,.92f):new Color(.025f,.05f,.065f,.9f));
+                var style=new GUIStyle(small){fontSize=16,wordWrap=false};
+                string name=entry.Actor<0?"巨神獣":encounter.HeroineName(entry.Actor);
+                while(style.fontSize>11 && style.CalcSize(new GUIContent(name)).x>150)style.fontSize--;
+                Label(x+6,103,150,24,name,style,index==0?gold:Color.white);
+                Label(x+6,129,150,23,(index==0?"▶ ":"")+"WT "+Math.Max(0,entry.At-encounter.Clock)+(entry.IsCast?" ／ 発動":""),small,Color.white);
+                index++;
+            }
+        }
         private bool ChooseBattleSkill(int slot)
         {
             if(!BattleInputAllowed || slot<0 || slot>2)return false;
             int actor=encounter.AvailableHero;if(actor<0)return false;var hero=encounter.State.Heroes[actor];
-            if(!hero.IsAlive || encounter.Acted[actor] || hero.JobResource<encounter.SkillResourceCost(actor,slot) || !encounter.ConditionsSatisfied(actor,slot))return false;
+            if(!CanChooseBattleSkill(actor,slot))return false;
             battlePanel=BattlePanel.None;
             if(encounter.HealingSkill(actor,slot)!=null && !hero.Status.Active("jamming")){healingActor=actor;healingSlot=slot;selectingAlly=true;selectedAllies.Clear();}
             else Act(actor,slot);
@@ -158,15 +179,17 @@ namespace NewAster.Presentation
         private void DrawBattleTargets()
         {
             var parts=encounter.State.Parts;var visual=playback.Current;
-            if(Btn(1060,184,490,49,(target=="body"?"◆ ":"")+"本体",BattleInputAllowed)){target="body";battlePanel=BattlePanel.None;}
+            if(Btn(1060,184,490,49,(target=="body"?"◆ ":"")+"本体　HP "+(visual?.BossHp??encounter.State.BossHitPoints)+"/"+encounter.State.BossMaxHitPoints,BattleInputAllowed)){target="body";battlePanel=BattlePanel.None;}
+            Meter(1064,228,482,4,visual?.BossHp??encounter.State.BossHitPoints,encounter.State.BossMaxHitPoints,new Color(.7f,.2f,.33f));
             float row=Mathf.Min(62,375f/parts.Count);
             for(int i=0;i<parts.Count;i++){
                 var part=parts[i];int hp=visual?.PartHp[i]??part.HitPoints;
-                string caption=(target==part.Id?"◆ ":"")+ColossusCombatCatalog.PartName(part,i)+" ／ "+(hp==0?"破壊済み":"HP "+hp);
+                string caption=(target==part.Id?"◆ ":"")+ColossusCombatCatalog.PartName(part,i)+" ／ "+(hp==0?"破壊済み":"HP "+hp+"/"+part.MaxHitPoints);
                 if(Btn(1060,242+i*row,490,row-5,caption,BattleInputAllowed && hp>0)){target=part.Id;battlePanel=BattlePanel.None;}
+                Meter(1064,242+i*row+row-9,482,4,hp,part.MaxHitPoints,new Color(.65f,.48f,.2f));
             }
             int index=parts.ToList().FindIndex(p=>p.Id==target);
-            string effect=index<0?"防御部位を壊すと本体ダメージが増加":ColossusCombatCatalog.PartEffect(parts[index]);
+            string effect=index<0?"本体":ColossusCombatCatalog.PartEffect(parts[index]);
             string details=effect+"\n"+CombatAttributeRules.Describe(encounter.State.AttributeResistances)+"\n"+(visual?.EnemyStatuses[index+1]??encounter.EnemyStatusDescription(target));
             var style=new GUIStyle(small);while(style.fontSize>13 && style.CalcHeight(new GUIContent(details),490)>72)style.fontSize--;
             Label(1060,624,490,76,details,style,Color.white);
@@ -185,6 +208,16 @@ namespace NewAster.Presentation
             paused=true;FocusCheck(!ChooseBattleSkill(0),"paused command is rejected without consuming resources");paused=false;
             FocusCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot) && state==PlaybackState(encounter),"menu open/close leaves HP, resources and save unchanged");
             while(encounter.AvailableHero!=0 && !encounter.Ended)encounter.Pass();encounter.DrainPresentationEvents();SelectNextHero();
+            int testActor=encounter.AvailableHero;
+            if(testActor>=0){
+                var testHero=encounter.State.Heroes[testActor];
+                for(int slot=0;slot<3;slot++)if(encounter.SkillResourceCost(testActor,slot)>testHero.JobResource){
+                    string zeroState=PlaybackState(encounter);
+                    FocusCheck(!CanChooseBattleSkill(testActor,slot) && !ChooseBattleSkill(slot) && zeroState==PlaybackState(encounter),"unaffordable skill disabled and rejected without mutation");
+                }
+                string readState=PlaybackState(encounter);BattleHelpText();encounter.UpcomingOrder().Take(6).ToArray();
+                FocusCheck(readState==PlaybackState(encounter),"battle help and order previews are read only");
+            }
             ResetBattleMenu();
             if(scenario=="expanded")battleMenuExpanded=true;
             else if(scenario=="actions")OpenBattlePanel(BattlePanel.Actions);
@@ -192,6 +225,7 @@ namespace NewAster.Presentation
             else if(scenario=="status")OpenBattlePanel(BattlePanel.Status);
             else if(scenario=="timeline")OpenBattlePanel(BattlePanel.Timeline);
             else if(scenario=="paused")paused=true;
+            else if(scenario=="help"){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
             else if(scenario=="broken"){encounter.State.BreakPart(encounter.State.Parts[0].Id,int.MaxValue);target="body";OpenBattlePanel(BattlePanel.Targets);}
             else if(scenario=="playing"){
                 OpenBattlePanel(BattlePanel.Actions);FocusCheck(ChooseBattleSkill(0) && playback.Busy && battlePanel==BattlePanel.None,"command uses real combat queue and closes drawer");
