@@ -12,7 +12,7 @@
         {"id":"heroine.slayer.2","name":"空に咲く奇蹟","target":"self","damageType":"none","attackPercent":0,"recovery":"unspecified","casting":"none","tags":[],"effects":[{"kind":"critical","target":"self","basis":"points","amount":20,"turns":3},{"kind":"critical-damage","target":"self","basis":"percent","amount":60,"turns":3},{"kind":"attack","target":"self","basis":"percent","amount":15,"turns":3}]},
         {"id":"heroine.slayer.3","name":"比翼《聖伝》神獣殺し -輪-","target":"enemy.single","damageType":"physical","attackPercent":280,"recovery":"long","casting":"none","tags":["斬撃"],"effects":[{"kind":"critical","target":"self","basis":"points","amount":15,"turns":0},{"kind":"damage-cap","target":"self","basis":"points","amount":100000,"turns":0}]}
       ],
-      "unresolved":["Lv1ジョブ基準と人物補正への変換","固有チェイン行動","資源消費・獲得","待機区分の数値化","通常衣装と撮影時のファッション効果の切り分け"]
+      "unresolved":["装備補正を除いたLv1ジョブ基準と人物補正への変換","固有チェイン行動の説明・威力・効果","通常の球獲得と行動後30%追加獲得の処理順・対象行動","通常3技の固定球コスト・選択取消時の返却","青球・赤球の基礎倍率と赤球の基礎出現率（マスタリーⅢの球ごと与ダメージ+25%・赤球出現率+50%は確認済み）","球保持強化の内訳・ラストリゾートゲージ増加式","待機区分の数値化","撮影条件でのラストリゾート補正量・持続・行動順消費","通常衣装と撮影時のファッション・祝福・神器・装備の寄与分解"]
     },
     {
       "id":"heroine.iconoclast","name":"アイコノクラスト","jobId":"job.berserker","sourceFile":"005戦闘_アイコノクラスト.mkv","sourceSecond":15,

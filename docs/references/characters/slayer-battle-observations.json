@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "status": "reference-only",
+  "heroineId": "heroine.slayer",
+  "reviewedAt": "2026-10-09",
+  "source": {
+    "file": "055戦闘_スレイヤー.mkv",
+    "durationSeconds": 191.103,
+    "byteLength": 398911836,
+    "method": "Timestamped video frames, profile tooltip detail and battle UI sequences; audio not reviewed",
+    "sampleContext": "Lv120, skill Lv7, affection Lv100, blessing Lv7+1, pink fashion, equipped weapon Lv25. Snapshot includes equipment and progression modifiers."
+  },
+  "displayedIdentity": {"name": "スレイヤー", "personalName": "オフィーリア・エバンス", "job": "ファイター", "sourceSecond": 12},
+  "traits": [
+    {
+      "displayIndex": 1, "name": "ブーストファイターⅡ", "sourceSeconds": [8, 9, 10],
+      "restrictions": ["喰らった林檎専用", "ファイター専用"],
+      "effects": [{"kind": "boost-orb-gain", "trigger": "after-action", "chancePercent": 30, "count": 1}],
+      "unresolved": ["通常獲得との処理順", "PASS・チェイン・反応行動が行動後判定に含まれるか", "球満杯時の挙動"]
+    },
+    {
+      "displayIndex": 2, "name": "ファイターマスタリーⅢ", "sourceSeconds": [11, 12, 13],
+      "restrictions": ["喰らった林檎専用", "ファイター専用"],
+      "effects": [{"kind": "damage-per-consumed-boost-orb", "displayedIncreasePercent": 25}, {"kind": "red-boost-orb-appearance", "displayedIncreasePercent": 50}],
+      "unresolved": ["与ダメージ補正の他倍率との合成順", "赤球の基礎出現率", "出現率+50%の加算・乗算の意味", "他Rankの値"]
+    },
+    {
+      "displayIndex": 3, "name": "ダメージ限界突破Ⅴ", "sourceSeconds": [14, 15, 16],
+      "effects": [{"kind": "damage-cap", "increase": 100000}],
+      "unresolved": ["装備・スキル固有上限との合成順", "他Rankの値"]
+    },
+    {
+      "displayIndex": 4, "name": "復讐心", "sourceSeconds": [17, 18, 19],
+      "effects": [{"kind": "attack", "condition": "one-or-more-allies-dead", "displayedIncreasePercent": 40}],
+      "unresolved": ["蘇生直後の再評価時点", "他攻撃補正との合成順"]
+    },
+    {
+      "displayIndex": 5, "name": "神獣殺し", "sourceSeconds": [20, 21, 22],
+      "effects": [{"kind": "damage", "target": "colossus-body", "displayedIncreasePercent": 30}],
+      "unresolved": ["他与ダメージ補正との合成順"]
+    },
+    {
+      "displayIndex": 6, "name": "金髪美女", "sourceSeconds": [23, 24, 25],
+      "description": "金色の髪なびく美しき天使", "effects": [],
+      "unresolved": ["表示説明以外の戦闘効果は確認できない"]
+    },
+    {
+      "displayIndex": 7, "name": "神器", "sourceSeconds": [26, 27, 28],
+      "effects": [{"kind": "skill-tag-add", "tag": "火", "condition": "in-battle"}],
+      "unresolved": ["元の斬撃との組合せ処理", "非攻撃スキルへの適用範囲", "火傷値の付与は説明にない"]
+    }
+  ],
+  "blessings": {
+    "displayedLevel": "7+1",
+    "displayedNames": ["神殺しの誓い", "当たらなければ平気です！"],
+    "observedTooltips": [
+      {"sourceSeconds": [29, 30, 31], "effects": [{"kind": "base-critical", "displayedIncreasePercent": 20}]},
+      {"sourceSeconds": [32, 33, 34, 35, 36], "condition": "reckless-mode", "effects": [{"kind": "speed", "displayedIncreasePercent": 20}, {"kind": "attack", "displayedIncreasePercent": 60}]}
+    ],
+    "limitations": ["撮影時の祝福補正であり、ジョブ共通の捨て身基礎補正ではない", "ツールチップ自体に祝福名がないため名前と効果の個別対応は断定しない", "他祝福Lvの値と補正の合成順は未確認"]
+  },
+  "battleObservations": [
+    {"id": "boost-display", "sourceSeconds": [85, 95, 115, 165], "confirmed": "BOOST表示は5枠。赤/橙系と青系の球を確認。球のある枠が強調される状態と空になる状態がある。", "limits": "実行前の表示変化から消費確定時点・取消時返却を断定しない。"},
+    {"id": "held-boost", "sourceSeconds": [95, 115, 165], "confirmed": "球3個および5個の表示時に「全パラメータUP中！」を確認。", "limits": "球数別・色別の実際の補正量は表示されない。"},
+    {"id": "select-all-boost", "sourceSeconds": [114, 115, 117, 119, 164, 165, 167], "confirmed": "5枠を強調した後に第3技を選択する場面を確認。119秒では球表示が空になり、同技の対象選択予測を表示。", "limits": "必須コスト5ではなく投入選択の観察。技固有の固定球コストは未確定。"},
+    {"id": "last-resort", "sourceSeconds": [140, 148, 149, 150], "confirmed": "握手形の表示を伴う演出の後、148秒にJob Liberation / LAST RESORTと「速度アップ」「クリティカルアップ」。149〜150秒でスキル選択UIへ復帰。", "limits": "この動画では補正量・持続・行動順消費の有無は明示されない。握手形の表示だけでチェイン行動とは判定しない。"},
+    {"id": "skill-3-cap-separation", "sourceSeconds": [12, 15, 117], "confirmed": "第3技のダメージ上限+100000と、特性ダメージ限界突破Ⅴの+100000は別の説明欄に存在。", "limits": "合成順は未確定。同じ効果の重複転記として削除しない。"}
+  ],
+  "remainingUnresolved": [
+    "装備補正を除いたLv1基礎値・人物補正",
+    "固有チェイン行動の説明・威力・効果",
+    "通常の球獲得と特性追加獲得の処理順・対象行動",
+    "青球・赤球の基礎倍率、赤球の基礎出現率、ゲージへの寄与",
+    "球保持による全パラメータ上昇の数値と色別内訳",
+    "通常3技の固定球コスト・選択取消時の返却",
+    "待機区分の実数・速度補正と戦闘速度設定の分離",
+    "この撮影条件でのラストリゾート補正量・持続・行動順消費",
+    "通常衣装とファッション・祝福・神器・装備の寄与分解",
+    "newASTERの8枠・重複Rank1〜5への対応と採用バランス"
+  ],
+  "runtimePolicy": "Authoring evidence only. Existing newASTER combat definitions, fixed trait slots, duplicate Rank curves and saves are not automatically replaced by these source-game snapshots."
+}
