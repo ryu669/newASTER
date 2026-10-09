@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -51,6 +51,7 @@ namespace NewAster.Presentation
         private Color MaterialColor(int rarity)=>rarity>=4?gold:rarity==3?new Color(.78f,.57f,1):rarity==2?new Color(.4f,.78f,1):ivory;
         private void DrawMaterialInventory()
         {
+            if(exchangeMaterial!=null){DrawExchange();return;}
             var owners=CollectionData().owners.Where(o=>o.kind=="colossus").ToArray();materialPage=Mathf.Clamp(materialPage,0,owners.Length-1);
             var owner=owners[materialPage];
             if(GrowthButton(150,280,180,50,"‹ 巨神獣",materialPage>0))materialPage--;
@@ -59,8 +60,9 @@ namespace NewAster.Presentation
             for(int i=0;i<owner.materialIds.Length;i++){
                 var r=CollectionData().resources.Single(m=>m.id==owner.materialIds[i]);float y=350+i*88;GrowthFrame(150,y,1280,78);
                 DrawSanctuaryIcon(new Rect(169,y+12,52,52),"resource",MaterialColor(r.rarity));
-                Label(245,y+14,645,48,r.RarityName+"  "+r.name,growthTextStyle,MaterialColor(r.rarity));
-                Label(905,y+17,480,44,"所持 "+HomeRules.Balance(formalCampaign.Snapshot,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
+                Label(245,y+6,645,40,r.RarityName+"  "+r.name,growthTextStyle,MaterialColor(r.rarity));
+                var state=formalCampaign.Snapshot;Label(905,y+3,480,28,"所持 "+HomeRules.Balance(state,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
+                int unit=MaterialExchangeService.UnitCost(r);if(unit>0){Label(245,y+39,620,32,"交換：1個 "+unit+"ネクタル",growthSmallStyle);int[] quantities={1,5,10,MaterialExchangeService.Maximum(state,r)};string[] labels={"1","5","10","MAX"};for(int n=0;n<4;n++)if(GrowthButton(905+n*117,y+38,108,32,labels[n],quantities[n]>0 && quantities[n]<=MaterialExchangeService.Maximum(state,r) && BookInputAllowed))ProposeExchange(r,quantities[n]);}
             }
             Label(150,727,1280,60,"N → R → SR → SSR。上位神器は複数の巨神獣の希少素材を使用します。\n敗北・撤退では素材を獲得しません。",growthSmallStyle);
         }

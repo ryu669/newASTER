@@ -26,12 +26,12 @@ namespace NewAster.Presentation
         private void DrawTerraformBookPage()
         {
             GrowthStyles(); PalaceBackdrop("crown"); GrowthFrame(90,80,1420,745);
-            possibleWorlds = book.Bookmark==BookBookmark.PossibleWorlds;
+            possibleWorlds = book.Bookmark==BookBookmark.PossibleWorlds;if(possibleWorlds)int.TryParse(book.PageState.sortMode,out possibleWorldTab);
             if(gardenLifeRecords)DrawGardenLifeRecords();else{DrawTerraformExperience();if(!possibleWorlds && Btn(130,820,380,44,"生活記録をひらく"))gardenLifeRecords=true;} DrawBookTransition(true);
         }
         private void SelectTerraformDomain(TerraformSave s,int index)
         {
-            terraformDomain=index;var d=s.domains.Single(x=>x.domainId==TerraformRules.DomainIds[index]);
+            terraformDomain=index;if(book.Bookmark==BookBookmark.NewWorld && book.SubjectId!="terraform.domain."+TerraformRules.DomainIds[index]){book.RequestSubject(BookBookmark.NewWorld,"terraform.domain."+TerraformRules.DomainIds[index]);book.CompleteTransition();}var d=s.domains.Single(x=>x.domainId==TerraformRules.DomainIds[index]);
             terraformTargetLevel=Math.Min(7,d.maxReachedLevel+1);
             var deep=TerraformRules.DeepFor(s,d.domainId);terraformDeep=Math.Max(0,Array.IndexOf(deep,d.activeDeepRecordId));
             terraformFusion=Math.Max(0,Array.FindIndex(TerraformRules.Fusions[index],f=>d.activeExtremeId==d.domainId+"_"+f));
@@ -58,7 +58,7 @@ namespace NewAster.Presentation
         }
         private void DrawTerraformExperience()
         {
-            var s=TerraformPreview();if(!terraformSelectionReady)SelectTerraformDomain(s,terraformDomain);
+            var s=TerraformPreview();int restored=Array.IndexOf(TerraformRules.DomainIds,(book.SubjectId??"").Replace("terraform.domain.",""));if(book.Bookmark==BookBookmark.NewWorld && restored>=0 && restored!=terraformDomain){terraformSelectionReady=false;terraformDomain=restored;}if(!terraformSelectionReady)SelectTerraformDomain(s,terraformDomain);
             string achievement=s.sevenExtremeGenesis?"七極創世":s.worldIntegrated?"新天地成立":"新天地を形成中";
             Label(130,175,860,48,(s.customWorldName??"新天地")+"　／　"+achievement,growthTextStyle);
             Label(1100,175,340,48,"TP "+s.totalTp.ToString("N0"),growthTitleStyle,gold);
@@ -122,7 +122,7 @@ namespace NewAster.Presentation
         {
             bool ready=terraformRequest==null && !formalCampaign.HasPending;
             string[] tabs={"極相 "+s.discoveredExtremes.Length+"/28","深層記述 "+s.acquiredDeepRecords.Count(TerraformRules.DeepIds.Contains)+"/7","世界現象","星名"};
-            for(int i=0;i<4;i++)if(GrowthButton(135+i*325,240,310,44,tabs[i],ready,possibleWorldTab==i)){possibleWorldTab=i;terraformScroll=Vector2.zero;}
+            for(int i=0;i<4;i++)if(GrowthButton(135+i*325,240,310,44,tabs[i],ready,possibleWorldTab==i)){possibleWorldTab=i;book.PageState.sortMode=i.ToString();bookNavigationDirty=true;terraformScroll=Vector2.zero;}
             if(possibleWorldTab==3){
                 Label(180,330,1200,60,s.sevenExtremeGenesis?"七極創世":"星名",growthTitleStyle);
                 Label(180,395,1200,54,s.sevenExtremeGenesis?"過去7世界のいずれにも該当しない世界が成立した":"全7領域の最大到達Lv7で、星名入力が解放されます。",growthSmallStyle);

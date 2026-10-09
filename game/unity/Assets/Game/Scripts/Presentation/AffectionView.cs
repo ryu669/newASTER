@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -106,11 +106,12 @@ namespace NewAster.Presentation
             Label(285,175,810,55,combatDefinitions.Hero(affectionForm).name+" ／ 好感度・恋愛",growthTitleStyle);
             Label(285,245,850,50,"Lv "+a.level+" ／ EXP "+a.exp+" / 100"+(AffectionService.IsLover(a)?" ／ 恋人":""),growthTextStyle);
             GrowthFill(285,300,650,12,new Color(.08f,.12f,.18f));GrowthFill(285,300,650*a.exp/100f,12,gold);
-            if(a.levelCap==99)DrawEternalRing(new Rect(975,250,75,75));Label(1065,257,250,60,"好感度上限 "+a.levelCap,growthTitleStyle);
+            if(a.levelCap==99){DrawEternalRing(new Rect(1170,240,75,75));Label(1150,316,120,38,"99",new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter});}else Label(1065,257,250,60,"好感度上限20",growthTitleStyle);
             var events=AffectionEventResolver.ForPerson(save,HomeData(),affectionForm);int unread=events.Count(e=>a.level>=e.requiredAffectionLevel && !a.readEventIds.Contains(e.id));
-            Label(285,335,1000,35,"物語・回想 ／ 閲覧可能 "+events.Count(e=>a.level>=e.requiredAffectionLevel)+"件 ／ 未読 "+unread+"件",growthSmallStyle);
+            Label(285,335,800,35,"物語・回想 ／ 閲覧可能 "+events.Count(e=>a.level>=e.requiredAffectionLevel)+"件 ／ 未読 "+unread+"件",growthSmallStyle);
             affectionScroll=GUI.BeginScrollView(new Rect(285,380,1030,225),affectionScroll,new Rect(0,0,1000,Math.Max(225,events.Length*54)));
-            for(int i=0;i<events.Length;i++){
+            int first=Math.Max(0,(int)(affectionScroll.y/54)),last=Math.Min(events.Length,first+6);
+            for(int i=first;i<last;i++){
                 var ev=events[i];bool open=a.level>=ev.requiredAffectionLevel,read=a.readEventIds.Contains(ev.id);
                 string title=!open && ev.visibility=="hint"?"これから紡ぐ物語":ProductionStoryActive?ProductionStoryTitle(ev.id):ev.id;
                 if(GrowthButton(0,i*54,995,48,(read?"回想":open?"未読":"Lv"+ev.requiredAffectionLevel+"で解放")+" ／ "+title,open)){affectionPanel=false;gardenLifePanel=null;BeginAdv(ev.id,read);}

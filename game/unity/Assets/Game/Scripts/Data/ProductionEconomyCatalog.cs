@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 namespace NewAster.Data
@@ -17,7 +17,7 @@ namespace NewAster.Data
             if(id=="colossus.black-smoke-citadel" || id=="colossus.final-flame-ice-phoenix"){
                 enemy.majorAttributes=new[]{"火"};foreach(var action in enemy.actionCycle??Array.Empty<ColossusActionCombatDef>())action.attributes=new[]{"火"};
             }
-            enemy.hpPerLevel=id=="colossus.final-flame-ice-phoenix"?360:400;enemy.damagePerLevel=5;enemy.Validate();return enemy;
+            enemy.hpPerLevel=id=="colossus.final-flame-ice-phoenix"?360:400;enemy.damagePerLevel=new[]{"colossus.red-crystal-tyrant","colossus.memory-crystal-dragon","colossus.sky-tower-machine"}.Contains(id)?8:5;enemy.Validate();return enemy;
         }
         private static readonly string[] WeaponOwners={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk","heroine.slayer-swim","heroine.arcane","heroine.arcane-academy","heroine.shangrila"};
         private static int WeaponOwner(string id){int index=Array.IndexOf(WeaponOwners,id);if(index<0)throw new ArgumentException("Missing authored weapon identity "+id);return index;}

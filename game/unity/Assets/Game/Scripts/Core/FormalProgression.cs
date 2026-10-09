@@ -27,7 +27,8 @@ namespace NewAster.Core
         public string saveId, contentVersion = ContentVersion;
         public long revision;
         public int nectar, awakeningCrystals, overflow;
-        public int stones, kinderPoints, totalKinderDraws, eternalRings;
+        public long stones;
+        public int kinderPoints, totalKinderDraws, eternalRings;
         public HeroineTicket[] tickets=Array.Empty<HeroineTicket>();
         public FormalHeroineGrowth[] heroines = Array.Empty<FormalHeroineGrowth>();
         public GrowthReceipt[] receipts = Array.Empty<GrowthReceipt>();

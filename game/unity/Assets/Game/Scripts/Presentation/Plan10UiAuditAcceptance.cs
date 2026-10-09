@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -18,6 +18,12 @@ namespace NewAster.Presentation {
     heroineRosterOpen=false;formationOpen=false;collectionOpen=false;kinderGarden=false;book.CompleteTransition();collectionTab=view=="book-materials"?2:1;if(view=="book-system")bookSystemOpen=true;
     if(view.StartsWith("book-items",StringComparison.Ordinal)){var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.collection.relics=CollectionData().relics.Select(r=>new CollectionRelic{id=r.id,contentVersion=CollectionData().contentVersion,attackRoll=80,hpRoll=800}).ToArray();BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();if(view=="book-items-added")collectionRelicPage=4;if(view=="book-items-special")collectionRelicPage=7;if(view=="book-items-fading")collectionRelicPage=8;if(view=="book-items-equip")OpenOoparts(0,"relic.special.speed");}
     AcceptanceCheck(book.Bookmark==(view=="book-summoning"?BookBookmark.Summoning:view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials"?BookBookmark.Items:view=="book-hunt"?BookBookmark.RelicHunt:view=="book-new-world"?BookBookmark.NewWorld:view=="book-possible-worlds"?BookBookmark.PossibleWorlds:BookBookmark.Colossi),"Capture displays requested bookmark: "+view);
+   }
+   else if(view.StartsWith("detail-information",StringComparison.Ordinal)){PrepareAffectionCapture(view.Contains("ring")?"affection-cap99":"affection-unread");affectionPanel=false;book.FlipPage();book.CompleteTransition();}
+   else if(view=="material-exchange"){
+    var save=formalCampaign.Snapshot;var resource=CollectionData().resources.First(r=>MaterialExchangeService.UnitCost(r)==500);save.growth.nectar=20000;
+    var material=save.collection.materials.SingleOrDefault(m=>m.id==resource.id);if(material==null)save.collection.materials=save.collection.materials.Concat(new[]{new CollectionMaterial{id=resource.id,sourceColossusId=resource.ownerId,amount=1}}).ToArray();
+    BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();collectionTab=2;ProposeExchange(resource,5);
    }
    else if(view=="model")modelViewer=true;
    else if(view=="book-colossi" || view=="book-world" || view=="book-stories"){book.ChangeBookmark(view=="book-stories"?BookBookmark.Stories:BookBookmark.Colossi);book.CompleteTransition();if(view=="book-world")book.FlipPage();}
@@ -41,7 +47,7 @@ namespace NewAster.Presentation {
     var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds[0]="heroine.slayer-swim";BindFormalCampaign(save);formationOpen=true;formationSlot=0;formationLayer=1;if(view.EndsWith("confirm",StringComparison.Ordinal))ProposeHome(new HomeOperation("commander","heroine.slayer-swim"));else{ProposeHome(new HomeOperation("commander","heroine.slayer-swim"));ConfirmHome();AcceptanceCheck(HomeState.commanderHeroineId=="heroine.slayer-swim","Commander commits through production UI");}
    }
    else if(view=="recruitment-second"){
-    var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.growth.heroines=save.growth.heroines.Where(h=>combatDefinitions.FormationIds.Contains(h.heroineId)).ToArray();save.home=FormalHomeProgress.Empty(HomeData().contentVersion);HomeConditions.Refresh(save,HomeData());BindFormalCampaign(save);heroineRosterOpen=true;expansionRecruitmentOpen=true;expansionRecruitmentPage=1;
+    var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.growth.heroines=save.growth.heroines.Where(h=>combatDefinitions.FormationIds.Contains(h.heroineId)).ToArray();save.home=FormalHomeProgress.Empty(HomeData().contentVersion);save.affection=null;HomeConditions.Refresh(save,HomeData());BindFormalCampaign(save);heroineRosterOpen=true;expansionRecruitmentOpen=true;expansionRecruitmentPage=1;
    }
    else if(view=="roster-second"){PrepareHeroineSanctuaryCapture(args.Concat(new[]{"-heroineView","roster","-heroineId","heroine.shangrila"}).ToArray());heroinePage=1;}
    else if(view=="formation-roster-second"){formationOpen=true;formationSlot=0;formationLayer=2;formationPage=1;}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.IO;
 using NewAster.Core;
@@ -123,7 +123,7 @@ namespace NewAster.Presentation
             if(combatDefinitions.HeroineIds.Contains(occupant.heroineId)){
                 string action=occupant.actionId=="action.sit"?"sit":occupant.actionId=="action.work"?"work":occupant.actionId=="action.look"?"look":"idle";
                 string prefix=occupant.heroineId.Substring("heroine.".Length);
-                var texture=SampleImage(prefix+"-sd-"+action);if(texture==null)texture=SampleImage(prefix+"-sd-idle");
+                var texture=SampleImage(prefix+"-sd-"+action,optional:true);if(texture==null)texture=SampleImage(prefix+"-sd-idle");
                 float size=area.width*.128f*.95f;
                 if(texture!=null){var matrix=GUI.matrix;var a=gardenLifeRuntime?.Agents.SingleOrDefault(v=>v.heroineId==occupant.heroineId);try{if(a!=null && a.facing<0)GUIUtility.ScaleAroundPivot(new Vector2(-1,1),new Vector2(x,y));if(a?.kind=="Move" || a?.kind=="Approach")y-=Mathf.Abs(Mathf.Sin(Time.realtimeSinceStartup*5))*3;var residentRect=new Rect(x-size*.5f,y-size*.98f,size,size);
                     bool bathing=a?.tag=="bathe" || a?.tag=="bathe_together";

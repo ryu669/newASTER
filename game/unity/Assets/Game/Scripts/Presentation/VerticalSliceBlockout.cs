@@ -95,7 +95,7 @@ namespace NewAster.Presentation
         {
             frozen=pause;
             if(effects!=null) effects.Synchronize(party,battle,visual,pause);
-            if(slayer!=null) slayer.Synchronize(pause,battle!=null && (visual?.Casting[slayerActor]??battle.IsCasting(slayerActor)));
+            if(slayer!=null) slayer.Synchronize(pause,battle!=null && slayerActor>=0 && slayerActor<party.Count && (visual?.Casting[slayerActor]??battle.IsCasting(slayerActor)));
             if(ground!=null) ground.SetActive(battle==null);
             garden.gameObject.SetActive(gardenView && gardenUnlocked);
             dragon.gameObject.SetActive(!gardenView);

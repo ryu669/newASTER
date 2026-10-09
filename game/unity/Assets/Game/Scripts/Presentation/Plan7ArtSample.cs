@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -37,9 +37,9 @@ namespace NewAster.Presentation
             if(measuredHomeScene!=null)Debug.Log("PLAN8_HOME_LOAD scene="+measuredHomeScene+" prepareToFirstRepaintMs="+((MeasurementClock-measuredHomeStarted)*1000).ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" firstGuiCpuMs="+duration.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+" assetsPrevalidated=true osCache=uncontrolled");
         }
         private readonly Dictionary<string,Texture2D> artTextures=new Dictionary<string,Texture2D>();
-        private Texture2D SampleImage(string name)
+        private Texture2D SampleImage(string name,bool optional=false)
         {
-            if(!artTextures.TryGetValue(name,out var texture)){string version=name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
+            if(!artTextures.TryGetValue(name,out var texture)){string version=name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null && !optional)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
             return texture;
         }
         private void SampleImage(Rect rect,string name,bool crop=false)
@@ -74,7 +74,7 @@ namespace NewAster.Presentation
             PlayArtSound(e.BossHp==0?"victory":e.PartBroken?"break":e.Kind==BattlePresentationKind.Healing?"heal":e.Kind==BattlePresentationKind.Support?"shield":"hit");
         }
         private void OnApplicationFocus(bool focused)
-        {TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
+        {if(watchModeActive)return;lastRewardClock=WatchWindowAdapter.RewardClock;TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
             artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}

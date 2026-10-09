@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -12,8 +12,7 @@ namespace NewAster.Presentation
         private int engagementAmount;
         private double unsavedActiveSeconds;
         private float nextClockAttempt;
-        private float lastEngagementInput;
-        private Vector3 lastEngagementMouse;
+        private double lastRewardClock;
         private string engagementError;
         private void InitializeEngagement()
         {
@@ -23,19 +22,19 @@ namespace NewAster.Presentation
         }
         private void UpdateEngagement()
         {
-            if(Application.isFocused && (Input.anyKey || (Input.mousePosition-lastEngagementMouse).sqrMagnitude>1 || Input.mouseScrollDelta.sqrMagnitude>0))lastEngagementInput=Time.unscaledTime;
-            lastEngagementMouse=Input.mousePosition;
-            if(formalDiagnostic && (!plan8StoryTrial || capturePath!=null) || artSample || adv!=null || collectionOpen || terraformRequest!=null || recoveryActive || combatDefinitionError!=null || formalCampaign==null || title || paused || help || retreat || modelViewer || result!=null || engagementOpen || !Application.isFocused || formalCampaign.HasPending || formalProgression.HasPending)return;
-            if(Time.unscaledTime-lastEngagementInput>60 && !(encounter!=null && playback.Busy))return;
-            float elapsed=Time.unscaledDeltaTime;if(elapsed>0 && elapsed<=2)unsavedActiveSeconds+=elapsed;
-            if(unsavedActiveSeconds>=60 && Time.unscaledTime>=nextClockAttempt){FlushActiveTime();nextClockAttempt=Time.unscaledTime+60;}
+            if(formalDiagnostic && !plan15Manual || recoveryActive || combatDefinitionError!=null || formalCampaign==null)return;
+            bool visible=WatchWindowAdapter.IsVisible && (watchModeActive || Application.isFocused);
+            double now=WatchWindowAdapter.RewardClock;double elapsed=lastRewardClock==0?0:now-lastRewardClock;lastRewardClock=now;if(visible && elapsed>0 && elapsed<=3600)unsavedActiveSeconds+=elapsed;
+            if(Time.unscaledTime>=nextClockAttempt){FlushActiveTime();nextClockAttempt=Time.unscaledTime+10;}
+
         }
         private bool FlushActiveTime()
         {
-            if(formalDiagnostic && !plan8StoryTrial || unsavedActiveSeconds<1)return true;
+            if(formalDiagnostic && !plan8StoryTrial && !plan15Manual)return true;
             if(formalCampaign.HasPending || formalProgression.HasPending)return false;
-            int seconds=(int)Math.Min(3600,Math.Floor(unsavedActiveSeconds));
-            try{if(!formalCampaign.CommitActiveSeconds(seconds,plan8StoryTrial?SaveDiagnosticCampaign:SaveTrialObservedCampaign))return false;unsavedActiveSeconds-=seconds;return true;}
+            if(unsavedActiveSeconds==0 && formalCampaign.Snapshot.playRewards?.lastDailyRewardDate==DailyRewardService.Day(DateTime.UtcNow))return true;
+            double seconds=Math.Min(3600,unsavedActiveSeconds);
+            try{if(!(plan8StoryTrial?formalCampaign.CommitActiveSeconds((int)seconds,SaveDiagnosticCampaign):formalCampaign.CommitPlayRewards(seconds,DateTime.UtcNow,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign)))return false;unsavedActiveSeconds-=seconds;formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);return true;}
             catch(Exception e){Debug.LogException(e);engagementError="プレイ時間を保存できませんでした。再試行まで今回の時間を保持します。";return false;}
         }
         private void OpenEngagement()
@@ -64,6 +63,7 @@ namespace NewAster.Presentation
         }
         private void DrawEngagement()
         {
+            if(ProductionStoryActive){GrowthStyles();PalaceBackdrop("star");GrowthFrame(120,90,1360,720);var reward=formalCampaign.Snapshot;Label(230,220,1140,70,"星の恵み",growthTitleStyle);Label(230,340,1140,220,"所持石  "+reward.growth.stones+"\n毎日5時更新：300石 ／ 30分ごと：100石\n恵みは自動で受け取ります。\n次の時間報酬まで "+Math.Ceiling((1800-(reward.playRewards?.rewardRemainderSeconds??0))/60)+"分",growthTextStyle);if(GrowthButton(230,707,1140,62,"戻る"))EngagementBack();return;}
             GrowthStyles();PalaceBackdrop("star");GrowthFrame(120,90,1360,720);GrowthDiamond(800,159,24);
             Label(230,220,1140,70,engagementComplete?"星の恵みを受け取りました":engagementRequest!=null?"受け取る恵みの確認":"星の恵み",growthTitleStyle);
             GrowthLine(230,303,1370,303,gold);DrawSanctuaryIcon(new Rect(1287,210,70,70),"star",gold);

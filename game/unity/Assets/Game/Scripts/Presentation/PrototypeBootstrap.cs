@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using NewAster.Core;
@@ -210,6 +210,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            if(watchModeActive){UpdateWatchMode();UpdateEngagement();return;}
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
             UpdateBookTransition();
@@ -223,6 +224,7 @@ namespace NewAster.Presentation
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
                 else if(help)help=false;
+                else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
                 else if(CloseAffectionLayer()){}
                 else if(CloseOoparts()){}
                 else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
@@ -249,6 +251,7 @@ namespace NewAster.Presentation
                 else if(title && FormalEntranceVisible)formalEntranceComplete=true;
                 else if(title)OpenTitlePanel("exit");
                 else if(encounter!=null && result==null) paused=!paused;
+                else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
                 else if(result==null) help=true;
             }
             bool battleView=encounter!=null;
@@ -336,6 +339,7 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
             try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}}finally{RecordMeasuredGui(started);}
@@ -719,6 +723,6 @@ namespace NewAster.Presentation
             TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
             GUI.enabled=old; if(clicked){TrialObserve("navigation","button",value);PlayProductionUiSound(value);}return clicked;
         }
-        private void OnApplicationQuit() { if(!recoveryActive && campaign!=null && capturePath==null && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){FlushActiveTime();Save();} FinishTrialTelemetry(); }
+        private void OnApplicationQuit() { if(watchModeActive)SaveWatchSettings(); if(!recoveryActive && campaign!=null && (capturePath==null || plan15Manual) && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){SaveBookNavigation();FlushActiveTime();Save();} FinishTrialTelemetry(); }
     }
 }

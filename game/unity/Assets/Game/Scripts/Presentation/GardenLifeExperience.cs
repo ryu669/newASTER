@@ -98,11 +98,13 @@ namespace NewAster.Presentation
         {
             bool backgroundEnabled=GUI.enabled;GUI.enabled=backgroundEnabled && !gardenDiscardConfirm && gardenPresetShortage==null && gardenLifeError==null && gardenLifeRequest==null;
             var save=LifeSnapshot();string garden=book.SubjectId;var layout=HomeData().gardens.Single(g=>g.id==garden);bool unlocked=save.world.unlockedGardenIds.Contains(garden);
+
             Panel(0,0,1600,900,dark);var view=new Rect(0,88,1600,730);var state=save.home;
             if(gardenLifeEditor!=null)state.furniturePlacements=gardenLifeEditor.Placements;
             if(gardenLifeRuntime!=null && gardenLifeRuntime.GardenId==garden)state.occupants=gardenLifeRuntime.Agents.Select(a=>LifeOccupant(a,garden,state)).ToArray();
             if(unlocked){DrawGardenScene(view,state,garden,layout,false);DrawLifeEnvironment(view,save.gardenLife.Setting(garden));}
-            else Label(150,300,1000,90,"世界の発展で、この庭が開きます。",heading,Color.white);
+            if(unlocked && Application.platform==RuntimePlatform.WindowsPlayer && gardenLifeRuntime!=null){DrawWatchSettings();}
+            if(!unlocked)Label(150,300,1000,90,"世界の発展で、この庭が開きます。",heading,Color.white);
             if(gardenViewing){
                 if(gardenViewingFrame)DrawGardenViewFrame(view,save.gardenLife.Setting(garden).frameId);
                 if(Btn(1350,835,220,45,"鑑賞を終える"))gardenViewing=false;

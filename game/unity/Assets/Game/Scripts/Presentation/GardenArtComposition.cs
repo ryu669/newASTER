@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using NewAster.Core;
@@ -89,7 +89,7 @@ namespace NewAster.Presentation
             if(occupant.furnitureInstanceId==null)return null;
             var placement=state.furniturePlacements.SingleOrDefault(p=>p.instanceId==occupant.furnitureInstanceId && p.gardenId==occupant.gardenId);
             var use=placement==null?null:GardenUse(placement.defId,occupant.heroineId);
-            return use!=null && occupant.actionId=="action."+use.action?placement:null;
+            return use!=null && occupant.actionId=="action."+use.action && SampleImage(occupant.heroineId.Substring("heroine.".Length)+"-sd-"+use.action,optional:true)!=null?placement:null;
         }
         private Rect GardenFurnitureImageRect(Rect area,HomePlacement placement)
         {
@@ -106,7 +106,7 @@ namespace NewAster.Presentation
         private void DrawGardenArtUse(Rect furniture,Texture2D texture,GardenArtUse use,bool occupied,string heroineId="heroine.slayer")
         {
             string prefix=heroineId.Substring("heroine.".Length);
-            var actor=occupied && use!=null?SampleImage(prefix+"-sd-"+use.action):null;
+            var actor=occupied && use!=null?SampleImage(prefix+"-sd-"+use.action,optional:true):null;
             var furnitureLayers=actor==null?null:GardenImageLayers(texture,use.front,use.furnitureId);
             if(texture!=null)GUI.DrawTexture(furniture,(Texture)furnitureLayers?.back??texture,ScaleMode.ScaleToFit,true);
             if(actor==null)return;
