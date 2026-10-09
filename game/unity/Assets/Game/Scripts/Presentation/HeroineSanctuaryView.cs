@@ -16,7 +16,24 @@ namespace NewAster.Presentation
         private HeroineRosterEntry[] bookHeroineResults;
         private string bookHeroineResultKey;
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
-        private readonly Dictionary<string,Texture2D> heroinePortraits=new Dictionary<string,Texture2D>();
+        private BoundedCache<string,Texture2D> heroinePortraits;
+        private bool heroineAssetCleanupPending;
+        private void EnsureHeroineImageCaches()
+        {
+            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
+            if(sanctuaryTrees==null)sanctuaryTrees=new BoundedCache<string,Texture2D>(3,ScheduleHeroineAssetCleanup);
+        }
+        private void ScheduleHeroineAssetCleanup()
+        {
+            if(heroineAssetCleanupPending)return;
+            heroineAssetCleanupPending=true;StartCoroutine(ReleaseUnusedHeroineImages());
+        }
+        private System.Collections.IEnumerator ReleaseUnusedHeroineImages()
+        {
+            yield return new WaitForEndOfFrame();
+            yield return Resources.UnloadUnusedAssets();
+            heroineAssetCleanupPending=false;
+        }
         private readonly Color parchment=new Color(.94f,.89f,.77f),paperInk=new Color(.13f,.18f,.22f);
         private HeroinePortraitCatalog portraitFraming;
         private HeroinePortraitDef HeroFraming(string id)
@@ -31,6 +48,7 @@ namespace NewAster.Presentation
         }
         private Texture2D HeroPortrait(string id)
         {
+            EnsureHeroineImageCaches();
             string key=id;
             if(!heroinePortraits.TryGetValue(key,out var texture)){
                 var framing=HeroFraming(id);

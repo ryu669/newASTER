@@ -43,6 +43,8 @@
 
 ## Plan11の継続実装
 
+- [Plan11-9 品質改善・量産準備](production/plan11-9-quality-implementation.txt) / [ヒロイン追加マニュアル](production/heroine-addition-guide.md)
+
 - [Plan11-2 箱庭生活](production/plan11-2-garden-life.md)
 - [Plan11-3 好感度・恋愛](production/plan11-3-affection.md)
 - [Plan11-4 オーパーツ](production/plan11-4-ooparts.md)：編成枠装備、5能力、独立特殊効果、原子的強化。

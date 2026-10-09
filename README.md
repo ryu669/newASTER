@@ -37,6 +37,7 @@ Core回帰検証9,413項目、Unity C#221ソース、Windowsビルドが合格�
 - [Plan11-2 箱庭生活](docs/production/plan11-2-garden-life.md)
 - [Plan11-3 好感度・恋愛](docs/production/plan11-3-affection.md)
 - [Plan11-4 オーパーツ](docs/production/plan11-4-ooparts.md)
+- [Plan11-9 品質改善・量産準備](docs/production/plan11-9-quality-implementation.txt)
 - [編成・入れ替え画面](docs/production/formation-ui.md)
 - [人物特性・神器ノード・戦闘開始の修正](docs/production/heroine-abilities-and-battle-start.md)
 - [万物の書UIとオーパーツ](docs/production/book-ui-and-ooparts.md)

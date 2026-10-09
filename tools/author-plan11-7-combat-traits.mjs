@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {applyInteractionTraits} from './author-plan11-7-traits.mjs';
 
 const root = 'game/unity/Assets/Game/Resources/Combat';
 const catalog = JSON.parse(fs.readFileSync(`${root}/battle-plan10-shangrila.json`, 'utf8'));
@@ -10,6 +11,7 @@ const second = {
   gambler: 'operative', general: 'leader', alchemist: 'giant-killing', panzer: 'nanomachine-armor',
 };
 catalog.combatTraitVersion = 1;
+applyInteractionTraits(catalog);
 for (const hero of catalog.heroines) {
   hero.secondTraitId = second[hero.jobId.replace('job.', '')];
   if (!hero.secondTraitId) throw new Error(`Missing second trait: ${hero.id}`);

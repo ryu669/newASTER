@@ -7,7 +7,8 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
-        private readonly Dictionary<string,Texture2D> sanctuaryIcons=new Dictionary<string,Texture2D>(),sanctuaryTrees=new Dictionary<string,Texture2D>();
+        private readonly Dictionary<string,Texture2D> sanctuaryIcons=new Dictionary<string,Texture2D>();
+        private BoundedCache<string,Texture2D> sanctuaryTrees;
         private Texture2D SanctuaryIcon(string kind)
         {
             if(sanctuaryIcons.TryGetValue(kind,out var texture))return texture;
@@ -31,6 +32,7 @@ namespace NewAster.Presentation
         }
         private Texture2D SanctuaryTree(string hero)
         {
+            EnsureHeroineImageCaches();
             if(sanctuaryTrees.TryGetValue(hero,out var texture))return texture;
             texture=Resources.Load<Texture2D>(WeaponTreeLayout(hero).resourcePath);if(texture==null)throw new InvalidOperationException("Missing heroine weapon tree image: "+hero);
             sanctuaryTrees[hero]=texture;return texture;

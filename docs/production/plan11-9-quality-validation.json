@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-09",
+  "productionPersons": 12,
+  "productionForms": 15,
+  "jobs": 13,
+  "traitStandard": {
+    "job": 2,
+    "character": 3,
+    "interaction": 3,
+    "total": 8
+  },
+  "interactionCatalogCount": 27,
+  "productionTraitAudit": "PASS all 15 forms; missing-slot negative test passed",
+  "coreAssertions": 12258,
+  "compileSources": 254,
+  "battleArtAspect": {
+    "images": 61,
+    "status": "PASS",
+    "sourceImagesModified": false,
+    "setting": "TextureImporterNPOTScale.None"
+  },
+  "corePerformance": {
+    "forms": 320,
+    "persons": 256,
+    "personMapping": "forms 0..255 canonical; 256..319 variants of 0..63 (test-only)",
+    "productionForms": 15,
+    "productionPersons": 12,
+    "catalogOpenMs": 0.8254,
+    "searchMaxMs": 0.9676,
+    "saveMs": 78.3815,
+    "loadMs": 18.698,
+    "garden600TicksMs": 17.302,
+    "gardenVisibleActors": 8,
+    "daily320SelectionsMs": 47.4406,
+    "portraitCacheLimit": 24,
+    "treeCacheLimit": 3,
+    "scope": "Core roster/search/garden/daily/save timings; excludes Unity rendering, texture residency, and book opening"
+  },
+  "playerMeasurement": "bookCreateMs=4.016 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=294280556 productionForms=15 syntheticTextures=0 physicalInput=0 listening=0",
+  "finalPlayerChecks": [
+    "trait / artist / blaster / gunner 1920x1080",
+    "trait / artist 1280x720",
+    "annihilator battle 1920x1080 and 1280x720",
+    "watch mute / enter / restore / FPS"
+  ],
+  "earlierQualityBuildChecks": "24 main/job screens at 1920x1080 and 9 at 1280x720 passed before final trait-count and battle-import fixes; changed paths rechecked above",
+  "limits": [
+    "256-person / 320-form Core tests use test-only data; Player uses 15 production forms",
+    "320 unique image streaming not measured",
+    "Cold book first render and physical input not measured",
+    "Audio listening not performed"
+  ],
+  "interactionAssignments": {
+    "heroine.slayer": [
+      "hair.blonde",
+      "personality.active",
+      "taste.flowers"
+    ],
+    "heroine.iconoclast": [
+      "personality.active",
+      "taste.mechanics",
+      "body.slender"
+    ],
+    "heroine.undermine": [
+      "personality.shy",
+      "taste.mechanics",
+      "personality.cool"
+    ],
+    "heroine.echidna": [
+      "hair.silver",
+      "appearance.horns",
+      "taste.flowers"
+    ],
+    "heroine.excalipan": [
+      "hair.red",
+      "taste.cooking",
+      "taste.sweets"
+    ],
+    "heroine.r": [
+      "personality.active",
+      "taste.mechanics",
+      "body.slender"
+    ],
+    "heroine.annihilator": [
+      "taste.flowers",
+      "personality.cool",
+      "appearance.horns"
+    ],
+    "heroine.annihilator-holy": [
+      "taste.flowers",
+      "personality.cool",
+      "outfit.christmas"
+    ],
+    "heroine.shell": [
+      "hair.silver",
+      "taste.mechanics",
+      "personality.shy"
+    ],
+    "heroine.oriflamme": [
+      "hair.blonde",
+      "personality.active",
+      "taste.mechanics"
+    ],
+    "heroine.nighthawk": [
+      "taste.books",
+      "personality.night",
+      "personality.shy"
+    ],
+    "heroine.slayer-swim": [
+      "hair.blonde",
+      "personality.active",
+      "outfit.swimsuit"
+    ],
+    "heroine.arcane": [
+      "taste.books",
+      "taste.mechanics",
+      "personality.active"
+    ],
+    "heroine.arcane-academy": [
+      "taste.books",
+      "personality.active",
+      "outfit.school"
+    ],
+    "heroine.shangrila": [
+      "hair.silver",
+      "appearance.glasses",
+      "personality.cool"
+    ]
+  },
+  "evidence": {
+    "tmp/plan11-9/core-final.log": "fd87882d48c87540062d329b6e4973d8afe12f2cb3d02a20a23294c8984246c9",
+    "tmp/plan11-9/unity-build-final.log": "943498791adb7f233a6cf2965459b5b25595f724f02622c6a2e9c30f57fc3739",
+    "tmp/plan11-9/player-quality.log": "2b113b71e496a6097674a558a5a4912979c1591743c3222f48cf081e43d275ca",
+    "tmp/plan11-9/ui-final.log": "b89dcb2c61dbcc8da9341b5efc84c84f130e547bb533d7c756ce065abaa03266",
+    "game/Builds/plan11-9/newASTER_Data/Managed/Assembly-CSharp.dll": "6e7af1f98b6b3941402db74f808859e6212034b115e5357648abceed9506ccd2",
+    "game/Builds/plan11-9/newASTER_Data/resources.assets": "39b68011679032a9ec03c5e8f63cbb0da6ceaa0fc84c8c281aa88a71f77f8212"
+  }
+}

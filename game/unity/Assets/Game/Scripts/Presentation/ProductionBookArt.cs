@@ -16,7 +16,7 @@ namespace NewAster.Presentation
             if(WorldCatalog.ColossusIds.Contains(owner)){
                 var chapter=ProductionStoryData().chapters.First(c=>c.ownerId==owner);
                 var background=Resources.Load<Texture2D>(chapter.backgroundResourcePath);if(background!=null)GUI.DrawTexture(area,background,ScaleMode.ScaleAndCrop);
-                if(!bookIllustrations.TryGetValue(owner,out var art)){art=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(owner));bookIllustrations.Add(owner,art);}
+                if(!bookIllustrations.TryGetValue(owner,out var art)){art=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(owner),ScheduleHeroineAssetCleanup);bookIllustrations.Add(owner,art);}
                 art.DrawEnemyPreview(new Rect(1030,180,490,520),0);
             }else if(combatDefinitions.HeroineIds.Contains(owner)){
                 DrawHeroPortrait(area,owner);

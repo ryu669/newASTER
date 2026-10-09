@@ -263,7 +263,13 @@
         "heroine.slayer.lover.1",
         "heroine.slayer.lover.2"
       ],
-      "secondTraitId": "boost-fighter"
+      "secondTraitId": "boost-fighter",
+      "interactionTraitIds": [
+        "hair.blonde",
+        "personality.active",
+        "taste.flowers"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.iconoclast",
@@ -318,7 +324,13 @@
         "heroine.iconoclast.lover.1",
         "heroine.iconoclast.lover.2"
       ],
-      "secondTraitId": "predator"
+      "secondTraitId": "predator",
+      "interactionTraitIds": [
+        "personality.active",
+        "taste.mechanics",
+        "body.slender"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.undermine",
@@ -373,7 +385,13 @@
         "heroine.undermine.lover.1",
         "heroine.undermine.lover.2"
       ],
-      "secondTraitId": "counter-extreme"
+      "secondTraitId": "counter-extreme",
+      "interactionTraitIds": [
+        "personality.shy",
+        "taste.mechanics",
+        "personality.cool"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.echidna",
@@ -428,7 +446,13 @@
         "heroine.echidna.lover.1",
         "heroine.echidna.lover.2"
       ],
-      "secondTraitId": "elemental-resistance"
+      "secondTraitId": "elemental-resistance",
+      "interactionTraitIds": [
+        "hair.silver",
+        "appearance.horns",
+        "taste.flowers"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.excalipan",
@@ -483,7 +507,13 @@
         "heroine.excalipan.lover.1",
         "heroine.excalipan.lover.2"
       ],
-      "secondTraitId": "hunter-eye"
+      "secondTraitId": "hunter-eye",
+      "interactionTraitIds": [
+        "hair.red",
+        "taste.cooking",
+        "taste.sweets"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.r",
@@ -538,7 +568,13 @@
         "heroine.r.lover.1",
         "heroine.r.lover.2"
       ],
-      "secondTraitId": "impact-resistance"
+      "secondTraitId": "impact-resistance",
+      "interactionTraitIds": [
+        "personality.active",
+        "taste.mechanics",
+        "body.slender"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.annihilator",
@@ -595,7 +631,15 @@
       ],
       "personId": "heroine.annihilator",
       "variantId": "normal",
-      "secondTraitId": "boost-fighter"
+      "secondTraitId": "boost-fighter",
+      "interactionTraitIds": [
+        "taste.flowers",
+        "personality.cool",
+        "appearance.horns"
+      ],
+      "profileTraitIds": [
+        "hair.black"
+      ]
     },
     {
       "id": "heroine.annihilator-holy",
@@ -718,7 +762,13 @@
       ],
       "personId": "heroine.shell",
       "variantId": "normal",
-      "secondTraitId": "nanomachine-armor"
+      "secondTraitId": "nanomachine-armor",
+      "interactionTraitIds": [
+        "hair.silver",
+        "taste.mechanics",
+        "personality.shy"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.oriflamme",
@@ -775,7 +825,13 @@
       ],
       "personId": "heroine.oriflamme",
       "variantId": "normal",
-      "secondTraitId": "giant-killing"
+      "secondTraitId": "giant-killing",
+      "interactionTraitIds": [
+        "hair.blonde",
+        "personality.active",
+        "taste.mechanics"
+      ],
+      "profileTraitIds": []
     },
     {
       "id": "heroine.nighthawk",
@@ -834,7 +890,8 @@
       "variantId": "normal",
       "interactionTraitIds": [
         "taste.books",
-        "personality.night"
+        "personality.night",
+        "personality.shy"
       ],
       "profileTraitIds": [],
       "secondTraitId": "rocket-start"
