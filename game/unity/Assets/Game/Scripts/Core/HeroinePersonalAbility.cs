@@ -55,7 +55,7 @@ namespace NewAster.Core
         {
             if(!IsFormal)return;
             for(int i=0;i<State.Heroes.Count;i++){
-                var h=State.Heroes[i];h.PersonalTraitsEnabled=true;var trait=HeroinePersonalAbility.For(h.Id);
+                var h=State.Heroes[i];h.PersonalTraitsEnabled=h.HasVisibleTrait(h.Id+".trait.personal");var trait=h.PersonalTraitsEnabled?HeroinePersonalAbility.For(h.Id):null;
                 if(trait?.Kind=="gauge")h.PermanentGaugePercent+=trait.Percent;
                 if(trait?.Kind=="regen")h.PermanentRegenPercent+=trait.Percent;
                 var equipped=homeProgress?.weaponEquipment.SingleOrDefault(e=>e.heroineId==h.Id);

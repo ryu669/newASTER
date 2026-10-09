@@ -10,6 +10,8 @@ namespace NewAster.Core
         public int baseRarity;
         public string[] skills;
         public string traitId,weaponTreeId;
+        public string secondTraitId;
+        public string[] uniqueTraitIds;
         public string[] interactionTraitIds,profileTraitIds;
         public string reactionStyleMain,reactionStyleSub;
         public string[] poemChapters,poemLinks,affinityEventIds,loverEventIds;
@@ -58,6 +60,7 @@ namespace NewAster.Core
     [Serializable] public sealed partial class CombatDefinitionCatalog
     {
         public int schemaVersion;
+        public int combatTraitVersion;
         public bool optionalResourceBoost;
         public string status;
         public int enemyPhysicalDefense,enemyMagicDefense;

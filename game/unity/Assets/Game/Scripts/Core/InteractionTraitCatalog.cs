@@ -43,14 +43,15 @@ namespace NewAster.Core
                 if(ids.Distinct(StringComparer.Ordinal).Count()!=ids.Length)throw new ArgumentException("Duplicate interaction trait.");
                 foreach(var id in ids)Get(id);
             }
-            // Existing authored combat cards occupy three slots until combat-trait migration.
-            if(visible.Length+3>HeroinePersonalAbility.MaximumTraits)throw new ArgumentException("A heroine cannot exceed eight visible traits.");
+            if(!string.IsNullOrEmpty(hero.secondTraitId))CombatTraitCatalog.Resolve(hero);
+            if(string.IsNullOrEmpty(hero.secondTraitId) && visible.Length+3>HeroinePersonalAbility.MaximumTraits)throw new ArgumentException("A heroine cannot exceed eight visible traits.");
             if(visible.Contains(hero.traitId) || visible.Contains(hero.id+".trait.personal") || visible.Contains(hero.id+".trait.mastery"))
                 throw new ArgumentException("Duplicate visible trait ID.");
         }
         public static string[] VisibleIds(HeroineCombatDef hero)
         {
             Validate(hero);
+            if(!string.IsNullOrEmpty(hero.secondTraitId))return CombatTraitCatalog.Resolve(hero).VisibleIds;
             return new[]{hero.traitId,hero.id+".trait.personal",hero.id+".trait.mastery"}
                 .Where(id=>!string.IsNullOrEmpty(id)).Concat(hero.interactionTraitIds??Array.Empty<string>()).ToArray();
         }

@@ -23,6 +23,7 @@ namespace NewAster.Core
         public bool Singing { get; internal set; }
         public int SongStage { get; internal set; }
         internal int SongOopartBoost;
+        internal int SongCostRemainderBp;
         public string ArmorResistance {get;internal set;}="physical";
         public string[] PanzerTools {get;}=new[]{"repair","guard"};
         public int[] ToolUses {get;}=new[]{2,2};
@@ -125,7 +126,7 @@ namespace NewAster.Core
             var j=jobStates[actor];
             if(Job(actor,"fighter")){int requested=Math.Min(j.BoostUnits,State.Heroes[actor].JobResource);return State.Heroes[actor].Id=="heroine.annihilator"?Math.Min(requested,commandDefinitions[actor,slot].chargeConsumeMax):requested;}
             if(Job(actor,"chaser"))return jobStates[actor].NitroSelected?0:ChaserGearCost(jobStates[actor].Gear);
-            if(Job(actor,"healer"))return commandDefinitions[actor,slot].resourceCost;
+            if(Job(actor,"healer") || Job(actor,"artist")){int cost=commandDefinitions[actor,slot].resourceCost;return cost*(10000-State.Heroes[actor].TraitEffect("resource-discount-bp"))/10000;}
             if(Job(actor,"blaster"))return BlasterCost(j.CastPercent,j.Repeat);
             if(Job(actor,"gunner") && j.FullVolley)return State.Heroes[actor].JobResourceMax;
             return 0;
@@ -150,7 +151,7 @@ namespace NewAster.Core
         {
             var j=jobStates[actor];var h=State.Heroes[actor];
             UpdateGeneralFormationStats(actor);
-            int all=Job(actor,"berserker")?j.Predation*5:Job(actor,"fighter") && JobEmpowered(actor)?(UsesOoparts?h.OopartBuffs.First(b=>b.kind=="job.empowered").value:25):0;
+            int all=Job(actor,"berserker")?j.Predation*(5+h.TraitEffect("predation-power")):Job(actor,"fighter") && JobEmpowered(actor)?(UsesOoparts?h.OopartBuffs.First(b=>b.kind=="job.empowered").value:25):0;
             int song=jobStates.Where((s,i)=>s.Singing && State.Heroes[i].IsAlive).Select(s=>s.SongStage*5*(100+s.SongOopartBoost)/100).DefaultIfEmpty(0).Max();
             h.JobAllStatsPercent=all;h.JobAttackPercent=(Job(actor,"fighter") && j.Reckless?30:0)+song;
             h.SongCriticalBonusBp=song*20;
@@ -160,10 +161,12 @@ namespace NewAster.Core
         private void JobAttackReaction(int actor)
         {
             if(!UsesJobRulesV2)return;
-            if(Job(actor,"berserker")){jobStates[actor].Predation=Math.Min(10,jobStates[actor].Predation+1);UpdateJobStats(actor);}
+            if(Job(actor,"gunner") && State.Heroes[actor].TraitEffect("reload-bp")>0 && random.Next(10000)<State.Heroes[actor].TraitEffect("reload-bp"))jobStates[actor].Magazines[jobStates[actor].SelectedMagazine]=Math.Min(6,jobStates[actor].Magazines[jobStates[actor].SelectedMagazine]+1);
+            if(Job(actor,"berserker")){jobStates[actor].Predation=Math.Min(10+State.Heroes[actor].TraitEffect("predation-cap"),jobStates[actor].Predation+1);UpdateJobStats(actor);}
         }
         private void GainJobCommandResource(int actor)
         {
+            if(Job(actor,"healer") && State.Heroes[actor].TraitEffect("heart-bp")>0 && random.Next(10000)<State.Heroes[actor].TraitEffect("heart-bp"))State.Heroes[actor].GainResource(1);
             if(Job(actor,"sniper"))State.Heroes[actor].GainResource(3);
             if(Job(actor,"general") && actor==CommanderActor)State.Heroes[actor].GainResource(jobProfiles[actor].gainAtReady);
             if(Job(actor,"alchemist") || Job(actor,"blaster") || Job(actor,"healer") || Job(actor,"artist") && !jobStates[actor].Singing)State.Heroes[actor].GainResource(jobProfiles[actor].gainAtReady);
@@ -197,7 +200,7 @@ namespace NewAster.Core
                 long boundary=(Clock/100+1)*100;
                 long call=State.Heroes.Where(h=>h.IsPanzer && !h.ArmorActive && h.IsAlive && h.ArmorCallAt>Clock).Select(h=>h.ArmorCallAt).DefaultIfEmpty(long.MaxValue).Min();
                 long next=Math.Min(boundary,call);if(next>target)break;Clock=next;foreach(var hero in State.Heroes)hero.TickOopartBuffs();TickPanzerCalls();
-                if(next==boundary){TickChaserResources();TickSongs();for(int i=0;i<5;i++){UpdateJobStats(i);State.Heroes[i].TickBattleTurn();}State.BossStatus.Tick();foreach(var p in State.Parts)p.Status.Tick();}
+                if(next==boundary){TickChaserResources();TickSongs();for(int i=0;i<5;i++){UpdateJobStats(i);State.Heroes[i].TickBattleTurn();State.Heroes[i].TickCombatTraits();}State.BossStatus.Tick();foreach(var p in State.Parts)p.Status.Tick();}
             }
             Clock=target;foreach(var hero in State.Heroes)hero.TickOopartBuffs();
             TickPanzerCalls();
@@ -207,7 +210,7 @@ namespace NewAster.Core
         public bool StartSong(int actor)
         {
             if(!JobReady(actor) || !Job(actor,"artist") || jobStates[actor].Singing || State.Heroes[actor].JobResource<3)return false;
-            jobStates[actor].Singing=true;jobStates[actor].SongStage=1;jobStates[actor].SongOopartBoost=OopartBonus(actor,"buff-power");
+            jobStates[actor].Singing=true;jobStates[actor].SongStage=1;jobStates[actor].SongOopartBoost=OopartBonus(actor,"buff-power")+State.Heroes[actor].TraitEffect("resource-buff");
             RefreshSongStats();CompleteJobUtility(actor,100,"Rの歌唱開始：味方の攻撃と会心を支援");return true;
         }
         public bool ContinueSong(int actor)
@@ -226,9 +229,14 @@ namespace NewAster.Core
         {
             for(int i=0;i<5;i++)if(jobStates[i].Singing){
                 var j=jobStates[i];var h=State.Heroes[i];
-                if(!h.IsAlive || h.Status.Active("stun") || h.Status.Active("absent") || !h.SpendResource(2)){j.Singing=false;j.SongStage=0;RecordPresentation(BattlePresentationKind.Support,i,"body","歌唱終了：ゲージ不足または行動不能",standalone:true);}
+                if(!h.IsAlive || h.Status.Active("stun") || h.Status.Active("absent") || !h.SpendResource(SongResourceCost(i))){j.Singing=false;j.SongStage=0;RecordPresentation(BattlePresentationKind.Support,i,"body","歌唱終了：ゲージ不足または行動不能",standalone:true);}
                 else j.SongStage=Math.Min(5,j.SongStage+1);
             }
+        }
+        internal int SongResourceCost(int actor)
+        {
+            int raw=2*(10000-State.Heroes[actor].TraitEffect("resource-discount-bp"))+jobStates[actor].SongCostRemainderBp;
+            jobStates[actor].SongCostRemainderBp=raw%10000;return raw/10000;
         }
     }
 }

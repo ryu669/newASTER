@@ -30,6 +30,8 @@ namespace NewAster.Core
             foreach(var r in items) {r.Validate();resistances.Add(r.kind,r.resistanceBp);}
         }
         public int AttackReductionPercent {get;private set;}
+        internal void AddResistance(string kind,int amount)
+        {if(!Kinds.Contains(kind) || amount<0)throw new ArgumentException("Invalid additional resistance.");resistances[kind]=Math.Min(10000,(resistances.TryGetValue(kind,out var value)?value:0)+amount);}
         public int AttackReductionTurns {get;private set;}
         public void SetAttackReduction(int percent,int turns){if(percent<1 || percent>50 || turns<1 || turns>10)throw new ArgumentException("Invalid attack reduction.");AttackReductionPercent=percent;AttackReductionTurns=turns;}
         public int IgnitionFlags {get;private set;}

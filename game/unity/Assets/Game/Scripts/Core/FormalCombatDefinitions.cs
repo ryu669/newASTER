@@ -33,6 +33,7 @@ namespace NewAster.Core
             var kinds=new[]{"trait","weapon-tree","poem-chapter","poem-link","affinity-event","lover-event"};
             if(contentReferences==null || contentReferences.Any(r=>r==null || !Id(r.id) || !Id(r.ownerId) || !kinds.Contains(r.kind) || (r.status!="reserved" && r.status!="implemented")) || contentReferences.Select(r=>r.id).Distinct().Count()!=contentReferences.Length) throw new ArgumentException("Invalid heroine content registry.");
             foreach(var hero in heroines) {
+                if(combatTraitVersion<0 || combatTraitVersion>1 || combatTraitVersion==1 && string.IsNullOrEmpty(hero.secondTraitId))throw new ArgumentException("Missing required common combat traits.");
                 InteractionTraitCatalog.Validate(hero);
                 if(!string.IsNullOrEmpty(hero.reactionStyleMain))new ReactionStyleProfile{main=hero.reactionStyleMain,sub=string.IsNullOrEmpty(hero.reactionStyleSub)?null:hero.reactionStyleSub}.Validate();
                 var job=jobs.SingleOrDefault(j=>j.id==hero.jobId);if(job==null) throw new ArgumentException("Missing heroine job.");

@@ -1,12 +1,12 @@
 {
   "date": "2026-10-09",
-  "scope": "Plan11-7 initial daily implementation; combat mastery/second traits pending",
-  "coreAssertions": 10338,
+  "scope": "Plan11-7 daily interactions and combat common traits",
+  "coreAssertions": 10661,
   "coreResult": "pass",
   "scalePersons": 256,
   "scaleSelectionMilliseconds": 28.7,
   "unityBuild": "pass",
-  "buildLog": "tmp/plan11-7-build-player-fix.log",
+  "buildLog": "tmp/plan11-7-combat-build-release.log",
   "player": "game/Builds/plan11-7/newASTER.exe",
   "captureCount": 14,
   "resolutions": [
@@ -83,7 +83,40 @@
     }
   ],
   "pending": [
-    "13 job masteries, fixed second traits, rank tables, battle effect integration",
-    "Physical mouse/keyboard end-to-end operation"
-  ]
+    "Final numerical balance tuning",
+    "Physical mouse/keyboard end-to-end operation",
+    "Additional heroine-specific dialogue and presentation assets"
+  ],
+  "combatDefinitions": 30,
+  "combatForms": 15,
+  "combatJobs": 13,
+  "combatCaptureCount": 6,
+  "combatCaptures": [
+    {
+      "file": "tmp/plan11-7-combat-captures/job-general.png",
+      "bytes": 1760910
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/job-healer.png",
+      "bytes": 1797708
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/job-panzer.png",
+      "bytes": 1776963
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait-rank5.png",
+      "bytes": 3131084
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait-second.png",
+      "bytes": 1517000
+    },
+    {
+      "file": "tmp/plan11-7-combat-captures/trait.png",
+      "bytes": 1518720
+    }
+  ],
+  "combatCaptureErrors": 0,
+  "combatCaptureReview": "Viewed all six rendered screens; eight trait icons and Rank 1 / Rank 5 descriptions visible"
 }

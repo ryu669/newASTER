@@ -15,6 +15,7 @@ $lines+=$sources | ForEach-Object {'"'+$_.FullName+'"'}
 $lines+='"'+(Join-Path $PSScriptRoot 'AutomaticChainTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'HeroineAbilityTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'InteractionTraitTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'CombatTraitTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'DailyInteractionTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalProgressionTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'FormalKinderTests.cs')+'"'

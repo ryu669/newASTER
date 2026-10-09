@@ -37,9 +37,9 @@ namespace NewAster.Core
         public string TraitId { get; }
         private readonly string[] visibleTraitIds;
         public bool HasVisibleTrait(string id) => id!=null && visibleTraitIds.Contains(id);
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent+RelicAttackPercent+OopartStatPercent("attack")))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+TraitAttackPercent+GeneralAttackPercent+RelicAttackPercent+OopartStatPercent("attack")))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
-        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent+RelicSpeedPercent+OopartStatPercent("speed"))/100*(Status.Active("frostbite")?80:100)/100);
+        public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TraitSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent+RelicSpeedPercent+OopartStatPercent("speed"))/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; internal set; }
 
@@ -63,7 +63,7 @@ namespace NewAster.Core
         }
 
         private int permanentResourceRemainder; public int PermanentGaugePercent,PermanentRegenPercent,PermanentReductionPercent,PermanentDamagePercent;
-        public void GainResource(int amount) {if(ResourceGainBlocked?.Invoke()==true)return;long bonus=(long)Math.Max(0,amount)*PermanentGaugePercent+permanentResourceRemainder;permanentResourceRemainder=(int)(bonus%100);JobResource=(int)Math.Min(JobResourceMax,bonus/100+(long)JobResource+Math.Max(0,amount)*(100L+(OopartValue?.Invoke("gauge")??0))/100);}
+        public void GainResource(int amount) {if(ResourceGainBlocked?.Invoke()==true)return;if(amount>0 && TraitEffect("extra-resource-bp")>0 && TraitDraw!=null && TraitDraw(10000)<TraitEffect("extra-resource-bp"))amount++;long bonus=(long)Math.Max(0,amount)*PermanentGaugePercent+permanentResourceRemainder;permanentResourceRemainder=(int)(bonus%100);JobResource=(int)Math.Min(JobResourceMax,bonus/100+(long)JobResource+Math.Max(0,amount)*(100L+(OopartValue?.Invoke("gauge")??0))/100);}
         public bool SpendResource(int amount)
         {
             if (amount < 0 || JobResource < amount) return false;

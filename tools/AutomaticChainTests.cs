@@ -12,6 +12,7 @@ public static class AutomaticChainTests
     public static void Main(string[] args)
     {
         InteractionTraitTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
+        CombatTraitTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         DailyInteractionTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         Plan15BookTests.Run(Check);
         Plan16EconomyTests.Run(Check);

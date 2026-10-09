@@ -57,7 +57,18 @@ namespace NewAster.Core
         }
         private void UpdateJobStatsIfAvailable(int actor){if(UsesJobRulesV2)UpdateJobStats(actor);}
         private EnemyStatusDef[] OopartStatuses(int actor,int slot,EnemyStatusDef[] effects)=>(effects??Array.Empty<EnemyStatusDef>()).Select(s=>new EnemyStatusDef{kind=s.kind,amount=Math.Min(1000,s.amount+OopartBonus(actor,"status",s.kind,slot))}).ToArray();
-        private bool ApplySourceBuffs(int source,int target,string id,TimedSelfEffectDef[] effects)=>State.Heroes[target].OopartClock==null?State.Heroes[target].ApplySelfEffects(effects):State.Heroes[target].ApplyOopartBuffs(effects,State.Heroes[source].Id,id,OopartBonus(source,"buff-power"));
-        private bool JobEmpowered(int actor)=>UsesOoparts?State.Heroes[actor].OopartBuffs.Any(b=>b.kind=="job.empowered"):jobStates[actor].Empowered(Clock);
+        private bool ApplySourceBuffs(int source,int target,string id,TimedSelfEffectDef[] effects)
+        {
+            int slot=Enumerable.Range(0,3).Where(s=>commandDefinitions[source,s].id==id).DefaultIfEmpty(-1).First();
+            int boost=State.Heroes[source].TraitEffect("own-support")+(slot>=0 && SkillResourceCost(source,slot)>0?State.Heroes[source].TraitEffect("resource-buff"):0);
+            TimedSelfEffectDef.ValidateAll(effects);
+            if(State.Heroes[target].OopartClock!=null){
+                bool applied=false;
+                foreach(var e in effects)applied=State.Heroes[target].ApplyOopartBuffs(new[]{e},State.Heroes[source].Id,id,OopartBonus(source,"buff-power",slot:slot)+(e.kind=="attack-reduction" || e.kind=="forced-target"?0:boost)) || applied;
+                return applied;
+            }
+            return State.Heroes[target].ApplySelfEffects(effects.Select(e=>new TimedSelfEffectDef{kind=e.kind,percent=e.kind=="attack-reduction" || e.kind=="forced-target"?e.percent:Math.Min(e.kind=="critical" || e.kind=="physical-protection"?100:1000,e.percent*(100+boost)/100),turns=e.turns}).ToArray());
+        }
+        private bool JobEmpowered(int actor)=>Job(actor,"general") && activeGeneral?.enhancedSlots?.Length==5?jobStates[actor].Empowered(Clock):UsesOoparts?State.Heroes[actor].OopartBuffs.Any(b=>b.kind=="job.empowered"):jobStates[actor].Empowered(Clock);
     }
 }

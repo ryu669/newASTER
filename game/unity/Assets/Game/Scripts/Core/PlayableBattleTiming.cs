@@ -57,7 +57,7 @@ namespace NewAster.Core
         }
         public long RecoveryDelay(int actor,int slot) => Math.Max(0,BaseRecoveryDelay(actor,slot)-OopartBonus(actor,"wt",IsAttackSkill(actor,slot)?"attack":"skill",slot));
         private long BaseRecoveryDelay(int actor,int slot) => Job(actor,"chaser")?ChaserDelay(SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent),ChaserSelectedRecovery(actor)):SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Timing(actor,slot).RecoveryPercent);
-        public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Math.Max(0,Timing(actor,slot).CastPercent*(100-OopartBonus(actor,"cast-percent",slot:slot))/100));
+        public long CastDelay(int actor,int slot) => SkillTimingDefinition.Delay(State.Heroes[actor].Speed,Math.Max(0,Timing(actor,slot).CastPercent*(100-OopartBonus(actor,"cast-percent",slot:slot)-State.Heroes[actor].TraitEffect("cast-reduction"))/100));
         public bool IsCasting(int actor) => actor>=0 && actor<5 && casting[actor]!=null;
         public long NextAt(int actor) => readyAt[actor];
         public string TimingDescription(int actor,int slot)

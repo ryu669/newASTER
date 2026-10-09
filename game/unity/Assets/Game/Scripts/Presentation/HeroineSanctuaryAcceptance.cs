@@ -15,6 +15,7 @@ namespace NewAster.Presentation
             acceptanceStore=new FormalCampaignStore(Path.Combine(Path.GetDirectoryName(capturePath),"heroine-"+Guid.NewGuid().ToString("N")+".json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
             var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
             save.growth.nectar=20000;save.collection.materials=HomeData().materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray();
+            if(view=="trait-rank5")foreach(var h in save.growth.heroines)h.duplicateRank=4;
             if(view=="skillmax" || view=="tree-grown")foreach(var h in save.growth.heroines)h.skillLevels=new[]{7,7,7};
             if(view=="tree-grown") {save.home.weaponNodeIds=HomeData().weaponNodes.Select(n=>n.id).ToArray();save.home.weaponLevels=HomeData().weaponNodes.Select(n=>new HomeWeaponLevel{nodeId=n.id,level=7}).ToArray();save.home.weaponEquipment=new[]{new HomeWeaponEquipment{heroineId=id,nodeId=id+".weapon.alpha.tier4"}};}
             if(view=="formation-battle")save.home.formationIds=combatDefinitions.FormationIds.Reverse().ToArray();
@@ -25,7 +26,7 @@ namespace NewAster.Presentation
             else if(view=="formation" || view=="formation-confirm" || view=="formation-swapped" || view=="formation-pending"){formationOpen=true;formationSlot=0;if(view=="formation-confirm" || view=="formation-pending")ProposeHome(new HomeOperation("formation",combatDefinitions.FormationIds[1],"0"));if(view=="formation-pending"){AcceptanceCheck(formalCampaign.CommitHomeOperation(homeRequest,HomeData(),homeOperation,s=>false)==GrowthCommitResult.SaveFailed,"formation save failure leaves current party active");homeError="保存できませんでした。編成は変更していません。";}if(view=="formation-swapped"){ProposeHome(new HomeOperation("formation",combatDefinitions.FormationIds[1],"0"));ConfirmHome();}}
             else if(view=="materials"){collectionOpen=true;collectionTab=2;}
             else if(view=="empty")heroineQuery="該当なし";
-            else if(view=="trait")selectedTrait=0;
+            else if(view=="trait" || view=="trait-second" || view=="trait-rank5")selectedTrait=view=="trait-second"?1:0;
             else if(view=="skill" || view=="skillmax" || view=="skill-pending")growthScreen=GrowthScreen.Skill;
             else if(view.StartsWith("tree")){growthScreen=GrowthScreen.Weapons;if(view=="tree-alpha" || view=="tree-beta" || view=="tree-gamma")selectedNode=id+".weapon."+view.Substring(5)+".tier4";}
             else if(view.StartsWith("train")){PrepareKinderCapture(args.Concat(new[]{"-captureKinderResult"}).ToArray());kinderScreen=KinderScreen.Revealing;kinderTrainCapture=view=="train-arrival"?.8f:view=="train-doors"?2.15f:4.5f;}
