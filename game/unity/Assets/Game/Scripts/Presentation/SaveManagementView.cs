@@ -19,6 +19,12 @@ namespace NewAster.Presentation
         private float settingsSaveDue;
         private bool settingsSaveDirty;
         private double nextSaveRetry;
+        private void BackSaveManagement()
+        {
+            if(deleteChoice!=null){if(deleteChoice.Stage==2)saveSlots.BackDeleteConfirmation(deleteChoice);else deleteChoice=null;}
+            else if(restoreChoice!=null)restoreChoice=null;
+            else saveManagementOpen=false;
+        }
         private void InitializeSaveSlots(string basePath,int generation)
         {
             var validation=new SaveValidationService(generation,Application.version,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,s=>JsonUtility.ToJson(s,true),s=>JsonUtility.FromJson<GameSave>(s),ValidateSlotContent);

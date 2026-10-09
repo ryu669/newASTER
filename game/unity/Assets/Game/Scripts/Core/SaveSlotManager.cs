@@ -113,6 +113,8 @@ namespace NewAster.Core
         {string file=Path.Combine(Transactions.SlotPath(slot),"current");SaveTransactionService.CheckLinks(file);return File.Exists(file)?File.ReadAllText(file):null;}
         public void ConfirmDelete(SaveDeleteConfirmation ticket)
         {if(ticket==null || ticket.Owner!=owner || ticket.Stage!=1)throw new ArgumentException("First delete confirmation is required.");ticket.Stage=2;}
+        public void BackDeleteConfirmation(SaveDeleteConfirmation ticket)
+        {if(ticket==null || ticket.Owner!=owner || ticket.Stage!=2)throw new ArgumentException("Final delete confirmation is required.");ticket.Stage=1;}
         public void DeleteConfirmed(SaveDeleteConfirmation ticket)
         {
             if(ticket==null || ticket.Owner!=owner || ticket.Stage!=2)throw new ArgumentException("Two delete confirmations are required.");

@@ -54,6 +54,11 @@ public static class SaveSlotTests
         m.RestoreConfirmed(m.Inspect(1,1),now);check(m.Inspect(1).Status==SaveSlotStatus.Ready && File.Exists(Path.Combine(Path.GetDirectoryName(Latest(m,1)),"preserved-corrupt.json")),"SV-05 corrupt main restored with original bytes retained");
         File.WriteAllText(Latest(m,1),"{");check(m.Inspect(1).Status==SaveSlotStatus.Corrupt,"SV-10 malformed JSON safely rejected");m.RestoreConfirmed(m.Inspect(1,1),now);
         string other=Fingerprint(m,2);var ticket=m.RequestDelete(1);reject(()=>m.DeleteConfirmed(ticket),"SV-07 one confirmation cannot delete");
+        reject(()=>m.BackDeleteConfirmation(ticket),"SV-07 cannot go back before final confirmation");
+        m.ConfirmDelete(ticket);m.BackDeleteConfirmation(ticket);
+        check(ticket.Stage==1,"SV-07 back returns to first confirmation");
+        reject(()=>m.DeleteConfirmed(ticket),"SV-07 back revokes delete authorization");
+        check(Fingerprint(m,2)==other && m.Inspect(1).Status==SaveSlotStatus.Ready,"SV-07 back preserves both slots");
         m.ConfirmDelete(ticket);m.DeleteConfirmed(ticket);check(m.Inspect(1).Status==SaveSlotStatus.Empty && Fingerprint(m,2)==other,"SV-07 selected tree deleted independently");
         m.Save(1,Fresh(),now);check(m.Inspect(1,1).Status==SaveSlotStatus.Empty,"SV-07 deleted slot reusable without old backups");
         File.WriteAllText(Path.Combine(m.Transactions.SlotPath(1),"current"),"../../outside");check(m.Inspect(1).Status==SaveSlotStatus.Corrupt,"SV-10 unsafe pointer rejected");

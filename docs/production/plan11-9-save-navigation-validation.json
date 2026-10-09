@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-09",
+  "assertions": 12270,
+  "sourceFiles": 258,
+  "physicalInput": false,
+  "performanceRemeasured": false,
+  "checks": [
+    "delete confirmation back revokes authorization",
+    "selection preserved",
+    "both slots preserved when going back",
+    "three save management views at 1920x1080"
+  ],
+  "evidence": [
+    {
+      "path": "tmp/plan11-9/core-navigation.log",
+      "sha256": "6fc72c2374f557eb95198281a701de9940edd6f92d71c6c22690fb7743417adc"
+    },
+    {
+      "path": "tmp/plan11-9/unity-navigation-build.log",
+      "sha256": "368ac34ad625284dfeaedb772e9fbff9112e69e72bba759eca8761dadcd709ee"
+    },
+    {
+      "path": "tmp/plan11-9/ui-navigation.log",
+      "sha256": "15d3ed407c09cd806642b4836221c5ed70b4a8cde69d47a429398ffb5e1702e6"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-main.log",
+      "sha256": "5fcd5fcf5f7b3453519f90be9c1d1cf467e771ccb28146e5c948cdb745b497f5"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-delete-first.log",
+      "sha256": "78bfd68a8ea2c55ed8768b17891b571206728a86b2ce85d5ab25a531ae79ce30"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-delete-second.log",
+      "sha256": "a85de3eac8790c11c937726c8a905e01cdb1538a1aae17778d721b5fdad362f3"
+    },
+    {
+      "path": "game/Builds/plan11-9/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "12a43b2126b303e7cf41c10bdf14b74c10b0f0e38cdb9ca8b82fa51640d0e995"
+    }
+  ]
+}

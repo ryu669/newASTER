@@ -229,7 +229,7 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
-                else if(saveManagementOpen){if(deleteChoice!=null)deleteChoice=null;else if(restoreChoice!=null)restoreChoice=null;else saveManagementOpen=false;}
+                else if(saveManagementOpen)BackSaveManagement();
                 else if(help)help=false;
                 else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
                 else if(CloseAffectionLayer()){}
