@@ -37,12 +37,12 @@ namespace NewAster.Presentation
             bool compose=a.kind=="Furniture" && use!=null && !placement.orientationId.Contains("rotate");
             return new HomeOccupant{heroineId=a.heroineId,gardenId=garden,slotId="slot.idle",x=a.x,y=a.y,actionId=compose?"action."+use.action:action,furnitureInstanceId=compose?placement.instanceId:null};
         }
-        private int lifeSnapshotFrame=-1;
+        private int lifeSnapshotCopies;
         private long lifeSnapshotRevision=-1;
         private FormalCampaignSave lifeSnapshotCached;
         private FormalCampaignSave LifeSnapshot()
         {
-            if(lifeSnapshotCached==null || lifeSnapshotFrame!=Time.frameCount || lifeSnapshotRevision!=formalCampaign.Revision){lifeSnapshotCached=formalCampaign.Snapshot;GardenLifeCatalog.Migrate(lifeSnapshotCached);lifeSnapshotFrame=Time.frameCount;lifeSnapshotRevision=formalCampaign.Revision;}
+            if(lifeSnapshotCached==null || lifeSnapshotRevision!=formalCampaign.Revision){lifeSnapshotCached=formalCampaign.Snapshot;GardenLifeCatalog.Migrate(lifeSnapshotCached);lifeSnapshotRevision=formalCampaign.Revision;lifeSnapshotCopies++;}
             return lifeSnapshotCached;
         }
         private void CommitLife(string kind,string payload,Action<FormalCampaignSave> build,Action after=null,string transactionId=null)

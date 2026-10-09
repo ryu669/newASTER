@@ -54,7 +54,7 @@ namespace NewAster.Presentation
         }
         private void OnDestroy()
         {
-            foreach(var patch in plan9FacePatches.Values){patch.Release();Destroy(patch);}plan9FacePatches.Clear();
+            plan9FacePatches.Clear();
             foreach(var layers in gardenLayers.Values){layers.back.Release();layers.front.Release();Destroy(layers.back);Destroy(layers.front);}gardenLayers.Clear();
         }
         private static GardenArtUse GardenUse(string furnitureId,string heroineId="heroine.slayer")

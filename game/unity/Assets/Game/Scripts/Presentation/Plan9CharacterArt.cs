@@ -16,7 +16,7 @@ namespace NewAster.Presentation
             GUI.DrawTexture(new Rect(40,90,1520,740),texture,ScaleMode.ScaleToFit,false);
             Label(40,845,1520,40,"本文・解放条件・正式採用の審査前",small,Color.white);
         }
-        private readonly System.Collections.Generic.Dictionary<string,RenderTexture> plan9FacePatches=new System.Collections.Generic.Dictionary<string,RenderTexture>();
+        private readonly NewAster.Core.BoundedCache<string,RenderTexture> plan9FacePatches=new NewAster.Core.BoundedCache<string,RenderTexture>(12,released:texture=>UnityEngine.Object.Destroy(texture));
         private static readonly Rect IconoclastFace=new Rect(466f/1024,280f/1536,110f/1024,83f/1536);
         private void DrawPlan9CharacterArt()
         {
@@ -58,10 +58,10 @@ namespace NewAster.Presentation
                         var shader=Resources.Load<Shader>("Shaders/FacePatch");
                         if(shader==null)throw new InvalidOperationException("Face patch shader missing");
                         var material=new Material(shader);material.SetVector("_SourceRegion",new Vector4(sourceRegion.x,1-sourceRegion.y-sourceRegion.height,sourceRegion.width,sourceRegion.height));
-                        texture=new RenderTexture(256,256,0,RenderTextureFormat.ARGB32){filterMode=FilterMode.Bilinear};texture.Create();
+                        texture=new RenderTexture(256,256,0,RenderTextureFormat.ARGB32){filterMode=FilterMode.Bilinear,name="heroine-face-patch/"+key};texture.Create();
                         var previous=RenderTexture.active;
                         try{Graphics.Blit(source,texture,material);}finally{RenderTexture.active=previous;Destroy(material);}
-                        plan9FacePatches.Add(key,texture);
+                        plan9FacePatches[key]=texture;
                     }
                     GUI.DrawTexture(patch,texture,ScaleMode.StretchToFill,true);
                 }

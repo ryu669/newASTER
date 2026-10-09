@@ -28,6 +28,11 @@ internal static class Plan119QualityTests
         var retained=new object();cache["keep"]=retained;
         for(int i=0;i<320;i++){cache["form."+i]=new object();check(cache.TryGetValue("keep",out var value) && ReferenceEquals(value,retained),"11-9E recent image stays available");}
         check(cache.Count==24 && evictions==297 && !cache.TryGetValue("form.0",out _),"11-9E cache remains bounded across 320 forms");
+        var released=new System.Collections.Generic.List<object>();var owned=new BoundedCache<string,object>(2,released:released.Add);
+        var a=new object();var b=new object();var replacement=new object();var c=new object();
+        owned["a"]=a;owned["b"]=b;owned["a"]=a;check(released.Count==0,"11-9E same owned texture is not released when refreshed");
+        owned["a"]=replacement;owned["c"]=c;check(released.SequenceEqual(new[]{a,b}),"11-9E replaced and evicted render targets release their owned allocation");
+        owned.Clear();owned.Clear();check(released.Count==4 && released.Distinct().Count()==4,"11-9E closing the view releases each remaining render target once");
         string[] jobs=combat.heroines.Select(h=>h.jobId).Distinct().ToArray();
         var entries=Enumerable.Range(0,320).Select(i=>new HeroineRosterEntry{id="heroine.load."+i.ToString("D3"),name="Load heroine "+i,jobId=jobs[i%jobs.Length],stage="available",originalStats=true,originalSkills=true}).ToArray();
         var timer=Stopwatch.StartNew();var roster=new HeroineRoster(entries,jobs,jobs);double openMs=timer.Elapsed.TotalMilliseconds;

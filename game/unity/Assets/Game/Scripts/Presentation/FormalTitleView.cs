@@ -5,6 +5,13 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
+        private void OpenFormalBook()
+        {
+            if(saveSlotBlocked || saveSlotDeleted){OpenSaveManagement();return;}
+            BeginQuality119ColdBook();
+            book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
+            title=false;CloseTitlePanel();
+        }
         private string titlePanel;
         private readonly Color titleGold = new Color(.79f, .65f, .37f);
         private readonly Color titleInk = new Color(.035f, .05f, .10f);
@@ -93,8 +100,7 @@ namespace NewAster.Presentation
             Label(105, 404, 600, 72, "失われた世界の記憶が、\nあなたの開く一頁から芽吹く。", titleSubtitle, Color.white);
             if (TitleButton(140, 510, 530, 68, "万物の書をひらく", BookInputAllowed))
             {
-                if(saveSlotBlocked || saveSlotDeleted){OpenSaveManagement();return;}
-                book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview; title = false; CloseTitlePanel();
+                OpenFormalBook();
             }
             if(saveSlots!=null && TitleButton(140,724,530,40,"セーブ管理"))OpenSaveManagement();
             if (TitleButton(140, 594, 255, 50, "設定")) OpenTitlePanel("settings");

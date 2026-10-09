@@ -38,6 +38,7 @@ namespace NewAster.Presentation
         private HeroinePortraitCatalog portraitFraming;
         private HeroinePortraitDef HeroFraming(string id)
         {
+            if(quality119FixtureFraming!=null && quality119FixtureFraming.TryGetValue(id,out var fixture))return fixture;
             if(portraitFraming==null){
                 var source=Resources.Load<TextAsset>("UI/heroine-portrait-framing");
                 if(source==null)throw new InvalidOperationException("Missing heroine portrait framing catalog.");
@@ -53,7 +54,7 @@ namespace NewAster.Presentation
             if(!heroinePortraits.TryGetValue(key,out var texture)){
                 var framing=HeroFraming(id);
                 string path=framing.resourcePath;
-                texture=path==null?null:Resources.Load<Texture2D>(path);
+                texture=quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)?quality119FixtureBundle.LoadAsset<Texture2D>(path):path==null?null:Resources.Load<Texture2D>(path);
                 {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
                 heroinePortraits[key]=texture;
             }

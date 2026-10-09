@@ -8,10 +8,14 @@ namespace NewAster.Presentation
     {
         private AdvSession adv;private FormalHomeRequest advRequest;private HomeReadLine advPendingLine;private int advSavedLines;private bool advBacklog,advHelp;private Vector2 advScroll;private string advError;
         private AudioSource advBgm,advSe;private int advSoundRevision;private bool advAudioPaused;
+        private BoundedCache<string,Texture2D> advImages;
         private Texture2D AdvTexture(string assetId)
         {
             var asset=HomeData().assets.SingleOrDefault(a=>a.id==assetId);
-            return asset!=null && !string.IsNullOrWhiteSpace(asset.resourcePath)?Resources.Load<Texture2D>(asset.resourcePath):null;
+            if(asset==null || string.IsNullOrWhiteSpace(asset.resourcePath))return null;
+            if(advImages==null)advImages=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
+            if(!advImages.TryGetValue(asset.resourcePath,out var texture)){texture=Resources.Load<Texture2D>(asset.resourcePath);advImages[asset.resourcePath]=texture;}
+            return texture;
         }
         private void DrawAdvActor(AdvActorState actor)
         {
