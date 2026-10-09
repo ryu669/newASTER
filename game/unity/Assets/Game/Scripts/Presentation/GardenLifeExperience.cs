@@ -33,7 +33,7 @@ namespace NewAster.Presentation
             var slot=a.slotId==null?null:gardenLifeRuntime.Slots.Single(s=>s.id==a.slotId);
             var placement=slot==null?null:state.furniturePlacements.SingleOrDefault(p=>p.instanceId==slot.ownerId);
             var use=placement==null?null:GardenUse(placement.defId,a.heroineId);
-            string action=a.tag=="sit" || a.tag=="sit_together" || a.tag=="rest" || a.tag=="eat" || a.tag=="drink" || a.tag=="read"?"action.sit":a.tag=="care_plant"?"action.work":a.kind=="Scenery" || a.kind=="Social"?"action.look":null;
+            string action=a.tag=="sit" || a.tag=="sit_together" || a.tag=="rest" || a.tag=="eat" || a.tag=="drink" || a.tag=="read"?"action.sit":a.tag=="care_plant"?"action.work":a.kind=="Scenery" || a.kind=="Social" || a.kind=="DailyInteraction"?"action.look":null;
             bool compose=a.kind=="Furniture" && use!=null && !placement.orientationId.Contains("rotate");
             return new HomeOccupant{heroineId=a.heroineId,gardenId=garden,slotId="slot.idle",x=a.x,y=a.y,actionId=compose?"action."+use.action:action,furnitureInstanceId=compose?placement.instanceId:null};
         }
@@ -64,7 +64,7 @@ namespace NewAster.Presentation
             gardenLifeRuntime=new GardenLifeRuntime(save,HomeData(),id,113711);
             lastLifeGarden=id;string visit=id+"/"+save.gardenLife.Setting(id).visitCounter;
             if(!gardenDiscoveryVisits.TryGetValue(visit,out gardenDiscoveries)){gardenDiscoveries=new GardenLifeDiscoveries(GardenLifeRuntime.StableSeed(113711,id,save.gardenLife.Setting(id).visitCounter));gardenDiscoveryVisits[visit]=gardenDiscoveries;}
-            gardenLifeRuntime.Trigger+=(trigger,context)=>{gardenLifeTriggers.Enqueue(Tuple.Create(trigger,context));PlayLifeSound(trigger,context);};
+            gardenLifeRuntime.Trigger+=(trigger,context)=>{gardenLifeTriggers.Enqueue(Tuple.Create(trigger,context));PlayLifeSound(trigger,context);if(trigger=="social")DailyAutonomousSocial(context);};
             gardenLifeTriggers.Enqueue(Tuple.Create("environment",gardenLifeRuntime.Context()));gardenLifeTriggers.Enqueue(Tuple.Create("terraform",gardenLifeRuntime.Context()));
         }
         private void UpdateGardenLife()
@@ -73,7 +73,7 @@ namespace NewAster.Presentation
             if(capturePath!=null && !gardenLifeCapture)return;
             if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;StopLifeAudio();}gardenViewing=false;return;}
             if(!LifeSnapshot().world.unlockedGardenIds.Contains(book.SubjectId))return;
-            if(affectionInteraction!=null || affectionRequest!=null || affectionPanel || affectionShop || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
+            if(affectionRequest!=null || affectionPanel || affectionShop || dailyDateForm!=null || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(gardenLifeRuntime==null || gardenLifeRuntime.GardenId!=book.SubjectId){
                 string id=book.SubjectId;CommitLife("visit",id,s=>{s.gardenLife.Setting(id).visitCounter=checked(s.gardenLife.Setting(id).visitCounter+1);s.gardenLife.lastGardenId=id;},StartLifeScene);return;
             }
@@ -222,6 +222,7 @@ namespace NewAster.Presentation
             if(Btn(1280,621,268,44,"誓女の詳細")){gardenLifePanel=null;gardenLifeRuntime?.Stop();if(book.RequestSubject(BookBookmark.Heroines,id))bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;}
             var events=ProductionGardenLifeCatalog.GetAvailableGardenEvents(save,HomeData(),id);if(Btn(998,680,268,42,"一緒に過ごす",agent!=null))BeginPlayerAffection(id,true);if(Btn(1280,680,268,42,"好感度・物語"))OpenAffection(id);
             if(assignment.fixedPose && Btn(998,733,550,42,"固定行動："+GardenLifeCatalog.InteractionName(assignment.interactionTag??"stand"))){string[] tags={"stand","sit","read","look","rest"};assignment.interactionTag=tags[(Array.IndexOf(tags,assignment.interactionTag??"stand")+1)%tags.Length];CommitLife("assignment",JsonUtility.ToJson(assignment),s=>s.gardenLife.assignments=s.gardenLife.assignments.Where(a=>a.heroineId!=id).Concat(new[]{assignment}).ToArray(),StartLifeScene);}
+            if(Btn(998,783,550,42,"デートに誘う ／ 好感度Lv10から",agent!=null && AffectionService.State(save,HomeData(),id).level>=10))dailyDateForm=id;
         }
         private void DrawLifeActivities(FormalCampaignSave save)
         {

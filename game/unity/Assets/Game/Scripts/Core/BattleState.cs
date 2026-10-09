@@ -35,15 +35,19 @@ namespace NewAster.Core
         public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent+RelicDefensePercent+OopartStatPercent("magic-defense"))/100)/(IsPanzer && !ArmorActive?5:1);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
+        private readonly string[] visibleTraitIds;
+        public bool HasVisibleTrait(string id) => id!=null && visibleTraitIds.Contains(id);
         public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+GeneralAttackPercent+RelicAttackPercent+OopartStatPercent("attack")))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
         public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent+RelicSpeedPercent+OopartStatPercent("speed"))/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }
         public int JobResourceMax { get; internal set; }
 
-        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0,EnemyStatusResistanceDef[] statusResistances=null)
+        public BattleHero(string id, int hitPoints, int attack, int jobResourceMax, int speed = 100,int criticalChanceBp=0,int physicalDefense=0,int magicDefense=0,string traitId=null,int weaponCriticalDamageBonus=0,EnemyStatusResistanceDef[] statusResistances=null,string[] visibleTraits=null)
         {
             Status=new EnemyStatusState(statusResistances);TraitId=traitId;WeaponCriticalDamageBonus=weaponCriticalDamageBonus;
+            visibleTraitIds=(visibleTraits??Array.Empty<string>()).Concat(string.IsNullOrEmpty(traitId)?Array.Empty<string>():new[]{traitId}).Distinct(StringComparer.Ordinal).ToArray();
+            if(visibleTraitIds.Length>8 || visibleTraitIds.Any(string.IsNullOrEmpty))throw new ArgumentException("Invalid visible battle traits.");
             if(weaponCriticalDamageBonus<0)throw new ArgumentOutOfRangeException(nameof(weaponCriticalDamageBonus));
             if(hitPoints<=0 || attack<=0 || jobResourceMax<0 || physicalDefense<0 || magicDefense<0) throw new ArgumentOutOfRangeException("Invalid heroine stats.");
             basePhysicalDefense=physicalDefense;baseMagicDefense=magicDefense;

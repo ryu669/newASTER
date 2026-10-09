@@ -38,6 +38,7 @@ namespace NewAster.Presentation {
    else if(view.StartsWith("ability-",StringComparison.Ordinal))PrepareAbilityCapture(view);
    else if(view.StartsWith("formation-ui",StringComparison.Ordinal))PrepareFormationUiCapture(view);
    else if(view.StartsWith("oopart-",StringComparison.Ordinal))PrepareOopartCapture(view);
+   else if(view.StartsWith("daily-",StringComparison.Ordinal))PrepareDailyInteractionCapture(view);
    else if(view.StartsWith("affection-",StringComparison.Ordinal))PrepareAffectionCapture(view);
    else if(view.StartsWith("garden-life",StringComparison.Ordinal))PrepareGardenLifeCapture(view);
    else if(view.StartsWith("garden-",StringComparison.Ordinal)){

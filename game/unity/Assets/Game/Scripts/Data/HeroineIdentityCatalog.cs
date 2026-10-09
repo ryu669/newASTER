@@ -32,6 +32,11 @@ namespace NewAster.Data
             var personal=HeroinePersonalAbility.For(h.id)??throw new ArgumentException("Missing personal trait.");
             string innate=(h.traitHpPercent>0?"最大HP＋"+(FormalGrowthMath.TraitAmount(h.traitHpPercent*100,growth.duplicateRank)/100f).ToString("0.#")+"%。":"")+(h.traitAttackPercent>0?"攻撃＋"+(FormalGrowthMath.TraitAmount(h.traitAttackPercent*100,growth.duplicateRank)/100f).ToString("0.#")+"%。":"");
             var cards=new[]{new HeroineTraitCard{id=h.traitId,name=name,icon=icon,description=innate+"重複強化で効果量が成長します。",active=true},new HeroineTraitCard{id=h.id+".trait.personal",name=personal.Name,icon=personal.Icon,description=personal.Description,active=true},new HeroineTraitCard{id=h.id+".trait.mastery",name=master,icon="crown",description="3スキルすべてLv7で解放："+bonus+"。速度・チェイン率は変わりません。",active=HeroineTraitRules.Mastered(growth)}};
+            InteractionTraitCatalog.Validate(h);
+            cards=System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(cards,System.Linq.Enumerable.Select(h.interactionTraitIds??Array.Empty<string>(),id=>{
+                var def=InteractionTraitCatalog.Get(id);
+                return new HeroineTraitCard{id=id,name=def.displayName,icon="star",description="交流特性。能力効果・重複強化なし。スキルなどの条件に使用します。",active=true};
+            })));
             ValidateTraits(cards);return cards;
         }
     }

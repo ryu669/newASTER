@@ -10,6 +10,8 @@ namespace NewAster.Core
         public int baseRarity;
         public string[] skills;
         public string traitId,weaponTreeId;
+        public string[] interactionTraitIds,profileTraitIds;
+        public string reactionStyleMain,reactionStyleSub;
         public string[] poemChapters,poemLinks,affinityEventIds,loverEventIds;
         public int hpBp,attackBp,defenseBp,speedBp,traitHpPercent,traitAttackPercent;
     }

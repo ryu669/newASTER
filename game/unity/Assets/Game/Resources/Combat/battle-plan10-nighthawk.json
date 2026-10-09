@@ -599,7 +599,9 @@
         "heroine.annihilator-holy.lover.2"
       ],
       "personId": "heroine.annihilator",
-      "variantId": "holy-night"
+      "variantId": "holy-night",
+      "interactionTraitIds": ["taste.flowers","personality.cool","outfit.christmas"],
+      "profileTraitIds": ["hair.black","appearance.horns"]
     },
     {
       "id": "heroine.shell",
@@ -767,7 +769,9 @@
         "heroine.nighthawk.lover.2"
       ],
       "personId": "heroine.nighthawk",
-      "variantId": "normal"
+      "variantId": "normal",
+      "interactionTraitIds": ["taste.books","personality.night"],
+      "profileTraitIds": []
     }
   ],
   "skills": [
