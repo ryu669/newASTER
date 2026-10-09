@@ -5,6 +5,18 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
+        private void BackBookPage()
+        {
+            if(!BookInputAllowed || !FlushSaveChanges())return;
+            if(book.IsTransitioning){book.CompleteTransition();return;}
+            if(!book.GoBack()){ReturnBookToTitle();return;}
+            bookTransitionElapsed=0;
+            formationOpen=book.Bookmark==BookBookmark.Formation;
+            if(formationOpen)formationLayer=0;
+            heroineRosterOpen=book.Bookmark==BookBookmark.Heroines;
+            growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
+            returnToFormationFromWeapon=false;
+        }
         private void HandleEscapeNavigation()
         {
             if(plan7ActiveCombat)return;
@@ -16,6 +28,9 @@ namespace NewAster.Presentation
             else if(saveManagementOpen)BackSaveManagement();
             else if(modelViewer)modelViewer=false;
             else if(help)help=false;
+            else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
+            else if(bookSystemOpen)bookSystemOpen=false;
+            else if(expansionRecruitmentOpen)CloseExpansionRecruitment();
             else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
             else if(CloseAffectionLayer()){}
             else if(CloseOoparts()){}
@@ -26,11 +41,11 @@ namespace NewAster.Presentation
             else if(CloseGardenLifeLayer()){}
             else if(CloseGardenMenuLayer()){}
             else if(recoveryActive){if(recoveryConfirm)recoveryConfirm=false;else{recoveryActive=false;title=true;}}
-            else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
-            else if(bookSystemOpen)bookSystemOpen=false;
             else if(relicRequest!=null || collectionOpen)CollectionBack();
             else if(engagementOpen)EngagementBack();
-            else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
+            else if(book.IsTransitioning && encounter==null && !title)book.CompleteTransition();
+            else if(!title && encounter==null && book.Bookmark==BookBookmark.Formation)BackFormationLayer();
+            else if(!title && encounter==null && (kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
             else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
             else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
             else if(storyText!=null) CloseStory();
@@ -42,8 +57,7 @@ namespace NewAster.Presentation
             else if(title && FormalEntranceVisible)formalEntranceComplete=true;
             else if(title)OpenTitlePanel("exit");
             else if(encounter!=null && result==null) paused=!paused;
-            else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
-            else if(result==null)ReturnBookToTitle();
+            else if(result==null)BackBookPage();
         }
     }
 }

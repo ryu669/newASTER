@@ -43,3 +43,5 @@ plan11-7-validation.json：戦闘・交流特性の検証。
 自動検証は既存validate-automatic-chain.ps1、compile-unity-scripts.ps1、Player検証とHeroinePortraitBuildValidationを再利用する。
 
 2026-10-10追記：しおりの通知件数を除去、システム入口を1つに統一、右上の共通戻るを追加。plan11-9-navigation-chrome-validation.json参照。
+
+2026-10-10 画面遷移監査：加入から一覧へ戻れない問題、編成・召喚の固定戻り先、神器復帰の履歴ループ、演出中の表紙落ち、重ねた画面の戻り順、戦闘ボタンの重なりを修正。10しおり90往復を含む222項目、12,270自動テスト、C#261ソース、Unityビルドが合格。26画面回帰後、最終変更対象7画面と720p2画面を再検証。実操作確認は対象外を継続。plan11-9-navigation-route-audit.txt と navigation-route-validation.json を参照。

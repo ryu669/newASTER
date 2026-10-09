@@ -85,6 +85,8 @@ namespace NewAster.Presentation
         }
         private bool CloseGardenLifeLayer()
         {
+            if(gardenLifeRequest!=null)return true;
+            if(gardenLifeError!=null){gardenLifeError=null;return true;}
             if(gardenLifeRecords){gardenLifeRecords=false;return true;}
             if(book==null || book.Bookmark!=BookBookmark.Gardens || title || encounter!=null)return false;
             if(gardenViewing){gardenViewing=false;return true;}
@@ -93,6 +95,7 @@ namespace NewAster.Presentation
             if(gardenLifeResidentPlace){gardenLifeResidentPlace=false;return true;}
             if(gardenLifeEditPlace){gardenLifeEditPlace=false;return true;}
             if(gardenLifeEditor!=null){gardenDiscardConfirm=true;return true;}
+            if(gardenLifePanel=="催事参加者"){gardenLifePanel="催事";return true;}
             if(gardenLifePanel!=null){gardenLifePanel=null;return true;}return false;
         }
         private void DrawLifeGarden()

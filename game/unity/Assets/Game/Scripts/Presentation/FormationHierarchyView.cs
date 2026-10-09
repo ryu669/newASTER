@@ -11,8 +11,16 @@ namespace NewAster.Presentation
         private const float forty=40;
         private bool returnToFormationFromWeapon;
         private void OpenFormationPage(){RequestBookBookmark(BookBookmark.Formation);}
-        private void BackFormationLayer(){if(formationLayer>0)formationLayer=0;else RequestBookBookmark(BookBookmark.Colossi);}
-        private void ReturnFromFormationWeapon(){growthScreen=GrowthScreen.Overview;if(returnToFormationFromWeapon){returnToFormationFromWeapon=false;book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;formationLayer=1;}}
+        private void BackFormationLayer(){if(formationLayer>0)formationLayer=0;else BackBookPage();}
+        private void ReturnFromFormationWeapon()
+        {
+            if(returnToFormationFromWeapon){
+                BackBookPage();
+                if(book.Bookmark!=BookBookmark.Formation)return;
+                book.CompleteTransition();formationOpen=true;formationLayer=1;
+            }
+            growthScreen=GrowthScreen.Overview;
+        }
         private void OpenFormationHeroReplacement(int slot){formationSlot=slot;formationLayer=2;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;formationPage=0;formationQuery="";formationCandidateHero=CurrentFormation()[slot];}
         private void OpenFormationOopartReplacement(int slot){formationSlot=slot;oopartSlot=slot;formationLayer=3;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;oopartPickerPage=0;oopartPickerQuery="";formationCandidateOopart=OopartSnapshot().collection.ooparts.slots[slot].equippedOopartId;}
         private void DrawHierarchicalFormation()

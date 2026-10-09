@@ -25,7 +25,7 @@ namespace NewAster.Presentation
         {
             if(formalProgression.HasPending)return;
             if(kinderScreen==KinderScreen.Revealing){kinderScreen=KinderScreen.Result;return;}
-            if(kinderScreen==KinderScreen.Entrance){kinderGarden=false;RequestBookBookmark(BookBookmark.Colossi);return;}
+            if(kinderScreen==KinderScreen.Entrance){kinderGarden=false;BackBookPage();return;}
             if(kinderScreen==KinderScreen.Confirmation){kinderRequest=null;kinderScreen=kinderOrigin;return;}
             kinderScreen=KinderScreen.Entrance;kinderRequest=null;kinderReceipt=null;
         }

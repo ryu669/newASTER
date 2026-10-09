@@ -17,6 +17,13 @@ namespace NewAster.Presentation
             int count=UnownedExpansionForms().Length;if(count==0)return;
             if(GrowthButton(975,170,570,48,"新しい天使を迎える ／ "+count+"形態・無償",BookInputAllowed && homeRequest==null && !formalCampaign.HasPending))expansionRecruitmentOpen=true;
         }
+        private void CloseExpansionRecruitment()
+        {
+            // Keep the visible dialog and its retry request while a save is unresolved.
+            if(expansionRecruitRequest!=null)return;
+            expansionRecruitmentOpen=false;
+            expansionRecruitError=null;
+        }
         private GrowthCommitResult RecruitExpansionForm(string id)
         {
             if(!combatDefinitions.HeroineIds.Skip(5).Contains(id) || !combatDefinitions.HeroineIds.Contains(id))throw new ArgumentException("Unknown recruitable form.");
@@ -44,7 +51,7 @@ namespace NewAster.Presentation
             Label(660,619,260,40,(expansionRecruitmentPage+1)+" / "+pages,growthSmallStyle);
             if(GrowthButton(1010,610,260,48,"次の5形態 ›",expansionRecruitmentPage+1<pages && expansionRecruitRequest==null))expansionRecruitmentPage++;
             if(expansionRecruitError!=null)Label(330,665,940,40,expansionRecruitError,growthSmallStyle);
-            if(GrowthButton(970,765,300,48,"一覧へ戻る",expansionRecruitRequest==null,true))expansionRecruitmentOpen=false;
+            if(GrowthButton(970,765,300,48,"一覧へ戻る",expansionRecruitRequest==null,true))CloseExpansionRecruitment();
         }
     }
 }

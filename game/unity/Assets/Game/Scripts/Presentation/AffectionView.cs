@@ -68,6 +68,7 @@ namespace NewAster.Presentation
         {
             if(dailyDateForm!=null){dailyDateForm=null;return true;}
             if(affectionRequest!=null)return true;
+            if(affectionError!=null){affectionError=null;return true;}
             if(affectionInteraction!=null){CancelPlayerAffection();return true;}
             if(affectionConfirm){affectionConfirm=false;return true;}
             if(affectionPanel || affectionShop){affectionPanel=false;affectionShop=false;return true;}return false;
