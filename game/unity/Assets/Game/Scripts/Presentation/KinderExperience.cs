@@ -37,6 +37,7 @@ namespace NewAster.Presentation
         private void DrawKinderExperience()
         {
             GrowthStyles();var state=formalProgression.Snapshot;
+            bool priorEnabled=GUI.enabled;if(expansionRecruitmentOpen)GUI.enabled=false;
             PalaceBackdrop("leaf");GrowthFill(30,103,1540,732,new Color(.16f,.14f,.12f));GrowthFill(38,95,1524,732,new Color(.27f,.23f,.18f));GrowthFrame(46,87,1508,732);
             GrowthLine(555,105,555,800,gold,2);GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);
             if(kinderScreen!=KinderScreen.Entrance && GrowthButton(80,118,180,48,"‹ 戻る",!formalProgression.HasPending))KinderBack();
@@ -49,6 +50,7 @@ namespace NewAster.Presentation
             string[] titles={"誓いの入口","石で誓女を迎える","ポイント交換","専用チケット","提供割合","選択の確認","新しい誓い","誓いが芽吹く"};
             Label(605,204,880,55,titles[(int)kinderScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(kinderScreen==KinderScreen.Entrance){
+                DrawRRecruitment();
                 if(GrowthButton(605,315,885,70,"石を使って誓女を迎える"))kinderScreen=KinderScreen.Draw;
                 if(GrowthButton(605,410,885,70,"100ポイントを専用チケットに交換"))kinderScreen=KinderScreen.Exchange;
                 if(GrowthButton(605,505,885,70,"所持チケットを使う"))kinderScreen=KinderScreen.Tickets;
@@ -105,6 +107,7 @@ namespace NewAster.Presentation
                 Label(605,670,885,40,$"保存済み ／ 石 {state.stones} ／ 共通ポイント {state.kinderPoints}",growthSmallStyle);
                 if(GrowthButton(605,727,885,62,"キンダーガーデンの入口へ",true,true))KinderBack();
             }
+            GUI.enabled=priorEnabled;DrawAnnihilatorRecruitmentDialog();
         }
         private void PrepareKinderCapture(string[] args)
         {

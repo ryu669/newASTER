@@ -310,7 +310,7 @@ namespace NewAster.Presentation
             if(!title && encounter==null && book.Bookmark==BookBookmark.Formation){SanctuaryStyles();DrawFormation();return;}
             if(!title && encounter==null && book.Bookmark==BookBookmark.Items){DrawStandaloneItems();return;}
             if(!title && kinderGarden && formalProgression!=null) { DrawKinderExperience();return; }
-            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && book.HasSubject && formalProgression!=null) { DrawGrowthExperience();return; }
+            if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) { DrawGrowthExperience();return; }
             if(!title && encounter!=null) {
                 DrawBattle(); drawingModal=true;
                 if(help) DrawHelp(); else if(retreat) DrawRetreat(); else if(result!=null) DrawResult();

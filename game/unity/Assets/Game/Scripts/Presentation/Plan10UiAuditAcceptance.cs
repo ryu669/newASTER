@@ -37,6 +37,13 @@ namespace NewAster.Presentation {
    kinderOrigin=KinderScreen.Draw;kinderScreen=KinderScreen.Confirmation;HandleEscapeNavigation();check(kinderScreen==KinderScreen.Draw,"Summoning confirmation returns to selected operation");
    kinderScreen=KinderScreen.Rates;HandleEscapeNavigation();check(kinderScreen==KinderScreen.Entrance && book.Bookmark==BookBookmark.Summoning,"Summoning rates return to entrance");
    HandleEscapeNavigation();check(book.Bookmark==BookBookmark.Heroines && heroineRosterOpen,"Summoning returns to original heroine roster");
+   for(int filter=1;filter<=4;filter++){
+    reset();RequestBookBookmark(BookBookmark.Heroines);book.CompleteTransition();heroineRosterOpen=true;affectionRosterFilter=filter;
+    book.SetResults(BookBookmark.Heroines,formalProgression.Snapshot.heroines.Where(h=>AffectionRosterMatch(h.heroineId)).Select(h=>h.heroineId));
+    check(BookInputAllowed && !expansionRecruitmentOpen,"Interaction filter does not open recruitment or lock input "+filter);
+    HandleEscapeNavigation();book.CompleteTransition();check(book.Bookmark==BookBookmark.Colossi && !title,"Back exits filtered roster including zero matches "+filter);
+   }
+   affectionRosterFilter=0;
    reset();RequestBookBookmark(BookBookmark.Formation);book.CompleteTransition();formationLayer=1;
    returnToFormationFromWeapon=true;formationOpen=false;book.RequestSubject(BookBookmark.Heroines,subject);book.CompleteTransition();growthScreen=GrowthScreen.Weapons;
    HandleEscapeNavigation();check(book.Bookmark==BookBookmark.Formation && formationOpen && formationLayer==1 && !returnToFormationFromWeapon,"Weapon tree returns to member settings");
@@ -100,6 +107,17 @@ namespace NewAster.Presentation {
    PreparePlan10ShangrilaCapture(args.Concat(new[]{"-captureShangrila","-shangrilaView","detail"}).ToArray());
    if(view=="title" || view=="settings" || view=="credits" || view=="title-help"){title=true;if(view!="title")OpenTitlePanel(view=="title-help"?"help":view);}
    else if(view.StartsWith("save-",StringComparison.Ordinal))PrepareSaveManagementCapture(view);
+   else if(view=="roster-filter-empty"){
+    heroineRosterOpen=true;affectionRosterFilter=1;heroineQuery="";
+    AcceptanceCheck(!formalProgression.Snapshot.heroines.Any(h=>AffectionRosterMatch(h.heroineId)),"Lover filter fixture has zero matches");
+   }
+   else if(view=="summoning-debug" || view=="summoning-debug-dialog"){
+    var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.growth.heroines=save.growth.heroines.Where(h=>combatDefinitions.FormationIds.Contains(h.heroineId)).ToArray();save.home=FormalHomeProgress.Empty(HomeData().contentVersion);save.affection=null;HomeConditions.Refresh(save,HomeData());BindFormalCampaign(save);
+    book.ChangeBookmark(BookBookmark.Heroines);book.CompleteTransition();heroineRosterOpen=true;RequestBookBookmark(BookBookmark.Summoning);book.CompleteTransition();
+    expansionRecruitmentOpen=true;HandleEscapeNavigation();AcceptanceCheck(!expansionRecruitmentOpen && book.Bookmark==BookBookmark.Summoning && BookInputAllowed,"Debug recruitment Back restores usable summoning");
+    HandleEscapeNavigation();book.CompleteTransition();AcceptanceCheck(book.Bookmark==BookBookmark.Heroines && heroineRosterOpen,"Debug recruitment does not consume summoning origin history");
+    RequestBookBookmark(BookBookmark.Summoning);book.CompleteTransition();heroineRosterOpen=false;expansionRecruitmentOpen=view.EndsWith("dialog",StringComparison.Ordinal);
+   }
    else if(view=="help")help=true;
    else if(view=="book-summoning" || view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials" || view=="book-hunt" || view=="book-new-world" || view=="book-possible-worlds" || view=="book-system"){
     book.ChangeBookmark(view=="book-summoning"?BookBookmark.Summoning:view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials"?BookBookmark.Items:view=="book-hunt"?BookBookmark.RelicHunt:view=="book-new-world"?BookBookmark.NewWorld:view=="book-possible-worlds"?BookBookmark.PossibleWorlds:BookBookmark.Colossi);
