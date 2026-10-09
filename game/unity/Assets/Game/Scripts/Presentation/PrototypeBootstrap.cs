@@ -213,6 +213,7 @@ namespace NewAster.Presentation
         {
             using var qualityCost=new Quality119CostScope(this,0);
             TryStartQuality119();
+            TryStartEnvironmentAudio119();
             TryOpenQuality119ColdBook();
             UpdateSaveScheduling();
             if(watchModeActive){UpdateWatchMode();UpdateEngagement();return;}
@@ -303,6 +304,7 @@ namespace NewAster.Presentation
                 if(plan10UiCapture && !measureArt)ready=Time.realtimeSinceStartup>=10;
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
                 if(Quality119Capture)ready=quality119Complete;
+                if(Quality119EnvironmentAudioCapture)ready=quality119EnvironmentAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();
             }

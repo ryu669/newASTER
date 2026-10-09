@@ -76,7 +76,7 @@ namespace NewAster.Presentation
         }
         private void OnApplicationFocus(bool focused)
         {if(watchModeActive)return;lastRewardClock=WatchWindowAdapter.RewardClock;TrialObserve("timing",focused?"focus-gained":"focus-lost");if(trialTelemetry!=null && !focused){trialTelemetry.SetInactive(true);trialInactive=true;}artHasFocus=focused;if(!focused){if(encounter!=null)paused=true;if(artSample)artSamplePaused=true;if(adv!=null){adv.Pause();advAudioPaused=true;}
-            artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();}}
+            artBgm?.Pause();artSe?.Pause();advBgm?.Pause();advSe?.Pause();PauseLifeAudio();}}
         private void OpenArtSample()
         {if(!BookInputAllowed)return;artSample=true;artSamplePaused=false;}
         private void PrepareArtSample(string[] args)

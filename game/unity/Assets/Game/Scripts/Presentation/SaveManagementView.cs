@@ -116,7 +116,7 @@ namespace NewAster.Presentation
         private void ResetForSlotLoad(FormalCampaignSave progress)
         {
             affectionInteraction?.Cancel();affectionInteraction=null;dailyDateForm=null;affectionRequest=null;affectionError=null;affectionPanel=affectionShop=affectionConfirm=false;
-            gardenLifeRuntime?.Stop();gardenLifeRuntime=null;if(watchModeActive)ExitWatchMode();
+            StopLifeAudio();gardenLifeRuntime?.Stop();gardenLifeRuntime=null;if(watchModeActive)ExitWatchMode();
             encounter=null;adv=null;result=null;homeRequest=null;homeOperation=null;growthRequest=null;kinderRequest=null;relicRequest=null;terraformRequest=null;gardenLifeRequest=null;placing=false;gardenLifeEditor=null;gardenDiscardConfirm=false;
             gardenLifePanel=null;gardenViewing=gardenLifeRecords=gardenLifeEditPlace=gardenLifeResidentPlace=false;gardenPanel=GardenPanel.None;gardenMenuExpanded=false;
             oopartPanel=false;oopartRequest=null;oopartError=null;exchangeMaterial=exchangeError=null;collectionOpen=formationOpen=kinderGarden=engagementOpen=false;

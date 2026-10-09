@@ -54,6 +54,7 @@ namespace NewAster.Presentation
             // Watch uses the same diagnostic garden and real Windows window lifecycle.
             string hero=gardenLifeRuntime.Agents.First().heroineId;float previousWatchVolume=watchVolume;watchVolume=0;StartWatchMode(hero);
             AcceptanceCheck(watchModeActive,"11-9C watch mode enters");AcceptanceCheck(AudioListener.volume==0,"11-9D watch mute");yield return new WaitForSecondsRealtime(2);
+            OnApplicationFocus(false);SyncLifeAudio();AcceptanceCheck(gardenAmbient!=null && gardenAmbient.Any(a=>a.isPlaying),"11-9D visible watch mode keeps ambience through focus loss");
             frames.Clear();for(int i=0;i<300;i++){yield return null;frames.Add(Time.unscaledDeltaTime);}
             double watchFps=frames.Count/frames.Sum(t=>(double)t);AcceptanceCheck(Application.targetFrameRate==30,"11-9E watch targets 30FPS");
             ExitWatchMode();watchVolume=previousWatchVolume;

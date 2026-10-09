@@ -71,14 +71,15 @@ namespace NewAster.Presentation
         {
             bool visible=formalCampaign!=null && book!=null && !title && encounter==null && adv==null && !modelViewer && !collectionOpen && !engagementOpen && book.Bookmark==BookBookmark.Gardens && !book.IsTransitioning;
             if(capturePath!=null && !gardenLifeCapture)return;
-            if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;StopLifeAudio();}gardenViewing=false;return;}
+            if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;}StopLifeAudio();gardenViewing=false;return;}
             if(!LifeSnapshot().world.unlockedGardenIds.Contains(book.SubjectId))return;
+            if(gardenLifeRuntime?.GardenId==book.SubjectId)SyncLifeAudio();
             if(affectionRequest!=null || affectionPanel || affectionShop || dailyDateForm!=null || gardenLifeEditor!=null || gardenLifeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;
             if(gardenLifeRuntime==null || gardenLifeRuntime.GardenId!=book.SubjectId){
                 string id=book.SubjectId;CommitLife("visit",id,s=>{s.gardenLife.Setting(id).visitCounter=checked(s.gardenLife.Setting(id).visitCounter+1);s.gardenLife.lastGardenId=id;},StartLifeScene);return;
             }
             if(!gardenLifeRuntime.Paused && !help && !bookSystemOpen && Application.isFocused)gardenLifeRuntime.Tick(Time.unscaledDeltaTime);
-            SyncLifeAudio();MeasureLifeAcceptance();
+            MeasureLifeAcceptance();
             if(gardenLifeFinds.Count==0 && gardenLifeTriggers.Count>0){var t=gardenLifeTriggers.Dequeue();foreach(var d in gardenDiscoveries.Evaluate(t.Item1,t.Item2,LifeSnapshot().gardenLife))gardenLifeFinds.Enqueue(Tuple.Create(d,t.Item2));}
             if(gardenLifeFinds.Count>0){var found=gardenLifeFinds.Dequeue();var transaction=new GardenDiscoveryTransaction(Guid.NewGuid().ToString("N"),found.Item1.id,found.Item2);CommitLife("discovery",found.Item1.id+"/"+JsonUtility.ToJson(found.Item2),transaction.Apply,()=>{gardenLifeMessage="生活発見："+found.Item1.name+(found.Item1.recipeId==null?"":" ／ 記念家具のレシピを記録しました。");},transaction.Id);}
         }
