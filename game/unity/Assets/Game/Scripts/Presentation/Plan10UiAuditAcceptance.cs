@@ -26,7 +26,16 @@ namespace NewAster.Presentation {
     var material=save.collection.materials.SingleOrDefault(m=>m.id==resource.id);if(material==null)save.collection.materials=save.collection.materials.Concat(new[]{new CollectionMaterial{id=resource.id,sourceColossusId=resource.ownerId,amount=1}}).ToArray();
     BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();collectionTab=2;ProposeExchange(resource,5);
    }
-   else if(view=="model")modelViewer=true;
+   else if(view=="model"){
+    var bookmark=book.Bookmark;var subject=book.SubjectId;var face=book.Face;var screen=growthScreen;bool roster=heroineRosterOpen;
+    modelViewer=true;HandleEscapeNavigation();
+    AcceptanceCheck(!modelViewer && book.Bookmark==bookmark && book.SubjectId==subject && book.Face==face && growthScreen==screen && heroineRosterOpen==roster,"Full-screen model Escape preserves underlying heroine selection and screen");
+    // A covered help layer must survive the first Escape; the next Escape closes only help.
+    modelViewer=true;help=true;HandleEscapeNavigation();
+    AcceptanceCheck(!modelViewer && help,"Model Escape closes the visible layer before covered help");
+    HandleEscapeNavigation();AcceptanceCheck(!help && growthScreen==screen && heroineRosterOpen==roster,"Next Escape closes help without navigating the heroine page");
+    modelViewer=true;Debug.Log("PLAN119_MODEL_NAVIGATION_PASS selected="+subject+" physicalInput=0");
+   }
    else if(view=="book-colossi" || view=="book-world" || view=="book-stories"){book.ChangeBookmark(view=="book-stories"?BookBookmark.Stories:BookBookmark.Colossi);book.CompleteTransition();if(view=="book-world")book.FlipPage();}
    else if(view.StartsWith("job-",StringComparison.Ordinal)){
     string job="job."+view.Substring(4);var ids=combatDefinitions.FormationIds;string id=combatDefinitions.heroines.First(h=>h.jobId==job).id;int actor=Array.IndexOf(ids,id);if(actor<0){actor=0;ids[0]=id;}

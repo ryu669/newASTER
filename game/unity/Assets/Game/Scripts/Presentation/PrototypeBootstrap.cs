@@ -226,41 +226,7 @@ namespace NewAster.Presentation
             UpdateEngagement();
             if(!plan7FocusStarted && capturePath!=null && Environment.GetCommandLineArgs().Contains("-validatePlan7Focus") && Time.realtimeSinceStartup>1 && Application.isFocused){plan7FocusStarted=true;StartCoroutine(ValidatePlan7Focus());}
             if(capturePath!=null && ProductionStoryActive)TryStartProductionAudioCapture();
-            if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
-                if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
-                else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
-                else if(saveManagementOpen)BackSaveManagement();
-                else if(help)help=false;
-                else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
-                else if(CloseAffectionLayer()){}
-                else if(CloseOoparts()){}
-                else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
-                else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
-                else if(panzerSetupOpen)panzerSetupOpen=false;
-                else if(placing){placing=false;selectedFurniture=null;}
-                else if(CloseGardenLifeLayer()){}
-                else if(CloseGardenMenuLayer()){}
-                else if(recoveryActive)recoveryConfirm=false;
-                else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
-                else if(bookSystemOpen)bookSystemOpen=false;
-                else if(relicRequest!=null || collectionOpen)CollectionBack();
-                else if(engagementOpen)EngagementBack();
-                else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
-                else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
-                else if(modelViewer) modelViewer=false;
-                else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
-                else if(storyText!=null) CloseStory();
-                else if(help) help=false;
-                else if(kinderGarden) kinderGarden=false;
-                else if(retreat) { retreat=false; paused=false; }
-                else if(CloseBattleMenuLayer()){}
-                else if(title && titlePanel!=null)CloseTitlePanel();
-                else if(title && FormalEntranceVisible)formalEntranceComplete=true;
-                else if(title)OpenTitlePanel("exit");
-                else if(encounter!=null && result==null) paused=!paused;
-                else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
-                else if(result==null) help=true;
-            }
+            if(Input.GetKeyDown(KeyCode.Escape))HandleEscapeNavigation();
             bool battleView=encounter!=null;
             bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
             viewCamera.cullingMask=modelViewer?~0:recoveryActive || engagementOpen || battleView || formalHeroView?0:~0;
@@ -479,6 +445,43 @@ namespace NewAster.Presentation
                 : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
             if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
             if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
+        }
+        private void HandleEscapeNavigation()
+        {
+            if(plan7ActiveCombat)return;
+            if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
+            else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+            else if(saveManagementOpen)BackSaveManagement();
+            else if(modelViewer)modelViewer=false;
+            else if(help)help=false;
+            else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
+            else if(CloseAffectionLayer()){}
+            else if(CloseOoparts()){}
+            else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
+            else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
+            else if(panzerSetupOpen)panzerSetupOpen=false;
+            else if(placing){placing=false;selectedFurniture=null;}
+            else if(CloseGardenLifeLayer()){}
+            else if(CloseGardenMenuLayer()){}
+            else if(recoveryActive)recoveryConfirm=false;
+            else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
+            else if(bookSystemOpen)bookSystemOpen=false;
+            else if(relicRequest!=null || collectionOpen)CollectionBack();
+            else if(engagementOpen)EngagementBack();
+            else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
+            else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
+            else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
+            else if(storyText!=null) CloseStory();
+            else if(help) help=false;
+            else if(kinderGarden) kinderGarden=false;
+            else if(retreat) { retreat=false; paused=false; }
+            else if(CloseBattleMenuLayer()){}
+            else if(title && titlePanel!=null)CloseTitlePanel();
+            else if(title && FormalEntranceVisible)formalEntranceComplete=true;
+            else if(title)OpenTitlePanel("exit");
+            else if(encounter!=null && result==null) paused=!paused;
+            else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
+            else if(result==null) help=true;
         }
         private void DrawModelViewer()
         {

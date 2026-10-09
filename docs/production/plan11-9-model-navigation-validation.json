@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-09",
+  "assertions": 12270,
+  "sourceFiles": 258,
+  "physicalInput": false,
+  "performanceRemeasured": false,
+  "checks": [
+    "model Escape preserves heroine subject, face, growth screen and roster state",
+    "covered help survives model close and closes on next Escape",
+    "save confirmation navigation through keyboard handler",
+    "model and save/detail UI 1920x1080; model UI 1280x720"
+  ],
+  "evidence": [
+    {
+      "path": "tmp/plan11-9/core-model-navigation.log",
+      "sha256": "a28dcd3d6229255034777969f81806c04500425494181e12d6bc6b17705de367"
+    },
+    {
+      "path": "tmp/plan11-9/unity-model-navigation-build.log",
+      "sha256": "ac4a52b614b61048cdf60319f09c741ceca92d2a360fb37c2f084e5912497a70"
+    },
+    {
+      "path": "tmp/plan11-9/ui-model-navigation.log",
+      "sha256": "b9b13b2f72fa82fb17fe9e99a0f0c06e0a8b553879c3cbbb4452b7c18fe4a61e"
+    },
+    {
+      "path": "tmp/plan11-9/ui-model-navigation-720.log",
+      "sha256": "c62a169e7fccdc0cdb879f3b5ebc547ade1d9c0d7fb7a753457305ee124473db"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-model.log",
+      "sha256": "7d2a677ec8b5bd3008fbe02076c4fc5d0712550b5a1f2da1ddb6aedc8aa1dfd7"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-model.log",
+      "sha256": "393353a4fa4ec55b02183f72093b47fa497125ca1afabedd1ff9d0b12313b00d"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-save-main.log",
+      "sha256": "3b2924f3adbd1632746dc4bcb6fcedcbc422a43ae452a5f4ab442fd1dec4151c"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-detail.log",
+      "sha256": "4447468a74af6171b5d52162942f93a46f50f224fa83250c1c68bd540bb027bb"
+    },
+    {
+      "path": "game/Builds/plan11-9/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "88b8bf7242a0b3c13e26a482794c80eaf6fa363ad03c52d8b852324abc6afd7e"
+    }
+  ]
+}

@@ -18,10 +18,10 @@ namespace NewAster.Presentation
             long before=formalCampaign.Snapshot.revision;restoreChoice=saveSlots.Inspect(1,2);RestoreChosenBackup();
             AcceptanceCheck(formalCampaign.Snapshot.revision<before && saveSlots.Inspect(1,1).Status==SaveSlotStatus.Ready,"SV-18 restore reloads progress and preserves current");
             saveManagementOpen=true;saveSelectedSlot=2;
-            deleteChoice=saveSlots.RequestDelete(2);saveSlots.ConfirmDelete(deleteChoice);BackSaveManagement();
+            deleteChoice=saveSlots.RequestDelete(2);saveSlots.ConfirmDelete(deleteChoice);HandleEscapeNavigation();
             AcceptanceCheck(deleteChoice!=null && deleteChoice.Stage==1 && saveManagementOpen && saveSelectedSlot==2,"SV-18 Escape returns one delete confirmation layer and preserves selection");
-            BackSaveManagement();AcceptanceCheck(deleteChoice==null && saveManagementOpen,"SV-18 Escape from first confirmation returns to slot list");
-            BackSaveManagement();AcceptanceCheck(!saveManagementOpen,"SV-18 Escape from slot list closes management");
+            HandleEscapeNavigation();AcceptanceCheck(deleteChoice==null && saveManagementOpen,"SV-18 Escape from first confirmation returns to slot list");
+            HandleEscapeNavigation();AcceptanceCheck(!saveManagementOpen,"SV-18 Escape from slot list closes management");
             deleteChoice=saveSlots.RequestDelete(2);saveSlots.ConfirmDelete(deleteChoice);DeleteChosenSlot();
             AcceptanceCheck(saveSlots.Inspect(2).Status==SaveSlotStatus.Empty && saveSlots.Inspect(1).Status==SaveSlotStatus.Ready,"SV-18 two-confirmation delete isolates other slot");
             saveSelectedSlot=2;NewGameInSelectedSlot();AcceptanceCheck(saveSlots.Inspect(2).Status==SaveSlotStatus.Ready,"SV-18 deleted slot reusable");
