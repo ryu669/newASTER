@@ -37,10 +37,13 @@ namespace NewAster.Presentation
             var color=selected?new Color(.36f,.26f,.16f):new Color(.13f+.025f*(index%3),.20f,.25f);
             GrowthFill(rect.x,rect.y,rect.width,rect.height-14,color);
             for(int row=0;row<14;row++){float inset=row*rect.width/28;GrowthFill(rect.x+inset,rect.y+rect.height-14+row,rect.width-inset*2,1,color);}
-            DrawBookEmblem(new Rect(rect.center.x-18,5,36,36),index==2?12:index>2?index-1:index);
+            DrawBookEmblem(new Rect(rect.center.x-14,5,28,28),index==2?12:index>2?index-1:index);
             var nameStyle=new GUIStyle(growthTextStyle){fontSize=16,alignment=TextAnchor.MiddleCenter,wordWrap=false};
-            while(nameStyle.fontSize>13 && nameStyle.CalcSize(new GUIContent(RibbonNames[index])).x>rect.width-4)nameStyle.fontSize--;
-            Label(rect.x+2,43,rect.width-4,27,RibbonNames[index],nameStyle,selected?gold:Color.white);
+            string caption=RibbonNames[index]=="レリックハント"?"レリック\nハント":RibbonNames[index];
+            var content=new GUIContent(caption);
+            while(nameStyle.fontSize>12 && (nameStyle.CalcSize(content).x>rect.width-28 || nameStyle.CalcHeight(content,rect.width-28)>40))nameStyle.fontSize--;
+            if(caption.Contains("\n")){nameStyle.fontSize=Math.Min(nameStyle.fontSize,14);Label(rect.x+14,32,rect.width-28,34,caption,nameStyle,selected?gold:Color.white);}
+            else Label(rect.x+14,34,rect.width-28,40,caption,nameStyle,selected?gold:Color.white);
             if(selected)GrowthLine(rect.x+8,rect.y+76,rect.xMax-8,rect.y+76,gold,3);
             bool enabled=BookInputAllowed && !book.IsTransitioning && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen;
             bool prior=GUI.enabled;GUI.enabled=prior&&enabled;

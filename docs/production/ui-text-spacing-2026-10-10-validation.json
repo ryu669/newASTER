@@ -1,0 +1,303 @@
+{
+  "date": "2026-10-10",
+  "automatedUiCaptureConditions": 27,
+  "manualOperationExcluded": true,
+  "checks": {
+    "coreAssertions": 12513,
+    "compiledSources": 258,
+    "unityWindowsBuild": "passed",
+    "packageVersion": "0.9.5-rc.2",
+    "packageFiles": 161,
+    "resourceEntries": 552,
+    "productionModelAssets": 0,
+    "characterPeople": 12,
+    "characterForms": 15,
+    "mainMergeSimulation": "no conflicts at 14a98d6"
+  },
+  "logs": [
+    "tmp/plan11-9/ui-padding-final1080.log",
+    "tmp/plan11-9/ui-padding-720.log",
+    "tmp/plan11-9/ui-padding-large.log",
+    "tmp/plan11-9/ui-padding-jobs.log",
+    "tmp/plan11-9/ui-padding-core.log",
+    "tmp/plan11-9/ui-padding-final-compile.log",
+    "tmp/plan11-9/ui-padding-build5.log"
+  ],
+  "captures": [
+    {
+      "view": "battle-menu-actions",
+      "size": [
+        1920,
+        1080
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1920x1080/ui-battle-menu-actions.png",
+      "sha256": "d1c77d5b2aa1fcbe68cd39c30ca8f4faa7fe60158691724daa05b2b445cc3784"
+    },
+    {
+      "view": "settings",
+      "size": [
+        1920,
+        1080
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1920x1080/ui-settings.png",
+      "sha256": "8b9e4b27997b79abc23f08413dc3d136f432e200a32d839202bec694aa1f81ba"
+    },
+    {
+      "view": "save-management",
+      "size": [
+        1920,
+        1080
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1920x1080/ui-save-management.png",
+      "sha256": "da99784838d85c8a764a8bbf84eb4b4cfc15cc22f0c28bdd4330871eb9ae1a6e"
+    },
+    {
+      "view": "roster",
+      "size": [
+        1920,
+        1080
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1920x1080/ui-roster.png",
+      "sha256": "8be060d1438843eb6c70f6063031fcc5b2a82ff8677df7a0340a63be6a5aa41d"
+    },
+    {
+      "view": "detail",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-detail.png",
+      "sha256": "f637ea805f0abdbdfe55613b06955ede427e252080137128dc0df584718427af"
+    },
+    {
+      "view": "kinder-confirm-ten",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-kinder-confirm-ten.png",
+      "sha256": "b82efcd26b44a0d8f17d8f6235abed3c656d455c8b6b44ac475dee5b3a923b53"
+    },
+    {
+      "view": "roster",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-roster.png",
+      "sha256": "bd34492ca02dbe77f93d1dadd871c3de17b8ef0e1815783850e4752058d817da"
+    },
+    {
+      "view": "tree-grown",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-tree-grown.png",
+      "sha256": "e7f5df8fb658ce4afe2ab155fc8dd4f04c13ef6cb38533bf314292d6d2408533"
+    },
+    {
+      "view": "book-colossi",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-book-colossi.png",
+      "sha256": "689e8b31df24713fe277e6d7ebad34773d2e7339d783b55b3345c9aa6857b04b"
+    },
+    {
+      "view": "affection-unread",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-affection-unread.png",
+      "sha256": "614d83d4eb06196f751052db680b6203af5aed633eb3e04fecea10869f1f5856"
+    },
+    {
+      "view": "detail",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": true,
+      "image": "tmp/plan10-ui/player-1280x720-large/ui-detail.png",
+      "sha256": "c115184d7910853c26d58267ebf93155f64175da158122b60a1073ea19a889d6"
+    },
+    {
+      "view": "roster-filter-job",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": true,
+      "image": "tmp/plan10-ui/player-1280x720-large/ui-roster-filter-job.png",
+      "sha256": "8309c0e3f88abd03e6e8568ea190be50d00a7934794ccb492e1d896b356d6e11"
+    },
+    {
+      "view": "settings",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": true,
+      "image": "tmp/plan10-ui/player-1280x720-large/ui-settings.png",
+      "sha256": "47c38f261e70c4b372a640db276a90f2d20100dd048089dbecca8a12531fa168"
+    },
+    {
+      "view": "kinder-confirm-ten",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": true,
+      "image": "tmp/plan10-ui/player-1280x720-large/ui-kinder-confirm-ten.png",
+      "sha256": "3d29e70d3c43732fce1cc9717e81a3061e67ac7de4fb4ff4647f56d35241cae0"
+    },
+    {
+      "view": "job-fighter",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-fighter.png",
+      "sha256": "96f708986246d3a905013e096618e79345fec49aa39ad147be3081fed081b67b"
+    },
+    {
+      "view": "job-berserker",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-berserker.png",
+      "sha256": "3b22fdc6d0d26fcf5d2f179e3f56458d92a4aef723f289735d6afd373c1391f1"
+    },
+    {
+      "view": "job-defender",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-defender.png",
+      "sha256": "b6394df0acb1b4defd57a2b8cb5101c455523a4407df4015497388d35dcbb94e"
+    },
+    {
+      "view": "job-blaster",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-blaster.png",
+      "sha256": "577fb5fd826f657e42031740ae23696f1d07b14c7e3879e379c77dbb0a2e9c71"
+    },
+    {
+      "view": "job-gunner",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-gunner.png",
+      "sha256": "0abdfbf9718d11ab7d84cb3db1dae57f7b675832af0c94fc11a3686150ca8100"
+    },
+    {
+      "view": "job-artist",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-artist.png",
+      "sha256": "220a10f6ee70a4d839e52dadced0d0a4a266d577862219263c6e8141b67cf3db"
+    },
+    {
+      "view": "job-healer",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-healer.png",
+      "sha256": "08f27b2d52122bd0df15dfbe6f487171a45869c862548eeadbef31955f443a36"
+    },
+    {
+      "view": "job-panzer",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-panzer.png",
+      "sha256": "ef80f270ad921634c04903a22a96ded50286a389d873ba687ab98148d2ff2ad8"
+    },
+    {
+      "view": "job-alchemist",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-alchemist.png",
+      "sha256": "d038c7c3c9e2c15e01a2e157aeb98d09db7ce98538491b37b5d4253e1b5de401"
+    },
+    {
+      "view": "job-chaser",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-chaser.png",
+      "sha256": "89984a06b50bd6c5e826d7ef5e361bbbc56918087379bb4f68e06b1a219c4d22"
+    },
+    {
+      "view": "job-sniper",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-sniper.png",
+      "sha256": "a781a6703cbef3993916f585c0bd4bb4c90c8358888529f770a37d09e659e8d1"
+    },
+    {
+      "view": "job-gambler",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-gambler.png",
+      "sha256": "dd01e3183cb60bc80898b739c742fb1ef11d0738c280f1cd014488f39c079409"
+    },
+    {
+      "view": "job-general",
+      "size": [
+        1280,
+        720
+      ],
+      "largeText": false,
+      "image": "tmp/plan10-ui/player-1280x720/ui-job-general.png",
+      "sha256": "6d0a781a18e9532eddb3a281435711398e362213754692dc3599d74b3f76a331"
+    }
+  ],
+  "limitations": [
+    "Button text is measured during Repaint. Ordinary labels and surrounding layout were visually reviewed on selected captured screens.",
+    "All runtime text and states are not exhaustively inspected.",
+    "Manual operation is excluded by user instruction."
+  ]
+}

@@ -150,10 +150,10 @@ namespace NewAster.Presentation
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
                 DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
-                var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>212)nameStyle.fontSize--;
-                Label(x+134,y+23,212,41,entry.name,nameStyle);
-                Label(x+134,y+75,207,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
-                Label(x+134,y+119,204,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
+                var nameStyle=new GUIStyle(growthTextStyle){fontSize=24};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(entry.name)).x>198)nameStyle.fontSize--;
+                Label(x+134,y+23,198,41,entry.name,nameStyle);
+                Label(x+134,y+75,198,31,HeroineIdentityCatalog.JobName(entry.jobId),growthSmallStyle,gold);
+                Label(x+134,y+119,198,33,"Lv."+h.level+"   ／   ★6",growthSmallStyle);
                 if(hover)GrowthLine(x+124,y+156,x+338,y+156,gold,2);
                 if(ImageUiSkin.Button(rect,"",GUIStyle.none) && BookInputAllowed){if(book.SubjectId!=entry.id)book.RequestSubject(BookBookmark.Heroines,entry.id);heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;bookTransitionElapsed=0;PlayProductionUiSound("決定");}
             }

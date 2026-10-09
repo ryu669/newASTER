@@ -1,0 +1,21 @@
+GitHub未反映差分の確認（2026-10-10）
+
+main：14a98d6。リモート参照を取得し、18作業ブランチをmainと照合した。
+GitHubのPR全16件も取得し、作成・マージの状況を確認した。
+差分の判定はコミットの祖先関係とpatch-idの双方で行う。
+
+PR未作成かつmain未反映
+codex/plan11-7-daily-interactions：2コミット相当。
+codex/plan11-8-save-slots：3コミット相当（11-7を含む）。
+codex/plan11-9-quality：上記と以降の品質改善・UI改善・人物資料を含む。
+
+11-7と11-8の先端は11-9の祖先であり、今回の11-9→mainのPRで全てを含める。
+同じ変更の重複PRは作成しない。今回のPRは作成までとし、マージは行わない。
+
+他の15作業ブランチはmainに未反映のpatch-id差分なし。
+book-ui-and-ooparts、heroine-portrait-framing、plan11-1-terraformingは独立PRの履歴なしだが、差分はmainへ反映済み。
+plan11-2、11-3、11-4、11-5-6のPR #13〜#16はマージ済み。
+過去のplan4〜plan9と要求文書のPRもマージ済み。
+
+この確認はGitHubの保存済みブランチとPRが対象。
+ローカルの未コミット画像メタデータ・Unity設定の既存変更は今回のPRへ混入させない。

@@ -1,4 +1,4 @@
-Plan12 制作引き継ぎ／Plan11-9最終確認一覧
+﻿Plan12 制作引き継ぎ／Plan11-9最終確認一覧
 更新日：2026-10-10
 基準実装：987d875（表示処理・戻る処理のリファクタリングまで）
 状態：制作基盤・自動回帰は整備済み。Plan11-9の最終受入は未完了。
@@ -13,6 +13,9 @@ Plan12 制作引き継ぎ／Plan11-9最終確認一覧
 ファイターのBOOST球とアナイアレイター固有のチャージを混同しない。
 
 参照する既存資料
+../characters/README.md：実装済み12人物・15形態の概要・性格・口調・葛藤・収録章と交流ID。
+../characters/video-decisions-2026-10-10.md：指定動画の人物像と本作採用設定の照合。
+../../tools/validate-character-docs.py：人物資料の全形態網羅・本文参照・リンク検証。
 heroine-addition-guide.md：人物・形態・画像・物語・検証の制作手順。
 plan11-9-quality-validation.json：15形態のデータ整合、画像・音声・性能の結果と限界。
 plan11-9-refactoring-validation.json：変更前後12,270項目、主要27画面（13ジョブを含む）、4品質検証。

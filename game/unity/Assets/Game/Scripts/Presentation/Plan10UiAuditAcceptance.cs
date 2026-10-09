@@ -101,7 +101,7 @@ namespace NewAster.Presentation {
   }
   private void PreparePlan10UiAuditCapture(string[] args){
    if(!args.Contains("-capturePlan10Ui") || capturePath==null)return;
-   plan10UiCapture=!args.Contains("-plan9ManualSmoke");
+   plan10UiCapture=!args.Contains("-plan9ManualSmoke");ImageUiSkin.ValidateTextBounds=plan10UiCapture;
    int at=Array.IndexOf(args,"-uiView");string view=at>=0?args[at+1]:"title";
    PreparePlan10ShangrilaCapture(args.Concat(new[]{"-captureShangrila","-shangrilaView","detail"}).ToArray());
    if(view=="title" || view=="settings" || view=="credits" || view=="title-help"){title=true;if(view!="title")OpenTitlePanel(view=="title-help"?"help":view);}
