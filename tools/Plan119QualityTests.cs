@@ -33,6 +33,11 @@ internal static class Plan119QualityTests
         owned["a"]=a;owned["b"]=b;owned["a"]=a;check(released.Count==0,"11-9E same owned texture is not released when refreshed");
         owned["a"]=replacement;owned["c"]=c;check(released.SequenceEqual(new[]{a,b}),"11-9E replaced and evicted render targets release their owned allocation");
         owned.Clear();owned.Clear();check(released.Count==4 && released.Distinct().Count()==4,"11-9E closing the view releases each remaining render target once");
+        float[][] maskPolygons={new[]{-.2f,.1f,.8f,.1f,.8f,.8f,.4f,.45f,-.2f,.9f},new[]{.5f,.4f,1.2f,.4f,1.2f,1.2f,.5f,1.2f}};
+        bool ReferenceMask(double x,double y){foreach(var polygon in maskPolygons){bool inside=false;for(int i=0,j=polygon.Length-2;i<polygon.Length;j=i,i+=2){double ax=polygon[i],ay=polygon[i+1],bx=polygon[j],by=polygon[j+1];if((ay>y)!=(by>y) && x<(bx-ax)*(y-ay)/(by-ay)+ax)inside=!inside;}if(inside)return true;}return false;}
+        foreach(var size in new[]{new[]{1,1},new[]{7,11},new[]{64,32}}){var alpha=PolygonAlphaMask.Rasterize(size[0],size[1],maskPolygons);check(Enumerable.Range(0,alpha.Length).All(i=>(alpha[i]==255)==ReferenceMask((i%size[0]+.5)/size[0],1-(i/size[0]+.5)/size[1])),"11-9D scanline mask matches pixel-centre reference for concave, overlapping, clipped polygons");}
+        check(PolygonAlphaMask.Rasterize(3,2,Array.Empty<float[]>()).All(value=>value==0),"11-9D empty mask stays transparent");
+        var maskClock=Stopwatch.StartNew();var fullMask=PolygonAlphaMask.Rasterize(1536,1024,maskPolygons);maskClock.Stop();check(fullMask.Length==1536*1024,"11-9D full-resolution mask is preserved");Console.WriteLine("PLAN11_9_MASK_MEASUREMENT pixels="+fullMask.Length+" elapsedMs="+maskClock.Elapsed.TotalMilliseconds.ToString("F3"));
         string[] jobs=combat.heroines.Select(h=>h.jobId).Distinct().ToArray();
         var entries=Enumerable.Range(0,320).Select(i=>new HeroineRosterEntry{id="heroine.load."+i.ToString("D3"),name="Load heroine "+i,jobId=jobs[i%jobs.Length],stage="available",originalStats=true,originalSkills=true}).ToArray();
         var timer=Stopwatch.StartNew();var roster=new HeroineRoster(entries,jobs,jobs);double openMs=timer.Elapsed.TotalMilliseconds;

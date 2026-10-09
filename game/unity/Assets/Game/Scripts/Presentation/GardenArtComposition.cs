@@ -28,13 +28,8 @@ namespace NewAster.Presentation
             var result=new Vector2[xy.Length/2];for(int i=0;i<result.Length;i++)result[i]=new Vector2(xy[i*2],xy[i*2+1]);return result;
         }
         private sealed class GardenLayers { public RenderTexture back,front; }
-        private readonly Dictionary<string,GardenLayers> gardenLayers=new Dictionary<string,GardenLayers>();
-        private static bool GardenMaskContains(Vector2 point,Vector2[][] regions)
-        {
-            foreach(var polygon in regions){bool inside=false;for(int i=0,j=polygon.Length-1;i<polygon.Length;j=i++){
-                var a=polygon[i];var b=polygon[j];if((a.y>point.y)!=(b.y>point.y) && point.x<(b.x-a.x)*(point.y-a.y)/(b.y-a.y)+a.x)inside=!inside;
-            }if(inside)return true;}return false;
-        }
+        private readonly BoundedCache<string,GardenLayers> gardenLayers=new BoundedCache<string,GardenLayers>(24,released:ReleaseGardenLayers);
+        private static void ReleaseGardenLayers(GardenLayers layers){if(layers.back!=null){layers.back.Release();Destroy(layers.back);}if(layers.front!=null){layers.front.Release();Destroy(layers.front);}}
         private GardenLayers GardenImageLayers(Texture2D source,Vector2[][] regions,string key)
         {
             if(source==null || regions.Length==0)return null;
@@ -42,20 +37,20 @@ namespace NewAster.Presentation
             if(Event.current.type!=EventType.Repaint)return null;
             var shader=Resources.Load<Shader>("Shaders/GardenRegionMask");if(shader==null || !shader.isSupported)throw new InvalidOperationException("Garden composition shader unavailable.");
             var mask=new Texture2D(source.width,source.height,TextureFormat.Alpha8,false,true){filterMode=FilterMode.Point,wrapMode=TextureWrapMode.Clamp};
-            var pixels=new Color32[source.width*source.height];for(int y=0;y<source.height;y++)for(int x=0;x<source.width;x++)pixels[y*source.width+x]=new Color32(255,255,255,GardenMaskContains(new Vector2((x+.5f)/source.width,1-(y+.5f)/source.height),regions)?(byte)255:(byte)0);
-            mask.SetPixels32(pixels);mask.Apply(false,true);
+            var polygons=regions.Select(region=>region.SelectMany(point=>new[]{point.x,point.y}).ToArray()).ToArray();
+            mask.LoadRawTextureData(PolygonAlphaMask.Rasterize(source.width,source.height,polygons));mask.Apply(false,true);
             var material=new Material(shader);material.SetTexture("_RegionMask",mask);var layers=new GardenLayers();var previous=RenderTexture.active;
             try {
                 layers.back=new RenderTexture(source.width,source.height,0,RenderTextureFormat.ARGB32){filterMode=FilterMode.Bilinear,wrapMode=TextureWrapMode.Clamp};layers.back.Create();
                 layers.front=new RenderTexture(source.width,source.height,0,RenderTextureFormat.ARGB32){filterMode=FilterMode.Bilinear,wrapMode=TextureWrapMode.Clamp};layers.front.Create();
                 material.SetFloat("_Front",0);Graphics.Blit(source,layers.back,material);material.SetFloat("_Front",1);Graphics.Blit(source,layers.front,material);
             } finally {RenderTexture.active=previous;Destroy(material);Destroy(mask);}
-            gardenLayers.Add(key,layers);return layers;
+            gardenLayers[key]=layers;return layers;
         }
         private void OnDestroy()
         {
-            plan9FacePatches.Clear();
-            foreach(var layers in gardenLayers.Values){layers.back.Release();layers.front.Release();Destroy(layers.back);Destroy(layers.front);}gardenLayers.Clear();
+            plan9FacePatches.Clear();if(plan9FaceMaterial!=null)Destroy(plan9FaceMaterial);
+            gardenLayers.Clear();
         }
         private static GardenArtUse GardenUse(string furnitureId,string heroineId="heroine.slayer")
         {

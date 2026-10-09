@@ -52,19 +52,48 @@ namespace NewAster.Presentation
             EnsureHeroineImageCaches();
             string key=id;
             if(!heroinePortraits.TryGetValue(key,out var texture)){
+                double started=quality119Started?MeasurementClock:0;
                 var framing=HeroFraming(id);
                 string path=framing.resourcePath;
                 texture=quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)?quality119FixtureBundle.LoadAsset<Texture2D>(path):path==null?null:Resources.Load<Texture2D>(path);
                 {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
                 heroinePortraits[key]=texture;
+                if(quality119Started)quality119MaxPortraitLoadCpuMs=Math.Max(quality119MaxPortraitLoadCpuMs,(MeasurementClock-started)*1000);
             }
             return texture;
+        }
+        // Spread new visible portraits across frames; cap the queue and drop stale pages.
+        private readonly Dictionary<string,int> heroinePortraitRequests=new Dictionary<string,int>();
+        private bool heroinePortraitWorker;
+        private Texture2D RequestHeroPortrait(string id)
+        {
+            EnsureHeroineImageCaches();
+            if(heroinePortraits.TryGetValue(id,out var texture))return texture;
+            if(heroinePortraitRequests.ContainsKey(id))heroinePortraitRequests[id]=Time.frameCount;
+            else if(heroinePortraitRequests.Count<HeroinePageSize)heroinePortraitRequests.Add(id,Time.frameCount);
+            if(!heroinePortraitWorker && heroinePortraitRequests.Count>0){heroinePortraitWorker=true;StartCoroutine(LoadQueuedHeroPortraits());}
+            return null;
+        }
+        private System.Collections.IEnumerator LoadQueuedHeroPortraits()
+        {
+            try{
+                while(heroinePortraitRequests.Count>0){
+                    yield return null;
+                    double batchStarted=MeasurementClock;
+                    for(int i=0;i<2 && heroinePortraitRequests.Count>0;i++){
+                        var next=heroinePortraitRequests.First();heroinePortraitRequests.Remove(next.Key);
+                        if(Time.frameCount-next.Value<=2)HeroPortrait(next.Key);
+                        // A single resource load is indivisible; stop scheduling more work once over budget.
+                        if((MeasurementClock-batchStarted)*1000>=4)break;
+                    }
+                }
+            }finally{heroinePortraitWorker=false;}
         }
         // Face anchors are authored against the unmodified source PNG, using top-left coordinates.
         // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
         private void DrawHeroPortrait(Rect panel,string id)
         {
-            var texture=HeroPortrait(id);var framing=HeroFraming(id);
+            var texture=RequestHeroPortrait(id);var framing=HeroFraming(id);
             if(texture==null || framing==null){DrawSanctuaryIcon(new Rect(panel.center.x-24,panel.center.y-24,48,48),"star",gold);return;}
             float scale=Mathf.Min(HeroinePortraitCatalog.MaximumDisplayScale,panel.height*portraitFraming.faceHeightRatio/(texture.height*framing.faceHeight));
             float w=texture.width*scale,h=texture.height*scale;

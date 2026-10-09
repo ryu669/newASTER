@@ -39,9 +39,17 @@ def main():
     report['playerMeasurement'] = re.search(r'PLAN11_9_PLAYER_MEASUREMENT ([^\r\n]+)', player)[1]
     report['normalFrameMeasurement'] = re.search(r'PLAN11_9_NORMAL_FRAME_MEASUREMENT ([^\r\n]+)', player)[1]
     report['coldBookFirstRenderedFrameMs'] = float(re.search(r'firstRenderedFrameMs=([\d.]+)', cold)[1])
-    report['coldBookScope'] = 'First title Open Book handler to first frame end; no portraits preloaded. Startup, OS disk-cache control, physical input and GPU fence excluded.'
+    report['coldBookScope'] = 'First title Open Book handler to first fully loaded portrait page frame end; no portraits preloaded. Startup, OS disk-cache control, physical input and GPU fence excluded.'
     report['imageStreaming'] = stress
-    report['imageCacheLimits'] = dict(portrait=24, weaponTree=3, battleLayersPerView=36, sd=48, adv=24, faceRenderTargets=12)
+    report['imageStreaming']['loadingFrameScope'] = 'Unscaled frame intervals observed while the portrait queue is pending; the entry interval can overlap preceding fixture-container opening. Page readiness is measured by a separate stopwatch after container opening.'
+    costs = json.loads(read('normal-frame-costs.json'))
+    frames = costs['frames']
+    report['normalFrameCosts'] = dict(scope=costs['scope'], samples=len(frames), focusedFrames=sum(f['focused'] for f in frames),
+                                      updateMaxMs=max(f['updateMs'] for f in frames), guiMaxMs=max(f['guiMs'] for f in frames),
+                                      saveMaxMs=max(f['saveMs'] for f in frames), gcCollections=sum(f['gcCollections'] for f in frames),
+                                      slowFrames=[f for f in frames if f['frameMs'] > 40])
+    report['gardenMaskMeasurement'] = re.search(r'PLAN11_9_MASK_MEASUREMENT ([^\r\n]+)', core)[1]
+    report['imageCacheLimits'] = dict(portrait=24, weaponTree=3, battleLayersPerView=36, sd=48, adv=24, faceRenderTargets=12, gardenCompositePairs=24, queuedPortraitLoads=12)
     report['processMemory'] = memory
     report['audioWaveforms'] = waveform
     report['audioTransitions'] = 'PASS title / garden / battle / ADV, four UI sounds, focus loss / return, explicit resume, no overlapping legacy ADV BGM, saved progress unchanged (AI visit updates excluded by isolated audio fixture).'
@@ -57,7 +65,7 @@ def main():
     report['remainingIssues'] = [dict(severity='Medium', id='manual-listening', detail='SE and BGM human listening acceptance remains pending.')]
     if stress['maxPageFrameMs'] > 300:
         report['remainingIssues'].append(dict(severity='Medium', id='initial-synthetic-page', measuredMs=stress['maxPageFrameMs'], targetMs=300,
-                                             detail='First synthetic page includes first-use face shader / asset loading. Record separately from warmed page switching; do not count it as meeting the 0.3 s goal.'))
+                                             detail='Complete synthetic page includes queued image loading and first-use face shader work. Record separately from warmed page switching; do not count it as meeting the 0.3 s goal.'))
     if fps < 59:
         report['remainingIssues'].append(dict(severity='Medium', id='diagnostic-normal-fps', measuredFps=fps, targetFps=60,
                                              detail='Isolated garden run includes immediate diagnostic persistence. Production save-slot timing and frame stalls need further profiling; no causal claim from this measurement alone.'))
@@ -72,7 +80,7 @@ def main():
                                              poems=sum(len(c['poems']) for c in chapters), buildValidation='PASS'))
     paths = ['core-streaming-final.log', 'unity-streaming-final-build.log', 'player-streaming.log',
              'cold-book.log', 'audio.log', 'texture-stress.json', 'audio-levels.json', 'process-memory.json',
-             'normal-frame-times-ms.txt', 'ui-streaming-final.log']
+             'normal-frame-times-ms.txt', 'normal-frame-costs.json', 'ui-streaming-final.log']
     for name in paths:
         path = output / name
         report['evidence'][path.relative_to(repo).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()

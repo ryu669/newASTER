@@ -17,6 +17,7 @@ namespace NewAster.Presentation
         private int acceptanceChecks;
         private bool SaveDiagnosticCampaign(FormalCampaignSave next)
         {
+            using var qualityCost=new Quality119CostScope(this,2);
             bool success=!formalVictoryDiagnosticFailure && (acceptanceStore==null || acceptanceStore.Save(next));
             ObserveTrialSave(next,success);return success;
         }

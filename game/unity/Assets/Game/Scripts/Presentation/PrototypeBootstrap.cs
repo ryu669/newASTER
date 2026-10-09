@@ -211,6 +211,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            using var qualityCost=new Quality119CostScope(this,0);
             TryStartQuality119();
             TryOpenQuality119ColdBook();
             UpdateSaveScheduling();
@@ -345,6 +346,7 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            using var qualityCost=new Quality119CostScope(this,1);
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
