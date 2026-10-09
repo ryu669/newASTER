@@ -29,7 +29,7 @@
     },
     {
       "path": "game/story-source/plan9/echidna-events.json",
-      "sha256": "f813db4f3bd08208d87113345434d331020441fb62f95522558a6350da14578d"
+      "sha256": "b8013df2f9ba0f7fef8fb3cc1234061094292240f3687bf37e1eab5fc4b08478"
     },
     {
       "path": "game/story-source/plan9/echidna-later-chapters.json",
@@ -41,11 +41,11 @@
     },
     {
       "path": "game/story-source/plan9/excalipan-events.json",
-      "sha256": "153d84d65a166cb1c7c54c0e424fa459bfbf654ddae032b51a1594575f686e28"
+      "sha256": "f81fd9c40aed7a1f0ee9d4be58bad0aa95c216eb14b351214360627f920d877b"
     },
     {
       "path": "game/story-source/plan9/excalipan-later-chapters.json",
-      "sha256": "0b4a1047eb14730d415ace83c650b7a43350bbddf8a19b1450e817faa0e00893"
+      "sha256": "842d98a170f5492d586f10d1a011d831976edc14c2468f2d877af41bc6a0c074"
     },
     {
       "path": "game/story-source/plan9/final-flame-ice-phoenix.json",
@@ -57,15 +57,15 @@
     },
     {
       "path": "game/story-source/plan9/iconoclast-events.json",
-      "sha256": "b254208a337674e9743172f919dd2ad31ab21b89c13f039f1d1e026986a1ca44"
+      "sha256": "3e248e7fd3b23c9fe986df25822b61e34f27186488e1dea1183f0362757e8a23"
     },
     {
       "path": "game/story-source/plan9/iconoclast-later-chapters.json",
-      "sha256": "9d8e13d383e1ea2c20595a800b143e72217538e0cadfc196b19504edf12d40db"
+      "sha256": "508c5a4d96fcf58ad97ef11f7f1e0d0b0a15718ae031b008809255067dbd771e"
     },
     {
       "path": "game/story-source/plan9/initial-authored-chapters.json",
-      "sha256": "1d0f8f055b0741053a0a419b58daa6070f17d376b18720a1719dae0326a1800b"
+      "sha256": "dfa2d639315a3d9ae008cef61945e6e996c87fcc966327d11a247d27f4f8f733"
     },
     {
       "path": "game/story-source/plan9/memory-crystal-dragon.json",
@@ -93,7 +93,7 @@
     },
     {
       "path": "game/story-source/plan9/slayer-events.json",
-      "sha256": "1d511405ad1be58981d870d65f177f57144142660ac81f81c3567f3fd225aba1"
+      "sha256": "f2008de433899c84459d7d2687490fd591fd1bde86ca2274d12077ed215f980e"
     },
     {
       "path": "game/story-source/plan9/slayer-later-chapters.json",
@@ -101,11 +101,11 @@
     },
     {
       "path": "game/story-source/plan9/undermine-events.json",
-      "sha256": "2c8ab62f99a6348846319f1c3dd5f6cc5d2ce9b801c80ef94c2093fd2a4c37f8"
+      "sha256": "b70dba802ccdf9913446ad3e71b4e46f72634d59afc8046613bb80ec017bb033"
     },
     {
       "path": "game/story-source/plan9/undermine-later-chapters.json",
-      "sha256": "2ff62a374cf30af1cf66efd6dd5af8dc3bb058779856fa16e5b1b9eb421f4832"
+      "sha256": "f8683ed995e1ed0416c83472250693341f907cbecb1a3de4f4cbea7670f140e1"
     },
     {
       "path": "game/story-source/plan9/white-divine-dragon-mother.json",
