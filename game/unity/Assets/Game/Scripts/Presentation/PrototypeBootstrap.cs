@@ -26,12 +26,10 @@ namespace NewAster.Presentation
         private GUIStyle text, heading, small, button, skillButton;
         private Font font;
         private Texture2D paper, dark, teal;
-        private Camera viewCamera;
         private string capturePath;
         private int captureFrame,capturedAtFrame=-1;
         private float capturedAtTime;
         private Vector2 scroll;
-        private VerticalSliceBlockout stage;
         private BattleIllustrationView illustrationView;
         private CombatDefinitionCatalog combatDefinitions;
         private HeroineReferenceCatalog heroineReferences;
@@ -39,9 +37,6 @@ namespace NewAster.Presentation
         private float illustrationElapsed;
         private readonly BattlePlaybackQueue playback=new BattlePlaybackQueue();
         private long shownEvent;
-        private bool slayerReview;
-        private bool modelViewer, portraitFace=true;
-        private float portraitYaw=-20, portraitZoom=1;
         private static readonly string[] Names = { "暁の剣士", "翼の砕き手", "誓いの守護者", "森の歌い手", "星の術師" };
         private static readonly string[] Jobs = { "剣士", "部位破壊", "防御", "回復", "ブラスター検証" };
         private static readonly string[] Furniture = { "根のベンチ", "苔のランタン", "花のテーブル" };
@@ -229,37 +224,13 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape))HandleEscapeNavigation();
             bool battleView=encounter!=null;
             bool formalHeroView=!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null;
-            viewCamera.cullingMask=modelViewer?~0:recoveryActive || engagementOpen || battleView || formalHeroView?0:~0;
-            viewCamera.orthographic=modelViewer;
-            viewCamera.backgroundColor=modelViewer?new Color(.42f,.44f,.48f):new Color(.045f,.10f,.11f);
-            viewCamera.rect=LogicalCameraRect(battleView?new Rect(0f,.22f,.72f,.60f):new Rect(.64f,.27f,.36f,.51f));
-            viewCamera.aspect=Screen.width*viewCamera.rect.width/(Screen.height*viewCamera.rect.height);
-            viewCamera.fieldOfView=battleView?35f:60f;
             bool gardenView=!title && encounter==null && book.Bookmark==BookBookmark.Gardens;
-            viewCamera.transform.position=gardenView?new Vector3(-4,5,-8):battleView?new Vector3(-.5f,4.5f,-10):new Vector3(-1,7,-15);
-            viewCamera.transform.LookAt(gardenView?new Vector3(-3,1,3):new Vector3(-.5f,battleView?2.8f:1.8f,1.2f));
-            if(modelViewer) {
-                var canvas=NewAster.Core.AspectLayout.Contain(0,0,Screen.width,Screen.height,1600,900);
-                var mouse=new Vector2((Input.mousePosition.x-canvas.X)/canvas.Scale,(Screen.height-Input.mousePosition.y-canvas.Y)/canvas.Scale);
-                bool overPortrait=new Rect(0,125,1600,680).Contains(mouse);
-                if(Input.GetMouseButton(0) && overPortrait)portraitYaw+=Input.GetAxis("Mouse X")*4;
-                if(overPortrait)portraitZoom=Mathf.Clamp(portraitZoom-Input.mouseScrollDelta.y*.07f,.65f,1.5f);
-                viewCamera.rect=LogicalCameraRect(new Rect(0,0,1,1));viewCamera.aspect=1600f/900f;
-                var focus=new Vector3(-4.8f,portraitFace?1.49f:1.01f,-1.5f);
-                float angle=portraitYaw*Mathf.Deg2Rad;
-                viewCamera.transform.position=focus+new Vector3(Mathf.Cos(angle)*3,.025f,Mathf.Sin(angle)*3);
-                viewCamera.transform.LookAt(focus); viewCamera.orthographicSize=(portraitFace?.19f:.73f)*portraitZoom;
-            }
+            UpdateSceneCamera(battleView,formalHeroView,gardenView);
             if(stage==null) stage=FindFirstObjectByType<VerticalSliceBlockout>();
             UpdatePlayback();
             UpdatePlan7ActiveCombat();
             UpdateArtAudio();
-            if(stage!=null) stage.Synchronize(gardenView,campaign.Gardens.UnlockedGardenIds.Count>0,campaign.Playable,encounter,target,paused || retreat || help || result!=null,playback.Current);
-            if(stage!=null) stage.SetPortraitView(modelViewer);
-            bool bookPreviewVisible=title || modelViewer || encounter!=null && book.HasSubject && (book.Bookmark==BookBookmark.Colossi && book.SubjectId==WorldCatalog.ColossusIds[0] || book.Bookmark==BookBookmark.Gardens && book.SubjectId=="garden.grassland-forest" && campaign.Gardens.UnlockedGardenIds.Contains(book.SubjectId));
-            if(!bookPreviewVisible)viewCamera.cullingMask=0;
-            if(!modelViewer && !title && encounter==null && book.Bookmark==BookBookmark.Gardens)viewCamera.cullingMask=0;
-            if(stage!=null) stage.gameObject.SetActive(!recoveryActive && !battleView && !formalHeroView && bookPreviewVisible);
+            SynchronizeSceneStage(battleView,formalHeroView,gardenView);
             // Wait for the player splash to finish before capturing. Fast machines
             // can otherwise reach 150 frames and exit before any game UI is visible.
             if(capturePath!=null && !Environment.GetCommandLineArgs().Contains("-plan9ManualSmoke") && Time.realtimeSinceStartup>=8) {
@@ -445,59 +416,6 @@ namespace NewAster.Presentation
                 : $"重複強化 {p.TraitRanks[h]}/{PlayableProgress.MaximumTraitRank} / 重複{p.Duplicates[h]}";
             if(Btn(32,743,448,45,duplicateLabel,p.Duplicates[h]>0)) Mutate(p.StrengthenDuplicate(h),"重複した誓女を強化・変換しました。");
             if(Btn(492,743,448,45,$"汎用強化素材で強化 / 所持{p.OverflowEnhancementMaterials}",p.OverflowEnhancementMaterials>0 && p.TraitRanks[h]<PlayableProgress.MaximumTraitRank)) Mutate(p.UseOverflowEnhancement(h),"汎用素材で誓女を強化しました。");
-        }
-        private void HandleEscapeNavigation()
-        {
-            if(plan7ActiveCombat)return;
-            if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
-            else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
-            else if(saveManagementOpen)BackSaveManagement();
-            else if(modelViewer)modelViewer=false;
-            else if(help)help=false;
-            else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
-            else if(CloseAffectionLayer()){}
-            else if(CloseOoparts()){}
-            else if(terraformRequest!=null){if(!formalCampaign.HasPending){terraformRequest=null;terraformWarning=false;}}
-            else if(homeRequest!=null){if(!formalCampaign.HasPending){homeRequest=null;homeOperation=null;}}
-            else if(panzerSetupOpen)panzerSetupOpen=false;
-            else if(placing){placing=false;selectedFurniture=null;}
-            else if(CloseGardenLifeLayer()){}
-            else if(CloseGardenMenuLayer()){}
-            else if(recoveryActive)recoveryConfirm=false;
-            else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
-            else if(bookSystemOpen)bookSystemOpen=false;
-            else if(relicRequest!=null || collectionOpen)CollectionBack();
-            else if(engagementOpen)EngagementBack();
-            else if((kinderGarden || book.Bookmark==BookBookmark.Summoning) && formalProgression!=null) KinderBack();
-            else if(!title && encounter==null && book.Bookmark==BookBookmark.Heroines && formalProgression!=null) GrowthBack();
-            else if(selectingAlly) { selectingAlly=false; selectedAllies.Clear(); }
-            else if(storyText!=null) CloseStory();
-            else if(help) help=false;
-            else if(kinderGarden) kinderGarden=false;
-            else if(retreat) { retreat=false; paused=false; }
-            else if(CloseBattleMenuLayer()){}
-            else if(title && titlePanel!=null)CloseTitlePanel();
-            else if(title && FormalEntranceVisible)formalEntranceComplete=true;
-            else if(title)OpenTitlePanel("exit");
-            else if(encounter!=null && result==null) paused=!paused;
-            else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
-            else if(result==null) help=true;
-        }
-        private void DrawModelViewer()
-        {
-            Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
-            if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
-            string[] expressions={"Neutral","Smile","Joy","Sad","Angry","Surprise","Talk"};
-            string[] labels={"通常","微笑み","喜び","悲しみ","怒り","驚き","口の動き"};
-            for(int i=0;i<expressions.Length;i++) if(Btn(32+i*117,82,108,36,labels[i]) && stage!=null) stage.SetSlayerExpression(expressions[i]);
-            Panel(20,815,1560,66,dark);
-            if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }
-            if(Btn(187,827,145,42,"顔")) { portraitFace=true; portraitZoom=1; }
-            if(Btn(342,827,145,42,"正面")) portraitYaw=0;
-            if(Btn(497,827,145,42,"斜め")) portraitYaw=-25;
-            if(Btn(652,827,145,42,"横顔")) portraitYaw=90;
-            if(Btn(807,827,210,42,"衣装を替える") && stage!=null) stage.SetSlayerOutfit(stage.SlayerOutfitId=="rose"?"training":"rose");
-            Label(1040,835,500,32,"ドラッグで回転・ホイールで拡大",small,Color.white);
         }
         private void DrawWeaponTree(int hero)
         {
