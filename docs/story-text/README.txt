@@ -1,18 +1,13 @@
-﻿物語制作の人物資料：docs/characters/README.md（実装済み12人物・15形態）。
-性格・口調・概要・関係の段階を確認してから本文を推敲する。
+物語・交流の本文確認用書き出し
 
-2026-10-07 計画10の現行本文は90章630詩・75交流。今回追加した4形態は各3章30表示ページ・18詩・5交流。
-個別原稿：スレイヤー水着の物語.txt、アルケインの物語.txt、アルケイン学園の物語.txt、シャングリラの物語.txt。
-現行収録：game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json。
-初期5人の物語本文.txt／回想本文.txtと以下の原本・生成案内は、計画9の書き出し履歴。
+人物資料：docs/characters/README.md（12人物・15形態）。性格・口調・関係の段階を確認して推敲する。
+現行収録：game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json
+物語本文.txt：90章・630詩。表示ページがある章は全ページを収録。
+回想本文.txt：75交流。個別ファイルは人物・形態別の確認用。
+生成：tools/export-story-text.py。文字コード：UTF-8 BOM付き。
 
-物語・回想の文章推敲用書き出し
-
-物語本文.txt：収録済み60章の導入、詩、詩に対応する本文、結び。
-回想本文.txt：初期5人の25話、各8段落。各話のタイトルとIDを付記。
-
-原本：game/unity/Assets/Game/Resources/Story/plan9-story-content.json
-生成：tools/export-story-text.py
-文字コード：UTF-8 BOM付き（Windowsのテキストエディタ向け）。
-
-文章は現在の収録内容をそのまま書き出しています。このテキストを編集しても、ゲームには自動反映されません。推敲後はIDをもとにgame/story-source/plan9の原稿へ反映し、収録データを再生成します。
+修正元は初期5形態がgame/story-source/plan9の原稿JSON、追加10形態がtools/author-plan10-*-story.pyの本文。
+本文を直接修正し、収録JSONと本書き出しを同期する。書き出しTXTの編集だけではゲームに反映されない。
+主人公の基本呼称は「指揮官」。人物資料に沿った「指揮官さん」「指揮官くん」などを使用する。
+検証：tools/validate-story-character-consistency.py（呼称、ID・解放条件の維持、再生成結果）。
+見直し記録：docs/production/story-character-review-2026-10-10.txt。
