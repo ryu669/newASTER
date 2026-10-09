@@ -289,7 +289,7 @@ namespace NewAster.Presentation
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();RecordQuality119ColdBook();}finally{RecordMeasuredGui(started);}
+            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {

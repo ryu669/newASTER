@@ -53,7 +53,6 @@ namespace NewAster.Presentation
         private void DrawModelViewer()
         {
             Label(32,24,700,45,"スレイヤー  /  人物鑑賞",heading,Color.white);
-            if(Btn(1390,22,180,45,"本へ戻る")) modelViewer=false;
             for(int i=0;i<ModelExpressions.Length;i++) if(Btn(32+i*117,82,108,36,ModelExpressionLabels[i]) && stage!=null) stage.SetSlayerExpression(ModelExpressions[i]);
             Panel(20,815,1560,66,dark);
             if(Btn(32,827,145,42,"全身")) { portraitFace=false; portraitZoom=1; }

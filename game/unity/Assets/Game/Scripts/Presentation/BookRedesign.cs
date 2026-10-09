@@ -30,7 +30,7 @@ namespace NewAster.Presentation
             bool prior=GUI.enabled;GUI.enabled=prior && !help;
             if(GrowthButton(1490,14,64,52,"？",true)){help=true;contextualHelpScroll=Vector2.zero;PlayProductionUiSound("決定");}
             GUI.enabled=prior;
-            if(!help && !bookSystemOpen && book.Bookmark!=BookBookmark.Colossi && book.Bookmark!=BookBookmark.Stories && book.Bookmark!=BookBookmark.RelicHunt && book.Bookmark!=BookBookmark.Gardens && !formationOpen && !(book.Bookmark==BookBookmark.Heroines && (growthScreen==GrowthScreen.Weapons || !heroineRosterOpen && (growthScreen==GrowthScreen.Overview || growthScreen==GrowthScreen.Information)))){if(GrowthButton(1060,842,215,40,"システム",CanOpenBookSystem))bookSystemOpen=true;}
+            if(!help && !bookSystemOpen && !bookSystemButtonDrawn)DrawSingleBookSystemButton(1060,842,215,40,CanOpenBookSystem);
             if(bookSystemOpen)DrawBookSystem();
         }
         private void DrawRibbon(int index,Rect rect,bool selected)
@@ -39,7 +39,6 @@ namespace NewAster.Presentation
             GrowthFill(rect.x,rect.y,rect.width,rect.height-14,color);
             for(int row=0;row<14;row++){float inset=row*rect.width/28;GrowthFill(rect.x+inset,rect.y+rect.height-14+row,rect.width-inset*2,1,color);}
             DrawBookEmblem(new Rect(rect.x+5,8,rect.width-10,rect.width-10),index==2?12:index>2?index-1:index);
-            int count=bookNotices.Count(HomeData().subjects.Where(x=>(x.bookmarkId=="heroines"?BookBookmark.Heroines:x.bookmarkId=="stories"?BookBookmark.Stories:x.bookmarkId=="colossi"?BookBookmark.Colossi:BookBookmark.Gardens)==RibbonOrder[index]).Select(x=>x.subjectId).Concat(RibbonOrder[index]==BookBookmark.Items?new[]{"items.main"}:RibbonOrder[index]==BookBookmark.NewWorld?TerraformRules.DomainIds.Select(id=>"terraform.domain."+id).ToArray():Array.Empty<string>()));if(count>0)Label(rect.x,rect.height-42,rect.width,24,count.ToString(),small,gold);
             if(selected){var verticalStyle=new GUIStyle(growthTitleStyle){fontSize=21,alignment=TextAnchor.MiddleCenter};for(int i=0;i<RibbonNames[index].Length;i++)Label(rect.x,52+i*27,rect.width,27,RibbonNames[index][i].ToString(),verticalStyle,gold);}
             bool enabled=BookInputAllowed && !book.IsTransitioning && !help && !bookSystemOpen && !engagementOpen && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !expansionRecruitmentOpen;
             bool prior=GUI.enabled;GUI.enabled=prior&&enabled;
@@ -55,7 +54,7 @@ namespace NewAster.Presentation
             if(Btn(400,836,190,44,"›",BookInputAllowed && book.CanTurnNext))RequestBookTurn(1);
             if(bookNotices.For(book.SubjectId)!=BookNotice.None)Label(870,840,400,36,"通知："+BookNoticeText(bookNotices.For(book.SubjectId)),small,gold);
             if(Btn(610,836,230,44,book.Face==BookFace.Overview?"詳細":"概要",BookInputAllowed && book.CanFlip))RequestBookFlip();
-            if(Btn(1310,836,245,44,"システム",CanOpenBookSystem))bookSystemOpen=true;
+            DrawSingleBookSystemButton(1310,836,245,44,CanOpenBookSystem);
         }
         private void DrawBookSystem()
         {

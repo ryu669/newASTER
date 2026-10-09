@@ -104,7 +104,7 @@ namespace NewAster.Presentation
                     OpenGardenPanel(new[]{GardenPanel.Furniture,GardenPanel.Residents,GardenPanel.Events,GardenPanel.Navigation}[i]);
                 }
             }
-            if(Btn(1325,835,245,48,"システム",CanOpenBookSystem))bookSystemOpen=true;
+            DrawSingleBookSystemButton(1325,835,245,48,CanOpenBookSystem);
             GUI.enabled=oldEnabled;
             if(homeRequest!=null){GrowthFill(0,0,1600,900,new Color(0,0,0,.5f));drawingModal=true;DrawHomeConfirmation();}
             if(help){drawingModal=true;DrawHelp();}

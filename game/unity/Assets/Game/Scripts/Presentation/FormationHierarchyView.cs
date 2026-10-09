@@ -37,7 +37,7 @@ namespace NewAster.Presentation
                 }
             }
             if(GrowthButton(1115,112,185,46,"編成保存",interactive)){ProposeOopart("preset-save","preset."+(oopartPresetIndex+1));CommitOopart();}
-            if(GrowthButton(1320,112,215,46,"システム",CanOpenBookSystem))bookSystemOpen=true;
+            DrawSingleBookSystemButton(1320,112,215,46,CanOpenBookSystem);
             for(int i=0;i<5;i++){
                 int slot=i;float x=65+i*298;GrowthFrame(x,210,278,520);
                 var portrait=new Rect(x+9,247,260,302);string id=ids[i];

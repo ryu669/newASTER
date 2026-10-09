@@ -8,7 +8,10 @@ namespace NewAster.Presentation
         private void HandleEscapeNavigation()
         {
             if(plan7ActiveCombat)return;
-            if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
+            if(plan9EnemyPreview!=null)plan9EnemyPreview=null;
+            else if(plan9Expression!=null)plan9Expression=null;
+            else if(plan9Cg!=null)plan9Cg=null;
+            else if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
             else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
             else if(saveManagementOpen)BackSaveManagement();
             else if(modelViewer)modelViewer=false;
@@ -22,7 +25,7 @@ namespace NewAster.Presentation
             else if(placing){placing=false;selectedFurniture=null;}
             else if(CloseGardenLifeLayer()){}
             else if(CloseGardenMenuLayer()){}
-            else if(recoveryActive)recoveryConfirm=false;
+            else if(recoveryActive){if(recoveryConfirm)recoveryConfirm=false;else{recoveryActive=false;title=true;}}
             else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
             else if(bookSystemOpen)bookSystemOpen=false;
             else if(relicRequest!=null || collectionOpen)CollectionBack();
@@ -34,12 +37,13 @@ namespace NewAster.Presentation
             else if(kinderGarden) kinderGarden=false;
             else if(retreat) { retreat=false; paused=false; }
             else if(CloseBattleMenuLayer()){}
+            else if(result!=null && formalBattleEndRequest==null && !formalCampaign.HasPending){result=null;encounter=null;}
             else if(title && titlePanel!=null)CloseTitlePanel();
             else if(title && FormalEntranceVisible)formalEntranceComplete=true;
             else if(title)OpenTitlePanel("exit");
             else if(encounter!=null && result==null) paused=!paused;
             else if(result==null && book.GoBack()){bookTransitionElapsed=0;heroineRosterOpen=false;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}
-            else if(result==null) help=true;
+            else if(result==null)ReturnBookToTitle();
         }
     }
 }
