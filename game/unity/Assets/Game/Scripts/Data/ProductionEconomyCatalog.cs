@@ -8,7 +8,7 @@ namespace NewAster.Data
     {
         public const string Version="economy-initial-five-2026-10-05";
         public static FormalKinderBanner Kinder(string[] heroes)=>new FormalKinderBanner{
-            id="kinder.initial-five",contentVersion=FormalKinderBanner.ProductionVersion,status="production-candidate",heroineIds=(string[])heroes.Clone(),
+            id="kinder.all-implemented",contentVersion=FormalKinderBanner.ProductionVersion,status="production-candidate",heroineIds=(string[])heroes.Clone(),
             materials=new[]{new KinderMaterialEntry{kind="nectar",weight=9000,amount=200},new KinderMaterialEntry{kind="crystal",weight=700,amount=2}}};
         public static FormalEngagementRules Engagement()=>new FormalEngagementRules{version=FormalEngagementRules.ProductionVersion,loginStones=300,periodStones=100,periodSeconds=1800};
         public static ColossusCombatDef Enemy(string id)

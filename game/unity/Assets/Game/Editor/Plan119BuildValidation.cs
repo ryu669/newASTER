@@ -16,6 +16,7 @@ public sealed class Plan119BuildValidation:IPreprocessBuildWithReport
         if(Directory.Exists(Plan119LoadFixtureImporter.Root))throw new BuildFailedException("Test image fixtures must be removed before building the product.");
         T Load<T>(string path)=>JsonUtility.FromJson<T>((Resources.Load<TextAsset>(path)??throw new ArgumentException("Missing production catalog: "+path)).text);
         var combat=Load<CombatDefinitionCatalog>("Combat/battle-plan11-7");
+        ProductionEconomyCatalog.Kinder(combat.HeroineIds).Validate(combat.HeroineIds);
         var story=Load<ProductionStoryContent>("Story/plan10-shangrila-story-content");
         var errors=HeroineProductionValidation.Errors(combat,story,Load<HeroinePortraitCatalog>("UI/heroine-portrait-framing"),Load<HeroineWeaponTreeCatalog>("UI/heroine-weapon-trees"));
         if(errors.Length>0)throw new BuildFailedException(string.Join("\n",errors));

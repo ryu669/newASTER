@@ -17,6 +17,12 @@ namespace NewAster.Presentation
         private Texture2D eternalRingArt;
         private void OpenAffection(string form)
         {if(!BookInputAllowed)return;affectionForm=form;affectionPanel=true;affectionShop=false;affectionScroll=Vector2.zero;}
+        private void ReturnAffectionToRoster()
+        {
+            if(book.Bookmark!=BookBookmark.Heroines || affectionRequest!=null || formalCampaign.HasPending || formalProgression.HasPending || affectionInteraction!=null)return;
+            affectionPanel=false;affectionShop=false;affectionConfirm=false;affectionError=null;affectionMessage=null;
+            heroineRosterOpen=true;growthScreen=GrowthScreen.Overview;selectedTrait=-1;
+        }
         private string AffectionSummary(string form)
         {
             if(!formalCampaign.HasAffection)return "好感度・恋愛";
@@ -93,6 +99,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(965,630,350, sixty,"取消"))affectionConfirm=false;return;
             }
             if(GrowthButton(1145,155,170,45,"閉じる")){affectionPanel=false;affectionShop=false;affectionMessage=null;return;}
+            if(book.Bookmark==BookBookmark.Heroines && GrowthButton(285,755,245,40,"‹ 誓女一覧へ",affectionRequest==null && !formalCampaign.HasPending && !formalProgression.HasPending)){ReturnAffectionToRoster();return;}
             if(affectionShop){
                 Label(285,180,810,60,"召喚・交換 ／ 特別交換",growthTitleStyle);DrawEternalRing(new Rect(365,290,230,230));
                 Label(685,295,590,200,"永遠の誓環\n召喚石 10,000個\n所持指輪 "+save.growth.eternalRings+"個 ／ 召喚石 "+save.growth.stones,growthTextStyle);

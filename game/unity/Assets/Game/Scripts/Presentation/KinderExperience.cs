@@ -12,11 +12,11 @@ namespace NewAster.Presentation
         private FormalKinderBanner kinderBanner;
         private GrowthReceipt kinderReceipt;
         private string kinderSaveError;
-        private int kinderSelection,kinderCount=1;
+        private int kinderSelection,kinderCount=1,kinderPage;
         private float kinderRevealStarted;
         private void InitializeKinder()
         {
-            if(ProductionStoryActive){kinderBanner=NewAster.Data.ProductionEconomyCatalog.Kinder(combatDefinitions.FormationIds);kinderBanner.Validate(combatDefinitions.HeroineIds);return;}
+            if(ProductionStoryActive){kinderBanner=NewAster.Data.ProductionEconomyCatalog.Kinder(combatDefinitions.HeroineIds);kinderBanner.Validate(combatDefinitions.HeroineIds);return;}
             var source=Resources.Load<TextAsset>("Economy/kinder-trial");
             if(source==null)throw new ArgumentException("Kinder rules missing.");
             kinderBanner=JsonUtility.FromJson<FormalKinderBanner>(source.text);kinderBanner.Validate(combatDefinitions.HeroineIds);
@@ -45,7 +45,7 @@ namespace NewAster.Presentation
             DrawHeroPortrait(new Rect(130,300,338,285),kinderBanner.heroineIds[Mathf.Clamp(kinderSelection,0,kinderBanner.heroineIds.Length-1)]);
             for(int i=0;i<5;i++){float x=105+i*78;DrawSanctuaryIcon(new Rect(x,671,46,46),i==0?"sword":i==1?"flame":i==2?"leaf":i==3?"star":"moon",gold);}
             Label(160,593,345,74,"新しい誓いが\nここから芽吹く。",growthTextStyle);
-            Label(92,737,420,40,ProductionStoryActive?"初期5人の誓い ／ 育成素材": "育成素材のみの検証用テーブル",growthSmallStyle);
+            Label(92,737,420,40,ProductionStoryActive?$"実装済み全{kinderBanner.heroineIds.Length}形態 ／ 育成素材": "育成素材のみの検証用テーブル",growthSmallStyle);
             string[] titles={"誓いの入口","石で誓女を迎える","ポイント交換","専用チケット","提供割合","選択の確認","新しい誓い","誓いが芽吹く"};
             Label(605,204,880,55,titles[(int)kinderScreen],growthTitleStyle);GrowthLine(605,270,1498,270,gold);
             if(kinderScreen==KinderScreen.Entrance){
@@ -60,25 +60,28 @@ namespace NewAster.Presentation
                 GrowthFill(605,299,885,85,new Color(.12f,.22f,.26f));DrawSanctuaryIcon(new Rect(1406,313,54,54),"star",gold);Label(625,317,770,48,$"所持石  {state.stones}",growthTitleStyle);
                 if(GrowthButton(605,411,427,68,(kinderCount==1?"◆ ":"")+"1回 ／ 300石"))kinderCount=1;
                 if(GrowthButton(1062,411,427,68,(kinderCount==10?"◆ ":"")+"10回 ／ 3000石"))kinderCount=10;
-                Label(605,535,880,100,$"付与ポイント  {kinderCount}\n★6合計3% ／ 対象5人は均等 ／ 10回に確定枠はありません。",growthTextStyle);
+                Label(605,535,880,100,$"付与ポイント  {kinderCount}\n★6 3% ／ 全{kinderBanner.heroineIds.Length}形態・均等",growthTextStyle);
                 Label(605,657,880,38,state.stones>=300*kinderCount?"":"石が不足しています。",growthSmallStyle);
                 if(GrowthButton(605,709,885,62,"費用を確認する",state.stones>=300*kinderCount,true))ConfirmKinder(KinderOperation.StoneDraw,state);
             }else if(kinderScreen==KinderScreen.Exchange || kinderScreen==KinderScreen.Tickets){
                 bool exchange=kinderScreen==KinderScreen.Exchange;
                 Label(605,305,880,50,exchange?$"共通ポイント  {state.kinderPoints} ／ 交換費用100":"使う専用チケットを選んでください",growthTextStyle);
-                for(int i=0;i<5;i++){
+                int pages=(kinderBanner.heroineIds.Length+4)/5;kinderPage=Mathf.Clamp(kinderPage,0,pages-1);
+                for(int i=kinderPage*5;i<Math.Min(kinderBanner.heroineIds.Length,(kinderPage+1)*5);i++){
                     string id=kinderBanner.heroineIds[i];int count=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
                     string name=combatDefinitions.Hero(id).name;
-                    if(GrowthButton(605,373+i*60,885,48,(kinderSelection==i?"◆ ":"")+name+(exchange?"":" ／ 所持 "+count)))kinderSelection=i;
+                    if(GrowthButton(605,359+(i%5)*53,885,48,(kinderSelection==i?"◆ ":"")+name+(exchange?"":" ／ 所持 "+count)))kinderSelection=i;
                 }
+                if(GrowthButton(605,632,250,36,"‹ 前の5形態",kinderPage>0)){kinderPage--;kinderSelection=kinderPage*5;}
+                Label(900,632,280,36,$"{kinderPage+1} / {pages}",growthSmallStyle);
+                if(GrowthButton(1240,632,250,36,"次の5形態 ›",kinderPage+1<pages)){kinderPage++;kinderSelection=kinderPage*5;}
                 string selected=kinderBanner.heroineIds[kinderSelection];int owned=state.tickets.SingleOrDefault(t=>t.heroineId==selected)?.count??0;
-                Label(605,675,885,30,exchange?"交換ではチケットのみを付与。人物はまだ付与しません。":"対象人物100%。石消費・乱数・ポイント付与はありません。",growthSmallStyle);
+                Label(605,675,885,30,combatDefinitions.Hero(selected).name+" ／ 専用チケット "+(exchange?"1枚":owned+"枚"),growthSmallStyle);
                 if(GrowthButton(605,727,885,62,exchange?"交換内容を確認する":"チケット使用を確認する",exchange?state.kinderPoints>=100:owned>0,true))ConfirmKinder(exchange?KinderOperation.Exchange:KinderOperation.TicketDraw,state,selected);
             }else if(kinderScreen==KinderScreen.Rates){
-                Label(605,310,885,84,"★6合計 3% ／ 1人あたり 3÷5 = 0.6%\nカテゴリー当選後に対象5人を均等抽選。",growthTextStyle);
+                Label(605,310,885,84,$"★6合計 3% ／ 1形態あたり {(3m/kinderBanner.heroineIds.Length):0.####}%\nカテゴリー当選後に全{kinderBanner.heroineIds.Length}形態を均等抽選。",growthTextStyle);
                 int total=kinderBanner.materials.Sum(m=>m.weight);
                 for(int i=0;i<kinderBanner.materials.Length;i++){var m=kinderBanner.materials[i];Label(605,430+i*68,885,52,$"{(m.kind=="nectar"?"ネクタル":"覚醒結晶")} {m.amount}個    {(97m*m.weight/total):0.##}%",growthTextStyle);}
-                Label(605,615,885,120,"共通ポイント・チケットは失効なし。\n交換対象は現在の5人。チケット使用ではポイントを付与しません。\nオーパーツは巨神獣討伐のレリックハントで入手できます。",growthSmallStyle);
             }else if(kinderScreen==KinderScreen.Confirmation){
                 string name=kinderRequest.HeroineId==null?"":combatDefinitions.Hero(kinderRequest.HeroineId).name;
                 string description=kinderRequest.Operation==KinderOperation.StoneDraw?$"{kinderRequest.Count}回の抽選\n消費石  {300*kinderRequest.Count} ／ 所持 {state.stones}\n付与ポイント  {kinderRequest.Count}":kinderRequest.Operation==KinderOperation.Exchange?$"{name} 専用チケット1枚\n消費ポイント 100 ／ 所持 {state.kinderPoints}\n人物の付与はチケット使用時です。":kinderRequest.Operation==KinderOperation.TicketDraw?$"{name} を100%付与\n専用チケット1枚を消費\n所持済みなら専用欠片100、最大後なら汎用100。":"旅立ちの祝福 3000石\n費用なし ／ この保存につき1回のみ。";
@@ -105,7 +108,11 @@ namespace NewAster.Presentation
         }
         private void PrepareKinderCapture(string[] args)
         {
-            var save=formalProgression.Snapshot;save.stones=3000;save.kinderPoints=200;save.tickets=new[]{new HeroineTicket {heroineId=kinderBanner.heroineIds[0],count=1}};
+            int heroAt=Array.IndexOf(args,"-heroineId");
+            int requested=heroAt>=0 && heroAt+1<args.Length?Array.IndexOf(kinderBanner.heroineIds,args[heroAt+1]):0;
+            kinderSelection=Math.Max(0,requested);kinderPage=kinderSelection/5;
+            if(ProductionStoryActive)AcceptanceCheck(kinderBanner.heroineIds.SequenceEqual(combatDefinitions.HeroineIds),"Summon pool includes every implemented form");
+            var save=formalProgression.Snapshot;save.stones=3000;save.kinderPoints=200;save.tickets=new[]{new HeroineTicket {heroineId=kinderBanner.heroineIds[kinderSelection],count=1}};
             formalProgression=new FormalProgression(save,combatDefinitions.HeroineIds);kinderGarden=true;encounter=null;title=false;
             if(args.Contains("-captureKinderDraw"))kinderScreen=KinderScreen.Draw;
             if(args.Contains("-captureKinderExchange"))kinderScreen=KinderScreen.Exchange;
@@ -118,6 +125,7 @@ namespace NewAster.Presentation
                 formalProgression.CommitKinder(kinderRequest,kinderBanner,max=>max==10000?(draws++==0?0:300):max==kinderBanner.heroineIds.Length?actor:0,s=>true);
                 kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=KinderScreen.Result;
             }
+            Debug.Log("KINDER_ALL_IMPLEMENTED_CAPTURE_PASS forms="+kinderBanner.heroineIds.Length+" selection="+kinderBanner.heroineIds[kinderSelection]+" page="+(kinderPage+1)+" physicalInput=0");
         }
     }
 }

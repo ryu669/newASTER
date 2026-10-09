@@ -12,6 +12,23 @@ internal static class Plan119QualityTests
         var json=new JsonSerializerOptions{IncludeFields=true};
         T Load<T>(string path)=>JsonSerializer.Deserialize<T>(File.ReadAllText(Path.Combine(resources,path)),json);
         var combat=Load<CombatDefinitionCatalog>("Combat/battle-plan11-7.json");
+        var allBanner=ProductionEconomyCatalog.Kinder(combat.HeroineIds);allBanner.Validate(combat.HeroineIds);
+        check(allBanner.heroineIds.SequenceEqual(combat.HeroineIds),"Production summon pool includes every implemented form independently of formation");
+        foreach(string hero in combat.HeroineIds){
+            var drawState=new FormalProgression(new FormalGrowthSave{saveId="all-summon",stones=300,heroines=Array.Empty<FormalHeroineGrowth>()},combat.HeroineIds);
+            var drawRequest=new KinderRequest("all.draw."+hero,0,KinderOperation.StoneDraw,bannerVersion:allBanner.contentVersion);
+            drawState.CommitKinder(drawRequest,allBanner,max=>max==10000?0:Array.IndexOf(allBanner.heroineIds,hero),s=>false);
+            check(drawState.Snapshot.stones==300 && drawState.Snapshot.heroines.Length==0,"All-form summon failure preserves wallet and ownership: "+hero);
+            drawState.CommitKinder(drawRequest,allBanner,max=>throw new Exception("Retry must retain selected form"),s=>true);
+            check(drawState.Snapshot.heroines.Single().heroineId==hero && drawState.Snapshot.stones==0,"Every form can be summoned and saved without reroll: "+hero);
+            var exchangeState=new FormalProgression(new FormalGrowthSave{saveId="all-exchange",kinderPoints=100,heroines=Array.Empty<FormalHeroineGrowth>()},combat.HeroineIds);
+            exchangeState.CommitKinder(new KinderRequest("all.exchange."+hero,0,KinderOperation.Exchange,heroineId:hero,bannerVersion:allBanner.contentVersion),allBanner,null,s=>true);
+            check(exchangeState.Snapshot.kinderPoints==0 && exchangeState.Snapshot.tickets.Single().heroineId==hero,"Every form supports dedicated ticket exchange: "+hero);
+            exchangeState.CommitKinder(new KinderRequest("all.ticket."+hero,1,KinderOperation.TicketDraw,heroineId:hero,bannerVersion:allBanner.contentVersion),allBanner,max=>throw new Exception("Ticket cannot roll"),s=>true);
+            check(exchangeState.Snapshot.heroines.Single().heroineId==hero,"Every form supports dedicated ticket recruitment: "+hero);
+        }
+        bool partialRejected=false;try{ProductionEconomyCatalog.Kinder(combat.FormationIds).Validate(combat.HeroineIds);}catch(ArgumentException){partialRejected=true;}
+        check(partialRejected,"Production validation rejects formation-only summon pools");
         var story=Load<ProductionStoryContent>("Story/plan10-shangrila-story-content.json");
         var portraits=Load<HeroinePortraitCatalog>("UI/heroine-portrait-framing.json");
         var trees=Load<HeroineWeaponTreeCatalog>("UI/heroine-weapon-trees.json");

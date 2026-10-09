@@ -46,6 +46,12 @@ namespace NewAster.Presentation {
    HandleEscapeNavigation();check(growthScreen==GrowthScreen.Level && book.Bookmark==BookBookmark.Heroines,"Growth confirmation returns to operation");
    HandleEscapeNavigation();check(growthScreen==GrowthScreen.Overview && !heroineRosterOpen,"Growth operation returns to heroine detail");
    HandleEscapeNavigation();check(heroineRosterOpen,"Heroine detail returns to roster");
+   heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;OpenAffection(subject);
+   check(affectionPanel && !heroineRosterOpen,"Open actual affection panel from heroine detail");
+   ReturnAffectionToRoster();check(heroineRosterOpen && !affectionPanel && !affectionShop && BookInputAllowed && book.SubjectId==subject,"Affection list button returns to usable roster with subject retained");
+   heroineRosterOpen=false;book.FlipPage();growthScreen=GrowthScreen.Information;OpenAffection(subject);
+   HandleEscapeNavigation();check(!affectionPanel && !heroineRosterOpen,"Back closes affection to heroine information");
+   HandleEscapeNavigation();HandleEscapeNavigation();check(heroineRosterOpen && BookInputAllowed,"Affection information back chain reaches usable roster");
    help=true;bookSystemOpen=true;HandleEscapeNavigation();check(!help && bookSystemOpen && heroineRosterOpen,"Help closes before system");
    HandleEscapeNavigation();check(!bookSystemOpen && heroineRosterOpen,"System closes before roster");
    affectionPanel=true;affectionConfirm=true;HandleEscapeNavigation();check(!affectionConfirm && affectionPanel,"Ring confirmation returns to affection");
