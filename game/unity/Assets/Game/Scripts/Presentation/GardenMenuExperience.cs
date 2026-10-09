@@ -36,9 +36,9 @@ namespace NewAster.Presentation
         }
         private bool CloseGardenMenuLayer()
         {
-            if(title || encounter!=null || help || storyText!=null || kinderGarden || collectionOpen || engagementOpen || recoveryActive || modelViewer || book==null || book.Bookmark!=BookBookmark.Gardens)return false;
+            if(title || encounter!=null || help || storyText!=null || kinderGarden || collectionOpen || engagementOpen || recoveryActive || book==null || book.Bookmark!=BookBookmark.Gardens)return false;
             if(gardenPanel!=GardenPanel.None){gardenPanel=GardenPanel.None;gardenMenuScroll=Vector2.zero;return true;}
-            if(gardenMenuExpanded){gardenMenuExpanded=false;return true;}return false;
+            return false;
         }
         private void BeginGardenPlacement()
         {
@@ -54,7 +54,7 @@ namespace NewAster.Presentation
             OpenGardenPanel(GardenPanel.Furniture);AcceptanceCheck(gardenPanel==GardenPanel.Furniture && gardenMenuExpanded,"garden panel opens on demand");
             OpenGardenPanel(GardenPanel.Residents);AcceptanceCheck(gardenPanel==GardenPanel.Residents,"garden drawer switches exclusively");
             AcceptanceCheck(CloseGardenMenuLayer() && gardenPanel==GardenPanel.None && gardenMenuExpanded,"Escape closes drawer first");
-            AcceptanceCheck(CloseGardenMenuLayer() && !gardenMenuExpanded && !CloseGardenMenuLayer(),"Escape collapses toolbar second");
+            AcceptanceCheck(!CloseGardenMenuLayer(),"Persistent toolbar adds no hidden Back layer");
             OpenGardenPanel(GardenPanel.Furniture);help=true;AcceptanceCheck(!CloseGardenMenuLayer() && gardenPanel==GardenPanel.Furniture,"help gets Escape before garden menu");help=false;CloseGardenMenuLayer();CloseGardenMenuLayer();
             AcceptanceCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"menu visibility does not mutate saved progress");
             if(scenario=="expanded")gardenMenuExpanded=true;
@@ -95,16 +95,9 @@ namespace NewAster.Presentation
             }
             if(gardenPanel!=GardenPanel.None)DrawGardenDrawer(state,garden,available,interactive);
             bool oldEnabled=GUI.enabled;GUI.enabled=oldEnabled && BookInputAllowed && !book.IsTransitioning;
-            if(Btn(28,755,185,50,gardenMenuExpanded?"操作を畳む ‹":"操作を開く ›")){
-                gardenMenuExpanded=!gardenMenuExpanded;if(!gardenMenuExpanded)gardenPanel=GardenPanel.None;
-            }
-            if(gardenMenuExpanded){
-                string[] labels={"家具","人物","交流・物語","庭を切替"};
-                for(int i=0;i<labels.Length;i++)if(Btn(235+i*215,755,205,50,labels[i])){
-                    OpenGardenPanel(new[]{GardenPanel.Furniture,GardenPanel.Residents,GardenPanel.Events,GardenPanel.Navigation}[i]);
-                }
-            }
-            DrawSingleBookSystemButton(1325,835,245,48,CanOpenBookSystem);
+            string[] labels={"家具","人物","交流・物語","庭を切替"};
+            var panels=new[]{GardenPanel.Furniture,GardenPanel.Residents,GardenPanel.Events,GardenPanel.Navigation};
+            for(int i=0;i<labels.Length;i++)if(Btn(28+i*260,755,245,50,(gardenPanel==panels[i]?"✓ ":"")+labels[i]))OpenGardenPanel(panels[i]);
             GUI.enabled=oldEnabled;
             if(homeRequest!=null){GrowthFill(0,0,1600,900,new Color(0,0,0,.5f));drawingModal=true;DrawHomeConfirmation();}
             if(help){drawingModal=true;DrawHelp();}

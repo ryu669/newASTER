@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -10,7 +10,7 @@ namespace NewAster.Presentation {
    string progress=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);
    int checks=0;Action<bool,string> check=(ok,name)=>{AcceptanceCheck(ok,name);checks++;};
    Action reset=()=>{
-    title=false;titlePanel=null;recoveryActive=false;recoveryConfirm=false;encounter=null;result=null;help=false;bookSystemOpen=false;modelViewer=false;
+    title=false;titlePanel=null;recoveryActive=false;recoveryConfirm=false;encounter=null;result=null;help=false;bookSystemOpen=false;
     collectionOpen=false;engagementOpen=false;kinderGarden=false;kinderScreen=KinderScreen.Entrance;
     expansionRecruitmentOpen=false;expansionRecruitRequest=null;formationOpen=false;formationLayer=0;
     heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;returnToFormationFromWeapon=false;
@@ -70,11 +70,10 @@ namespace NewAster.Presentation {
    HandleEscapeNavigation();check(!affectionPanel && heroineRosterOpen,"Affection returns to roster");
    affectionPanel=true;affectionError="diagnostic";HandleEscapeNavigation();check(affectionError==null && affectionPanel,"Affection error closes before panel");
    HandleEscapeNavigation();oopartPanel=true;HandleEscapeNavigation();check(!oopartPanel && heroineRosterOpen,"Oopart returns to roster");
-   modelViewer=true;HandleEscapeNavigation();check(!modelViewer && heroineRosterOpen,"Model viewer returns to roster");
    reset();RequestBookBookmark(BookBookmark.Gardens);book.CompleteTransition();gardenMenuExpanded=true;gardenPanel=GardenPanel.Furniture;
    bookSystemOpen=true;HandleEscapeNavigation();check(!bookSystemOpen && gardenPanel==GardenPanel.Furniture,"System closes before covered garden drawer");
    HandleEscapeNavigation();check(gardenPanel==GardenPanel.None && gardenMenuExpanded,"Garden drawer closes first");
-   HandleEscapeNavigation();check(!gardenMenuExpanded && book.Bookmark==BookBookmark.Gardens,"Garden toolbar closes second");
+   check(!CloseGardenMenuLayer() && book.Bookmark==BookBookmark.Gardens,"Persistent garden toolbar adds no hidden Back layer");
    gardenLifePanel="residents";gardenLifeRecords=true;HandleEscapeNavigation();check(!gardenLifeRecords && gardenLifePanel!=null,"Life records return to life panel");
    HandleEscapeNavigation();check(gardenLifePanel==null,"Life panel closes");
    gardenLifePanel="催事参加者";HandleEscapeNavigation();check(gardenLifePanel=="催事","Activity participants return to activity panel");
@@ -107,6 +106,14 @@ namespace NewAster.Presentation {
    PreparePlan10ShangrilaCapture(args.Concat(new[]{"-captureShangrila","-shangrilaView","detail"}).ToArray());
    if(view=="title" || view=="settings" || view=="credits" || view=="title-help"){title=true;if(view!="title")OpenTitlePanel(view=="title-help"?"help":view);}
    else if(view.StartsWith("save-",StringComparison.Ordinal))PrepareSaveManagementCapture(view);
+   else if(view=="roster-filter-job" || view=="roster-filter-social"){
+    heroineRosterOpen=true;rosterFilterJob=view=="roster-filter-job";rosterFilterOpen=true;
+    var before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);int previous=rosterFilterJob?heroineJobFilter:affectionRosterFilter;
+    AcceptanceCheck(!BookInputAllowed,"Filter blocks underlying page navigation");HandleEscapeNavigation();
+    AcceptanceCheck(!rosterFilterOpen && heroineRosterOpen && previous==(rosterFilterJob?heroineJobFilter:affectionRosterFilter),"Filter cancel preserves roster and selection");
+    rosterFilterOpen=true;SelectRosterFilter(1);AcceptanceCheck(!rosterFilterOpen && heroinePage==0 && (rosterFilterJob?heroineJobFilter:affectionRosterFilter)==1,"Filter chooses requested option directly");
+    AcceptanceCheck(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot)==before,"Filter does not spend or alter progression");rosterFilterOpen=true;
+   }
    else if(view=="roster-filter-empty"){
     heroineRosterOpen=true;affectionRosterFilter=1;heroineQuery="";
     AcceptanceCheck(!formalProgression.Snapshot.heroines.Any(h=>AffectionRosterMatch(h.heroineId)),"Lover filter fixture has zero matches");
@@ -130,16 +137,6 @@ namespace NewAster.Presentation {
     var save=formalCampaign.Snapshot;var resource=CollectionData().resources.First(r=>MaterialExchangeService.UnitCost(r)==500);save.growth.nectar=20000;
     var material=save.collection.materials.SingleOrDefault(m=>m.id==resource.id);if(material==null)save.collection.materials=save.collection.materials.Concat(new[]{new CollectionMaterial{id=resource.id,sourceColossusId=resource.ownerId,amount=1}}).ToArray();
     BindFormalCampaign(save);book.ChangeBookmark(BookBookmark.Items);book.CompleteTransition();collectionTab=2;ProposeExchange(resource,5);
-   }
-   else if(view=="model"){
-    var bookmark=book.Bookmark;var subject=book.SubjectId;var face=book.Face;var screen=growthScreen;bool roster=heroineRosterOpen;
-    modelViewer=true;HandleEscapeNavigation();
-    AcceptanceCheck(!modelViewer && book.Bookmark==bookmark && book.SubjectId==subject && book.Face==face && growthScreen==screen && heroineRosterOpen==roster,"Full-screen model Escape preserves underlying heroine selection and screen");
-    // A covered help layer must survive the first Escape; the next Escape closes only help.
-    modelViewer=true;help=true;HandleEscapeNavigation();
-    AcceptanceCheck(!modelViewer && help,"Model Escape closes the visible layer before covered help");
-    HandleEscapeNavigation();AcceptanceCheck(!help && growthScreen==screen && heroineRosterOpen==roster,"Next Escape closes help without navigating the heroine page");
-    modelViewer=true;Debug.Log("PLAN119_MODEL_NAVIGATION_PASS selected="+subject+" physicalInput=0");
    }
    else if(view=="book-colossi" || view=="book-world" || view=="book-stories"){book.ChangeBookmark(view=="book-stories"?BookBookmark.Stories:BookBookmark.Colossi);book.CompleteTransition();if(view=="book-world")book.FlipPage();}
    else if(view.StartsWith("job-",StringComparison.Ordinal)){

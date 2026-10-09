@@ -69,7 +69,7 @@ namespace NewAster.Presentation
         }
         private void UpdateGardenLife()
         {
-            bool visible=formalCampaign!=null && book!=null && !title && encounter==null && adv==null && !modelViewer && !collectionOpen && !engagementOpen && book.Bookmark==BookBookmark.Gardens && !book.IsTransitioning;
+            bool visible=formalCampaign!=null && book!=null && !title && encounter==null && adv==null && !collectionOpen && !engagementOpen && book.Bookmark==BookBookmark.Gardens && !book.IsTransitioning;
             if(capturePath!=null && !gardenLifeCapture)return;
             if(!visible){if(gardenLifeRuntime!=null){gardenLifeRuntime.Stop();gardenLifeRuntime=null;}StopLifeAudio();gardenViewing=false;return;}
             if(!LifeSnapshot().world.unlockedGardenIds.Contains(book.SubjectId))return;
@@ -132,7 +132,6 @@ namespace NewAster.Presentation
                     if(i==5){gardenViewing=true;gardenLifePanel=null;}else{gardenLifePanel=gardenLifePanel==tabs[i]?null:tabs[i];gardenLifeScroll=Vector2.zero;gardenLifeQuery="";}
                 }
             }
-            DrawSingleBookSystemButton(1325,835,245,48,CanOpenBookSystem && gardenLifeEditor==null);
             if(gardenLifePanel!=null)DrawLifeDrawer(save);
             if(gardenLifeMessage!=null){Panel(85,190,800,55,dark);Label(105,196,760,43,gardenLifeMessage,new GUIStyle(small){fontSize=18},Color.white);if(Btn(895,195,45,42,"×"))gardenLifeMessage=null;}
             GUI.enabled=backgroundEnabled;DrawLifeSaveError();

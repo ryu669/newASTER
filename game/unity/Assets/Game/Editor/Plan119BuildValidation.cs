@@ -14,6 +14,8 @@ public sealed class Plan119BuildValidation:IPreprocessBuildWithReport
     public static void Validate()
     {
         if(Directory.Exists(Plan119LoadFixtureImporter.Root))throw new BuildFailedException("Test image fixtures must be removed before building the product.");
+        if(AssetDatabase.FindAssets("t:Model",new[]{"Assets/Game"}).Length!=0)throw new BuildFailedException("Retired 3D models must not be packaged in the 2D product.");
+        Debug.Log("PRODUCTION_2D_ONLY_PASS modelAssets=0");
         T Load<T>(string path)=>JsonUtility.FromJson<T>((Resources.Load<TextAsset>(path)??throw new ArgumentException("Missing production catalog: "+path)).text);
         var combat=Load<CombatDefinitionCatalog>("Combat/battle-plan11-7");
         ProductionEconomyCatalog.Kinder(combat.HeroineIds).Validate(combat.HeroineIds);

@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-10",
+  "scope": "Named fixed book navigation, explicit actions, direct filters, persistent toolbars and retired 3D removal",
+  "automaticAssertions": 12513,
+  "compiledSourceFiles": 258,
+  "navigationChecks": 235,
+  "formationStarts": 75,
+  "playerCapturePasses": {
+    "tmp/plan11-9/ui-unified-final-1080.log": 11,
+    "tmp/plan11-9/ui-unified-final-720.log": 5,
+    "tmp/plan11-9/ui-unified-fit-720.log": 1,
+    "tmp/plan11-9/ui-unified-candidate-ui.log": 3
+  },
+  "manualOperation": "excluded by user",
+  "builds": {
+    "development": "0.9.5-rc.2",
+    "releaseCandidate": "1.0.0-rc.1",
+    "packageFilesEach": 161,
+    "productionResources": 552,
+    "modelAssets": 0
+  },
+  "removedPaths": [
+    "game/art-source/slayer/comparison-captures/head-study-angle.png",
+    "game/art-source/slayer/comparison-captures/unity-closed.png",
+    "game/art-source/slayer/comparison-captures/unity-full.png",
+    "game/art-source/slayer/comparison-captures/unity-neutral.png",
+    "game/art-source/slayer/comparison-captures/unity-talk.png",
+    "game/art-source/slayer/slayer-2d-3d-comparison.html",
+    "game/art-source/slayer/slayer-2d-3d-comparison.js",
+    "game/art-source/slayer/slayer-base-body-v2.blend",
+    "game/art-source/slayer/slayer-base-body-v2.fbx",
+    "game/art-source/slayer/slayer-beauty-v2.blend",
+    "game/art-source/slayer/slayer-head-study-v3.blend",
+    "game/art-source/slayer/slayer-production-v1.blend",
+    "game/art-source/slayer/slayer-quality-target-v2.prompt.txt",
+    "game/unity/Assets/Game/Editor/SlayerModelImporter.cs",
+    "game/unity/Assets/Game/Editor/SlayerModelImporter.cs.meta",
+    "game/unity/Assets/Game/Resources/Characters.meta",
+    "game/unity/Assets/Game/Resources/Characters/Slayer.meta",
+    "game/unity/Assets/Game/Resources/Characters/Slayer/slayer-beauty-v2.fbx",
+    "game/unity/Assets/Game/Resources/Characters/Slayer/slayer-beauty-v2.fbx.meta",
+    "game/unity/Assets/Game/Resources/Characters/Slayer/slayer-production-v1.fbx",
+    "game/unity/Assets/Game/Resources/Characters/Slayer/slayer-production-v1.fbx.meta",
+    "game/unity/Assets/Game/Resources/HeroineBeauty.shader",
+    "game/unity/Assets/Game/Resources/HeroineBeauty.shader.meta",
+    "game/unity/Assets/Game/Resources/StageSurface.shader",
+    "game/unity/Assets/Game/Resources/StageSurface.shader.meta",
+    "game/unity/Assets/Game/Scripts/Presentation/BattleStageEffects.cs",
+    "game/unity/Assets/Game/Scripts/Presentation/BattleStageEffects.cs.meta",
+    "game/unity/Assets/Game/Scripts/Presentation/ScenePresentation.cs",
+    "game/unity/Assets/Game/Scripts/Presentation/ScenePresentation.cs.meta",
+    "game/unity/Assets/Game/Scripts/Presentation/SlayerModelView.cs",
+    "game/unity/Assets/Game/Scripts/Presentation/SlayerModelView.cs.meta",
+    "game/unity/Assets/Game/Scripts/Presentation/VerticalSliceBlockout.cs",
+    "game/unity/Assets/Game/Scripts/Presentation/VerticalSliceBlockout.cs.meta",
+    "tools/build-slayer-beauty.py",
+    "tools/build-slayer-head-study.py",
+    "tools/build-slayer-model.py",
+    "tools/review-reference-face.py",
+    "tools/review-slayer-poses.py",
+    "tools/slayer_beauty_geometry.py",
+    "tools/test-slayer-comparison.cjs",
+    "tools/validate-slayer-base.py"
+  ],
+  "notes": [
+    "Final 1080p and 720p capture batches passed after 3D removal and persistent garden toolbar acceptance update. Final font-fit refinement and deletion of unused camera rectangle helper were then rebuilt; latest 720p detail and release candidate 1080p captures include that refinement.",
+    "One retired model viewer route check was removed; current 235 navigation checks retain all surviving book route and return behavior.",
+    "Filter captures exercise direct selection, cancellation, underlying navigation blocking and unchanged progress.",
+    "Deleted edited FBX metadata was copied into ignored tmp/plan11-9/slayer-beauty-v2-before-removal.fbx.meta before removal.",
+    "Archive documents remain historical references."
+  ],
+  "logs": [
+    {
+      "path": "tmp/plan11-9/ui-unified-final-core.log",
+      "sha256": "16167e6aa4ef528f5629b22fb61ae341a98e2b331941100c50a28427d7943d9b"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-final-compile.log",
+      "sha256": "3fcc1551be32a7d4d046adb1e0b635f5eb98e7acfd56c36b723dbb939e47de65"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-final-build.log",
+      "sha256": "d897ab533d2868ca630b00688db93652fcf0ce387432fae2ba7a393a45a58185"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-candidate-build.log",
+      "sha256": "45e71ea522de0eee0218550c013d6e83b5df96ecec508306b000f8f36daef649"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-final-dev-package.log",
+      "sha256": "871c1474f850fbd88fbf8e617621b52153f158f206093bff02b6653f1fbbe70f"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-candidate-package.log",
+      "sha256": "561542ab8da10bb42269fe1168c3944dbed199c60f489c38194710aac20c0e1d"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-final-1080.log",
+      "sha256": "9ffb92d94cd4de349ad25bc64084d26b48d07c25f4d4f18d9cdba64eb88016f5"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-final-720.log",
+      "sha256": "79d59d63c74fa25881291a6a95c4176b1219768a9b495b240c26d4a4e5f857fd"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-fit-720.log",
+      "sha256": "95ffe7240a9faedab5bd30dedcc43f54b3a4039420b8ad31919ff7133cc0297b"
+    },
+    {
+      "path": "tmp/plan11-9/ui-unified-candidate-ui.log",
+      "sha256": "adc27cc2c31a17793b79eef68b470e17b4f4e2f569a518df58acd9ce002e9c4f"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-title.png",
+      "sha256": "4f38f37012bb8fbd63fe48df2390ace0beb2a1e85b3fe4e700d5b00adf3c650f"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-detail.png",
+      "sha256": "8b82f260a8c437285254de2aec79e49e593d24292bb0e99f6fabf13dab8047f5"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-detail-information.png",
+      "sha256": "cd5814e2747c7c6951265860167d2fda4c405a86f6c7e06bb2709380cf30de4b"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-roster-filter-job.png",
+      "sha256": "db2af258a4f828ed5316fd271a7b0788a626f78f7c90e067c33ebbe441ca8e68"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-roster-filter-social.png",
+      "sha256": "9a6cdcc39a604fa8475757f182508691406c413ff3f560fc131bfb662bc44c55"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-formation-general.png",
+      "sha256": "940f8926b8dfd6c994f4a44396069d563ac12a3cd52d3fe65d53789a7c0ccacd"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-garden-expanded.png",
+      "sha256": "92157871b490b7e452a86264c3bdcb359c5822f121aedd9427d2c1b9fbfd171d"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-menu-actions.png",
+      "sha256": "de39d10d506754ae355ce21cc8da74f0bd500aacf98cbb91caf105add1642ab3"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-battle-menu-playing.png",
+      "sha256": "d1528c040e91453484fe7fe47810e925ace799cd5e0d5f47f3218c6065757d78"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1920x1080/ui-kinder.png",
+      "sha256": "e08b6845e8698f7a653770fc0554d39aa796c1d8efa748fde01a8f4f52495feb"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-detail.png",
+      "sha256": "5a09a012da71150063ce995836bbb09f7f246233ae35faff131f675fe29b8b7e"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-roster-filter-job.png",
+      "sha256": "cc1a614a242abbabaacd9c5886549a36f0024f6f5c399d98906c68fd44b9f5a1"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-garden-expanded.png",
+      "sha256": "18aa9fbd049b815c30df17668915b630c6e5cc08a28e042c102e88468bffa1ee"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-battle-menu-actions.png",
+      "sha256": "f901f5a3c124d50ae85b55cb36cfab546b729d07e33fc753a2c0e3f3bc0e8a53"
+    },
+    {
+      "path": "tmp/plan10-ui/player-1280x720/ui-ability-battles.png",
+      "sha256": "ed3584028a3e890855146dd2bbe435948430617a4a7709a7a165183fb4df3b5d"
+    }
+  ]
+}

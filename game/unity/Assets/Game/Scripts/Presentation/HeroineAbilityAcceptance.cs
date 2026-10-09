@@ -10,7 +10,7 @@ namespace NewAster.Presentation
     {
         private void PrepareAbilityCapture(string view)
         {
-            if(view.StartsWith("ability-battle",StringComparison.Ordinal)){StartCoroutine(VerifyAddedFormationBattles(view.EndsWith("legacy",StringComparison.Ordinal)));return;}
+            if(view.StartsWith("ability-battle",StringComparison.Ordinal)){StartCoroutine(VerifyAddedFormationBattles());return;}
             string id=view=="ability-trait"?"heroine.echidna":"heroine.slayer";
             heroineRosterOpen=false;formationOpen=false;book.RequestSubject(BookBookmark.Heroines,id);book.CompleteTransition();
             growthScreen=view=="ability-trait"?GrowthScreen.Overview:GrowthScreen.Weapons;selectedTrait=view=="ability-trait"?1:-1;
@@ -18,10 +18,9 @@ namespace NewAster.Presentation
             if(view=="ability-tree")selectedNode=HomeData().weaponNodes.First(n=>n.heroineId==id && n.uniqueAbilityKind=="regen").id;
             AcceptanceCheck(HomeState.weaponNodeIds.Contains(id+".weapon.root") && HomeState.WeaponLevel(id+".weapon.root")==0,"Root is available without Lv in production UI");
         }
-        private IEnumerator VerifyAddedFormationBattles(bool legacyStage)
+        private IEnumerator VerifyAddedFormationBattles()
         {
             yield return null;
-            stage=FindAnyObjectByType<VerticalSliceBlockout>();if(legacyStage && stage==null)stage=new GameObject("Isolated legacy battle stage").AddComponent<VerticalSliceBlockout>();AcceptanceCheck(!legacyStage || stage!=null,"Legacy stage is initialized before formation changes");
             var baseline=formalCampaign.Snapshot;int count=0;
             foreach(string id in combatDefinitions.HeroineIds)for(int slot=0;slot<5;slot++){
                 var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(baseline));
@@ -30,7 +29,7 @@ namespace NewAster.Presentation
                 StartBattle(WorldCatalog.ColossusIds[0],882);AcceptanceCheck(encounter!=null && encounter.State.Heroes[slot].Id==id && encounter.AvailableHero>=0,"Native stage starts battle: "+id+" slot "+slot);count++;
             }
             selectedHero=0;paused=true;battlePanel=BattlePanel.Status;
-            Debug.Log("ADDED_FORMATION_BATTLES_PASS "+count+" legacyStage="+legacyStage);
+            Debug.Log("ADDED_FORMATION_BATTLES_PASS "+count+" renderer=2d");
         }
     }
 }

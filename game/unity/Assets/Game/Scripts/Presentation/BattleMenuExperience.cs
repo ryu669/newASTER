@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -10,13 +10,12 @@ namespace NewAster.Presentation
     {
         private enum BattlePanel { None,Actions,Targets,Status,Timeline }
         private BattlePanel battlePanel;
-        private bool battleMenuExpanded;
         private Vector2 battleDetailsScroll;
         private static readonly Rect battleDrawer=new Rect(1040,112,530,596);
         private bool BattleInputAllowed=>encounter!=null && !encounter.Ended && !paused && !playback.Busy && !retreat && !help && result==null && !selectingAlly;
         private string BattleTargetName(string id)
         {int index=encounter.State.Parts.ToList().FindIndex(p=>p.Id==id);return index<0?"本体":ColossusCombatCatalog.PartName(encounter.State.Parts[index],index);}
-        private void ResetBattleMenu(){battlePanel=BattlePanel.None;battleMenuExpanded=false;battleDetailsScroll=Vector2.zero;}
+        private void ResetBattleMenu(){battlePanel=BattlePanel.None;battleDetailsScroll=Vector2.zero;}
         private void OpenBattlePanel(BattlePanel panel)
         {
             if(encounter==null || retreat || help || result!=null || selectingAlly)return;
@@ -27,7 +26,7 @@ namespace NewAster.Presentation
         {
             if(encounter==null || retreat || help || result!=null || selectingAlly)return false;
             if(battlePanel!=BattlePanel.None){battlePanel=BattlePanel.None;battleDetailsScroll=Vector2.zero;return true;}
-            if(battleMenuExpanded){battleMenuExpanded=false;return true;}return false;
+            return false;
         }
         private void DrawBattle()
         {
@@ -59,17 +58,11 @@ namespace NewAster.Presentation
             if(battlePanel==BattlePanel.Actions)DrawBattleActions();else if(battlePanel!=BattlePanel.None){var matrix=GUI.matrix;if(battlePanel==BattlePanel.Targets)GUI.matrix=matrix*Matrix4x4.Translate(new Vector3(-1020,0,0));DrawBattleDrawer();GUI.matrix=matrix;}
             if(Btn(20,762,190,48,"対象・部位",BattleInputAllowed))OpenBattlePanel(BattlePanel.Targets);
             if(Btn(220,762,190,48,"人物・状態",!selectingAlly))OpenBattlePanel(BattlePanel.Status);
-            if(Btn(420,762,190,48,battleMenuExpanded?"操作を畳む ‹":"操作を開く ›",!selectingAlly)){
-                battleMenuExpanded=!battleMenuExpanded;if(!battleMenuExpanded)battlePanel=BattlePanel.None;
-            }
-            if(battleMenuExpanded){
-                if(Btn(620,762,190,48,"行動順",!selectingAlly))OpenBattlePanel(BattlePanel.Timeline);
-
-                if(Btn(995,762,165,48,"撤退",!selectingAlly)){ResetBattleMenu();retreat=true;paused=true;}
-            }
+            if(Btn(420,762,190,48,"行動順",!selectingAlly))OpenBattlePanel(BattlePanel.Timeline);
+            if(Btn(620,762,165,48,"撤退",!selectingAlly)){ResetBattleMenu();retreat=true;paused=true;}
             if(playback.Busy){
                 if(Btn(1180,762,390,48,"演出をスキップ",!paused && !retreat && !help && !selectingAlly)){
-                    playback.Skip();if(stage!=null)stage.ClearActionEffects();shownEvent=0;SelectNextHero();FinishCheck();
+                    playback.Skip();shownEvent=0;SelectNextHero();FinishCheck();
                 }
             }else if(Btn(1180,762,390,48,"行動 ／ "+Names[encounter.AvailableHero>=0?encounter.AvailableHero:selectedHero],BattleInputAllowed)){
                 SelectNextHero();OpenBattlePanel(BattlePanel.Actions);
@@ -202,7 +195,7 @@ namespace NewAster.Presentation
             ResetBattleMenu();OpenBattlePanel(BattlePanel.Actions);FocusCheck(battlePanel==BattlePanel.Actions,"commands open on demand");
             OpenBattlePanel(BattlePanel.Targets);FocusCheck(battlePanel==BattlePanel.Targets,"exclusive battle drawer");
             FocusCheck(CloseBattleMenuLayer() && battlePanel==BattlePanel.None,"Escape closes battle drawer");
-            battleMenuExpanded=true;FocusCheck(CloseBattleMenuLayer() && !battleMenuExpanded,"Escape collapses battle toolbar");
+            FocusCheck(!CloseBattleMenuLayer(),"Persistent toolbar adds no hidden Back layer");
             help=true;OpenBattlePanel(BattlePanel.Actions);FocusCheck(battlePanel==BattlePanel.None && !CloseBattleMenuLayer(),"help blocks underlying battle menus");help=false;
             paused=true;OpenBattlePanel(BattlePanel.Targets);FocusCheck(battlePanel==BattlePanel.None,"paused battle rejects target input");paused=false;
             selectingAlly=true;OpenBattlePanel(BattlePanel.Status);FocusCheck(battlePanel==BattlePanel.None,"ally selection blocks battle menus");selectingAlly=false;
@@ -220,7 +213,7 @@ namespace NewAster.Presentation
                 FocusCheck(readState==PlaybackState(encounter),"battle help and order previews are read only");
             }
             ResetBattleMenu();
-            if(scenario=="expanded")battleMenuExpanded=true;
+            if(scenario=="expanded")battlePanel=BattlePanel.Timeline;
             else if(scenario=="actions")OpenBattlePanel(BattlePanel.Actions);
             else if(scenario=="targets")OpenBattlePanel(BattlePanel.Targets);
             else if(scenario=="status")OpenBattlePanel(BattlePanel.Status);

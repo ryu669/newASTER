@@ -5,12 +5,12 @@ namespace NewAster.Presentation
     {
         private bool bookSystemButtonDrawn,navigationChromeValidated;
         private int bookSystemButtonsThisGui;
-        private void DrawSingleBookSystemButton(float x,float y,float width,float height,bool enabled)
+        private void DrawSingleBookSystemButton(bool enabled)
         {
             GrowthStyles();
             if(bookSystemButtonDrawn)return;
             bookSystemButtonDrawn=true;bookSystemButtonsThisGui++;
-            if(GrowthButton(x,y,width,height,"システム",enabled))bookSystemOpen=true;
+            if(GrowthButton(1280,14,120,52,"システム",enabled))bookSystemOpen=true;
         }
         private void ReturnBookToTitle()
         {

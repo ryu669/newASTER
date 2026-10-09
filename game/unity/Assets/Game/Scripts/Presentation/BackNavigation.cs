@@ -27,10 +27,10 @@ namespace NewAster.Presentation
             else if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
             else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
             else if(saveManagementOpen)BackSaveManagement();
-            else if(modelViewer)modelViewer=false;
             else if(help)help=false;
             else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
             else if(bookSystemOpen)bookSystemOpen=false;
+            else if(rosterFilterOpen)rosterFilterOpen=false;
             else if(expansionRecruitmentOpen)CloseExpansionRecruitment();
             else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
             else if(CloseAffectionLayer()){}
