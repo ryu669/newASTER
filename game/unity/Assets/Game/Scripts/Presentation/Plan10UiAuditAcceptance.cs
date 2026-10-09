@@ -12,6 +12,7 @@ namespace NewAster.Presentation {
    int at=Array.IndexOf(args,"-uiView");string view=at>=0?args[at+1]:"title";
    PreparePlan10ShangrilaCapture(args.Concat(new[]{"-captureShangrila","-shangrilaView","detail"}).ToArray());
    if(view=="title" || view=="settings" || view=="credits" || view=="title-help"){title=true;if(view!="title")OpenTitlePanel(view=="title-help"?"help":view);}
+   else if(view.StartsWith("save-",StringComparison.Ordinal))PrepareSaveManagementCapture(view);
    else if(view=="help")help=true;
    else if(view=="book-summoning" || view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials" || view=="book-hunt" || view=="book-new-world" || view=="book-possible-worlds" || view=="book-system"){
     book.ChangeBookmark(view=="book-summoning"?BookBookmark.Summoning:view.StartsWith("book-items",StringComparison.Ordinal) || view=="book-materials"?BookBookmark.Items:view=="book-hunt"?BookBookmark.RelicHunt:view=="book-new-world"?BookBookmark.NewWorld:view=="book-possible-worlds"?BookBookmark.PossibleWorlds:BookBookmark.Colossi);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using NewAster.Data;
@@ -11,8 +11,8 @@ namespace NewAster.Presentation
         private float bookTransitionElapsed;
         private readonly bool plan15Manual=Environment.GetCommandLineArgs().Contains("-plan15Manual");
         private bool bookNavigationDirty;
-        private float nextBookSave;
-        private void SaveBookNavigation(){if(!bookNavigationDirty || formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending || formalDiagnostic && !plan15Manual)return;try{if(formalCampaign.CommitBookNavigation(book.Capture(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign))bookNavigationDirty=false;}catch(Exception e){Debug.LogWarning("Book navigation save: "+e.Message);}}
+        private BookNavigationSave CaptureBookForSave(){var state=book.Capture();state.shortTransitions=false;return state;}
+        private void SaveBookNavigation(){if(!bookNavigationDirty || formalCampaign==null || formalCampaign.HasPending || formalProgression.HasPending || formalDiagnostic && !plan15Manual)return;try{if(formalCampaign.CommitBookNavigation(CaptureBookForSave(),formalDiagnostic?SaveDiagnosticCampaign:SaveDelayedCampaign))bookNavigationDirty=false;}catch(Exception e){Debug.LogWarning("Book navigation save: "+e.Message);}}
         private readonly System.Collections.Generic.Dictionary<string,int> bookLevelByColossus=new System.Collections.Generic.Dictionary<string,int>();
         private string bookLevelOwner;
         private BookBookmark bookLevelBookmark;
@@ -33,6 +33,7 @@ namespace NewAster.Presentation
                 heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
                 navigation.SetResults(BookBookmark.Heroines,heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.growth.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).Select(e=>e.id));
             }
+            navigation.ShortTransitions=PlayerPrefs.GetInt("book.short-transitions",navigation.ShortTransitions?1:0)==1;
             navigation.DestinationChanged+=()=>bookNavigationDirty=true;return navigation;
         }
         private void SyncBookSelectedLevel()
@@ -41,12 +42,12 @@ namespace NewAster.Presentation
             if(bookLevelOwner!=null)bookLevelByColossus[bookLevelOwner]=selectedLevel;
             bookLevelBookmark=book.Bookmark;bookLevelOwner=book.SubjectId;selectedLevel=Math.Max(1,Math.Min(campaign.Playable.HighestLevel,book.PageState.selectedColossusLevel));
         }
-        private bool BookInputAllowed=>formalCampaign==null || exchangeMaterial==null && !AffectionModalVisible && !OopartModalVisible && !formalCampaign.HasPending && !formalProgression.HasPending && homeRequest==null && !placing && gardenLifeEditor==null && gardenLifeRequest==null && !gardenDiscardConfirm && !gardenLifeResidentPlace && gardenPresetShortage==null;
-        private void RequestBookBookmark(BookBookmark bookmark){if(BookInputAllowed && book.RequestBookmark(bookmark)){bookTransitionElapsed=0;scroll=Vector2.zero;formationOpen=bookmark==BookBookmark.Formation;if(formationOpen){formationLayer=0;formationSlot=0;}returnToFormationFromWeapon=false;gardenPanel=GardenPanel.None;gardenMenuExpanded=false;if(bookmark==BookBookmark.Heroines){heroineRosterOpen=!book.HasSubject;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}}}
+        private bool BookInputAllowed=>!saveManagementOpen && (formalCampaign==null || exchangeMaterial==null && !AffectionModalVisible && !OopartModalVisible && !formalCampaign.HasPending && !formalProgression.HasPending && homeRequest==null && !placing && gardenLifeEditor==null && gardenLifeRequest==null && !gardenDiscardConfirm && !gardenLifeResidentPlace && gardenPresetShortage==null);
+        private void RequestBookBookmark(BookBookmark bookmark){if(BookInputAllowed && FlushSaveChanges() && book.RequestBookmark(bookmark)){bookTransitionElapsed=0;scroll=Vector2.zero;formationOpen=bookmark==BookBookmark.Formation;if(formationOpen){formationLayer=0;formationSlot=0;}returnToFormationFromWeapon=false;gardenPanel=GardenPanel.None;gardenMenuExpanded=false;if(bookmark==BookBookmark.Heroines){heroineRosterOpen=!book.HasSubject;growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}}}
         private void RequestBookTurn(int direction){if(BookInputAllowed && book.RequestTurn(direction)){bookTransitionElapsed=0;scroll=Vector2.zero;if(book.Bookmark==BookBookmark.Heroines){growthScreen=GrowthScreen.Overview;selectedTrait=-1;selectedNode=null;affectionScroll=Vector2.zero;}}}
         private void RequestBookFlip(){if(BookInputAllowed && book.RequestFlip()){bookTransitionElapsed=0;if(book.Bookmark==BookBookmark.Heroines)growthScreen=book.Face==BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;}}
         private void UpdateBookTransition()
-        {if(book==null)return;if(book.Bookmark==BookBookmark.Colossi || book.Bookmark==BookBookmark.RelicHunt){if(bookLevelOwner==book.SubjectId && bookLevelBookmark==book.Bookmark && book.PageState.selectedColossusLevel!=selectedLevel){book.PageState.selectedColossusLevel=selectedLevel;bookNavigationDirty=true;}}if(Time.unscaledTime>=nextBookSave){SaveBookNavigation();nextBookSave=Time.unscaledTime+1;}if(!book.IsTransitioning)return;bookTransitionElapsed+=Time.unscaledDeltaTime;if(bookTransitionElapsed>=(book.ShortTransitions || book.DirectTransition?.04f:BookTransitionSeconds))book.CompleteTransition();}
+        {if(book==null)return;if(book.Bookmark==BookBookmark.Colossi || book.Bookmark==BookBookmark.RelicHunt){if(bookLevelOwner==book.SubjectId && bookLevelBookmark==book.Bookmark && book.PageState.selectedColossusLevel!=selectedLevel){book.PageState.selectedColossusLevel=selectedLevel;bookNavigationDirty=true;}}if(bookNavigationDirty)SaveBookNavigation();if(!book.IsTransitioning)return;bookTransitionElapsed+=Time.unscaledDeltaTime;if(bookTransitionElapsed>=(book.ShortTransitions || book.DirectTransition?.04f:BookTransitionSeconds))book.CompleteTransition();}
         private void DrawBookTransition(bool growth=false)
         {
             if(!book.IsTransitioning)return;

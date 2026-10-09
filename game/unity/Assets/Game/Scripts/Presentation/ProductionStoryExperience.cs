@@ -28,7 +28,7 @@ namespace NewAster.Presentation
             if(!formalDiagnostic){
                 string path=formalCampaignStore.SavePath;
                 if(File.Exists(path)){string archive=path+".before-production-story-r"+original.revision+".json";if(!File.Exists(archive))File.Copy(path,archive,false);}
-                if(!formalCampaignStore.Save(migrated))throw new IOException("Production story migration could not be saved.");
+                if(!(saveSlots==null?formalCampaignStore.Save(migrated):SaveTrialObservedCampaign(migrated)))throw new IOException("Production story migration could not be saved.");
             }
             Debug.Log("PLAN9_STORY_MIGRATION_PASS revision="+migrated.revision+" original narrative history archived");return migrated;
         }

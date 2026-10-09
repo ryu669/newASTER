@@ -65,7 +65,7 @@ namespace NewAster.Presentation
         }
         private void BeginAdv(string source,bool replay)
         {
-            if(!HomeOperationsAllowed || !BookInputAllowed)return;var c=HomeData();var snapshot=formalCampaign.Snapshot;var e=c.events.SingleOrDefault(x=>x.id==source);var ch=c.chapters.SingleOrDefault(x=>x.id==source);
+            if(!HomeOperationsAllowed || !BookInputAllowed || !FlushSaveChanges())return;var c=HomeData();var snapshot=formalCampaign.Snapshot;var e=c.events.SingleOrDefault(x=>x.id==source);var ch=c.chapters.SingleOrDefault(x=>x.id==source);
             if(plan8StoryTrial && !HasTrialText(source))return;
             bool unlocked=e!=null?(snapshot.home?.unlockedEventIds.Contains(source)??false):ch!=null && snapshot.world.unlockedStoryIds.Contains(source);bool read=e!=null?(snapshot.home?.readEventIds.Contains(source)??false):snapshot.world.readStoryIds.Contains(source);
             if(!unlocked || replay && !read)return;
@@ -115,7 +115,7 @@ namespace NewAster.Presentation
                 if(GrowthButton(55,840,730,48,adv.Completed?"本へ戻る":adv.Replay?"回想を終了する":"読了を保存する",true,true)){if(adv.Completed){CloseAdv();return;}else CompleteAdv();}}
             else if(GrowthButton(55,840,300,48,adv.Paused?"手動で再開":adv.FullyVisible?"次の行へ":"全文を表示",!formalCampaign.HasPending && advRequest==null,true)){if(adv.Paused)adv.Resume();else AdvanceAdv();}
             if(!adv.EndReached){if(GrowthButton(375,840,180,48,"バックログ")){advBacklog=true;adv.Pause();}if(GrowthButton(570,840,140,48,adv.Auto?"auto停止":"auto")){if(adv.Paused)adv.Resume();adv.SetAuto(!adv.Auto);}if(GrowthButton(725,840,150,48,"既読skip")){if(adv.Paused)adv.Resume();adv.SetSkip(!adv.Skip);}
-                if(GrowthButton(890,840,180,48,"速度 "+adv.CharactersPerSecond)){int[] speeds={15,30,60,120};int speed=speeds[(Array.IndexOf(speeds,adv.CharactersPerSecond)+1)%4];adv.SetSpeed(speed);PlayerPrefs.SetInt("plan6.text-speed",speed);}
+                if(GrowthButton(890,840,180,48,"速度 "+adv.CharactersPerSecond)){int[] speeds={15,30,60,120};int speed=speeds[(Array.IndexOf(speeds,adv.CharactersPerSecond)+1)%4];adv.SetSpeed(speed);PlayerPrefs.SetInt("plan6.text-speed",speed);RequestSettingsSave();}
                 if(GrowthButton(1085,840,160,48,"操作説明")){advHelp=true;adv.Pause();}if(GrowthButton(1260,840,285,48,"中断して本へ",!formalCampaign.HasPending && advRequest==null)){CloseAdv();return;}}
             if(advRequest!=null){GrowthFill(40,470,1520,55,navy);Label(55,480,1000,40,advError??"保存待ち",growthSmallStyle);if(GrowthButton(1100,475,440,45,"同じ内容で保存を再試行")){if(advPendingLine!=null)PersistAdvLine();else CompleteAdv();}}
             GUI.enabled=previousAdvEnabled;

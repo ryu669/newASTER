@@ -11,6 +11,8 @@ public static class AutomaticChainTests
     static void Check(bool ok,string message) { checks++; if(!ok) throw new Exception(message); }
     public static void Main(string[] args)
     {
+        if(args.Length>0 && args[0]=="--save-crash-helper"){SaveSlotTests.CrashWorker(args[1],args[2]);return;}
+        SaveSlotTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         InteractionTraitTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         CombatTraitTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         DailyInteractionTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));

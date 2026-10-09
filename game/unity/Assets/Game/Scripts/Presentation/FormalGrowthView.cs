@@ -79,6 +79,13 @@ namespace NewAster.Presentation
             Func<FormalCampaignSave,string> encode=NewAster.Presentation.UnityFormalCampaignJson.Encode;
             Func<string,FormalCampaignSave> decode=UnityFormalCampaignJson.Decode;
             formalCampaignStore=new FormalCampaignStore(Path.Combine(Application.persistentDataPath,"formal-campaign-v1.json"),encode,decode,UnityFormalCampaignJson.DecodeHeader);
+            if(!formalDiagnostic && !plan8StoryTrial){
+                try{InitializeSlotCampaign();}
+                catch(Exception e)when(e is IOException || e is UnauthorizedAccessException || e is ArgumentException || e is InvalidOperationException){
+                    saveSlotBlocked=true;BindFormalCampaign(NewSlotProgress());saveManagementOpen=true;saveManagementMessage="保存場所の初期化に失敗しました。元の記録を保持しています。空き容量・アクセス権を確認して再起動してください。";status=saveManagementMessage;Debug.LogWarning("SAVE_SLOT_INITIALIZATION_FAILED "+e.Message);
+                }
+                return;
+            }
             FormalCampaignSave unified=null;
             var unifiedLoad=formalDiagnostic?FormalLoadResult.Missing:formalCampaignStore.Load(out unified);
             if(unifiedLoad==FormalLoadResult.Blocked || unifiedLoad==FormalLoadResult.RecoveredBackup){BeginSaveRecovery();return;}

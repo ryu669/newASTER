@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -25,6 +25,7 @@ namespace NewAster.Presentation
             if(formalDiagnostic && !plan15Manual || recoveryActive || combatDefinitionError!=null || formalCampaign==null)return;
             bool visible=WatchWindowAdapter.IsVisible && (watchModeActive || Application.isFocused);
             double now=WatchWindowAdapter.RewardClock;double elapsed=lastRewardClock==0?0:now-lastRewardClock;lastRewardClock=now;if(visible && elapsed>0 && elapsed<=3600)unsavedActiveSeconds+=elapsed;
+            if(saveManagementOpen || saveSlotBlocked || saveSlotDeleted)return;
             if(Time.unscaledTime>=nextClockAttempt){FlushActiveTime();nextClockAttempt=Time.unscaledTime+10;}
 
         }

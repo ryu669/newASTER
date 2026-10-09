@@ -210,6 +210,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            UpdateSaveScheduling();
             if(watchModeActive){UpdateWatchMode();UpdateEngagement();return;}
             UpdateTrialTelemetry();
             UpdateFormalEntrance();
@@ -223,6 +224,7 @@ namespace NewAster.Presentation
             if(Input.GetKeyDown(KeyCode.Escape) && !plan7ActiveCombat) {
                 if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
                 else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+                else if(saveManagementOpen){if(deleteChoice!=null)deleteChoice=null;else if(restoreChoice!=null)restoreChoice=null;else saveManagementOpen=false;}
                 else if(help)help=false;
                 else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
                 else if(CloseAffectionLayer()){}
@@ -348,6 +350,7 @@ namespace NewAster.Presentation
         {
             if(plan7ActiveCombat && Event.current.type!=EventType.Layout && Event.current.type!=EventType.Repaint)return;
             Styles();ImageUiSkin.ApplyControls(GUI.skin);BeginAspectCanvas();drawingModal=false;
+            if(saveManagementOpen){DrawSaveManagement();return;}
             if(recoveryActive){DrawSaveRecovery();return;}
             if(plan9EnemyPreview!=null){DrawPlan9EnemyArt();return;}
             if(plan9Expression!=null){DrawPlan9CharacterArt();return;}
@@ -549,6 +552,7 @@ namespace NewAster.Presentation
         }
         private void StartBattle(string colossus,int? diagnosticSeed=null)
         {
+            if(!FlushSaveChanges())return;
             if(TerraformRules.Index(colossus)==14 && TerraformRules.MissingIntegration(campaign.Terraform).Length>0){status="アステリア受入条件：全7領域Lv3以上";return;}
             if(diagnosticSeed.HasValue && !formalDiagnostic)throw new InvalidOperationException("Seeded battle requires diagnostic isolation.");
             if(!ColossusCombatCatalog.CanSummon(colossus))throw new ArgumentException("巨神獣の戦闘定義は未制作です。");
@@ -723,6 +727,6 @@ namespace NewAster.Presentation
             TitleFill(new Rect(x,y,w,1),edge);TitleFill(new Rect(x,y+h-1,w,1),edge);
             GUI.enabled=old; if(clicked){TrialObserve("navigation","button",value);PlayProductionUiSound(value);}return clicked;
         }
-        private void OnApplicationQuit() { if(watchModeActive)SaveWatchSettings(); if(!recoveryActive && campaign!=null && (capturePath==null || plan15Manual) && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){SaveBookNavigation();FlushActiveTime();Save();} FinishTrialTelemetry(); }
+        private void OnApplicationQuit() { if(watchModeActive)SaveWatchSettings(); FlushSettingsSave(); if(!saveSlotBlocked && !saveSlotDeleted && !recoveryActive && campaign!=null && (capturePath==null || plan15Manual) && combatDefinitionError==null && formalCampaign!=null && !formalCampaign.HasPending && !formalProgression.HasPending){SaveBookNavigation();FlushActiveTime();Save();FlushSaveChanges();} FinishTrialTelemetry(); }
     }
 }

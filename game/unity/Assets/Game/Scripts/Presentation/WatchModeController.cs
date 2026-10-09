@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -26,6 +26,7 @@ namespace NewAster.Presentation
         private void StartWatchMode(string heroine)
         {
             if(Application.platform!=RuntimePlatform.WindowsPlayer || !BookInputAllowed || gardenLifeRuntime==null)return;
+            if(!FlushSaveChanges())return;
             EnsureWatchSettings();
             watchSettings.heroineId=heroine;
             watchSettings.alwaysOnTop=watchTop;watchSettings.volumeMultiplier=watchVolume;
@@ -34,7 +35,7 @@ namespace NewAster.Presentation
             QualitySettings.vSyncCount=0;Application.targetFrameRate=WatchModePresentation.TargetFrameRate;AudioListener.volume=WatchModePresentation.Volume(watchOriginalVolume,watchSettings.volumeMultiplier);
             watchWindow=new WatchWindowAdapter();watchWindow.Enter(watchSettings);watchModeActive=true;Application.runInBackground=true;watchLastClock=Time.realtimeSinceStartupAsDouble;watchMeasuredSeconds=0;watchMeasuredFrames=0;StartCoroutine(ApplyWatchWindow(true,watchWindow));
         }
-        private void SaveWatchSettings(){if(watchModeActive)watchWindow.Capture(watchSettings);PlayerPrefs.SetString((plan15Manual?"watch.settings.plan15-test":"watch.settings"),JsonUtility.ToJson(watchSettings));PlayerPrefs.Save();}
+        private void SaveWatchSettings(){if(watchModeActive)watchWindow.Capture(watchSettings);PlayerPrefs.SetString((plan15Manual?"watch.settings.plan15-test":"watch.settings"),JsonUtility.ToJson(watchSettings));RequestSettingsSave();}
         private void ExitWatchMode()
         {
             if(!watchModeActive)return;watchWindow.Capture(watchSettings);watchWindow.Exit();StartCoroutine(ApplyWatchWindow(false,watchWindow));watchLife.SetWatchTarget(null);

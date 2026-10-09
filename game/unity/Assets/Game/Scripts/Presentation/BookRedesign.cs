@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -20,7 +20,7 @@ namespace NewAster.Presentation
             GUI.DrawTextureWithTexCoords(rect,bookEmblemAtlas,new Rect(index%4*.25f,1-(index/4+1)*.25f,.25f,.25f),true);
         }
         private bool CanOpenBookSystem=>BookInputAllowed && relicRequest==null && growthRequest==null && kinderRequest==null && terraformRequest==null && homeRequest==null && !engagementOpen;
-        private bool IsBookScreen=>!title && encounter==null && adv==null && !modelViewer && !recoveryActive && combatDefinitionError==null && !artSample && plan9EnemyPreview==null && plan9Expression==null && plan9Cg==null;
+        private bool IsBookScreen=>!saveManagementOpen && !title && encounter==null && adv==null && !modelViewer && !recoveryActive && combatDefinitionError==null && !artSample && plan9EnemyPreview==null && plan9Expression==null && plan9Cg==null;
         private void DrawBookRibbon()
         {
             RefreshBookNotices();GrowthStyles();GrowthFill(0,0,1600,88,ink);
@@ -61,10 +61,10 @@ namespace NewAster.Presentation
         {
             drawingModal=true;if(titlePanel!=null){DrawTitlePanel();return;}GrowthFill(0,0,1600,900,new Color(0,0,0,.75f));GrowthFrame(430,220,740,450);
             Label(470,255,660,55,"システム",growthTitleStyle,gold);
-            if(GrowthButton(480,340,640,55,"保存",BookInputAllowed,true)){Save();}
+            if(GrowthButton(480,340,640,55,"セーブ管理",BookInputAllowed,true)){OpenSaveManagement();}
             if(GrowthButton(480,415,300,55,"設定")){OpenTitlePanel("settings");}
-            if(GrowthButton(800,415,320,55,"表紙へ",BookInputAllowed)){book.Close();title=true;bookSystemOpen=false;}
-            if(GrowthButton(480,550,640,40,"ページ演出："+(book.ShortTransitions?"短縮":"通常"))){book.ShortTransitions=!book.ShortTransitions;bookNavigationDirty=true;}
+            if(GrowthButton(800,415,320,55,"表紙へ",BookInputAllowed)){if(FlushSaveChanges()){book.Close();title=true;bookSystemOpen=false;}}
+            if(GrowthButton(480,550,640,40,"ページ演出："+(book.ShortTransitions?"短縮":"通常"))){book.ShortTransitions=!book.ShortTransitions;PlayerPrefs.SetInt("book.short-transitions",book.ShortTransitions?1:0);RequestSettingsSave();}
             if(GrowthButton(480,490,640,55,"閉じる"))bookSystemOpen=false;
             if(status.Contains("保存"))Label(480,570,640,55,status,growthSmallStyle);
         }

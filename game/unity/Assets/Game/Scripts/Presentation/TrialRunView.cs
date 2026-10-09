@@ -23,7 +23,7 @@ namespace NewAster.Presentation
         {
             TrialObserve("save","start","revision="+next.revision);
             try {
-                bool success=formalCampaignStore.Save(next);
+                bool success=saveSlots==null?formalCampaignStore.Save(next):!saveSlotBlocked && !saveSlotDeleted && delayedSaves.SaveImmediate(next,DateTime.UtcNow);
                 ObserveTrialSave(next,success);return success;
             } catch { TrialObserve("save","failed");throw; }
         }

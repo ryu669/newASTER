@@ -36,7 +36,7 @@ namespace NewAster.Presentation
         private void RetryAffection()
         {
             try{
-                var request=affectionRequest;var result=formalCampaign.CommitAffection(request,HomeData(),formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign);
+                var request=affectionRequest;var result=formalCampaign.CommitAffection(request,HomeData(),formalDiagnostic?SaveDiagnosticCampaign:request.Kind=="interaction" || request.Kind=="activity"?SaveDelayedCampaign:SaveTrialObservedCampaign);
                 if(result==GrowthCommitResult.SaveFailed){affectionError="保存できませんでした。同じ内容で再試行してください。";return;}
                 affectionRequest=null;affectionError=null;affectionConfirm=false;lifeSnapshotCached=null;
                 formalProgression=new FormalProgression(formalCampaign.Snapshot.growth,combatDefinitions.HeroineIds);
