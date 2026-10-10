@@ -1,0 +1,62 @@
+{
+  "before": {
+    "marker": "FORMAL_CAMPAIGN_READY",
+    "label": "before",
+    "includesOsCacheAndProcessStartup": true,
+    "pollMs": 50,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "isolatedDiagnostic": true,
+    "runs": [
+      {
+        "run": 1,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\before-1.log",
+        "processToCampaignReadyMs": 3893.6
+      },
+      {
+        "run": 2,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\before-2.log",
+        "processToCampaignReadyMs": 3699.6
+      },
+      {
+        "run": 3,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\before-3.log",
+        "processToCampaignReadyMs": 3595.7
+      }
+    ]
+  },
+  "after": {
+    "resolution": [
+      1920,
+      1080
+    ],
+    "marker": "FORMAL_CAMPAIGN_READY",
+    "pollMs": 50,
+    "isolatedDiagnostic": true,
+    "label": "after",
+    "includesOsCacheAndProcessStartup": true,
+    "runs": [
+      {
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\after-1.log",
+        "run": 1,
+        "processToCampaignReadyMs": 2917.8
+      },
+      {
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\after-2.log",
+        "run": 2,
+        "processToCampaignReadyMs": 2729.3
+      },
+      {
+        "log": "D:\\AIGAME\\newASTER\\tmp\\ui-revision\\startup\\after-3.log",
+        "run": 3,
+        "processToCampaignReadyMs": 2734.8
+      }
+    ]
+  },
+  "medianBeforeMs": 3699.6,
+  "medianAfterMs": 2734.8,
+  "improvementPercent": 26.08,
+  "limitation": "Process launch to FORMAL_CAMPAIGN_READY, not first interactive frame. Three runs each; OS cache uncontrolled. Default 1920x1080 diagnostic launch."
+}

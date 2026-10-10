@@ -1,0 +1,12 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-look",
+      "prompt": "Edit the outerwear of this wholesome summer game character sprite only. Replace the thick buttoned knitted cardigan with a lightweight, loose-fitting, long-sleeved ivory summer overshirt, worn unbuttoned and open at the front over her existing navy-and-white floral one-piece swimsuit. The overshirt fabric is thin cotton but opaque, covering shoulders and arms; keep the summer wrap skirt. A relaxed practical beach outfit. Preserve the same friendly upward-looking pose, hands together, head position, blonde bob, blue-green eyes, flower sunhat, ribbons, wings, halo, sandals, rendering style and full-body composition. Do not exaggerate anatomy or emphasize the chest. No text, no additional people, retain genuine transparent background and complete silhouette.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-f1c04401-3131-4869-8289-da54e9aaf20c.png",
+      "resource": "Illustrations/slayer-swim-sd-look-candidate-v1",
+      "visualReview": "passed: dedicated upward-looking pose; lightweight opaque open-front overshirt with floral swimsuit visible; identity and transparent full silhouette preserved"
+    }
+  ]
+}

@@ -21,7 +21,8 @@ internal static class HeroineAbilityTests
             check(root.uniqueAbilityPercent==0 && string.IsNullOrEmpty(root.uniqueAbilityKind) && WeaponGrowthRules.Power(root,0)==1,"Root has no unique ability or skill bonus");
             bool denied=false;try{HomeRules.Apply(save,home,new HomeOperation("weapon-level",root.id,"1"));}catch(ArgumentException){denied=true;}check(denied,"Root cannot consume materials for levels");
             var traits=HeroineIdentityCatalog.Traits(combat.Hero(id),save.growth.heroines.Single(g=>g.heroineId==id));
-            check(traits.Length<=8 && traits.All(t=>!t.id.EndsWith(".trait.job")) && traits.Single(t=>t.id.EndsWith(".trait.personal")).description==HeroinePersonalAbility.For(id).Description,"Personal trait matches its combat definition: "+id);
+            var personalCard=traits.Single(t=>t.id.EndsWith(".trait.personal"));
+            check(traits.Length<=8 && traits.All(t=>!t.id.EndsWith(".trait.job")) && personalCard.name==HeroinePersonalAbility.For(id).Name && personalCard.description.EndsWith(HeroinePersonalAbility.For(id).Description,StringComparison.Ordinal) && personalCard.description.Contains(HeroineAuthoredNames.For(id).Flavor),"Personal trait flavor retains its exact combat effect: "+id);
             foreach(var n in home.weaponNodes.Where(n=>n.heroineId==id && !n.initial))check(new[]{"damage","regen","reduction","gauge"}.Contains(n.uniqueAbilityKind) && n.uniqueAbilityPercent>0 && !string.IsNullOrEmpty(WeaponGrowthRules.Icon(n)),"One ability and one icon per nonroot node");
             foreach(int route in new[]{0,1,2}){
                 var branch=home.weaponNodes.Where(n=>n.heroineId==id && WeaponGrowthRules.Route(n)==route).OrderBy(WeaponGrowthRules.Tier).ToArray();

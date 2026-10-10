@@ -1,0 +1,121 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/arcane-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-expression-joy-candidate-v1.png",
+      "sha256": "b13f7e641f3a8ecc5895635ef91805b92dfa7f04c1038185b6b85f78cb9ede30",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-expression-puzzled-candidate-v1.png",
+      "sha256": "ebfa7cf4c68bd0687f2a8f930798ae7e8307fa055529fa0d736f1b984bf004c8",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-expression-determined-candidate-v1.png",
+      "sha256": "77ff6b11d42bb12c68355153128632c883e1ad18e956a16a1018043ffe84e73c",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-detail.png",
+      "sha256": "4046693c036d34a3d8594c74742db6ed9ce3a0b2c860f14c76e51a1d67a8d0b4"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-tree.png",
+      "sha256": "99edcc16ab2f6109155ddff5c20e540091c57cb8d1daa427c9cca4f76f350323"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-battle.png",
+      "sha256": "d9758eb652822d84b0ad0ed426e27af5a87c4d690164dbd5e465c73cac8fb6c8"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.0.png",
+      "sha256": "520564f0fd0dc4e4915594048012547372d748f5bd3f5b7d1ac45fe54976e762"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.1.png",
+      "sha256": "27c4e1c971671a258914e4f9869d77894143d6435f5b29707efeb21c1a29d055"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.2.png",
+      "sha256": "7c126dd4ca50904c4a10c05ce344dac3600edecaccaa90d84a6caf314e5af63e"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.3.png",
+      "sha256": "43062e9cb6f21ff29969f40dc7b1069188b4c5ff4aa66bc233c974123824d638"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.4.png",
+      "sha256": "895e094f3b06fe78dfd06228cd9b8945522ea742f736fe6187afadc95228bc02"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-sd.idle.png",
+      "sha256": "b608b99ced2342ddf2fffd150eff195126bb971370b6312b6c28f8a1676c7d7a"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-sd.sit.png",
+      "sha256": "070cad6a43462ba31aa3c4fc66b166631e5b1ccbae2d24926bb11e1fe09e7958"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-sd.work.png",
+      "sha256": "de3b381c386c13204414db9086d9eb1ed9960241ccf018fa7351787c10bdcc69"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-sd.look.png",
+      "sha256": "6068236b274f25d0c48bfbb570653b939adcfd89f73044654b9752c88d1d61d7"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/3f4a8f5b07d14d11b1674c944e86871c/default/arcane-expression.normal.png",
+      "sha256": "62eb472f6d0137368a574029bca7a616fc1d14253a551a74237c0e53aebfae85"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/3f4a8f5b07d14d11b1674c944e86871c/default/arcane-expression.joy.png",
+      "sha256": "f5282ff24a815851acbef5592e9d6dadb792180ff50bca44e42ad088ae899ef4"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/3f4a8f5b07d14d11b1674c944e86871c/default/arcane-expression.puzzled.png",
+      "sha256": "ba0d4cb66d1dd3759cd5fdbf358494e5ee169ea21402d862ea2503ea97dab73c"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/3f4a8f5b07d14d11b1674c944e86871c/default/arcane-expression.determined.png",
+      "sha256": "0bad69e86127387b610dcf9f55145bb5a11b2bef9571db1738d9e3f188dd2c15"
+    }
+  ]
+}

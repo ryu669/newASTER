@@ -1,0 +1,18 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/slayer-swim-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-sd-look-candidate-v1.png",
+      "sha256": "0df7fb1c87564d8dd0d57a741f38b02f571eccd4a6e49a93ec004c780cb410d5",
+      "size": [
+        1230,
+        1278
+      ],
+      "visualReview": "passed: dedicated upward-looking pose; opaque cardigan covers swimsuit torso; identity, full silhouette and transparent background preserved"
+    }
+  ],
+  "runtimeCapture": "superseded_before_visual_review",
+  "supersededBy": "game/art-source/plan12/slayer-swim-look-open-corrections-adoption.json"
+}

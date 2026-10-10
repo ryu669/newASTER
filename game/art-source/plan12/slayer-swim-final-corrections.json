@@ -1,0 +1,54 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE dedicated sit garden SD sprite of the exact female chibi character in the reference: a clear seated pose, knees bent and feet dangling together, hands resting on lap; no chair or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7befd3e2-d7ba-4cfe-828a-cea884e83b0f.png",
+      "resource": "Illustrations/slayer-swim-sd-sit-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE dedicated work garden SD sprite of the exact female chibi character in the reference: a clear focused working pose, leaning forward slightly, both hands using a small suitable tool or writing in a notebook near waist; no desk or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8b498916-465f-4a33-8e4d-a8de8361df93.png",
+      "resource": "Illustrations/slayer-swim-sd-work-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "slayer-swim-event-0",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8ea95798-6e42-4d25-aa66-52dc3e0807ce.png",
+      "resource": "Illustrations/slayer-swim-event-0-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "slayer-swim-event-1",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-99148f20-cb26-433a-8f87-1c119da818d6.png",
+      "resource": "Illustrations/slayer-swim-event-1-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "slayer-swim-event-2",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a99ac48c-a902-4944-af59-75f70594d2ab.png",
+      "resource": "Illustrations/slayer-swim-event-2-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "slayer-swim-event-3",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6caf0b9f-d751-4603-8bf7-a0e0a1c2bf76.png",
+      "resource": "Illustrations/slayer-swim-event-3-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "slayer-swim-event-4",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ba1cfda0-a0f5-485e-be97-e312814442ef.png",
+      "resource": "Illustrations/slayer-swim-event-4-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

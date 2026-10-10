@@ -1,0 +1,26 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "expression-joy",
+      "prompt": "Create a joyful expression variant of this exact game standing illustration. Keep canvas size and every body, wing, hair, costume, background, head position and head angle exactly unchanged. Edit ONLY the face inside the small original face region: very happy warm smile, gently raised eyebrows, golden eyes open and sparkling at the exact same coordinates and angle, cheerful open mouth. Do not change nose or face outline. No head rotation, zoom, crop, reposition or transparency change. The face must register with the original pixel positions for a face overlay.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d5c74905-173f-4a00-b190-2913f7f5a661.png",
+      "resource": "Illustrations/iconoclast-expression-joy-source-v1",
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Create an expression variant of this exact game standing illustration. Keep canvas size and every body, wing, hair, costume, background, head position and head angle exactly unchanged. Edit ONLY the face inside the small original face region: change cheerful open smile to puzzled uncertain expression, subtly raised inner eyebrows, eyes still at the exact same coordinates and angle, small slightly open questioning mouth. No head rotation, no zoom, no crop, no reposition, no transparency change. The face must register with the original pixel positions for a face overlay.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3bde2cb4-f679-41bf-970d-6674823f02eb.png",
+      "resource": "Illustrations/iconoclast-expression-puzzled-source-v1",
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Create an expression variant of this exact game standing illustration. Keep canvas size and every body, wing, hair, costume, background, head position and head angle exactly unchanged. Edit ONLY the face inside the small original face region: a determined confident expression, eyebrows slightly firm and lowered, golden eyes at exactly the same positions and angle, small confident closed smile. No head rotation, no zoom, no crop, no reposition, no transparency change. The face must register with the original pixel positions for a face overlay.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3a001d04-8011-4c7f-a337-9c4da6aaa5f1.png",
+      "resource": "Illustrations/iconoclast-expression-determined-source-v1",
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    }
+  ]
+}

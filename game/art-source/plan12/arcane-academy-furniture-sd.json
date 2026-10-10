@@ -1,0 +1,26 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-sit",
+      "prompt": "Use this exact chibi female Arcane Academy character as reference. Create ONE standalone transparent game garden sprite in a clearly seated pose, knees bent and feet dangling together, hands holding a closed book on her lap. No chair or furniture: seat will be supplied by game. Keep exact magenta curls, gold eyes, burgundy academy jacket, lace blouse, black skirt, black tights, boots, ornate bookcase feather wings and gold halo. Same polished chibi art style. Full body, entire halo and wings inside canvas with transparent padding. Genuine transparent background. No text, no other people, no floor or shadows.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b649b4e7-44dc-48c6-9a81-b7adccce29ff.png",
+      "resource": "Illustrations/arcane-academy-sd-sit-candidate-v1",
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Use this exact chibi female Arcane Academy character as reference. Create ONE standalone transparent garden game sprite in a clearly working pose: standing, leaning slightly forward, both hands below chest level writing with a quill in an open book held near waist. No desk or furniture: game supplies furniture. Preserve exact magenta curls, gold eyes, burgundy academy jacket, lace blouse, black skirt and tights, boots, ornate bookcase feather wings and gold halo. Focused expression. Same polished chibi style. Full body, entire halo and wings in frame, transparent margin. Genuine transparent background, no text, no other people, no floor or shadows.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-cba200d9-7dc7-46d1-95a9-037c48b175a9.png",
+      "resource": "Illustrations/arcane-academy-sd-work-candidate-v1",
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Use this exact chibi female Arcane Academy character as reference. Create ONE standalone transparent garden game sprite in a clearly looking/admiring pose: body turned three quarters to her left, face and gold eyes looking upward to her left toward an offscreen garden display, hands clasped behind her back, no book in hands, delighted curious expression. Preserve exact magenta curls, burgundy academy jacket, lace blouse, black skirt, black tights, boots, ornate bookcase feather wings and gold halo. Same polished chibi style. Full body and entire halo/wings within transparent margin. No furniture, no scenery, no text, no other people, no shadows. Genuine transparent background.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-211ffe03-3403-4a3f-b04e-5f19a71c643b.png",
+      "resource": "Illustrations/arcane-academy-sd-look-candidate-v1",
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    }
+  ]
+}

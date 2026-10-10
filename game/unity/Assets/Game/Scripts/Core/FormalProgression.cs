@@ -176,11 +176,18 @@ namespace NewAster.Core
     }
     public static class FormalGrowthMath
     {
+        // The fifth duplicate no longer raises common-trait rank; reward that final copy
+        // with a larger permanent stat step, without changing mastery rank or its tables.
+        public static int DuplicateStatPercent(int rank)
+        {
+            if(rank<0 || rank>5)throw new ArgumentOutOfRangeException(nameof(rank));
+            return rank==5?15:2*rank;
+        }
         public static int Stat(int jobBase,int modifierBp,int level,int duplicateRank)
         {
             if(jobBase<1 || jobBase>1000000 || modifierBp<9000 || modifierBp>11000 || level<1 || level>120 || duplicateRank<0 || duplicateRank>5) throw new ArgumentOutOfRangeException();
             long basis=Math.Max(1,(long)jobBase*modifierBp*(100+3*(level-1))/1000000);
-            return checked((int)(basis*(100+2*duplicateRank)/100));
+            return checked((int)(basis*(100+DuplicateStatPercent(duplicateRank))/100));
         }
         public static int Speed(int jobSpeed,int modifierBp)
         {

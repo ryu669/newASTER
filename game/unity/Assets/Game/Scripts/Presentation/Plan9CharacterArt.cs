@@ -39,7 +39,7 @@ namespace NewAster.Presentation
             var sourceRegion=plan9Expression=="joy"?new Rect(461f/1024,230f/1536,110f/1024,83f/1536):
                 plan9Expression=="puzzled"?new Rect(343f/1024,626f/1536,376f/1024,284f/1536):new Rect(403f/1230,588f/1280,440f/1230,327f/1280);
             var face=undermine?new Rect(473f/1024,302f/1536,100f/1024,82f/1536):IconoclastFace;
-            if(undermine)sourceRegion=face;
+            if(undermine || prefix=="iconoclast")sourceRegion=face;
             if(slayer){face=new Rect(435f/1024,178f/1536,111f/1024,98f/1536);sourceRegion=face;}
             if(echidna){face=new Rect(466f/1024,210f/1536,113f/1024,76f/1536);sourceRegion=face;}
             if(excalipan){face=new Rect(432f/1024,182f/1536,130f/1024,104f/1536);sourceRegion=new Rect(face.x,(plan9Expression=="joy"?174f:182f)/1536,face.width,face.height);}

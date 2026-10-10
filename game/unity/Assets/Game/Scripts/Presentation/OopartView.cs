@@ -68,7 +68,9 @@ namespace NewAster.Presentation
                 var old=save.collection.ooparts.progress.Single(p=>p.oopartId==oopartRequest.Target);oopartRequest.Apply(next,CollectionData(),CurrentFormation());var changed=next.collection.ooparts.progress.Single(p=>p.oopartId==oopartRequest.Target);
                 string outcome=oopartRequest.Kind=="level"?"Lv "+old.level+" → "+changed.level:StatName(oopartRequest.Stat)+"累積 "+old.accumulatedRandomStats.Get(oopartRequest.Stat)+" → "+changed.accumulatedRandomStats.Get(oopartRequest.Stat);
                 var costs=save.collection.materials.Select(m=>new{id=m.id,amount=m.amount-HomeRules.Balance(next,m.id)}).Where(m=>m.amount>0).Select(m=>CollectionData().resources.Single(r=>r.id==m.id).name+" "+m.amount+"個").ToList();
-                int nectar=save.growth.nectar-next.growth.nectar;if(nectar>0)costs.Insert(0,"ネクタル "+nectar.ToString("N0"));return outcome+"\n消費："+string.Join(" ／ ",costs);
+                int nectar=save.growth.nectar-next.growth.nectar;if(nectar>0)costs.Insert(0,"ネクタル "+nectar.ToString("N0"));
+                string delta=oopartRequest.Kind=="level"?"\n強化後："+StatText(OopartService.Fixed(changed,CollectionData().Oopart(old.oopartId))):"";
+                return outcome+"\n消費："+string.Join(" ／ ",costs)+delta;
             }catch(ArgumentException e){return e.Message;}
         }
         private void DrawOopartOverlay()
@@ -77,7 +79,7 @@ namespace NewAster.Presentation
             Label(95,145,1180,55,"編成 › 第"+(oopartSlot+1)+"枠 › オーパーツ",growthTitleStyle);
             if(oopartRequest!=null){
                 string cost=OopartOperationSummary(s);
-                Label(160,285,1280,130,"変更内容："+(oopartRequest.Kind=="direct"?StatName(oopartRequest.Stat)+"の直接強化":oopartRequest.Kind=="level"?"Lv ＋"+(oopartRequest.Count==120?"MAX":oopartRequest.Count.ToString()):oopartRequest.Kind=="equip"?"装備変更":oopartRequest.Kind=="clear-slot"?"隊員を外す":oopartRequest.Kind=="preset-save"?"編成プリセット保存":"編成プリセット読込")+"\n"+cost,growthTextStyle);
+                Label(160,275,1280,160,"変更内容："+(oopartRequest.Kind=="direct"?StatName(oopartRequest.Stat)+"の直接強化":oopartRequest.Kind=="level"?"レベル強化":oopartRequest.Kind=="equip"?"装備変更":oopartRequest.Kind=="clear-slot"?"隊員を外す":oopartRequest.Kind=="preset-save"?"編成プリセット保存":"編成プリセット読込")+"\n"+cost,new GUIStyle(growthTextStyle){fontSize=20});
                 if(oopartError!=null)Label(160,445,1280,90,oopartError,growthSmallStyle);
                 if(GrowthButton(160,650,620, sixty,formalCampaign.HasPending?"再試行":"確定して保存",true,true))CommitOopart();if(GrowthButton(820,650,620, sixty,"取消",!formalCampaign.HasPending))oopartRequest=null;return;
             }
@@ -99,8 +101,17 @@ namespace NewAster.Presentation
             Label(570,652,915,44,OopartComparison(s,selected),new GUIStyle(growthSmallStyle){fontSize=17});
             bool elsewhere=o.slots.Where((v,i)=>i!=oopartSlot).Any(v=>v.equippedOopartId==selected.oopartId);
             if(GrowthButton(570,707,330,45,elsewhere?"他の編成枠で装備中":"装備",!elsewhere && o.slots[oopartSlot].equippedOopartId!=selected.oopartId,true))ProposeOopart("equip",selected.oopartId);
-            int balance=FormalRelicRules.MaterialBalance(s.collection,CollectionData().relics.Single(r=>r.id==selected.oopartId));int[] amounts={1,10,120};for(int i=0;i<3;i++)if(GrowthButton(920+i*190,707,175,45,amounts[i]==120?"Lv MAX":"Lv ＋"+amounts[i],selected.level<120 && balance>=selected.level))ProposeOopart("level",selected.oopartId,amounts[i]);
-            if(oopartError!=null || oopartMessage!=null)Label(570,772,915,35,oopartError??oopartMessage,growthSmallStyle);
+            int[] amounts={1,10,120};for(int i=0;i<3;i++){
+                int reachable=OopartService.ReachableLevel(s,CollectionData(),selected.oopartId,amounts[i]);
+                string caption=selected.level==120?"強化完了":reachable==selected.level?"素材不足":(amounts[i]==120?"最大：":"")+"Lv "+reachable;
+                if(GrowthButton(920+i*190,707,175,45,caption,reachable>selected.level))ProposeOopart("level",selected.oopartId,amounts[i]);
+            }
+            string guidance=selected.level==120?"レベル強化は完了しています。":string.Join(" ／ ",CollectionData().relics.Single(r=>r.id==selected.oopartId).materialIds.Select(id=>{
+                var material=CollectionData().resources.Single(r=>r.id==id);int owned=HomeRules.Balance(s,id),needed=FormalRelicRules.UpgradeCost(new CollectionRelic{level=selected.level},RelicOperation.LevelUp,CollectionData().contentVersion);
+                string source=WorldCatalog.Colossi.FirstOrDefault(c=>c.Id==material.ownerId)?.DisplayName??material.ownerId;
+                return material.name+" "+owned+" / "+needed+"個"+(owned<needed?"（不足 "+(needed-owned)+"）":"")+"　入手："+source;
+            }));
+            Label(570,760,915,65,(oopartError??oopartMessage)!=null?(oopartError??oopartMessage)+"\n"+guidance:guidance,new GUIStyle(growthSmallStyle){fontSize=15});
         }
         private void DrawOopartPresets(bool enabled)
         {

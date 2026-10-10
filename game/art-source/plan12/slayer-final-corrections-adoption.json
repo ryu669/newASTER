@@ -1,0 +1,136 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/slayer-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-sd-walk-candidate-v1.png",
+      "sha256": "f71d1ef591adaf16e56550fd3dc8338e3aa99df8e80ad69dd2f0eb635ae2295a",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    },
+    {
+      "resource": "Illustrations/slayer-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-sd-talk-candidate-v1.png",
+      "sha256": "99abd784dc7fff9bdbf79625707ffb90b8ae7677e40b5180f60c791455db11f2",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    },
+    {
+      "resource": "Illustrations/slayer-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-sd-react-candidate-v1.png",
+      "sha256": "2e74de3bf5c5ce3eae8138be6eb2cb68ca5aee52ba8c6dd492fceeab89e2150f",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-detail.png",
+      "sha256": "3c69e7f86b54cc7636d7e4d7453111ce2cd74d938bf15eb04f852184dc60f1d5"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-tree.png",
+      "sha256": "3fb6774f7d01f58bc53d37e8fcc11f45255522270d551cf68d89ae749e21d1b4"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-battle.png",
+      "sha256": "9f795ce9d95d9f80f1a47b8e0be3188815fb936bf4f18835b94fa60d7328d9a2"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.0.png",
+      "sha256": "461aca53d980bd4ed3fced9d240caeb3c08b342243d6e7443f7cf661da1fe1bd"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.1.png",
+      "sha256": "94c9cdacd787b13e2b835e1da5b8f59a58ce90feb5fc2aad0eb23fbb86e0440f"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.2.png",
+      "sha256": "412d1b2fa989b623b6a38d5e07809fe224b7016ab11d8dd76aef0272594b898b"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.3.png",
+      "sha256": "4efe7a9f10af7433c7446043b04bcb0c3e01c73516b923bf5bdd7ddd70b10017"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.4.png",
+      "sha256": "87a403f462d40fd7d4682d268cd7a2afb4038eb6ade9dddfd705fd7c9a37c81e"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-sd.idle.png",
+      "sha256": "4cffd6a7ace38968c9b57b9d2ed76fa5214bc1ba9ba7f607717a11a561a4c861"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-sd.sit.png",
+      "sha256": "ea05c924906f1e0d9ce547ebfeb39edbd8fd23d420e9e5cba66eca98c0792d01"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-sd.work.png",
+      "sha256": "211cc0b725d91306d548d227ce6ceb3bf04bfdb4cc8952f8bcbd40dca53869ca"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-sd.look.png",
+      "sha256": "3c8180a9c93de4f050252313cccc3eeecc72efd7e742b0fc35be43e080688361"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-expression.normal.png",
+      "sha256": "97bdce9e3950879f9e766b8270587290403ea232dcc053478882d87be07c8ff4"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-expression.joy.png",
+      "sha256": "f56f2e3571921af983371343695fb22fb1505d007e245ee32e754ac83548ca7b"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-expression.puzzled.png",
+      "sha256": "d1f09e1ce977abbe73dedb8c3da7b9f743b9d546f0ff11047442ae58ee37354c"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-expression.determined.png",
+      "sha256": "fc7b9963cccbaa0e4b078b1d3c213f7a2cd605c610ed83df9deaf282c8bf1fa4"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/c8db4435ce5748fe9e3dbd4a552a97ab/default/slayer-sd.walk.png",
+      "sha256": "ac55696acae41ca8c38e660b8355bc6f4e780d75211df3a3e22faf8278f05d25"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/c8db4435ce5748fe9e3dbd4a552a97ab/default/slayer-sd.talk.png",
+      "sha256": "fdb84881074f0800a368960bd6edd2da4082f36ee1fe1678e800f8d0f82b3bee"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/c8db4435ce5748fe9e3dbd4a552a97ab/default/slayer-sd.react.png",
+      "sha256": "2315bbc0c2353c7afb583c33d46d07e0117bc53b3ff490208d433580f1490044"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE dedicated sit garden SD sprite of the exact female chibi character in the reference: a clear seated pose, knees bent and feet dangling together, hands resting on lap; no chair or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4e5ae7cd-81bb-4dd3-a44f-c5dd0c6fcdb4.png",
+      "resource": "Illustrations/oriflamme-sd-sit-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE dedicated work garden SD sprite of the exact female chibi character in the reference: a clear focused working pose, leaning forward slightly, both hands using a small suitable tool or writing in a notebook near waist; no desk or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0482bb47-3aaa-43ee-bf9e-763dd78dd277.png",
+      "resource": "Illustrations/oriflamme-sd-work-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE dedicated look garden SD sprite of the exact female chibi character in the reference: a clear admiring pose, face and eyes looking upward to the side at an offscreen display, hands clasped behind back. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5312be17-3087-4044-ae89-a71ec731f279.png",
+      "resource": "Illustrations/oriflamme-sd-look-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-cb113ab1-3e5d-436c-884d-dc7c5c57d782.png",
+      "resource": "Illustrations/oriflamme-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d9e1fe34-f083-4565-9f4d-42fa4fc35f35.png",
+      "resource": "Illustrations/oriflamme-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create determined confident expression, slightly firm brows and a small confident closed smile. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ad61fbf1-45ae-4df7-85c7-6c2deb869d31.png",
+      "resource": "Illustrations/oriflamme-expression-determined-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "oriflamme-event-0",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1167d6ad-8683-45c1-b990-551dc4b9a763.png",
+      "resource": "Illustrations/oriflamme-event-0-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "oriflamme-event-1",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface. Follow-up: Anatomy correction: remove the extra black gloved hand touching her cheek and its white cuff and forearm below the cheek. Reconstruct her blonde hair naturally in that area. She has exactly TWO arms: one hand holds the red crystal near her chest, the other rests on the table beside the green crystal. Keep those two existing hands and everything else unchanged. One woman only.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7ad45a57-4615-4734-9880-c955656e91c0.png",
+      "resource": "Illustrations/oriflamme-event-1-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "oriflamme-event-2",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1f884ea8-7bb9-4231-b0d0-b4f7eb73fcc4.png",
+      "resource": "Illustrations/oriflamme-event-2-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "oriflamme-event-3",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a6adb2c2-826b-4ac5-a0ed-420cc2c66d28.png",
+      "resource": "Illustrations/oriflamme-event-3-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "oriflamme-event-4",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-08bb4a5d-20f5-409a-946b-0408cb1dd658.png",
+      "resource": "Illustrations/oriflamme-event-4-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

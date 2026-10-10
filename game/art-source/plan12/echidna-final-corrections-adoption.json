@@ -1,0 +1,136 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/echidna-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/echidna-sd-walk-candidate-v1.png",
+      "sha256": "8f0e2de6abccb52f8947635e5cb2525858806fcfe9e2c23c17c6969ed7ab932a",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/echidna-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/echidna-sd-talk-candidate-v1.png",
+      "sha256": "23203b8a20cf5a1803b59da9e3b4bd586b1836b0a347051b5cfb3adfc8c8c89f",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/echidna-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/echidna-sd-react-candidate-v1.png",
+      "sha256": "e0beb71da346e56be3ce802eeaa7cf0ae2fc6abf2b79e69a3da4d6be677a4f94",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-detail.png",
+      "sha256": "4699fc139f51bda994c5d2425688dcfd3e27961ae163241c628bdf1d8cb8987e"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-tree.png",
+      "sha256": "8ccaeb6a14172c91bdd59b8682417c3c1f6eb43b03d0513ca9a42fc1eb0d01fc"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-battle.png",
+      "sha256": "3d3f8bf5dbfc30d7d1aaee28fb8c95e34d9bad87d49ae4314f356f3e429b1a17"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.0.png",
+      "sha256": "c612c16b790bf543d402c6cf65928ffb05806ead828067f98af3bdba8c0b78e3"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.1.png",
+      "sha256": "b930af67f0720d8c804acd4b9e446ce6e827e3622a9b0acb82befa3c839b1e54"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.2.png",
+      "sha256": "0bd5ef1c5e75c8e0d92e49f16ab0d8cf407e695a20764642d5d36feaa35f93c6"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.3.png",
+      "sha256": "e1625996c7348004dc2ae1570065ad786c8b18b304c074a52073ae80cdfec0a7"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.4.png",
+      "sha256": "3c3aa9a86c8e92c228567581321e1ff1924e7c8094eaa100286641461926cb5f"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-sd.idle.png",
+      "sha256": "13555d34a40c7e7bed2088bfaccb099fd01d3739799a532a0c3cfe4f9a9f1b7c"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-sd.sit.png",
+      "sha256": "0881f79a2efc6877522e953c3a404f66ceedaf26e0b33b58bc96e21000812e42"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-sd.work.png",
+      "sha256": "612d84326a81131570b4ab836ef6b1c7bdc775ac8f6bae44be961e54b119a5cd"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-sd.look.png",
+      "sha256": "c69bdd79ed71e192cf741f6ef9ba071ff030faea2f2cd6da96bc24a4ef3db9b9"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-expression.normal.png",
+      "sha256": "8e4e5006ae79e34eb350e2c50026c7622cbd496fddf7d3906ca44b4261fb57f5"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-expression.joy.png",
+      "sha256": "872e843b513dfa1d92e71a72f424ba3bb257db1476b4b99167f634c8e468228f"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-expression.puzzled.png",
+      "sha256": "81662ddf0bd28e2eb8b0a679a160bc4c2eed4cb656ab673ce59df7bd01cb9a12"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-expression.determined.png",
+      "sha256": "37a881b0928d92c1874eda35e532c52b576a6d20d28d25886233079866a98455"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/bef40c5948264a1c99119942dc2cc60e/default/echidna-sd.walk.png",
+      "sha256": "97dbf1e17fe0d9851dc9f957576928bd843ab58e463054793c8ae84960083b06"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/bef40c5948264a1c99119942dc2cc60e/default/echidna-sd.talk.png",
+      "sha256": "2416a9850600e35c3c3342dac6f9dfae67e90dc0c3d2e2784bf3426e7c2252d8"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/bef40c5948264a1c99119942dc2cc60e/default/echidna-sd.react.png",
+      "sha256": "85e50f86c4a5b25d73943cf9b78ec330457e88e995f6154dd2ca5ed828e3e271"
+    }
+  ]
+}

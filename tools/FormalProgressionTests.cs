@@ -103,9 +103,10 @@ public static class FormalProgressionTests
         var roundtrip=JsonSerializer.Deserialize<FormalGrowthSave>(JsonSerializer.Serialize(state.Snapshot,options),options);
         roundtrip.Validate();var reloaded=new FormalProgression(roundtrip,ids);
         check(reloaded.Commit(request,s=>false)==GrowthCommitResult.AlreadyCommitted,"Receipt survives serialization and restart");
-        check(FormalGrowthMath.Stat(1100,10000,50,0)==2717 && FormalGrowthMath.Stat(1100,10000,120,5)==5529,"Job growth and rank formula");
+        check(FormalGrowthMath.Stat(1100,10000,50,0)==2717 && FormalGrowthMath.Stat(1100,10000,120,5)==5781,"Job growth and rank formula");
         check(FormalGrowthMath.Speed(105,10000)==105 && FormalGrowthMath.TraitAmount(500,5)==550,"Speed fixed and trait units preserve precision");
-        for(int rank=0;rank<=5;rank++) for(int level=1;level<=120;level++) check(FormalGrowthMath.Stat(110,10000,level,rank)==(110*(100+3*(level-1))/100)*(100+2*rank)/100,"Growth floors at defined boundaries");
+        for(int rank=0;rank<=5;rank++) for(int level=1;level<=120;level++) check(FormalGrowthMath.Stat(110,10000,level,rank)==(110*(100+3*(level-1))/100)*(rank==5?115:100+2*rank)/100,"Growth floors at defined boundaries including the final duplicate reward");
+        check(FormalGrowthMath.Stat(10000,10000,1,5)-FormalGrowthMath.Stat(10000,10000,1,4)>FormalGrowthMath.Stat(10000,10000,1,4)-FormalGrowthMath.Stat(10000,10000,1,3),"Final duplicate has a larger stat benefit when mastery is already capped");
         rejects(()=>FormalGrowthMath.Stat(110,11001,1,0),"Invalid character modifier rejected");
         rejects(()=>FormalGrowthMath.Speed(100,10501),"Invalid speed modifier rejected");
         string directory=Path.Combine(Path.GetTempPath(),"newaster-growth-test-"+Guid.NewGuid().ToString("N"));

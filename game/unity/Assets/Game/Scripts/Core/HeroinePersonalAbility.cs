@@ -15,21 +15,21 @@ namespace NewAster.Core
         public static HeroinePersonalTrait For(string id)
         {
             switch(id){
-                case "heroine.slayer":return new HeroinePersonalTrait("花翼の先陣","sword","HPが75%以上のとき、与ダメージ＋5%。","healthy",5);
-                case "heroine.iconoclast":return new HeroinePersonalTrait("偶像を砕く一撃","flame","本体以外の部位への与ダメージ＋8%。","part",8);
-                case "heroine.undermine":return new HeroinePersonalTrait("森の脈動","leaf","毎ターン、自身の最大HPの2%を回復。","regen",2);
-                case "heroine.echidna":return new HeroinePersonalTrait("竜光の継承","star","光属性攻撃の与ダメージ＋10%。","light",10);
-                case "heroine.excalipan":return new HeroinePersonalTrait("月光の帳","moon","自身が受ける攻撃ダメージを8%軽減。","reduction",8);
-                case "heroine.r":return new HeroinePersonalTrait("星音の余韻","star","歌唱ゲージの追加獲得率＋15%。歌唱中は獲得しない。","gauge",15);
-                case "heroine.annihilator":return new HeroinePersonalTrait("紅蝶の窮刃","sword","HPが50%以下のとき、与ダメージ＋12%。","wounded",12);
-                case "heroine.annihilator-holy":return new HeroinePersonalTrait("聖夜のぬくもり","leaf","毎ターン、自身の最大HPの3%を回復。","regen",3);
-                case "heroine.shell":return new HeroinePersonalTrait("帰還を守る外殻","star","装甲が有効な間、受ける攻撃ダメージを12%軽減。","armor",12);
-                case "heroine.oriflamme":return new HeroinePersonalTrait("消えない正義の炎","flame","HPが50%以上のとき、火属性攻撃の与ダメージ＋8%。","healthy-fire",8);
-                case "heroine.nighthawk":return new HeroinePersonalTrait("夜を裂く駆動","moon","氷属性攻撃の与ダメージ＋10%。","ice",10);
-                case "heroine.slayer-swim":return new HeroinePersonalTrait("夏空の号令","crown","指揮ゲージの追加獲得率＋20%。","gauge",20);
-                case "heroine.arcane":return new HeroinePersonalTrait("空欄に残す装填式","star","弾丸の追加獲得率＋25%。","gauge",25);
-                case "heroine.arcane-academy":return new HeroinePersonalTrait("放課後の休息","leaf","毎ターン、自身の最大HPの4%を回復。","regen",4);
-                case "heroine.shangrila":return new HeroinePersonalTrait("核心を射抜く静寂","star","本体への与ダメージ＋8%。","body",8);
+                case "heroine.slayer":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.slayer").Personal,"sword","HPが75%以上のとき、与ダメージ＋5%。","healthy",5);
+                case "heroine.iconoclast":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.iconoclast").Personal,"flame","本体以外の部位への与ダメージ＋8%。","part",8);
+                case "heroine.undermine":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.undermine").Personal,"leaf","毎ターン、自身の最大HPの2%を回復。","regen",2);
+                case "heroine.echidna":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.echidna").Personal,"star","光属性攻撃の与ダメージ＋10%。","light",10);
+                case "heroine.excalipan":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.excalipan").Personal,"moon","自身が受ける攻撃ダメージを8%軽減。","reduction",8);
+                case "heroine.r":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.r").Personal,"star","歌唱ゲージの追加獲得率＋15%。歌唱中は獲得しない。","gauge",15);
+                case "heroine.annihilator":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.annihilator").Personal,"sword","HPが50%以下のとき、与ダメージ＋12%。","wounded",12);
+                case "heroine.annihilator-holy":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.annihilator-holy").Personal,"leaf","毎ターン、自身の最大HPの3%を回復。","regen",3);
+                case "heroine.shell":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.shell").Personal,"star","装甲が有効な間、受ける攻撃ダメージを12%軽減。","armor",12);
+                case "heroine.oriflamme":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.oriflamme").Personal,"flame","HPが50%以上のとき、火属性攻撃の与ダメージ＋8%。","healthy-fire",8);
+                case "heroine.nighthawk":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.nighthawk").Personal,"moon","氷属性攻撃の与ダメージ＋10%。","ice",10);
+                case "heroine.slayer-swim":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.slayer-swim").Personal,"crown","指揮ゲージの追加獲得率＋20%。","gauge",20);
+                case "heroine.arcane":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.arcane").Personal,"star","弾丸の追加獲得率＋25%。","gauge",25);
+                case "heroine.arcane-academy":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.arcane-academy").Personal,"leaf","毎ターン、自身の最大HPの4%を回復。","regen",4);
+                case "heroine.shangrila":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.shangrila").Personal,"star","本体への与ダメージ＋8%。","body",8);
                 default:return null;
             }
         }

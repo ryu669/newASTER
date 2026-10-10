@@ -1,0 +1,26 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE dedicated walk garden SD sprite of the exact female chibi character in the reference: a clear walking step, one leg forward and the other back, arms swinging naturally, lively walking body lean. Preserve exact hair, face, costume, wings, ornaments, colors and polished chibi illustration style. Full body and all accessories inside canvas with at least 5% transparent margin. No scenery, no floor, no shadow, no text, no other people. Genuine transparent background. Must clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-397cf7ba-6f05-4282-9964-24fa31250e9d.png",
+      "resource": "Illustrations/slayer-sd-walk-candidate-v1",
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE dedicated talk garden SD sprite of the exact female chibi character in the reference: a clear friendly talking gesture, one hand open at chest level toward the listener, cheerful open mouth, feet planted. Preserve exact hair, face, costume, wings, ornaments, colors and polished chibi illustration style. Full body and all accessories inside canvas with at least 5% transparent margin. No scenery, no floor, no shadow, no text, no other people. Genuine transparent background. Must clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e21b01a0-5515-4cfc-8987-3f944df12332.png",
+      "resource": "Illustrations/slayer-sd-talk-candidate-v1",
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE dedicated react garden SD sprite of the exact female chibi character in the reference: a clear surprised reaction, both hands lifted near cheeks, widened eyes and small surprised open mouth, knees slightly bent. Preserve exact hair, face, costume, wings, ornaments, colors and polished chibi illustration style. Full body and all accessories inside canvas with at least 5% transparent margin. No scenery, no floor, no shadow, no text, no other people. Genuine transparent background. Must clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c3823406-dcb6-4328-b4d0-357ed7963a3f.png",
+      "resource": "Illustrations/slayer-sd-react-candidate-v1",
+      "visualReview": "passed: distinct requested pose, consistent character and costume, genuine transparent full-body sprite"
+    }
+  ]
+}

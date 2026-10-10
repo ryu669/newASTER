@@ -1,0 +1,166 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/annihilator-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-sd-walk-candidate-v1.png",
+      "sha256": "a1edd8ede3503245ad1e021697d52f0efac95275bb4f8cdd5558ebb1e4f4b639",
+      "size": [
+        1243,
+        1265
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-sd-talk-candidate-v1.png",
+      "sha256": "45e72c96cf7fc7bfd1c02f4fe299c433fb646977cbace317771dda8af53ba126",
+      "size": [
+        1243,
+        1265
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-sd-react-candidate-v1.png",
+      "sha256": "f0e14d6d88329788043c4fcb069da17d1cdfc016a36258a9cfcced3886bb3b74",
+      "size": [
+        1243,
+        1265
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-expression-joy-candidate-v1.png",
+      "sha256": "380b9ad7d0851126b6c937b29c31ce6c47ef1c72f9c757ef3b5214e367f96332",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-expression-puzzled-candidate-v1.png",
+      "sha256": "cc2dc878b9dd6e402956c0d37064f207f9b20e8e2dfce29f5e7b2efb2c7a8c4d",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-expression-determined-candidate-v1.png",
+      "sha256": "e3533eed852382ac89cf8e76ea8e98c4ae2983ea4e4b1585927947d0222e2d61",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-detail.png",
+      "sha256": "4da95183b00cc89e39102c2a4e740f1eacf18ded5c6143556a2f788801e2bcb9"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-tree.png",
+      "sha256": "1e67ee67b0d512e8bcbc2636602e9a170b2347f8fece6d1e0e521b5ba384dea5"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-battle.png",
+      "sha256": "a835ce615ed08e5c95f8aac6b32b6656f0edbec8d1d18c06c3489deaaf8bb3c4"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.0.png",
+      "sha256": "3be152203e27363b1fbf41a65490c2620c24d70796516e708f8b33f82ec263f3"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.1.png",
+      "sha256": "2520cabcf54d34de33a02ec8efa941d712e620c7caca471239525ca69c2c1dee"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.2.png",
+      "sha256": "c3b9916cd1957081660c39da6c2021bdce05f77d1c036f8cb52dba57450c5c83"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.3.png",
+      "sha256": "fd242f7325c042bd598fa5e0b891bfd3514087f65082672584866a02c41a8da0"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.4.png",
+      "sha256": "2e2d4346e90c3f9c4ac924a55f145d04d406056c5113ea72dec65ece8ff19c8c"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-sd.idle.png",
+      "sha256": "7f1afef64bba60ea0e32e67578c0043a6c6ef872e524183f8fb464ac0f086716"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-sd.sit.png",
+      "sha256": "8bbce29d0adeefe1b9bdc0a9ee916015cf52e61e1bb4a5581a21410bbf71b9fb"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-sd.work.png",
+      "sha256": "0bf18fcfe95d0fcf8ce65b77084fe9d7a76556a9271045dc2a4db9f8dbad0052"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-sd.look.png",
+      "sha256": "9226493b466081b95cf4b3b809b7ffe965fb9d5416d61477908adc9983c941ad"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-expression.normal.png",
+      "sha256": "c2a85cdda6edd4a36255ef280120c5416c3f864cbcfc9e9d14d8a916150063b0"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-expression.joy.png",
+      "sha256": "859b63809e8655c99008cf1d86c186ff0f1ce578db5cf67f7d9015800b0fa34b"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-expression.puzzled.png",
+      "sha256": "f62f19b5cdc797a4a08ccc7cf30849b9115710136a8ed7f1939ed04210844296"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-expression.determined.png",
+      "sha256": "8c5d9f0284229b6fcc2bf1c89904b1e0807986f88327c54f825bbe4b4e75b2dc"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-sd.walk.png",
+      "sha256": "ba7c93beda20e70847269f9b486d2aa83153256e3c097fe11dca528cd9a93329"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-sd.talk.png",
+      "sha256": "b8209295fdd63c2cd33de6579f7619d75e67a3e2d0bca8893f036eb3b1a404fa"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/8697912692b24a18907d1ca02c894fc6/default/annihilator-sd.react.png",
+      "sha256": "4b4c137f17180e27bdbc651b445ddf426fd2a80df140d2c1c86c0b1636fc25f0"
+    }
+  ]
+}

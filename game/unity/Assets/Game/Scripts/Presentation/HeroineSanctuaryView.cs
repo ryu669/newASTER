@@ -130,15 +130,15 @@ namespace NewAster.Presentation
             bool previousEnabled=GUI.enabled;if(expansionRecruitmentOpen || rosterFilterOpen)GUI.enabled=false;
             SanctuaryHeader("誓女の星図","名前と顔から、会いたい誓女を選ぶ");
             heroineRoster=heroineRoster??HeroineRosterCatalog.InitialFive(combatDefinitions);
-            Label(278,111,110,38,"名前検索",growthSmallStyle);
-            string query=ImageUiSkin.TextField(new Rect(383,108,455,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
+            Label(60,111,140,38,"名前検索",growthSmallStyle);
+            string query=ImageUiSkin.TextField(new Rect(205,108,365,48),heroineQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=23,padding=new RectOffset(14,14,10,8)});
             if(query!=heroineQuery){heroineQuery=query;heroinePage=0;}
-            if(GrowthButton(853,108,95,48,"クリア",heroineQuery.Length>0)){heroineQuery="";heroinePage=0;}
+            if(GrowthButton(580,108,95,48,"クリア",heroineQuery.Length>0)){heroineQuery="";heroinePage=0;}
             var jobs=combatDefinitions.jobs.Select(j=>j.id).OrderBy(id=>id,StringComparer.Ordinal).ToArray();
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);
-            if(GrowthButton(975,108,570,48,"ジョブ  ／  "+(heroineJobFilter==0?"すべて":HeroineIdentityCatalog.JobName(jobs[heroineJobFilter-1]))+"  ›",BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=true;}
+            if(GrowthButton(690,108,420,48,"ジョブ  ／  "+(heroineJobFilter==0?"すべて":HeroineIdentityCatalog.JobName(jobs[heroineJobFilter-1]))+"  ›",BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=true;}
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);
-            if(GrowthButton(1060,167,485,40,"交流で絞り込む："+new[]{"全員","恋人","未読イベント","Lv10以上","Lv20以上"}[affectionRosterFilter],BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=false;}
+            if(GrowthButton(1125,108,420,48,"交流で絞り込む："+new[]{"全員","恋人","未読イベント","Lv10以上","Lv20以上"}[affectionRosterFilter],BookInputAllowed)){rosterFilterOpen=true;rosterFilterJob=false;}
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);var snapshot=LifeSnapshot().growth;string resultKey=heroineQuery+"|"+heroineJobFilter+"|"+affectionRosterFilter+"|"+formalCampaign.Revision;if(bookHeroineResults==null || bookHeroineResultKey!=resultKey){bookHeroineResults=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).ToArray();bookHeroineResultKey=resultKey;}var entries=bookHeroineResults;
             var saved=book.PageState;var activeFilters=new[]{heroineJobFilter.ToString(),affectionRosterFilter.ToString()};if(saved.searchQuery!=heroineQuery || !(saved.filterIds??Array.Empty<string>()).SequenceEqual(activeFilters)){saved.searchQuery=heroineQuery;saved.filterIds=activeFilters;bookNavigationDirty=true;}book.SetResults(BookBookmark.Heroines,entries.Select(e=>e.id));
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
@@ -228,7 +228,7 @@ namespace NewAster.Presentation
                 if(ImageUiSkin.Button(new Rect(rect.x,rect.y,64,64),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
-            if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);Label(103,633,520,35,t.name,growthTextStyle,gold);Label(103,677,526,106,t.description,new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true});}
+            if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);var traitTitle=new GUIStyle(growthTextStyle){wordWrap=false};while(traitTitle.fontSize>16 && traitTitle.CalcSize(new GUIContent(t.name)).x>520)traitTitle.fontSize--;Label(103,633,520,35,t.name,traitTitle,gold);var traitBody=new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true};while(traitBody.fontSize>15 && traitBody.CalcHeight(new GUIContent(t.description),526)>106)traitBody.fontSize--;Label(103,677,526,106,t.description,traitBody);}
             DrawBookTransition(true);DrawBookFooter(true);
         }
         private void DrawBookHeroineInformation(string id)

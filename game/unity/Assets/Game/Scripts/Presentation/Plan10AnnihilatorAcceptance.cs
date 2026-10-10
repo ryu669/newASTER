@@ -20,6 +20,7 @@ namespace NewAster.Presentation
             save.growth.nectar=20000;save.world.unlockedGardenIds=HomeData().gardens.Take(1).Select(g=>g.id).ToArray();
             if(!recruit)save.home.formationIds=new[]{hero}.Concat(combatDefinitions.FormationIds.Skip(1)).ToArray();
             save.home.affections=recruit?new HomeAffection[0]:new[]{new HomeAffection{heroineId=hero,value=20}};
+            if(!recruit){AffectionSaveAdapter.Migrate(save,HomeData());var affection=AffectionService.State(save,HomeData(),hero);affection.level=20;affection.exp=0;AffectionEventResolver.Refresh(save,HomeData());}
             save.world.poemIds=save.world.poemIds.Union(ProductionStoryData().chapters.Where(c=>c.ownerId.StartsWith("heroine.annihilator",StringComparison.Ordinal)).SelectMany(c=>c.poems).Select(p=>p.id)).ToArray();
             save.collection.materials=HomeData().materials.Select(m=>new CollectionMaterial{id=m.id,sourceColossusId=m.colossusId,amount=10000}).ToArray();
             HomeConditions.Refresh(save,HomeData());save.Validate();AcceptanceCheck(acceptanceStore.Save(save),"New forms use isolated save");BindFormalCampaign(save);

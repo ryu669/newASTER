@@ -1,0 +1,5174 @@
+{
+  "schemaVersion": 1,
+  "complete": true,
+  "runs": 824,
+  "caps": 0,
+  "failedParties": 88,
+  "scope": "Paired retry of zero-win parties with all-five attack-route tier1/2 weapons Lv1, same four seeds; synthetic gear comparison, not earned acquisition. No ooparts or duplicates. Separately, fastest no-initial-party that won4/4 faces all15 enemies on eight held-out seeds4..11 without gear. Selected winner is not a universal recommendation.",
+  "holdoutFormation": [
+    "heroine.arcane-academy",
+    "heroine.nighthawk",
+    "heroine.oriflamme",
+    "heroine.shangrila",
+    "heroine.slayer-swim"
+  ],
+  "rows": [
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5730,
+      "winningClock": 3250
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4740,
+      "winningClock": 4740
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4820,
+      "winningClock": 4820
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3775,
+      "winningClock": 2535
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4960,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4730,
+      "winningClock": 2250
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 6855,
+      "winningClock": 5615
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4014,
+      "winningClock": 4014
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.healer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5101,
+      "winningClock": 5101
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.healer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4344,
+      "winningClock": 4344
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5750,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 9000,
+      "winningClock": 9000
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 8865,
+      "winningClock": 7625
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5375,
+      "winningClock": 5375
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 12000,
+      "winningClock": 990
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 7196,
+      "winningClock": 7196
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5792,
+      "winningClock": 5792
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4783,
+      "winningClock": 4783
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 6162,
+      "winningClock": 4572
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4658,
+      "winningClock": 4658
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 14835,
+      "winningClock": 10125
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 6750,
+      "winningClock": 6750
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 7709,
+      "winningClock": 7709
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 10,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4275,
+      "winningClock": 4275
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5446,
+      "winningClock": 821
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 5,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4538,
+      "winningClock": 4538
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5730,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 6625,
+      "winningClock": 6625
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 9750,
+      "winningClock": 9750
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3257,
+      "winningClock": 3257
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 6790,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5087,
+      "winningClock": 5087
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 12720,
+      "winningClock": 2625
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 8875,
+      "winningClock": 8875
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 10830,
+      "winningClock": 7375
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4989,
+      "winningClock": 4989
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4619,
+      "winningClock": 1904
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.undermine",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.defender",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 10,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3725,
+      "winningClock": 3725
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3399,
+      "winningClock": 834
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3244,
+      "winningClock": 1534
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3542,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3264,
+      "winningClock": 2409
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3763,
+      "winningClock": 954
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3428,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3542,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3414,
+      "winningClock": 1582
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3899,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3234,
+      "winningClock": 1303
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4651,
+      "winningClock": 4651
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 1,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4269,
+      "winningClock": 4269
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4650,
+      "winningClock": 3660
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 10,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3421,
+      "winningClock": 2601
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3555,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3555,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2613,
+      "winningClock": 2613
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2137,
+      "winningClock": 2137
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3664,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 855
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 8100,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 6507,
+      "winningClock": 4477
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3762,
+      "winningClock": 855
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3771,
+      "winningClock": 1826
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3093,
+      "winningClock": 3093
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 2,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2225,
+      "winningClock": 2225
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3664,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2211,
+      "winningClock": 2211
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.artist",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2238,
+      "winningClock": 2238
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2784,
+      "winningClock": 2784
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2199,
+      "winningClock": 2199
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3899,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3520,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 12,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2661,
+      "winningClock": 2661
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 7,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2207,
+      "winningClock": 2207
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.shangrila",
+        "heroine.shell"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.sniper",
+        "job.panzer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 10056,
+      "winningClock": 6986
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.shangrila",
+        "heroine.shell"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.fighter",
+        "job.sniper",
+        "job.panzer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3953,
+      "winningClock": 3953
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4227,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3915,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.healer",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 6,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2552,
+      "winningClock": 2552
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.healer",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2149,
+      "winningClock": 2149
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2952,
+      "winningClock": 2097
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.blaster",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2328,
+      "winningClock": 2328
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3213,
+      "winningClock": 648
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4784,
+      "winningClock": 1064
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5146,
+      "winningClock": 5146
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3213,
+      "winningClock": 648
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3285,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3150,
+      "winningClock": 2295
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3593,
+      "winningClock": 1668
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.gunner",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2908,
+      "winningClock": 2908
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 2,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2270,
+      "winningClock": 2270
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2149,
+      "winningClock": 2149
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3150,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2880,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2149,
+      "winningClock": 2149
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 1968,
+      "winningClock": 1968
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4055,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5168,
+      "winningClock": 523
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2292,
+      "winningClock": 2292
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.artist",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 6,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 1832,
+      "winningClock": 1832
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 9,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2284,
+      "winningClock": 2284
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 1980,
+      "winningClock": 1980
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.healer",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 2,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2137,
+      "winningClock": 2137
+    },
+    {
+      "formation": [
+        "heroine.slayer",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.fighter",
+        "job.healer",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2012,
+      "winningClock": 2012
+    },
+    {
+      "formation": [
+        "heroine.iconoclast",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.berserker",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.iconoclast",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.berserker",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2100,
+      "winningClock": 2100
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5105,
+      "winningClock": 1000
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4210,
+      "winningClock": 4210
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4720,
+      "winningClock": 1000
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4595,
+      "winningClock": 4595
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4440,
+      "winningClock": 990
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3668,
+      "winningClock": 3668
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4675,
+      "winningClock": 2195
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3671,
+      "winningClock": 3671
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 5,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3589,
+      "winningClock": 3589
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3089,
+      "winningClock": 3089
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4960,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4210,
+      "winningClock": 2970
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5345,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4825,
+      "winningClock": 3575
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 6115,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 9750,
+      "winningClock": 8500
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 8315,
+      "winningClock": 5500
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5845,
+      "winningClock": 2125
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 6066,
+      "winningClock": 2231
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4324,
+      "winningClock": 1879
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 6,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3357,
+      "winningClock": 3357
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.echidna",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.blaster",
+        "job.gunner",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2536,
+      "winningClock": 2536
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 8500,
+      "winningClock": 4000
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 12,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3618,
+      "winningClock": 3618
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3017,
+      "winningClock": 3017
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2743,
+      "winningClock": 2743
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 4,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3516,
+      "winningClock": 3516
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3127,
+      "winningClock": 3127
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 7010,
+      "winningClock": 3250
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 13,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 5084,
+      "winningClock": 5084
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 5105,
+      "winningClock": 1000
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3058,
+      "winningClock": 3058
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 10445,
+      "winningClock": 7125
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 11,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3327,
+      "winningClock": 3327
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4355,
+      "winningClock": 1875
+    },
+    {
+      "formation": [
+        "heroine.undermine",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.defender",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4480,
+      "winningClock": 2000
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3150,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2880,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3015,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3285,
+      "winningClock": 720
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 15,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4528,
+      "winningClock": 1778
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.healer",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3562,
+      "winningClock": 3562
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3015,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.artist",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2880,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3015,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4405,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.excalipan",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.gunner",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 10,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3690,
+      "winningClock": 3690
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3150,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3420,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 10,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2496,
+      "winningClock": 2496
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.fighter",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2175,
+      "winningClock": 2175
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 4055,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 2,
+      "caps": 0,
+      "deaths": 19,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 4010,
+      "winningClock": 2165
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2294,
+      "winningClock": 2294
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.annihilator-holy",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.healer",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 3,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2103,
+      "winningClock": 2103
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 0,
+      "caps": 0,
+      "deaths": 20,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3335,
+      "winningClock": 0
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.r",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.artist",
+        "job.gunner",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2590,
+      "winningClock": 2590
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.shell"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper",
+        "job.panzer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 17,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 12073,
+      "winningClock": 8518
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila",
+        "heroine.shell"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper",
+        "job.panzer"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 16,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 9382,
+      "winningClock": 9382
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 6,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2604,
+      "winningClock": 2604
+    },
+    {
+      "formation": [
+        "heroine.echidna",
+        "heroine.annihilator-holy",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.blaster",
+        "job.healer",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 1,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2155,
+      "winningClock": 2155
+    },
+    {
+      "formation": [
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 1,
+      "caps": 0,
+      "deaths": 18,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 3213,
+      "winningClock": 648
+    },
+    {
+      "formation": [
+        "heroine.excalipan",
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.gunner",
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 3,
+      "caps": 0,
+      "deaths": 14,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 3142,
+      "winningClock": 2287
+    },
+    {
+      "formation": [
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 1,
+      "seedStart": 0,
+      "clock": 2127,
+      "winningClock": 2127
+    },
+    {
+      "formation": [
+        "heroine.r",
+        "heroine.annihilator",
+        "heroine.arcane",
+        "heroine.oriflamme",
+        "heroine.shangrila"
+      ],
+      "jobs": [
+        "job.artist",
+        "job.fighter",
+        "job.gunner",
+        "job.alchemist",
+        "job.sniper"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 4,
+      "wins": 4,
+      "caps": 0,
+      "deaths": 8,
+      "weaponTier": 2,
+      "seedStart": 0,
+      "clock": 2011,
+      "winningClock": 2011
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.green-return-dragon",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1484,
+      "winningClock": 1484
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.red-crystal-tyrant",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1472,
+      "winningClock": 1472
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.memory-crystal-dragon",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1472,
+      "winningClock": 1472
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.sky-tower-machine",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1470,
+      "winningClock": 1470
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.crystal-rose-princess",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1472,
+      "winningClock": 1472
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.silver-sea-whale",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1478,
+      "winningClock": 1478
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.heaven-tree-orochi",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1476,
+      "winningClock": 1476
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.reenactment-yimir",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1476,
+      "winningClock": 1476
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.emerald-star-astal",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1491,
+      "winningClock": 1491
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.amber-king-serpent",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1509,
+      "winningClock": 1509
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.white-divine-dragon-mother",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1514,
+      "winningClock": 1514
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.black-smoke-citadel",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1480,
+      "winningClock": 1480
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.dead-king-megadeath",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1597,
+      "winningClock": 1597
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1521,
+      "winningClock": 1521
+    },
+    {
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "jobs": [
+        "job.gambler",
+        "job.chaser",
+        "job.alchemist",
+        "job.sniper",
+        "job.general"
+      ],
+      "enemy": "colossus.newborn-asteria",
+      "level": 50,
+      "skill": 7,
+      "seeds": 8,
+      "wins": 8,
+      "caps": 0,
+      "deaths": 0,
+      "weaponTier": 0,
+      "seedStart": 4,
+      "clock": 1611,
+      "winningClock": 1611
+    }
+  ]
+}

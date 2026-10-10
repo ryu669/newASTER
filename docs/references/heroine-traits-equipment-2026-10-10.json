@@ -1,0 +1,377 @@
+[
+  {
+    "key": "r",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\001戦闘_R.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "ボクが来たよ！",
+      "personal": "ボクたちは愛し合える",
+      "mastery": "ロケットスターの祝福",
+      "weapon": "エーオースの音弦",
+      "flavor": "遠くの誰かにも届くように。ひとりの歌を、みんなの居場所に変える。"
+    }
+  },
+  {
+    "key": "iconoclast",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\005戦闘_アイコノクラスト.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "戦いの中で成長するタイプ",
+      "personal": "限界を砕くゆうしゃ",
+      "mastery": "ゆうしゃの祝福",
+      "weapon": "ゆうしゃのけん",
+      "flavor": "越えられない壁なら、壊して進む。昨日の自分にも追いつかせない。"
+    }
+  },
+  {
+    "key": "annihilator",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\009戦闘_アナイアレイター.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "黄泉戸喫",
+      "personal": "彼岸の灯火",
+      "mastery": "滅びの時は来たり",
+      "weapon": "黒死鎌リーパー",
+      "flavor": "終わりを告げる刃にも、守るための使い道はある。"
+    }
+  },
+  {
+    "key": "annihilator-holy",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\010戦闘_アナイアレイター(聖夜).mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "祝祭の輝き",
+      "personal": "漆羽の御翼",
+      "mastery": "不倶戴天",
+      "weapon": "Love and Hate",
+      "flavor": "黒い翼で包むのは、今夜だけの贈り物。冷えた手にも温もりを。"
+    }
+  },
+  {
+    "key": "arcane",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\012戦闘_アルケイン.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "わたくしのとっておき",
+      "personal": "ポジティブ思考",
+      "mastery": "冒険者の祝福",
+      "weapon": "ハンドキャノン",
+      "flavor": "まだ見ぬ宝は、きっと次の曲がり角。とっておきは、驚く顔と一緒に。"
+    }
+  },
+  {
+    "key": "arcane-academy",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\013戦闘_アルケイン学園.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "わたくしが一番上手く使えるの",
+      "personal": "自信家",
+      "mastery": "オーパーツは裏切りませんわ",
+      "weapon": "クロノグリモワール",
+      "flavor": "答えを見つけるまで、何度でも頁をめくる。失敗も次の一手の材料ですわ。"
+    }
+  },
+  {
+    "key": "undermine",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\015戦闘_アンダーマイン.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "アンブレイカブル",
+      "personal": "絶対自分領域",
+      "mastery": "ミラクルボディの祝福",
+      "weapon": "にゃんちゃみの盾",
+      "flavor": "傷つくことにも慣れている。それでも、帰る場所までは壊させない。"
+    }
+  },
+  {
+    "key": "echidna",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\023戦闘_エキドナ.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "黄金の血",
+      "personal": "怪物のウタ",
+      "mastery": "怪物の姫の祝福",
+      "weapon": "怪物の姫杖",
+      "flavor": "知らない歌が血の奥で響く。恐れず耳を澄ませば、力は応える。"
+    }
+  },
+  {
+    "key": "excalipan",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\024戦闘_エクスカリパン.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "パンがります！",
+      "personal": "工作員の切り札",
+      "mastery": "いい体してるね、パン食べてく？",
+      "weapon": "MP90の銃剣",
+      "flavor": "焼きたての元気を届けよう。ひるまない笑顔で、最後の一発まで。"
+    }
+  },
+  {
+    "key": "oriflamme",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\032戦闘_オリフラム.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "騎士の炎",
+      "personal": "ベストコンディション",
+      "mastery": "魔女の残響",
+      "weapon": "黒の剣リーパー",
+      "flavor": "正義の火は、帰る道まで照らしてこそ。誰かの明日を灰にしない。"
+    }
+  },
+  {
+    "key": "shell",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\048戦闘_シェル.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "ヘヴィアーマー",
+      "personal": "復讐心",
+      "mastery": "フルアーマーブースト",
+      "weapon": "Mk.IV強化装甲",
+      "flavor": "砕けるのは装甲まで。仲間を連れ帰る意志は、何度でも立ち上がる。"
+    }
+  },
+  {
+    "key": "shangrila",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\050戦闘_シャングリラ.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "7時間寝れた",
+      "personal": "冷静沈着",
+      "mastery": "納期5分前の焦燥",
+      "weapon": "象撃ち銃",
+      "flavor": "眠れた朝の照準はぶれない。仕事を終えたら、今度こそ静かな休息を。"
+    }
+  },
+  {
+    "key": "slayer",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\055戦闘_スレイヤー.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "神殺しの誓い",
+      "personal": "当たらなければ平気です！",
+      "mastery": "騎士剣の祝福",
+      "weapon": "騎士剣グラウ",
+      "flavor": "守りたい明日がある。そのためなら、空を裂く刃にもなれる。"
+    }
+  },
+  {
+    "key": "slayer-swim",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\056戦闘_スレイヤー水着.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "元気爆発！ 神殺し！",
+      "personal": "夏満喫計画",
+      "mastery": "私の力はこんなものじゃない！",
+      "weapon": "夏色パラソル",
+      "flavor": "夏の光も仲間の笑顔も、ひとつ残らず持ち帰る。号令は明るく、高らかに。"
+    }
+  },
+  {
+    "key": "nighthawk",
+    "source": "D:\\M02_gamemovie\\ANGELICAASTER\\天使戦闘\\066戦闘_ナイトホーク.mkv",
+    "sampledSeconds": [
+      0,
+      3,
+      8,
+      15,
+      30,
+      60
+    ],
+    "reviewedSeconds": [
+      8,
+      15,
+      30
+    ],
+    "adoption": "Names and flavor inspired by visible traits, equipment and blessings; current newASTER effect values retained. Ellipsized weapon names are adapted rather than completed as quotations.",
+    "adopted": {
+      "innate": "青い炎",
+      "personal": "エアロダイナミクス",
+      "mastery": "よだかの星の祝福",
+      "weapon": "アルビレオ",
+      "flavor": "夜を駆ける青い火。見失いそうな道にも、小さな星を残していく。"
+    }
+  }
+]

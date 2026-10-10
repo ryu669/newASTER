@@ -1,0 +1,201 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/shangrila-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-sd-sit-candidate-v1.png",
+      "sha256": "7f913de47cb09ebd9918cbd2cc3e1c952709ace6f0838f1f47e87315eafa2903",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-sd-work-candidate-v1.png",
+      "sha256": "078aaf391b41e6f67f4d738d2bff0c6282a395e5d66456a59a03b904f08d34e4",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-sd-look-candidate-v1.png",
+      "sha256": "ba47ee80749ec6a475dad1332a0ad1baffeb384119deb2743b984dd3b7eb2409",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-expression-joy-candidate-v1.png",
+      "sha256": "732b212e41083529dbdb4497fc44f2cda73a67b2effd946b9ba18a17778e8794",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-expression-puzzled-candidate-v1.png",
+      "sha256": "818992c93dbbdd76a38e76645f39b1e5a9ccb8d56a5f69e0d6d490a9606527a9",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-expression-determined-candidate-v1.png",
+      "sha256": "8c7dd2935ad1047174cada690274c4d83dea50ad3d9d0959cc94c356b658c312",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-event-0-cg-candidate-v1.png",
+      "sha256": "57078af090818da5650f7558f9d17b21e02ffa3e426afa5083a0a0a27339e41d",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-event-1-cg-candidate-v1.png",
+      "sha256": "ed2ed800c712955153fbc79806313c4fc39421aba45cbc66f1852d8ddea34a3c",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-event-2-cg-candidate-v1.png",
+      "sha256": "cf6c32700b9d38d06392d6ea731b6d2ae3d18c81682d91d96dad9a5f1775dee8",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-event-3-cg-candidate-v1.png",
+      "sha256": "25634bf0ef2947b2be1296902de53f37591c877f5db86e149ea78be734107d58",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shangrila-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shangrila-event-4-cg-candidate-v1.png",
+      "sha256": "6321c92810b775d83cae6fc6a27c0cb76a0490c8901b5b85faace3a9582cbf2a",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shangrila-detail.png",
+      "sha256": "5147ffa4c204b41b95589cdea1a06acec90229d03a46d268725318885294ce8c"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shangrila-tree.png",
+      "sha256": "353d0d870cac0fad912ca5b884e703b51075e1900e833250c2f4e3dfa9040b44"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shangrila-battle.png",
+      "sha256": "91b7d9bf802a8dfe35db741b2c5ec41e64f3531c0d7e551e71af0c6e3d6babd8"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shangrila-sd.idle.png",
+      "sha256": "6d88485fc18dadd8b71086dfee9d489274be94aa6ee95265697b455ec17000e3"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-expression.normal.png",
+      "sha256": "d4b5fee17e360e41d44dc5733c9d6c1955805cf54ec3d3db1b390e68f40c8be9"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-expression.joy.png",
+      "sha256": "2f31355e6d525749346ed17add39e07a830331bd17a92f505eebfec9593ab20e"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-expression.puzzled.png",
+      "sha256": "9a3fea95d8d4f112946d813ff4750ba57733c249b0d8b4224f7d2a5646af99ba"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-expression.determined.png",
+      "sha256": "f75674f12a1799bf89df2e3a0e903ba36658bd545c7560eb28e0f86917d991de"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-sd.sit.png",
+      "sha256": "93fd1807dbf16fb9050c660d80031bfde1f4f8559be98c74ef58c22a00fceffe"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-sd.work.png",
+      "sha256": "c660aa86709140dfa3bf5ad3aa1055abf14919e53ed89ec8b4b260bd24128606"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/d99d3a843bb94b7887ef78ed29dd5147/default/shangrila-sd.look.png",
+      "sha256": "334b1c24064dcc01bdb6b614d98cf5e3d0c67c85f9dd93c00fcf10c11959930e"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.0.png",
+      "sha256": "8a2edb55e3ec6dc7666560978f289cec72a76c7429b5d25e3b15b43a360031a2"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.1.png",
+      "sha256": "08b4d68df16d43cf377686f3f388dd0e8dc4fb5cc75b1350f0c1066d7d013175"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.2.png",
+      "sha256": "d714712d56fa479d080d323dd90927d8e21e2689bca46382288cc2eb4dc9e68c"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.3.png",
+      "sha256": "91b199e8d1fb290d0d785662a9a6bcf88f8bfc7e0ea422adf6d99003a40ff321"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.4.png",
+      "sha256": "4cdac69b3e84fbe6621f02a506dc22e0d114b2c415ae0df2d362ee5e0b15b049"
+    }
+  ]
+}

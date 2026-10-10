@@ -17,6 +17,7 @@ namespace NewAster.Core
     [Serializable] public sealed class FormalKinderBanner
     {
         public const int StoneCost=300,ExchangeCost=100;
+        public const int HeroineRateBp=300;
         public const string ProductionVersion="kinder-production-2026-10-05";
         public string id,contentVersion,status;
         public string[] heroineIds;
@@ -33,7 +34,7 @@ namespace NewAster.Core
         public KinderOutcome Draw(Func<int,int> nextBelow)
         {
             int category=Roll(nextBelow,10000);
-            if(category<300)return new KinderOutcome {kind="heroine",heroineId=heroineIds[Roll(nextBelow,heroineIds.Length)],amount=1};
+            if(category<HeroineRateBp)return new KinderOutcome {kind="heroine",heroineId=heroineIds[Roll(nextBelow,heroineIds.Length)],amount=1};
             int roll=Roll(nextBelow,materials.Sum(m=>m.weight));foreach(var material in materials){if(roll<material.weight)return new KinderOutcome {kind=material.kind,amount=material.amount};roll-=material.weight;}
             throw new InvalidOperationException("Invalid reward weights.");
         }

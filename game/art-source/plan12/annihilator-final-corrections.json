@@ -1,0 +1,47 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE dedicated walk garden SD sprite of the exact female chibi character in the reference: a clear walking step, one leg forward and the other back, arms swinging naturally, lively walking body lean. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-62c7eee6-d229-4928-aa5c-0e9647426261.png",
+      "resource": "Illustrations/annihilator-sd-walk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE dedicated talk garden SD sprite of the exact female chibi character in the reference: a clear friendly talking gesture, one hand open at chest level toward the listener, cheerful open mouth, feet planted. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-89c54928-d308-431f-8760-a0e95265ceb8.png",
+      "resource": "Illustrations/annihilator-sd-talk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE dedicated react garden SD sprite of the exact female chibi character in the reference: a clear surprised reaction, both hands lifted near cheeks, widened eyes and small surprised open mouth, knees slightly bent. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-65723197-e421-445f-87ff-a593843659cc.png",
+      "resource": "Illustrations/annihilator-sd-react-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8f50e245-8eba-44c7-a2d9-5a3a9669916e.png",
+      "resource": "Illustrations/annihilator-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a6de24a7-1459-4fc6-8eaa-243d91564558.png",
+      "resource": "Illustrations/annihilator-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create determined confident expression, slightly firm brows and a small confident closed smile. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-340dd987-642b-4e33-9d93-eaaf2ef89e88.png",
+      "resource": "Illustrations/annihilator-expression-determined-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

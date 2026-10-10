@@ -1,0 +1,61 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2f6d7787-9c21-474d-83df-ecb2e2a2e037.png",
+      "resource": "Illustrations/arcane-academy-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1418541c-efb1-49e1-a449-a52ea93c2dda.png",
+      "resource": "Illustrations/arcane-academy-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create determined confident expression, slightly firm brows and a small confident closed smile. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-92453e2c-4b30-4aa0-abd5-1087caae1012.png",
+      "resource": "Illustrations/arcane-academy-expression-determined-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "arcane-academy-event-0",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-71a9e840-a505-40d3-a1d1-0148b9cd9984.png",
+      "resource": "Illustrations/arcane-academy-event-0-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "arcane-academy-event-1",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6baec356-6a7c-4dbb-8cf7-b271360c0e1a.png",
+      "resource": "Illustrations/arcane-academy-event-1-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "arcane-academy-event-2",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface. Follow-up: Fix anatomy: remove the EXTRA hand and partial white cuff resting on her lap at image center (near x810 y555). Keep exactly TWO hands: her left-image arm naturally crosses her lap and its hand rests on the chair armrest at right, and the other hand rests on her chest. Restore skirt fabric where extra lap hand is removed. Preserve everything else. Also replace all male bust sculptures on the room shelves with decorative vases. Exactly one woman, no male figures including statues.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-73e5cc87-008f-4fac-b935-cdb34869b3b0.png",
+      "resource": "Illustrations/arcane-academy-event-2-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "arcane-academy-event-3",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-09a46353-cf0c-4b5b-9f88-68c14cf7e6af.png",
+      "resource": "Illustrations/arcane-academy-event-3-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "arcane-academy-event-4",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-47e07c93-a255-4820-bccc-76fa02df50ec.png",
+      "resource": "Illustrations/arcane-academy-event-4-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

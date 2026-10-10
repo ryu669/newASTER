@@ -21,7 +21,7 @@ namespace NewAster.Core
         public string[] VisibleIds => new[]{masteryTraitId,secondTraitId}.Concat(uniqueTraitIds).Concat(interactionTraitIds).ToArray();
     }
     // Percent, basis-point, clock, and count values are kept separate by effect kind.
-    // These are provisional balance tables; IDs and slot ownership are stable.
+    // Accepted newASTER balance tables; IDs and slot ownership are stable.
     public static class CombatTraitCatalog
     {
         private static TraitEffectDef E(string kind,int a,int b,int c,int d,int e)=>new TraitEffectDef{kind=kind,rankValues=new[]{a,b,c,d,e}};

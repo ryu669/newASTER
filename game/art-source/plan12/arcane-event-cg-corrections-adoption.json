@@ -1,0 +1,58 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/arcane-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-event-0-cg-candidate-v1.png",
+      "sha256": "050fcd64aa705b6e3b88c4abecf68ace7159e8679b7af71b4969c5efc61843a1",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved"
+    },
+    {
+      "resource": "Illustrations/arcane-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-event-1-cg-candidate-v1.png",
+      "sha256": "c8181987eae8ead2f96b05712fdaf7646caf75e6598a45569abc0c72a301d4a7",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved"
+    },
+    {
+      "resource": "Illustrations/arcane-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-event-2-cg-candidate-v1.png",
+      "sha256": "3e67122d232f3e586a3bb25dfd33e45a62bc9835d36c9521e058c3c94ca41f69",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved"
+    },
+    {
+      "resource": "Illustrations/arcane-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-event-3-cg-candidate-v1.png",
+      "sha256": "46f9657fbc627f41e95e0f5171480de7f335e5c1dccbba4c61c0d3f7082c6ea4",
+      "size": [
+        1673,
+        940
+      ],
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved"
+    },
+    {
+      "resource": "Illustrations/arcane-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-event-4-cg-candidate-v1.png",
+      "sha256": "eba3211f52ea080fb9186f0a54354807909719f02c78a8588ed4da93b14d164e",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved"
+    }
+  ],
+  "runtimeCapture": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default",
+  "visualReview": "passed at default 1280x720; completed views frozen"
+}

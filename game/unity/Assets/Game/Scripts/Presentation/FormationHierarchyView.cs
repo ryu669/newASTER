@@ -40,7 +40,9 @@ namespace NewAster.Presentation
             var ids=CurrentFormation();var o=OopartSnapshot().collection.ooparts;
             for(int i=0;i<3;i++){
                 int index=i;string preset="preset."+(i+1);
-                if(GrowthButton(65+i*320,112,300,46,"編成 "+(i+1),interactive,i==oopartPresetIndex)){
+                bool selected=i==oopartPresetIndex;
+                if(selected){GrowthFill(61+i*320,108,308,54,new Color(.62f,.43f,.12f));GrowthLine(77+i*320,165,353+i*320,165,gold,4);}
+                if(GrowthButton(65+i*320,112,300,46,(selected?"◆ 選択中　":"")+"編成 "+(i+1),interactive,selected)){
                     oopartPresetIndex=index;if(o.presets.Any(p=>p.id==preset)){ProposeOopart("preset-load",preset);CommitOopart();}
                 }
             }
@@ -69,7 +71,13 @@ namespace NewAster.Presentation
             var equip=HomeState.weaponEquipment.SingleOrDefault(e=>e.heroineId==id);string weapon=equip==null?"未装備":HomeData().weaponNodes.Single(n=>n.id==equip.nodeId).terminal;
             Label(665,230,820,48,"神器 ／ "+weapon,growthTextStyle);
             if(GrowthButton(665,300,820,60,"神器へ",interactive && id!=null)){returnToFormationFromWeapon=true;formationOpen=false;heroineRosterOpen=false;book.RequestSubject(BookBookmark.Heroines,id);growthScreen=GrowthScreen.Weapons;selectedNode=null;}
-            if(GrowthButton(665,390,820,55,protectedFormationSlot==formationSlot?"✓ 護衛対象に指定中":"護衛対象に指定",interactive))protectedFormationSlot=formationSlot;
+            if(def?.jobId=="job.defender"){
+                Label(665,380,820,40,"護衛する誓女",growthTextStyle);
+                for(int j=0;j<5;j++){
+                    if(ids[j]==null)continue;int slot=j;
+                    if(GrowthButton(665+j%2*420,435+j/2*66,400,54,(protectedFormationSlot==j?"◆ ":"")+combatDefinitions.Hero(ids[j]).name,interactive,protectedFormationSlot==j))protectedFormationSlot=slot;
+                }
+            }
             if(def?.jobId=="job.general"){
                 bool selected=HomeState.commanderHeroineId==id;if(GrowthButton(665,490,820,55,selected?"✓ 指揮官に指定中":"指揮官に指定",interactive && !selected))ProposeHome(new HomeOperation("commander",id));if(GrowthButton(665,570,820,55,"指揮官を自動選択",interactive && HomeState.commanderHeroineId!=null))ProposeHome(new HomeOperation("commander","formation.auto"));
             }else if(def?.jobId=="job.sniper"){

@@ -1,4 +1,4 @@
-using NewAster.Core;
+﻿using NewAster.Core;
 using UnityEngine;
 
 namespace NewAster.Presentation
@@ -25,7 +25,7 @@ namespace NewAster.Presentation
             else if(plan9Expression!=null)plan9Expression=null;
             else if(plan9Cg!=null)plan9Cg=null;
             else if(artSample){artSample=false;artBgm?.Stop();artSe?.Stop();}
-            else if(adv!=null){if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
+            else if(adv!=null){if(advCgGallery){advCgGallery=false;adv.Pause();}else if(advBacklog || advHelp){advBacklog=false;advHelp=false;}else CloseAdv();}
             else if(saveManagementOpen)BackSaveManagement();
             else if(help)help=false;
             else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -6,7 +6,7 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
-        private AdvSession adv;private FormalHomeRequest advRequest;private HomeReadLine advPendingLine;private int advSavedLines;private bool advBacklog,advHelp;private Vector2 advScroll;private string advError;
+        private AdvSession adv;private FormalHomeRequest advRequest;private HomeReadLine advPendingLine;private int advSavedLines;private bool advBacklog,advHelp,advCgGallery;private Vector2 advScroll;private string advError;
         private AudioSource advBgm,advSe;private int advSoundRevision;private bool advAudioPaused;
         private BoundedCache<string,Texture2D> advImages;
         private Texture2D AdvTexture(string assetId)
@@ -73,7 +73,7 @@ namespace NewAster.Presentation
             if(plan8StoryTrial && !HasTrialText(source))return;
             bool unlocked=e!=null?(snapshot.home?.unlockedEventIds.Contains(source)??false):ch!=null && snapshot.world.unlockedStoryIds.Contains(source);bool read=e!=null?(snapshot.home?.readEventIds.Contains(source)??false):snapshot.world.readStoryIds.Contains(source);
             if(!unlocked || replay && !read)return;
-            adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advError=null;advScroll=Vector2.zero;
+            adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advCgGallery=false;advError=null;advScroll=Vector2.zero;
             if((plan8StoryTrial || ProductionStoryActive) && !replay)adv.ResumeAtFirstUnread();
             advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();if(!ProductionStoryActive){advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();}
             if(advBgm.clip!=null)TrialObserve("audio","adv-bgm-requested",advBgm.clip.name+";loop=true");
@@ -96,25 +96,42 @@ namespace NewAster.Presentation
             try{if(formalCampaign.CommitAdvEnd(advRequest,HomeData(),adv,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign)==GrowthCommitResult.SaveFailed){advError="読了を保存できません。同じ候補を再保存します。";return;}adv.MarkCommitted();advRequest=null;advError=null;campaign=new CampaignState(NewAster.Data.WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);}
             catch(Exception e){advError="読了の保存を停止しました："+e.Message;}
         }
-        private void AdvanceAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;adv.Advance();PersistAdvLine();SyncAdvAudio();}
-        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;TrialObserve("reading",adv.Completed?"completed":"interrupted",adv.SourceId);book.EndReading();adv=null;advBacklog=false;advHelp=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
+        private void AdvanceAdv(){if(adv==null || advCgGallery || formalCampaign.HasPending || advRequest!=null)return;adv.Advance();PersistAdvLine();SyncAdvAudio();}
+        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;TrialObserve("reading",adv.Completed?"completed":"interrupted",adv.SourceId);book.EndReading();adv=null;advBacklog=false;advHelp=false;advCgGallery=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
         private void UpdateAdv()
         {
-            if(adv==null)return;if(!Application.isFocused || advBacklog || advHelp || formalCampaign.HasPending || advRequest!=null){adv.Pause();SyncAdvAudio();return;}adv.Tick(Time.unscaledDeltaTime);PersistAdvLine();SyncAdvAudio();
+            if(adv==null)return;if(!Application.isFocused || advBacklog || advHelp || advCgGallery || formalCampaign.HasPending || advRequest!=null){adv.Pause();SyncAdvAudio();return;}adv.Tick(Time.unscaledDeltaTime);PersistAdvLine();SyncAdvAudio();
         }
         private void DrawAdv()
         {
             bool previousAdvEnabled=GUI.enabled;GUI.enabled=previousAdvEnabled && !advBacklog && !advHelp;
             drawingModal=true;GrowthStyles();GrowthFill(0,0,1600,900,new Color(.09f,.17f,.22f));
             var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,515),background,ScaleMode.ScaleAndCrop);
-            if(ProductionStoryActive && adv.CgId!=null){var scene=AdvTexture(adv.CgId);if(scene!=null)GUI.DrawTexture(new Rect(0,120,1600,495),scene,ScaleMode.ScaleToFit);}
-            Label(45,25,1490,50,(ProductionStoryActive?ProductionStoryTitle(adv.SourceId):plan8StoryTrial?"オリジナル試遊 ／ "+OriginalStoryTitle(adv.SourceId):"機能検証用ADV ／ 正式本文未制作・美術候補")+(adv.Replay?" ／ 回想・読み取り専用":""),growthTitleStyle);
-            GrowthFill(0,80,1600,40,navy);
-            Label(45,85,1490,35,ProductionStoryActive?"万物の書 ／ 物語":plan8StoryTrial?"試遊本文 ／ 美術・音は開発用見本です。":"背景："+adv.BackgroundId+" ／ BGM・SE：見本用の合成音候補",growthSmallStyle);
-            if(adv.CgId!=null && !ProductionStoryActive){var cg=AdvTexture(adv.CgId);if(cg!=null)GUI.DrawTexture(new Rect(280,115,1040,500),cg,ScaleMode.ScaleToFit);else{GrowthFill(280,160,1040,340,new Color(.31f,.24f,.35f));Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);}}
-            if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder))DrawAdvActor(actor);
+            bool hasCg=adv.CgId!=null;
+            if(hasCg)
+            {
+                var cg=AdvTexture(adv.CgId);
+                GrowthFill(0,0,1600,900,new Color(.035f,.035f,.045f));
+                if(cg!=null)GUI.DrawTexture(new Rect(0,0,1600,900),cg,ScaleMode.ScaleToFit);
+                else Label(420,300,760,60,"CG未制作・素材欠落",growthTitleStyle);
+                if(advCgGallery)
+                {
+                    GUI.enabled=previousAdvEnabled;
+                    var input=Event.current;
+                    if(input.type==EventType.MouseDown || input.type==EventType.KeyDown && input.keyCode==KeyCode.Escape)
+                    {advCgGallery=false;adv.Pause();input.Use();}
+                    return;
+                }
+                if(GrowthButton(1330,14,225,42,"絵を全画面で見る",advRequest==null && !formalCampaign.HasPending))
+                {advCgGallery=true;adv.SetAuto(false);adv.SetSkip(false);adv.Pause();SyncAdvAudio();GUI.enabled=previousAdvEnabled;return;}
+            }
+            else
+            {
+                Label(45,20,1490,45,ProductionStoryActive?ProductionStoryTitle(adv.SourceId):"物語",growthTitleStyle);
+                if(!adv.HideActors)foreach(var actor in adv.Actors.OrderBy(a=>HomeData().actorSlots.Single(s=>s.id==a.SlotId).drawOrder))DrawAdvActor(actor);
+            }
             var bodyStyle=new GUIStyle(growthTextStyle){fontSize=ArtSampleSettings.LargeText?27:23};
-            GrowthFrame(40,615,1520,205);if(adv.SpeakerId!=null)Label(70,630,1440,40,combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,adv.SpeakerId==null?635:675,1440,adv.SpeakerId==null?165:125,adv.VisibleText,bodyStyle);
+            if(hasCg)GrowthFill(40,615,1520,205,new Color(.035f,.055f,.08f,.86f));else GrowthFrame(40,615,1520,205);if(adv.SpeakerId!=null)Label(70,630,1440,40,combatDefinitions.Hero(adv.SpeakerId).name,growthTextStyle);Label(70,adv.SpeakerId==null?635:675,1440,adv.SpeakerId==null?165:125,adv.VisibleText,bodyStyle);
             if(adv.EndReached){if(advError!=null)Label(70,675,1440,80,advError,growthTextStyle);
                 if(GrowthButton(55,840,730,48,adv.Completed?"本へ戻る":adv.Replay?"回想を終了する":"読了を保存する",true,true)){if(adv.Completed){CloseAdv();return;}else CompleteAdv();}}
             else if(GrowthButton(55,840,300,48,adv.Paused?"手動で再開":adv.FullyVisible?"次の行へ":"全文を表示",!formalCampaign.HasPending && advRequest==null,true)){if(adv.Paused)adv.Resume();else AdvanceAdv();}
@@ -125,7 +142,7 @@ namespace NewAster.Presentation
             GUI.enabled=previousAdvEnabled;
             if(advBacklog || advHelp){GrowthFrame(180,140,1240,610);if(advHelp)Label(220,225,1150,340,"一回目は全文表示、次の入力で行を送ります。\n既読skipは最初の未読で停止します。\nバックログ・説明・非アクティブ中はタイマーを停止します。\n閉じた後は手動で再開してください。\n"+((plan8StoryTrial || ProductionStoryActive)?"中断後は保存済みの最初の未読行から再開します。回想は先頭からです。":"中断後の再開はsceneの先頭。保存済みの行既読だけを保持します。"),growthTextStyle);
                 else{advScroll=GUI.BeginScrollView(new Rect(220,210,1150,430),advScroll,new Rect(0,0,1110,Math.Max(430,adv.Backlog.Count*180)));for(int i=0;i<adv.Backlog.Count;i++)Label(10,i*180,1080,175,adv.Backlog[i],bodyStyle);GUI.EndScrollView();}
-                if(GrowthButton(220,675,1150,50,"閉じる ／ 本文は停止したまま")){advBacklog=false;advHelp=false;}}
+                if(GrowthButton(220,675,1150,50,"閉じる ／ 本文は停止したまま")){advBacklog=false;advHelp=false;advCgGallery=false;}}
         }
     }
 }

@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "status": "complete",
+  "runs": 11432,
+  "caps": 0,
+  "groups": [
+    {
+      "group": "all",
+      "parties": 2178,
+      "runs": 8712.0,
+      "wins": 8178.0,
+      "winPercent": 93.87,
+      "allSeedWins": 1997,
+      "zeroWins": 88
+    },
+    {
+      "group": "no-initial-five",
+      "parties": 146,
+      "runs": 584.0,
+      "wins": 570.0,
+      "winPercent": 97.6,
+      "allSeedWins": 141,
+      "zeroWins": 1
+    },
+    {
+      "group": "no-healer-job",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 5892.0,
+      "winPercent": 93.7,
+      "allSeedWins": 1435,
+      "zeroWins": 65
+    },
+    {
+      "group": "with-healer-job",
+      "parties": 606,
+      "runs": 2424.0,
+      "wins": 2286.0,
+      "winPercent": 94.31,
+      "allSeedWins": 562,
+      "zeroWins": 23
+    },
+    {
+      "group": "multiple-support-jobs",
+      "parties": 468,
+      "runs": 1872.0,
+      "wins": 1774.0,
+      "winPercent": 94.76,
+      "allSeedWins": 432,
+      "zeroWins": 12
+    },
+    {
+      "group": "no-initial-and-no-healer-job",
+      "parties": 91,
+      "runs": 364.0,
+      "wins": 354.0,
+      "winPercent": 97.25,
+      "allSeedWins": 88,
+      "zeroWins": 1
+    }
+  ],
+  "absence": [
+    {
+      "group": "without-heroine.slayer",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 6036.0,
+      "winPercent": 95.99,
+      "allSeedWins": 1477,
+      "zeroWins": 34
+    },
+    {
+      "group": "without-heroine.iconoclast",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 4987.0,
+      "winPercent": 90.87,
+      "allSeedWins": 1209,
+      "zeroWins": 87
+    },
+    {
+      "group": "without-heroine.undermine",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5164.0,
+      "winPercent": 94.1,
+      "allSeedWins": 1257,
+      "zeroWins": 51
+    },
+    {
+      "group": "without-heroine.echidna",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5296.0,
+      "winPercent": 96.5,
+      "allSeedWins": 1308,
+      "zeroWins": 29
+    },
+    {
+      "group": "without-heroine.excalipan",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5167.0,
+      "winPercent": 94.15,
+      "allSeedWins": 1263,
+      "zeroWins": 50
+    },
+    {
+      "group": "without-heroine.r",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5262.0,
+      "winPercent": 95.88,
+      "allSeedWins": 1297,
+      "zeroWins": 40
+    },
+    {
+      "group": "without-heroine.annihilator",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 5998.0,
+      "winPercent": 95.39,
+      "allSeedWins": 1469,
+      "zeroWins": 48
+    },
+    {
+      "group": "without-heroine.annihilator-holy",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 5892.0,
+      "winPercent": 93.7,
+      "allSeedWins": 1435,
+      "zeroWins": 65
+    },
+    {
+      "group": "without-heroine.shell",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5019.0,
+      "winPercent": 91.45,
+      "allSeedWins": 1223,
+      "zeroWins": 86
+    },
+    {
+      "group": "without-heroine.oriflamme",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5044.0,
+      "winPercent": 91.91,
+      "allSeedWins": 1223,
+      "zeroWins": 72
+    },
+    {
+      "group": "without-heroine.nighthawk",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 4954.0,
+      "winPercent": 90.27,
+      "allSeedWins": 1191,
+      "zeroWins": 88
+    },
+    {
+      "group": "without-heroine.slayer-swim",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 5792.0,
+      "winPercent": 92.11,
+      "allSeedWins": 1410,
+      "zeroWins": 86
+    },
+    {
+      "group": "without-heroine.arcane",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 6092.0,
+      "winPercent": 96.88,
+      "allSeedWins": 1503,
+      "zeroWins": 30
+    },
+    {
+      "group": "without-heroine.arcane-academy",
+      "parties": 1572,
+      "runs": 6288.0,
+      "wins": 5758.0,
+      "winPercent": 91.57,
+      "allSeedWins": 1394,
+      "zeroWins": 88
+    },
+    {
+      "group": "without-heroine.shangrila",
+      "parties": 1372,
+      "runs": 5488.0,
+      "wins": 5319.0,
+      "winPercent": 96.92,
+      "allSeedWins": 1311,
+      "zeroWins": 26
+    }
+  ],
+  "representatives": [
+    {
+      "category": "no-initial-five",
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "names": [
+        "アルケイン（学園）",
+        "ナイトホーク",
+        "オリフラム",
+        "シャングリラ",
+        "スレイヤー（水着）"
+      ],
+      "wins": 4,
+      "seeds": 4,
+      "meanWinningClock": 196.25
+    },
+    {
+      "category": "no-healer-job",
+      "formation": [
+        "heroine.arcane-academy",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "names": [
+        "アルケイン（学園）",
+        "ナイトホーク",
+        "オリフラム",
+        "シャングリラ",
+        "スレイヤー（水着）"
+      ],
+      "wins": 4,
+      "seeds": 4,
+      "meanWinningClock": 196.25
+    },
+    {
+      "category": "multiple-support-jobs",
+      "formation": [
+        "heroine.r",
+        "heroine.nighthawk",
+        "heroine.oriflamme",
+        "heroine.shangrila",
+        "heroine.slayer-swim"
+      ],
+      "names": [
+        "R",
+        "ナイトホーク",
+        "オリフラム",
+        "シャングリラ",
+        "スレイヤー（水着）"
+      ],
+      "wins": 4,
+      "seeds": 4,
+      "meanWinningClock": 233
+    }
+  ],
+  "sampleGroups": [
+    {
+      "group": "level-30",
+      "parties": 120,
+      "runs": 480.0,
+      "wins": 368.0,
+      "winPercent": 76.67,
+      "allSeedWins": 90,
+      "zeroWins": 26
+    },
+    {
+      "group": "level-50",
+      "parties": 560,
+      "runs": 2240.0,
+      "wins": 2238.0,
+      "winPercent": 99.91,
+      "allSeedWins": 558,
+      "zeroWins": 0
+    }
+  ],
+  "limitations": [
+    "Four deterministic seeds per case; descriptive comparison, not causal hero ranking.",
+    "Canonical formation order only. General slot effects and other permutations are not exhausted.",
+    "No healer-job does not prohibit self-healing or protection.",
+    "Additional-enemy sample intentionally includes observed best/worst parties and is not a random estimate for all2178.",
+    "Duplicate0, no gear; no production balance changes."
+  ],
+  "source": {
+    "path": "docs/production/plan11-10-team-diversity.json",
+    "sha256": "65B4FF41FDC1C275A14635B58C465286A91FB886B219951DA4EDBD5FCAE1C2B8"
+  },
+  "followup": {
+    "runs": 824,
+    "caps": 0,
+    "groups": [
+      {
+        "group": "weapon-tier-0",
+        "parties": 15,
+        "runs": 120.0,
+        "wins": 120.0,
+        "winPercent": 100.0,
+        "allSeedWins": 15,
+        "zeroWins": 0
+      },
+      {
+        "group": "weapon-tier-1",
+        "parties": 88,
+        "runs": 352.0,
+        "wins": 162.0,
+        "winPercent": 46.02,
+        "allSeedWins": 25,
+        "zeroWins": 31
+      },
+      {
+        "group": "weapon-tier-2",
+        "parties": 88,
+        "runs": 352.0,
+        "wins": 265.0,
+        "winPercent": 75.28,
+        "allSeedWins": 54,
+        "zeroWins": 11
+      }
+    ],
+    "source": {
+      "path": "docs/production/plan11-10-team-diversity-followup.json",
+      "sha256": "481FC537320B2C351D8D754712679DAF6F33E416AC6BB110B2513E0F63F0DDCF"
+    }
+  }
+}

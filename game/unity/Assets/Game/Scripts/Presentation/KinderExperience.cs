@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -89,25 +89,8 @@ namespace NewAster.Presentation
             if(visible==KinderScreen.Entrance || visible==KinderScreen.Draw){
                 if(visible==KinderScreen.Entrance)DrawRRecruitment();
                 DrawKinderLanding(state);
-            }else if(visible==KinderScreen.Exchange || visible==KinderScreen.Tickets || visible==KinderScreen.Targets){
-                bool exchange=visible==KinderScreen.Exchange,pool=visible==KinderScreen.Targets;
-                Label(605,305,880,50,pool?"全"+kinderBanner.heroineIds.Length+"形態":exchange?$"ポイント {state.kinderPoints} ／ チケット1枚 100":"専用チケット",growthTextStyle);
-                int pages=(kinderBanner.heroineIds.Length+4)/5;kinderPage=Mathf.Clamp(kinderPage,0,pages-1);
-                for(int i=kinderPage*5;i<Math.Min(kinderBanner.heroineIds.Length,(kinderPage+1)*5);i++){
-                    string id=kinderBanner.heroineIds[i];int count=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
-                    string name=combatDefinitions.Hero(id).name;
-                    if(GrowthButton(605,359+(i%5)*53,885,48,(kinderSelection==i?"◆ ":"")+name+(pool?(state.heroines.Any(h=>h.heroineId==id)?" ／ 所持":" ／ 未所持"):exchange?"":" ／ 所持 "+count)))kinderSelection=i;
-                }
-                if(GrowthButton(605,632,250,36,"‹ 前の5形態",kinderPage>0)){kinderPage--;kinderSelection=kinderPage*5;}
-                Label(900,632,280,36,$"{kinderPage+1} / {pages}",growthSmallStyle);
-                if(GrowthButton(1240,632,250,36,"次の5形態 ›",kinderPage+1<pages)){kinderPage++;kinderSelection=kinderPage*5;}
-                string selected=kinderBanner.heroineIds[kinderSelection];int owned=state.tickets.SingleOrDefault(t=>t.heroineId==selected)?.count??0;
-                if(!pool)Label(605,675,885,30,combatDefinitions.Hero(selected).name+" ／ 専用チケット "+(exchange?"1枚":owned+"枚"),growthSmallStyle);
-                if(!pool && GrowthButton(605,727,885,62,exchange?"交換内容を確認する":"チケット使用を確認する",exchange?state.kinderPoints>=100:owned>0,true))ConfirmKinder(exchange?KinderOperation.Exchange:KinderOperation.TicketDraw,state,selected);
-            }else if(visible==KinderScreen.Rates){
-                Label(605,310,885,84,$"★6合計 3% ／ 1形態あたり {(3m/kinderBanner.heroineIds.Length):0.####}%\nカテゴリー当選後に全{kinderBanner.heroineIds.Length}形態を均等抽選。",growthTextStyle);
-                int total=kinderBanner.materials.Sum(m=>m.weight);
-                for(int i=0;i<kinderBanner.materials.Length;i++){var m=kinderBanner.materials[i];Label(605,430+i*68,885,52,$"{(m.kind=="nectar"?"ネクタル":"覚醒結晶")} {m.amount}個    {(97m*m.weight/total):0.##}%",growthTextStyle);}
+            }else if(visible==KinderScreen.Exchange || visible==KinderScreen.Tickets || visible==KinderScreen.Targets || visible==KinderScreen.Rates){
+                DrawKinderCatalog(visible,state);
             }else if(visible==KinderScreen.Revealing){
                 DrawKinderTrain();
             }else{
@@ -120,6 +103,38 @@ namespace NewAster.Presentation
                 if(GrowthButton(605,727,885,62,"キンダーガーデンの入口へ",true,true))KinderBack();
             }
             GUI.enabled=priorEnabled;if(confirming && kinderScreen==KinderScreen.Confirmation)DrawKinderConfirmation(state);DrawAnnihilatorRecruitmentDialog();
+        }
+        private void DrawKinderCatalog(KinderScreen screen,FormalGrowthSave state)
+        {
+            var tabs=new[]{KinderScreen.Targets,KinderScreen.Rates,KinderScreen.Exchange,KinderScreen.Tickets};
+            var labels=new[]{"召喚対象","提供割合","ポイント交換","チケット使用"};
+            for(int n=0;n<4;n++)if(GrowthButton(605+n*224,284,213,48,(screen==tabs[n]?"◆ ":"")+labels[n],BookInputAllowed,screen==tabs[n])){kinderScreen=tabs[n];kinderPage=0;return;}
+            bool rates=screen==KinderScreen.Rates,exchange=screen==KinderScreen.Exchange,tickets=screen==KinderScreen.Tickets;
+            Label(605,342,885,38,rates?"1回の召喚で出現する確率":exchange?"100ポイントで、選んだ誓女の専用チケット1枚":tickets?"使う専用チケットを選択":"衣装違いを含む全"+kinderBanner.heroineIds.Length+"形態",growthSmallStyle,gold);
+            int count=kinderBanner.heroineIds.Length+(rates?kinderBanner.materials.Length:0),pages=Math.Max(1,(count+4)/5);
+            kinderPage=Mathf.Clamp(kinderPage,0,pages-1);
+            for(int row=0;row<5;row++){
+                int index=kinderPage*5+row;if(index>=count)break;float y=391+row*55;
+                if(index<kinderBanner.heroineIds.Length){
+                    string id=kinderBanner.heroineIds[index],name=combatDefinitions.Hero(id).name;
+                    int owned=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
+                    string detail=rates?((decimal)FormalKinderBanner.HeroineRateBp/100/kinderBanner.heroineIds.Length).ToString("0.####")+"%":tickets?"チケット "+owned+"枚":exchange?"100ポイント":state.heroines.Any(h=>h.heroineId==id)?"所持":"未所持";
+                    bool selected=kinderSelection==index;
+                    if(GrowthButton(605,y,885,49,(selected?"◆ ":"")+name+"　／　"+detail,BookInputAllowed,selected))kinderSelection=index;
+                }else{
+                    var material=kinderBanner.materials[index-kinderBanner.heroineIds.Length];
+                    decimal chance=(100m-(decimal)FormalKinderBanner.HeroineRateBp/100)*material.weight/kinderBanner.materials.Sum(m=>m.weight);
+                    Label(623,y+7,850,38,(material.kind=="nectar"?"ネクタル":"覚醒結晶")+" "+material.amount+"個　／　"+chance.ToString("0.####")+"%",growthTextStyle);
+                }
+            }
+            if(GrowthButton(605,678,205,40,"‹ 前へ",kinderPage>0 && BookInputAllowed))kinderPage--;
+            Label(825,683,420,32,(kinderPage+1)+" / "+pages+(rates?"　★6合計 "+((decimal)FormalKinderBanner.HeroineRateBp/100).ToString("0.##")+"%":""),growthSmallStyle);
+            if(GrowthButton(1285,678,205,40,"次へ ›",kinderPage+1<pages && BookInputAllowed))kinderPage++;
+            if(exchange || tickets){
+                string id=kinderBanner.heroineIds[kinderSelection];int owned=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
+                Label(605,724,885,30,combatDefinitions.Hero(id).name+" ／ 専用チケット "+owned+"枚",growthSmallStyle);
+                if(GrowthButton(605,763,885,48,exchange?"この誓女のチケットと交換":"このチケットを使う",BookInputAllowed && (exchange?state.kinderPoints>=100:owned>0),true))ConfirmKinder(exchange?KinderOperation.Exchange:KinderOperation.TicketDraw,state,id);
+            }
         }
         private void PrepareKinderCapture(string[] args)
         {

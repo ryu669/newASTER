@@ -18,6 +18,7 @@ namespace NewAster.Presentation
         [Serializable] private sealed class Catalog { public Profile[] profiles; }
         private readonly Dictionary<string,Profile> profiles;
         private readonly Texture2D glow;
+        private readonly Profile enemyImpact=new Profile{family="impact",times=new[]{.20f,.38f,.56f},sizes=new[]{1.5f,1.8f,2f},red=1,green=.38f,blue=.12f};
         private readonly Profile fallback=new Profile{family="impact",times=new[]{.48f},sizes=new[]{1.2f},red=1,green=.7f,blue=.25f};
         public BattleImpactEffects()
         {
@@ -34,9 +35,9 @@ namespace NewAster.Presentation
         public Vector2 Offset(BattlePresentationEvent e,float elapsed)
         {
             if(e==null || ArtSampleSettings.ReducedMotion || e.Damage<=0)return Vector2.zero;
-            var profile=For(e.PresentationId);float amount=0;
+            var profile=e.Kind==BattlePresentationKind.Enemy?enemyImpact:For(e.PresentationId);float amount=0;
             foreach(float time in profile.times){float age=elapsed-time*BattleVisualCue.Duration(e.Kind,e.Major);if(age>=0 && age<.12f)amount+=Mathf.Sin(age*140)*(1-age/.12f);}
-            return new Vector2(amount*(e.Major?9:5),amount*2);
+            return new Vector2(amount*(e.Kind==BattlePresentationKind.Enemy?14:e.Major?9:5),amount*2);
         }
         public void Dispose(){UnityEngine.Object.Destroy(glow);}
         private static void Line(Vector2 from,Vector2 to,float width,Color color)
@@ -49,17 +50,17 @@ namespace NewAster.Presentation
         {var previous=GUI.color;GUI.color=color;GUI.DrawTexture(new Rect(point.x-size,point.y-size,size*2,size*2),glow);GUI.color=previous;}
         public void Draw(BattlePresentationEvent e,float elapsed,Vector2[] targets,GUIStyle text)
         {
-            if(e==null || targets.Length==0 || Event.current.type!=EventType.Repaint)return;
+            if(e==null || targets.Length==0 || Event.current.type!=EventType.Repaint || (e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Count==0))return;
             bool attack=e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease || e.Kind==BattlePresentationKind.Enemy;
             bool healing=e.Kind==BattlePresentationKind.Healing,support=e.Kind==BattlePresentationKind.Support;
             if(!attack && !healing && !support && e.Kind!=BattlePresentationKind.CastStart)return;
-            var profile=For(e.PresentationId);float duration=BattleVisualCue.Duration(e.Kind,e.Major);
+            var profile=e.Kind==BattlePresentationKind.Enemy?enemyImpact:For(e.PresentationId);float duration=BattleVisualCue.Duration(e.Kind,e.Major);
             var tint=healing?new Color(.25f,1,.55f):support || e.Kind==BattlePresentationKind.CastStart?new Color(.35f,.7f,1):new Color(profile.red,profile.green,profile.blue);
             int count=attack?profile.times.Length:1;
             for(int hit=0;hit<count;hit++){
                 float age=elapsed-(attack?profile.times[hit]*duration:duration*.22f);
                 if(age<0 || age>.30f)continue;
-                float progress=age/.30f,fade=(1-progress)*(ArtSampleSettings.ReducedFlash?.35f:1),size=(attack?profile.sizes[hit]:1.1f)*(e.Major || e.FullChain?1.4f:1);
+                float progress=age/.30f,fade=(1-progress)*(ArtSampleSettings.ReducedFlash?.35f:1),size=(attack?profile.sizes[hit]:1.1f)*(e.Kind==BattlePresentationKind.Enemy?1.8f:e.Major || e.FullChain?1.4f:1);
                 if(attack)size*=1+Mathf.Min(5,Mathf.Max(0,e.Chain-1))*.08f;
                 if(e.PartBroken && hit==count-1)size*=1.25f;
                 if(ArtSampleSettings.ReducedMotion)progress=.5f;

@@ -1,0 +1,136 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/undermine-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/undermine-sd-walk-candidate-v1.png",
+      "sha256": "74966b92866a509d3db3ffdb8f8ac7e8e9b06af0d1eb057337e64466ecb3c5c4",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/undermine-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/undermine-sd-talk-candidate-v1.png",
+      "sha256": "9c52d280b85e08f534d96b3bcd93497be011aba706b0745aa3cee88391e15783",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/undermine-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/undermine-sd-react-candidate-v1.png",
+      "sha256": "ab690c82df6c257952d824cb13c469306ccd50f5a689a7bd24128506bc19c152",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-detail.png",
+      "sha256": "bf0de8c148a51ddee447f76b2468b7a09c585ce28b8e5c1a50c082184d52eda6"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-tree.png",
+      "sha256": "ebabaab70fcebea38506661fe705d286e1b0dcdc86cffb689a20c2a554604329"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-battle.png",
+      "sha256": "abe19c60c06172d64c04fe9e0e6f767d19847e61d320eaaff1021481b777d23e"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.0.png",
+      "sha256": "f706950e5a0ac282648005dad5cf9b7ed3dc8f4c08e85d866f973ff00efc3e8b"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.1.png",
+      "sha256": "8d1733afeaaccd4e39bcb6e3ebb3da08afc41c6a3c225d0d47b463de55c6a229"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.2.png",
+      "sha256": "a2940bc1e1cc07fbbfdb6c1630d693da9895357307a1c5d82bd9f438571cadea"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.3.png",
+      "sha256": "4ddda8c67e61479a11df907957098e91f15297f4068bd7e891de4ccbedd55df2"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.4.png",
+      "sha256": "ba779f81ba75e86c5071df322b09e581ecbd7b18041b7c12bbe27615a896f128"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-sd.idle.png",
+      "sha256": "1b42d8a3ae38e183321e322d3d44f8c96f3c220e5e00a1ab4ef8c4f9b2fd0744"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-sd.sit.png",
+      "sha256": "d876d38a417ba1ff92c29b69bd9a616a7a8699424dff77efe69566fee90f7d7c"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-sd.work.png",
+      "sha256": "51be419b3436383e4c69d54c999f24bfa7d66bf6cb9679713a686e35291db644"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-sd.look.png",
+      "sha256": "bbba771277bc1a15d18c27fd0a873783f3ae77e1ee7549c027b140c6d3042743"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-expression.normal.png",
+      "sha256": "df3fce088d4764aadb6a118d2096e1818363d69a76276ba8a7791b9f9d16ce4c"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-expression.joy.png",
+      "sha256": "505dd7f068e4011f8f8c3382aaebb21fae3c0045f0d18d6ed3cc0c042b913060"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-expression.puzzled.png",
+      "sha256": "fa759a64ec3b92aa30bacfac3371359a405cbcdc6c7164cc141a49db8f61d9ed"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-expression.determined.png",
+      "sha256": "aa394618a5c8a4c2948e9cff3a5301b3c47eae8f156516c61aa79c20c1148fe6"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/93ec96c519134a1d874ea0e7b5e173ab/default/undermine-sd.walk.png",
+      "sha256": "b4be34fd314270a121e7d8fc087651065197fd400634471b94a0de1239c6d2b9"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/93ec96c519134a1d874ea0e7b5e173ab/default/undermine-sd.talk.png",
+      "sha256": "1bcf308ddead8a50e36cc9485783c19461b8664d160f7b9896b322af58c2f7dc"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/93ec96c519134a1d874ea0e7b5e173ab/default/undermine-sd.react.png",
+      "sha256": "7c91b2dc27a5f317a94b3201a45353884a2d7b49f77d4f56d0fe90ec5ad2e06c"
+    }
+  ]
+}

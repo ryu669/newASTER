@@ -1,0 +1,161 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/slayer-swim-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-sd-sit-candidate-v1.png",
+      "sha256": "29f65fdef1c0cc87a4bde324085ebf888632f39e245924665735bc28b19f71d5",
+      "size": [
+        1230,
+        1278
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-sd-work-candidate-v1.png",
+      "sha256": "636e9ca1c150ae06e66704ff800e5417ab4bddc0f689540778fab0a8d2d95418",
+      "size": [
+        1230,
+        1278
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-event-0-cg-candidate-v1.png",
+      "sha256": "e7b4a1d747c957546f6442af8d9a4541cfb29502a9cc6fa270507fdf63fb7602",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-event-1-cg-candidate-v1.png",
+      "sha256": "16e611a8c01b3ed6f8a626d6b475fc8a3880a991c62ba7b22a65aa73e619a150",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-event-2-cg-candidate-v1.png",
+      "sha256": "a23e4a0d19f4a076d06cbe3b353cabbf988469c8513800fc4bc6b0c7097bcfa3",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-event-3-cg-candidate-v1.png",
+      "sha256": "fb690bceada7949eb8df3aa9ba9ba7a8c7dc590a6299c100b5285ffef80f5780",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/slayer-swim-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-event-4-cg-candidate-v1.png",
+      "sha256": "52228568b6ac26d0c59eb449d1b291acffa084078cea007a961db14cc351835b",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-swim-detail.png",
+      "sha256": "0a9b0a25041491c38d53bce43c78144ee1b489df527f94da9c03c2ba0eef24ee"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-swim-tree.png",
+      "sha256": "d1477b23cb1c9b761fa1c2253c13eef144639b6f905f43bcdddadb12cdd87fe7"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-swim-battle.png",
+      "sha256": "6fbf15cafb30629513b038d3298a14e80e4bdf169cea66fb1f0270aee33e72b8"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-swim-sd.idle.png",
+      "sha256": "fd0c8ad61149df61a759b2fd851345318fa765b98353252c74749c7e458e376f"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-expression.normal.png",
+      "sha256": "0ebc15477272a341bb2e21f1a68665a877a82b4e92cf34e4c2254f846c50ba7a"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-expression.joy.png",
+      "sha256": "c71982a59341eb5414e4f5f4f5e0c088ea74b472d7c19eb65095a0fdaa3d5544"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-expression.puzzled.png",
+      "sha256": "eed41c7c7a55142711d02d832d9a62743ddda3fea1f0d4c825e0f6fd4a481e0a"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-expression.determined.png",
+      "sha256": "89bbc441fae3ee93db6324a445d1530f0b37d7c17bd990a5496e058f620d47eb"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-sd.sit.png",
+      "sha256": "9fdcc0c54a5ac0dfb88c36e6054cd24a7d0b6bdf1b975ee4bbab915a80423aa3"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/17eb6da2562b470eace227f2523f52d7/default/slayer-swim-sd.work.png",
+      "sha256": "1fc555d21ef3bc4a9e4029175b39265f3de8ca8cd17bfd5453a019df2c69571c"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.0.png",
+      "sha256": "aa3f4b499f608b3893b0869919c1678ea172c0ebb51298ae3371eeae2cc59017"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.1.png",
+      "sha256": "9262e87ea64a4825a1979abb70cc0118410620dadaf33f95b7763ff4d59ecc00"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.2.png",
+      "sha256": "477d1406871857a378bcc8c6ccadde460554b9be656ed2b62aa4270e1141346b"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.3.png",
+      "sha256": "4108b11e4ae6eec8c3f97429b84ea46e4fb6ab2a75f30595a3c4292f16d53f4e"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.4.png",
+      "sha256": "980e13650b842cc8e802c4e46a52f1b0071dbc4a05bfd54aea56af29012b597a"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/83e7787f84f34f12b78df9975ce6ca39/default/slayer-swim-sd.look.png",
+      "sha256": "4aff86eb97f355abe409ee975edd7157a7bc09371e6e8bccd83b2ea4066d2a8f"
+    }
+  ]
+}

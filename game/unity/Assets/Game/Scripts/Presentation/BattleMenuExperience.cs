@@ -11,6 +11,8 @@ namespace NewAster.Presentation
         private enum BattlePanel { None,Actions,Targets,Status,Timeline }
         private BattlePanel battlePanel;
         private Vector2 battleDetailsScroll;
+        private int battlePlaybackSpeed=1;
+        private bool battleEffectsOff;
         private static readonly Rect battleDrawer=new Rect(1040,112,530,596);
         private bool BattleInputAllowed=>encounter!=null && !encounter.Ended && !paused && !playback.Busy && !retreat && !help && result==null && !selectingAlly;
         private string BattleTargetName(string id)
@@ -40,10 +42,13 @@ namespace NewAster.Presentation
             int bossHp=visual?.BossHp??s.BossHitPoints,gauge=visual?.BossGauge??s.BossGauge;
             Label(24,48,595,27,$"HP {bossHp}/{s.BossMaxHitPoints}　大技 {gauge}/{s.BossGaugeMax}",small,Color.white);
             Meter(24,77,595,5,bossHp,s.BossMaxHitPoints,new Color(.7f,.2f,.33f));
-            Label(655,12,400,62,"次の敵行動\n"+encounter.NextEnemyAction+(encounter.IsEnraged?" ／ 怒り":""),small,new Color(1,.87f,.59f));
-            if(visual!=null && (visual.FullChain || visual.Chain>1))Label(1080,15,250,50,visual.FullChain?"FULL CHAIN\n追加 "+(visual.ChainActionCount-visual.Chain):"CHAIN "+visual.Chain,text,new Color(1,.85f,.5f));
-            if(Btn(1280,18,120,48,paused?"再開":"一時停止",result==null && !retreat && !help && !selectingAlly))paused=!paused;
-            if(Btn(1490,18,64,48,"？",result==null && !retreat && !help && !selectingAlly)){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
+            Label(655,12,295,62,"次の敵行動\n"+encounter.NextEnemyAction+(encounter.IsEnraged?" ／ 怒り":""),small,new Color(1,.87f,.59f));
+            bool toolbarEnabled=result==null && !retreat && !help && !selectingAlly;
+            if(Btn(960,18,112,48,"速度 ×"+battlePlaybackSpeed,toolbarEnabled,new GUIStyle(button){fontSize=18,wordWrap=false,padding=new RectOffset(0,0,0,0)}))battlePlaybackSpeed=battlePlaybackSpeed==1?2:battlePlaybackSpeed==2?4:1;
+            if(Btn(1082,18,142,48,battleEffectsOff?"演出 OFF":"演出 ON",toolbarEnabled))battleEffectsOff=!battleEffectsOff;
+            if(Btn(1234,18,130,48,paused?"再開":"一時停止",toolbarEnabled))paused=!paused;
+            if(Btn(1374,18,110,48,"戻る",toolbarEnabled))HandleEscapeNavigation();
+            if(Btn(1494,18,64,48,"？",toolbarEnabled)){help=true;paused=true;contextualHelpScroll=Vector2.zero;}
 
             if(!playback.Busy && (battlePanel==BattlePanel.None || battlePanel==BattlePanel.Actions))DrawBattleOrderStrip();
             string actionMessage=visual==null?null:System.Text.RegularExpressions.Regex.Replace(visual.Message??"","（会心判定 [0-9]+）","");
@@ -60,11 +65,7 @@ namespace NewAster.Presentation
             if(Btn(220,762,190,48,"人物・状態",!selectingAlly))OpenBattlePanel(BattlePanel.Status);
             if(Btn(420,762,190,48,"行動順",!selectingAlly))OpenBattlePanel(BattlePanel.Timeline);
             if(Btn(620,762,165,48,"撤退",!selectingAlly)){ResetBattleMenu();retreat=true;paused=true;}
-            if(playback.Busy){
-                if(Btn(1180,762,390,48,"演出をスキップ",!paused && !retreat && !help && !selectingAlly)){
-                    playback.Skip();shownEvent=0;SelectNextHero();FinishCheck();
-                }
-            }else if(Btn(1180,762,390,48,"行動 ／ "+Names[encounter.AvailableHero>=0?encounter.AvailableHero:selectedHero],BattleInputAllowed)){
+            if(!playback.Busy && Btn(1180,762,390,48,"行動 ／ "+Names[encounter.AvailableHero>=0?encounter.AvailableHero:selectedHero],BattleInputAllowed)){
                 SelectNextHero();OpenBattlePanel(BattlePanel.Actions);
             }
             GrowthFill(0,820,1600,80,new Color(.025f,.05f,.065f,.88f));
@@ -81,6 +82,8 @@ namespace NewAster.Presentation
                 Meter(x,886,303,5,hp,hero.MaxHitPoints,hp*3<hero.MaxHitPoints?new Color(.8f,.24f,.17f):new Color(.15f,.55f,.35f));
             }
             status=actionMessage??message;
+            if(visual!=null && (visual.FullChain || visual.Chain>1))DrawChainAnnouncement(visual);
+            if(visual!=null && visual.Kind==BattlePresentationKind.Enemy && visual.TargetIds.Count>0)DrawEnemyAnnouncement(visual);
             if(selectingAlly)DrawAllySelection();
         }
         private void DrawBattleDrawer()
@@ -108,26 +111,32 @@ namespace NewAster.Presentation
         }
         private void DrawBattleActions()
         {
-            int actor=encounter.AvailableHero;if(actor<0)return;var hero=encounter.State.Heroes[actor];
-            GrowthFill(20,437,850,263,new Color(.025f,.05f,.065f,.92f));
-            Label(34,446,570,35,encounter.HeroineName(actor)+" ／ スキルを選択",text,gold);
+            int actor=encounter.AvailableHero;if(actor<0)return;
+            if(jobPanelValidationPending && Event.current.type==EventType.Repaint){jobPanelValidationPending=false;ValidateJobPanelOperations(actor);}
+            var hero=encounter.State.Heroes[actor];
+            GrowthFill(20,437,360,209,new Color(.025f,.05f,.065f,.92f));
+            GrowthFill(390,437,480,209,new Color(.025f,.05f,.065f,.92f));
+            Label(34,446,332,30,"ジョブ ／ "+HeroineIdentityCatalog.JobName(encounter.JobState(actor).Id),new GUIStyle(small){fontSize=18},gold);
+            Label(404,446,452,30,encounter.JobState(actor).Id=="job.gambler"?"スロット結果":"通常スキル",text,gold);
             bool enabled=BattleInputAllowed && !encounter.Acted[actor] && hero.IsAlive;
             if(encounter.UsesJobRulesV2)DrawJobControls(actor,enabled);
             else if(encounter.UsesOptionalResourceBoost){
                 bool previous=GUI.enabled;GUI.enabled=enabled && hero.JobResource>0;
-                var toggleStyle=new GUIStyle(GUI.skin.toggle){font=small.font,fontSize=18,wordWrap=false};
+                var toggleStyle=new GUIStyle(GUI.skin.toggle){font=small.font,fontSize=16,wordWrap=true};
                 toggleStyle.normal.textColor=ivory;toggleStyle.onNormal.textColor=ivory;toggleStyle.hover.textColor=gold;toggleStyle.onHover.textColor=gold;
-                encounter.ResourceBoostSelected=GUI.Toggle(new Rect(35,484,815,32),encounter.ResourceBoostSelected,(encounter.ResourceBoostSelected?"［強化 ON］ ":"［強化 OFF］ ")+encounter.ResourceName(actor)+"を使って強化　所持 "+hero.JobResource+" / "+hero.JobResourceMax+"　1個につき+10%（任意）",toggleStyle);
+                encounter.ResourceBoostSelected=GUI.Toggle(new Rect(34,482,332,70),encounter.ResourceBoostSelected,(encounter.ResourceBoostSelected?"［強化 ON］ ":"［強化 OFF］ ")+encounter.ResourceName(actor)+"を使って強化　所持 "+hero.JobResource+" / "+hero.JobResourceMax+"　1個につき+10%（任意）",toggleStyle);
                 GUI.enabled=previous;
             }
             if(encounter.JobState(actor).Id=="job.gambler")DrawGamblerSlotGrid(actor);
-            else for(int slot=0;slot<3;slot++){
+            else if(encounter.RequiresPanzerDefense(actor) || encounter.JobState(actor).Singing){
+                Label(404,490,452,118,encounter.RequiresPanzerDefense(actor)?"装甲喪失中\n下の「防御」で再召喚を待ちます。":"歌唱中\n左の歌唱継続、または歌唱解除を選びます。",text,ivory);
+            }else for(int slot=0;slot<3;slot++){
                 int cost=encounter.SkillResourceCost(actor,slot);var healing=encounter.HealingSkill(actor,slot);
                 string effect=encounter.IsSelfBuff(actor,slot)?(encounter.IsAllyBuff(actor,slot)?"味方強化":"自己強化"):healing!=null?"回復":encounter.AttackTargetDescription(actor,slot)+"予測 "+encounter.PreviewDamage(actor,slot,target);
                 string availability=hero.JobResource<cost?"不足":!encounter.ConditionsSatisfied(actor,slot)?"条件未達":"";
-                string caption=encounter.SkillName(actor,slot)+"\n"+encounter.SkillAttributes(actor,slot)+" ／ "+effect+"\n"+(cost>0?encounter.ResourceName(actor)+" −"+cost:"消費 0")+"　WT "+encounter.CommandRecoveryDelay(actor,slot)+(encounter.CastDelay(actor,slot)>0?"　詠唱 "+encounter.CastDelay(actor,slot):"")+(availability.Length>0?"\n"+availability:"");
-                var style=new GUIStyle(skillButton){fontSize=18};while(style.fontSize>14 && style.CalcHeight(new GUIContent(caption),253)>(encounter.UsesJobRulesV2?100:120))style.fontSize--;
-                if(Btn(34+slot*280,encounter.UsesJobRulesV2?543:524,270,encounter.UsesJobRulesV2?104:122,caption,CanChooseBattleSkill(actor,slot),style))ChooseBattleSkill(slot);
+                string caption=encounter.SkillName(actor,slot)+" ／ "+effect+"\n"+encounter.SkillAttributes(actor,slot)+" ／ "+(cost>0?encounter.ResourceName(actor)+" −"+cost:"消費 0")+"　WT "+encounter.CommandRecoveryDelay(actor,slot)+(encounter.CastDelay(actor,slot)>0?"　詠唱 "+encounter.CastDelay(actor,slot):"")+(availability.Length>0?" ／ "+availability:"");
+                var style=new GUIStyle(skillButton){fontSize=17,padding=new RectOffset(7,7,2,2)};
+                if(Btn(404,480+slot*55,452,52,caption,CanChooseBattleSkill(actor,slot),style))ChooseBattleSkill(slot);
             }
             if(Btn(34,653,540,37,"対象："+BattleTargetName(target)+" ／ 対象を変更",enabled))battlePanel=BattlePanel.Targets;
             if(Btn(590,653,274,37,encounter.RequiresPanzerDefense(actor)?"防御・装甲を待つ":"パス",enabled && (encounter.RequiresPanzerDefense(actor) || encounter.CanPass(actor)))){ResetBattleMenu();if(encounter.RequiresPanzerDefense(actor))encounter.DefendPanzer(actor);else encounter.Pass();QueueBattleEvents();}
@@ -139,7 +148,7 @@ namespace NewAster.Presentation
                 int symbol=board.Length==9?board[i]:-1;
                 var style=new GUIStyle(skillButton){fontSize=20,alignment=TextAnchor.MiddleCenter};
                 string label=symbol<0?"―":GamblerSlotRules.Label(symbol);
-                GUI.Box(new Rect(34+(i%3)*280,543+(i/3)*35,270,32),label,style);
+                GUI.Box(new Rect(410+(i%3)*148,484+(i/3)*50,142,44),label,style);
             }
         }
         private bool CanChooseBattleSkill(int actor,int slot)
@@ -156,9 +165,32 @@ namespace NewAster.Presentation
                 string name=entry.Actor<0?"巨神獣":encounter.HeroineName(entry.Actor);
                 while(style.fontSize>11 && style.CalcSize(new GUIContent(name)).x>150)style.fontSize--;
                 Label(x+6,103,150,24,name,style,index==0?gold:Color.white);
-                Label(x+6,129,150,23,(index==0?"▶ ":"")+"WT "+Math.Max(0,entry.At-encounter.Clock)+(entry.IsCast?" ／ 発動":""),small,Color.white);
+                Label(x+6,128,150,24,(index==0?"▶ ":"")+"WT "+Math.Max(0,entry.At-encounter.Clock)+(entry.IsCast?" ／ 発動":""),new GUIStyle(style){fontSize=15,padding=new RectOffset(0,0,0,0)},Color.white);
                 index++;
             }
+        }
+        private void DrawChainAnnouncement(BattlePresentationEvent visual)
+        {
+            float fade=Mathf.Clamp01(illustrationElapsed*7)*Mathf.Clamp01((1.2f-illustrationElapsed)*3);
+            if(fade<=0)return;
+            var prior=GUI.color;GUI.color=new Color(1,1,1,fade);
+            GrowthFill(465,245,670,100,new Color(.025f,.05f,.12f,.88f));GrowthFrame(465,245,670,100);
+            DrawSanctuaryIcon(new Rect(490,267,56,56),"star",gold);
+            var chainStyle=new GUIStyle(heading){fontSize=visual.FullChain?38:34,alignment=TextAnchor.MiddleCenter,padding=new RectOffset(0,0,0,0)};
+            Label(550,258,550,70,visual.FullChain?"フルチェイン！":"チェイン ×"+visual.Chain,chainStyle,new Color(1,.87f,.48f));
+            GUI.color=prior;
+        }
+        private void DrawEnemyAnnouncement(BattlePresentationEvent visual)
+        {
+            float fade=Mathf.Clamp01(illustrationElapsed*7)*Mathf.Clamp01((1.4f-illustrationElapsed)*3);
+            if(fade<=0)return;
+            var prior=GUI.color;GUI.color=new Color(1,1,1,fade);
+            GrowthFill(400,245,800,100,new Color(.18f,.025f,.025f,.9f));GrowthFrame(400,245,800,100);
+            DrawSanctuaryIcon(new Rect(420,267,56,56),"star",new Color(1,.45f,.2f));
+            var style=new GUIStyle(heading){fontSize=32,alignment=TextAnchor.MiddleCenter,padding=new RectOffset(0,0,0,0)};
+            string message=visual.Message??"巨神獣の攻撃";
+            while(style.fontSize>18 && style.CalcHeight(new GUIContent(message),680)>70)style.fontSize--;
+            Label(485,258,680,70,message,style,new Color(1,.87f,.48f));GUI.color=prior;
         }
         private bool ChooseBattleSkill(int slot)
         {

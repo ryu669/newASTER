@@ -1,0 +1,191 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/shell-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-sd-sit-candidate-v1.png",
+      "sha256": "67ce11156de53818757b1984a378ef025a500f10571f30cb7bf2604075224f5d",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-sd-work-candidate-v1.png",
+      "sha256": "2f6e055d91c1b35f73ea2ce296b6a815f8fceaa2097a6b7df3a87ba912e360c3",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-sd-look-candidate-v1.png",
+      "sha256": "574b078eb8a3af0c75dfe83534329ea702d60fd12aecf5428410fb8f53d2d37c",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-expression-joy-candidate-v1.png",
+      "sha256": "cd2417ae605e13d8aad0dc9df1c4345cb9f35763ac1f4b4f775720bebafe65fb",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-expression-puzzled-candidate-v1.png",
+      "sha256": "06b82c8b29d2bcc3833379df3c3ef268220bfc664dc5050cf9bc9b4e507d6b23",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-event-0-cg-candidate-v1.png",
+      "sha256": "53defbc483069fdb1099d470c0d9c130a19f90982d0c70c51dc8e4b375e25a7d",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-event-1-cg-candidate-v1.png",
+      "sha256": "0eaf3ae7ac6d278a1d09758d17ca5c831d606bc6aadb4c8e64c953589ba870fa",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-event-2-cg-candidate-v1.png",
+      "sha256": "dd34d41c847f0991ed3722c1b2365bcc1a6571f673accf5d4ac4fc44cb79175a",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-event-3-cg-candidate-v1.png",
+      "sha256": "e39fbc38fbf50df8683ba0dd183952b7d4fa4bee52f75ee4971cb3406c2a98db",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/shell-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/shell-event-4-cg-candidate-v1.png",
+      "sha256": "58f645d5c648e40b80853ada378543f2ce31621c4f91ff3097f33ddb477c42a7",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shell-detail.png",
+      "sha256": "a5b2855b5224150bc1a46469467f0e2c7344fc7ea5888185fa3f46e6972b08c4"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shell-tree.png",
+      "sha256": "722d9dac312c032c2d7e24a82be8b6bd9d95a1814e9c12f6e6d3819594154ff2"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shell-battle.png",
+      "sha256": "dc33d1538c90e3d73fbdc0aa3461010e9853cb1ba3dc780ac505a67f44d8dd2e"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/shell-sd.idle.png",
+      "sha256": "7d9b60e9e1849cae57e9bf98a58516f1c071f35655b4c62706537654671233bd"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-expression.normal.png",
+      "sha256": "eaa64b4284a9692ed10dec621ccde6d48807a555b0b7247b1f883d3d9c3aa673"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-expression.joy.png",
+      "sha256": "4196c4da33534b6f6286fda6d42f4b99063a1ad6f4710ba55dd97b80ff74f6e9"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-expression.puzzled.png",
+      "sha256": "e1c7dfc190484dbb27a011a3e7f1760e5877a302bf3dcad1591203bdb788af84"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-expression.determined.png",
+      "sha256": "d892044b72145e33a1cdba2d5bc28dc366ce19a5f6677397d9e71ab1dc071f33"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-sd.sit.png",
+      "sha256": "0937c5e4ff1893a550ad6e1a76f5a6891e8152fc0573a60787aaca0712982e57"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-sd.work.png",
+      "sha256": "6c8e460babfe99a197dec5e82fb1dd2b117a8a2fa5c482bfeb10c74d3e9eed2f"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/bcececb8700c4bbd9b30c088b14a2197/default/shell-sd.look.png",
+      "sha256": "dc6d5ebe72ebb92e00bf47db781bee4e86daeb3e493cc596f52f01e8bff4cd4a"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.0.png",
+      "sha256": "7ff97665cc5cb91614491ac037ab3f6a9a87840a760fe0fdf58710050a31209b"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.1.png",
+      "sha256": "06f75f711be5784e0349e4fc23fe03019449c94e4058bc1e29666106efcdad5b"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.2.png",
+      "sha256": "e6fd0e0d903772e39a0e0e2b7b714c2d4dc3a50ffe3fe030ae6e467dbba617b9"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.3.png",
+      "sha256": "1789f5f92058030411a4f0f7e87103cb317b65ac266228874c35a488163fb7ca"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.4.png",
+      "sha256": "50ad597d23e1a7cdef64166d5d0f04f31fb5824e9ad0b7543dd5013cc71971c2"
+    }
+  ]
+}

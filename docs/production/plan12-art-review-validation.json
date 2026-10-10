@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-10",
+  "status": "scoped_checks_passed",
+  "productionAcceptance": "not_evaluated",
+  "fixes": [
+    "register three existing Arcane furniture SD hashes using verified Plan11-5/6 provenance",
+    "update two isolated capture fixtures to person-level affection Lv20"
+  ],
+  "coreAssertions": 12513,
+  "compiledSources": 258,
+  "artHashCoverage": {
+    "inspected": 245,
+    "registeredMatching": 245
+  },
+  "captures": {
+    "player": "game/Builds/plan12-preparation/newASTER.exe",
+    "assemblySha256": "3af14ad02da001a20d05fe94ebd2a6fe81645573c5084bddbf4ca7f630412f5f",
+    "records": [
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-chapter-1920x1080.png",
+        "view": "chapter",
+        "width": 1920,
+        "logSha256": "e5b2a2c6cd728c0d9c528a1a46417a5142e21c5c31dd6d6d6743726f2dcd18c4",
+        "imageSha256": "41c6350d0ca4f6f643754f2a8360f0489d7a15126e99e8fc2f75fc978c407793",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-chapter-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-garden-1920x1080.png",
+        "view": "garden",
+        "width": 1920,
+        "logSha256": "cd609067a1e586745f7ad1a7933a4e1e86d6de4527a5f0527931cdca9c43957b",
+        "imageSha256": "5d276ee073ffaede8048fc073857ef041e7c47b0bfe474902309d1e1e12daf7c",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-garden-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-battle-1920x1080.png",
+        "view": "battle",
+        "width": 1920,
+        "logSha256": "a407666f1d1f462fe8f09b0bf4e25446dfe0d4066ef4fd49d63f5e74edd6ce38",
+        "imageSha256": "14098103a600b4d62477bc11bd4ad8dae9d06d6e478e8aec6e934c352161ea48",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-battle-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-event0-1920x1080.png",
+        "view": "event0",
+        "width": 1920,
+        "logSha256": "444bc66c9e53e3f956093b52cac78e5f984b152b123118e12482ff5d41b10487",
+        "imageSha256": "020ac02586cb1780b4e633f730adf608f6fae8b4d1d92058ebb53a7e4d5743c2",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-event0-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-chapter-1920x1080.png",
+        "view": "chapter",
+        "width": 1920,
+        "logSha256": "9371d5ef21c39a4ad8176a665d24e7434e44bab3c44faa64214fa675d038a450",
+        "imageSha256": "4677cc9d011d395005f252376409dca0253a1a6f25d4e66e94fc3267ca8b0eef",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-chapter-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-garden-1920x1080.png",
+        "view": "garden",
+        "width": 1920,
+        "logSha256": "f70e7e1632c8e4a5e7bd9c729303fe0f5632a55935c6cd9e424aa2da21b3eb98",
+        "imageSha256": "7a0b3b4da46a4c22ebb28e6b3d373ebee88d75bf5b132219e3418b4be305c840",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-garden-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-battle-1920x1080.png",
+        "view": "battle",
+        "width": 1920,
+        "logSha256": "f6c07187c2524fc555d0dae26ae29f483c281f551762f908b52703c58d928ffc",
+        "imageSha256": "1f0f1ab634b11510b66a97d90ffa35c8663acb6ebddd2def1d7332bcc84de4e5",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-battle-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-event0-1920x1080.png",
+        "view": "event0",
+        "width": 1920,
+        "logSha256": "a1aeb3ffd122038894d933d6662bbbde87d687d75ad453488f2b79f000dbec4d",
+        "imageSha256": "a43335d99d87f749f9c31e7323448315c988e5e3b659b0617addb3dfe1c654ea",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-event0-1920x1080.log",
+        "height": 1080,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-chapter-1280x720.png",
+        "view": "chapter",
+        "width": 1280,
+        "logSha256": "fe4bd2ec3eadbb18cda577258d5bf80357e0bbbe12d35ad385a10e6191ab2287",
+        "imageSha256": "85454bafcd7174c08e5e02ca7b8ca8c0d76ec63ea0932f8787103bb1385de0c0",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-chapter-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-garden-1280x720.png",
+        "view": "garden",
+        "width": 1280,
+        "logSha256": "b74b781ad23a1950e2db5cf8a558cad2992e24854db2a81a6bfb638eb3f0f6e5",
+        "imageSha256": "de6f000269b409059dbc2fa6b2a86505746d944d95e0a47a51d918a46aeb177e",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-garden-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-battle-1280x720.png",
+        "view": "battle",
+        "width": 1280,
+        "logSha256": "256614ea74f84f57e4ac88db9915c3d77b81b239f0819adfaf81c1cfe0cdd18a",
+        "imageSha256": "3cba6aea534bf4654f27dd9ba866a549dc3dcabdb1472a84c881c8cb88f3c424",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-battle-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-event0-1280x720.png",
+        "view": "event0",
+        "width": 1280,
+        "logSha256": "dd142a20e59456a433eaa570b0f33bf3a3b5b3025aad644b649fd4c37554ada8",
+        "imageSha256": "853d9ecaa4cff0dc682e3b831f7b6d0a7e83e678f14c62b3fabe123de5ab0de7",
+        "heroineId": "heroine.annihilator-holy",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/annihilator-holy-event0-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-chapter-1280x720.png",
+        "view": "chapter",
+        "width": 1280,
+        "logSha256": "fb31c79550cbbcbbb39aa695159f09dc58c5f59be8796671a414b3c80087c9c3",
+        "imageSha256": "3bfc6c1d61a1bc04c4536be6d01e4bbc8ca76bfad7d02d2803571d7b737c2978",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-chapter-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-garden-1280x720.png",
+        "view": "garden",
+        "width": 1280,
+        "logSha256": "3ae5ae5b3137bb68a9157c7ae3af730274e619dc6139145c65f7b2ea495a07b6",
+        "imageSha256": "b1fc1353a49fda7c7e3ac0c167cfd26cd3ed4e0ce5b3deddce522f8c282b05a4",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-garden-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-battle-1280x720.png",
+        "view": "battle",
+        "width": 1280,
+        "logSha256": "084e4844896853712940b6fa2126778fd46dbba9c1a8050151b37fd7b8d1c52e",
+        "imageSha256": "c4745350e68d1213111f32e87861e52427132e5065cb855bd8f314a887352d63",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-battle-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      },
+      {
+        "image": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-event0-1280x720.png",
+        "view": "event0",
+        "width": 1280,
+        "logSha256": "b6e1360d9afc2181cfffb02cb386986ca54524edab0362bbfb68b2708ae2fc56",
+        "imageSha256": "747e5a76cf55932fe97bca22c91f0af1ebfc2630336899d4c5bea392a699d59b",
+        "heroineId": "heroine.arcane",
+        "log": "tmp/plan12-art-review/player-d899d135fc0d4ecb8b4f30002e90899f/arcane-event0-1280x720.log",
+        "height": 720,
+        "visualReview": "inspected: no additional UI clipping in this static capture; source margins remain under review"
+      }
+    ],
+    "manualInput": false,
+    "scope": "Existing dedicated form fixtures on review build; fixture combat catalogs are historical subsets",
+    "visualAcceptance": "requires image inspection"
+  },
+  "evidence": [
+    {
+      "path": "tmp/plan12-art-review/build-fixture-fix.log",
+      "sha256": "be2b49fae5719f5eac92fae6fc30f86f604ced6369ca44e3c483f606fdf74239"
+    },
+    {
+      "path": "tmp/plan12-art-review/regression-fixture-fix.log",
+      "sha256": "8c049e29a7ce762f04657b6931d7379b2307c751caba9caeab5d310231b8ce9e"
+    },
+    {
+      "path": "docs/production/plan11-5-6-validation.json",
+      "sha256": "54e5bef246bb848d0ed40f3c65ad0217957724825e6da7207080379518052e19"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/ProductionAssetAcceptance.cs",
+      "sha256": "9d1cfafb1a9fbb7e9e73f5f1ca41a078470c351fe16a865c8c44e281d7f7b85b"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10AnnihilatorAcceptance.cs",
+      "sha256": "71e3144e04f0f8de9f6aad1fa0f2ba6d3da4ebc980b8c1c32429d5d279cf6011"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10ArcaneAcceptance.cs",
+      "sha256": "3f41d37964ad4fe8cc351b5b009d09b93e79ead88bf40bf42472c1c656b0aa92"
+    },
+    {
+      "path": "tools/validate-plan12-art-review-player.ps1",
+      "sha256": "cfbb771187e6ef06fb182b875e33a761068ffb8df52b706c70ca046e8f627b41"
+    }
+  ],
+  "failedAttempts": [
+    {
+      "path": "tmp/plan12-art-review/player-b3a6c99b42204dd5990096d544d7d3f4/annihilator-holy-chapter-1920x1080.log",
+      "sha256": "5edc242314d83a5e1c12422e03fbec3d72aa5151662ae89e10bbb3fea1b8e351"
+    },
+    {
+      "path": "tmp/plan12-art-review/player-b3a6c99b42204dd5990096d544d7d3f4/annihilator-holy-chapter-1920x1080.png",
+      "sha256": "1889b0f9df5a4fc19b4b922680af5623bbaf464c658ba2da16a95482ca21efa0"
+    },
+    {
+      "path": "tmp/plan12-art-review/player-19c23690d5d0499a8278b0db7d0eebe4/annihilator-holy-event0-1920x1080.log",
+      "sha256": "9836696813bc5e11b60f2e6a6a58268048d3ba0141f90ccb6b5e65e0010b5cde"
+    }
+  ],
+  "remaining": [
+    "source silhouette margin review",
+    "all expression and furniture pose runtime captures",
+    "all CG review",
+    "listening acceptance",
+    "first lot selection"
+  ]
+}

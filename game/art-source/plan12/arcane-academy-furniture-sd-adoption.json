@@ -1,0 +1,38 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/arcane-academy-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-sd-sit-candidate-v1.png",
+      "sha256": "782bbd081c4f4047cc1404955b9600052e69b72049e80d2e9523d5bc4c6afc38",
+      "size": [
+        1155,
+        1362
+      ],
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-sd-work-candidate-v1.png",
+      "sha256": "6eaf9a71f238d12e8e39221aeab5ab3e7d361dc13332463e309f0c92d94fa71e",
+      "size": [
+        1155,
+        1362
+      ],
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-sd-look-candidate-v1.png",
+      "sha256": "d07bc512b79c21f7e0374e4f587aaf92787911c3c096005a6363877a25a67812",
+      "size": [
+        1155,
+        1362
+      ],
+      "visualReview": "passed: dedicated pose, consistent costume, complete sprite, transparent background"
+    }
+  ],
+  "runtimeCapture": "tmp/plan12-art-sweep/9a15642965ef4f76822f989c30e5b9d0/default",
+  "visualReview": "passed at default 1280x720; completed views frozen"
+}

@@ -1,0 +1,136 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/excalipan-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/excalipan-sd-walk-candidate-v1.png",
+      "sha256": "444495e4ce048e3da8bf37e5f6288ea0085640b2af9e84bd9dc762648f17568f",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/excalipan-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/excalipan-sd-talk-candidate-v1.png",
+      "sha256": "5b9348d75303505f8320d7892da54bc2ea8e050347638699acfb31e2d6f359c4",
+      "size": [
+        1225,
+        1284
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/excalipan-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/excalipan-sd-react-candidate-v1.png",
+      "sha256": "795e8c8a127dfc547e58eb6b811dfb2c56a2ec5a6e8eb5347a7a8662ecf84e99",
+      "size": [
+        1254,
+        1254
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-detail.png",
+      "sha256": "74c42d1a2f0ad75c507bdf48a742c88db1d78a15323a5e886649fc8623c9671a"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-tree.png",
+      "sha256": "45385a2ca4011e550c697733e4932ed439ebddcb1a74c2193b83d0755d440ffd"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-battle.png",
+      "sha256": "2540e31c032deec811d615908debc69f75164c563e1389d15088e9378178e52c"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.0.png",
+      "sha256": "df0aeb6ca4b9a534b21bf5f2b5c97b6356d09496b4e358179b57435fae079572"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.1.png",
+      "sha256": "c0cd72ac9199786e88fcbb3704236e6fd2353dd989988e4d59f142f1c791c5d5"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.2.png",
+      "sha256": "5438098a2e79d8e83615da3d3641a04a847c2d4134da9ade8411b50ceeb0b0f4"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.3.png",
+      "sha256": "1b78723d89a3d7419f6bf468090221e8a6224b829e56add5647d4e58b61ea4db"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.4.png",
+      "sha256": "23c909ba0bcf0fbce06a06a045d33dc0904904f0aee0a049aed34110a0ac01e4"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-sd.idle.png",
+      "sha256": "0d73a0dae82b04d326d460ac105070dae165b97a5e2517f2a76e9e4a8339b389"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-sd.sit.png",
+      "sha256": "f221616e3d307c84520bd17eeeaeee35df96458aef278741b9684c1be84b74a9"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-sd.work.png",
+      "sha256": "e24af69817dd3318875f890608f69f860c6d358696d4dbb995c4c1c5034662bf"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-sd.look.png",
+      "sha256": "3656e0f970b69bb8fb9b37e6d449a0b9199047bd64cc83def3d140b0d0304553"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-expression.normal.png",
+      "sha256": "1cf308ed3f87fa40560f587f7328473202f1efa3892cea1ac4da21359081a9f0"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-expression.joy.png",
+      "sha256": "7eb20f101dd274a8065adcd2fda020f0ab96660365cb136baa2703271aeef97e"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-expression.puzzled.png",
+      "sha256": "08dad3b1b5fe8b273592eb828bd39417c62de03f83e4ab5d17902367fbe55e34"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-expression.determined.png",
+      "sha256": "abcfc98aad734c967e8cce2ffd323a459b337ffbf1a8c19ba945d6059894bbe2"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/5fd9a56477434ddb9e93e5523ea6f3d3/default/excalipan-sd.walk.png",
+      "sha256": "209febbb815344a46aa33c081fd7363d164132fb3b12358f469fc916c79a8d74"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/5fd9a56477434ddb9e93e5523ea6f3d3/default/excalipan-sd.talk.png",
+      "sha256": "9f004d6a0d3ad437f568589d58dc7bb47155cc746ca71eca2c5456b76a1af841"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/5fd9a56477434ddb9e93e5523ea6f3d3/default/excalipan-sd.react.png",
+      "sha256": "36373e9ccf336adc016ba11a220483ff18f7f8e0befbea1577e801a5f0dec98b"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "resolution": [
+    1920,
+    1080
+  ],
+  "physicalInput": 0,
+  "compileSourceCount": 261,
+  "regressionAssertions": 11849,
+  "buildPassed": true,
+  "captureCount": 22,
+  "captures": [
+    {
+      "view": "battle-menu-actions",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-menu-actions.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-menu-actions.log",
+      "sha256": "e6c061d3ad08c87ca429bc626c67355afc76b0971a587ad2e0c9ecb0ed502a62",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "battle-chain",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-chain.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-chain.log",
+      "sha256": "2c5aec5baee7c9d18afcb7e82ff6e2f10a0b1b543582089c0b0c5cf9ea5bcec3",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "battle-fx-enemy",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-fx-enemy.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-fx-enemy.log",
+      "sha256": "f0abbde003916a9c8a7a6d4c2fcda8c71cdca74c6670d7e08391763b27c507ed",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "roster-entry",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-roster-entry.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-roster-entry.log",
+      "sha256": "dfd608da2156ba3ac24d1c1527b8b9aeea7c2ed3fc159b9035d4c4a0f748648a",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "trait-flavor",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor.log",
+      "sha256": "b453b6d217b8e9530b8c6253793a24493be2caab4e68258c827f2c20f143d373",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "formation-defender",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-formation-defender.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-formation-defender.log",
+      "sha256": "986c38e56bc06e391c55f8a254a15dada812aad313ebe9ef55fd34309a27d135",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "battle-speed",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-speed.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-speed.log",
+      "sha256": "7b5af40c9d15a62453b1eec01f20f4e08e657205680f9c6cc4c116db38026016",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "battle-effects-off",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-effects-off.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-effects-off.log",
+      "sha256": "ca0846aeb1b58183f6fdd825100b66c011afbbb2415a97fdeabf734e3e7d5e2c",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "battle-full-chain",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-battle-full-chain.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-battle-full-chain.log",
+      "sha256": "5b5074b3b5758eba70111acc51fe9cd9664ffa824cdcc4a3e9f262376c3214b5",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "formation-nondefender",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-formation-nondefender.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-formation-nondefender.log",
+      "sha256": "0747bb2f128a689e17917889316dcc4e3c4734417006eb64cc901544aa87c87f",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "formation-preset-selected",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-formation-preset-selected.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-formation-preset-selected.log",
+      "sha256": "b567f0e94dbaa60835db573d649aca012b391538cf26f0bed3005b756a314b47",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "kinder-targets",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-kinder-targets.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-kinder-targets.log",
+      "sha256": "9c8956420e73a4502e877fb27a747101575425ea952bfaf11fad911271c67d14",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "kinder-rates",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-kinder-rates.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-kinder-rates.log",
+      "sha256": "d43bcaa3773e4a0633c944deacbb3217db8102a35639d307c8d8b74d67fb3348",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "kinder-exchange",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-kinder-exchange.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-kinder-exchange.log",
+      "sha256": "b814981cf4b9bccbe538aa7e8539b02a41844a662050f3161285e92a98b4b069",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "kinder-tickets",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-kinder-tickets.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-kinder-tickets.log",
+      "sha256": "83a4f7139067721d2a7fa6134d289ce4ff165a0648c4b97c707407f3a821c3e8",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "book-materials",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-book-materials.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-book-materials.log",
+      "sha256": "b7a1cf3749f74ba60b5851ba33313c269fc09fd49c51fe13bccbacd38393b5d6",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "book-new-world",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-book-new-world.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-book-new-world.log",
+      "sha256": "da968c9f5d4eb4eb8ec3e9e4e58654954eb686617909a210ec975194433b7064",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "book-possible-worlds",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-book-possible-worlds.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-book-possible-worlds.log",
+      "sha256": "ef17c6dde22bb0c1b35c52c9e3c9d690d5774ee662132f3275a1906116daf8c9",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "trait-flavor-innate",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-innate.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-innate.log",
+      "sha256": "a1158b926b343f080f997dafcc1ee40ebbc2d7359e76287f5b646feaf07b14dc",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "trait-flavor-personal",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-personal.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-personal.log",
+      "sha256": "e5b2762c4b23de3bf2a44316df72dd06ecc98dfb5700ed80f79f642c5970a9c2",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "trait-flavor-mastery",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-mastery.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-trait-flavor-mastery.log",
+      "sha256": "94d7cc7473cda70c5268ee1b98169a3fbcfa12f9c40e5ee523bbe92eaa9724c5",
+      "visuallyReviewed": true
+    },
+    {
+      "view": "navigation-routes",
+      "screenshot": "tmp/plan10-ui/player-1920x1080/ui-navigation-routes.png",
+      "log": "tmp/plan10-ui/player-1920x1080/ui-navigation-routes.log",
+      "sha256": "dfd608da2156ba3ac24d1c1527b8b9aeea7c2ed3fc159b9035d4c4a0f748648a",
+      "visuallyReviewed": true
+    }
+  ],
+  "fixtureLimit": "Static rendering fixtures and automatic navigation assertions; not a physical-input playthrough. Earlier unchanged screens were retained instead of recaptured."
+}

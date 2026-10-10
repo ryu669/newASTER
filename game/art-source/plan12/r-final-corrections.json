@@ -1,0 +1,75 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE dedicated walk garden SD sprite of the exact female chibi character in the reference: a clear walking step, one leg forward and the other back, arms swinging naturally, lively walking body lean. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4ce654b1-06ae-45f7-aed0-ec72b56bc612.png",
+      "resource": "Illustrations/r-sd-walk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE dedicated talk garden SD sprite of the exact female chibi character in the reference: a clear friendly talking gesture, one hand open at chest level toward the listener, cheerful open mouth, feet planted. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-203be549-c7be-4d54-9880-0c8bf37a2ff2.png",
+      "resource": "Illustrations/r-sd-talk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE dedicated react garden SD sprite of the exact female chibi character in the reference: a clear surprised reaction, both hands lifted near cheeks, widened eyes and small surprised open mouth, knees slightly bent. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6abc2a80-09b5-41c2-b694-653376f5cc68.png",
+      "resource": "Illustrations/r-sd-react-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a2067503-e6f4-4c34-85e7-5df49c2d5e08.png",
+      "resource": "Illustrations/r-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-99d1289d-e7cf-4942-9f3e-b3040c781d24.png",
+      "resource": "Illustrations/r-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create determined confident expression, slightly firm brows and a small confident closed smile. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6641e2ef-92df-45e6-9640-68675e5c6150.png",
+      "resource": "Illustrations/r-expression-determined-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "r-event-1",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c70a6156-c155-42f4-a8e0-4fd1bad1f180.png",
+      "resource": "Illustrations/r-event-1-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "r-event-2",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2f762845-ddd4-4935-a23c-e10e16703a4a.png",
+      "resource": "Illustrations/r-event-2-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "r-event-3",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4a6c3d5a-eeb4-4bd6-a881-41cecfab8f01.png",
+      "resource": "Illustrations/r-event-3-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "r-event-4",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Where interaction needs adjustment, pose her own hands naturally reaching toward empty space or resting on her chest. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface. Follow-up: Correct anatomy only: this heroine currently has THREE hands. Remove the extra hand and forearm resting on the center of her chest entirely, restoring her costume and wing behind it. Keep exactly TWO arms: one reaching to viewer at left, one extending sideways at right. Preserve all other illustration details. One woman only, no other people or foreground partner hands.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-52e04525-56e0-493b-ba3a-9dc95a51afa1.png",
+      "resource": "Illustrations/r-event-4-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}
