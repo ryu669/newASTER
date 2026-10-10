@@ -1,0 +1,4489 @@
+{
+  "scope": "current PNG metadata and silhouette bounds; not runtime or final visual acceptance",
+  "forms": 15,
+  "inspectedImages": 245,
+  "status": "review_required",
+  "limitations": [
+    "optional role discovery does not prove runtime binding completeness",
+    "alpha bounds do not prove anatomical completeness",
+    "no new Player build, input, listening or performance measurement"
+  ],
+  "issueCount": 40,
+  "assets": [
+    {
+      "formId": "heroine.slayer",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-portrait-candidate-v1.png",
+      "issues": [],
+      "sha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "registeredSha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        48,
+        9,
+        1486,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "registeredSha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        77,
+        4,
+        962,
+        1517
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "74a28016733166f07f30cfb75c1933b94ef62dfb7e747c363291077450214ab7",
+      "registeredSha256": "74a28016733166f07f30cfb75c1933b94ef62dfb7e747c363291077450214ab7",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        39,
+        3,
+        1241,
+        1215
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "40ba73f690ef7d94bda811699aa6907900b2225eb67ab96845bcb3a11361f0c4",
+      "registeredSha256": "40ba73f690ef7d94bda811699aa6907900b2225eb67ab96845bcb3a11361f0c4",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        145,
+        21,
+        1123,
+        1232
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "2987cbb053e8bb9fd14e7827a3cdbeebb89f218ce9e0939bf26ffa01ac2a6482",
+      "registeredSha256": "2987cbb053e8bb9fd14e7827a3cdbeebb89f218ce9e0939bf26ffa01ac2a6482",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        77,
+        4,
+        962,
+        1518
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "3c16f5f284362573e3bec717af93aeb3c500f1e9d1174bc10d90aab86e189d02",
+      "registeredSha256": "3c16f5f284362573e3bec717af93aeb3c500f1e9d1174bc10d90aab86e189d02",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        78,
+        4,
+        962,
+        1518
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "ed196a2c97a7ea5493db6bf3ae17c00c8f5912e3d7e2acb2fa429020bf5f462e",
+      "registeredSha256": "ed196a2c97a7ea5493db6bf3ae17c00c8f5912e3d7e2acb2fa429020bf5f462e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        77,
+        4,
+        962,
+        1517
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "ead29e6a676c906b500ad63aff351d7e1718017cd0362b05eb355e7f2ca535b6",
+      "registeredSha256": "ead29e6a676c906b500ad63aff351d7e1718017cd0362b05eb355e7f2ca535b6",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        244,
+        6,
+        1014,
+        1246
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "3c64ebbc9d1b26010085e05be2b942f7439d5aa6334b04719a41fe5ed42460b0",
+      "registeredSha256": "3c64ebbc9d1b26010085e05be2b942f7439d5aa6334b04719a41fe5ed42460b0",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        227,
+        14,
+        1023,
+        1237
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "fab3b3fa2f984065aebc60c5b89bc6791d2de4d2aad5f79142bfea43317f2119",
+      "registeredSha256": "fab3b3fa2f984065aebc60c5b89bc6791d2de4d2aad5f79142bfea43317f2119",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        310,
+        5,
+        991,
+        1245
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "a7c0ff1f4809bce4171d5983fe3b8d8271be64f6a584b6d0b3c8a09a2ce0835b",
+      "registeredSha256": "a7c0ff1f4809bce4171d5983fe3b8d8271be64f6a584b6d0b3c8a09a2ce0835b",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        270,
+        11,
+        978,
+        1241
+      ]
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "a204e2d4de4fd391bdb0ce2cf8672225fc1f1a4df3cf379db3028bf1593e9fa4",
+      "registeredSha256": "a204e2d4de4fd391bdb0ce2cf8672225fc1f1a4df3cf379db3028bf1593e9fa4",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "14ae1386b006cddc16c1deea87106a37a19bb84a0ad1c592fd614fc09d4f4375",
+      "registeredSha256": "14ae1386b006cddc16c1deea87106a37a19bb84a0ad1c592fd614fc09d4f4375",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "76b9df60f59d18bae1d23ac53e96dffff59407703d6338d04e15862d424187a3",
+      "registeredSha256": "76b9df60f59d18bae1d23ac53e96dffff59407703d6338d04e15862d424187a3",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "93243eeaf17ae1315a94f70c69fe68fe449a5c014061a4193780294ad07f395b",
+      "registeredSha256": "93243eeaf17ae1315a94f70c69fe68fe449a5c014061a4193780294ad07f395b",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "af3c94d4d50819b5776063b2e2c63e12efaffd6817df975d2803771a43273015",
+      "registeredSha256": "af3c94d4d50819b5776063b2e2c63e12efaffd6817df975d2803771a43273015",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-portrait-candidate-v1.png",
+      "issues": [],
+      "sha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "registeredSha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        14,
+        12,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "registeredSha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        39,
+        134,
+        1007,
+        1412
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "1c372a3add057603dcd1032646f7dde4c1890a5243ed1eb544f72b73e0d95bbb",
+      "registeredSha256": "1c372a3add057603dcd1032646f7dde4c1890a5243ed1eb544f72b73e0d95bbb",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        24,
+        59,
+        1229,
+        1212
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "62617515ff4c65d8eed321f87b3d6ef7f2f7b3ad56e1134406ff598dcf5d56b8",
+      "registeredSha256": "62617515ff4c65d8eed321f87b3d6ef7f2f7b3ad56e1134406ff598dcf5d56b8",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        133,
+        48,
+        1180,
+        1191
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "64407717d5cd0897c61cd3a6574309c15884dbcaa05155a82c99369e92517b85",
+      "registeredSha256": "64407717d5cd0897c61cd3a6574309c15884dbcaa05155a82c99369e92517b85",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        12,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "340816723e8464ab320f3a03ce659733e310b954c8654c7003155f705e885ca4",
+      "registeredSha256": "340816723e8464ab320f3a03ce659733e310b954c8654c7003155f705e885ca4",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        181,
+        97,
+        1086,
+        1181
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "5489bb2b12a8c34cf9b328f0b0d0225aaae8b3d2e0c7cd82186b3ddf2ed7b1d2",
+      "registeredSha256": "5489bb2b12a8c34cf9b328f0b0d0225aaae8b3d2e0c7cd82186b3ddf2ed7b1d2",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        140,
+        35,
+        1128,
+        1203
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "a26830bc891c1a10c6eebc476cab3dabc860e1801b37135158de984475f08ba5",
+      "registeredSha256": "a26830bc891c1a10c6eebc476cab3dabc860e1801b37135158de984475f08ba5",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        110,
+        30,
+        1168,
+        1229
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "2650a21f7a960038cc731b44ca95bfc643fd71ff9805c9d2f8906867bf18243c",
+      "registeredSha256": "2650a21f7a960038cc731b44ca95bfc643fd71ff9805c9d2f8906867bf18243c",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        194,
+        80,
+        1079,
+        1190
+      ]
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "6a51f7f1a3476fca2c55f3b1901afe1f5ae800469a4960a7c505f128fa9062ea",
+      "registeredSha256": "6a51f7f1a3476fca2c55f3b1901afe1f5ae800469a4960a7c505f128fa9062ea",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "bc54876865d93e51997dcb9951b14367eaec5cb48f1b9f8d919e85641ca99dfe",
+      "registeredSha256": "bc54876865d93e51997dcb9951b14367eaec5cb48f1b9f8d919e85641ca99dfe",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "1e97dcaea3b818ec0179a8d0e1dea720b1306c358296865bdb67f3f33664947d",
+      "registeredSha256": "1e97dcaea3b818ec0179a8d0e1dea720b1306c358296865bdb67f3f33664947d",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "37916e96dd5472e6315ee697c71c640259d558d1bdf9d7ccdc2631b46ed32890",
+      "registeredSha256": "37916e96dd5472e6315ee697c71c640259d558d1bdf9d7ccdc2631b46ed32890",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.iconoclast",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/iconoclast-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "2641623d1512a1e09af9833d5a1fb60f4e2f8d9141bc07ada6d6e61467dc6b46",
+      "registeredSha256": "2641623d1512a1e09af9833d5a1fb60f4e2f8d9141bc07ada6d6e61467dc6b46",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-portrait-candidate-v1.png",
+      "issues": [],
+      "sha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "registeredSha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        19,
+        31,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "registeredSha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        40,
+        25,
+        995,
+        1464
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "827da44ab34a2262e960a4d4736ef7b42a5135ff63709db04c9c8607c548bb00",
+      "registeredSha256": "827da44ab34a2262e960a4d4736ef7b42a5135ff63709db04c9c8607c548bb00",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        95,
+        106,
+        1210,
+        1166
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "a139ac3234a0f5e9bf98967a42ad03230668e8d6e76fda9ce050b118fc0130a4",
+      "registeredSha256": "a139ac3234a0f5e9bf98967a42ad03230668e8d6e76fda9ce050b118fc0130a4",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        71,
+        82,
+        1203,
+        1193
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "c0c913e10af0b3e2b5878367e9e675310b941e1b621819a9e4c3d259e7b5197c",
+      "registeredSha256": "c0c913e10af0b3e2b5878367e9e675310b941e1b621819a9e4c3d259e7b5197c",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        15,
+        1496,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "1bd5dbe2fb368b482f8db68fef4996107f16c995425492c9345ee74a45035f2f",
+      "registeredSha256": "1bd5dbe2fb368b482f8db68fef4996107f16c995425492c9345ee74a45035f2f",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        69,
+        31,
+        1193,
+        1228
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "0e19fb95911f793ad8f8cf258c00d3cfbca0c7e054f4e5f15de824d7dfea383c",
+      "registeredSha256": "0e19fb95911f793ad8f8cf258c00d3cfbca0c7e054f4e5f15de824d7dfea383c",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        169,
+        11,
+        1068,
+        1227
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "626b6c47d8b10aaf3b95805ef4bbea2a6031695b387ae3e0beb8505c465e8762",
+      "registeredSha256": "626b6c47d8b10aaf3b95805ef4bbea2a6031695b387ae3e0beb8505c465e8762",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        147,
+        7,
+        1117,
+        1237
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "e778049021642ec0a8d5fa8b78887128a05d807cf3650976c86cf33740af58f6",
+      "registeredSha256": "e778049021642ec0a8d5fa8b78887128a05d807cf3650976c86cf33740af58f6",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        244,
+        26,
+        1089,
+        1225
+      ]
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "086a8929a5ea8aed9f90a449317ba4085c4a78a4659cf7feb42a93d36cfa0a91",
+      "registeredSha256": "086a8929a5ea8aed9f90a449317ba4085c4a78a4659cf7feb42a93d36cfa0a91",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "6adc350116406855fc2bdd52a4c4d8d36c158a0509deeaea7b1a8e150b8ce3a1",
+      "registeredSha256": "6adc350116406855fc2bdd52a4c4d8d36c158a0509deeaea7b1a8e150b8ce3a1",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "ab1b043b6a141f0bf0aaa97a147545ca3eb41157bd618f963a3f338dd455c762",
+      "registeredSha256": "ab1b043b6a141f0bf0aaa97a147545ca3eb41157bd618f963a3f338dd455c762",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "97c48e5a73143114bc21cd5ed64c5f428afb3556769264cd32df8649f1afdf9f",
+      "registeredSha256": "97c48e5a73143114bc21cd5ed64c5f428afb3556769264cd32df8649f1afdf9f",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.undermine",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/undermine-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "dffdf9c3ad27e3a9de3f0ebe5c4e0d8a2b5feb25aab6f27d1b40ed0176c1ffb5",
+      "registeredSha256": "dffdf9c3ad27e3a9de3f0ebe5c4e0d8a2b5feb25aab6f27d1b40ed0176c1ffb5",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-portrait-candidate-v1.png",
+      "issues": [],
+      "sha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "registeredSha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "registeredSha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        54,
+        6,
+        990,
+        1517
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "fb60cebab61e9ecb8022a9dd88cd584ebc3a4b4869b05b3c315983a9f6373391",
+      "registeredSha256": "fb60cebab61e9ecb8022a9dd88cd584ebc3a4b4869b05b3c315983a9f6373391",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        113,
+        78,
+        1178,
+        1190
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "16417a5f61c9bddaa99d749474d6d4d6f38faf71d8f8bb24ac4efe16535309b9",
+      "registeredSha256": "16417a5f61c9bddaa99d749474d6d4d6f38faf71d8f8bb24ac4efe16535309b9",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        167,
+        10,
+        1136,
+        1231
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "c8517c9ce8804775f4eab9bd1f3a5dc03229581207b0f3471c76138b6bf23567",
+      "registeredSha256": "c8517c9ce8804775f4eab9bd1f3a5dc03229581207b0f3471c76138b6bf23567",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "17e882445daedc424b3c4e9343606cf20879444d5e4e012a0e8ec721a5b95f6d",
+      "registeredSha256": "17e882445daedc424b3c4e9343606cf20879444d5e4e012a0e8ec721a5b95f6d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        243,
+        36,
+        1020,
+        1235
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "77bd4d069306cbaf14605ef7306cba0c72fc758183a7f773e848da4e4060dedf",
+      "registeredSha256": "77bd4d069306cbaf14605ef7306cba0c72fc758183a7f773e848da4e4060dedf",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        215,
+        21,
+        1000,
+        1215
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "2072ec4be3026ce449ee0de835d2c7c1a83d1f855c6b1817bebd98edb1222a3d",
+      "registeredSha256": "2072ec4be3026ce449ee0de835d2c7c1a83d1f855c6b1817bebd98edb1222a3d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        190,
+        10,
+        1051,
+        1236
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "76e773f1511e77cc7197dd48b213918169ab17c0bea5636eae3d011c829c30a5",
+      "registeredSha256": "76e773f1511e77cc7197dd48b213918169ab17c0bea5636eae3d011c829c30a5",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        323,
+        32,
+        1075,
+        1234
+      ]
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "b921e9e9c69ba83182237707627ddcba06fa7897af15fa793ea7c3735fc8e79e",
+      "registeredSha256": "b921e9e9c69ba83182237707627ddcba06fa7897af15fa793ea7c3735fc8e79e",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "9a4d74f78f8be8c839555a443c33d94ecd42f33ec67a0bff493c08625c5bd0f2",
+      "registeredSha256": "9a4d74f78f8be8c839555a443c33d94ecd42f33ec67a0bff493c08625c5bd0f2",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "af432ba39cebf70df8fcb3d713bbd6d6be4512eb145d25df4a0f027347a88cf1",
+      "registeredSha256": "af432ba39cebf70df8fcb3d713bbd6d6be4512eb145d25df4a0f027347a88cf1",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "aed759f3f61209dc48bc02faa5d434c38da42de98b97799baed8b5c12985596c",
+      "registeredSha256": "aed759f3f61209dc48bc02faa5d434c38da42de98b97799baed8b5c12985596c",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.echidna",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/echidna-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "d5b2ce175fa0490511410e52e1c46256ea220d79b00a9d4307b09193cdf4e0d0",
+      "registeredSha256": "d5b2ce175fa0490511410e52e1c46256ea220d79b00a9d4307b09193cdf4e0d0",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-portrait-candidate-v1.png",
+      "issues": [],
+      "sha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "registeredSha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        16,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "registeredSha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        41,
+        75,
+        999,
+        1499
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "f89d783a8af5f75ff64e758485a93d0429944cd62811704793df8361fcf787fd",
+      "registeredSha256": "f89d783a8af5f75ff64e758485a93d0429944cd62811704793df8361fcf787fd",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        91,
+        231,
+        1146,
+        1091
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "167b40198e09d5d37feae50fa863f66dd56b7415cf83a41ec040f19e564892af",
+      "registeredSha256": "167b40198e09d5d37feae50fa863f66dd56b7415cf83a41ec040f19e564892af",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        46,
+        20,
+        1193,
+        1225
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "43cf4bc985cf99b7b19664ccdb4663edcef6715b9334c3918eb93596db1701c1",
+      "registeredSha256": "43cf4bc985cf99b7b19664ccdb4663edcef6715b9334c3918eb93596db1701c1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        25,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "7b48285bd8ffe2b4e5344639bfba74db6ff6181141e84e003954cc8cb0c743e9",
+      "registeredSha256": "7b48285bd8ffe2b4e5344639bfba74db6ff6181141e84e003954cc8cb0c743e9",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        323,
+        43,
+        1035,
+        1223
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "f62f9a593df2a8f134892074b966cc84e79d4517f4b16141ed697e1d56db655d",
+      "registeredSha256": "f62f9a593df2a8f134892074b966cc84e79d4517f4b16141ed697e1d56db655d",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        292,
+        23,
+        977,
+        1215
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "c6cd353d62ac4ccc1c22b53d5982288bb850f5c4e6d69da2b8cf6c30e4229fe6",
+      "registeredSha256": "c6cd353d62ac4ccc1c22b53d5982288bb850f5c4e6d69da2b8cf6c30e4229fe6",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        282,
+        21,
+        1091,
+        1235
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "f71748e816ad412dc565ba5a0915506917cc4c76250e8496a0f4c075476c6398",
+      "registeredSha256": "f71748e816ad412dc565ba5a0915506917cc4c76250e8496a0f4c075476c6398",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        243,
+        29,
+        1102,
+        1240
+      ]
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "cf2abf53c1ac03907840a1ff8f3ca99d638b4571f94520f2001141bc2a9d2843",
+      "registeredSha256": "cf2abf53c1ac03907840a1ff8f3ca99d638b4571f94520f2001141bc2a9d2843",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "75ed7ca7f984dbc5365df099647ba2ce734e316629ebf5853a5f1fc7d6f22410",
+      "registeredSha256": "75ed7ca7f984dbc5365df099647ba2ce734e316629ebf5853a5f1fc7d6f22410",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "7cff75d46da7969580e07153d3fda6581b44101af52ed22ceadbcfda304a401e",
+      "registeredSha256": "7cff75d46da7969580e07153d3fda6581b44101af52ed22ceadbcfda304a401e",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "1d0dbf590626d19cfafec63387a0a065b0c0fe42c7386a70fbcb9f87730526ae",
+      "registeredSha256": "1d0dbf590626d19cfafec63387a0a065b0c0fe42c7386a70fbcb9f87730526ae",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.excalipan",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/excalipan-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "d7c5ed2d554525687d43bc7e4e1ec69c8dae4543797179f962c42564953d0485",
+      "registeredSha256": "d7c5ed2d554525687d43bc7e4e1ec69c8dae4543797179f962c42564953d0485",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.r",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-r-v2.png",
+      "issues": [],
+      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "registeredSha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "93f0754086038ff2b256377f444d4ef94fdc1744c20206e5373d33f66f149f8d",
+      "registeredSha256": "93f0754086038ff2b256377f444d4ef94fdc1744c20206e5373d33f66f149f8d",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        121,
+        160,
+        1028,
+        1216
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "0ef2ba7da84b47b84440bf16046ba4f8715387595cdbbb4c6f962eba2a021776",
+      "registeredSha256": "0ef2ba7da84b47b84440bf16046ba4f8715387595cdbbb4c6f962eba2a021776",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        24,
+        48,
+        1120,
+        1273
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "fa7040d47e1ea74436afef35b3d0fee0d28019bce881f54996af5e9cc303b566",
+      "registeredSha256": "fa7040d47e1ea74436afef35b3d0fee0d28019bce881f54996af5e9cc303b566",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        15,
+        11,
+        1135,
+        1338
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "8b36b9f363dc114ea419a4f98bc80a0c9a8f23df261ff7dae3ffc81e30fdac54",
+      "registeredSha256": "8b36b9f363dc114ea419a4f98bc80a0c9a8f23df261ff7dae3ffc81e30fdac54",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        6,
+        3,
+        1141,
+        1365
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "309bfd5f12bf19c39ea390e5c487721c1937b70d36a38291155bae176dfc99fc",
+      "registeredSha256": "309bfd5f12bf19c39ea390e5c487721c1937b70d36a38291155bae176dfc99fc",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        13,
+        11,
+        1136,
+        1365
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "2bacb710d67fd38451c1e2b1fa8a4b1a12e18f6c94e2aac45cbcf985a40288fa",
+      "registeredSha256": "2bacb710d67fd38451c1e2b1fa8a4b1a12e18f6c94e2aac45cbcf985a40288fa",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        1,
+        2,
+        1144,
+        1371
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "ace73f5cb7f2fc48626a03fc7a530e85ced3b1117b2f6e716e0c62bc3a4921d8",
+      "registeredSha256": "ace73f5cb7f2fc48626a03fc7a530e85ced3b1117b2f6e716e0c62bc3a4921d8",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        71,
+        118,
+        1077,
+        1259
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "8829c6f37f10d00410b24fdee6716567cc82632ab67d31da267ed3b7dcde22f1",
+      "registeredSha256": "8829c6f37f10d00410b24fdee6716567cc82632ab67d31da267ed3b7dcde22f1",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        20,
+        24,
+        1121,
+        1348
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "7e3543ae18e12f095603b3d033c46e04331304af1e1374a84abec22b4d2203a8",
+      "registeredSha256": "7e3543ae18e12f095603b3d033c46e04331304af1e1374a84abec22b4d2203a8",
+      "width": 1195,
+      "height": 1316,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        29,
+        14,
+        1179,
+        1300
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "5a74b79a0145fbbb1c12fa6fa8f0f48fb2d9ae76d5d0799ea0551cefb31eedff",
+      "registeredSha256": "5a74b79a0145fbbb1c12fa6fa8f0f48fb2d9ae76d5d0799ea0551cefb31eedff",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        10,
+        17,
+        1138,
+        1341
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "1bee0778274d134e9fc798fdf57f36cccb4c39226188ef8e20d7b28512561fd3",
+      "registeredSha256": "1bee0778274d134e9fc798fdf57f36cccb4c39226188ef8e20d7b28512561fd3",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        14,
+        173,
+        1133,
+        1258
+      ]
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "bc6c225faaff613fd1bb76e52e999975b5bafd4c40f92eca395d319e29220ff0",
+      "registeredSha256": "bc6c225faaff613fd1bb76e52e999975b5bafd4c40f92eca395d319e29220ff0",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "e212a1d67b1da9278765da9c5a7b70907a25b14483878732dfec55a2d26aed65",
+      "registeredSha256": "e212a1d67b1da9278765da9c5a7b70907a25b14483878732dfec55a2d26aed65",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f6a5744a02602e14cf521f647776a9cd7e8bf18de437437c69d2e1a9f62e0614",
+      "registeredSha256": "f6a5744a02602e14cf521f647776a9cd7e8bf18de437437c69d2e1a9f62e0614",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "19d88db618fd17597fe1518ec8c702e151a61d299b94d68c6db3ba17d49e1faf",
+      "registeredSha256": "19d88db618fd17597fe1518ec8c702e151a61d299b94d68c6db3ba17d49e1faf",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.r",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/r-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "3ae0c89fc35bc0f201b3efc7beba14dc5d958293ac919c37e43a0accf3383721",
+      "registeredSha256": "3ae0c89fc35bc0f201b3efc7beba14dc5d958293ac919c37e43a0accf3383721",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-annihilator-v2.png",
+      "issues": [],
+      "sha256": "9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9",
+      "registeredSha256": "9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "007f7187e60719ca0bf465ecb350e1bd438dd4ca94952de79e546ff83c33dd32",
+      "registeredSha256": "007f7187e60719ca0bf465ecb350e1bd438dd4ca94952de79e546ff83c33dd32",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        9,
+        10,
+        1019,
+        1522
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "96b9e1b1b68eef86e96f7f91cea1dd1e7c3d73c0c2c655de05ac9e536a08881f",
+      "registeredSha256": "96b9e1b1b68eef86e96f7f91cea1dd1e7c3d73c0c2c655de05ac9e536a08881f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        253
+      ],
+      "visibleBounds": [
+        2,
+        0,
+        1024,
+        1527
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "da75455509907ab7c764d4d30aac326d7a8aa9ab49e3e5b055d8f3917e10d3ed",
+      "registeredSha256": "da75455509907ab7c764d4d30aac326d7a8aa9ab49e3e5b055d8f3917e10d3ed",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        4,
+        11,
+        1021,
+        1526
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "bdbdcc38337de6ae8d6f1a4626257fe363d86553c0d59aad9e50ad0503796b44",
+      "registeredSha256": "bdbdcc38337de6ae8d6f1a4626257fe363d86553c0d59aad9e50ad0503796b44",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        5,
+        1024,
+        1521
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-expression-joy-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "f3397e059f8205aef72cb0145067a6cea5d0c88657fb3280fe734522e62458a2",
+      "registeredSha256": "f3397e059f8205aef72cb0145067a6cea5d0c88657fb3280fe734522e62458a2",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        5,
+        0,
+        1024,
+        1524
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "b18b6b69802e2ccfad3c29b75aed0665966ea918ea6fbf4317c16d9c53f6ea3c",
+      "registeredSha256": "b18b6b69802e2ccfad3c29b75aed0665966ea918ea6fbf4317c16d9c53f6ea3c",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        10,
+        5,
+        1022,
+        1523
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "cfa9687201a8f745104c38b9e9c6e74be4fa56fd9f8ad9424652f2d16c17cdb7",
+      "registeredSha256": "cfa9687201a8f745104c38b9e9c6e74be4fa56fd9f8ad9424652f2d16c17cdb7",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        6,
+        7,
+        1021,
+        1530
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "c85b9dc4b4d50875e5636dba9daa37ad5dce72f213aa0eebaaebca917f6669c7",
+      "registeredSha256": "c85b9dc4b4d50875e5636dba9daa37ad5dce72f213aa0eebaaebca917f6669c7",
+      "width": 1243,
+      "height": 1265,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        37,
+        5,
+        1213,
+        1260
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "90ec9cbc941a8f3d962df4fb8c46314de0c6f7417e855e5f5443b0bb1fefd369",
+      "registeredSha256": "90ec9cbc941a8f3d962df4fb8c46314de0c6f7417e855e5f5443b0bb1fefd369",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        1137,
+        1364
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "0c205fd25d7d8914f0e0a99bec91dd8e54082147e67e9079ee216bfd3e0690eb",
+      "registeredSha256": "0c205fd25d7d8914f0e0a99bec91dd8e54082147e67e9079ee216bfd3e0690eb",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        4,
+        6,
+        1021,
+        1517
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "432a036c4843ecff34f4ea4120a9752736802c70f67a5a3deb276c606cc8ffbe",
+      "registeredSha256": "432a036c4843ecff34f4ea4120a9752736802c70f67a5a3deb276c606cc8ffbe",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        1,
+        1,
+        1144,
+        1373
+      ]
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "b31a6a4397cb54f169acd24169e442edae9ad75ce06c87780e4deb2fc46c97e0",
+      "registeredSha256": "b31a6a4397cb54f169acd24169e442edae9ad75ce06c87780e4deb2fc46c97e0",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "15dc79a93aa5b8d277012e776bf74f43c3bb6e94825e7dfc666d2ce6f7552c74",
+      "registeredSha256": "15dc79a93aa5b8d277012e776bf74f43c3bb6e94825e7dfc666d2ce6f7552c74",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "b247101ac436b5aa122f2d1ca975cd22d5dc0fda58a2f2fec0a50cd1f3c87e84",
+      "registeredSha256": "b247101ac436b5aa122f2d1ca975cd22d5dc0fda58a2f2fec0a50cd1f3c87e84",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "26debced5e7c5d157f8a147e5000ef144a77f8eaec6f112a582dba68b225c970",
+      "registeredSha256": "26debced5e7c5d157f8a147e5000ef144a77f8eaec6f112a582dba68b225c970",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "3b31447f0cb75f1fd292d0dff3796776a4e9ae35ada536156f612e0070213451",
+      "registeredSha256": "3b31447f0cb75f1fd292d0dff3796776a4e9ae35ada536156f612e0070213451",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-annihilator-holy-v2.png",
+      "issues": [],
+      "sha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "registeredSha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-standing-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee",
+      "registeredSha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        1,
+        8,
+        1024,
+        1527
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "afeff36fec0a7f183f9e1374e6ae8efc03fb44c6f8d4c99843802ab5b5085a3c",
+      "registeredSha256": "afeff36fec0a7f183f9e1374e6ae8efc03fb44c6f8d4c99843802ab5b5085a3c",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        2,
+        21,
+        1024,
+        1519
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-hit-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "45f837899298da5a0fdfea8c41bb3aa443767126ecf928d7c61fea4baeb0a563",
+      "registeredSha256": "45f837899298da5a0fdfea8c41bb3aa443767126ecf928d7c61fea4baeb0a563",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        5,
+        4,
+        1024,
+        1490
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "ded748d5b48c13deaab194c6e920940930aefbe77b7ad2d8ae9ec068caa47735",
+      "registeredSha256": "ded748d5b48c13deaab194c6e920940930aefbe77b7ad2d8ae9ec068caa47735",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        253
+      ],
+      "visibleBounds": [
+        7,
+        0,
+        1024,
+        1524
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "bf29f0df23278c6fe5b407bf1d872f902e3a4c7b467eeb2319e2a376846da8bb",
+      "registeredSha256": "bf29f0df23278c6fe5b407bf1d872f902e3a4c7b467eeb2319e2a376846da8bb",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        7,
+        4,
+        1021,
+        1528
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-expression-puzzled-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "9df284f194c68fa8832cad67b6b909d1c0659f16dd33c3d748bb1de842b0660c",
+      "registeredSha256": "9df284f194c68fa8832cad67b6b909d1c0659f16dd33c3d748bb1de842b0660c",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        6,
+        0,
+        1018,
+        1513
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "7f3a0671286d7d088767847f020a25cd90879b8baeb8635171edcb310b945c3b",
+      "registeredSha256": "7f3a0671286d7d088767847f020a25cd90879b8baeb8635171edcb310b945c3b",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        4,
+        1,
+        1019,
+        1532
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "01a5c1965ddf5cba7a5302cc35f678cda61ecaf8b5b743a08a1ec0eda47c680d",
+      "registeredSha256": "01a5c1965ddf5cba7a5302cc35f678cda61ecaf8b5b743a08a1ec0eda47c680d",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        28,
+        6,
+        1141,
+        1358
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-sd-sit-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "a2c68357bc6d6b1d5b4ff3267bb987f4339b50883e6ce59c9d501d3d52aefde2",
+      "registeredSha256": "a2c68357bc6d6b1d5b4ff3267bb987f4339b50883e6ce59c9d501d3d52aefde2",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        12,
+        1024,
+        1521
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "70d4ee50c2c175c1dacc5d4212077ab87e0ce7ce82e1eb17eb633d35626b03ac",
+      "registeredSha256": "70d4ee50c2c175c1dacc5d4212077ab87e0ce7ce82e1eb17eb633d35626b03ac",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        11,
+        3,
+        1022,
+        1514
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-sd-look-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "a7638264f2240717e93c2fe2b4e9d7e181cac59aa4be9ee457398eb12a93e1b5",
+      "registeredSha256": "a7638264f2240717e93c2fe2b4e9d7e181cac59aa4be9ee457398eb12a93e1b5",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        14,
+        1,
+        1024,
+        1502
+      ]
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "cbe9f2a9ee61fe7f5bcc32bf3b2fcdf49b128e24a9587d8f367a91b6dd4030e1",
+      "registeredSha256": "cbe9f2a9ee61fe7f5bcc32bf3b2fcdf49b128e24a9587d8f367a91b6dd4030e1",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "5a6bb8577329153ee1f14b3c61ec7b615d7ebb7d06ed8ec7e71b57e3afcbc334",
+      "registeredSha256": "5a6bb8577329153ee1f14b3c61ec7b615d7ebb7d06ed8ec7e71b57e3afcbc334",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "1d157b97103850a6cb570cabec50f1a1861a8b690e9c04eb0e9c3b305180f0d7",
+      "registeredSha256": "1d157b97103850a6cb570cabec50f1a1861a8b690e9c04eb0e9c3b305180f0d7",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "8e248eab1e91262bbb96b55b8c0c7647ece58486db7e51bb2b33e5fab53a6a76",
+      "registeredSha256": "8e248eab1e91262bbb96b55b8c0c7647ece58486db7e51bb2b33e5fab53a6a76",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.annihilator-holy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f0439fc6234a0f7886b696242e9828c1a0cf22519ace6f50de61f7729eed6511",
+      "registeredSha256": "f0439fc6234a0f7886b696242e9828c1a0cf22519ace6f50de61f7729eed6511",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-shell-v2.png",
+      "issues": [],
+      "sha256": "06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641",
+      "registeredSha256": "06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        25,
+        1,
+        1534,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "3e60fade74f83edc817b079976dde86fbce2598546654de66e95d2720ca6c8e7",
+      "registeredSha256": "3e60fade74f83edc817b079976dde86fbce2598546654de66e95d2720ca6c8e7",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        2,
+        11,
+        1014,
+        1524
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "8545afd1ef314d5b0359337e7e267c34e5796001c1ad7e64a279770647ee12dc",
+      "registeredSha256": "8545afd1ef314d5b0359337e7e267c34e5796001c1ad7e64a279770647ee12dc",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        8,
+        1023,
+        1522
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "51898c343410b39668ca9fb3ec62f089c4de125dda2e23cd8cf9ba9942b651af",
+      "registeredSha256": "51898c343410b39668ca9fb3ec62f089c4de125dda2e23cd8cf9ba9942b651af",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        8,
+        1017,
+        1520
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "63ff38d2a4f8f0a9c2a1fef301525d6d528d5e668f31ba37a99ed6bdd59d4bf6",
+      "registeredSha256": "63ff38d2a4f8f0a9c2a1fef301525d6d528d5e668f31ba37a99ed6bdd59d4bf6",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        16,
+        1,
+        1508,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "02c733de70253f7776457b44fb1fbc241279f237b4f00e4688455ca5f10c7e36",
+      "registeredSha256": "02c733de70253f7776457b44fb1fbc241279f237b4f00e4688455ca5f10c7e36",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        9,
+        1016,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "8ab5098b04b62613eec4682b2b42438266d7acc1f10f40a34f81ddc61c9fc6cb",
+      "registeredSha256": "8ab5098b04b62613eec4682b2b42438266d7acc1f10f40a34f81ddc61c9fc6cb",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        12,
+        1014,
+        1515
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "46f695b46dfe567f4c09684babcb541b84d1f1564970cb2e7ca41b1cb7fac47f",
+      "registeredSha256": "46f695b46dfe567f4c09684babcb541b84d1f1564970cb2e7ca41b1cb7fac47f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        2,
+        5,
+        1017,
+        1522
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "61287510cde237f3fb31cec145c8acc3bbfd76ad9cea4dcdc7c403fa2406f235",
+      "registeredSha256": "61287510cde237f3fb31cec145c8acc3bbfd76ad9cea4dcdc7c403fa2406f235",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        250,
+        66,
+        1012,
+        1184
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "67b42e698308d02fac4558f2933ca852d2d6c417ab1f5e0308f88fef1155d923",
+      "registeredSha256": "67b42e698308d02fac4558f2933ca852d2d6c417ab1f5e0308f88fef1155d923",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        203,
+        66,
+        1061,
+        1187
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "0435af1c6d6e0a5d71c01c7c6a3940adae99612e8a4857046511674ce985dc31",
+      "registeredSha256": "0435af1c6d6e0a5d71c01c7c6a3940adae99612e8a4857046511674ce985dc31",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        225,
+        65,
+        1054,
+        1205
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "906c3640f549e269017f9f3e176970febee00dcec4a4a313bd98c608735eb259",
+      "registeredSha256": "906c3640f549e269017f9f3e176970febee00dcec4a4a313bd98c608735eb259",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        246,
+        88,
+        1019,
+        1172
+      ]
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-0-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "6b2ab61867727b88d7af10363ac212df053333ba18110f0412dbf8870c915564",
+      "registeredSha256": "6b2ab61867727b88d7af10363ac212df053333ba18110f0412dbf8870c915564",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-1-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "f906221abafa5e6a42b0d0fefbd52b31e9a9af60cb3d024f98ad965dfcda115f",
+      "registeredSha256": "f906221abafa5e6a42b0d0fefbd52b31e9a9af60cb3d024f98ad965dfcda115f",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-2-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "d0a10421c77262b2d8ce5c6eb80c70b70b26be6e88252c1e77573ba032aa8136",
+      "registeredSha256": "d0a10421c77262b2d8ce5c6eb80c70b70b26be6e88252c1e77573ba032aa8136",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-3-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "3cc9c25da50ba8cca155e97ebef73b0b09fd047c96a0e2321f32685dcf4cd7be",
+      "registeredSha256": "3cc9c25da50ba8cca155e97ebef73b0b09fd047c96a0e2321f32685dcf4cd7be",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shell",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-4-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "29e92e6c183851d917f37554700cd00d96d095bcf40614a26ce6fb654728e2d6",
+      "registeredSha256": "29e92e6c183851d917f37554700cd00d96d095bcf40614a26ce6fb654728e2d6",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-oriflamme-v2.png",
+      "issues": [],
+      "sha256": "fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db",
+      "registeredSha256": "fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "a796799dee062d39d06dc6f074c96e305c8eb947d5871d949b90b3bba02fc158",
+      "registeredSha256": "a796799dee062d39d06dc6f074c96e305c8eb947d5871d949b90b3bba02fc158",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        15,
+        11,
+        1011,
+        1521
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "39aaa91019b5dd41692f9392dcbf4a8faf9ec83552227b8b5265cd7ebd9e0b00",
+      "registeredSha256": "39aaa91019b5dd41692f9392dcbf4a8faf9ec83552227b8b5265cd7ebd9e0b00",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        253
+      ],
+      "visibleBounds": [
+        2,
+        8,
+        1021,
+        1519
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-hit-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "44205a8ebccefe40ec4a2366c94d23d3deaae16a86ed8574ee541cd048ec2824",
+      "registeredSha256": "44205a8ebccefe40ec4a2366c94d23d3deaae16a86ed8574ee541cd048ec2824",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1020,
+        1503
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "db0bdbd3b684836339d1bf5a9bf8a3e1a911139871475f3b716d18d84c2a96ef",
+      "registeredSha256": "db0bdbd3b684836339d1bf5a9bf8a3e1a911139871475f3b716d18d84c2a96ef",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        4,
+        10,
+        1024,
+        1518
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "8be70d837763a7d46217383014d568155f6e4428ae6de29f30088ee334619cc6",
+      "registeredSha256": "8be70d837763a7d46217383014d568155f6e4428ae6de29f30088ee334619cc6",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        14,
+        3,
+        1014,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-expression-puzzled-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "ebf070f9044948235d5384d572bb452c3c030ea3f005f4916d7041186a3e07b2",
+      "registeredSha256": "ebf070f9044948235d5384d572bb452c3c030ea3f005f4916d7041186a3e07b2",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        0,
+        1024,
+        1526
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "a881d92868b9c87059d8e65a6591aa4c261e8fdb1931beeea4a0fc69363f7f97",
+      "registeredSha256": "a881d92868b9c87059d8e65a6591aa4c261e8fdb1931beeea4a0fc69363f7f97",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        10,
+        9,
+        1015,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-sd-idle-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "6fae6ce10683a877a4a878b037b549cb1b02a429ad813973d87d42f1f6d7e7d7",
+      "registeredSha256": "6fae6ce10683a877a4a878b037b549cb1b02a429ad813973d87d42f1f6d7e7d7",
+      "width": 1202,
+      "height": 1309,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        28,
+        0,
+        1199,
+        1308
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "9521bf1623b9473257225074eec3774e544bde8f2d599b3bbb2a81d37d2891d6",
+      "registeredSha256": "9521bf1623b9473257225074eec3774e544bde8f2d599b3bbb2a81d37d2891d6",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        133,
+        17,
+        1482,
+        992
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "5441b46309abc65554058cc7d62ba84a2a44b843628031913e24069dd435aae0",
+      "registeredSha256": "5441b46309abc65554058cc7d62ba84a2a44b843628031913e24069dd435aae0",
+      "width": 1225,
+      "height": 1284,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        7,
+        6,
+        1219,
+        1278
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "d7174175ff3875588ff553a3ca325e55288e790b69f0efe38d17f093a96c688c",
+      "registeredSha256": "d7174175ff3875588ff553a3ca325e55288e790b69f0efe38d17f093a96c688c",
+      "width": 1230,
+      "height": 1278,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        22,
+        6,
+        1214,
+        1265
+      ]
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-event-0-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "1a69fb71985acefb9047cb469634fa75086226a78104d116d21c854e8a4a6dc1",
+      "registeredSha256": "1a69fb71985acefb9047cb469634fa75086226a78104d116d21c854e8a4a6dc1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-event-1-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "e9617f771e9c9480dcdbc524f64ad8fa8db9aa7619c40b419176dccba83b1fe5",
+      "registeredSha256": "e9617f771e9c9480dcdbc524f64ad8fa8db9aa7619c40b419176dccba83b1fe5",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-event-2-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "1c685bdf07432c7074a3bcfef3115214d2e96e9eb89ae67a6578ea5285d4d07b",
+      "registeredSha256": "1c685bdf07432c7074a3bcfef3115214d2e96e9eb89ae67a6578ea5285d4d07b",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-event-3-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "954673297bbf7a00b580f37966a94c5e36db81ba1673a695199476da43f877b7",
+      "registeredSha256": "954673297bbf7a00b580f37966a94c5e36db81ba1673a695199476da43f877b7",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.oriflamme",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/oriflamme-event-4-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "398ffe567727c52c8a4da8cfa9f833ec73bae04aec2e6c9a0997defaf4feb66c",
+      "registeredSha256": "398ffe567727c52c8a4da8cfa9f833ec73bae04aec2e6c9a0997defaf4feb66c",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-nighthawk-v2.png",
+      "issues": [],
+      "sha256": "9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab",
+      "registeredSha256": "9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        67,
+        0,
+        1480,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "640f77bb30de2af060eaaca81b0009f36859186b52bf17c23bcd54ff980c76eb",
+      "registeredSha256": "640f77bb30de2af060eaaca81b0009f36859186b52bf17c23bcd54ff980c76eb",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        13,
+        2,
+        1013,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "5f3af068eca75e367a0bc14996d7474c798d46b094d482675f4ab168df0af6e0",
+      "registeredSha256": "5f3af068eca75e367a0bc14996d7474c798d46b094d482675f4ab168df0af6e0",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        11,
+        5,
+        1020,
+        1485
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "8de8f5fb8e8e24695caeb9ecf0bb154f7c72a83193e49849fc8bf948174970a4",
+      "registeredSha256": "8de8f5fb8e8e24695caeb9ecf0bb154f7c72a83193e49849fc8bf948174970a4",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        12,
+        6,
+        1013,
+        1514
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "9bfea92677684bd9a87bbbc5949d301461e6d03df1bb13d079d27f418f8e47b4",
+      "registeredSha256": "9bfea92677684bd9a87bbbc5949d301461e6d03df1bb13d079d27f418f8e47b4",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        10,
+        12,
+        1013,
+        1504
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "00c1bc0a4ef83c5f2c86b03e6febee832119f50360b980f997b450d4a6cbbe8e",
+      "registeredSha256": "00c1bc0a4ef83c5f2c86b03e6febee832119f50360b980f997b450d4a6cbbe8e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        12,
+        3,
+        1015,
+        1527
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "e976ca46fbb9bcbc3fe112ee40ff9e0dac33dc5bcc22026e132200d74835208b",
+      "registeredSha256": "e976ca46fbb9bcbc3fe112ee40ff9e0dac33dc5bcc22026e132200d74835208b",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        12,
+        3,
+        1015,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "a22f8e8a0d888b14e2c51581e210716c30f28718bb6a6b9f6858afeccd5fee30",
+      "registeredSha256": "a22f8e8a0d888b14e2c51581e210716c30f28718bb6a6b9f6858afeccd5fee30",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        13,
+        3,
+        1014,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "dd5f586d0ca130f668185bbb8b1766b60cdf28fbf176df483e14faf18aa98470",
+      "registeredSha256": "dd5f586d0ca130f668185bbb8b1766b60cdf28fbf176df483e14faf18aa98470",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        9,
+        16,
+        1020,
+        1531
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "e85c01fd57d81c4679c4f1f8e98da934c95f118cc1c8322202fe53722c97b084",
+      "registeredSha256": "e85c01fd57d81c4679c4f1f8e98da934c95f118cc1c8322202fe53722c97b084",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        8,
+        10,
+        1020,
+        1518
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "b26bd8971ac92003d9ae6c1ffc631ede4c576b928964e36eedde9bf5792b1f2c",
+      "registeredSha256": "b26bd8971ac92003d9ae6c1ffc631ede4c576b928964e36eedde9bf5792b1f2c",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        13,
+        1023,
+        1523
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-sd-react-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "486daec879065f0171a51b6f392edc1115f9cdf4d3fe8fe389dc3b0fe309a37b",
+      "registeredSha256": "486daec879065f0171a51b6f392edc1115f9cdf4d3fe8fe389dc3b0fe309a37b",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        17,
+        1024,
+        1523
+      ]
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-event-0-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "4c49d02bca0db1dec2ff612e03d8d25d9a0deed67789068ded81652abc417ac1",
+      "registeredSha256": "4c49d02bca0db1dec2ff612e03d8d25d9a0deed67789068ded81652abc417ac1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-event-1-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "fa3cc32ff4dc3e2ce7de9eba74eae399793bf2be93d86f33598de2596cab059d",
+      "registeredSha256": "fa3cc32ff4dc3e2ce7de9eba74eae399793bf2be93d86f33598de2596cab059d",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-event-2-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "e983498a8d148f69bdabde0d2bb652206dc580ee2330e87119d717d8f135bf1a",
+      "registeredSha256": "e983498a8d148f69bdabde0d2bb652206dc580ee2330e87119d717d8f135bf1a",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-event-3-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "da6e5bf51a6713063f4fe2aeb929174c29f8bad820f0aaf9ac1323832b510cd2",
+      "registeredSha256": "da6e5bf51a6713063f4fe2aeb929174c29f8bad820f0aaf9ac1323832b510cd2",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.nighthawk",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/nighthawk-event-4-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "bc0279894c3a9bff42b089ad0051551b501ad89d596eed2786114f245e7dee68",
+      "registeredSha256": "bc0279894c3a9bff42b089ad0051551b501ad89d596eed2786114f245e7dee68",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-slayer-swim-v2.png",
+      "issues": [],
+      "sha256": "680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f",
+      "registeredSha256": "680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        96,
+        0,
+        1443,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "4798760c306db96828cd85895528064505d13b44a528d92122aa63dc3fc81850",
+      "registeredSha256": "4798760c306db96828cd85895528064505d13b44a528d92122aa63dc3fc81850",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        66,
+        3,
+        962,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "dc7245d78fdc512d3da3f9fe0efae2a7ecdbdf3ffa190bc64194d78326ddf16a",
+      "registeredSha256": "dc7245d78fdc512d3da3f9fe0efae2a7ecdbdf3ffa190bc64194d78326ddf16a",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        3,
+        0,
+        1014,
+        1515
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "adf832e459b514535299b863b553cd0f19f0e326ac1da504ffa36b2c6aceace4",
+      "registeredSha256": "adf832e459b514535299b863b553cd0f19f0e326ac1da504ffa36b2c6aceace4",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        36,
+        6,
+        1013,
+        1503
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "a24adc8c2fe39b3ffa450d1e1ac0428da9a81098d1d59b29adb5eef90b0fb851",
+      "registeredSha256": "a24adc8c2fe39b3ffa450d1e1ac0428da9a81098d1d59b29adb5eef90b0fb851",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        11,
+        0,
+        1017,
+        1533
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "dc62fb5591055a2d0358711371a8a506e2b97d2d752365d9b514577db3b870aa",
+      "registeredSha256": "dc62fb5591055a2d0358711371a8a506e2b97d2d752365d9b514577db3b870aa",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        62,
+        4,
+        967,
+        1524
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "c08e5c1baa8867d45b16ee57040ba026d609f8d5bb072c6733a5afeb5e596573",
+      "registeredSha256": "c08e5c1baa8867d45b16ee57040ba026d609f8d5bb072c6733a5afeb5e596573",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        58,
+        3,
+        968,
+        1526
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "ae9b1957c859ec076aebade2ed804e68ca4ea59aaa593006f5f272835ebe5aa5",
+      "registeredSha256": "ae9b1957c859ec076aebade2ed804e68ca4ea59aaa593006f5f272835ebe5aa5",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        60,
+        3,
+        961,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "591869b033e402167cfd9d917defdb3ebe99a4d37db976c94ee84f73131785bc",
+      "registeredSha256": "591869b033e402167cfd9d917defdb3ebe99a4d37db976c94ee84f73131785bc",
+      "width": 1230,
+      "height": 1278,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        124,
+        4,
+        1149,
+        1275
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "dcc596478602ed331cfa0ab12c7ba45baaa4655935e3e8d2712afaee0e5c4693",
+      "registeredSha256": "dcc596478602ed331cfa0ab12c7ba45baaa4655935e3e8d2712afaee0e5c4693",
+      "width": 1312,
+      "height": 1199,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        47,
+        8,
+        1284,
+        1178
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "d9a25af8b509a4dd51ee637833da6e432d98ba9be1dbe5d305b5f77c7c046f3a",
+      "registeredSha256": "d9a25af8b509a4dd51ee637833da6e432d98ba9be1dbe5d305b5f77c7c046f3a",
+      "width": 1230,
+      "height": 1278,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        17,
+        6,
+        1210,
+        1272
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "ff9f1ff3b82958373ab4642e46f30083f515bb50ed76fc560226e9d168adc717",
+      "registeredSha256": "ff9f1ff3b82958373ab4642e46f30083f515bb50ed76fc560226e9d168adc717",
+      "width": 1230,
+      "height": 1278,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        21,
+        3,
+        1214,
+        1273
+      ]
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-event-0-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "4ab9ddfeacc931779de025136ce53ec8bcbd272b85880ac86cd3e6410c7ad445",
+      "registeredSha256": "4ab9ddfeacc931779de025136ce53ec8bcbd272b85880ac86cd3e6410c7ad445",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-event-1-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "eab2d29eef2d592095ffa00cee404fd6c6cf5051f02019b519a089d95dd3ced7",
+      "registeredSha256": "eab2d29eef2d592095ffa00cee404fd6c6cf5051f02019b519a089d95dd3ced7",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-event-2-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "64b8d81515967b1d71b153b92523300d52a3ca0088971e067e2374257f89257c",
+      "registeredSha256": "64b8d81515967b1d71b153b92523300d52a3ca0088971e067e2374257f89257c",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-event-3-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "d56f1ca3b2837f4a03f257d0995ffb0aa6d194c104208514aa89cdf94a42944d",
+      "registeredSha256": "d56f1ca3b2837f4a03f257d0995ffb0aa6d194c104208514aa89cdf94a42944d",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.slayer-swim",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/slayer-swim-event-4-cg-candidate-v1.png",
+      "issues": [
+        "cg_non_16_9_runtime_framing_review_required"
+      ],
+      "sha256": "1785a244f43037ed124dbc9225810781db62cb761b9069722b466af34f20eee8",
+      "registeredSha256": "1785a244f43037ed124dbc9225810781db62cb761b9069722b466af34f20eee8",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-arcane-v2.png",
+      "issues": [],
+      "sha256": "9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771",
+      "registeredSha256": "9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        4,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "27bc8523e20115022c8fd7ca05847c5775005505cf12680452c83df2388bff49",
+      "registeredSha256": "27bc8523e20115022c8fd7ca05847c5775005505cf12680452c83df2388bff49",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        21,
+        169,
+        1004,
+        1380
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "b7fc320a9ba670b6a2f9bbfe7ed293dbdfcdc5c2b27f429b9236e6c26ab232e6",
+      "registeredSha256": "b7fc320a9ba670b6a2f9bbfe7ed293dbdfcdc5c2b27f429b9236e6c26ab232e6",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        10,
+        1024,
+        1524
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "a838755e80cc59afb914cd05aac349c8f0827f563d40ca6e09a485c50c3f7346",
+      "registeredSha256": "a838755e80cc59afb914cd05aac349c8f0827f563d40ca6e09a485c50c3f7346",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        1,
+        2,
+        1023,
+        1525
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "6951a664d9530cc79dce1597529190251e10942551c4c21cca3c348ce7ee628f",
+      "registeredSha256": "6951a664d9530cc79dce1597529190251e10942551c4c21cca3c348ce7ee628f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        5,
+        0,
+        1024,
+        1536
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-expression-joy-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "f1260318c01e155c9ae43844d1a58db8bbbd540697f83d7a5d5bd7524a3b57a3",
+      "registeredSha256": "f1260318c01e155c9ae43844d1a58db8bbbd540697f83d7a5d5bd7524a3b57a3",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        7,
+        1024,
+        1522
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-expression-puzzled-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "a20c8569fae3729415136be35354d18b7663e8957937fdbc04d96d3e7175227c",
+      "registeredSha256": "a20c8569fae3729415136be35354d18b7663e8957937fdbc04d96d3e7175227c",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        8,
+        1024,
+        1516
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-expression-determined-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "d49b3315e961eb7f2d3925cb59b604994ef741b16cd6381deeb7702289d9d5a3",
+      "registeredSha256": "d49b3315e961eb7f2d3925cb59b604994ef741b16cd6381deeb7702289d9d5a3",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        7,
+        1024,
+        1516
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "e088b84304b272d6f621cdaa656aef5bf9842d9503c8804da366b038b4d0f6ae",
+      "registeredSha256": "e088b84304b272d6f621cdaa656aef5bf9842d9503c8804da366b038b4d0f6ae",
+      "width": 1229,
+      "height": 1280,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        5,
+        4,
+        1224,
+        1277
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "63edb7e86e8c39ebf4b87d0655bfd0e7731c5b949bbe7f7bb2228e408cf5580d",
+      "registeredSha256": "63edb7e86e8c39ebf4b87d0655bfd0e7731c5b949bbe7f7bb2228e408cf5580d",
+      "width": 1402,
+      "height": 1122,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        2,
+        7,
+        1399,
+        1121
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "4bd73e73bd4a3499adc6eed3793b235167a9b9177daf9e76115fdd1283e95485",
+      "registeredSha256": "4bd73e73bd4a3499adc6eed3793b235167a9b9177daf9e76115fdd1283e95485",
+      "width": 1241,
+      "height": 1268,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        3,
+        4,
+        1237,
+        1265
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "04a506cc2ab87994d8a08b14f238632b988e6510019a83f2a5645d30b3372ee4",
+      "registeredSha256": "04a506cc2ab87994d8a08b14f238632b988e6510019a83f2a5645d30b3372ee4",
+      "width": 1230,
+      "height": 1278,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        1,
+        1,
+        1228,
+        1275
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-sit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-sit-candidate-v1.png",
+      "issues": [],
+      "sha256": "93a300ea397d07edb91c0f10c8bc30364c106c738668133384238559b1ff2a15",
+      "registeredSha256": "93a300ea397d07edb91c0f10c8bc30364c106c738668133384238559b1ff2a15",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        16,
+        5,
+        1245,
+        1239
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-work",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-work-candidate-v1.png",
+      "issues": [],
+      "sha256": "db9faf08fa6a940b56d911c40c4f1ba3edfc7bfdbfbc8210adc3e74e8ad23a73",
+      "registeredSha256": "db9faf08fa6a940b56d911c40c4f1ba3edfc7bfdbfbc8210adc3e74e8ad23a73",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        8,
+        6,
+        1250,
+        1242
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "sd-look",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-sd-look-candidate-v1.png",
+      "issues": [],
+      "sha256": "10829d17961e150c27165f9ceccaa9060039f649e961711a142ddc7ee96b7d13",
+      "registeredSha256": "10829d17961e150c27165f9ceccaa9060039f649e961711a142ddc7ee96b7d13",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        21,
+        7,
+        1238,
+        1248
+      ]
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f80444bcb1af91b800daca8dd3ac45d897b548a8b0abf171e9cb7e745ff97ff9",
+      "registeredSha256": "f80444bcb1af91b800daca8dd3ac45d897b548a8b0abf171e9cb7e745ff97ff9",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "380e205e5ad61f588c21f01deb0c6d4edb4d9d8bee6b05a91c671ba876b75052",
+      "registeredSha256": "380e205e5ad61f588c21f01deb0c6d4edb4d9d8bee6b05a91c671ba876b75052",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "a071430e0a8bc9bf7ed8c536e9bcd94c3b0b977088d7ecd491fbbeddc25b1aa8",
+      "registeredSha256": "a071430e0a8bc9bf7ed8c536e9bcd94c3b0b977088d7ecd491fbbeddc25b1aa8",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "ba819b24201e995084639d8b0100a346d552eba1c1bf851ea5f4e09b8a5b4b98",
+      "registeredSha256": "ba819b24201e995084639d8b0100a346d552eba1c1bf851ea5f4e09b8a5b4b98",
+      "width": 1672,
+      "height": 940,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "b98437ff4c9ff5b94772fb9c2edbbbd6d61ecbc2cfdf40156628f9f19774f036",
+      "registeredSha256": "b98437ff4c9ff5b94772fb9c2edbbbd6d61ecbc2cfdf40156628f9f19774f036",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-arcane-academy-v2.png",
+      "issues": [],
+      "sha256": "05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047",
+      "registeredSha256": "05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "c4e01e32ebb22f5001ff3be130318115166e7c86a53adc381e4f3a3da33591de",
+      "registeredSha256": "c4e01e32ebb22f5001ff3be130318115166e7c86a53adc381e4f3a3da33591de",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        17,
+        67,
+        1004,
+        1481
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-attack-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "3fb08f1061972406fdccebcc77d93ea236215e9c83de43b943712349d3c30e88",
+      "registeredSha256": "3fb08f1061972406fdccebcc77d93ea236215e9c83de43b943712349d3c30e88",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        15,
+        1024,
+        1497
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "a6b9184aaca3dba85a95c857fa0680c4347265f53b6803088c91609b71ba089e",
+      "registeredSha256": "a6b9184aaca3dba85a95c857fa0680c4347265f53b6803088c91609b71ba089e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        11,
+        7,
+        1015,
+        1509
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "0082799a49ad1477268cfea8d84db6112b1616d1f12c72236a1dffaf325c6a98",
+      "registeredSha256": "0082799a49ad1477268cfea8d84db6112b1616d1f12c72236a1dffaf325c6a98",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        8,
+        14,
+        1013,
+        1491
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-expression-joy-candidate-v1.png",
+      "issues": [
+        "silhouette_touches_canvas_edge_review_required"
+      ],
+      "sha256": "98ac7857b064ff929abdf31b0fa59afdeb308e33ee5dacece55ab4ed74bee6f6",
+      "registeredSha256": "98ac7857b064ff929abdf31b0fa59afdeb308e33ee5dacece55ab4ed74bee6f6",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        21,
+        0,
+        1011,
+        1499
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "34961df826fa2d0f8dfe24842732cdd4bbd65698197374824a5d1b00b71894d9",
+      "registeredSha256": "34961df826fa2d0f8dfe24842732cdd4bbd65698197374824a5d1b00b71894d9",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        12,
+        8,
+        1012,
+        1504
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "0095b31ccbc67245c529d7dc8bc99c6f1931fa56947a51d706e1ba0028b5072f",
+      "registeredSha256": "0095b31ccbc67245c529d7dc8bc99c6f1931fa56947a51d706e1ba0028b5072f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        5,
+        8,
+        1021,
+        1509
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "2cebb901df7beaa4ae55658a25aa1db78e5c6e5880f138924080e4630bac7367",
+      "registeredSha256": "2cebb901df7beaa4ae55658a25aa1db78e5c6e5880f138924080e4630bac7367",
+      "width": 1155,
+      "height": 1362,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        57,
+        74,
+        1124,
+        1315
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "ddbcc13903ce16eb5b6a1bdd33c11247969080afdad05216b08d60be7db39d10",
+      "registeredSha256": "ddbcc13903ce16eb5b6a1bdd33c11247969080afdad05216b08d60be7db39d10",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        66,
+        38,
+        1188,
+        1215
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "c6e3fcb506dfc5a7d2d4c1fb9f17330a2902286c75438d7105a00248f9f4b7c5",
+      "registeredSha256": "c6e3fcb506dfc5a7d2d4c1fb9f17330a2902286c75438d7105a00248f9f4b7c5",
+      "width": 1155,
+      "height": 1362,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        41,
+        74,
+        1114,
+        1300
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "6f69d6d966125704fe0baf7b493b7e66a9123b041380322fe5c6c1a63324a1fb",
+      "registeredSha256": "6f69d6d966125704fe0baf7b493b7e66a9123b041380322fe5c6c1a63324a1fb",
+      "width": 1186,
+      "height": 1327,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        36,
+        38,
+        1147,
+        1295
+      ]
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "dba370964ac1ce9e5e85c2d4a5221c867299268c27b0a610b90df5a89ef93cad",
+      "registeredSha256": "dba370964ac1ce9e5e85c2d4a5221c867299268c27b0a610b90df5a89ef93cad",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f6a79772784d2829aedf40983a23a3745cb4576b854bba445ecb410885bb0f7e",
+      "registeredSha256": "f6a79772784d2829aedf40983a23a3745cb4576b854bba445ecb410885bb0f7e",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "90660f26f445211a464458892e70261f4b668d6d96ea30d66b206078a6e8b4b5",
+      "registeredSha256": "90660f26f445211a464458892e70261f4b668d6d96ea30d66b206078a6e8b4b5",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "b48b70e9bc2a1a0e551f2684f75cf514c3b898f1b3c295c68915745c9e7cde0d",
+      "registeredSha256": "b48b70e9bc2a1a0e551f2684f75cf514c3b898f1b3c295c68915745c9e7cde0d",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.arcane-academy",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-academy-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "5de992f869e3a95267b09cd1e5f8903f37d68aac8b789e33d935e68037fde182",
+      "registeredSha256": "5de992f869e3a95267b09cd1e5f8903f37d68aac8b789e33d935e68037fde182",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "portrait",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-shangrila-v2.png",
+      "issues": [],
+      "sha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e",
+      "registeredSha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        0,
+        0,
+        1536,
+        1024
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "standing",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-standing-candidate-v1.png",
+      "issues": [],
+      "sha256": "45b88bfc7770e2b84136a40c94d454927b3ca4fa89670e5fea43c7829a7b842e",
+      "registeredSha256": "45b88bfc7770e2b84136a40c94d454927b3ca4fa89670e5fea43c7829a7b842e",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        117,
+        139,
+        935,
+        1410
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "attack",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-attack-candidate-v1.png",
+      "issues": [],
+      "sha256": "bfea609f8dca917618c3d39c69e3b3a84dad4ba8294e762b3834ee51b81ad364",
+      "registeredSha256": "bfea609f8dca917618c3d39c69e3b3a84dad4ba8294e762b3834ee51b81ad364",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        42,
+        134,
+        1018,
+        1425
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "hit",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-hit-candidate-v1.png",
+      "issues": [],
+      "sha256": "2f15c23302f59845bdfe9d598aeee0ec06dc610cfb873fabf2d13a8933dd7dab",
+      "registeredSha256": "2f15c23302f59845bdfe9d598aeee0ec06dc610cfb873fabf2d13a8933dd7dab",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        18,
+        133,
+        1000,
+        1428
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cutin",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-cutin-candidate-v1.png",
+      "issues": [],
+      "sha256": "624192aca8d2ee0313415f6285f5a032aa8874615060a0dcc7e09e90e033e04f",
+      "registeredSha256": "624192aca8d2ee0313415f6285f5a032aa8874615060a0dcc7e09e90e033e04f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        31,
+        181,
+        1024,
+        1387
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "expression-joy",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-expression-joy-candidate-v1.png",
+      "issues": [],
+      "sha256": "be42b169afaaac02b36e50aefe0b466b478a91088d2c5c3ff695b88b1e54f0b8",
+      "registeredSha256": "be42b169afaaac02b36e50aefe0b466b478a91088d2c5c3ff695b88b1e54f0b8",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        67,
+        48,
+        967,
+        1442
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "expression-puzzled",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-expression-puzzled-candidate-v1.png",
+      "issues": [],
+      "sha256": "8a80efaa66385efce58247dc5353f04646d0c7df6e547578fd97dbc30a959652",
+      "registeredSha256": "8a80efaa66385efce58247dc5353f04646d0c7df6e547578fd97dbc30a959652",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        59,
+        31,
+        975,
+        1450
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "expression-determined",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-expression-determined-candidate-v1.png",
+      "issues": [],
+      "sha256": "d3fbbd9f13dbce23d0a9b5314bc5a54856b79dd11a9bef0272ec1daa97a746d0",
+      "registeredSha256": "d3fbbd9f13dbce23d0a9b5314bc5a54856b79dd11a9bef0272ec1daa97a746d0",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        60,
+        54,
+        982,
+        1454
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "sd-idle",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-sd-idle-candidate-v1.png",
+      "issues": [],
+      "sha256": "500cab6b76168d0cf2074afa2e5e43dd1d6834786d9983c5493c6d47782d1fee",
+      "registeredSha256": "500cab6b76168d0cf2074afa2e5e43dd1d6834786d9983c5493c6d47782d1fee",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        52,
+        114,
+        1004,
+        1442
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "sd-walk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-sd-walk-candidate-v1.png",
+      "issues": [],
+      "sha256": "49587f3bce1b0e2bdb551e5e828caa139a52bf4ec4b03b5a884e5fea8ec1c2a0",
+      "registeredSha256": "49587f3bce1b0e2bdb551e5e828caa139a52bf4ec4b03b5a884e5fea8ec1c2a0",
+      "width": 1226,
+      "height": 1283,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "visibleBounds": [
+        83,
+        43,
+        1176,
+        1215
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "sd-talk",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-sd-talk-candidate-v1.png",
+      "issues": [],
+      "sha256": "94b0f83a90d16eecbf9f6b0bf7d70fed8e94558d8bf6d789a388b5b1e2e08009",
+      "registeredSha256": "94b0f83a90d16eecbf9f6b0bf7d70fed8e94558d8bf6d789a388b5b1e2e08009",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        28,
+        99,
+        1013,
+        1459
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "sd-react",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-sd-react-candidate-v1.png",
+      "issues": [],
+      "sha256": "a4871efb6265b72fca5f8312b372d27667d11b31e5e68a72ea816c09e33c65ff",
+      "registeredSha256": "a4871efb6265b72fca5f8312b372d27667d11b31e5e68a72ea816c09e33c65ff",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        254
+      ],
+      "visibleBounds": [
+        15,
+        85,
+        1005,
+        1447
+      ]
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-event-0-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "38a09354355a6f76c3cfecaf889ce042cd1394ceab90b5810c20419eda1f6971",
+      "registeredSha256": "38a09354355a6f76c3cfecaf889ce042cd1394ceab90b5810c20419eda1f6971",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-event-1-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "4c45a31117f8308a8ca3bc7c696a23190b32da1d3aa8e3623953e054c7c22e17",
+      "registeredSha256": "4c45a31117f8308a8ca3bc7c696a23190b32da1d3aa8e3623953e054c7c22e17",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-event-2-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "96ec82d9fec1163b3264cb1cd03fd3c54c93dd6259d1b5dcb7a3e4cff2d47115",
+      "registeredSha256": "96ec82d9fec1163b3264cb1cd03fd3c54c93dd6259d1b5dcb7a3e4cff2d47115",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-event-3-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f01162be08162691ac0649803c2937c24577a39cf27df2442d0c5fc15190117b",
+      "registeredSha256": "f01162be08162691ac0649803c2937c24577a39cf27df2442d0c5fc15190117b",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    },
+    {
+      "formId": "heroine.shangrila",
+      "role": "cg",
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shangrila-event-4-cg-candidate-v1.png",
+      "issues": [],
+      "sha256": "f89276354ee6040d445cb3ecabc3e9d5f56f64053dff5ddea9ae65e02401d96e",
+      "registeredSha256": "f89276354ee6040d445cb3ecabc3e9d5f56f64053dff5ddea9ae65e02401d96e",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB"
+    }
+  ]
+}

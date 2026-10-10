@@ -1,0 +1,607 @@
+{
+  "method": "approved per-character visual review; completed unchanged views retained; other people and partner limbs removed from replacement CGs",
+  "maleCharacterNg": 0,
+  "precautionaryHandsArmsNg": 0,
+  "rows": [
+    {
+      "heroineId": "heroine.slayer",
+      "view": "cg.0",
+      "source": "heroine.slayer.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.0.png",
+      "sha256": "461aca53d980bd4ed3fced9d240caeb3c08b342243d6e7443f7cf661da1fe1bd"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "view": "cg.1",
+      "source": "heroine.slayer.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.1.png",
+      "sha256": "94c9cdacd787b13e2b835e1da5b8f59a58ce90feb5fc2aad0eb23fbb86e0440f"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "view": "cg.2",
+      "source": "heroine.slayer.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.2.png",
+      "sha256": "412d1b2fa989b623b6a38d5e07809fe224b7016ab11d8dd76aef0272594b898b"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "view": "cg.3",
+      "source": "heroine.slayer.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.3.png",
+      "sha256": "4efe7a9f10af7433c7446043b04bcb0c3e01c73516b923bf5bdd7ddd70b10017"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "view": "cg.4",
+      "source": "heroine.slayer.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/slayer-cg.4.png",
+      "sha256": "87a403f462d40fd7d4682d268cd7a2afb4038eb6ade9dddfd705fd7c9a37c81e"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "view": "cg.0",
+      "source": "heroine.iconoclast.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/iconoclast-cg.0.png",
+      "sha256": "ee2a325cf11cd8da372ee4c1efd2c2bde6f405fb6c1d0625c51cf01a21f3453f"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "view": "cg.1",
+      "source": "heroine.iconoclast.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/iconoclast-cg.1.png",
+      "sha256": "93c7b00aff45c2d0df125525d0b3ef2cb12bc0a4c7654945939ade95de929b1a"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "view": "cg.2",
+      "source": "heroine.iconoclast.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/iconoclast-cg.2.png",
+      "sha256": "5dcbde8fd61f233d4aa2e3d05f850f6171582fcbf86d2fd7b218b5c41f67fe55"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "view": "cg.3",
+      "source": "heroine.iconoclast.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/iconoclast-cg.3.png",
+      "sha256": "8cc94d6e00d632e5e9442c1b9ee951d5a62e5bc0628ee9a4b0d815eb5351284a"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "view": "cg.4",
+      "source": "heroine.iconoclast.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/iconoclast-cg.4.png",
+      "sha256": "e9fe29a580e8a0efe8aaa63fb554fac3b8538aa168ebd09a26ef223c9f5cbc31"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "view": "cg.0",
+      "source": "heroine.undermine.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.0.png",
+      "sha256": "f706950e5a0ac282648005dad5cf9b7ed3dc8f4c08e85d866f973ff00efc3e8b"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "view": "cg.1",
+      "source": "heroine.undermine.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.1.png",
+      "sha256": "8d1733afeaaccd4e39bcb6e3ebb3da08afc41c6a3c225d0d47b463de55c6a229"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "view": "cg.2",
+      "source": "heroine.undermine.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.2.png",
+      "sha256": "a2940bc1e1cc07fbbfdb6c1630d693da9895357307a1c5d82bd9f438571cadea"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "view": "cg.3",
+      "source": "heroine.undermine.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.3.png",
+      "sha256": "4ddda8c67e61479a11df907957098e91f15297f4068bd7e891de4ccbedd55df2"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "view": "cg.4",
+      "source": "heroine.undermine.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/undermine-cg.4.png",
+      "sha256": "ba779f81ba75e86c5071df322b09e581ecbd7b18041b7c12bbe27615a896f128"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "view": "cg.0",
+      "source": "heroine.echidna.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.0.png",
+      "sha256": "c612c16b790bf543d402c6cf65928ffb05806ead828067f98af3bdba8c0b78e3"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "view": "cg.1",
+      "source": "heroine.echidna.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.1.png",
+      "sha256": "b930af67f0720d8c804acd4b9e446ce6e827e3622a9b0acb82befa3c839b1e54"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "view": "cg.2",
+      "source": "heroine.echidna.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.2.png",
+      "sha256": "0bd5ef1c5e75c8e0d92e49f16ab0d8cf407e695a20764642d5d36feaa35f93c6"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "view": "cg.3",
+      "source": "heroine.echidna.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.3.png",
+      "sha256": "e1625996c7348004dc2ae1570065ad786c8b18b304c074a52073ae80cdfec0a7"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "view": "cg.4",
+      "source": "heroine.echidna.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/echidna-cg.4.png",
+      "sha256": "3c3aa9a86c8e92c228567581321e1ff1924e7c8094eaa100286641461926cb5f"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "view": "cg.0",
+      "source": "heroine.excalipan.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.0.png",
+      "sha256": "df0aeb6ca4b9a534b21bf5f2b5c97b6356d09496b4e358179b57435fae079572"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "view": "cg.1",
+      "source": "heroine.excalipan.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.1.png",
+      "sha256": "c0cd72ac9199786e88fcbb3704236e6fd2353dd989988e4d59f142f1c791c5d5"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "view": "cg.2",
+      "source": "heroine.excalipan.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.2.png",
+      "sha256": "5438098a2e79d8e83615da3d3641a04a847c2d4134da9ade8411b50ceeb0b0f4"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "view": "cg.3",
+      "source": "heroine.excalipan.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.3.png",
+      "sha256": "1b78723d89a3d7419f6bf468090221e8a6224b829e56add5647d4e58b61ea4db"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "view": "cg.4",
+      "source": "heroine.excalipan.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/excalipan-cg.4.png",
+      "sha256": "23c909ba0bcf0fbce06a06a045d33dc0904904f0aee0a049aed34110a0ac01e4"
+    },
+    {
+      "heroineId": "heroine.r",
+      "view": "cg.0",
+      "source": "heroine.r.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-cg.0.png",
+      "sha256": "83d9e83b3cd394ece843a856273e48c935015528228a0c9be1a482be1b5bb9ad"
+    },
+    {
+      "heroineId": "heroine.r",
+      "view": "cg.1",
+      "source": "heroine.r.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.1.png",
+      "sha256": "ce85d200d2a5dac249c8fd9884a3679aa1a31a3a56ca9435217955379934ce9d"
+    },
+    {
+      "heroineId": "heroine.r",
+      "view": "cg.2",
+      "source": "heroine.r.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.2.png",
+      "sha256": "0ed63963606ec01b4e5631ecc0f883f4985df3df255656b4fea08c7fc8d49ccb"
+    },
+    {
+      "heroineId": "heroine.r",
+      "view": "cg.3",
+      "source": "heroine.r.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.3.png",
+      "sha256": "a80998c33d811cfc41ffcdaa446d4605f4697be42846c74270e8b2726510ea65"
+    },
+    {
+      "heroineId": "heroine.r",
+      "view": "cg.4",
+      "source": "heroine.r.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.4.png",
+      "sha256": "29c6193d080e22a10e7bfd840e3b04723cb531fc5357137b291a4a14f5f6ce65"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "view": "cg.0",
+      "source": "heroine.annihilator.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.0.png",
+      "sha256": "3be152203e27363b1fbf41a65490c2620c24d70796516e708f8b33f82ec263f3"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "view": "cg.1",
+      "source": "heroine.annihilator.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.1.png",
+      "sha256": "2520cabcf54d34de33a02ec8efa941d712e620c7caca471239525ca69c2c1dee"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "view": "cg.2",
+      "source": "heroine.annihilator.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.2.png",
+      "sha256": "c3b9916cd1957081660c39da6c2021bdce05f77d1c036f8cb52dba57450c5c83"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "view": "cg.3",
+      "source": "heroine.annihilator.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.3.png",
+      "sha256": "fd242f7325c042bd598fa5e0b891bfd3514087f65082672584866a02c41a8da0"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "view": "cg.4",
+      "source": "heroine.annihilator.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-cg.4.png",
+      "sha256": "2e2d4346e90c3f9c4ac924a55f145d04d406056c5113ea72dec65ece8ff19c8c"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "view": "cg.0",
+      "source": "heroine.annihilator-holy.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.0.png",
+      "sha256": "ec83f51ee8faeeeddf51b2f27844e59289c35abf18ffa343f21474d72945bdd8"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "view": "cg.1",
+      "source": "heroine.annihilator-holy.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.1.png",
+      "sha256": "91e9c7910056af6a932b2275ec39c4b06b047a0d8caef5589033c044140c584c"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "view": "cg.2",
+      "source": "heroine.annihilator-holy.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.2.png",
+      "sha256": "5d2a3ade2e3d4a0b1398861cc7ceea036e28d7b7abdc814319da802bfafef913"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "view": "cg.3",
+      "source": "heroine.annihilator-holy.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.3.png",
+      "sha256": "451ff9bd2e29bcddb9857a50ca31d2f9fb85f895c47d997d67a23ec6c7740414"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "view": "cg.4",
+      "source": "heroine.annihilator-holy.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.4.png",
+      "sha256": "1d3cb4523dda1ffd46519f8de0f7a2c5dfd6327c782e68616da4438e19e9fbda"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "view": "cg.0",
+      "source": "heroine.arcane.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.0.png",
+      "sha256": "520564f0fd0dc4e4915594048012547372d748f5bd3f5b7d1ac45fe54976e762"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "view": "cg.1",
+      "source": "heroine.arcane.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.1.png",
+      "sha256": "27c4e1c971671a258914e4f9869d77894143d6435f5b29707efeb21c1a29d055"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "view": "cg.2",
+      "source": "heroine.arcane.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.2.png",
+      "sha256": "7c126dd4ca50904c4a10c05ce344dac3600edecaccaa90d84a6caf314e5af63e"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "view": "cg.3",
+      "source": "heroine.arcane.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.3.png",
+      "sha256": "43062e9cb6f21ff29969f40dc7b1069188b4c5ff4aa66bc233c974123824d638"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "view": "cg.4",
+      "source": "heroine.arcane.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default/arcane-cg.4.png",
+      "sha256": "895e094f3b06fe78dfd06228cd9b8945522ea742f736fe6187afadc95228bc02"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "view": "cg.0",
+      "source": "heroine.arcane-academy.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.0.png",
+      "sha256": "7e1497836cae622db87dfe6c0058cda03fbb3f345a80296ddac02cf076173e87"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "view": "cg.1",
+      "source": "heroine.arcane-academy.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.1.png",
+      "sha256": "b1de09dcddc1bc2650d01c0ce6990798ed6eb7d629163aa96a56f2e667db2311"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "view": "cg.2",
+      "source": "heroine.arcane-academy.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.2.png",
+      "sha256": "faa8b9f43086ae4497c5c1219a1fd6b8240e9d5e96cb7700bc971b9360754f4c"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "view": "cg.3",
+      "source": "heroine.arcane-academy.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.3.png",
+      "sha256": "bef03b6878f30d78999ad2185cddb3161e1b6c63e4492e6e2c7561a7f5dfee59"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "view": "cg.4",
+      "source": "heroine.arcane-academy.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.4.png",
+      "sha256": "b867cc334bb18b3b57796ae93541c90f1ff8359a0ce1247ddd55bbc5f0eec88c"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "view": "cg.0",
+      "source": "heroine.nighthawk.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.0.png",
+      "sha256": "54129001ed2eb308232a70248e73a6e2f29d8f7c09650827d6688591ad67328b"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "view": "cg.1",
+      "source": "heroine.nighthawk.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.1.png",
+      "sha256": "e59fe39b39477ff53742578d2d1e4ea321dcd4678fe770e2d49f0ae03578dc35"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "view": "cg.2",
+      "source": "heroine.nighthawk.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.2.png",
+      "sha256": "33047b62946c08c70f3e54dd73acf4230162da414c26a123ecef3b5fbb073765"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "view": "cg.3",
+      "source": "heroine.nighthawk.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.3.png",
+      "sha256": "48f5fe16949c7fefb2ff6c80b47a105c81546558dd1fdf1e8aa7853d6c58081b"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "view": "cg.4",
+      "source": "heroine.nighthawk.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.4.png",
+      "sha256": "0a0cf498255ff107c728114136471b5bdd84a4ba6d3480ff4d970a1ccfdf0626"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "view": "cg.0",
+      "source": "heroine.oriflamme.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.0.png",
+      "sha256": "b96020bfb0f088bc81f16f4fba6eec5b067583e05d0c8af10c9b0e1821cf9104"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "view": "cg.1",
+      "source": "heroine.oriflamme.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.1.png",
+      "sha256": "9f13e5ac7c8852f4ac61b53a17026f2f7d1ae28a76d2846bcc528745b2e40c56"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "view": "cg.2",
+      "source": "heroine.oriflamme.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.2.png",
+      "sha256": "ff0ff2cc3ed22719f1ebd143483581591b6016bdd386e00301a8c0ca85ccead8"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "view": "cg.3",
+      "source": "heroine.oriflamme.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.3.png",
+      "sha256": "e6d74a72c5021ca726c4f18f077c13f3cdcf29bc09eb35097f56f8541b861e47"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "view": "cg.4",
+      "source": "heroine.oriflamme.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.4.png",
+      "sha256": "146075613fc067806895060ddddf72d6a358c0110a577e7ba071ed526ee218e1"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "view": "cg.0",
+      "source": "heroine.shangrila.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.0.png",
+      "sha256": "8a2edb55e3ec6dc7666560978f289cec72a76c7429b5d25e3b15b43a360031a2"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "view": "cg.1",
+      "source": "heroine.shangrila.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.1.png",
+      "sha256": "08b4d68df16d43cf377686f3f388dd0e8dc4fb5cc75b1350f0c1066d7d013175"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "view": "cg.2",
+      "source": "heroine.shangrila.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.2.png",
+      "sha256": "d714712d56fa479d080d323dd90927d8e21e2689bca46382288cc2eb4dc9e68c"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "view": "cg.3",
+      "source": "heroine.shangrila.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.3.png",
+      "sha256": "91b199e8d1fb290d0d785662a9a6bcf88f8bfc7e0ea422adf6d99003a40ff321"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "view": "cg.4",
+      "source": "heroine.shangrila.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/5d91eddac9014b49bf1fa0c0807498be/default/shangrila-cg.4.png",
+      "sha256": "4cdac69b3e84fbe6621f02a506dc22e0d114b2c415ae0df2d362ee5e0b15b049"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "view": "cg.0",
+      "source": "heroine.shell.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.0.png",
+      "sha256": "7ff97665cc5cb91614491ac037ab3f6a9a87840a760fe0fdf58710050a31209b"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "view": "cg.1",
+      "source": "heroine.shell.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.1.png",
+      "sha256": "06f75f711be5784e0349e4fc23fe03019449c94e4058bc1e29666106efcdad5b"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "view": "cg.2",
+      "source": "heroine.shell.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.2.png",
+      "sha256": "e6fd0e0d903772e39a0e0e2b7b714c2d4dc3a50ffe3fe030ae6e467dbba617b9"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "view": "cg.3",
+      "source": "heroine.shell.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.3.png",
+      "sha256": "1789f5f92058030411a4f0f7e87103cb317b65ac266228874c35a488163fb7ca"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "view": "cg.4",
+      "source": "heroine.shell.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/7e121ff66c894e39a19f029d8eed2a5c/default/shell-cg.4.png",
+      "sha256": "50ad597d23e1a7cdef64166d5d0f04f31fb5824e9ad0b7543dd5013cc71971c2"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "view": "cg.0",
+      "source": "heroine.slayer-swim.event.0",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.0.png",
+      "sha256": "aa3f4b499f608b3893b0869919c1678ea172c0ebb51298ae3371eeae2cc59017"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "view": "cg.1",
+      "source": "heroine.slayer-swim.event.1",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.1.png",
+      "sha256": "9262e87ea64a4825a1979abb70cc0118410620dadaf33f95b7763ff4d59ecc00"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "view": "cg.2",
+      "source": "heroine.slayer-swim.event.2",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.2.png",
+      "sha256": "477d1406871857a378bcc8c6ccadde460554b9be656ed2b62aa4270e1141346b"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "view": "cg.3",
+      "source": "heroine.slayer-swim.event.3",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.3.png",
+      "sha256": "4108b11e4ae6eec8c3f97429b84ea46e4fb6ab2a75f30595a3c4292f16d53f4e"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "view": "cg.4",
+      "source": "heroine.slayer-swim.event.4",
+      "classification": "no_male_character_observed",
+      "evidence": "tmp/plan12-art-sweep/aa166d46b43d42dc9a476d5fda413e62/default/slayer-swim-cg.4.png",
+      "sha256": "980e13650b842cc8e802c4e46a52f1b0071dbc4a05bfd54aea56af29012b597a"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "usage": "authoring-only template; not a runtime definition",
+  "personId": null,
+  "formId": null,
+  "jobId": null,
+  "referenceSources": [],
+  "profile": null,
+  "adoptionDecisions": null,
+  "status": "not_started",
+  "images": {
+    "standing": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "portrait": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "expression-joy": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "expression-puzzled": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "expression-determined": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "attack": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "hit": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "cutin": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-idle": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-walk": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-talk": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-react": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "equipment-tree-v1": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "event-0-cg": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "event-1-cg": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "event-2-cg": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "event-3-cg": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "event-4-cg": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-sit": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-work": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    },
+    "sd-look": {
+      "status": "not_started",
+      "source": null,
+      "adopted": null,
+      "sha256": null,
+      "validation": null
+    }
+  },
+  "checks": {
+    "identity_and_reaction": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "three_skills": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "traits_2_job_3_character_3_interaction": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "weapon_13_nodes": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "story_3_chapters_30_pages_18_poems": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "events_basic_3_lover_2_target_variable_count": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "recruit_formation_garden_adv": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "save_migration_atomicity": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "automatic_regression": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "unity_compile": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "portrait_build_validation": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "visual_review": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "player_default_launch": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "job_commands_resources_and_states": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "pre_addition_save_compatibility": {
+      "status": "not_started",
+      "evidence": []
+    },
+    "real_asset_size_loading_memory": {
+      "status": "not_started",
+      "evidence": []
+    }
+  },
+  "build": {
+    "path": null,
+    "sha256": null,
+    "sourceCommit": null
+  },
+  "unresolved": [],
+  "completionCommit": null,
+  "acceptance": "not_evaluated",
+  "acceptancePolicy": {
+    "eventCgMen": "forbidden",
+    "fallbackAssets": "missing",
+    "furniturePoses": "sit/work/look required for every form",
+    "resolution": "default launch only",
+    "expressionAlignment": "compare face position, scale and contour with normal",
+    "aspectRatio": "preserve source proportions",
+    "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
+    "physicalInput": "excluded; automated operations and actual frame review recorded separately",
+    "mastery": "character duplicates only"
+  }
+}

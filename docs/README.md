@@ -1,10 +1,12 @@
-# newASTER 文書索引
+﻿# newASTER 文書索引
 
 更新：2026-10-10。計画10は15形態・12人・13ジョブ、90章630詩・75交流。現行の実装と受入れは[計画10の実装記録](production/plan10-four-heroines-and-ui.md)へ集約する。
 
 ## 制作を進める
 
-- [ヒロイン追加方法](production/heroine-addition-guide.md)：資料確認、人物・形態ID、戦闘、物語、18画像、接続、保存、検証の順序。
+- [Plan12 制作準備](production/plan12-preparation.txt)：第1ロットの手順、未完了の受入条件、形態別記録ひな形と準備確認。
+- [ヒロイン追加方法](production/heroine-addition-guide.md)：資料確認、人物・形態ID、戦闘、物語、家具姿勢を含む専用21画像、接続、旧セーブ互換、形態単位の完了判定。
+- [ジョブ別実装手順](production/job-implementation-guide.md)：13ジョブのCore・独立コマンド／資源パネル・出撃前設定・状態別検証。既存ジョブ再利用と新規実装の確認範囲。
 - [人物台帳](production/plan10-heroine-roster.json)と[計画10](production/plan10-implementation-plan.md)：制作順と提供済み形態。
 - [物語制作用人物資料](characters/README.md)：実装済み12人物・15形態の性格、口調、概要、葛藤、収録章・交流ID。
 - [参考観察](references/README.md)：原作動画の時刻、意匠、確認範囲。本作の採用設定とは区別する。
@@ -44,6 +46,10 @@
 
 ## Plan11の継続実装
 
+- [Plan11-10 数値バランス最終確定](production/plan11-10-final-balance.md)：現行15形態の調整完了。16,320戦・報酬による実育成1,015戦・最終ビルドを確認。
+- [編成の自由度確認](production/plan11-10-team-diversity.txt)：全2,178編成と武器比較・別シード追試の計12,256戦。初期キャラやヒーラー職への必須依存を確認せず。
+- [数値調整後の使いやすさ改善](production/plan11-10-improvements-2026-10-10.txt)：オーパーツの到達Lv・素材・強化後能力を事前表示。
+- [Plan11-10 数値調整・第1回](production/plan11-10-balance-adjustment.md) / [装備と重複強化の難度・第2回](production/plan11-10-arsenal-and-duplicate-balance.md)：マスタリーは重複のみで強化、装備と入手負担を分けて比較。
 - [Plan11-9 品質改善・量産準備](production/plan11-9-quality-implementation.txt) / [ヒロイン追加マニュアル](production/heroine-addition-guide.md)
 
 - [Plan11-2 箱庭生活](production/plan11-2-garden-life.md)
@@ -62,3 +68,5 @@
 - [Plan11-2 提供仕様](production/plan11-2-garden-life-spec.md)
 
 - [Plan11-3 好感度・恋愛](production/plan11-3-affection.md) / [実装仕様 v1.0](production/plan11-3-affection-spec.md)
+
+- [ジョブ専用UIの分離と13ジョブの操作・表示確認](production/plan11-10-job-panels.txt)：1920×1080、68操作・227項目、27画面。

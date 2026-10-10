@@ -1,0 +1,48 @@
+Plan12 制作準備
+更新：2026-10-10
+
+現在の状態
+制作準備を進行。新規人物・形態は未追加。第1ロットの対象は未指定。
+現行の人物・形態と本文の定義元は docs/characters/index.json の combatSource / storySource。
+Plan12Build は既存の箱庭工程のビルド名でもあるため、名前だけでPlan12量産版と判断しない。
+制作基準は heroine-addition-guide.md と job-implementation-guide.md、現状と残件は plan12-production-handoff.txt を参照する。
+
+第1ロットの進め方
+1. 対象人物と形態、参考資料を確定する。既存衣装違いか新人物かを判定する。
+2. 下記の plan12-form-record-template.json を複製し、人物ID・形態IDを採番する。
+   既存IDを改名せず、参考観察と本作の採用設定を人物資料に分けて記録する。
+3. 1形態について戦闘・特性・神器、物語と交流、専用画像、保存接続を完成する。
+4. 自動回帰、C#確認、最新ビルド、隔離セーブでのPlayerキャプチャを順に実施する。
+   同じ出力先のビルドとPlayer検証を並行実行しない。実操作確認は対象外。
+5. 結果と証跡、未解決課題を記録してから次の形態へ進む。コミットは作成した場合のみ実在する値を残す。
+6. 5形態ごとに全体回帰、画風、特性分布、増員後の一覧と保存互換を確認する。
+   最初の1形態と5形態ロットで実素材の容量・読み込み・メモリ、追加前セーブの互換を記録する。合成素材の負荷試験と区別する。
+
+量産へ移る前の判定
+既存15形態の表現確認、数値バランス、13ジョブ独立パネルは完了済み。記録はplan12-full-review.txt、plan11-10-final-balance.md、plan11-10-job-panels.txt。新規形態を確認し、既存は変更が影響する対象だけ再開する。
+音響の波形・再生自動試験と人による音質の最終確認を分けて記録する。
+発見したCritical / Highは修正後に対象回帰・ビルド・Playerで再確認する。
+最終受入の未完了を、準備ツールの成功だけで解消したと扱わない。
+Plan11-10の数値バランスは完了済み。新規形態の比較検証と販売判定は別工程として管理する。
+
+準備確認
+python tools/validate-character-docs.py
+python tools/check-plan12-preparation.py
+後者は現行カタログ、制作ひな形、参照ファイルを照合して準備証跡JSONを更新する。
+ゲームの合格・最新ビルドの動作・表現/音質の承認を判定するツールではない。
+
+関連する最新改善記録
+commercial-quality-fixes-validation.json：正式版候補・配布生成の検証。
+commercial-audio-quality-2026-10-10-validation.json：音響修正・波形・再生検証。
+navigation-route-validation.json：画面遷移回帰。
+
+記録ひな形
+plan12-form-record-template.json：全欄未実施から開始し、実在する証跡だけを登録する。
+対象未指定の間は製品カタログや既存のavailable台帳へ仮人物を追加しない。
+
+既存表現レビューの進捗
+plan12-full-review.txt：全15形態・全表情・全75交流CGの総点検と残件。
+plan12-existing-art-review.txt：15形態の比較と優先確認項目。
+plan12-existing-art-audit.json：245枚の機械点検。候補抽出と最終受入を区別する。
+plan12-existing-art-review-evidence.json：今回目視した画像のパス・ハッシュと確認範囲。
+plan12-art-review-followup.txt：表示経路確認とアルケイン家具用SDの採用登録漏れ修正。

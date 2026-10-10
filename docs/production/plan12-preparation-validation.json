@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "scope": "authoring prerequisites only",
+  "people": 12,
+  "forms": 15,
+  "jobs": 13,
+  "preparationCheck": "passed",
+  "firstLot": [],
+  "productionAcceptance": "not_evaluated",
+  "remaining": [
+    "first lot selection",
+    "first added form end-to-end acceptance",
+    "real asset growth and pre-addition save compatibility",
+    "final listening review",
+    "minimum-spec endurance review",
+    "resolve any Critical/High findings"
+  ],
+  "evidence": [
+    {
+      "path": "docs/characters/index.json",
+      "sha256": "92d9d43c80720fbb1df99a8a2b8d8bc499219ccb39cd258fc19f239cdfac4866"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json",
+      "sha256": "911608a37ad96b81b22b850f067e67a6978b61f5213125680b577f942b1f749b"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json",
+      "sha256": "602509f180753057ecb7360a4d6b0cc8c16b50c9ead4af955ddd2f5c0ab9f0b0"
+    },
+    {
+      "path": "docs/production/heroine-addition-guide.md",
+      "sha256": "31992426052750d4791d38bad7036dfe17b7890c3258d932f0929e832b0d6fb0"
+    },
+    {
+      "path": "docs/production/job-implementation-guide.md",
+      "sha256": "d12f7f2154427fc9739de904ab6092ce2802f5cce8000feec7d9aca7fcd8e6fe"
+    },
+    {
+      "path": "docs/production/plan11-10-job-panels.txt",
+      "sha256": "f5426ce1f2a55d5ffb86ff1a2e14556df38f1e3d9ea81721d6f75ccecadefa56"
+    },
+    {
+      "path": "docs/production/plan11-10-job-panels-validation.json",
+      "sha256": "25b80a02a3537273f2d36ebe89148b4af8da7672fd5833a3d9cc0738a28baedb"
+    },
+    {
+      "path": "docs/production/plan12-production-handoff.txt",
+      "sha256": "41f82f8c80739ff8cd48eca49d1b34f9d2b22e403f0acb527fbeebb2af30a448"
+    },
+    {
+      "path": "docs/production/plan12-preparation.txt",
+      "sha256": "58ff2667ead5d1ddf41382cefc39586175bd78b397e12c8273def6947ff15c2b"
+    },
+    {
+      "path": "docs/production/plan12-form-record-template.json",
+      "sha256": "3e556283b8d6341497d23e39dae8718d780b0dfdc805680e4eb9cd0c3fe5b135"
+    },
+    {
+      "path": "docs/production/navigation-route-validation.json",
+      "sha256": "b039fad96c4b7788cdea6e49d6d76f0764815554395fb76d1368a33d86f4d27d"
+    },
+    {
+      "path": "docs/production/commercial-quality-fixes-validation.json",
+      "sha256": "5cdae962b3ac557b25cd08ad798907641493b425e697c920f2474900783525d2"
+    },
+    {
+      "path": "docs/production/commercial-audio-quality-2026-10-10-validation.json",
+      "sha256": "ad96aa17b01d602cb7d84da416489e6ad07e35b42c48d213e6c083d093e575d0"
+    },
+    {
+      "path": "tools/validate-character-docs.py",
+      "sha256": "83a32ccf09017304dc318083e7ec5bbc8dce152c2c9d0c5101712f80f7e652e3"
+    },
+    {
+      "path": "tools/validate-automatic-chain.ps1",
+      "sha256": "a8222a2fa24778eae5f0e63164e16eb961011c2b1ac9de3bbb096c70278c1990"
+    },
+    {
+      "path": "tools/compile-unity-scripts.ps1",
+      "sha256": "43766c7fd2a5718be54e70ec1f0f89e8e45fab6226ba17bf058977e9ab52141a"
+    },
+    {
+      "path": "tools/validate-plan11-9.ps1",
+      "sha256": "ad1ef1787f24aafe626009ba65b50a15b23d384461889ad626a8511102794f2d"
+    },
+    {
+      "path": "tools/audit-plan12-existing-art.py",
+      "sha256": "dc0652604eeb2cd6d1678fa87df6cf57ad0c9173d2957300c3af80b5f2b243a2"
+    },
+    {
+      "path": "tools/validate-plan12-art-review-player.ps1",
+      "sha256": "a5d49caf4693815bee0194bb4744ad6dbf0b2f2cd646c4f531c8a22a1733d111"
+    },
+    {
+      "path": "docs/production/plan12-existing-art-audit.json",
+      "sha256": "1bcf84005ea1a8659799a96cbca61eaef7e85e3c24f0b13cdba134fe4548190a"
+    },
+    {
+      "path": "docs/production/plan12-art-review-followup.txt",
+      "sha256": "ef029ebd64194a75568c6622bbf3c5b16e644bf2332e9d25b1dd9f8395d4f806"
+    },
+    {
+      "path": "docs/production/plan12-full-review.txt",
+      "sha256": "4359df0bc994c828aa426ddab7acd9ddd21e7cc4ec9e7dce1db7daced38d423e"
+    },
+    {
+      "path": "docs/production/plan12-runtime-art-audit.json",
+      "sha256": "dd4eaa47f25f0913b30ab5db0b7f5da044db909df3690cfd79ac9e1b30e38db2"
+    },
+    {
+      "path": "tools/audit-plan12-runtime-art.py",
+      "sha256": "5c67759f367ac8430299f6cf57cdc755be88062d3cb63f459db530c50c9b1373"
+    },
+    {
+      "path": "tools/validate-plan12-art-sweep.ps1",
+      "sha256": "957222c51f6be331eee979c7301f7e11609046c5cb18a548727b17012c6ebadc"
+    },
+    {
+      "path": "tools/record-plan12-art-sweep.py",
+      "sha256": "0c4296c9a8d2c42bff2a2ee99fa371ce3484eea6b3aad187ac3188d07c08de28"
+    },
+    {
+      "path": "tools/inspect-plan12-expression-alignment.py",
+      "sha256": "5f6e4dca35f216b1bd80b23cb77c134d9a161e46c00e0f022d2be38948577e83"
+    },
+    {
+      "path": "tools/verify-plan12-cg-gallery.py",
+      "sha256": "b9158d688614fdce7ac94cf79f59c1d84a1502b592412f1c9243f09cc2da2096"
+    },
+    {
+      "path": "docs/production/plan12-event-cg-display.txt",
+      "sha256": "0a0eaee697698909cf42432aaec5bde7202010163c33b78a7d1a98ddcebdc8cb"
+    },
+    {
+      "path": "docs/production/plan12-event-cg-content-review.json",
+      "sha256": "53032b63d2a67ad7dd732710ba896bbdaf169cad4d97603af0a5eccb849498a3"
+    },
+    {
+      "path": "docs/production/plan12-full-review-validation.json",
+      "sha256": "868232bce0b3c900a716fe3810243e4ce12d1b14c10796442fa6b1202c08fbfd"
+    }
+  ]
+}
