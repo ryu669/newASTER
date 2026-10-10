@@ -42,6 +42,7 @@ Core回帰検証9,413項目、Unity C#221ソース、Windowsビルドが合格�
 - [人物特性・神器ノード・戦闘開始の修正](docs/production/heroine-abilities-and-battle-start.md)
 - [万物の書UIとオーパーツ](docs/production/book-ui-and-ooparts.md)
 - [ヒロイン追加方法](docs/production/heroine-addition-guide.md)
+- [ジョブ別実装手順](docs/production/job-implementation-guide.md)
 - [計画10の台帳・進捗](docs/production/plan10-implementation-plan.md)
 - [人物資料](docs/references/README.md)
 - [文書整理の記録](docs/production/documentation-cleanup.md)

@@ -1,0 +1,3648 @@
+{
+  "missingDedicatedRoleCount": 0,
+  "missingDedicatedRoles": [],
+  "productionAcceptance": "visual_review_required",
+  "missingDedicatedPoses": [],
+  "missingBattlePoses": [],
+  "sameImageRoles": [],
+  "status": "runtime_references_and_hashes_passed",
+  "catalog": "tmp/plan12-art-sweep/83e7787f84f34f12b78df9975ce6ca39/default/home-catalog.json",
+  "catalogSha256": "fb6b4b3eb9507090918a66f7d5fbc0b4de181f9bd515d330b5a7ef78e18b62ba",
+  "formCount": 15,
+  "referenceCount": 330,
+  "uniqueImageCount": 315,
+  "rows": [
+    {
+      "heroineId": "heroine.slayer",
+      "role": "standing",
+      "resource": "Illustrations/slayer-standing-candidate-v1",
+      "sha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "expression.normal",
+      "resource": "Illustrations/slayer-standing-candidate-v1",
+      "sha256": "e343df8eb6fe0aaaec7cb1e65870dad9161a4bb0a3afe92334908b00669e19b8",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "expression.joy",
+      "resource": "Illustrations/slayer-expression-joy-candidate-v1",
+      "sha256": "2987cbb053e8bb9fd14e7827a3cdbeebb89f218ce9e0939bf26ffa01ac2a6482",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/slayer-expression-puzzled-candidate-v1",
+      "sha256": "3c16f5f284362573e3bec717af93aeb3c500f1e9d1174bc10d90aab86e189d02",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "expression.determined",
+      "resource": "Illustrations/slayer-expression-determined-candidate-v1",
+      "sha256": "ed196a2c97a7ea5493db6bf3ae17c00c8f5912e3d7e2acb2fa429020bf5f462e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.idle",
+      "resource": "Illustrations/slayer-sd-idle-candidate-v1",
+      "sha256": "ead29e6a676c906b500ad63aff351d7e1718017cd0362b05eb355e7f2ca535b6",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.walk",
+      "resource": "Illustrations/slayer-sd-walk-candidate-v1",
+      "sha256": "f71d1ef591adaf16e56550fd3dc8338e3aa99df8e80ad69dd2f0eb635ae2295a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.talk",
+      "resource": "Illustrations/slayer-sd-talk-candidate-v1",
+      "sha256": "99abd784dc7fff9bdbf79625707ffb90b8ae7677e40b5180f60c791455db11f2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.react",
+      "resource": "Illustrations/slayer-sd-react-candidate-v1",
+      "sha256": "2e74de3bf5c5ce3eae8138be6eb2cb68ca5aee52ba8c6dd492fceeab89e2150f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.sit",
+      "resource": "Illustrations/slayer-sd-sit-candidate-v1",
+      "sha256": "3c64ebbc9d1b26010085e05be2b942f7439d5aa6334b04719a41fe5ed42460b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.work",
+      "resource": "Illustrations/slayer-sd-work-candidate-v1",
+      "sha256": "fab3b3fa2f984065aebc60c5b89bc6791d2de4d2aad5f79142bfea43317f2119",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "sd.look",
+      "resource": "Illustrations/slayer-sd-look-candidate-v1",
+      "sha256": "a7c0ff1f4809bce4171d5983fe3b8d8271be64f6a584b6d0b3c8a09a2ce0835b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "standing",
+      "resource": "Illustrations/iconoclast-standing-candidate-v1",
+      "sha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "expression.normal",
+      "resource": "Illustrations/iconoclast-standing-candidate-v1",
+      "sha256": "1f6c05159cfe1c7903b9ab3e6680dd3ee27922041b9092aa15e176714532a77e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "expression.joy",
+      "resource": "Illustrations/iconoclast-expression-joy-source-v1",
+      "sha256": "702b5130710d62ba974fe7d9403ed785f036fcd93a771c5485732678619923ee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/iconoclast-expression-puzzled-source-v1",
+      "sha256": "e463d9dc80222d7b4cd570d8b082d3d5e9b500a7ff839a379d625a1d40e13a3c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "expression.determined",
+      "resource": "Illustrations/iconoclast-expression-determined-source-v1",
+      "sha256": "1d6798031d8155103b3f667f306eebda6c987c91d95180b4f14080780ccaba36",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.idle",
+      "resource": "Illustrations/iconoclast-sd-idle-candidate-v1",
+      "sha256": "340816723e8464ab320f3a03ce659733e310b954c8654c7003155f705e885ca4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.walk",
+      "resource": "Illustrations/iconoclast-sd-walk-candidate-v1",
+      "sha256": "b00369165b6ab51e47255865ecc37440f2b2a1e479bae0091eeac1f017489095",
+      "size": [
+        1220,
+        1289
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.talk",
+      "resource": "Illustrations/iconoclast-sd-talk-candidate-v1",
+      "sha256": "90e9ec1b9f3cc69e93772a05b1d7b288c39aa95baa2ffb3df80e13b560c72b8a",
+      "size": [
+        1149,
+        1368
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.react",
+      "resource": "Illustrations/iconoclast-sd-react-candidate-v1",
+      "sha256": "9cde2161219ad146f9519d160b1b4e0ab5486ecfd68159733663592f8ddf24c2",
+      "size": [
+        1199,
+        1312
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.sit",
+      "resource": "Illustrations/iconoclast-sd-sit-candidate-v1",
+      "sha256": "5489bb2b12a8c34cf9b328f0b0d0225aaae8b3d2e0c7cd82186b3ddf2ed7b1d2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.work",
+      "resource": "Illustrations/iconoclast-sd-work-candidate-v1",
+      "sha256": "a26830bc891c1a10c6eebc476cab3dabc860e1801b37135158de984475f08ba5",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "sd.look",
+      "resource": "Illustrations/iconoclast-sd-look-candidate-v1",
+      "sha256": "2650a21f7a960038cc731b44ca95bfc643fd71ff9805c9d2f8906867bf18243c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "standing",
+      "resource": "Illustrations/undermine-standing-candidate-v1",
+      "sha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "expression.normal",
+      "resource": "Illustrations/undermine-standing-candidate-v1",
+      "sha256": "277582a6e9f592d2a1f2eefc7961d6ee167b7842a5cb1af2955ca76d23d784b3",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "expression.joy",
+      "resource": "Illustrations/undermine-expression-joy-source-v1",
+      "sha256": "3b6827a9fc11e506828d6ef6a540d978e88aad64ab51d13354028a2893141bbb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/undermine-expression-puzzled-source-v1",
+      "sha256": "d7386db4a9d580376238373a865f9274e59da9da395a02c24196e3bbde26e53c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "expression.determined",
+      "resource": "Illustrations/undermine-expression-determined-source-v1",
+      "sha256": "329222d115645530c63c5082a56732f4c7f0bb927e1bbe1ea0f6be20be37216c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.idle",
+      "resource": "Illustrations/undermine-sd-idle-candidate-v1",
+      "sha256": "1bd5dbe2fb368b482f8db68fef4996107f16c995425492c9345ee74a45035f2f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.walk",
+      "resource": "Illustrations/undermine-sd-walk-candidate-v1",
+      "sha256": "74966b92866a509d3db3ffdb8f8ac7e8e9b06af0d1eb057337e64466ecb3c5c4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.talk",
+      "resource": "Illustrations/undermine-sd-talk-candidate-v1",
+      "sha256": "9c52d280b85e08f534d96b3bcd93497be011aba706b0745aa3cee88391e15783",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.react",
+      "resource": "Illustrations/undermine-sd-react-candidate-v1",
+      "sha256": "ab690c82df6c257952d824cb13c469306ccd50f5a689a7bd24128506bc19c152",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.sit",
+      "resource": "Illustrations/undermine-sd-sit-candidate-v1",
+      "sha256": "0e19fb95911f793ad8f8cf258c00d3cfbca0c7e054f4e5f15de824d7dfea383c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.work",
+      "resource": "Illustrations/undermine-sd-work-candidate-v1",
+      "sha256": "626b6c47d8b10aaf3b95805ef4bbea2a6031695b387ae3e0beb8505c465e8762",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "sd.look",
+      "resource": "Illustrations/undermine-sd-look-candidate-v1",
+      "sha256": "e778049021642ec0a8d5fa8b78887128a05d807cf3650976c86cf33740af58f6",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "standing",
+      "resource": "Illustrations/echidna-standing-candidate-v1",
+      "sha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "expression.normal",
+      "resource": "Illustrations/echidna-standing-candidate-v1",
+      "sha256": "df935565eb9f0422359797a9b5d36dc9a83695e63d9582e52f6f61b67c59fb50",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "expression.joy",
+      "resource": "Illustrations/echidna-expression-joy-source-v1",
+      "sha256": "77abddfdf2f71ba507038324f86d82a4d1a611805c980ae8549e05fdd6322b68",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/echidna-expression-puzzled-source-v1",
+      "sha256": "17e9176d068733712e24102102edf732d1a47bc9bdbfd97db4961599fa5e0c28",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "expression.determined",
+      "resource": "Illustrations/echidna-expression-determined-source-v1",
+      "sha256": "95ecd4af5ac7d45ea9928963412fc64fa2320fa2d0509256d77f15d97b8938e0",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.idle",
+      "resource": "Illustrations/echidna-sd-idle-candidate-v1",
+      "sha256": "17e882445daedc424b3c4e9343606cf20879444d5e4e012a0e8ec721a5b95f6d",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.walk",
+      "resource": "Illustrations/echidna-sd-walk-candidate-v1",
+      "sha256": "8f0e2de6abccb52f8947635e5cb2525858806fcfe9e2c23c17c6969ed7ab932a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.talk",
+      "resource": "Illustrations/echidna-sd-talk-candidate-v1",
+      "sha256": "23203b8a20cf5a1803b59da9e3b4bd586b1836b0a347051b5cfb3adfc8c8c89f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.react",
+      "resource": "Illustrations/echidna-sd-react-candidate-v1",
+      "sha256": "e0beb71da346e56be3ce802eeaa7cf0ae2fc6abf2b79e69a3da4d6be677a4f94",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.sit",
+      "resource": "Illustrations/echidna-sd-sit-candidate-v1",
+      "sha256": "77bd4d069306cbaf14605ef7306cba0c72fc758183a7f773e848da4e4060dedf",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.work",
+      "resource": "Illustrations/echidna-sd-work-candidate-v1",
+      "sha256": "2072ec4be3026ce449ee0de835d2c7c1a83d1f855c6b1817bebd98edb1222a3d",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "sd.look",
+      "resource": "Illustrations/echidna-sd-look-candidate-v1",
+      "sha256": "76e773f1511e77cc7197dd48b213918169ab17c0bea5636eae3d011c829c30a5",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "standing",
+      "resource": "Illustrations/excalipan-standing-candidate-v1",
+      "sha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "expression.normal",
+      "resource": "Illustrations/excalipan-standing-candidate-v1",
+      "sha256": "26c88fae9acf458a02599dd28cd5ca3f72cb77d23acddc9f3d90000109ad3b1f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "expression.joy",
+      "resource": "Illustrations/excalipan-expression-joy-source-v1",
+      "sha256": "92d92813a029448384d063f3a904cbab0459b4def29ccb2280e87bb13a90c172",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/excalipan-expression-puzzled-source-v1",
+      "sha256": "a55c611b3de3107ad87a68c283b7234cee7d7bb0f600fa32a6bb7bf9f03d11fd",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "expression.determined",
+      "resource": "Illustrations/excalipan-expression-determined-source-v1",
+      "sha256": "97b32491a51205415c967ad005b63742facf27a56ee560ad7997cdd02bee466b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.idle",
+      "resource": "Illustrations/excalipan-sd-idle-candidate-v1",
+      "sha256": "7b48285bd8ffe2b4e5344639bfba74db6ff6181141e84e003954cc8cb0c743e9",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.walk",
+      "resource": "Illustrations/excalipan-sd-walk-candidate-v1",
+      "sha256": "444495e4ce048e3da8bf37e5f6288ea0085640b2af9e84bd9dc762648f17568f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.talk",
+      "resource": "Illustrations/excalipan-sd-talk-candidate-v1",
+      "sha256": "5b9348d75303505f8320d7892da54bc2ea8e050347638699acfb31e2d6f359c4",
+      "size": [
+        1225,
+        1284
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.react",
+      "resource": "Illustrations/excalipan-sd-react-candidate-v1",
+      "sha256": "795e8c8a127dfc547e58eb6b811dfb2c56a2ec5a6e8eb5347a7a8662ecf84e99",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.sit",
+      "resource": "Illustrations/excalipan-sd-sit-candidate-v1",
+      "sha256": "f62f9a593df2a8f134892074b966cc84e79d4517f4b16141ed697e1d56db655d",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.work",
+      "resource": "Illustrations/excalipan-sd-work-candidate-v1",
+      "sha256": "c6cd353d62ac4ccc1c22b53d5982288bb850f5c4e6d69da2b8cf6c30e4229fe6",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "sd.look",
+      "resource": "Illustrations/excalipan-sd-look-candidate-v1",
+      "sha256": "f71748e816ad412dc565ba5a0915506917cc4c76250e8496a0f4c075476c6398",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "standing",
+      "resource": "Illustrations/r-standing-candidate-v1",
+      "sha256": "93f0754086038ff2b256377f444d4ef94fdc1744c20206e5373d33f66f149f8d",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "expression.normal",
+      "resource": "Illustrations/r-standing-candidate-v1",
+      "sha256": "93f0754086038ff2b256377f444d4ef94fdc1744c20206e5373d33f66f149f8d",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "expression.joy",
+      "resource": "Illustrations/r-expression-joy-candidate-v1",
+      "sha256": "4eaf3811be13e030085c46396a5b7e690bda7527765fb250298a916ff2f62da2",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/r-expression-puzzled-candidate-v1",
+      "sha256": "42e46ed6f12a63768196022c55ee81c4a08da72ddad308fedf8b9b7813540d05",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "expression.determined",
+      "resource": "Illustrations/r-expression-determined-candidate-v1",
+      "sha256": "d91896287a95e44199ceb8f168235a1f6641a8eef5f32f0719874658b6fb6622",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.idle",
+      "resource": "Illustrations/r-sd-idle-candidate-v1",
+      "sha256": "8829c6f37f10d00410b24fdee6716567cc82632ab67d31da267ed3b7dcde22f1",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.walk",
+      "resource": "Illustrations/r-sd-walk-candidate-v1",
+      "sha256": "a21703469467fcf2c748aebd8219af8cd619771bf089aca806a7da180c0067cd",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.talk",
+      "resource": "Illustrations/r-sd-talk-candidate-v1",
+      "sha256": "a95517dff139ea03e3cc6f36d51abe8a81b4affd5f5d09b00a2555a92b449411",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.react",
+      "resource": "Illustrations/r-sd-react-candidate-v1",
+      "sha256": "b89462984af8b0aabaafa20c39f1a164a528c063076a45a129f417047640df2d",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.sit",
+      "resource": "Illustrations/r-sd-sit-candidate-v1",
+      "sha256": "7e3543ae18e12f095603b3d033c46e04331304af1e1374a84abec22b4d2203a8",
+      "size": [
+        1195,
+        1316
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.work",
+      "resource": "Illustrations/r-sd-work-candidate-v1",
+      "sha256": "5a74b79a0145fbbb1c12fa6fa8f0f48fb2d9ae76d5d0799ea0551cefb31eedff",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "sd.look",
+      "resource": "Illustrations/r-sd-look-candidate-v1",
+      "sha256": "1bee0778274d134e9fc798fdf57f36cccb4c39226188ef8e20d7b28512561fd3",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "standing",
+      "resource": "Illustrations/annihilator-standing-candidate-v1",
+      "sha256": "007f7187e60719ca0bf465ecb350e1bd438dd4ca94952de79e546ff83c33dd32",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "expression.normal",
+      "resource": "Illustrations/annihilator-standing-candidate-v1",
+      "sha256": "007f7187e60719ca0bf465ecb350e1bd438dd4ca94952de79e546ff83c33dd32",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "expression.joy",
+      "resource": "Illustrations/annihilator-expression-joy-candidate-v1",
+      "sha256": "380b9ad7d0851126b6c937b29c31ce6c47ef1c72f9c757ef3b5214e367f96332",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/annihilator-expression-puzzled-candidate-v1",
+      "sha256": "cc2dc878b9dd6e402956c0d37064f207f9b20e8e2dfce29f5e7b2efb2c7a8c4d",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "expression.determined",
+      "resource": "Illustrations/annihilator-expression-determined-candidate-v1",
+      "sha256": "e3533eed852382ac89cf8e76ea8e98c4ae2983ea4e4b1585927947d0222e2d61",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.idle",
+      "resource": "Illustrations/annihilator-sd-idle-candidate-v1",
+      "sha256": "c85b9dc4b4d50875e5636dba9daa37ad5dce72f213aa0eebaaebca917f6669c7",
+      "size": [
+        1243,
+        1265
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.walk",
+      "resource": "Illustrations/annihilator-sd-walk-candidate-v1",
+      "sha256": "a1edd8ede3503245ad1e021697d52f0efac95275bb4f8cdd5558ebb1e4f4b639",
+      "size": [
+        1243,
+        1265
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.talk",
+      "resource": "Illustrations/annihilator-sd-talk-candidate-v1",
+      "sha256": "45e72c96cf7fc7bfd1c02f4fe299c433fb646977cbace317771dda8af53ba126",
+      "size": [
+        1243,
+        1265
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.react",
+      "resource": "Illustrations/annihilator-sd-react-candidate-v1",
+      "sha256": "f0e14d6d88329788043c4fcb069da17d1cdfc016a36258a9cfcced3886bb3b74",
+      "size": [
+        1243,
+        1265
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.sit",
+      "resource": "Illustrations/annihilator-sd-sit-candidate-v1",
+      "sha256": "90ec9cbc941a8f3d962df4fb8c46314de0c6f7417e855e5f5443b0bb1fefd369",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.work",
+      "resource": "Illustrations/annihilator-sd-work-candidate-v1",
+      "sha256": "0c205fd25d7d8914f0e0a99bec91dd8e54082147e67e9079ee216bfd3e0690eb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "sd.look",
+      "resource": "Illustrations/annihilator-sd-look-candidate-v1",
+      "sha256": "432a036c4843ecff34f4ea4120a9752736802c70f67a5a3deb276c606cc8ffbe",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "standing",
+      "resource": "Illustrations/annihilator-holy-standing-candidate-v1",
+      "sha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "expression.normal",
+      "resource": "Illustrations/annihilator-holy-standing-candidate-v1",
+      "sha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "expression.joy",
+      "resource": "Illustrations/annihilator-holy-expression-joy-candidate-v1",
+      "sha256": "685051e1b2157bedfd50cfecf5460a082c209d9899f979a071135e6969fd18ba",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/annihilator-holy-expression-puzzled-candidate-v1",
+      "sha256": "c5b81643cdcb55ed6c916b92f9dd3eb1c0d5198b7cd00cc4364342faa638d600",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "expression.determined",
+      "resource": "Illustrations/annihilator-holy-expression-determined-candidate-v1",
+      "sha256": "d8bc281c0bb39f181e59348aa18d0f0d74dd22848de794f7563fd67bc8520c9d",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.idle",
+      "resource": "Illustrations/annihilator-holy-sd-idle-candidate-v1",
+      "sha256": "01a5c1965ddf5cba7a5302cc35f678cda61ecaf8b5b743a08a1ec0eda47c680d",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.walk",
+      "resource": "Illustrations/annihilator-holy-sd-walk-candidate-v1",
+      "sha256": "c7e924276bc9be2db55ec8e4c006866cd158cd623bbe053a3bcf9297dac05ac0",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.talk",
+      "resource": "Illustrations/annihilator-holy-sd-talk-candidate-v1",
+      "sha256": "590d1b6fd848fa152cc6406467f144841456419f53dc3283e35c074c8217c492",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.react",
+      "resource": "Illustrations/annihilator-holy-sd-react-candidate-v1",
+      "sha256": "88b1a44f8e65893f6188add67943bb1977a634834d74010bdf2c92a620c46fc9",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.sit",
+      "resource": "Illustrations/annihilator-holy-sd-sit-candidate-v1",
+      "sha256": "a2c68357bc6d6b1d5b4ff3267bb987f4339b50883e6ce59c9d501d3d52aefde2",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.work",
+      "resource": "Illustrations/annihilator-holy-sd-work-candidate-v1",
+      "sha256": "70d4ee50c2c175c1dacc5d4212077ab87e0ce7ce82e1eb17eb633d35626b03ac",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "sd.look",
+      "resource": "Illustrations/annihilator-holy-sd-look-candidate-v1",
+      "sha256": "a7638264f2240717e93c2fe2b4e9d7e181cac59aa4be9ee457398eb12a93e1b5",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "standing",
+      "resource": "Illustrations/arcane-standing-candidate-v1",
+      "sha256": "27bc8523e20115022c8fd7ca05847c5775005505cf12680452c83df2388bff49",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "expression.normal",
+      "resource": "Illustrations/arcane-standing-candidate-v1",
+      "sha256": "27bc8523e20115022c8fd7ca05847c5775005505cf12680452c83df2388bff49",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "expression.joy",
+      "resource": "Illustrations/arcane-expression-joy-candidate-v1",
+      "sha256": "b13f7e641f3a8ecc5895635ef91805b92dfa7f04c1038185b6b85f78cb9ede30",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/arcane-expression-puzzled-candidate-v1",
+      "sha256": "ebfa7cf4c68bd0687f2a8f930798ae7e8307fa055529fa0d736f1b984bf004c8",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "expression.determined",
+      "resource": "Illustrations/arcane-expression-determined-candidate-v1",
+      "sha256": "77ff6b11d42bb12c68355153128632c883e1ad18e956a16a1018043ffe84e73c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.idle",
+      "resource": "Illustrations/arcane-sd-idle-candidate-v1",
+      "sha256": "e088b84304b272d6f621cdaa656aef5bf9842d9503c8804da366b038b4d0f6ae",
+      "size": [
+        1229,
+        1280
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.walk",
+      "resource": "Illustrations/arcane-sd-walk-candidate-v1",
+      "sha256": "63edb7e86e8c39ebf4b87d0655bfd0e7731c5b949bbe7f7bb2228e408cf5580d",
+      "size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.talk",
+      "resource": "Illustrations/arcane-sd-talk-candidate-v1",
+      "sha256": "4bd73e73bd4a3499adc6eed3793b235167a9b9177daf9e76115fdd1283e95485",
+      "size": [
+        1241,
+        1268
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.react",
+      "resource": "Illustrations/arcane-sd-react-candidate-v1",
+      "sha256": "04a506cc2ab87994d8a08b14f238632b988e6510019a83f2a5645d30b3372ee4",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.sit",
+      "resource": "Illustrations/arcane-sd-sit-candidate-v1",
+      "sha256": "93a300ea397d07edb91c0f10c8bc30364c106c738668133384238559b1ff2a15",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.work",
+      "resource": "Illustrations/arcane-sd-work-candidate-v1",
+      "sha256": "db9faf08fa6a940b56d911c40c4f1ba3edfc7bfdbfbc8210adc3e74e8ad23a73",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "sd.look",
+      "resource": "Illustrations/arcane-sd-look-candidate-v1",
+      "sha256": "10829d17961e150c27165f9ceccaa9060039f649e961711a142ddc7ee96b7d13",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "standing",
+      "resource": "Illustrations/arcane-academy-standing-candidate-v1",
+      "sha256": "c4e01e32ebb22f5001ff3be130318115166e7c86a53adc381e4f3a3da33591de",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "expression.normal",
+      "resource": "Illustrations/arcane-academy-standing-candidate-v1",
+      "sha256": "c4e01e32ebb22f5001ff3be130318115166e7c86a53adc381e4f3a3da33591de",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "expression.joy",
+      "resource": "Illustrations/arcane-academy-expression-joy-candidate-v1",
+      "sha256": "07037fe2f6bc3fb70424255bf680a48311098e19bc3c6fef7850ac7ebb7f6da1",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/arcane-academy-expression-puzzled-candidate-v1",
+      "sha256": "5177636e84929d4e869cb1fdc2314293eeff6eb97a1e7b1f0c0fa423b0e64b15",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "expression.determined",
+      "resource": "Illustrations/arcane-academy-expression-determined-candidate-v1",
+      "sha256": "9c94eb6152f7d2749cc92de40416a51dd5ee52f52a08cb4b4154ada515aafe21",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.idle",
+      "resource": "Illustrations/arcane-academy-sd-idle-candidate-v1",
+      "sha256": "2cebb901df7beaa4ae55658a25aa1db78e5c6e5880f138924080e4630bac7367",
+      "size": [
+        1155,
+        1362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.walk",
+      "resource": "Illustrations/arcane-academy-sd-walk-candidate-v1",
+      "sha256": "ddbcc13903ce16eb5b6a1bdd33c11247969080afdad05216b08d60be7db39d10",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.talk",
+      "resource": "Illustrations/arcane-academy-sd-talk-candidate-v1",
+      "sha256": "c6e3fcb506dfc5a7d2d4c1fb9f17330a2902286c75438d7105a00248f9f4b7c5",
+      "size": [
+        1155,
+        1362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.react",
+      "resource": "Illustrations/arcane-academy-sd-react-candidate-v1",
+      "sha256": "6f69d6d966125704fe0baf7b493b7e66a9123b041380322fe5c6c1a63324a1fb",
+      "size": [
+        1186,
+        1327
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.sit",
+      "resource": "Illustrations/arcane-academy-sd-sit-candidate-v1",
+      "sha256": "782bbd081c4f4047cc1404955b9600052e69b72049e80d2e9523d5bc4c6afc38",
+      "size": [
+        1155,
+        1362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.work",
+      "resource": "Illustrations/arcane-academy-sd-work-candidate-v1",
+      "sha256": "6eaf9a71f238d12e8e39221aeab5ab3e7d361dc13332463e309f0c92d94fa71e",
+      "size": [
+        1155,
+        1362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "sd.look",
+      "resource": "Illustrations/arcane-academy-sd-look-candidate-v1",
+      "sha256": "d07bc512b79c21f7e0374e4f587aaf92787911c3c096005a6363877a25a67812",
+      "size": [
+        1155,
+        1362
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "standing",
+      "resource": "Illustrations/nighthawk-standing-candidate-v1",
+      "sha256": "640f77bb30de2af060eaaca81b0009f36859186b52bf17c23bcd54ff980c76eb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "expression.normal",
+      "resource": "Illustrations/nighthawk-standing-candidate-v1",
+      "sha256": "640f77bb30de2af060eaaca81b0009f36859186b52bf17c23bcd54ff980c76eb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "expression.joy",
+      "resource": "Illustrations/nighthawk-expression-joy-candidate-v1",
+      "sha256": "d612bb29a52fc8fd9d984114b01ccc51ba1e0747addf8928387ca9a95b7b6b79",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/nighthawk-expression-puzzled-candidate-v1",
+      "sha256": "9b47ec4102f9e90d8af81c1ae6e16e7d32fea84acc151ea6fd728bc3295f9aaf",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "expression.determined",
+      "resource": "Illustrations/nighthawk-expression-determined-candidate-v1",
+      "sha256": "067eddbcbcddd3c7571ca67da0f947ecf1d007543185001a3367d54a82e1191d",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.idle",
+      "resource": "Illustrations/nighthawk-sd-idle-candidate-v1",
+      "sha256": "dd5f586d0ca130f668185bbb8b1766b60cdf28fbf176df483e14faf18aa98470",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.walk",
+      "resource": "Illustrations/nighthawk-sd-walk-candidate-v1",
+      "sha256": "e85c01fd57d81c4679c4f1f8e98da934c95f118cc1c8322202fe53722c97b084",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.talk",
+      "resource": "Illustrations/nighthawk-sd-talk-candidate-v1",
+      "sha256": "b26bd8971ac92003d9ae6c1ffc631ede4c576b928964e36eedde9bf5792b1f2c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.react",
+      "resource": "Illustrations/nighthawk-sd-react-candidate-v1",
+      "sha256": "486daec879065f0171a51b6f392edc1115f9cdf4d3fe8fe389dc3b0fe309a37b",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.sit",
+      "resource": "Illustrations/nighthawk-sd-sit-candidate-v1",
+      "sha256": "ccf462f7f0c44b64d7e71f45f08309cd8a7390c8aa5673764e9dfac329fe5a32",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.work",
+      "resource": "Illustrations/nighthawk-sd-work-candidate-v1",
+      "sha256": "cb334fb2a9e19bef7acac57112946421cbe25ed4af550e775c319abadcd5ec1a",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "sd.look",
+      "resource": "Illustrations/nighthawk-sd-look-candidate-v1",
+      "sha256": "c152fdb1641ff6e7518afb5e0b2112137da6b438ad9a01dd123ef65b1b9b8765",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "standing",
+      "resource": "Illustrations/oriflamme-standing-candidate-v1",
+      "sha256": "a796799dee062d39d06dc6f074c96e305c8eb947d5871d949b90b3bba02fc158",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "expression.normal",
+      "resource": "Illustrations/oriflamme-standing-candidate-v1",
+      "sha256": "a796799dee062d39d06dc6f074c96e305c8eb947d5871d949b90b3bba02fc158",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "expression.joy",
+      "resource": "Illustrations/oriflamme-expression-joy-candidate-v1",
+      "sha256": "92845568625b75344016b4e8f24f758496f2eef26510d152189f8358c0bccbf7",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/oriflamme-expression-puzzled-candidate-v1",
+      "sha256": "c7b9aae71c1ec894fbf07c4ce663cb21a10710ceda2c0a9232dd9cafc9d2e7fc",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "expression.determined",
+      "resource": "Illustrations/oriflamme-expression-determined-candidate-v1",
+      "sha256": "d1d651e08a1ed7cffa21e2cc6670d033641a5c1e67a5529b14b1b875635e08b9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.idle",
+      "resource": "Illustrations/oriflamme-sd-idle-candidate-v1",
+      "sha256": "6fae6ce10683a877a4a878b037b549cb1b02a429ad813973d87d42f1f6d7e7d7",
+      "size": [
+        1202,
+        1309
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.walk",
+      "resource": "Illustrations/oriflamme-sd-walk-candidate-v1",
+      "sha256": "9521bf1623b9473257225074eec3774e544bde8f2d599b3bbb2a81d37d2891d6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.talk",
+      "resource": "Illustrations/oriflamme-sd-talk-candidate-v1",
+      "sha256": "5441b46309abc65554058cc7d62ba84a2a44b843628031913e24069dd435aae0",
+      "size": [
+        1225,
+        1284
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.react",
+      "resource": "Illustrations/oriflamme-sd-react-candidate-v1",
+      "sha256": "d7174175ff3875588ff553a3ca325e55288e790b69f0efe38d17f093a96c688c",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.sit",
+      "resource": "Illustrations/oriflamme-sd-sit-candidate-v1",
+      "sha256": "01c2af3964cf9c3b01686c16a3c13e1d30f59887535b59a2dc1b10079018d0bb",
+      "size": [
+        1201,
+        1309
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.work",
+      "resource": "Illustrations/oriflamme-sd-work-candidate-v1",
+      "sha256": "4704c15770cb1e9eeb31af311f1aadedbe39296002297f53d7d940defaed6a0f",
+      "size": [
+        1201,
+        1309
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "sd.look",
+      "resource": "Illustrations/oriflamme-sd-look-candidate-v1",
+      "sha256": "b66e84bf5c862834a186b14e2ce2454e2af28b0090d6a076a967deabbee613fd",
+      "size": [
+        1201,
+        1309
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "standing",
+      "resource": "Illustrations/shangrila-standing-candidate-v1",
+      "sha256": "45b88bfc7770e2b84136a40c94d454927b3ca4fa89670e5fea43c7829a7b842e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "expression.normal",
+      "resource": "Illustrations/shangrila-standing-candidate-v1",
+      "sha256": "45b88bfc7770e2b84136a40c94d454927b3ca4fa89670e5fea43c7829a7b842e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "expression.joy",
+      "resource": "Illustrations/shangrila-expression-joy-candidate-v1",
+      "sha256": "732b212e41083529dbdb4497fc44f2cda73a67b2effd946b9ba18a17778e8794",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/shangrila-expression-puzzled-candidate-v1",
+      "sha256": "818992c93dbbdd76a38e76645f39b1e5a9ccb8d56a5f69e0d6d490a9606527a9",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "expression.determined",
+      "resource": "Illustrations/shangrila-expression-determined-candidate-v1",
+      "sha256": "8c7dd2935ad1047174cada690274c4d83dea50ad3d9d0959cc94c356b658c312",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.idle",
+      "resource": "Illustrations/shangrila-sd-idle-candidate-v1",
+      "sha256": "500cab6b76168d0cf2074afa2e5e43dd1d6834786d9983c5493c6d47782d1fee",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.walk",
+      "resource": "Illustrations/shangrila-sd-walk-candidate-v1",
+      "sha256": "49587f3bce1b0e2bdb551e5e828caa139a52bf4ec4b03b5a884e5fea8ec1c2a0",
+      "size": [
+        1226,
+        1283
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.talk",
+      "resource": "Illustrations/shangrila-sd-talk-candidate-v1",
+      "sha256": "94b0f83a90d16eecbf9f6b0bf7d70fed8e94558d8bf6d789a388b5b1e2e08009",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.react",
+      "resource": "Illustrations/shangrila-sd-react-candidate-v1",
+      "sha256": "a4871efb6265b72fca5f8312b372d27667d11b31e5e68a72ea816c09e33c65ff",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.sit",
+      "resource": "Illustrations/shangrila-sd-sit-candidate-v1",
+      "sha256": "7f913de47cb09ebd9918cbd2cc3e1c952709ace6f0838f1f47e87315eafa2903",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.work",
+      "resource": "Illustrations/shangrila-sd-work-candidate-v1",
+      "sha256": "078aaf391b41e6f67f4d738d2bff0c6282a395e5d66456a59a03b904f08d34e4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "sd.look",
+      "resource": "Illustrations/shangrila-sd-look-candidate-v1",
+      "sha256": "ba47ee80749ec6a475dad1332a0ad1baffeb384119deb2743b984dd3b7eb2409",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "standing",
+      "resource": "Illustrations/shell-standing-candidate-v1",
+      "sha256": "3e60fade74f83edc817b079976dde86fbce2598546654de66e95d2720ca6c8e7",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "expression.normal",
+      "resource": "Illustrations/shell-standing-candidate-v1",
+      "sha256": "3e60fade74f83edc817b079976dde86fbce2598546654de66e95d2720ca6c8e7",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "expression.joy",
+      "resource": "Illustrations/shell-expression-joy-candidate-v1",
+      "sha256": "cd2417ae605e13d8aad0dc9df1c4345cb9f35763ac1f4b4f775720bebafe65fb",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/shell-expression-puzzled-candidate-v1",
+      "sha256": "06b82c8b29d2bcc3833379df3c3ef268220bfc664dc5050cf9bc9b4e507d6b23",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "expression.determined",
+      "resource": "Illustrations/shell-expression-determined-candidate-v1",
+      "sha256": "46f695b46dfe567f4c09684babcb541b84d1f1564970cb2e7ca41b1cb7fac47f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.idle",
+      "resource": "Illustrations/shell-sd-idle-candidate-v1",
+      "sha256": "61287510cde237f3fb31cec145c8acc3bbfd76ad9cea4dcdc7c403fa2406f235",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.walk",
+      "resource": "Illustrations/shell-sd-walk-candidate-v1",
+      "sha256": "67b42e698308d02fac4558f2933ca852d2d6c417ab1f5e0308f88fef1155d923",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.talk",
+      "resource": "Illustrations/shell-sd-talk-candidate-v1",
+      "sha256": "0435af1c6d6e0a5d71c01c7c6a3940adae99612e8a4857046511674ce985dc31",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.react",
+      "resource": "Illustrations/shell-sd-react-candidate-v1",
+      "sha256": "906c3640f549e269017f9f3e176970febee00dcec4a4a313bd98c608735eb259",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.sit",
+      "resource": "Illustrations/shell-sd-sit-candidate-v1",
+      "sha256": "67ce11156de53818757b1984a378ef025a500f10571f30cb7bf2604075224f5d",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.work",
+      "resource": "Illustrations/shell-sd-work-candidate-v1",
+      "sha256": "2f6e055d91c1b35f73ea2ce296b6a815f8fceaa2097a6b7df3a87ba912e360c3",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "sd.look",
+      "resource": "Illustrations/shell-sd-look-candidate-v1",
+      "sha256": "574b078eb8a3af0c75dfe83534329ea702d60fd12aecf5428410fb8f53d2d37c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "standing",
+      "resource": "Illustrations/slayer-swim-standing-candidate-v1",
+      "sha256": "4798760c306db96828cd85895528064505d13b44a528d92122aa63dc3fc81850",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "expression.normal",
+      "resource": "Illustrations/slayer-swim-standing-candidate-v1",
+      "sha256": "4798760c306db96828cd85895528064505d13b44a528d92122aa63dc3fc81850",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "expression.joy",
+      "resource": "Illustrations/slayer-swim-expression-joy-candidate-v1",
+      "sha256": "dc62fb5591055a2d0358711371a8a506e2b97d2d752365d9b514577db3b870aa",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "expression.puzzled",
+      "resource": "Illustrations/slayer-swim-expression-puzzled-candidate-v1",
+      "sha256": "c08e5c1baa8867d45b16ee57040ba026d609f8d5bb072c6733a5afeb5e596573",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "expression.determined",
+      "resource": "Illustrations/slayer-swim-expression-determined-candidate-v1",
+      "sha256": "ae9b1957c859ec076aebade2ed804e68ca4ea59aaa593006f5f272835ebe5aa5",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.idle",
+      "resource": "Illustrations/slayer-swim-sd-idle-candidate-v1",
+      "sha256": "591869b033e402167cfd9d917defdb3ebe99a4d37db976c94ee84f73131785bc",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.walk",
+      "resource": "Illustrations/slayer-swim-sd-walk-candidate-v1",
+      "sha256": "dcc596478602ed331cfa0ab12c7ba45baaa4655935e3e8d2712afaee0e5c4693",
+      "size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.talk",
+      "resource": "Illustrations/slayer-swim-sd-talk-candidate-v1",
+      "sha256": "d9a25af8b509a4dd51ee637833da6e432d98ba9be1dbe5d305b5f77c7c046f3a",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.react",
+      "resource": "Illustrations/slayer-swim-sd-react-candidate-v1",
+      "sha256": "ff9f1ff3b82958373ab4642e46f30083f515bb50ed76fc560226e9d168adc717",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.sit",
+      "resource": "Illustrations/slayer-swim-sd-sit-candidate-v1",
+      "sha256": "29f65fdef1c0cc87a4bde324085ebf888632f39e245924665735bc28b19f71d5",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.work",
+      "resource": "Illustrations/slayer-swim-sd-work-candidate-v1",
+      "sha256": "636e9ca1c150ae06e66704ff800e5417ab4bddc0f689540778fab0a8d2d95418",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "sd.look",
+      "resource": "Illustrations/slayer-swim-sd-look-candidate-v1",
+      "sha256": "7cb1795dffe2042178c86d9cbc69c98ab4065789eeb0d56744ed3c27364ff19f",
+      "size": [
+        1230,
+        1278
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "heroine.slayer.event.0",
+      "resource": "Illustrations/slayer-event-0-cg-candidate-v1",
+      "sha256": "a204e2d4de4fd391bdb0ce2cf8672225fc1f1a4df3cf379db3028bf1593e9fa4",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "heroine.slayer.event.1",
+      "resource": "Illustrations/slayer-event-1-cg-candidate-v1",
+      "sha256": "14ae1386b006cddc16c1deea87106a37a19bb84a0ad1c592fd614fc09d4f4375",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "heroine.slayer.event.2",
+      "resource": "Illustrations/slayer-event-2-cg-candidate-v1",
+      "sha256": "76b9df60f59d18bae1d23ac53e96dffff59407703d6338d04e15862d424187a3",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "heroine.slayer.event.3",
+      "resource": "Illustrations/slayer-event-3-cg-candidate-v1",
+      "sha256": "93243eeaf17ae1315a94f70c69fe68fe449a5c014061a4193780294ad07f395b",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "heroine.slayer.event.4",
+      "resource": "Illustrations/slayer-event-4-cg-candidate-v1",
+      "sha256": "af3c94d4d50819b5776063b2e2c63e12efaffd6817df975d2803771a43273015",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "heroine.iconoclast.event.0",
+      "resource": "Illustrations/iconoclast-event-0-cg-candidate-v1",
+      "sha256": "6a51f7f1a3476fca2c55f3b1901afe1f5ae800469a4960a7c505f128fa9062ea",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "heroine.iconoclast.event.1",
+      "resource": "Illustrations/iconoclast-event-1-cg-candidate-v1",
+      "sha256": "bc54876865d93e51997dcb9951b14367eaec5cb48f1b9f8d919e85641ca99dfe",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "heroine.iconoclast.event.2",
+      "resource": "Illustrations/iconoclast-event-2-cg-candidate-v1",
+      "sha256": "1e97dcaea3b818ec0179a8d0e1dea720b1306c358296865bdb67f3f33664947d",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "heroine.iconoclast.event.3",
+      "resource": "Illustrations/iconoclast-event-3-cg-candidate-v1",
+      "sha256": "37916e96dd5472e6315ee697c71c640259d558d1bdf9d7ccdc2631b46ed32890",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "heroine.iconoclast.event.4",
+      "resource": "Illustrations/iconoclast-event-4-cg-candidate-v1",
+      "sha256": "2641623d1512a1e09af9833d5a1fb60f4e2f8d9141bc07ada6d6e61467dc6b46",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "heroine.undermine.event.0",
+      "resource": "Illustrations/undermine-event-0-cg-candidate-v1",
+      "sha256": "086a8929a5ea8aed9f90a449317ba4085c4a78a4659cf7feb42a93d36cfa0a91",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "heroine.undermine.event.1",
+      "resource": "Illustrations/undermine-event-1-cg-candidate-v1",
+      "sha256": "6adc350116406855fc2bdd52a4c4d8d36c158a0509deeaea7b1a8e150b8ce3a1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "heroine.undermine.event.2",
+      "resource": "Illustrations/undermine-event-2-cg-candidate-v1",
+      "sha256": "ab1b043b6a141f0bf0aaa97a147545ca3eb41157bd618f963a3f338dd455c762",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "heroine.undermine.event.3",
+      "resource": "Illustrations/undermine-event-3-cg-candidate-v1",
+      "sha256": "97c48e5a73143114bc21cd5ed64c5f428afb3556769264cd32df8649f1afdf9f",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "heroine.undermine.event.4",
+      "resource": "Illustrations/undermine-event-4-cg-candidate-v1",
+      "sha256": "dffdf9c3ad27e3a9de3f0ebe5c4e0d8a2b5feb25aab6f27d1b40ed0176c1ffb5",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "heroine.echidna.event.0",
+      "resource": "Illustrations/echidna-event-0-cg-candidate-v1",
+      "sha256": "b921e9e9c69ba83182237707627ddcba06fa7897af15fa793ea7c3735fc8e79e",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "heroine.echidna.event.1",
+      "resource": "Illustrations/echidna-event-1-cg-candidate-v1",
+      "sha256": "9a4d74f78f8be8c839555a443c33d94ecd42f33ec67a0bff493c08625c5bd0f2",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "heroine.echidna.event.2",
+      "resource": "Illustrations/echidna-event-2-cg-candidate-v1",
+      "sha256": "af432ba39cebf70df8fcb3d713bbd6d6be4512eb145d25df4a0f027347a88cf1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "heroine.echidna.event.3",
+      "resource": "Illustrations/echidna-event-3-cg-candidate-v1",
+      "sha256": "aed759f3f61209dc48bc02faa5d434c38da42de98b97799baed8b5c12985596c",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "heroine.echidna.event.4",
+      "resource": "Illustrations/echidna-event-4-cg-candidate-v1",
+      "sha256": "d5b2ce175fa0490511410e52e1c46256ea220d79b00a9d4307b09193cdf4e0d0",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "heroine.excalipan.event.0",
+      "resource": "Illustrations/excalipan-event-0-cg-candidate-v1",
+      "sha256": "cf2abf53c1ac03907840a1ff8f3ca99d638b4571f94520f2001141bc2a9d2843",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "heroine.excalipan.event.1",
+      "resource": "Illustrations/excalipan-event-1-cg-candidate-v1",
+      "sha256": "75ed7ca7f984dbc5365df099647ba2ce734e316629ebf5853a5f1fc7d6f22410",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "heroine.excalipan.event.2",
+      "resource": "Illustrations/excalipan-event-2-cg-candidate-v1",
+      "sha256": "7cff75d46da7969580e07153d3fda6581b44101af52ed22ceadbcfda304a401e",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "heroine.excalipan.event.3",
+      "resource": "Illustrations/excalipan-event-3-cg-candidate-v1",
+      "sha256": "1d0dbf590626d19cfafec63387a0a065b0c0fe42c7386a70fbcb9f87730526ae",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "heroine.excalipan.event.4",
+      "resource": "Illustrations/excalipan-event-4-cg-candidate-v1",
+      "sha256": "d7c5ed2d554525687d43bc7e4e1ec69c8dae4543797179f962c42564953d0485",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "heroine.r.event.0",
+      "resource": "Illustrations/r-event-0-cg-candidate-v1",
+      "sha256": "bc6c225faaff613fd1bb76e52e999975b5bafd4c40f92eca395d319e29220ff0",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "heroine.r.event.1",
+      "resource": "Illustrations/r-event-1-cg-candidate-v1",
+      "sha256": "edbcdcaa3fce15a10abf7266642394012256a6b220a13282231cb036e2286727",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "heroine.r.event.2",
+      "resource": "Illustrations/r-event-2-cg-candidate-v1",
+      "sha256": "8b6c4958b3cbf47146af64d2fb7878d1a4e535371538533c4699104e931011d8",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "heroine.r.event.3",
+      "resource": "Illustrations/r-event-3-cg-candidate-v1",
+      "sha256": "b8c25aa222024dd2a10935eb81d42119d10d7e5a55efca30428bff5c335fe667",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "heroine.r.event.4",
+      "resource": "Illustrations/r-event-4-cg-candidate-v1",
+      "sha256": "57525f4dd31cbc43e16c7c7f378ab2a329a914ccd39243ad9f23a55316188f10",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "heroine.annihilator.event.0",
+      "resource": "Illustrations/annihilator-event-0-cg-candidate-v1",
+      "sha256": "b31a6a4397cb54f169acd24169e442edae9ad75ce06c87780e4deb2fc46c97e0",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "heroine.annihilator.event.1",
+      "resource": "Illustrations/annihilator-event-1-cg-candidate-v1",
+      "sha256": "15dc79a93aa5b8d277012e776bf74f43c3bb6e94825e7dfc666d2ce6f7552c74",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "heroine.annihilator.event.2",
+      "resource": "Illustrations/annihilator-event-2-cg-candidate-v1",
+      "sha256": "b247101ac436b5aa122f2d1ca975cd22d5dc0fda58a2f2fec0a50cd1f3c87e84",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "heroine.annihilator.event.3",
+      "resource": "Illustrations/annihilator-event-3-cg-candidate-v1",
+      "sha256": "26debced5e7c5d157f8a147e5000ef144a77f8eaec6f112a582dba68b225c970",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "heroine.annihilator.event.4",
+      "resource": "Illustrations/annihilator-event-4-cg-candidate-v1",
+      "sha256": "3b31447f0cb75f1fd292d0dff3796776a4e9ae35ada536156f612e0070213451",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "heroine.annihilator-holy.event.0",
+      "resource": "Illustrations/annihilator-holy-event-0-cg-candidate-v1",
+      "sha256": "cbe9f2a9ee61fe7f5bcc32bf3b2fcdf49b128e24a9587d8f367a91b6dd4030e1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "heroine.annihilator-holy.event.1",
+      "resource": "Illustrations/annihilator-holy-event-1-cg-candidate-v1",
+      "sha256": "5a6bb8577329153ee1f14b3c61ec7b615d7ebb7d06ed8ec7e71b57e3afcbc334",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "heroine.annihilator-holy.event.2",
+      "resource": "Illustrations/annihilator-holy-event-2-cg-candidate-v1",
+      "sha256": "1d157b97103850a6cb570cabec50f1a1861a8b690e9c04eb0e9c3b305180f0d7",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "heroine.annihilator-holy.event.3",
+      "resource": "Illustrations/annihilator-holy-event-3-cg-candidate-v1",
+      "sha256": "8e248eab1e91262bbb96b55b8c0c7647ece58486db7e51bb2b33e5fab53a6a76",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "heroine.annihilator-holy.event.4",
+      "resource": "Illustrations/annihilator-holy-event-4-cg-candidate-v1",
+      "sha256": "f0439fc6234a0f7886b696242e9828c1a0cf22519ace6f50de61f7729eed6511",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "heroine.arcane.event.0",
+      "resource": "Illustrations/arcane-event-0-cg-candidate-v1",
+      "sha256": "050fcd64aa705b6e3b88c4abecf68ace7159e8679b7af71b4969c5efc61843a1",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "heroine.arcane.event.1",
+      "resource": "Illustrations/arcane-event-1-cg-candidate-v1",
+      "sha256": "c8181987eae8ead2f96b05712fdaf7646caf75e6598a45569abc0c72a301d4a7",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "heroine.arcane.event.2",
+      "resource": "Illustrations/arcane-event-2-cg-candidate-v1",
+      "sha256": "3e67122d232f3e586a3bb25dfd33e45a62bc9835d36c9521e058c3c94ca41f69",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "heroine.arcane.event.3",
+      "resource": "Illustrations/arcane-event-3-cg-candidate-v1",
+      "sha256": "46f9657fbc627f41e95e0f5171480de7f335e5c1dccbba4c61c0d3f7082c6ea4",
+      "size": [
+        1673,
+        940
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "heroine.arcane.event.4",
+      "resource": "Illustrations/arcane-event-4-cg-candidate-v1",
+      "sha256": "eba3211f52ea080fb9186f0a54354807909719f02c78a8588ed4da93b14d164e",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "heroine.arcane-academy.event.0",
+      "resource": "Illustrations/arcane-academy-event-0-cg-candidate-v1",
+      "sha256": "76d56ababd09b332883c1c6197e9d57d8da9bfdac1169283ded9f5fd73afafa4",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "heroine.arcane-academy.event.1",
+      "resource": "Illustrations/arcane-academy-event-1-cg-candidate-v1",
+      "sha256": "4ba6e874ff496a60e0d38d0570688ef7cbf79bf108c3be035ad3535e355aa0ac",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "heroine.arcane-academy.event.2",
+      "resource": "Illustrations/arcane-academy-event-2-cg-candidate-v1",
+      "sha256": "50c0b1e9d69315eef14d3726a70e7e0b37b371b471815ffda79f1319836314b5",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "heroine.arcane-academy.event.3",
+      "resource": "Illustrations/arcane-academy-event-3-cg-candidate-v1",
+      "sha256": "863ed4b245f0366f8924e9a70f5b4fc5852ba24336fb348e4685386eb046ab02",
+      "size": [
+        1671,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "heroine.arcane-academy.event.4",
+      "resource": "Illustrations/arcane-academy-event-4-cg-candidate-v1",
+      "sha256": "9c824d70b83decd28d87c4dcb3102d2bad37ab5cfd4d82e2c46c797a4ae868a2",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "heroine.nighthawk.event.0",
+      "resource": "Illustrations/nighthawk-event-0-cg-candidate-v1",
+      "sha256": "fdced40edf6c7198d80adfb0c8b995fc8a725c30248b8a6bb550728a1113ffe5",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "heroine.nighthawk.event.1",
+      "resource": "Illustrations/nighthawk-event-1-cg-candidate-v1",
+      "sha256": "a01d341ecf4cf1ce2c0b9168946a7f4e7320f5c2c374e44b96491703d5292d00",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "heroine.nighthawk.event.2",
+      "resource": "Illustrations/nighthawk-event-2-cg-candidate-v1",
+      "sha256": "651886364d9247420ab56fab3f73905a0122845e2bb4612d76f8344ba35c26ef",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "heroine.nighthawk.event.3",
+      "resource": "Illustrations/nighthawk-event-3-cg-candidate-v1",
+      "sha256": "f2d93ab59c23837378eb2822100089ab45162eb5643d601a0bba4b9e9b7f2a75",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "heroine.nighthawk.event.4",
+      "resource": "Illustrations/nighthawk-event-4-cg-candidate-v1",
+      "sha256": "8fb328ecef9b84af88964670c22b03b21ab984886cbe1e37a8962668ab3ec1f7",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "heroine.oriflamme.event.0",
+      "resource": "Illustrations/oriflamme-event-0-cg-candidate-v1",
+      "sha256": "a3242b241446733b292ded54f90e90c7fb115991e57a0b6746c9f37c0861a31e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "heroine.oriflamme.event.1",
+      "resource": "Illustrations/oriflamme-event-1-cg-candidate-v1",
+      "sha256": "9343e6b3020023621645c25714144b3b47c38d57249a6ef869439fa45bb3d6f8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "heroine.oriflamme.event.2",
+      "resource": "Illustrations/oriflamme-event-2-cg-candidate-v1",
+      "sha256": "68216d9ed0e3a85d19034de84138e9c17034f082ff66e3427d292f2ffe9d0833",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "heroine.oriflamme.event.3",
+      "resource": "Illustrations/oriflamme-event-3-cg-candidate-v1",
+      "sha256": "053f61e8bc557f72bf064268add16bbd7789d9b3c26f5d9f0fc47e299e063b6e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "heroine.oriflamme.event.4",
+      "resource": "Illustrations/oriflamme-event-4-cg-candidate-v1",
+      "sha256": "a5713c28347e90641c0df293eee1f0bc25eb0b2aafc5751b39bd5c3b8da7b1bf",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "heroine.shangrila.event.0",
+      "resource": "Illustrations/shangrila-event-0-cg-candidate-v1",
+      "sha256": "57078af090818da5650f7558f9d17b21e02ffa3e426afa5083a0a0a27339e41d",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "heroine.shangrila.event.1",
+      "resource": "Illustrations/shangrila-event-1-cg-candidate-v1",
+      "sha256": "ed2ed800c712955153fbc79806313c4fc39421aba45cbc66f1852d8ddea34a3c",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "heroine.shangrila.event.2",
+      "resource": "Illustrations/shangrila-event-2-cg-candidate-v1",
+      "sha256": "cf6c32700b9d38d06392d6ea731b6d2ae3d18c81682d91d96dad9a5f1775dee8",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "heroine.shangrila.event.3",
+      "resource": "Illustrations/shangrila-event-3-cg-candidate-v1",
+      "sha256": "25634bf0ef2947b2be1296902de53f37591c877f5db86e149ea78be734107d58",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "heroine.shangrila.event.4",
+      "resource": "Illustrations/shangrila-event-4-cg-candidate-v1",
+      "sha256": "6321c92810b775d83cae6fc6a27c0cb76a0490c8901b5b85faace3a9582cbf2a",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "heroine.shell.event.0",
+      "resource": "Illustrations/shell-event-0-cg-candidate-v1",
+      "sha256": "53defbc483069fdb1099d470c0d9c130a19f90982d0c70c51dc8e4b375e25a7d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "heroine.shell.event.1",
+      "resource": "Illustrations/shell-event-1-cg-candidate-v1",
+      "sha256": "0eaf3ae7ac6d278a1d09758d17ca5c831d606bc6aadb4c8e64c953589ba870fa",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "heroine.shell.event.2",
+      "resource": "Illustrations/shell-event-2-cg-candidate-v1",
+      "sha256": "dd34d41c847f0991ed3722c1b2365bcc1a6571f673accf5d4ac4fc44cb79175a",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "heroine.shell.event.3",
+      "resource": "Illustrations/shell-event-3-cg-candidate-v1",
+      "sha256": "e39fbc38fbf50df8683ba0dd183952b7d4fa4bee52f75ee4971cb3406c2a98db",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "heroine.shell.event.4",
+      "resource": "Illustrations/shell-event-4-cg-candidate-v1",
+      "sha256": "58f645d5c648e40b80853ada378543f2ce31621c4f91ff3097f33ddb477c42a7",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "heroine.slayer-swim.event.0",
+      "resource": "Illustrations/slayer-swim-event-0-cg-candidate-v1",
+      "sha256": "e7b4a1d747c957546f6442af8d9a4541cfb29502a9cc6fa270507fdf63fb7602",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "heroine.slayer-swim.event.1",
+      "resource": "Illustrations/slayer-swim-event-1-cg-candidate-v1",
+      "sha256": "16e611a8c01b3ed6f8a626d6b475fc8a3880a991c62ba7b22a65aa73e619a150",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "heroine.slayer-swim.event.2",
+      "resource": "Illustrations/slayer-swim-event-2-cg-candidate-v1",
+      "sha256": "a23e4a0d19f4a076d06cbe3b353cabbf988469c8513800fc4bc6b0c7097bcfa3",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "heroine.slayer-swim.event.3",
+      "resource": "Illustrations/slayer-swim-event-3-cg-candidate-v1",
+      "sha256": "fb690bceada7949eb8df3aa9ba9ba7a8c7dc590a6299c100b5285ffef80f5780",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "heroine.slayer-swim.event.4",
+      "resource": "Illustrations/slayer-swim-event-4-cg-candidate-v1",
+      "sha256": "52228568b6ac26d0c59eb449d1b291acffa084078cea007a961db14cc351835b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-slayer-v1",
+      "sha256": "4cefcb6b5651f7d1f8cbd63522db181e5aa490cc51bf5e1fe96b9fa1c5bc223f",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-annihilator-holy-v1",
+      "sha256": "c61b8add0dd9af0696fc8285fa219bde2d2bf71452385fb6aceb8a2b6da3e68d",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-annihilator-v1",
+      "sha256": "55ed07021e94e49c485a169ec37be6f0681629538cd0c2cfe1aadf728adf3133",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-arcane-academy-v1",
+      "sha256": "591019a98de898567bc776f059ff74b7bbdd8f7e0c47f36c8ec6ff60d74c7738",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-arcane-v1",
+      "sha256": "15383e001b1e51c707b926c84f75760a03603a749c6599c0498253f975a4181c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-echidna-v1",
+      "sha256": "758c88db33ff10934e9f81e3b07f5f672338b7d40c53e9ed244b0aff0548c36e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-excalipan-v1",
+      "sha256": "4c5049089ddee132b235f30b255b9b5089148d1bb383f8b0e01f1cc90ada494e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-iconoclast-v1",
+      "sha256": "d755eb41144175260e03b19b6fb2117791632ddbfc3251fa9337fab115daddd8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-nighthawk-v1",
+      "sha256": "7e85ff8b39436af949052b73479faa729aee36bf31b937629886c72f4c93086e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-oriflamme-v1",
+      "sha256": "71202590e5025c6e09738a916178463778c94f944ff174d3b8ed1b97ac3c8139",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-r-v1",
+      "sha256": "b0a5cb8bcb13cb3a2ff34734fdb776322c4e2f551ed0659e221b6f1ce54f166b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-shangrila-v1",
+      "sha256": "800217f322cc32a834c34818a32b9e572367290b27891ec325949707863557fe",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-shell-v1",
+      "sha256": "dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-slayer-swim-v1",
+      "sha256": "ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "weapon-tree",
+      "resource": "Illustrations/heroine-weapon-tree-undermine-v1",
+      "sha256": "d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-annihilator-holy-v2",
+      "sha256": "ad4e7c197321fc9edf1f9f1233352332cf3853524e12c1a1b1495caaf378a146",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-annihilator-v2",
+      "sha256": "9980d0a6bb0fdc9c9ca9494ab889fc64e508bd760e6d91bff61b389d237352b9",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-arcane-academy-v2",
+      "sha256": "05f27b318faf194b64eb5570651e59101d87ddba8e9baa5c7eff5a9017d03047",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-arcane-v2",
+      "sha256": "9292327eea8e57cf4d30d53b87c60597dd9e0d676c609dbcdb9cd54d86ca7771",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "portrait",
+      "resource": "Illustrations/echidna-portrait-candidate-v1",
+      "sha256": "0e4bf905b73e71240b59666ae4483ac6218440092dc9f13ff1c166fe90244464",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "portrait",
+      "resource": "Illustrations/excalipan-portrait-candidate-v1",
+      "sha256": "53da7a669234ee6b591bb5ab3c48073a65a8ea11c20e90a5354bcf87481801d6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "portrait",
+      "resource": "Illustrations/iconoclast-portrait-candidate-v1",
+      "sha256": "efb9f6e49c191881e1da7de0bebb83cd22949986f661edae3cfaeb6f7df2a221",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-nighthawk-v2",
+      "sha256": "9753e65bf9c519089ee81009c121e05f32c5212449bcf7c2feea6590faff7dab",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-oriflamme-v2",
+      "sha256": "fb60763144c9ba1bc28760de6dc48cf8f94af505cabc7a3712f65110a85c80db",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-r-v2",
+      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-shangrila-v2",
+      "sha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-shell-v2",
+      "sha256": "06e80742989d2433c93f722e7c8fdac23e92df19363f8e77b543c13292da1641",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "portrait",
+      "resource": "Illustrations/slayer-portrait-candidate-v1",
+      "sha256": "c9a478c61e0cc1369330208d85e1e3940be2a7ab314d2986599331c736132d0c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "portrait",
+      "resource": "Illustrations/heroine-portrait-slayer-swim-v2",
+      "sha256": "680ce24d5318acfb14a712b9f0a6c0f2fe54ac9c7a3c2e47bdf2e8122cbfae4f",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "portrait",
+      "resource": "Illustrations/undermine-portrait-candidate-v1",
+      "sha256": "17f03b01feda22a6169507233a1caef55d5c9fd0431d82c221f709d131273ea9",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "attack",
+      "resource": "Illustrations/slayer-attack-candidate-v1",
+      "sha256": "74a28016733166f07f30cfb75c1933b94ef62dfb7e747c363291077450214ab7",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "hit",
+      "resource": "Illustrations/slayer-hit-candidate-v1",
+      "sha256": "40ba73f690ef7d94bda811699aa6907900b2225eb67ab96845bcb3a11361f0c4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "role": "cutin",
+      "resource": "Illustrations/slayer-cutin-candidate-v3",
+      "sha256": "2a7bf6bde5e55348a47163b78592e53f8e790b9626080dc24ed92e4fe4084dbf",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "attack",
+      "resource": "Illustrations/iconoclast-attack-candidate-v1",
+      "sha256": "1c372a3add057603dcd1032646f7dde4c1890a5243ed1eb544f72b73e0d95bbb",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "hit",
+      "resource": "Illustrations/iconoclast-hit-candidate-v1",
+      "sha256": "62617515ff4c65d8eed321f87b3d6ef7f2f7b3ad56e1134406ff598dcf5d56b8",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "role": "cutin",
+      "resource": "Illustrations/iconoclast-cutin-candidate-v1",
+      "sha256": "64407717d5cd0897c61cd3a6574309c15884dbcaa05155a82c99369e92517b85",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "attack",
+      "resource": "Illustrations/undermine-attack-candidate-v1",
+      "sha256": "827da44ab34a2262e960a4d4736ef7b42a5135ff63709db04c9c8607c548bb00",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "hit",
+      "resource": "Illustrations/undermine-hit-candidate-v1",
+      "sha256": "a139ac3234a0f5e9bf98967a42ad03230668e8d6e76fda9ce050b118fc0130a4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "role": "cutin",
+      "resource": "Illustrations/undermine-cutin-candidate-v1",
+      "sha256": "c0c913e10af0b3e2b5878367e9e675310b941e1b621819a9e4c3d259e7b5197c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "attack",
+      "resource": "Illustrations/echidna-attack-candidate-v1",
+      "sha256": "fb60cebab61e9ecb8022a9dd88cd584ebc3a4b4869b05b3c315983a9f6373391",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "hit",
+      "resource": "Illustrations/echidna-hit-candidate-v1",
+      "sha256": "16417a5f61c9bddaa99d749474d6d4d6f38faf71d8f8bb24ac4efe16535309b9",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "role": "cutin",
+      "resource": "Illustrations/echidna-cutin-candidate-v1",
+      "sha256": "c8517c9ce8804775f4eab9bd1f3a5dc03229581207b0f3471c76138b6bf23567",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "attack",
+      "resource": "Illustrations/excalipan-attack-candidate-v1",
+      "sha256": "f89d783a8af5f75ff64e758485a93d0429944cd62811704793df8361fcf787fd",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "hit",
+      "resource": "Illustrations/excalipan-hit-candidate-v1",
+      "sha256": "167b40198e09d5d37feae50fa863f66dd56b7415cf83a41ec040f19e564892af",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "role": "cutin",
+      "resource": "Illustrations/excalipan-cutin-candidate-v1",
+      "sha256": "43cf4bc985cf99b7b19664ccdb4663edcef6715b9334c3918eb93596db1701c1",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "attack",
+      "resource": "Illustrations/r-attack-candidate-v1",
+      "sha256": "0ef2ba7da84b47b84440bf16046ba4f8715387595cdbbb4c6f962eba2a021776",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "hit",
+      "resource": "Illustrations/r-hit-candidate-v1",
+      "sha256": "fa7040d47e1ea74436afef35b3d0fee0d28019bce881f54996af5e9cc303b566",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.r",
+      "role": "cutin",
+      "resource": "Illustrations/r-cutin-candidate-v1",
+      "sha256": "8b36b9f363dc114ea419a4f98bc80a0c9a8f23df261ff7dae3ffc81e30fdac54",
+      "size": [
+        1145,
+        1374
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "attack",
+      "resource": "Illustrations/annihilator-attack-candidate-v1",
+      "sha256": "96b9e1b1b68eef86e96f7f91cea1dd1e7c3d73c0c2c655de05ac9e536a08881f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "hit",
+      "resource": "Illustrations/annihilator-hit-candidate-v1",
+      "sha256": "da75455509907ab7c764d4d30aac326d7a8aa9ab49e3e5b055d8f3917e10d3ed",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "role": "cutin",
+      "resource": "Illustrations/annihilator-cutin-candidate-v1",
+      "sha256": "bdbdcc38337de6ae8d6f1a4626257fe363d86553c0d59aad9e50ad0503796b44",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "attack",
+      "resource": "Illustrations/annihilator-holy-attack-candidate-v1",
+      "sha256": "afeff36fec0a7f183f9e1374e6ae8efc03fb44c6f8d4c99843802ab5b5085a3c",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "hit",
+      "resource": "Illustrations/annihilator-holy-hit-candidate-v1",
+      "sha256": "45f837899298da5a0fdfea8c41bb3aa443767126ecf928d7c61fea4baeb0a563",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "role": "cutin",
+      "resource": "Illustrations/annihilator-holy-cutin-candidate-v1",
+      "sha256": "ded748d5b48c13deaab194c6e920940930aefbe77b7ad2d8ae9ec068caa47735",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "attack",
+      "resource": "Illustrations/arcane-attack-candidate-v1",
+      "sha256": "b7fc320a9ba670b6a2f9bbfe7ed293dbdfcdc5c2b27f429b9236e6c26ab232e6",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "hit",
+      "resource": "Illustrations/arcane-hit-candidate-v1",
+      "sha256": "a838755e80cc59afb914cd05aac349c8f0827f563d40ca6e09a485c50c3f7346",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "role": "cutin",
+      "resource": "Illustrations/arcane-cutin-candidate-v1",
+      "sha256": "6951a664d9530cc79dce1597529190251e10942551c4c21cca3c348ce7ee628f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "attack",
+      "resource": "Illustrations/arcane-academy-attack-candidate-v1",
+      "sha256": "3fb08f1061972406fdccebcc77d93ea236215e9c83de43b943712349d3c30e88",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "hit",
+      "resource": "Illustrations/arcane-academy-hit-candidate-v1",
+      "sha256": "a6b9184aaca3dba85a95c857fa0680c4347265f53b6803088c91609b71ba089e",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "role": "cutin",
+      "resource": "Illustrations/arcane-academy-cutin-candidate-v1",
+      "sha256": "0082799a49ad1477268cfea8d84db6112b1616d1f12c72236a1dffaf325c6a98",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "attack",
+      "resource": "Illustrations/nighthawk-attack-candidate-v1",
+      "sha256": "5f3af068eca75e367a0bc14996d7474c798d46b094d482675f4ab168df0af6e0",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "hit",
+      "resource": "Illustrations/nighthawk-hit-candidate-v1",
+      "sha256": "8de8f5fb8e8e24695caeb9ecf0bb154f7c72a83193e49849fc8bf948174970a4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "role": "cutin",
+      "resource": "Illustrations/nighthawk-cutin-candidate-v1",
+      "sha256": "9bfea92677684bd9a87bbbc5949d301461e6d03df1bb13d079d27f418f8e47b4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "attack",
+      "resource": "Illustrations/oriflamme-attack-candidate-v1",
+      "sha256": "39aaa91019b5dd41692f9392dcbf4a8faf9ec83552227b8b5265cd7ebd9e0b00",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "hit",
+      "resource": "Illustrations/oriflamme-hit-candidate-v1",
+      "sha256": "44205a8ebccefe40ec4a2366c94d23d3deaae16a86ed8574ee541cd048ec2824",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "role": "cutin",
+      "resource": "Illustrations/oriflamme-cutin-candidate-v1",
+      "sha256": "db0bdbd3b684836339d1bf5a9bf8a3e1a911139871475f3b716d18d84c2a96ef",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "attack",
+      "resource": "Illustrations/shangrila-attack-candidate-v1",
+      "sha256": "bfea609f8dca917618c3d39c69e3b3a84dad4ba8294e762b3834ee51b81ad364",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "hit",
+      "resource": "Illustrations/shangrila-hit-candidate-v1",
+      "sha256": "2f15c23302f59845bdfe9d598aeee0ec06dc610cfb873fabf2d13a8933dd7dab",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "role": "cutin",
+      "resource": "Illustrations/shangrila-cutin-candidate-v1",
+      "sha256": "624192aca8d2ee0313415f6285f5a032aa8874615060a0dcc7e09e90e033e04f",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "attack",
+      "resource": "Illustrations/shell-attack-candidate-v1",
+      "sha256": "8545afd1ef314d5b0359337e7e267c34e5796001c1ad7e64a279770647ee12dc",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "hit",
+      "resource": "Illustrations/shell-hit-candidate-v1",
+      "sha256": "51898c343410b39668ca9fb3ec62f089c4de125dda2e23cd8cf9ba9942b651af",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "role": "cutin",
+      "resource": "Illustrations/shell-cutin-candidate-v1",
+      "sha256": "63ff38d2a4f8f0a9c2a1fef301525d6d528d5e668f31ba37a99ed6bdd59d4bf6",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "attack",
+      "resource": "Illustrations/slayer-swim-attack-candidate-v1",
+      "sha256": "dc7245d78fdc512d3da3f9fe0efae2a7ecdbdf3ffa190bc64194d78326ddf16a",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "hit",
+      "resource": "Illustrations/slayer-swim-hit-candidate-v1",
+      "sha256": "adf832e459b514535299b863b553cd0f19f0e326ac1da504ffa36b2c6aceace4",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "role": "cutin",
+      "resource": "Illustrations/slayer-swim-cutin-candidate-v1",
+      "sha256": "a24adc8c2fe39b3ffa450d1e1ac0428da9a81098d1d59b29adb5eef90b0fb851",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "sdIdleFallbacks": [],
+  "scope": "display/expressions, all seven garden SD poses and three battle poses, event CGs and weapon trees; visual quality and battle motion are separate"
+}

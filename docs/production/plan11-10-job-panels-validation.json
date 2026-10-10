@@ -1,0 +1,429 @@
+{
+  "date": "2026-10-10",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "allJobsComplete": true,
+  "jobCount": 13,
+  "uniqueSceneCount": 27,
+  "operationCommands": 68,
+  "operationChecks": 227,
+  "coreRegressionAssertions": 11849,
+  "unitySourcesCompiled": 260,
+  "playerAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5",
+  "playerPath": "game/Builds/plan12-preparation/newASTER.exe",
+  "buildLog": "tmp/job-panel-validation/build-corrected.log",
+  "sources": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/BattleJobControls.cs",
+      "sha256": "23c894fbad40d90ff76801ffb0cb3133d1ff4f10c7bffb2690747c068c5406bb"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/BattleMenuExperience.cs",
+      "sha256": "ed6f3b6b7ba659734e52174e6798d41a0b095160af77a00663513cbca51b8943"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10AlchemyExperience.cs",
+      "sha256": "526048bfd9fcc7c26560aa7ad97e5678c8160a28f50103c3bede294469bb446a"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10ChaserExperience.cs",
+      "sha256": "3b6115836cc5ae86ea9bd16c40278a74cc59a35c0c58106961317a5c16381fa0"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10ShellExperience.cs",
+      "sha256": "1513e789b4a1f316e4a43f35f658b3b314b6763c3f6592f743e40d5fdf5722bd"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan10UiAuditAcceptance.cs",
+      "sha256": "9b2b6e8a2aa0d9a3726995f0be0da2235bda9f1f76cb25e4af7a3f5cfb7a20a7"
+    }
+  ],
+  "jobs": [
+    {
+      "job": "job.fighter",
+      "commands": 7,
+      "checks": 24,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.berserker",
+      "commands": 2,
+      "checks": 7,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.defender",
+      "commands": 2,
+      "checks": 7,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.blaster",
+      "commands": 8,
+      "checks": 25,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.gunner",
+      "commands": 6,
+      "checks": 19,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.artist",
+      "commands": 4,
+      "checks": 15,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.healer",
+      "commands": 8,
+      "checks": 26,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.panzer",
+      "commands": 4,
+      "checks": 13,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.alchemist",
+      "commands": 15,
+      "checks": 46,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.chaser",
+      "commands": 7,
+      "checks": 27,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.sniper",
+      "commands": 2,
+      "checks": 7,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.gambler",
+      "commands": 1,
+      "checks": 4,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    },
+    {
+      "job": "job.general",
+      "commands": 2,
+      "checks": 7,
+      "operations": "pass",
+      "display": "complete",
+      "physicalInput": 0
+    }
+  ],
+  "scenes": [
+    {
+      "view": "job-fighter",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-fighter.png",
+      "imageSha256": "40A04FDF315CBB07B5EF9E3763B089609EB5BDA9497068B679653D976A4E54E5",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-berserker",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-berserker.png",
+      "imageSha256": "92FD244EA4697FBFC5292EB3CFD4D3C2208D0D8BEAE1F5594C1E8BA502F2D000",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-defender",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-defender.png",
+      "imageSha256": "8EEADDBA280BEEF560A9DCD8E6B760407C25FCDC28CA9E3B8BE228F9E4D10F1E",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-blaster",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-blaster.png",
+      "imageSha256": "1E02C7BE0E93C4DBB676B3D6841D3C3BCF8ACF446A7BF2C38265887C7B11D5B3",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-gunner",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-gunner.png",
+      "imageSha256": "53EE4358FA09DCD8587C092B0C057D3BC8751599C43DE77F50127FE680706501",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-artist",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-artist.png",
+      "imageSha256": "F6BBB7CCCB74D794905C55264C0FCE0B757D95653C4B2CBA3D5668A312EB99E0",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-healer",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-healer.png",
+      "imageSha256": "25F11D92D6D566909D631748F503C1A871479AEE83CFE01C1B0701B149E2F116",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-panzer",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-panzer.png",
+      "imageSha256": "FFE9AF1D41A697A93C3BEA448D947DBBCEA0165CBC6D0D433F70A9BB67AAECC9",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "view": "job-alchemist",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-alchemist.png",
+      "imageSha256": "6C676166B608FE6D9A58312EC280A75205B55B9A370DF4B1E6CFBEBEC593FA8E",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "imageSha256": "4FC39C720565E8FE9442DAD36828E76114A3F12E9EFEFD38EE15E4158DCB2321",
+      "physicalInput": 0,
+      "view": "job-chaser",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-chaser.png",
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "view": "job-sniper",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-sniper.png",
+      "imageSha256": "7F033F7461C56504FD164F5AEC4B3E5654C3564EE5E8B8FDAF95187390180C17",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "imageSha256": "60F0857CABBFA5F77DC7584681E7E2CCA2D99049D9AA35C4226C766E2CAD06FF",
+      "physicalInput": 0,
+      "view": "job-gambler",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-gambler.png",
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "view": "job-general",
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-general.png",
+      "imageSha256": "81CDD22AB141ECBDDE95E607136B2A7E4F7234A1946395E4941D5098CD8EA790",
+      "physicalInput": 0,
+      "passed": true,
+      "visualReview": "complete",
+      "operationProbe": true,
+      "capturedAssemblySha256": "6A5A6A6EAB371C162A2DD0D05DA49685A32FCC60D69569D65F832FF403E84A67"
+    },
+    {
+      "imageSha256": "03915F25DB82F08CFBD57841976A39ADB6414FF2D7A64F06076E2F1903A0B3E8",
+      "physicalInput": 0,
+      "view": "job-gambler-result",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-gambler-result.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "B89130C5CEC8119183F832F7553C05D8FCC3D9C5DF8230148DA4E9F94E52EA68",
+      "physicalInput": 0,
+      "view": "job-artist-singing",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-artist-singing.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "E7CFE9031C0AA8A93ED45CD9B169D71E469FD468D4FE9591E17C2B3033E9B7EA",
+      "physicalInput": 0,
+      "view": "job-panzer-broken",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-panzer-broken.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "93E1BF224056EDEE46E6EE004FE9D83BBC12E34985FCE0F746E4EB30843FBC48",
+      "physicalInput": 0,
+      "view": "job-gunner-empty",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-gunner-empty.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "B05A07301D5C25667AEF8FCA83A4CB619D99C870EC915164FB19073AB1D4ED84",
+      "physicalInput": 0,
+      "view": "job-healer-revive",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-healer-revive.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "EDB6E86B4D4B18B784F79AE805E674295DE566A4073531372EA7FE669F658CC8",
+      "physicalInput": 0,
+      "view": "job-alchemist-mix",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-alchemist-mix.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "9F8E5541D0B430029211693D2ADC1DB731E0F0DC332642D00E6B61C62F6E0C79",
+      "physicalInput": 0,
+      "view": "job-blaster-low",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-blaster-low.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "F63F7AF230550A2553DC59D3848139DCD6D105CDE25B318BB194DB6A3072BBFB",
+      "physicalInput": 0,
+      "view": "job-chaser-low",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-chaser-low.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "B0B493D0B86892CE805E0DD699B56B4054A7E5EC0EBF45C14FEB40B82047E284",
+      "physicalInput": 0,
+      "view": "job-general-low",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-general-low.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "DF2D261B9C60496C820B4F7D55101B79F2234F4553786FC788E824DD0E5D8C69",
+      "physicalInput": 0,
+      "view": "job-healer-low",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\job-healer-low.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "D9BD6AB00D49F81DAEAED44A6344FA8B372B170081C93BAC53DE50291DAFAFDC",
+      "physicalInput": 0,
+      "view": "battle-menu-actions",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\battle-menu-actions.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "5AB62852B891EC682D2E50E9FBBE0D05CEB939203E69164B6D39F2678F86BE67",
+      "physicalInput": 0,
+      "view": "battle-menu-playing",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\battle-menu-playing.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "F4A5257498B9095B15D75B9FF0871EBA8661A12EC2D366F9317123F060BB641E",
+      "physicalInput": 0,
+      "view": "battle-menu-healing",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\battle-menu-healing.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    },
+    {
+      "imageSha256": "99BE31EBE5ED4C1E00BBF68636FF243A70986AD6CD464A178B1A133D62018F2A",
+      "physicalInput": 0,
+      "view": "battle-menu-help",
+      "passed": true,
+      "image": "D:\\AIGAME\\newASTER\\tmp\\job-panel-validation\\battle-menu-help.png",
+      "visualReview": "complete",
+      "operationProbe": false,
+      "capturedAssemblySha256": "1B8F51DB8D5DF054FC102A51CF29A3AEAB7C317E8D0C9E9625CEDD8A0D792DD5"
+    }
+  ],
+  "verificationMethod": "Isolated production Player fixtures; JobCommand probes invoke the production branch callbacks and enable predicates. Automatic probes, not physical mouse/keyboard input. Visual review of actual 1920x1080 framebuffer captures.",
+  "reviewReuse": "11 unchanged job branches retain their completed review from the first build. Only corrected Chaser resource-cost placement and Gambler result-grid placement were rechecked after correction; state-specific and shared-menu cases ran on the final build.",
+  "balanceChanged": false,
+  "masteryChanged": false,
+  "knownLimitations": [
+    "Selected diagnostic fixtures do not exhaust every combination of buffs, mastery ranks or combat history.",
+    "Legacy validate-unity-core.ps1 could not compile its extracted harness because LegacyBattle is missing; the maintained validate-automatic-chain.ps1 passed 11849 assertions."
+  ]
+}

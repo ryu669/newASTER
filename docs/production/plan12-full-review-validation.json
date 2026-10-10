@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-10",
+  "productionAcceptance": "passed",
+  "people": 12,
+  "forms": 15,
+  "jobs": 13,
+  "resolution": {
+    "policy": "default_launch_only",
+    "observed": [
+      1280,
+      720
+    ],
+    "configured": [
+      1920,
+      1080
+    ],
+    "forcedResolutionArguments": false
+  },
+  "checks": {
+    "build": "passed",
+    "compileSourceFiles": 260,
+    "regressionAssertions": 12513,
+    "sourceImportAspectImages": 286,
+    "sourceImportAspect": "passed",
+    "runtimeReferences": 330,
+    "uniqueReferencedImages": 315,
+    "registeredImageHashes": "passed",
+    "normalScreens": 240,
+    "galleryScreens": 75,
+    "nonBlackCaptureChecks": "passed",
+    "gallerySourceFit": "passed",
+    "maxGalleryMeanPixelError": 1.9550600137174212,
+    "galleryAdvanceTimerGuard": "passed_in_isolated_fixture",
+    "galleryEscapeSameLine": "passed_in_isolated_fixture",
+    "physicalInput": false,
+    "missingDedicatedRoles": 0,
+    "characterScopedVisualReview": "passed"
+  },
+  "visualReview": {
+    "allFormsExpressionComparisonSheets": 15,
+    "expressionScreens": 60,
+    "normalCaptureFolder": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default",
+    "galleryCaptureFolder": "tmp/plan12-art-sweep/25ea485820eb49469b4361bd9015d1b1/default",
+    "cgContentReviewed": 75,
+    "finalGalleryFullSizeSamples": [
+      "slayer/cg.0",
+      "shell/cg.0",
+      "r/cg.0"
+    ],
+    "previousAllFormBoards": "tmp/plan12-art-sweep/a5e2258ee6fa43c3857864569b18c98a/default",
+    "status": "findings_open"
+  },
+  "findings": {
+    "maleCharacterCgNg": 35,
+    "foregroundHandsArmsPrecautionaryCgNg": 4,
+    "missingDedicatedImages": 42,
+    "missingFurniturePoses": 18,
+    "identicalIdleWalkTalkReactRoles": 24,
+    "iconoclastFacePatchMisalignment": "open",
+    "iconoclastDeterminedMappedAspectScaleRatio": 0.9834,
+    "fullFrameExpressionPositionScaleConsistency": "open",
+    "rExpressionTopClipping": "open"
+  },
+  "changes": [
+    "full-screen aspect-preserving CG fit",
+    "minimal headers",
+    "paused UI-free CG gallery",
+    "hide overlapping global back button during CG",
+    "gallery Escape returns to same paused line",
+    "NPOT disabled for CG expressions and SD",
+    "all furniture poses required; fallback is missing"
+  ],
+  "limitations": [
+    "diagnostic scenes, not full manual progression or combat animation acceptance",
+    "no source PNG regeneration or retouch",
+    "audio waveform checked separately; listening acceptance pending"
+  ],
+  "evidence": [
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/checked.json",
+      "sha256": "811facf33d65701663b2c59a5af27124380257b0fb17258fbcef6166882a8703"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/25ea485820eb49469b4361bd9015d1b1/default/checked.json",
+      "sha256": "bf00571694e01f87394833362b35df1d5d0572f2dcfccbedf63a4b76ffd9a779"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/25ea485820eb49469b4361bd9015d1b1/default/gallery-fit-checked.json",
+      "sha256": "dd452fd21ee8fdda801cbb9aacf28d20ffe3453f5db2f8b101e6ad659ab01fd9"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/mapping-measurements.json",
+      "sha256": "70ec3b4bc1a8bddf985efaaf1d25b90a6b5b6ef023aa8a4e3b5def8ce77c5a37"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/player.log",
+      "sha256": "c00f2534406db5881516b3269a90ef445131862ec477b3555f67d9101cc2b999"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/25ea485820eb49469b4361bd9015d1b1/default/player.log",
+      "sha256": "4541f4ed01a156db14a165a4e72abe0e0c7cf7dbe5ced4c0a36bcd5d1225ff06"
+    },
+    {
+      "path": "tmp/plan12-art-review/cg-aspect-build.log",
+      "sha256": "1685ab51a9108848d6084da3c1a7a9c30b119a017a86533fb596b6e130b02bd6"
+    },
+    {
+      "path": "tmp/plan12-art-review/cg-display-final-regression.log",
+      "sha256": "4429b434072df3758a65efe1d12844f5445cd964217900439328d5ba1ad1346c"
+    },
+    {
+      "path": "game/Builds/plan12-preparation/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "4d015a0f2825e1549323bba6a19a9f56763141c3f6060fad47d1c18d3139582b"
+    },
+    {
+      "path": "docs/production/plan12-runtime-art-audit.json",
+      "sha256": "925580e2dc757bcb45b7bc67926a454ac9df049ca83f1eaa026fa05d73d1be91"
+    },
+    {
+      "path": "docs/production/plan12-event-cg-content-review.json",
+      "sha256": "ad185c3452b7993b746f278369cce0c11f84e95897e95367c818e3031f0b8eff"
+    },
+    {
+      "path": "docs/production/plan12-full-review.txt",
+      "sha256": "a0070b70987917d7e004b0dfd9f32540464fe285a91540860940b665b837f810"
+    },
+    {
+      "path": "docs/production/plan12-event-cg-display.txt",
+      "sha256": "0a0eaee697698909cf42432aaec5bde7202010163c33b78a7d1a98ddcebdc8cb"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/annihilator-expressions.jpg",
+      "sha256": "e0f33f31e9990cc211dff6bfac3e14dd252b30bb79f14d0ae65a8126b6e7c357"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/annihilator-holy-expressions.jpg",
+      "sha256": "1f6f938773dd837da68c3bd400181f2bd5f5eb641d94428b5939ca7ef62a639b"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/arcane-academy-expressions.jpg",
+      "sha256": "9f551b5378e1d1677b185770a8621a8d0c07700d97a3a08920dfece0aaff7b6f"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/arcane-expressions.jpg",
+      "sha256": "f1e6dc1eba493a3de5bb29ef9acdfb9c55dd55b103409736dcd93c7ba747f3ea"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/echidna-expressions.jpg",
+      "sha256": "2e638aefab4c0ba1c21c0574121e406f318c8422a82d68bf6240b4ba57251b74"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/excalipan-expressions.jpg",
+      "sha256": "da3c4d310d3c74f1018f02be6d9d7d00cf5ea86d70246d0fd8a5b62303397423"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/iconoclast-expressions.jpg",
+      "sha256": "80ae454e913c9f3f46ae65e94b401d500400213587eb0fbd04b84107355254ff"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/nighthawk-expressions.jpg",
+      "sha256": "a305b7b29c3c6a109049b17438728df11b5e2e773f754f2123e36eefc8779a39"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/oriflamme-expressions.jpg",
+      "sha256": "f5277f517583aa4a63033d4aff0cb690c9dd81d69c4e339fa36aa5bec3b39859"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/r-expressions.jpg",
+      "sha256": "d34072515dea0546acdb0ee56483793c4921b247b2eb7b027ec76a9c33ec478b"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/shangrila-expressions.jpg",
+      "sha256": "d16ddeba3294879fb74eeacae4d127b9d95bf0762009dd63d402e0b1a9ae0106"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/shell-expressions.jpg",
+      "sha256": "cb5a2cbf6d6d1b78edfce708811955c35f485b62e27b9b7a3d804eeeba529a64"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/slayer-expressions.jpg",
+      "sha256": "e292e62d6349348f6208c14fef1d6b4da4c1e10b6476e7477b092208b148e1b0"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/slayer-swim-expressions.jpg",
+      "sha256": "693e8e668a01473386208f63ee274206f97de43b76609717f8034bb75595382d"
+    },
+    {
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/expression-inspection/undermine-expressions.jpg",
+      "sha256": "1afcd0a488583cac312dccc4d1c1c651005a61380668b050278ac278f95d98c6"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "f1132f083c37cbc665b383927cc53f655f3f28b5c542d749a18f31dffa84b209"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/BackNavigation.cs",
+      "sha256": "c518b1ad8b6a8f121bb56ea2330d6f71c6001bda2cc9885bf786e01c37d0eda5"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/NavigationChrome.cs",
+      "sha256": "81912cede9901e7a9b45284302b424f3db105822dab9f2144c01beb0fa204a72"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan12ArtSweepAcceptance.cs",
+      "sha256": "13afe5a69a4d29268197be0608a00143b1bc6539ea4dc3555bd450f335030ad2"
+    },
+    {
+      "path": "game/unity/Assets/Game/Editor/HeroineBattleArtBuildValidation.cs",
+      "sha256": "dba97b6b7be3f2a874b86bbf68c4c2f6d20deee49f52675ddcd1832c0636d08d"
+    }
+  ],
+  "supersededForChangedViews": {
+    "status": "historical_baseline",
+    "currentDecisions": "docs/production/plan12-character-review-status.json",
+    "changedCharacters": [
+      "heroine.iconoclast",
+      "heroine.arcane",
+      "heroine.arcane-academy",
+      "heroine.r"
+    ],
+    "note": "Unchanged completed views remain accepted; do not rerun full visual review."
+  },
+  "completedForms": 15,
+  "remaining": [],
+  "currentDecisions": "docs/production/plan12-character-review-status.json",
+  "historicalEvidenceNote": "Original full-sweep evidence is retained as history. Current decisions and changed-view evidence are in the character ledger; no repeated full visual sweep."
+}
