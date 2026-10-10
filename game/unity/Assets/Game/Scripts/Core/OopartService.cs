@@ -14,6 +14,18 @@ namespace NewAster.Core
     }
     public static class OopartService
     {
+        // Read-only plan: use the same per-level cost as the committed operation.
+        public static int ReachableLevel(FormalCampaignSave save,CollectionCatalog catalog,string id,int count)
+        {
+            if(count<1 || count>120)throw new ArgumentOutOfRangeException(nameof(count));
+            int level=save.collection.ooparts.progress.Single(p=>p.oopartId==id).level;
+            int balance=FormalRelicRules.MaterialBalance(save.collection,catalog.relics.Single(r=>r.id==id));
+            for(int changed=0;level<120 && changed<count;changed++){
+                int cost=FormalRelicRules.UpgradeCost(new CollectionRelic{level=level},RelicOperation.LevelUp,catalog.contentVersion);
+                if(balance<cost)break;balance-=cost;level++;
+            }
+            return level;
+        }
         public static StatValues Roll(OopartDef d,Random rng){var v=new StatValues();foreach(var r in d.randomStats){int min=(r.maximum*r.minimumPercent+99)/100,max=r.maximum*r.maximumPercent/100;v.Set(r.stat,rng.Next(min,max+1));}return v;}
         public static StatValues Merge(OopartInventorySave inventory,OopartDef d,StatValues incoming)
         {

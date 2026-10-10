@@ -1,0 +1,171 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/arcane-academy-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-expression-joy-candidate-v1.png",
+      "sha256": "07037fe2f6bc3fb70424255bf680a48311098e19bc3c6fef7850ac7ebb7f6da1",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-expression-puzzled-candidate-v1.png",
+      "sha256": "5177636e84929d4e869cb1fdc2314293eeff6eb97a1e7b1f0c0fa423b0e64b15",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-expression-determined-candidate-v1.png",
+      "sha256": "9c94eb6152f7d2749cc92de40416a51dd5ee52f52a08cb4b4154ada515aafe21",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-event-0-cg-candidate-v1.png",
+      "sha256": "76d56ababd09b332883c1c6197e9d57d8da9bfdac1169283ded9f5fd73afafa4",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-event-1-cg-candidate-v1.png",
+      "sha256": "4ba6e874ff496a60e0d38d0570688ef7cbf79bf108c3be035ad3535e355aa0ac",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-event-2-cg-candidate-v1.png",
+      "sha256": "50c0b1e9d69315eef14d3726a70e7e0b37b371b471815ffda79f1319836314b5",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-event-3-cg-candidate-v1.png",
+      "sha256": "863ed4b245f0366f8924e9a70f5b4fc5852ba24336fb348e4685386eb046ab02",
+      "size": [
+        1671,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/arcane-academy-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/arcane-academy-event-4-cg-candidate-v1.png",
+      "sha256": "9c824d70b83decd28d87c4dcb3102d2bad37ab5cfd4d82e2c46c797a4ae868a2",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-academy-detail.png",
+      "sha256": "247ce4969405ee66dbf63e2d28e1f9b950c146e6b4abac32d758d59c0fb6f134"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-academy-tree.png",
+      "sha256": "0f3352d3782612a3fec35e8a1ce5eb53b2f5bbe1eca0f633fe0998fd5911f64b"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-academy-battle.png",
+      "sha256": "07892e983819a08f9fecee3302bcb6282538314393c7743f3dc873cd0ad35beb"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/arcane-academy-sd.idle.png",
+      "sha256": "582036ed76ed49a0ad11a0cf79f2c0bb2625e0a7e78007e6371c02f6a3a6eb4a"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/9a15642965ef4f76822f989c30e5b9d0/default/arcane-academy-sd.sit.png",
+      "sha256": "d900ab64d759110e6d7cff4de7eac0817b339430f3ad376c589c16f62bbc419f"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/9a15642965ef4f76822f989c30e5b9d0/default/arcane-academy-sd.work.png",
+      "sha256": "ebfe8b0a2d74f99143fbe57eaa35e926eb0a5fbd41e8abf1159860c4c7e76ef7"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/9a15642965ef4f76822f989c30e5b9d0/default/arcane-academy-sd.look.png",
+      "sha256": "9e056bfe9dba42475fe933e8b7cf779f9dfed0bcd63f9cefe31f4101cf7b8dbd"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/c499d1cfe6734ef89bbfc618c897d1cb/default/arcane-academy-expression.normal.png",
+      "sha256": "01c3535a31bce3a8a25794d034de40c376be27caf1b058debe9524f33904fba6"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/c499d1cfe6734ef89bbfc618c897d1cb/default/arcane-academy-expression.joy.png",
+      "sha256": "685bbd74fe7019e5ab65db7e2fe82cfd27078e3479a0e59ce65015764e49b242"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/c499d1cfe6734ef89bbfc618c897d1cb/default/arcane-academy-expression.puzzled.png",
+      "sha256": "15f28154d3e2b83b41fc88aba3ebb0a7299f7ed76a23f7b84def37500433bff3"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/c499d1cfe6734ef89bbfc618c897d1cb/default/arcane-academy-expression.determined.png",
+      "sha256": "54a0b80483a257819974a38509fac8338a5c29fd56ab6365e35b2f0c6ae9440f"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.0.png",
+      "sha256": "7e1497836cae622db87dfe6c0058cda03fbb3f345a80296ddac02cf076173e87"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.1.png",
+      "sha256": "b1de09dcddc1bc2650d01c0ce6990798ed6eb7d629163aa96a56f2e667db2311"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.2.png",
+      "sha256": "faa8b9f43086ae4497c5c1219a1fd6b8240e9d5e96cb7700bc971b9360754f4c"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.3.png",
+      "sha256": "bef03b6878f30d78999ad2185cddb3161e1b6c63e4492e6e2c7561a7f5dfee59"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/31e08e225d5c4cfda8698d52a3ade784/default/arcane-academy-cg.4.png",
+      "sha256": "b867cc334bb18b3b57796ae93541c90f1ff8359a0ce1247ddd55bbc5f0eec88c"
+    }
+  ]
+}

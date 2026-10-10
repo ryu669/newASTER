@@ -1,0 +1,38 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/iconoclast-expression-joy-source-v1",
+      "source": "game/art-source/plan12/adopted/iconoclast-expression-joy-source-v1.png",
+      "sha256": "702b5130710d62ba974fe7d9403ed785f036fcd93a771c5485732678619923ee",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    },
+    {
+      "resource": "Illustrations/iconoclast-expression-puzzled-source-v1",
+      "source": "game/art-source/plan12/adopted/iconoclast-expression-puzzled-source-v1.png",
+      "sha256": "e463d9dc80222d7b4cd570d8b082d3d5e9b500a7ff839a379d625a1d40e13a3c",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    },
+    {
+      "resource": "Illustrations/iconoclast-expression-determined-source-v1",
+      "source": "game/art-source/plan12/adopted/iconoclast-expression-determined-source-v1.png",
+      "sha256": "1d6798031d8155103b3f667f306eebda6c987c91d95180b4f14080780ccaba36",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: same head position and angle as standing; expression-only face overlay"
+    }
+  ],
+  "runtimeCapture": "tmp/plan12-art-sweep/edef550744b74d959151fc6a28e9dba7/default",
+  "visualReview": "passed at default 1280x720; completed views frozen"
+}

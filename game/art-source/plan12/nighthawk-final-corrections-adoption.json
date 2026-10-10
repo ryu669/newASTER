@@ -1,0 +1,201 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/nighthawk-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-sd-sit-candidate-v1.png",
+      "sha256": "ccf462f7f0c44b64d7e71f45f08309cd8a7390c8aa5673764e9dfac329fe5a32",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-sd-work-candidate-v1.png",
+      "sha256": "cb334fb2a9e19bef7acac57112946421cbe25ed4af550e775c319abadcd5ec1a",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-sd-look-candidate-v1.png",
+      "sha256": "c152fdb1641ff6e7518afb5e0b2112137da6b438ad9a01dd123ef65b1b9b8765",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-expression-joy-candidate-v1.png",
+      "sha256": "d612bb29a52fc8fd9d984114b01ccc51ba1e0747addf8928387ca9a95b7b6b79",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-expression-puzzled-candidate-v1.png",
+      "sha256": "9b47ec4102f9e90d8af81c1ae6e16e7d32fea84acc151ea6fd728bc3295f9aaf",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-expression-determined-candidate-v1.png",
+      "sha256": "067eddbcbcddd3c7571ca67da0f947ecf1d007543185001a3367d54a82e1191d",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-event-0-cg-candidate-v1.png",
+      "sha256": "fdced40edf6c7198d80adfb0c8b995fc8a725c30248b8a6bb550728a1113ffe5",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-event-1-cg-candidate-v1.png",
+      "sha256": "a01d341ecf4cf1ce2c0b9168946a7f4e7320f5c2c374e44b96491703d5292d00",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-event-2-cg-candidate-v1.png",
+      "sha256": "651886364d9247420ab56fab3f73905a0122845e2bb4612d76f8344ba35c26ef",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-event-3-cg-candidate-v1.png",
+      "sha256": "f2d93ab59c23837378eb2822100089ab45162eb5643d601a0bba4b9e9b7f2a75",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/nighthawk-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/nighthawk-event-4-cg-candidate-v1.png",
+      "sha256": "8fb328ecef9b84af88964670c22b03b21ab984886cbe1e37a8962668ab3ec1f7",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/nighthawk-detail.png",
+      "sha256": "a9eba1f00af3abb9858784e064dabd3f1851106723340a017e0dfc2e8f166e0e"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/nighthawk-tree.png",
+      "sha256": "c692fa7bced6716892bd5cbad063234a70e8ed7f3e6721512b0f7b319d020f4f"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/nighthawk-battle.png",
+      "sha256": "23cd151b8d0ae08956d2805872f89f2a80b55e5e5db3abbb4f5b91ee9ec4bdcf"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/nighthawk-sd.idle.png",
+      "sha256": "cca5afe0af76a66f3c2a0bf26eb4198d66a4f2fb45c234a25bcccdb5a4211ab6"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-expression.normal.png",
+      "sha256": "8d884492979a8a130cb10d492201a103131115d5b876769f71880798ab13b8c5"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-expression.joy.png",
+      "sha256": "50395b0f083e3ee7fae28ca5f73d9983045e60d8614eef890eb294b21d366388"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-expression.puzzled.png",
+      "sha256": "2239b651d60d103dc5ed8bc0810c31c13a3f740c89d3e7c0874a0764da3a064e"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-expression.determined.png",
+      "sha256": "4cf17ef0ff9e284de3e443e573db9491405812a98285fdf4bfc66e76661256c6"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-sd.sit.png",
+      "sha256": "1f2d2d1a8eabd2c2ab67c328c1fd5ea31dbe8676d7019f420f85b33b79a4a057"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-sd.work.png",
+      "sha256": "c9656270751c4257dbf203f533d0144f5b0de03180f19d4ceb40b5ffbe1ed3e9"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/284e380880a74e81807e0ed0ae0823ab/default/nighthawk-sd.look.png",
+      "sha256": "c0a52ccfa1cc3ea6fe93a87fd50e6cfd1856d142f3a7a4537b1082de37f23680"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.0.png",
+      "sha256": "54129001ed2eb308232a70248e73a6e2f29d8f7c09650827d6688591ad67328b"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.1.png",
+      "sha256": "e59fe39b39477ff53742578d2d1e4ea321dcd4678fe770e2d49f0ae03578dc35"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.2.png",
+      "sha256": "33047b62946c08c70f3e54dd73acf4230162da414c26a123ecef3b5fbb073765"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.3.png",
+      "sha256": "48f5fe16949c7fefb2ff6c80b47a105c81546558dd1fdf1e8aa7853d6c58081b"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/be37c8e3bae345a4832c0f093f7409d5/default/nighthawk-cg.4.png",
+      "sha256": "0a0cf498255ff107c728114136471b5bdd84a4ba6d3480ff4d970a1ccfdf0626"
+    }
+  ]
+}

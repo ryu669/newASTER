@@ -30,7 +30,11 @@ namespace NewAster.Presentation
         private int captureFrame,capturedAtFrame=-1;
         private float capturedAtTime;
         private Vector2 scroll;
-        private BattleIllustrationView illustrationView;
+        private BattleIllustrationView battleIllustration;
+        private BattleIllustrationView illustrationView {
+            get=>battleIllustration??(battleIllustration=new BattleIllustrationView("Illustrations/battle-formal",ScheduleHeroineAssetCleanup));
+            set=>battleIllustration=value;
+        }
         private CombatDefinitionCatalog combatDefinitions;
         private HeroineReferenceCatalog heroineReferences;
         private string combatDefinitionError;
@@ -66,7 +70,7 @@ namespace NewAster.Presentation
                 if (!font.HasCharacter(glyph)) throw new InvalidOperationException("Bundled font is missing glyph: " + glyph);
             Debug.Log("PLAN7_BUNDLED_FONT_PASS NotoSansCJKjp-Regular");
             paper = Texture(new Color(.92f,.87f,.75f)); dark = Texture(new Color(.035f,.065f,.08f,.96f)); teal = Texture(new Color(.075f,.145f,.20f));
-            illustrationView=new BattleIllustrationView("Illustrations/battle-formal",ScheduleHeroineAssetCleanup);
+            // Battle artwork is initialized when a battle or its preview is opened.
             var viewCamera = new GameObject("Book View Camera").AddComponent<Camera>();
             viewCamera.cullingMask=0;
             viewCamera.gameObject.AddComponent<AudioListener>();
@@ -184,6 +188,7 @@ namespace NewAster.Presentation
             PreparePlan10UiAuditCapture(args);
             PreparePlan11Capture(args);
             PrepareQuality119ColdBook(args);
+            PrepareArtSweep(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -199,6 +204,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            if(UpdateArtSweep())return;
             using var qualityCost=new Quality119CostScope(this,0);
             TryStartQuality119();
             TryStartEnvironmentAudio119();
@@ -237,7 +243,8 @@ namespace NewAster.Presentation
         {
             if(encounter==null) { playback.Reset(); shownEvent=0; return; }
             bool stopped=paused || retreat || help;
-            float playbackRate=plan7FullCombat?1:(ArtSampleSettings.Shortened?2:1);
+            float playbackRate=plan7FullCombat?1:Mathf.Max(battlePlaybackSpeed,ArtSampleSettings.Shortened?2:1);
+            if(!stopped && battleEffectsOff && playback.Busy){playback.Skip();shownEvent=0;SelectNextHero();FinishCheck();return;}
             if(!stopped && playback.Busy) illustrationElapsed+=Time.unscaledDeltaTime*playbackRate;
             if(!stopped) breakNoticeRemaining=Mathf.Max(0,breakNoticeRemaining-Time.unscaledDeltaTime);
             // Show a newly queued event at least once before its duration starts ticking.
@@ -263,6 +270,7 @@ namespace NewAster.Presentation
         }
         private void OnGUI()
         {
+            if(DrawArtSweepSd())return;
             using var qualityCost=new Quality119CostScope(this,1);
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;

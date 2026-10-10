@@ -1,0 +1,2290 @@
+{
+  "schemaVersion": 1,
+  "runs": 2880,
+  "scope": "initial formation, job v2, skill level 1, one slot with level 1 oopart and identical zero random rolls; no weapons; enemy Lv50; before and after simulated with same seeds",
+  "curves": [
+    {
+      "turn": 0,
+      "before": 0,
+      "after": 0,
+      "constant": 45
+    },
+    {
+      "turn": 1,
+      "before": 5,
+      "after": 10,
+      "constant": 45
+    },
+    {
+      "turn": 2,
+      "before": 10,
+      "after": 20,
+      "constant": 45
+    },
+    {
+      "turn": 3,
+      "before": 15,
+      "after": 30,
+      "constant": 45
+    },
+    {
+      "turn": 4,
+      "before": 20,
+      "after": 40,
+      "constant": 45
+    },
+    {
+      "turn": 5,
+      "before": 20,
+      "after": 50,
+      "constant": 45
+    },
+    {
+      "turn": 6,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 7,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 8,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 9,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 10,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 11,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 12,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 13,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 14,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 15,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 16,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 17,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 18,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 19,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 20,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 21,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 22,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 23,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 24,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 25,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 26,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 27,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 28,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 29,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    },
+    {
+      "turn": 30,
+      "before": 20,
+      "after": 60,
+      "constant": 45
+    }
+  ],
+  "economy": [
+    {
+      "enemyLevel": 1,
+      "Nectar": 70,
+      "Crystals": 1,
+      "Stones": 32,
+      "level50PartyWins": 210,
+      "level120PartyWins": 1105,
+      "threeMaxSkillsWins": 54,
+      "ringWins": 313,
+      "materials": [
+        {
+          "id": "colossus.green-return-dragon.collection.material",
+          "amount": 11
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.rare",
+          "amount": 0
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.epic",
+          "amount": 0
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.legendary",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "enemyLevel": 10,
+      "Nectar": 160,
+      "Crystals": 2,
+      "Stones": 50,
+      "level50PartyWins": 92,
+      "level120PartyWins": 484,
+      "threeMaxSkillsWins": 24,
+      "ringWins": 200,
+      "materials": [
+        {
+          "id": "colossus.green-return-dragon.collection.material",
+          "amount": 20
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.rare",
+          "amount": 2
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.epic",
+          "amount": 0
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.legendary",
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "enemyLevel": 30,
+      "Nectar": 360,
+      "Crystals": 4,
+      "Stones": 90,
+      "level50PartyWins": 41,
+      "level120PartyWins": 215,
+      "threeMaxSkillsWins": 11,
+      "ringWins": 112,
+      "materials": [
+        {
+          "id": "colossus.green-return-dragon.collection.material",
+          "amount": 40
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.rare",
+          "amount": 4
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.epic",
+          "amount": 2
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.legendary",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "enemyLevel": 50,
+      "Nectar": 560,
+      "Crystals": 5,
+      "Stones": 130,
+      "level50PartyWins": 27,
+      "level120PartyWins": 139,
+      "threeMaxSkillsWins": 7,
+      "ringWins": 77,
+      "materials": [
+        {
+          "id": "colossus.green-return-dragon.collection.material",
+          "amount": 60
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.rare",
+          "amount": 6
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.epic",
+          "amount": 3
+        },
+        {
+          "id": "colossus.green-return-dragon.collection.material.legendary",
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "economyLimitations": "Arithmetic victory counts exclude initial funds, gacha, daily/time rewards, access and survival. Ring also has daily and active-play income.",
+  "rows": [
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 902.0625,
+      "meanCommands": 52.8125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1015.8125,
+      "meanCommands": 60.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1002.75,
+      "meanCommands": 59.8125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1011.125,
+      "meanCommands": 60.0625
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1015.0625,
+      "meanCommands": 59.25
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1040.875,
+      "meanCommands": 60.75
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1051.9375,
+      "meanCommands": 60
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1207.5625,
+      "meanCommands": 71.6875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 8,
+      "caps": 0,
+      "meanClock": 1124.6875,
+      "meanCommands": 43.6875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 14,
+      "caps": 0,
+      "meanClock": 1179.8125,
+      "meanCommands": 60.4375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1127.0625,
+      "meanCommands": 64.875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1099.5625,
+      "meanCommands": 63.3125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 14,
+      "caps": 0,
+      "meanClock": 1087,
+      "meanCommands": 55.25
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 7,
+      "caps": 0,
+      "meanClock": 945.6875,
+      "meanCommands": 43.1875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 5,
+      "caps": 0,
+      "meanClock": 1222.5625,
+      "meanCommands": 39.8125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 708.875,
+      "meanCommands": 39.4375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 770.5,
+      "meanCommands": 43.5625
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 762.6875,
+      "meanCommands": 43.5
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 754.5,
+      "meanCommands": 43.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 765.8125,
+      "meanCommands": 43.375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 790.4375,
+      "meanCommands": 45.25
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 797.3125,
+      "meanCommands": 45.6875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 924.8125,
+      "meanCommands": 53.25
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 823.5625,
+      "meanCommands": 45.6875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 832.1875,
+      "meanCommands": 47
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 863.6875,
+      "meanCommands": 48.0625
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 863.3125,
+      "meanCommands": 49.1875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 769.25,
+      "meanCommands": 42.5625
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 820.75,
+      "meanCommands": 45.3125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 867.4375,
+      "meanCommands": 48.1875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 559.6875,
+      "meanCommands": 31.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 635,
+      "meanCommands": 35.5
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 639.625,
+      "meanCommands": 36.75
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 617.625,
+      "meanCommands": 35.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 627.0625,
+      "meanCommands": 35.1875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 672.0625,
+      "meanCommands": 37.1875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 670.1875,
+      "meanCommands": 36.9375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 779.875,
+      "meanCommands": 43.875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 740.25,
+      "meanCommands": 37.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 670.875,
+      "meanCommands": 36.625
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 715.5625,
+      "meanCommands": 39.125
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 726.8125,
+      "meanCommands": 39.6875
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 633.1875,
+      "meanCommands": 33.9375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 671.9375,
+      "meanCommands": 36.4375
+    },
+    {
+      "variant": "none",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 716.625,
+      "meanCommands": 39.5625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 854.5,
+      "meanCommands": 49.5625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 967.3125,
+      "meanCommands": 56.5625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 957.5,
+      "meanCommands": 56.4375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 945.9375,
+      "meanCommands": 55.3125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 957,
+      "meanCommands": 55.4375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1005.1875,
+      "meanCommands": 58.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1009.75,
+      "meanCommands": 58
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1159.375,
+      "meanCommands": 67.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 12,
+      "caps": 0,
+      "meanClock": 1104.75,
+      "meanCommands": 49.6875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 13,
+      "caps": 0,
+      "meanClock": 1188.25,
+      "meanCommands": 57.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1078.625,
+      "meanCommands": 62.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1063.9375,
+      "meanCommands": 60.75
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 13,
+      "caps": 0,
+      "meanClock": 1080.9375,
+      "meanCommands": 51.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 7,
+      "caps": 0,
+      "meanClock": 951.8125,
+      "meanCommands": 42.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 5,
+      "caps": 0,
+      "meanClock": 1181.875,
+      "meanCommands": 38.8125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 687.9375,
+      "meanCommands": 37.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 726.5,
+      "meanCommands": 40.9375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 752.5625,
+      "meanCommands": 43.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 727.625,
+      "meanCommands": 41.8125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 744.875,
+      "meanCommands": 41.75
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 765.5,
+      "meanCommands": 43.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 762.125,
+      "meanCommands": 42.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 888.75,
+      "meanCommands": 51.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 787.9375,
+      "meanCommands": 43.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 803.4375,
+      "meanCommands": 45.5625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 838.5,
+      "meanCommands": 46.625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 833.25,
+      "meanCommands": 46.8125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 744.9375,
+      "meanCommands": 41.125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 793.875,
+      "meanCommands": 43.5
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 841.5625,
+      "meanCommands": 46.25
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 549.9375,
+      "meanCommands": 30.4375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 611,
+      "meanCommands": 33.9375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 614.0625,
+      "meanCommands": 34.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 597.75,
+      "meanCommands": 33.75
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 613.875,
+      "meanCommands": 34.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 636.75,
+      "meanCommands": 35.3125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 648.5,
+      "meanCommands": 35.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 736.25,
+      "meanCommands": 41.0625
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 680.9375,
+      "meanCommands": 35.125
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 666.6875,
+      "meanCommands": 36.375
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 683.125,
+      "meanCommands": 37.1875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 678.8125,
+      "meanCommands": 37.1875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 630,
+      "meanCommands": 34
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 652.9375,
+      "meanCommands": 34.875
+    },
+    {
+      "variant": "attack",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 696.0625,
+      "meanCommands": 38
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 874.75,
+      "meanCommands": 50.875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 990.5625,
+      "meanCommands": 58.375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 983.3125,
+      "meanCommands": 58.4375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 970.0625,
+      "meanCommands": 57.0625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 984.625,
+      "meanCommands": 57.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1021.6875,
+      "meanCommands": 59.5
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1026.25,
+      "meanCommands": 58.75
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1181,
+      "meanCommands": 69.5625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 12,
+      "caps": 0,
+      "meanClock": 1114.5,
+      "meanCommands": 50.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 14,
+      "caps": 0,
+      "meanClock": 1151.4375,
+      "meanCommands": 59.0625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1103.3125,
+      "meanCommands": 63.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1081.3125,
+      "meanCommands": 61.75
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 13,
+      "caps": 0,
+      "meanClock": 1105.25,
+      "meanCommands": 52.5625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 4,
+      "caps": 0,
+      "meanClock": 917.25,
+      "meanCommands": 37.875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 5,
+      "caps": 0,
+      "meanClock": 1188,
+      "meanCommands": 39.5
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 697.4375,
+      "meanCommands": 38.75
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 766,
+      "meanCommands": 43.3125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 758.5625,
+      "meanCommands": 42.875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 741.375,
+      "meanCommands": 42.375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 752,
+      "meanCommands": 42.3125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 780.5,
+      "meanCommands": 44.375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 797,
+      "meanCommands": 45.1875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 909.9375,
+      "meanCommands": 52.125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 799.75,
+      "meanCommands": 44.5625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 817.4375,
+      "meanCommands": 46
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 850.25,
+      "meanCommands": 47.3125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 849.875,
+      "meanCommands": 48.3125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 760.3125,
+      "meanCommands": 42
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 803.5625,
+      "meanCommands": 44.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 853.5,
+      "meanCommands": 47.125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 554.375,
+      "meanCommands": 30.875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 626.9375,
+      "meanCommands": 34.875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 629.4375,
+      "meanCommands": 36
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 613.1875,
+      "meanCommands": 34.75
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 622.1875,
+      "meanCommands": 34.6875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 663.75,
+      "meanCommands": 36.4375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 664.6875,
+      "meanCommands": 36.3125
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 761.875,
+      "meanCommands": 42.625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 710.3125,
+      "meanCommands": 36.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 661.4375,
+      "meanCommands": 35.9375
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 706.375,
+      "meanCommands": 38.625
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 707.6875,
+      "meanCommands": 38.75
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 622.75,
+      "meanCommands": 33.25
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 662.75,
+      "meanCommands": 35.6875
+    },
+    {
+      "variant": "ramp-before",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 706.125,
+      "meanCommands": 38.9375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 862.125,
+      "meanCommands": 50
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 977.25,
+      "meanCommands": 57.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 965.6875,
+      "meanCommands": 56.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 955.0625,
+      "meanCommands": 55.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 961.3125,
+      "meanCommands": 55.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1002.1875,
+      "meanCommands": 58.125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1009.6875,
+      "meanCommands": 57.5
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1158.75,
+      "meanCommands": 67.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 12,
+      "caps": 0,
+      "meanClock": 1094.9375,
+      "meanCommands": 49.5625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 14,
+      "caps": 0,
+      "meanClock": 1138.5,
+      "meanCommands": 58.1875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1090.375,
+      "meanCommands": 62.8125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 1061.4375,
+      "meanCommands": 60.6875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 13,
+      "caps": 0,
+      "meanClock": 1081.5,
+      "meanCommands": 51.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 5,
+      "caps": 0,
+      "meanClock": 925,
+      "meanCommands": 39.125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 10,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 5,
+      "caps": 0,
+      "meanClock": 1192.0625,
+      "meanCommands": 38.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 691.4375,
+      "meanCommands": 38.3125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 758.1875,
+      "meanCommands": 42.625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 749.9375,
+      "meanCommands": 42.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 727.0625,
+      "meanCommands": 41.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 746.0625,
+      "meanCommands": 41.8125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 775.8125,
+      "meanCommands": 43.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 784.8125,
+      "meanCommands": 44.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 892.5,
+      "meanCommands": 50.875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 784.25,
+      "meanCommands": 43.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 807.25,
+      "meanCommands": 45.5
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 833.875,
+      "meanCommands": 46.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 828,
+      "meanCommands": 46.5
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 750.3125,
+      "meanCommands": 41.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 793.3125,
+      "meanCommands": 43.625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 30,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 840.5625,
+      "meanCommands": 46.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.green-return-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 551.6875,
+      "meanCommands": 30.625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.red-crystal-tyrant",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 616.9375,
+      "meanCommands": 34.4375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.memory-crystal-dragon",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 623.875,
+      "meanCommands": 35.625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.sky-tower-machine",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 604.6875,
+      "meanCommands": 34.4375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.crystal-rose-princess",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 617.5625,
+      "meanCommands": 34.375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.silver-sea-whale",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 652.625,
+      "meanCommands": 35.875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.heaven-tree-orochi",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 655.375,
+      "meanCommands": 35.8125
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.reenactment-yimir",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 746.1875,
+      "meanCommands": 41.875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.emerald-star-astal",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 704.3125,
+      "meanCommands": 35.75
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.amber-king-serpent",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 657.125,
+      "meanCommands": 35.5625
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.white-divine-dragon-mother",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 697.1875,
+      "meanCommands": 37.9375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.black-smoke-citadel",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 692.8125,
+      "meanCommands": 37.875
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.dead-king-megadeath",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 617.0625,
+      "meanCommands": 32.9375
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.final-flame-ice-phoenix",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 657.125,
+      "meanCommands": 35.25
+    },
+    {
+      "variant": "ramp-after",
+      "heroLevel": 50,
+      "enemyLevel": 50,
+      "enemy": "colossus.newborn-asteria",
+      "seeds": 16,
+      "wins": 16,
+      "caps": 0,
+      "meanClock": 696.875,
+      "meanCommands": 38.0625
+    }
+  ]
+}

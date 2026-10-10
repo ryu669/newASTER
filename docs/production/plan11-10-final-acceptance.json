@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "status": "complete",
+  "scope": "Plan11-10 current15 forms /12 people /13 jobs; numerical balance only",
+  "mastery": "Duplicate-only progression preserved. Rank tables and duplicate costs unchanged. Final duplicate stat reward total15%, no rank6.",
+  "matrixRuns": 16320,
+  "matrixSummary": [
+    {
+      "profile": "starter",
+      "runs": 240,
+      "wins": 240,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "underlevel",
+      "runs": 240,
+      "wins": 2,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "trained-diagnostic",
+      "runs": 900,
+      "wins": 890,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "support-stress",
+      "runs": 720,
+      "wins": 487,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "unskilled-diagnostic",
+      "runs": 360,
+      "wins": 341,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "trained",
+      "runs": 900,
+      "wins": 900,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "max-slot",
+      "runs": 7560,
+      "wins": 7560,
+      "caps": 0,
+      "failures": 0
+    },
+    {
+      "profile": "max-party",
+      "runs": 5400,
+      "wins": 5400,
+      "caps": 0,
+      "failures": 0
+    }
+  ],
+  "rawDamageOnlyGateFailures": 4,
+  "rawGateDisposition": "Four Lv50 damage/heal-only cases won2/4. Job-support won4/4 at the same settings. Damage-only results retained as diagnostics; no numeric weakening to make every policy win.",
+  "earnedBattles": 1015,
+  "earnedWins": 1015,
+  "earnedLosses": 0,
+  "regressionAssertions": 12521,
+  "unityCompiledSources": 260,
+  "playerBuild": "success",
+  "forms": [
+    {
+      "id": "heroine.annihilator",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.annihilator-holy",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.arcane",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 1
+    },
+    {
+      "id": "heroine.arcane-academy",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.echidna",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.excalipan",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.iconoclast",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.nighthawk",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.oriflamme",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.r",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 1
+    },
+    {
+      "id": "heroine.shangrila",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 1
+    },
+    {
+      "id": "heroine.shell",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 1
+    },
+    {
+      "id": "heroine.slayer",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.slayer-swim",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    },
+    {
+      "id": "heroine.undermine",
+      "status": "complete",
+      "runs": 1088.0,
+      "acceptedCriteriaFailures": 0,
+      "diagnosticBelowThreeWins": 0
+    }
+  ],
+  "limitations": [
+    "Deterministic synthetic comparisons are not optimal-play or exhaustive party proof.",
+    "Earned journey is one seed and excludes login/idle/gacha income.",
+    "Time measurements are logical clock and commands, not human hours.",
+    "This completion does not rejudge other commercial-quality requirements."
+  ],
+  "files": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/FormalProgression.cs",
+      "sha256": "1164A7F79D6E7CF3CAB1985429F58281B87E09E4D2A5D8D3912E327E4397921C"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/ProductionEconomyCatalog.cs",
+      "sha256": "35F9396D75E68E6F13DF2D307B1B0AA8A6FF63CCFE89C081BD5C82388E92CC0A"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/ProductionOopartCatalog.cs",
+      "sha256": "061CA4F089B66DD4AC7342F0B869D513CD3A67509FB81924539364AE6957FA8D"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GrowthExperience.cs",
+      "sha256": "3E34CE0D90DDEC726468303121B124EFCBAFF60AD38D246FE646484E74E23462"
+    },
+    {
+      "path": "tools/Plan1110BalanceMeasurements.cs",
+      "sha256": "79D099EB9D6BF2B9FF280D88096232B41B48C2D53783D34EDBECB29CEA956921"
+    },
+    {
+      "path": "tools/Plan1110FinalBalanceMeasurements.cs",
+      "sha256": "12048522489001C1B81DA80F119586093322C68D27920C7E2E0C9DAEAFB6D897"
+    },
+    {
+      "path": "tools/measure-plan11-10-balance.ps1",
+      "sha256": "F562C2835E4E96DE774457861F2C0B2CA4995C74A152E19EE4967C62FA2531F1"
+    },
+    {
+      "path": "docs/production/plan11-10-final-matrix.json",
+      "sha256": "90FA07A40C7C0E42445B918DC0A87C2065C8F6E80C29BB341DE50D11A6A90B93"
+    },
+    {
+      "path": "docs/production/plan11-10-final-matrix.raw.json",
+      "sha256": "29F1E4F2CCBE13F775751CA7716320B0826F318D3C561BAE1A862C0C638DDDD9"
+    },
+    {
+      "path": "docs/production/plan11-10-earned-journey.json",
+      "sha256": "A98A03DBFE06B2233FAB2CF9F32118D0222E816425D2526DF25CD3E8B398C463"
+    },
+    {
+      "path": "game/Builds/plan12-preparation/newASTER.exe",
+      "sha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873"
+    },
+    {
+      "path": "game/Builds/plan12-preparation/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "402F8B787191A545016207D7D3C788709BC6EB63E4F5E98103A577FDEFD0C816"
+    },
+    {
+      "path": "tmp/plan11-10-measurements/player-build-final.log",
+      "sha256": "3230D910AA1B88E5C687A3CD2ACF6BD1A650ACC397286A26C1B23E977083C7E8"
+    }
+  ]
+}

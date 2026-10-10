@@ -14,7 +14,7 @@ namespace NewAster.Data
                 var effects=new List<OopartEffectDef>();
                 if(r.jobStatPercent>0){var condition=new EffectCondition{kind="job",targetId=r.jobId};effects.Add(Effect(r.id+".job","stat-percent","all",r.jobStatPercent,condition));
                     effects.Add(Effect(r.id+".special",r.jobId=="job.general" || r.jobId=="job.artist"?"buff-power":r.jobId=="job.panzer"?"tool-uses":r.jobId=="job.blaster"?"cast-percent":r.jobId=="job.fighter"?"skill-power":"gauge",r.jobId=="job.fighter"?"slot.1":"all",r.jobId=="job.panzer"?1:r.jobId=="job.fighter"?25:r.jobId=="job.blaster" || r.jobId=="job.artist" || r.jobId=="job.general"?20:15,condition));
-                }else if(r.turnEffect!=null){var e=Effect(r.id+".clock","stat-percent","attack",r.turnEffect=="wane"?60:0);e.scalingType=r.turnEffect=="wane"?"turn-decay":"turn-growth";e.scalingValue=r.turnEffect=="wane"?10:5;e.maxValue=r.turnEffect=="wane"?60:20;if(r.turnEffect=="wane")e.durationClock=700;effects.Add(e);}
+                }else if(r.turnEffect!=null){var e=Effect(r.id+".clock","stat-percent","attack",r.turnEffect=="wane"?60:0);e.scalingType=r.turnEffect=="wane"?"turn-decay":"turn-growth";e.scalingValue=10;e.maxValue=60;if(r.turnEffect=="wane")e.durationClock=700;effects.Add(e);}
                 else{if(r.attackPercent>0)effects.Add(Effect(r.id+".attack","stat-percent","attack",r.attackPercent));if(r.hpPercent>0)effects.Add(Effect(r.id+".hp","stat-percent","hp",r.hpPercent));if(r.defensePercent>0)effects.Add(Effect(r.id+".defense","stat-percent","defense",r.defensePercent));if(r.speedPercent>0)effects.Add(Effect(r.id+".speed","stat-percent","speed",r.speedPercent));}
                 defs.Add(Definition(c,r,effects.ToArray()));
             }

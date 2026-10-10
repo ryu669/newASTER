@@ -10,7 +10,7 @@ namespace NewAster.Presentation
         {
             if(saveSlotBlocked || saveSlotDeleted){OpenSaveManagement();return;}
             BeginQuality119ColdBook();
-            book.Reenter();heroineRosterOpen=false;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
+            book.Reenter();heroineRosterOpen=true;growthScreen=book.Face==NewAster.Core.BookFace.Details?GrowthScreen.Information:GrowthScreen.Overview;
             title=false;CloseTitlePanel();
         }
         private string titlePanel;

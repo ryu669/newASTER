@@ -99,6 +99,101 @@ namespace NewAster.Presentation {
    reset();heroineRosterOpen=true;book.RequestSubject(BookBookmark.Heroines,subject);book.CompleteTransition();
    Debug.Log("PLAN119_NAVIGATION_ROUTES_PASS checks="+checks+" physicalInput=0");
   }
+  private void ReadyJobPanelActor(int actor){int guard=0;while(encounter.AvailableHero!=actor && !encounter.Ended && guard++<500)encounter.Pass();AcceptanceCheck(encounter.AvailableHero==actor,"Job panel actor reaches READY");}
+  private void PrepareJobPanelCapture(string view){
+   var pieces=view.Split('-');string job="job."+pieces[1],variant=pieces.Length>2?pieces[2]:"normal";
+   var ids=combatDefinitions.FormationIds;string id=combatDefinitions.heroines.First(h=>h.jobId==job).id;
+   int actor=Array.IndexOf(ids,id);if(actor<0){actor=0;ids[0]=id;}
+   var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds=ids;
+   if(job=="job.general")save.home.commanderHeroineId=id;
+   BindFormalCampaign(save);StartBattle(WorldCatalog.ColossusIds[0],1137);ReadyJobPanelActor(actor);
+   encounter.State.Heroes[actor].GainResource(100);lifeTarget=(actor+1)%5;Array.Clear(alchemyUnits,0,5);alchemyAttribute=0;
+   if(variant=="low")encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);
+   else if(variant=="singing"){AcceptanceCheck(encounter.StartSong(actor),"Song fixture starts through real command");ReadyJobPanelActor(actor);}
+   else if(variant=="broken")encounter.State.Heroes[actor].TakeDamage(encounter.State.Heroes[actor].MaxHitPoints);
+   else if(variant=="empty")encounter.JobState(actor).Magazines[encounter.JobState(actor).SelectedMagazine]=0;
+   else if(variant=="revive")encounter.State.Heroes[lifeTarget].TakeDamage(int.MaxValue);
+   else if(variant=="mix"){alchemyUnits[0]=2;alchemyUnits[3]=1;}
+   else if(variant=="result"){AcceptanceCheck(encounter.SpinGamblerSlot(actor,"body"),"Result fixture executes SLOT");ReadyJobPanelActor(actor);}
+   else if(variant!="normal")throw new ArgumentException("Unknown job panel case: "+view);
+   encounter.DrainPresentationEvents();playback.Reset();shownEvent=0;selectedHero=actor;ResetBattleMenu();battlePanel=BattlePanel.Actions;
+   jobPanelValidationPending=variant=="normal";
+  }
+  private void ValidateJobPanelOperations(int actor){
+   if(!formalDiagnostic || !plan10UiCapture)throw new InvalidOperationException("Job panel probes require an isolated capture");
+   var original=encounter;var ids=original.State.Heroes.Select(h=>h.Id).ToArray();string job=original.JobState(actor).Id;
+   string saveBefore=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);int checks=0,commands=0,originalTarget=lifeTarget;
+   var originalUnits=alchemyUnits.ToArray();int originalAttribute=alchemyAttribute;
+   Action<bool,string> check=(ok,name)=>{AcceptanceCheck(ok,job+": "+name);checks++;};
+   Action fresh=()=>{
+    var enemy=ColossusCombatCatalog.Get(WorldCatalog.ColossusIds[0]);enemy.baseHp=1000000;enemy.enemySpeed=1;foreach(var part in enemy.parts)part.baseHp=1000000;
+    encounter=new PlayableBattle(1,campaign.Playable,1137,combatDefinitions:combatDefinitions.WithFormation(ids),formalGrowth:formalProgression.Snapshot,colossusDefinition:enemy,collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:HomeState,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(ids));
+    ReadyJobPanelActor(actor);encounter.State.Heroes[actor].GainResource(100);lifeTarget=(actor+1)%5;Array.Clear(alchemyUnits,0,5);alchemyAttribute=0;target="body";playback.Reset();shownEvent=0;paused=false;result=null;battlePanel=BattlePanel.Actions;
+   };
+   Action<int,int,bool> click=(column,row,available)=>{
+    jobPanelProbeColumn=column;jobPanelProbeRow=row;jobPanelProbeFound=false;jobPanelProbeEnabled=false;jobPanelProbeClick=true;jobPanelProbe=true;
+    string before=PlaybackState(encounter);try{DrawJobControls(actor,true);}finally{jobPanelProbe=false;}
+    check(jobPanelProbeFound,"button exists at "+column+","+row);check(jobPanelProbeEnabled==available,"button availability "+column+","+row);
+    if(!available)check(before==PlaybackState(encounter),"disabled button changes no combat state");commands++;
+   };
+   Action prepareSong=()=>{check(encounter.StartSong(actor),"prepare singing");ReadyJobPanelActor(actor);encounter.State.Heroes[actor].GainResource(100);};
+   try{
+    fresh();var h=encounter.State.Heroes[actor];
+    if(job=="job.fighter"){
+     click(2,0,true);check(encounter.JobState(actor).BoostUnits==1,"orb plus");click(0,0,true);check(encounter.JobState(actor).BoostUnits==0,"orb minus");click(0,0,false);
+     click(0,1,true);check(encounter.JobState(actor).Reckless,"reckless on");click(0,1,true);check(!encounter.JobState(actor).Reckless,"reckless off");click(0,2,false);
+     int guard=0;while(encounter.JobState(actor).Gauge<100 && guard++<30){h.GainResource(100);encounter.SelectBoostUnits(actor,5);check(encounter.Act(actor,0,"body"),"charge BOOST");ReadyJobPanelActor(actor);}
+     click(0,2,true);check(encounter.JobState(actor).Empowered(encounter.Clock) && encounter.JobState(actor).Gauge==0,"BOOST consumes gauge");
+    }else if(job=="job.berserker" || job=="job.defender" || job=="job.general"){
+     long clock=encounter.Clock;click(0,0,true);check(encounter.JobState(actor).Empowered(encounter.Clock) && h.JobResource==0 && encounter.Clock==clock,"gauge release keeps READY and consumes resource");
+     fresh();encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(0,0,false);
+    }else if(job=="job.blaster"){
+     int[] casts={0,50,100,200};for(int i=0;i<4;i++){click(i%2,i/2,true);check(encounter.JobState(actor).CastPercent==casts[i],"cast setting");}
+     for(int i=1;i<=3;i++){click(i-1,2,true);check(encounter.JobState(actor).Repeat==i,"repeat setting");}
+     h.SpendResource(h.JobResource);click(0,0,false);
+    }else if(job=="job.gunner"){
+     click(1,0,true);check(encounter.JobState(actor).SelectedMagazine==1,"magazine 2 selected");click(0,0,true);check(encounter.JobState(actor).SelectedMagazine==0,"magazine 1 selected");
+     encounter.JobState(actor).Magazines[0]=0;click(0,2,false);click(0,1,true);check(encounter.JobState(actor).Magazines.All(n=>n==6),"reload refills both magazines");
+     fresh();click(0,2,true);check(encounter.JobState(actor).Magazines[0]==0 && encounter.JobState(actor).Magazines[1]==6,"volley uses only selected magazine");
+     fresh();encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(0,2,false);
+    }else if(job=="job.artist"){
+     click(0,0,true);check(encounter.JobState(actor).Singing,"start singing");fresh();prepareSong();click(0,0,true);check(encounter.JobState(actor).Singing,"continue singing");
+     fresh();prepareSong();long clock=encounter.Clock;click(0,1,true);check(!encounter.JobState(actor).Singing && encounter.Clock==clock,"stop singing preserves READY");
+     fresh();encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(0,0,false);
+    }else if(job=="job.healer"){
+     int selected=lifeTarget;click(0,0,true);check(lifeTarget==(selected+1)%5,"target changes");
+     string[] tools={"heal","overheal","maxhp","revive","invest"};for(int i=0;i<5;i++){
+      fresh();var patient=encounter.State.Heroes[lifeTarget];if(i==3)patient.TakeDamage(int.MaxValue);else patient.TakeDamage(Math.Max(1,patient.MaxHitPoints/2));
+      int stock=encounter.State.Heroes[actor].JobResource;click(i%2,1+i/2,true);check(encounter.State.Heroes[actor].JobResource==stock-PlayableBattle.LifeCost(tools[i]),"life tool charged exactly once "+tools[i]);
+      if(i==3)check(patient.IsAlive,"revive restores living target");
+     }
+     fresh();click(1,2,false);encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(0,1,false);
+    }else if(job=="job.chaser"){
+     for(int i=1;i<=3;i++){click(i-1,0,true);check(encounter.JobState(actor).Gear==i,"gear setting");}click(0,1,false);
+     for(int i=0;i<5;i++){encounter.State.Heroes[actor].GainResource(100);encounter.SelectChaserGear(actor,2);check(encounter.Act(actor,0,"body"),"charge nitro");ReadyJobPanelActor(actor);}
+     click(0,1,true);check(encounter.JobState(actor).NitroSelected,"nitro on");click(0,1,true);check(!encounter.JobState(actor).NitroSelected,"nitro off");
+     encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(2,0,false);
+    }else if(job=="job.alchemist"){
+     for(int i=0;i<5;i++){click(i,0,true);check(alchemyAttribute==i,"attribute selection");click(1,1,true);check(alchemyUnits[i]==1,"attribute increment");}
+     click(0,1,true);check(alchemyUnits[4]==0,"attribute decrement");click(2,1,true);check(alchemyUnits.All(n=>n==0),"clear inputs");click(0,2,false);
+     alchemyUnits[0]=1;int stock=encounter.State.Heroes[actor].JobResource;long clock=encounter.Clock;click(0,2,true);check(encounter.State.Heroes[actor].JobResource==stock-1 && encounter.Clock==clock && alchemyUnits.All(n=>n==0),"transmute consumes inputs, keeps READY, clears selection");
+     fresh();alchemyUnits[0]=2;alchemyUnits[3]=1;click(1,2,true);check(encounter.State.Heroes[actor].JobResource==encounter.State.Heroes[actor].JobResourceMax-3,"weakness applied");
+    }else if(job=="job.panzer"){
+     int selected=lifeTarget;click(0,0,true);check(lifeTarget==(selected+1)%5,"panzer support target");
+     h.TakeDamage(Math.Max(1,h.MaxHitPoints/2));int uses=encounter.JobState(actor).ToolUses[0];click(0,1,true);check(encounter.JobState(actor).ToolUses[0]==uses-1,"repair consumes one use");
+     fresh();uses=encounter.JobState(actor).ToolUses[1];click(0,2,true);check(encounter.JobState(actor).ToolUses[1]==uses-1,"guard consumes one use");
+     fresh();encounter.JobState(actor).ToolUses[1]=0;click(0,2,false);
+    }else if(job=="job.sniper"){
+     click(0,0,true);check(encounter.IsSniping(actor) && h.JobResource==0,"sniper starts cast and consumes MAX");fresh();encounter.State.Heroes[actor].SpendResource(encounter.State.Heroes[actor].JobResource);click(0,0,false);
+    }else if(job=="job.gambler"){
+     click(0,0,true);check(encounter.LastSlotSymbols.Length==9,"slot command produces nine symbols");
+    }
+    check(saveBefore==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"UI operation probes leave progression unchanged");
+    Debug.Log("JOB_PANEL_OPERATIONS_PASS job="+job+" commands="+commands+" checks="+checks+" physicalInput=0");
+   }finally{
+    jobPanelProbe=false;encounter=original;lifeTarget=originalTarget;Array.Copy(originalUnits,alchemyUnits,5);alchemyAttribute=originalAttribute;playback.Reset();shownEvent=0;selectedHero=actor;paused=false;result=null;ResetBattleMenu();battlePanel=BattlePanel.Actions;
+   }
+  }
   private void PreparePlan10UiAuditCapture(string[] args){
    if(!args.Contains("-capturePlan10Ui") || capturePath==null)return;
    plan10UiCapture=!args.Contains("-plan9ManualSmoke");ImageUiSkin.ValidateTextBounds=plan10UiCapture;
@@ -140,8 +235,25 @@ namespace NewAster.Presentation {
    }
    else if(view=="book-colossi" || view=="book-world" || view=="book-stories"){book.ChangeBookmark(view=="book-stories"?BookBookmark.Stories:BookBookmark.Colossi);book.CompleteTransition();if(view=="book-world")book.FlipPage();}
    else if(view.StartsWith("job-",StringComparison.Ordinal)){
-    string job="job."+view.Substring(4);var ids=combatDefinitions.FormationIds;string id=combatDefinitions.heroines.First(h=>h.jobId==job).id;int actor=Array.IndexOf(ids,id);if(actor<0){actor=0;ids[0]=id;}
-    var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds=ids;BindFormalCampaign(save);StartBattle(WorldCatalog.ColossusIds[0],1137);int guard=0;while(encounter.AvailableHero!=actor && guard++<250)encounter.Pass();AcceptanceCheck(encounter.AvailableHero==actor,"Job reaches READY: "+job);encounter.State.Heroes[actor].GainResource(15);encounter.DrainPresentationEvents();selectedHero=actor;ResetBattleMenu();battlePanel=BattlePanel.Actions;
+    PrepareJobPanelCapture(view);
+   }
+   else if(view=="battle-fx-enemy" || view=="battle-chain" || view=="battle-full-chain" || view=="battle-speed" || view=="battle-effects-off"){
+    StartBattle(WorldCatalog.ColossusIds[0],1137);encounter.DrainPresentationEvents();playback.Reset();ResetBattleMenu();
+    bool enemy=view=="battle-fx-enemy",full=view=="battle-full-chain";
+    if(enemy || view.Contains("chain")){
+     var e=new BattlePresentationEvent(999,encounter.Clock,enemy?BattlePresentationKind.Enemy:BattlePresentationKind.Attack,enemy?-1:0,enemy?encounter.State.Heroes[0].Id:"body",enemy?encounter.NextEnemyAction:"連携攻撃",false,false,120,enemy?0:full?5:3,encounter.State,Array.Empty<int>(),Enumerable.Range(0,5).Select(encounter.IsCasting),full,full?10:3,targetIds:new[]{enemy?encounter.State.Heroes[0].Id:"body"});
+     playback.Enqueue(new[]{e});shownEvent=e.Sequence;illustrationElapsed=BattleVisualCue.Duration(e.Kind,e.Major)*.38f+.05f;paused=true;
+    }else{battlePlaybackSpeed=view=="battle-speed"?4:1;battleEffectsOff=view=="battle-effects-off";battlePanel=BattlePanel.Actions;}
+   }
+   else if(view=="roster-entry" || view.StartsWith("trait-flavor",StringComparison.Ordinal)){
+    RequestBookBookmark(BookBookmark.Formation);book.CompleteTransition();RequestBookBookmark(BookBookmark.Heroines);book.CompleteTransition();
+    AcceptanceCheck(heroineRosterOpen,"Heroine bookmark always opens roster even with remembered subject");
+    if(view.StartsWith("trait-flavor",StringComparison.Ordinal)){heroineRosterOpen=false;selectedTrait=view=="trait-flavor-innate"?2:view=="trait-flavor-personal"?3:view=="trait-flavor-mastery"?4:5;}
+   }
+   else if(view=="formation-defender" || view=="formation-nondefender" || view=="formation-preset-selected"){
+    book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;formationLayer=view=="formation-preset-selected"?0:1;
+    formationSlot=Array.FindIndex(CurrentFormation(),id=>view=="formation-defender"?combatDefinitions.Hero(id).jobId=="job.defender":combatDefinitions.Hero(id).jobId!="job.defender");
+    AcceptanceCheck(formationSlot>=0,"Formation fixture has requested job");oopartPresetIndex=view=="formation-preset-selected"?1:0;
    }
    else if(view.StartsWith("battle-fx-",StringComparison.Ordinal)){
     var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));save.home.formationIds[0]="heroine.slayer";BindFormalCampaign(save);StartBattle(WorldCatalog.ColossusIds[0],1137);

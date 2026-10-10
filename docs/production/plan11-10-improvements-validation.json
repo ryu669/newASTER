@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-10",
+  "status": "complete",
+  "scope": "Oopart upgrade planning and material guidance, improvement pass1",
+  "regressionAssertions": 12617,
+  "unitySources": 260,
+  "readOnlyPreviewCases": 48,
+  "previewAssertions": 96,
+  "playerBuild": "success",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "visualReview": [
+    "oopart-conditions: target levels, material/source guide readable without overlap",
+    "oopart-level: actual target, consumed material and total fixed+random stats readable"
+  ],
+  "balanceChanged": false,
+  "masteryChanged": false,
+  "files": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Core/OopartService.cs",
+      "sha256": "A90CA18B2C18E433B6EFE95F15C7AAFBE670D47D98E27E981163C9AD361F3AED"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/OopartView.cs",
+      "sha256": "31DBE3392FDF1BFD06860874ED3DDE142358DA5F9D6322609094A40D8B588529"
+    },
+    {
+      "path": "tools/Plan14OopartTests.cs",
+      "sha256": "1102EF50B9E5A69935642217D5B1BE2BEBFE1169CB793C7D0869D08F42DDA5B9"
+    },
+    {
+      "path": "game/Builds/plan12-preparation/newASTER.exe",
+      "sha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873"
+    },
+    {
+      "path": "game/Builds/plan12-preparation/newASTER_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "5A48A54151FAC94B75646928D8B633A96F5996D70D2A9E46AF0342DD0C6DE948"
+    },
+    {
+      "path": "tmp/plan11-10-measurements/player-build-improvements-final.log",
+      "sha256": "846492A07B9EBC6D6C37510E1D7924ECD7BF8632758E10E6E9B32ABE0AFC4ABA"
+    },
+    {
+      "path": "tmp/plan11-10-improvements/oopart-conditions.png",
+      "sha256": "EA0FA96F2498A6E4CBC5C461294FC5E1A5DA8120373E38A6DE3E28130F2CD004"
+    },
+    {
+      "path": "tmp/plan11-10-improvements/oopart-level.png",
+      "sha256": "9928B9964ECD7551EB13F459208FB810C1CE6534786C4013BD14C1719F6D178E"
+    }
+  ]
+}

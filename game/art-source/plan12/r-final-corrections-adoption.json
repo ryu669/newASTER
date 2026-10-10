@@ -1,0 +1,206 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/r-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-sd-walk-candidate-v1.png",
+      "sha256": "a21703469467fcf2c748aebd8219af8cd619771bf089aca806a7da180c0067cd",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-sd-talk-candidate-v1.png",
+      "sha256": "a95517dff139ea03e3cc6f36d51abe8a81b4affd5f5d09b00a2555a92b449411",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-sd-react-candidate-v1.png",
+      "sha256": "b89462984af8b0aabaafa20c39f1a164a528c063076a45a129f417047640df2d",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-expression-joy-candidate-v1.png",
+      "sha256": "4eaf3811be13e030085c46396a5b7e690bda7527765fb250298a916ff2f62da2",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-expression-puzzled-candidate-v1.png",
+      "sha256": "42e46ed6f12a63768196022c55ee81c4a08da72ddad308fedf8b9b7813540d05",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-expression-determined-candidate-v1.png",
+      "sha256": "d91896287a95e44199ceb8f168235a1f6641a8eef5f32f0719874658b6fb6622",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-event-1-cg-candidate-v1.png",
+      "sha256": "edbcdcaa3fce15a10abf7266642394012256a6b220a13282231cb036e2286727",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-event-2-cg-candidate-v1.png",
+      "sha256": "8b6c4958b3cbf47146af64d2fb7878d1a4e535371538533c4699104e931011d8",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-event-3-cg-candidate-v1.png",
+      "sha256": "b8c25aa222024dd2a10935eb81d42119d10d7e5a55efca30428bff5c335fe667",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/r-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/r-event-4-cg-candidate-v1.png",
+      "sha256": "57525f4dd31cbc43e16c7c7f378ab2a329a914ccd39243ad9f23a55316188f10",
+      "size": [
+        1672,
+        941
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-detail.png",
+      "sha256": "89db3fb7cbe767d45b2bb001e3dbfa55a55014b75c58a1181d0b74d02809606b"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-tree.png",
+      "sha256": "f15c9870171b6d761f9679d0af192b4a332c795d615d005685c85233727c4ea8"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-battle.png",
+      "sha256": "a5fb2e85f635c293529ec5f87d5935fbbff6f3aa515f47bd49432354516d99b4"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-cg.0.png",
+      "sha256": "83d9e83b3cd394ece843a856273e48c935015528228a0c9be1a482be1b5bb9ad"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-sd.idle.png",
+      "sha256": "6dceba8c69c11b4583a135b9e9c6b974def319b7eab0d6e232c311b9d7c6cb18"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-sd.sit.png",
+      "sha256": "6ab691a2f73b8bdfa0ee8b977203882e6075ce06edd9473e736da9116c5ea6ff"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-sd.work.png",
+      "sha256": "5b68f79f9f252e00240a4069cab152b5e559230f11f187da2308ef3ffaf3c7a5"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/r-sd.look.png",
+      "sha256": "83391e6f6cbfbf672f9359cba4ae543bed6f6eb83073d66d7ce7296e097065bd"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-expression.normal.png",
+      "sha256": "a5643d0e4fc8cdd66b5050a5cf9ab6368e6b21bde30e7fa97952ec25edbbc027"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-expression.joy.png",
+      "sha256": "023d465f73479aad14ae6f6b3b6d6392c031421ff0c0e0d2477bab3d5963cf64"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-expression.puzzled.png",
+      "sha256": "27b47227a88580fb20ec7ac198a56b2d5888cb9ac47bf251a865115dbf0a7cd4"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-expression.determined.png",
+      "sha256": "caf05c0d3ad4753ab37553561b051ce48783ef71ecc6c039ab53720f78c1e8df"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-sd.walk.png",
+      "sha256": "2e17519f4da1e4af73e70707d2648f9c0a76a9f79836efd51bd211f265666588"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-sd.talk.png",
+      "sha256": "6c71d4da32b27b7668e0f9faaf0678c9e25d1cfcaf0f2f2744beae710b97dbb2"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/39ee65a452074a4d8e0e4e3955a1db4a/default/r-sd.react.png",
+      "sha256": "8bb5c1fcf60d0567a7cd195bb8d64f794882c14aeee988efd32519036830efa1"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.1.png",
+      "sha256": "ce85d200d2a5dac249c8fd9884a3679aa1a31a3a56ca9435217955379934ce9d"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.2.png",
+      "sha256": "0ed63963606ec01b4e5631ecc0f883f4985df3df255656b4fea08c7fc8d49ccb"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.3.png",
+      "sha256": "a80998c33d811cfc41ffcdaa446d4605f4697be42846c74270e8b2726510ea65"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/376313cc52fb430cb0e1bdd23d5909fb/default/r-cg.4.png",
+      "sha256": "29c6193d080e22a10e7bfd840e3b04723cb531fc5357137b291a4a14f5f6ce65"
+    }
+  ]
+}

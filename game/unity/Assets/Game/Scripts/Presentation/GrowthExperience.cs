@@ -11,11 +11,6 @@ namespace NewAster.Presentation
         private GrowthPreview growthPreview;
         private int growthTargetLevel;
         private string growthOutcome,growthDelta;
-        private Texture2D growthPortrait;
-        private Texture2D iconoclastPortrait;
-        private Texture2D underminePortrait;
-        private Texture2D echidnaPortrait;
-        private Texture2D excalipanPortrait;
         private readonly Color ink=new Color(.035f,.065f,.10f),navy=new Color(.06f,.11f,.16f),gold=new Color(.72f,.57f,.32f),ivory=new Color(.94f,.89f,.77f),muted=new Color(.67f,.71f,.73f);
         private GUIStyle growthTitleStyle,growthTextStyle,growthSmallStyle,growthButtonStyle;
         private void GrowthStyles()
@@ -25,11 +20,6 @@ namespace NewAster.Presentation
             growthTextStyle=new GUIStyle(text){fontSize=ArtSampleSettings.LargeText?26:23};growthTextStyle.normal.textColor=ivory;
             growthSmallStyle=new GUIStyle(small){fontSize=ArtSampleSettings.LargeText?20:18};growthSmallStyle.normal.textColor=muted;
             growthButtonStyle=new GUIStyle(growthTextStyle){alignment=TextAnchor.MiddleCenter,fontSize=22};
-            growthPortrait=Resources.Load<Texture2D>("Illustrations/slayer-portrait-candidate-v1");
-            iconoclastPortrait=Resources.Load<Texture2D>("Illustrations/iconoclast-portrait-candidate-v1");
-            underminePortrait=Resources.Load<Texture2D>("Illustrations/undermine-portrait-candidate-v1");
-            echidnaPortrait=Resources.Load<Texture2D>("Illustrations/echidna-portrait-candidate-v1");
-            excalipanPortrait=Resources.Load<Texture2D>("Illustrations/excalipan-portrait-candidate-v1");
         }
         private void GrowthFill(float x,float y,float w,float h,Color color)
         {ImageUiSkin.Surface(new Rect(x,y,w,h),color);}
@@ -129,7 +119,7 @@ namespace NewAster.Presentation
             }else if(growthScreen==GrowthScreen.Duplicate){
                 int dedicated=Math.Min(100,heroine.fragments),common=100-dedicated;
                 Label(605,307,880,60,$"誓いの強化    {heroine.duplicateRank} / 5",growthTitleStyle);Label(605,427,880,155,$"専用欠片    所持 {heroine.fragments}\n汎用超過素材    所持 {snapshot.overflow}\n今回の消費    専用 {dedicated} ＋ 汎用 {common}",growthTextStyle);
-                Label(605,630,880,50,"専用欠片を優先。最大後の余りは汎用素材へ変換します。",growthSmallStyle);
+                Label(605,630,880,50,heroine.duplicateRank>=4?"最後の強化は能力補正8%→15%。マスタリーはRank5が上限。":"専用欠片を優先。最大後の余りは汎用素材へ変換します。",growthSmallStyle);
                 if(GrowthButton(605,709,885,62,"強化内容を確認する",heroine.duplicateRank<5&&snapshot.overflow>=common,true))GrowthConfirm(GrowthOperation.Strengthen,id,snapshot);
             }else if(growthScreen==GrowthScreen.Confirmation){
                 string change=growthRequest.Operation==GrowthOperation.Level?$"Lv.{heroine.level} → Lv.{growthPreview.HeroineAfter.level}":growthRequest.Operation==GrowthOperation.Awaken?$"覚醒 {heroine.awakeningStage} → {growthPreview.HeroineAfter.awakeningStage}":$"重複強化 {heroine.duplicateRank} → {growthPreview.HeroineAfter.duplicateRank}";

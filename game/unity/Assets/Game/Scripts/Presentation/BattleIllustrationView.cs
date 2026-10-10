@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using UnityEngine;
 using NewAster.Core;
@@ -118,11 +118,12 @@ namespace NewAster.Presentation
                 }
             }
             var enemy=new Rect(90,86,620,620);
+            if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Count>0 && !ArtSampleSettings.ReducedMotion){float surge=Mathf.Sin(progress*Mathf.PI)*.13f;enemy=new Rect(enemy.x-enemy.width*surge*.5f,enemy.y-enemy.height*surge*.5f,enemy.width*(1+surge),enemy.height*(1+surge));}
             if(e!=null && (e.Kind==BattlePresentationKind.Attack || e.Kind==BattlePresentationKind.CastRelease))enemy.position+=impactEffects.Offset(e,elapsed);
             if(body==null) {
                 Fill(enemy,new Color(.12f,.21f,.22f));
                 GUI.Label(new Rect(210,305,450,55),"巨神獣：部位配置の仮表示",small);
-            } else if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.Major && e.PartHp.All(hp=>hp>0) && enemyMajor!=null){GUI.DrawTexture(enemy,enemyMajor,ScaleMode.ScaleToFit,true);} else {
+            } else if(e!=null && e.Kind==BattlePresentationKind.Enemy && e.TargetIds.Count>0 && e.PartHp.All(hp=>hp>0) && enemyMajor!=null){GUI.DrawTexture(enemy,enemyMajor,ScaleMode.ScaleToFit,true);} else {
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder<0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);
                 GUI.DrawTexture(LayerCanvas(enemy,manifest.bodyPlacement),body,ScaleMode.ScaleToFit,true);
                 foreach(var part in manifest.parts.Where(p=>p.drawOrder>=0).OrderBy(p=>p.drawOrder).ThenBy(p=>p.partId,StringComparer.Ordinal)) DrawEnemyLayer(part,enemy,battle,e);

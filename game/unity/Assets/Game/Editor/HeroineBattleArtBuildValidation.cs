@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -7,7 +7,7 @@ using UnityEditor.Build.Reporting;
 using UnityEngine;
 public sealed class HeroineBattleArtImporter:AssetPostprocessor
 {
-    internal static bool IsBattleArt(string path)=>path.Replace('\\','/').StartsWith("Assets/Game/Resources/Illustrations/",StringComparison.Ordinal) && new[]{"-standing-","-attack-","-hit-","-cutin-","-bare-"}.Any(Path.GetFileName(path).Contains);
+    internal static bool IsBattleArt(string path)=>path.Replace('\\','/').StartsWith("Assets/Game/Resources/Illustrations/",StringComparison.Ordinal) && new[]{"-standing-","-attack-","-hit-","-cutin-","-bare-","-expression-","-event-","-sd-"}.Any(Path.GetFileName(path).Contains);
     private void OnPreprocessTexture(){if(IsBattleArt(assetPath))Configure((TextureImporter)assetImporter);}
     internal static void Configure(TextureImporter importer){importer.npotScale=TextureImporterNPOTScale.None;}
 }

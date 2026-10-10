@@ -22,6 +22,39 @@ namespace NewAster.Core
         private static InteractionTraitDef Def(string id,string name) =>
             new InteractionTraitDef {id=id,displayName=name,category=id.Split('.')[0]};
         public static string[] Ids=>definitions.Select(d=>d.id).ToArray();
+        public static string Flavor(string id)
+        {
+            switch(id){
+                case "hair.blonde":return "陽光を梳いたような髪が、翼の影まで明るくする。";
+                case "hair.black":return "夜を映す艶やかな髪。その奥の眼差しは、いつもあなたを見ている。";
+                case "hair.silver":return "月明かりを束ねた髪が、風の通り道に淡くきらめく。";
+                case "hair.red":return "炎を思わせる髪には、胸の奥の熱まで隠せない。";
+                case "body.slender":return "風をすり抜ける軽やかな輪郭。翼を広げれば、誰より遠くへ。";
+                case "body.glamorous":return "豊かな曲線にも、誇りにも、自分らしさが息づいている。";
+                case "body.muscular":return "積み重ねた鍛錬は、いざという時に誰かを支える強さになる。";
+                case "body.petite":return "小さな背中に、大きな覚悟。見上げるだけの空では終わらない。";
+                case "taste.muscle":return "今日のひと頑張りは明日の力。鍛えた分だけ、笑顔にも自信が増える。";
+                case "taste.books":return "本を開けば、まだ見ぬ世界が隣に座る。続きはあなたと読んでみたい。";
+                case "taste.sweets":return "甘いひと口で、難しい顔もほどけてしまう。最後のひとつは、半分ずつ。";
+                case "taste.cooking":return "鍋から立つ湯気に、帰ってきた実感が混ざる。今日は何が食べたい？";
+                case "taste.mechanics":return "歯車の噛み合う音を聞けば、時間を忘れる。直せないものほど気になるらしい。";
+                case "taste.flowers":return "咲く日を急がず、水をやる。小さな蕾にも、きちんと名前を呼びかけて。";
+                case "personality.cool":return "涼しい表情の下にも、譲れない想いがある。気づいてほしい相手は、ひとり。";
+                case "personality.active":return "思いついたら、もう一歩目。次の景色にも、あなたを連れていく。";
+                case "personality.shy":return "伝えたい言葉ほど、頬に先回りされる。少しだけ、待っていてほしい。";
+                case "personality.night":return "皆が眠る頃、ようやく心が静かになる。月の下なら、話せることもある。";
+                case "appearance.animal":return "耳も尻尾も、気持ちに正直。隠したつもりの嬉しさまで、そっと揺れている。";
+                case "appearance.glasses":return "レンズ越しの眼差しは細かな変化も見逃さない。あなたの疲れにも、きっと気づく。";
+                case "appearance.horns":return "誇り高い角も、彼女を知れば見慣れた輪郭。怖がらずに、隣へどうぞ。";
+                case "outfit.swimsuit":return "波音に翼を休める日。戦いを忘れた笑顔が、夏の光にほどける。";
+                case "outfit.halloween":return "今夜だけは、いたずらもおめかしも大胆に。驚く顔が見たいから。";
+                case "outfit.christmas":return "包みに込めたのは、あなたを想う時間。寒い夜にも、温かな居場所を。";
+                case "outfit.newyear":return "袖を整え、新しい朝へ。最初の願いは、今年も一緒に帰れること。";
+                case "outfit.valentine":return "甘さの加減に迷った時間まで、贈り物にして。返事は、目を見て聞きたい。";
+                case "outfit.school":return "教科書の余白にも、放課後の約束にも。まだ知らない自分を書き足していく。";
+                default:throw new ArgumentException("Missing interaction trait flavor: "+id);
+            }
+        }
         public static string[] Warnings(HeroineCombatDef hero)
         {
             Validate(hero);

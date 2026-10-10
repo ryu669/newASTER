@@ -1,0 +1,40 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "event-0-cg",
+      "prompt": "Edit this existing anime fantasy game event illustration. Remove the black-haired male character on the right completely, including all of his hands, arms, clothing, and silhouette. Reconstruct the antique map table, chair and room naturally behind him. The pink-haired adult winged heroine must be the only person in the image. Preserve her exact character identity, hat, costume, expression, pose, the map explanation scene, lighting, original illustration style and landscape composition. No other people, no foreground protagonist hands or arms, no text. Preserve the source aspect ratio. Finished polished game event CG.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-cc110c2b-67e4-462d-838a-9cd55eca16ba.png",
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved",
+      "resource": "Illustrations/arcane-event-0-cg-candidate-v1"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Edit the provided anime fantasy event CG. Remove the entire male on the right, all male hands and arms included. Only the pink-haired adult winged heroine remains, holding and presenting the small golden gear herself with her white gloved hands. Reconstruct the sunlit greenhouse garden and table naturally. Preserve her exact face, costume, wings, hat, jewelry, joyful expression, original style, landscape aspect ratio and image quality. No other people, no foreground hands from an unseen person, no text.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-74cfd056-3be8-49ee-988f-4a818c68889f.png",
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved",
+      "resource": "Illustrations/arcane-event-1-cg-candidate-v1"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Edit this anime fantasy game event CG. Remove the entire male person and every part of his body, hands, arms and clothes. The adult pink-haired winged heroine sits alone on the red velvet sofa, her own white-gloved hands relaxed together on her lap. Reconstruct the sofa and museum background seamlessly. Preserve heroine identity, costume, face, wings, hat, warm delighted expression, lighting, landscape aspect ratio and detailed original art style. No other people, no protagonist hands, no text.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c11a2f02-fd88-43af-90cb-5649102d4476.png",
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved",
+      "resource": "Illustrations/arcane-event-2-cg-candidate-v1"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Edit this anime fantasy event CG. Completely remove the male on the right, all his hands, arms, body and clothing. The adult pink-haired winged heroine sits alone on the blue sofa with her own white-gloved hand holding her teacup, smiling warmly toward the viewer. Reconstruct empty sofa cushions, rainy window and museum room seamlessly where the male was. Preserve heroine identity, outfit, wings, hat, expression, pose, lighting, detailed illustration style and original landscape aspect ratio. No other people, no foreground protagonist hands, no text.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-04e10806-7f1b-44ff-89a6-a21a7aa9ca60.png",
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved",
+      "resource": "Illustrations/arcane-event-3-cg-candidate-v1"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Edit this anime fantasy event illustration. Remove the entire black-haired man behind the pink-haired adult winged heroine, including all his hands and arms. She alone opens the golden memory cabinet with her own white-gloved hand and ornate key. Replace every photograph or portrait containing a male on the cabinet doors with landscape-only pictures (gardens, castles, stars); no human figures in framed art or statues. Seamlessly reconstruct the cabinet and greenhouse where the man stood. Preserve heroine identity, face, smile, clothing, hat, wings, pose, lighting, original detailed style and landscape aspect ratio. No other people, no protagonist hands, no text.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-54a78404-6535-47d2-ada9-d9abaeb4185a.png",
+      "visualReview": "passed: heroine only; no foreground partner; scene preserved",
+      "resource": "Illustrations/arcane-event-4-cg-candidate-v1"
+    }
+  ]
+}

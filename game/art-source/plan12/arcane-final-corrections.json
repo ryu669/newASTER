@@ -1,0 +1,26 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-87eabb4b-703a-4460-8d4c-3ecf9a4ed58d.png",
+      "resource": "Illustrations/arcane-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d483f401-271e-45b0-be52-7396d84d4d15.png",
+      "resource": "Illustrations/arcane-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create determined confident expression, slightly firm brows and a small confident closed smile. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-964068d2-a05b-449f-99be-0ad7407af364.png",
+      "resource": "Illustrations/arcane-expression-determined-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

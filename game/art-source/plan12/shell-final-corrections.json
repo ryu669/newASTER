@@ -1,0 +1,75 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE dedicated sit garden SD sprite of the exact female chibi character in the reference: a clear seated pose, knees bent and feet dangling together, hands resting on lap; no chair or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2a207d77-b51d-4fac-9956-f00c4f83041b.png",
+      "resource": "Illustrations/shell-sd-sit-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE dedicated work garden SD sprite of the exact female chibi character in the reference: a clear focused working pose, leaning forward slightly, both hands using a small suitable tool or writing in a notebook near waist; no desk or furniture. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c873ae72-e026-441f-9884-406bc29f783f.png",
+      "resource": "Illustrations/shell-sd-work-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE dedicated look garden SD sprite of the exact female chibi character in the reference: a clear admiring pose, face and eyes looking upward to the side at an offscreen display, hands clasped behind back. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e5620acd-3e23-4950-8a8d-0b02ddf06b83.png",
+      "resource": "Illustrations/shell-sd-look-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create joyful warm open smile, softly lifted brows and sparkling open eyes. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4981fe4c-9b9e-48e5-85df-67a7d476e7d3.png",
+      "resource": "Illustrations/shell-expression-joy-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit ONLY facial features of the exact female character in this game standing illustration to create puzzled uncertain expression, subtly raised inner eyebrows and small questioning mouth. Preserve canvas dimensions, framing, head position, head angle, nose, face outline, eye center coordinates, hair, costume, pose, wings, accessories and every pixel outside the face. No zoom, crop, reposition or rotation. Keep original background and transparency unchanged. This is a registered facial overlay: expressions must align perfectly to the original standing face. No text, symbols or other people.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-9c403dac-4d88-4361-99b1-4ec1e9cb813a.png",
+      "resource": "Illustrations/shell-expression-puzzled-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "shell-event-0",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-f9205d50-bcf7-4759-98cf-b49d699b0838.png",
+      "resource": "Illustrations/shell-event-0-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "shell-event-1",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4f107eac-7426-4892-96b9-4447e34944c1.png",
+      "resource": "Illustrations/shell-event-1-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "shell-event-2",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-50d491ed-09e3-4214-bfaa-dd374d6180c2.png",
+      "resource": "Illustrations/shell-event-2-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "shell-event-3",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c2970d58-11a4-4224-9a0b-5ada556271f5.png",
+      "resource": "Illustrations/shell-event-3-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "shell-event-4",
+      "prompt": "Edit this game event illustration. Remove EVERY other person completely, including male characters, silhouettes, portraits, foreground first-person hands, arms, shoulders and any partner body parts. Replace human busts and statues with ornamental vases. Exactly ONE person remains: the original female heroine. Reconstruct the background naturally where people were removed. Preserve her exact identity, hair, costume, wings, ornaments, scene, lighting, emotional narrative and landscape composition. Keep exactly two arms and two hands belonging to her; preserve her existing arm pose unless interaction must be repaired. Never add an extra hand. No new people or disembodied hands. Keep landscape canvas aspect ratio. No text or interface.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ea7b5309-e75a-496b-a18f-8b1ffb57a09e.png",
+      "resource": "Illustrations/shell-event-4-cg-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

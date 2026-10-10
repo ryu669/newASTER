@@ -1,0 +1,201 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/oriflamme-sd-sit-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-sd-sit-candidate-v1.png",
+      "sha256": "01c2af3964cf9c3b01686c16a3c13e1d30f59887535b59a2dc1b10079018d0bb",
+      "size": [
+        1201,
+        1309
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-sd-work-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-sd-work-candidate-v1.png",
+      "sha256": "4704c15770cb1e9eeb31af311f1aadedbe39296002297f53d7d940defaed6a0f",
+      "size": [
+        1201,
+        1309
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-sd-look-candidate-v1.png",
+      "sha256": "b66e84bf5c862834a186b14e2ce2454e2af28b0090d6a076a967deabbee613fd",
+      "size": [
+        1201,
+        1309
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-expression-joy-candidate-v1.png",
+      "sha256": "92845568625b75344016b4e8f24f758496f2eef26510d152189f8358c0bccbf7",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-expression-puzzled-candidate-v1.png",
+      "sha256": "c7b9aae71c1ec894fbf07c4ce663cb21a10710ceda2c0a9232dd9cafc9d2e7fc",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-expression-determined-candidate-v1.png",
+      "sha256": "d1d651e08a1ed7cffa21e2cc6670d033641a5c1e67a5529b14b1b875635e08b9",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-event-0-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-event-0-cg-candidate-v1.png",
+      "sha256": "a3242b241446733b292ded54f90e90c7fb115991e57a0b6746c9f37c0861a31e",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-event-1-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-event-1-cg-candidate-v1.png",
+      "sha256": "9343e6b3020023621645c25714144b3b47c38d57249a6ef869439fa45bb3d6f8",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-event-2-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-event-2-cg-candidate-v1.png",
+      "sha256": "68216d9ed0e3a85d19034de84138e9c17034f082ff66e3427d292f2ffe9d0833",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-event-3-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-event-3-cg-candidate-v1.png",
+      "sha256": "053f61e8bc557f72bf064268add16bbd7789d9b3c26f5d9f0fc47e299e063b6e",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/oriflamme-event-4-cg-candidate-v1",
+      "source": "game/art-source/plan12/adopted/oriflamme-event-4-cg-candidate-v1.png",
+      "sha256": "a5713c28347e90641c0df293eee1f0bc25eb0b2aafc5751b39bd5c3b8da7b1bf",
+      "size": [
+        1536,
+        1024
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/oriflamme-detail.png",
+      "sha256": "159cc094e969f1ae5f7cee235d0994f006444c2864bb71745d606f08cea3bfc8"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/oriflamme-tree.png",
+      "sha256": "2c710a50f341c3479928466917fa0c6410ce55b2cd101b255859ccce5662a2c7"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/oriflamme-battle.png",
+      "sha256": "05c6de70c37e810223484fa88877b0d44e4e13899d72033da3a379c0acb40e4a"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/oriflamme-sd.idle.png",
+      "sha256": "f33e6ed77e1e21e67df3338d5f725bf94aede81fb72f72062fab0f84aa424db4"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-expression.normal.png",
+      "sha256": "b7b309f51fac224f2c1856b210a1aa46026e016c30d78ae3871e95bed224174b"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-expression.joy.png",
+      "sha256": "30d602a6792b64af1c7b2c84800ad36f16d9f67a3531dcbcbe988e8a474b5f68"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-expression.puzzled.png",
+      "sha256": "ad4a7c5f431c5074d68cf88dbf7a79fbf7c4249c37c03a70a80591794192232d"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-expression.determined.png",
+      "sha256": "0a509621f5ae05fa0bfff241ed712129ca8148f1fcbd9f68f68e735221ebd1d5"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-sd.sit.png",
+      "sha256": "fbd6b415ac5b741265605001145f24c99ef8e268ce9d7a4a3af0c1905cc64db9"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-sd.work.png",
+      "sha256": "39ce97de3586b220c0f13a8dcf59460ad3ab91232a19b8dd5986bed7298d5d25"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/06fb68eaa1304f1e9905de20a3e1088b/default/oriflamme-sd.look.png",
+      "sha256": "0a2a0404fb35b89ccbb88200001151d8c09be48b7a9e73a818391b95f33b8b45"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.0.png",
+      "sha256": "b96020bfb0f088bc81f16f4fba6eec5b067583e05d0c8af10c9b0e1821cf9104"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.1.png",
+      "sha256": "9f13e5ac7c8852f4ac61b53a17026f2f7d1ae28a76d2846bcc528745b2e40c56"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.2.png",
+      "sha256": "ff0ff2cc3ed22719f1ebd143483581591b6016bdd386e00301a8c0ca85ccead8"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.3.png",
+      "sha256": "e6d74a72c5021ca726c4f18f077c13f3cdcf29bc09eb35097f56f8541b861e47"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/e15c886d126f4696b38ff0175a122a4f/default/oriflamme-cg.4.png",
+      "sha256": "146075613fc067806895060ddddf72d6a358c0110a577e7ba071ed526ee218e1"
+    }
+  ]
+}

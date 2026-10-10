@@ -1,0 +1,25 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/slayer-swim-sd-look-candidate-v1",
+      "source": "game/art-source/plan12/adopted/slayer-swim-sd-look-candidate-v1.png",
+      "sha256": "7cb1795dffe2042178c86d9cbc69c98ab4065789eeb0d56744ed3c27364ff19f",
+      "size": [
+        1230,
+        1278
+      ],
+      "visualReview": "passed: dedicated upward-looking pose; lightweight opaque open-front overshirt with floral swimsuit visible; identity and transparent full silhouette preserved"
+    }
+  ],
+  "runtimeCapture": "passed",
+  "characterStatus": "complete",
+  "evidence": [
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/83e7787f84f34f12b78df9975ce6ca39/default/slayer-swim-sd.look.png",
+      "sha256": "4aff86eb97f355abe409ee975edd7157a7bc09371e6e8bccd83b2ea4066d2a8f"
+    }
+  ]
+}

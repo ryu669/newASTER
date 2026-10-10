@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -11,12 +11,12 @@ namespace NewAster.Presentation
         private void DrawAlchemyBattleControls(int actor,bool enabled,GUIStyle style)
         {
             var attributes=encounter.AlchemyAttributes(actor);if(attributes.Length!=5)return;
-            if(Btn(34,484,130,32,attributes[alchemyAttribute]+" ↻",enabled,style))alchemyAttribute=(alchemyAttribute+1)%5;
-            if(Btn(170,484,55,32,"−",enabled && alchemyUnits[alchemyAttribute]>0,style))alchemyUnits[alchemyAttribute]--;
-            if(Btn(230,484,55,32,"＋",enabled && alchemyUnits.Sum()<encounter.State.Heroes[actor].JobResource,style))alchemyUnits[alchemyAttribute]++;
-            if(Btn(295,484,230,32,"錬成・READY維持",enabled && encounter.CanTransmute(actor,alchemyUnits,target),style)){encounter.Transmute(actor,alchemyUnits,target);Array.Clear(alchemyUnits,0,5);QueueBattleEvents();}
-            if(Btn(535,484,220,32,"火弱点・火2＋光1",enabled && encounter.CanTransmute(actor,alchemyUnits,target,true),style)){encounter.Transmute(actor,alchemyUnits,target,true);Array.Clear(alchemyUnits,0,5);QueueBattleEvents();}
-            if(Btn(765,484,90,32,"クリア",enabled,style))Array.Clear(alchemyUnits,0,5);
+            for(int i=0;i<5;i++)if(JobCommand(i,0,attributes[i]+alchemyUnits[i],enabled,5))alchemyAttribute=i;
+            if(JobCommand(0,1,"−投入",enabled && alchemyUnits[alchemyAttribute]>0,3))alchemyUnits[alchemyAttribute]--;
+            if(JobCommand(1,1,"＋投入",enabled && alchemyUnits.Sum()<encounter.State.Heroes[actor].JobResource,3))alchemyUnits[alchemyAttribute]++;
+            if(JobCommand(2,1,"クリア",enabled,3))Array.Clear(alchemyUnits,0,5);
+            if(JobCommand(0,2,"錬成（維持）",enabled && encounter.CanTransmute(actor,alchemyUnits,target))){encounter.Transmute(actor,alchemyUnits,target);Array.Clear(alchemyUnits,0,5);QueueBattleEvents();}
+            if(JobCommand(1,2,"火弱点（維持）",enabled && encounter.CanTransmute(actor,alchemyUnits,target,true))){encounter.Transmute(actor,alchemyUnits,target,true);Array.Clear(alchemyUnits,0,5);QueueBattleEvents();}
         }
     }
 }

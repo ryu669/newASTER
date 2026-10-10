@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
@@ -19,6 +19,7 @@ namespace NewAster.Presentation
         }
         private void DrawGlobalBackButton()
         {
+            if(adv?.CgId!=null || encounter!=null)return;
             GrowthStyles();
             bool enabled=book!=null && combatDefinitionError==null && !plan7ActiveCombat && (!title || titlePanel!=null || saveManagementOpen) && !(formalCampaign?.HasPending??false) && formalBattleEndRequest==null;
             if(GrowthButton(1408,14,76,52,"戻る",enabled))HandleEscapeNavigation();

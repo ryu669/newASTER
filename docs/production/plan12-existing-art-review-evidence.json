@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-10",
+  "scope": "saved comparison sheets and five original assets; no new runtime capture",
+  "visualAcceptance": "partial_review_only",
+  "evidence": [
+    {
+      "path": "tmp/all-15-detail-review.png",
+      "sha256": "3d46e2fa2d2e0c2e63df1cd218fd6c3f84c0595325bb8b50dfd67877c714bbe1"
+    },
+    {
+      "path": "tmp/all-15-tree-review.png",
+      "sha256": "9e4d842ea6be8dfa097a1331f1ca73dced39256b9be7e3bb35e0cda08ab98f66"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-r-v2.png",
+      "sha256": "3d4f76d4791a8c56add17af1d40d81cca2820b0c00b27ae60b5ca4975cb26050"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-shangrila-v2.png",
+      "sha256": "410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/annihilator-holy-standing-candidate-v1.png",
+      "sha256": "c03f7f071fe7f3eb05d1d2837c566b7b5a71a17d52c9b7f062c34d9096716eee"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/arcane-expression-joy-candidate-v1.png",
+      "sha256": "f1260318c01e155c9ae43844d1a58db8bbbd540697f83d7a5d5bd7524a3b57a3"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/Illustrations/shell-event-0-cg-candidate-v1.png",
+      "sha256": "6b2ab61867727b88d7af10363ac212df053333ba18110f0412dbf8870c915564"
+    }
+  ]
+}

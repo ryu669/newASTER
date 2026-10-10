@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using NewAster.Core;
 using UnityEngine;
@@ -34,10 +34,10 @@ namespace NewAster.Presentation
         {
             var j=encounter.JobState(actor);
             if(encounter.RequiresPanzerDefense(actor)){
-                Label(34,484,820,32,"装甲喪失中：スキル・ツール・パス不可。下の防御で再召喚を待つ。",new GUIStyle(small){fontSize=17},gold);return;
+                Label(34,536,332,100,"装甲喪失中\nスキル・ツール・パス不可。\n防御で再召喚を待ちます。",new GUIStyle(small){fontSize=17},gold);return;
             }
-            if(Btn(34,484,154,32,"支援対象 "+(lifeTarget+1)+" ↻",enabled,style))lifeTarget=(lifeTarget+1)%5;
-            for(int slot=0;slot<2;slot++)if(Btn(200+slot*330,484,320,32,PlayableBattle.PanzerToolName(j.PanzerTools[slot])+" ／ 残り"+j.ToolUses[slot]+"回",enabled && encounter.CanUsePanzerTool(actor,slot,lifeTarget),style)){
+            if(JobCommand(0,0,"支援対象："+encounter.HeroineName(lifeTarget)+" ↻",enabled,2,2))lifeTarget=(lifeTarget+1)%5;
+            for(int slot=0;slot<2;slot++)if(JobCommand(0,slot+1,PlayableBattle.PanzerToolName(j.PanzerTools[slot])+" ／ 残り"+j.ToolUses[slot]+"回",enabled && encounter.CanUsePanzerTool(actor,slot,lifeTarget),2,2)){
                 encounter.UsePanzerTool(actor,slot,lifeTarget);ResetBattleMenu();QueueBattleEvents();
             }
         }

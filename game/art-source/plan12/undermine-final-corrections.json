@@ -1,0 +1,26 @@
+{
+  "tool": "builtin ImageGen",
+  "assets": [
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE dedicated walk garden SD sprite of the exact female chibi character in the reference: a clear walking step, one leg forward and the other back, arms swinging naturally, lively walking body lean. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5eb99c61-f54b-489f-9632-de14ea65dfe6.png",
+      "resource": "Illustrations/undermine-sd-walk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE dedicated talk garden SD sprite of the exact female chibi character in the reference: a clear friendly talking gesture, one hand open at chest level toward the listener, cheerful open mouth, feet planted. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a6f350bd-2fd0-4e34-b4ce-44bcaec4a48f.png",
+      "resource": "Illustrations/undermine-sd-talk-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE dedicated react garden SD sprite of the exact female chibi character in the reference: a clear surprised reaction, both hands lifted near cheeks, widened eyes and small surprised open mouth, knees slightly bent. Preserve exact character identity, face, hair, costume, ornaments, colors, wings and polished chibi illustration style. Full body and every accessory complete within canvas; make character smaller to leave generous transparent padding, nothing touching edges. No scenery, floor, shadow, text, symbols or other people. Genuine transparent background. Clearly differ from idle.",
+      "path": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4b328683-e958-411d-ae82-42d454b38963.png",
+      "resource": "Illustrations/undermine-sd-react-candidate-v1",
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ]
+}

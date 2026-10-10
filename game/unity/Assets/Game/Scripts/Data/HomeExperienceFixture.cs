@@ -62,9 +62,7 @@ namespace NewAster.Data
                     id="art.candidate.iconoclast.expression."+expression+".v1",kind="expression",placeholder=true,regionalOverlay=true,mappedOverlay=true,
                     resourcePath="Illustrations/iconoclast-expression-"+expression+"-source-v1",
                     overlayRegion01=new HomeRect{x=466f/1024,y=280f/1536,width=110f/1024,height=83f/1536},
-                    overlaySourceRegion01=i==0?new HomeRect{x=461f/1024,y=230f/1536,width=110f/1024,height=83f/1536}:
-                        i==1?new HomeRect{x=343f/1024,y=626f/1536,width=376f/1024,height=284f/1536}:
-                        new HomeRect{x=403f/1230,y=588f/1280,width=440f/1230,height=327f/1280}})).ToArray();
+                    overlaySourceRegion01=new HomeRect{x=466f/1024,y=280f/1536,width=110f/1024,height=83f/1536}})).ToArray();
             var iconoclastDisplay=c.displays.Single(d=>d.heroineId=="heroine.iconoclast");iconoclastDisplay.standingAssetId="art.candidate.iconoclast.standing.v1";
             iconoclastDisplay.usePortraitCrop=true;
             iconoclastDisplay.portraitCrop01=new HomeRect{x=0,y=.07f,width=1,height=.48f};

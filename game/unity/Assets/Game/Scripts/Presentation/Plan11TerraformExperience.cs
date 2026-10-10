@@ -14,8 +14,8 @@ namespace NewAster.Presentation
         private Vector2 terraformScroll;
         private FormalTerraformRequest terraformRequest;
         private readonly Rect[] terraformDomainCards = {
-            new Rect(135,255,240,64), new Rect(135,410,240,64), new Rect(135,565,240,64),
-            new Rect(395,225,240,64), new Rect(655,255,240,64), new Rect(655,410,240,64), new Rect(655,565,240,64)
+            new Rect(135,255,240,76), new Rect(395,255,240,76), new Rect(655,255,240,76),
+            new Rect(135,350,240,76), new Rect(395,350,240,76), new Rect(655,350,240,76), new Rect(135,445,240,76)
         };
         private TerraformSave TerraformPreview()
         {
@@ -70,10 +70,11 @@ namespace NewAster.Presentation
             bool ready=terraformRequest==null && !formalCampaign.HasPending;
             for(int i=0;i<7;i++){
                 var d=s.domains.Single(x=>x.domainId==TerraformRules.DomainIds[i]);var r=terraformDomainCards[i];
-                if(GrowthButton(r.x,r.y,r.width,r.height,TerraformRules.DomainNames[i]+"\nLv"+d.currentLevel+" "+TerraformRules.LevelNames[d.currentLevel],ready,terraformDomain==i))SelectTerraformDomain(s,i);
+                if(terraformDomain==i){GrowthFill(r.x-4,r.y-4,r.width+8,r.height+8,new Color(.62f,.43f,.12f));}
+                if(GrowthButton(r.x,r.y,r.width,r.height,(terraformDomain==i?"◆ ":"")+TerraformRules.DomainNames[i]+"\nLv"+d.currentLevel+" "+TerraformRules.LevelNames[d.currentLevel],ready,terraformDomain==i))SelectTerraformDomain(s,i);
             }
-            DrawTerraformLandscape(new Rect(385,325,260,270),s,true);
-            Label(385,605,260,70,"7領域の記述が形作る新天地\n"+(s.worldIntegrated?"成立した世界を再編集":"全領域Lv3でアステリアを受入"),growthSmallStyle);
+            DrawTerraformLandscape(new Rect(395,445,500,228),s,true);
+            Label(415,605,460,60,"7領域の記述が形作る新天地\n"+(s.worldIntegrated?"成立した世界を再編集":"全領域Lv3でアステリアを受入"),growthSmallStyle);
             string id=TerraformRules.DomainIds[terraformDomain];var selected=s.domains.Single(x=>x.domainId==id);
             Label(975,240,460,42,TerraformRules.DomainNames[terraformDomain],growthTitleStyle,gold);
             Label(975,292,460,64,"現在 Lv"+selected.currentLevel+" "+TerraformRules.LevelNames[selected.currentLevel]+" ／ 最大 Lv"+selected.maxReachedLevel+(selected.activeExtremeId==null?"":"\n"+TerraformCatalog.ExtremeName(selected.activeExtremeId)),growthSmallStyle);
@@ -122,7 +123,7 @@ namespace NewAster.Presentation
         {
             bool ready=terraformRequest==null && !formalCampaign.HasPending;
             string[] tabs={"極相 "+s.discoveredExtremes.Length+"/28","深層記述 "+s.acquiredDeepRecords.Count(TerraformRules.DeepIds.Contains)+"/7","世界現象","星名"};
-            for(int i=0;i<4;i++)if(GrowthButton(135+i*325,240,310,44,tabs[i],ready,possibleWorldTab==i)){possibleWorldTab=i;book.PageState.sortMode=i.ToString();bookNavigationDirty=true;terraformScroll=Vector2.zero;}
+            for(int i=0;i<4;i++){if(possibleWorldTab==i)GrowthFill(132+i*325,237,316,50,new Color(.62f,.43f,.12f));if(GrowthButton(135+i*325,240,310,44,(possibleWorldTab==i?"◆ ":"")+tabs[i],ready,possibleWorldTab==i)){possibleWorldTab=i;book.PageState.sortMode=i.ToString();bookNavigationDirty=true;terraformScroll=Vector2.zero;}}
             if(possibleWorldTab==3){
                 Label(180,330,1200,60,s.sevenExtremeGenesis?"七極創世":"星名",growthTitleStyle);
                 Label(180,395,1200,54,s.sevenExtremeGenesis?"過去7世界のいずれにも該当しない世界が成立した":"全7領域の最大到達Lv7で、星名入力が解放されます。",growthSmallStyle);
@@ -139,6 +140,7 @@ namespace NewAster.Presentation
                 if(possibleWorldTab==0){
                     foreach(var definition in TerraformCatalog.Extremes){
                         var e=s.discoveredExtremes.FirstOrDefault(x=>x.extremeId==definition.id);
+                        GrowthFill(0,y,1255,37,e==null?new Color(.04f,.07f,.10f):new Color(.09f,.16f,.19f));
                         Label(12,y,855,34,definition.displayName+"　／　"+TerraformCatalog.DomainName(definition.mainDomainId)+" ＋ "+TerraformCatalog.DomainName(definition.fusionDomainId),growthSmallStyle);
                         Label(885,y,370,34,e==null?"未発見":"発見順 "+e.sequence+" ／ "+TerraformCatalog.DeepName(e.deepRecordId),growthSmallStyle);y+=39;
                     }

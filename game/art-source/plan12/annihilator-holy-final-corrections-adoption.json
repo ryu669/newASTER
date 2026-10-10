@@ -1,0 +1,166 @@
+{
+  "tool": "builtin ImageGen",
+  "pixelEditing": false,
+  "assets": [
+    {
+      "resource": "Illustrations/annihilator-holy-sd-walk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-sd-walk-candidate-v1.png",
+      "sha256": "c7e924276bc9be2db55ec8e4c006866cd158cd623bbe053a3bcf9297dac05ac0",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-holy-sd-talk-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-sd-talk-candidate-v1.png",
+      "sha256": "590d1b6fd848fa152cc6406467f144841456419f53dc3283e35c074c8217c492",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-holy-sd-react-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-sd-react-candidate-v1.png",
+      "sha256": "88b1a44f8e65893f6188add67943bb1977a634834d74010bdf2c92a620c46fc9",
+      "size": [
+        1145,
+        1374
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-holy-expression-joy-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-expression-joy-candidate-v1.png",
+      "sha256": "685051e1b2157bedfd50cfecf5460a082c209d9899f979a071135e6969fd18ba",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-holy-expression-puzzled-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-expression-puzzled-candidate-v1.png",
+      "sha256": "c5b81643cdcb55ed6c916b92f9dd3eb1c0d5198b7cd00cc4364342faa638d600",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    },
+    {
+      "resource": "Illustrations/annihilator-holy-expression-determined-candidate-v1",
+      "source": "game/art-source/plan12/adopted/annihilator-holy-expression-determined-candidate-v1.png",
+      "sha256": "d8bc281c0bb39f181e59348aa18d0f0d74dd22848de794f7563fd67bc8520c9d",
+      "size": [
+        1024,
+        1536
+      ],
+      "visualReview": "passed: requested distinct pose or expression, character identity preserved, no unwanted people"
+    }
+  ],
+  "runtimeCapture": "passed_for_adopted_assets",
+  "characterStatus": "complete",
+  "remaining": [],
+  "evidence": [
+    {
+      "view": "detail",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-detail.png",
+      "sha256": "b76e037e25db1d3951338d2bc8a18630dca100f4e3612eb6cfb5b51fd2797c4c"
+    },
+    {
+      "view": "tree",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-tree.png",
+      "sha256": "49517ba9406c8277ce382a5ebe3430889b468d17568df52ea62a1725b26cb6a6"
+    },
+    {
+      "view": "battle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-battle.png",
+      "sha256": "d9b08755906a0c17f3a8333787091688f28eea9ffbadeaf73b64078adb671eb7"
+    },
+    {
+      "view": "cg.0",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.0.png",
+      "sha256": "ec83f51ee8faeeeddf51b2f27844e59289c35abf18ffa343f21474d72945bdd8"
+    },
+    {
+      "view": "cg.1",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.1.png",
+      "sha256": "91e9c7910056af6a932b2275ec39c4b06b047a0d8caef5589033c044140c584c"
+    },
+    {
+      "view": "cg.2",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.2.png",
+      "sha256": "5d2a3ade2e3d4a0b1398861cc7ceea036e28d7b7abdc814319da802bfafef913"
+    },
+    {
+      "view": "cg.3",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.3.png",
+      "sha256": "451ff9bd2e29bcddb9857a50ca31d2f9fb85f895c47d997d67a23ec6c7740414"
+    },
+    {
+      "view": "cg.4",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-cg.4.png",
+      "sha256": "1d3cb4523dda1ffd46519f8de0f7a2c5dfd6327c782e68616da4438e19e9fbda"
+    },
+    {
+      "view": "sd.idle",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-sd.idle.png",
+      "sha256": "256e7245d9bc428d2b73fdf297e4040bc007f9959e9305aa5c363ab7ebb4fc44"
+    },
+    {
+      "view": "sd.sit",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-sd.sit.png",
+      "sha256": "cce530a48d7ab22fc7465e7f5b136290be4e33986707dcc85c45ed87eda0404d"
+    },
+    {
+      "view": "sd.work",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-sd.work.png",
+      "sha256": "69cb2a1565cc0e8237eccb2a44979837162538cebeba0d9e73ee0676a6ab5425"
+    },
+    {
+      "view": "sd.look",
+      "path": "tmp/plan12-art-sweep/f0ea496e59904195a249380b95f00ffe/default/annihilator-holy-sd.look.png",
+      "sha256": "c480ad09e922a636b9b5ba1a883feecce4a8d5eedd2a7ce87f6db0b2850384ad"
+    },
+    {
+      "view": "expression.normal",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-expression.normal.png",
+      "sha256": "9034edfc9688a7b1c8950c779b22d2b0ad64c95be1d206325f34b4919470f78d"
+    },
+    {
+      "view": "expression.joy",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-expression.joy.png",
+      "sha256": "a504480c5303315a333aacc5a2dbe0b4a201b227742d001951cd3496d50311bd"
+    },
+    {
+      "view": "expression.puzzled",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-expression.puzzled.png",
+      "sha256": "eafb0d00f940f980f8a1a618d38b71cc329ea8b4ff07eb55069f9f98cbe260c8"
+    },
+    {
+      "view": "expression.determined",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-expression.determined.png",
+      "sha256": "a7f53459f550b39a30027bf7eedf56aabcd73c48be4526cde0ead48590e6c597"
+    },
+    {
+      "view": "sd.walk",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-sd.walk.png",
+      "sha256": "15c673acbed629f01beae81e709c69d7887c7765d65d8f98ef75a3604f7cfdf3"
+    },
+    {
+      "view": "sd.talk",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-sd.talk.png",
+      "sha256": "5d1690072f6fb7dab3687b4173e49163b79708e0da6ca6348fd5963be9ccedff"
+    },
+    {
+      "view": "sd.react",
+      "path": "tmp/plan12-art-sweep/2c31c997e39147acb37c7dc4786fc65f/default/annihilator-holy-sd.react.png",
+      "sha256": "884b7dbb7b4dcdc9c76bed8b8d8cf003a95bfda27906cf929bf9ee8b234d8315"
+    }
+  ]
+}
