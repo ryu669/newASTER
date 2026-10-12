@@ -29,6 +29,7 @@ namespace NewAster.Core
         public string targetStatusBonusKind;
         public int targetStatusBonusPercent;
         public int enemyAttackReductionPercent,enemyAttackReductionTurns;
+        public int enemyDefenseReductionPercent,enemyDefenseReductionTurns;
         public int bodyDamageBonusPercent,enemyStatusExtensionTurns,alliesEffectExtensionTurns;
         public string[] enemyStatusExtensionKinds;
         public TimedSelfEffectDef[] postAttackAlliesEffects;
@@ -39,6 +40,7 @@ namespace NewAster.Core
         public string[] attributes;
         public int ignoreDefenseBp;
         public EnemyStatusDef[] statusEffects;
+        public int enemyWaitChancePercent; // Zero preserves the existing guaranteed delay rule.
         public int enemyWaitAdd,selfWaitReductionPercent,chargeConsumeMax,chargeBonusPercent,specialWeaponBonusPercent;
         public SkillConditionDef[] conditions;
         public float powerScale,partScale;
@@ -97,10 +99,11 @@ namespace NewAster.Core
             if(schemaVersion!=1 && formation.All(id=>heroines.Any(h=>h.id==id)) && formation.Select(PersonId).Distinct().Count()!=5)throw new ArgumentException("One person cannot occupy multiple formation slots.");
             if(skills.Any(s=>s==null || !Id(s.id) || !Id(s.ownerId) || string.IsNullOrWhiteSpace(s.name) || s.resourceCost<0 || s.resourceCost>10 || s.recoveryPercent<=0 || s.recoveryPercent>1000 || s.castPercent<0 || s.castPercent>1000 || !Scale(s.powerScale) || !Scale(s.partScale,true) || s.baseHealing<0 || s.baseHealing>1000000) || skills.Select(s=>s.id).Distinct().Count()!=skills.Length)
                 throw new ArgumentException("Invalid skill definition.");
+            if(skills.Any(s=>s.enemyDefenseReductionPercent<0 || s.enemyDefenseReductionPercent>50 || s.enemyDefenseReductionTurns<0 || s.enemyDefenseReductionTurns>10 || (s.enemyDefenseReductionPercent==0)!=(s.enemyDefenseReductionTurns==0) || s.enemyDefenseReductionPercent>0 && s.effectRuleId!="effect.damage"))throw new ArgumentException("Invalid enemy defense reduction.");
             if(skills.Any(s=>s.enemyAttackReductionPercent<0 || s.enemyAttackReductionPercent>50 || s.enemyAttackReductionTurns<0 || s.enemyAttackReductionTurns>10 || (s.enemyAttackReductionPercent==0)!=(s.enemyAttackReductionTurns==0)))throw new ArgumentException("Invalid enemy attack reduction.");
             if(skills.Any(s=>s.chainChanceBonusBp<0 || s.chainChanceBonusBp>1500 || s.chainChanceBonusBp>0 && s.effectRuleId!="effect.damage"))throw new ArgumentException("Invalid authored chain bonus.");
             if(skills.Any(s=>s.enemyFireVulnerabilityPercent<0 || s.enemyFireVulnerabilityPercent>100 || s.enemyFireVulnerabilityTurns<0 || s.enemyFireVulnerabilityTurns>10 || (s.enemyFireVulnerabilityPercent==0)!=(s.enemyFireVulnerabilityTurns==0) || s.enemyFireVulnerabilityPercent>0 && s.effectRuleId!="effect.damage" || s.allAlchemistResourceGain<0 || s.allAlchemistResourceGain>10 || s.allAlchemistResourceGain>0 && s.effectRuleId!="effect.allies-buff"))throw new ArgumentException("Invalid alchemy skill effects.");
-            if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || s.effectRuleId!="effect.damage" && s.effectRuleId!="effect.self-buff" && s.selfHealingBaseAttackPercent!=0 || s.effectRuleId!="effect.damage" && s.selfDamageMaxHpPercent!=0 || s.resourceGain<0 || s.resourceGain>10 || s.alliesHealingBaseAttackPercent<0 || s.alliesHealingBaseAttackPercent>1000 || s.alliesHealingBaseAttackPercent>0 && s.effectRuleId!="effect.damage" || s.cleanseAll && s.effectRuleId!="effect.heal"))
+            if(skills.Any(s=>s.selfHealingBaseAttackPercent<0 || s.selfHealingBaseAttackPercent>1000 || s.selfDamageMaxHpPercent<0 || s.selfDamageMaxHpPercent>100 || s.effectRuleId!="effect.damage" && s.effectRuleId!="effect.self-buff" && s.selfHealingBaseAttackPercent!=0 || s.effectRuleId!="effect.damage" && s.effectRuleId!="effect.self-buff" && s.selfDamageMaxHpPercent!=0 || s.resourceGain<0 || s.resourceGain>10 || s.alliesHealingBaseAttackPercent<0 || s.alliesHealingBaseAttackPercent>1000 || s.alliesHealingBaseAttackPercent>0 && s.effectRuleId!="effect.damage" || s.cleanseAll && s.effectRuleId!="effect.heal"))
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
                 if(skill.targetStatusBonusPercent<0 || skill.targetStatusBonusPercent>1000 || skill.targetStatusBonusPercent>0 && (skill.effectRuleId!="effect.damage" || !EnemyStatusState.Kinds.Contains(skill.targetStatusBonusKind)) || skill.targetStatusBonusPercent==0 && !string.IsNullOrEmpty(skill.targetStatusBonusKind))throw new ArgumentException("Invalid target status damage bonus.");
@@ -109,7 +112,7 @@ namespace NewAster.Core
                 if(statuses.Any(e=>e==null) || statuses.Select(e=>e.kind).Distinct().Count()!=statuses.Length) throw new ArgumentException("Invalid status effect list.");
                 foreach(var e in statuses) e.Validate();
                 if(!IsFormal && (statuses.Length>0 || skill.enemyWaitAdd!=0 || skill.selfWaitReductionPercent!=0 || skill.chargeConsumeMax!=0 || skill.chargeBonusPercent!=0 || skill.specialWeaponBonusPercent!=0)) throw new ArgumentException("Extended status/job command effects require original formal rules.");
-                if(skill.enemyWaitAdd<0 || skill.enemyWaitAdd>1000 || skill.selfWaitReductionPercent<0 || skill.selfWaitReductionPercent>90 || skill.chargeConsumeMax<0 || skill.chargeConsumeMax>9 || skill.chargeBonusPercent<0 || skill.chargeBonusPercent>100 || skill.specialWeaponBonusPercent<0 || skill.specialWeaponBonusPercent>1000 || (skill.effectRuleId!="effect.damage" && (statuses.Length>0 || skill.enemyWaitAdd!=0 || skill.selfWaitReductionPercent!=0 || skill.chargeConsumeMax!=0 || skill.chargeBonusPercent!=0 || skill.specialWeaponBonusPercent!=0)) || (skill.chargeConsumeMax==0 && skill.chargeBonusPercent!=0)) throw new ArgumentException("Invalid command-only effect.");
+                if(skill.enemyWaitChancePercent<0 || skill.enemyWaitChancePercent>100 || skill.enemyWaitChancePercent>0 && skill.enemyWaitAdd==0 || skill.enemyWaitAdd<0 || skill.enemyWaitAdd>1000 || skill.selfWaitReductionPercent<0 || skill.selfWaitReductionPercent>90 || skill.chargeConsumeMax<0 || skill.chargeConsumeMax>9 || skill.chargeBonusPercent<0 || skill.chargeBonusPercent>100 || skill.specialWeaponBonusPercent<0 || skill.specialWeaponBonusPercent>1000 || (skill.effectRuleId!="effect.damage" && (statuses.Length>0 || skill.enemyWaitAdd!=0 || skill.selfWaitReductionPercent!=0 || skill.chargeConsumeMax!=0 || skill.chargeBonusPercent!=0 || skill.specialWeaponBonusPercent!=0)) || (skill.chargeConsumeMax==0 && skill.chargeBonusPercent!=0)) throw new ArgumentException("Invalid command-only effect.");
                 if((!string.IsNullOrEmpty(skill.damageType) && skill.damageType!="physical" && skill.damageType!="magic") || skill.ignoreDefenseBp<0 || skill.ignoreDefenseBp>10000 || (skill.effectRuleId!="effect.damage" && (!string.IsNullOrEmpty(skill.damageType) || skill.ignoreDefenseBp!=0))) throw new ArgumentException("Invalid attack defense profile.");
                 SkillConditionDef.ValidateAll(skill.conditions);
                 if(skill.criticalBonusBp<0 || skill.criticalBonusBp>10000 || skill.damageCap<0 || (skill.effectRuleId!="effect.damage" && (skill.criticalBonusBp!=0 || skill.damageCap!=0))) throw new ArgumentException("Critical bonus and damage cap require an attack.");
@@ -118,7 +121,7 @@ namespace NewAster.Core
                 if(skill.effectRuleId=="effect.self-buff" || skill.effectRuleId=="effect.allies-buff") {
                     if(skill.selfEffects==null || skill.selfEffects.Length==0 || (skill.effectRuleId=="effect.self-buff"?skill.targetRuleId!="target.self":skill.targetRuleId!="target.all-living-allies" && !(skill.targetRuleId=="target.selected-allies" && skill.targetCount==1)) || skill.castPercent!=0 || skill.chainEligible || skill.powerScale!=0)
                         throw new ArgumentException("Self-buff requires nonempty supported effects and self target without casting or chain.");
-                } else if(skill.effectRuleId!="effect.damage" && skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects require a self-buff or attack command.");
+                } else if(skill.effectRuleId!="effect.damage" && !(IsFormal && skill.effectRuleId=="effect.heal") && skill.selfEffects!=null && skill.selfEffects.Length>0) throw new ArgumentException("Timed effects require a buff, formal healing or attack command.");
             }
             if(chainActions.Any(a=>a==null || !Id(a.id) || !Id(a.heroineId) || !Id(a.presentationId) || a.resourcePolicy!="none" || a.timelinePolicy!="preserve" || a.commandInteractionPolicy!="none" || !Scale(a.powerScale)) || chainActions.Select(a=>a.id).Distinct().Count()!=chainActions.Length)
                 throw new ArgumentException("Unsupported or invalid chain definition.");

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.aeon",
+  "formId": "heroine.aeon",
+  "planningId": "aa.person.003",
+  "stage": "complete-published",
+  "available": true,
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json",
+  "combatSourceSha256": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+  "storySourceSha256": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c",
+  "unresolved": []
+}

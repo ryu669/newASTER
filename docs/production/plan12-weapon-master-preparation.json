@@ -1,0 +1,20 @@
+{
+  "status": "accepted-normal-play",
+  "available": true,
+  "personId": "heroine.weapon-master",
+  "sourcePersonId": "aa.person.020",
+  "realName": "イサカ・ハイライン",
+  "jobId": "job.gunner",
+  "chapters": 3,
+  "pages": 30,
+  "poems": 18,
+  "events": 5,
+  "images": 20,
+  "weaponNameOrigin": "newaster-original; source full name remains unverified",
+  "completionRecord": "docs/production/plan12-weapon-master-form-record.json",
+  "validation": {
+    "assertions": 12435,
+    "unitySources": 278
+  },
+  "remaining": []
+}

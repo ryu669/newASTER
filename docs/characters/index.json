@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-10",
-  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json",
-  "storySource": "game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json",
+  "updatedAt": "2026-10-11",
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-weapon-master.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-weapon-master-story-content.json",
   "people": [
     {
       "personId": "heroine.slayer",
@@ -101,6 +101,79 @@
       "formIds": [
         "heroine.shangrila"
       ]
+    },
+    {
+      "personId": "heroine.aeon",
+      "name": "アイオーン",
+      "profile": "docs/characters/aeon.md",
+      "formIds": [
+        "heroine.aeon"
+      ]
+    },
+    {
+      "personId": "heroine.iron-maiden",
+      "name": "アイアンメイデン",
+      "profile": "docs/characters/iron-maiden.md",
+      "formIds": [
+        "heroine.iron-maiden"
+      ]
+    },
+    {
+      "personId": "heroine.avalanche",
+      "name": "アヴァランチ",
+      "profile": "docs/characters/avalanche.md",
+      "formIds": [
+        "heroine.avalanche"
+      ]
+    },
+    {
+      "personId": "heroine.anathema",
+      "name": "アナテマ",
+      "profile": "docs/characters/anathema.md",
+      "formIds": [
+        "heroine.anathema"
+      ]
+    },
+    {
+      "personId": "heroine.shiva",
+      "name": "シヴァ",
+      "profile": "docs/characters/shiva.md",
+      "formIds": [
+        "heroine.shiva"
+      ]
+    },
+    {
+      "personId": "heroine.invisible",
+      "name": "インヴィジブル",
+      "profile": "docs/characters/invisible.md",
+      "formIds": [
+        "heroine.invisible"
+      ]
+    },
+    {
+      "personId": "heroine.viper",
+      "name": "ヴァイパー",
+      "profile": "docs/characters/viper.md",
+      "formIds": [
+        "heroine.viper"
+      ]
+    },
+    {
+      "personId": "heroine.vindicator",
+      "name": "ヴィンディーケーター",
+      "profile": "docs/characters/vindicator.md",
+      "formIds": [
+        "heroine.vindicator"
+      ]
+    },
+    {
+      "personId": "heroine.weapon-master",
+      "name": "ウェポンマスター",
+      "profile": "docs/characters/weapon-master.md",
+      "formIds": [
+        "heroine.weapon-master"
+      ]
     }
-  ]
+  ],
+  "developmentPeople": []
 }

@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.vindicator",
+  "formId": "heroine.vindicator",
+  "available": true,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "game/art-source/vindicator-v1/standing.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b9af8241-5e42-479a-8e96-c58848ff1d37.png",
+      "sha256": "493f7185ddee1cd412eb928bb0bea2b3f9a5082d7680913358712e6e73f95b41",
+      "promptFile": "game/art-source/vindicator-v1/standing-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "manually reviewed original: one adult woman, full body/wings/sword fit, dedicated costume; actual Player review pending",
+      "resourcePath": "Illustrations/vindicator-standing-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-expression.normal.png",
+          "sha256": "80e742a10f3904dcd94027d7f972e5c3807a4c78aa73ec362900f0a37126018c"
+        }
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/vindicator-v1/portrait.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6997bd9e-0959-45a2-8e00-c5e8bc693e71.png",
+      "sha256": "f8ef5f4c97223887b1fb4a62b7ad4f15dc8f5a0520d4f8f502f10671ffb818cc",
+      "promptFile": "game/art-source/vindicator-v1/portrait-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/heroine-portrait-vindicator-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/recruit.png",
+          "sha256": "678515768df848cb70831f4f0dbc22ab06739bd1d55d8872a05f186c44a3cd1f"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/trait.png",
+          "sha256": "e10f698b0f6e593eb57d11f24db989960c625df3eddc2cb8068dc7e2221d02c4"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/vindicator-v1/expression-joy.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c5501012-803c-4820-b93d-90f4956a6da9.png",
+      "sha256": "bb25f5fababd7ad0998cc8c7b2847dd4496b9c6d6b4c5ad4d13a1f36abbf7aaa",
+      "promptFile": "game/art-source/vindicator-v1/expression-joy-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-expression-joy-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-expression.joy.png",
+          "sha256": "f84f5fa6cd1d3d3febdb29f69a93736a5b21622e7c573918b6cc9e1a7b04a0db"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/vindicator-v1/expression-puzzled.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-88d84658-b003-4285-8b7f-dee8e5de86eb.png",
+      "sha256": "c59f59f05a6b5fbc0e95642b941f4735e153106bb12cdc7c3c881c34fd606be5",
+      "promptFile": "game/art-source/vindicator-v1/expression-puzzled-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-expression-puzzled-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-expression.puzzled.png",
+          "sha256": "ff4aec24d7920c03336bb52aa31487ccbfbaad74e13f44ea5e75c48fa8eaa21c"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/vindicator-v1/expression-determined.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1dd26092-a2da-4f57-af2f-8540786d94de.png",
+      "sha256": "d83e6eb910beafca47c7745dc1700c5e65e8a803c0d1ea70e8a09a839ab14dc3",
+      "promptFile": "game/art-source/vindicator-v1/expression-determined-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-expression-determined-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-expression.determined.png",
+          "sha256": "4e4f6e47095e7c5348d4f0582a79c34f1398071da367d4bd2b9b6c9b5421bd3f"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/vindicator-v1/event-0-cg.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7ac761bf-e1de-4c84-8a66-1c1e32f0cd7b.png",
+      "sha256": "f43958742d9cb6fa18913a6450410c5491d62703b21e514f3ead47b208541ef6",
+      "promptFile": "game/art-source/vindicator-v1/event-0-cg-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-event-0-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-cg.0.png",
+          "sha256": "021bd8b535942874de40b25bba0a066e522a293339637958f7afdc8233cf80b7"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.0.png",
+          "sha256": "3522e9b36b9652e332b03c860b9ae591e1098fce3355a09b4cb85e00aad19daa"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/vindicator-v1/event-1-cg.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2a608c48-3780-4456-9ac4-250828c28840.png",
+      "sha256": "2b26a89f2f4173fb5770681285719fe5fde08957e03055b71592f09dc8d9d32b",
+      "promptFile": "game/art-source/vindicator-v1/event-1-cg-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-event-1-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-cg.1.png",
+          "sha256": "351ccd8e9e52b4cf2ee4048ff2d5e617e730d9743f90164e52a6b07902c515b6"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.1.png",
+          "sha256": "925e12ec0838605797d2ec421036b4479b2ff6e57030181c755e4b96675a57b9"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/vindicator-v1/event-2-cg.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-89ef6922-fb60-4cdc-97a6-98265bc2d674.png",
+      "sha256": "a7a54baba93a35c8b1259b82b704ac51a0c2bf4e5cb9ec3f6525717e1d329ef1",
+      "promptFile": "game/art-source/vindicator-v1/event-2-cg-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-event-2-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-cg.2.png",
+          "sha256": "f1bb2f0e4aad1e8633ab6bec30f991757b6326d2b6250c4061780674e2739b11"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.2.png",
+          "sha256": "5e6e7f95bd9881dcc9397eb587db13a5a44aa992f11f170f44bcd85528fb629c"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/vindicator-v1/event-3-cg.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-6c23b6be-4bf9-4257-8c07-645de8aeb960.png",
+      "sha256": "368735281903260914a8e735d3bb42b4b349a31dc945fc7f07753cc3cda8ff8e",
+      "promptFile": "game/art-source/vindicator-v1/event-3-cg-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-event-3-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-cg.3.png",
+          "sha256": "57e7ab90dd65e0a4bc1d65a820e0905c3ba2dd8c33735b5f7151bf661845e3aa"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.3.png",
+          "sha256": "5b10fbdf8ee56db7d3b063f11b1564d2fd5e036638c42eaafab13c44f1696db1"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/vindicator-v1/event-4-cg.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-552578ab-bc50-4e06-94d8-44c5cd578f82.png",
+      "sha256": "b0f3805654d590b80e82e3df4ba1fef02593942e459db3b1068d36c9676e3b76",
+      "promptFile": "game/art-source/vindicator-v1/event-4-cg-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-event-4-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-cg.4.png",
+          "sha256": "a2a6463da7e4a2bfced51912d4d2e5108cfbfb96735ca07ee514700a5130300e"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.4.png",
+          "sha256": "123e7b0f9f195c0f4d18a214cf7ad47f8294316491176d50bab3b23e70a19aba"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/vindicator-v1/cutin.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ce7f3684-9db0-46cc-a1e5-3cbbd8aa29f2.png",
+      "sha256": "30bee89f57fb1bb0a56005acf3f01e26e4d610ea1f67a296bd2c739885471593",
+      "promptFile": "game/art-source/vindicator-v1/cutin-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-cutin-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/battle-cutin.png",
+          "sha256": "66565bfe4d0c8058d8c07ebe5f3874328c7fb0d399c3d378495488af88746c28"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/vindicator-v1/hit-v2.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5e55e433-d408-4cd4-b32b-280c02e61f2e.png",
+      "sha256": "9fad332c3224c04e12dae3390e45cb9118400396c112f91f9353d5f758912e85",
+      "promptFile": "game/art-source/vindicator-v1/hit-v2-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Replacement manually inspected: complete sword, wings, boots fit; blocked-impact recoil, no injury. Player review pending.",
+      "supersededOriginal": {
+        "path": "game/art-source/vindicator-v1/hit.png",
+        "sha256": "9aedc2f3935c4a9557c29712495eba151c673a66169e72677b1f034ff2aacb0c",
+        "reason": "Sword tip clipped at canvas top; rejected for runtime use."
+      },
+      "resourcePath": "Illustrations/vindicator-hit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/battle-hit.png",
+          "sha256": "49e6fa02c373fd6d9b8955ef5e2e6a150e48ca94b9c3dd0d57c975e45ecbcf97"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/vindicator-v1/sd-walk.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7dfc1941-832d-4a57-882c-6d7440985d38.png",
+      "sha256": "ff199fd0e93d5fea2e7a267892e10f8da7bad7c25b05b9df6922e27ca24e43d8",
+      "promptFile": "game/art-source/vindicator-v1/sd-walk-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-sd-walk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.walk.png",
+          "sha256": "4370ad18c9c5deca925f6a4175de9ace725386ce09eaf55c2fcc07d4657d9f40"
+        }
+      ]
+    },
+    {
+      "key": "tree-ornament",
+      "path": "game/art-source/vindicator-v1/tree-ornament.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-39b77b11-526e-4fc1-96e4-e211fcd6cfb7.png",
+      "sha256": "d4e637a722cce1b97d1a8ab03c5ec229cd0c79c8d9bb91d7179c0d5304809489",
+      "promptFile": "game/art-source/vindicator-v1/tree-ornament-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "UI/WeaponTrees/vindicator-ornament-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/tree0.png",
+          "sha256": "87d8407a1d4c824bea23874d32ebca86d96bb5d9086b8bd37e61048fc05bef3c"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/tree2.png",
+          "sha256": "0ebb106fcbc0e8d2a8caf0c11344a4dd0810eef49d860e1bbf8907eac82a0e12"
+        },
+        {
+          "path": "tmp/plan12-vindicator/player/tree4.png",
+          "sha256": "91d94af5629d8c2177cb0aa4135ef23084d13739bc1a22dabe38dacefce80dfa"
+        }
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "game/art-source/vindicator-v1/attack.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-80b316be-eed0-46fb-97f8-0301c2aefbab.png",
+      "sha256": "3e730141581fb1028ee58d135f8c0f2c5e78c8848aed2916cc7ce0388b4a97aa",
+      "promptFile": "game/art-source/vindicator-v1/attack-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "promptRecovery": "Recovered semantic prompt from execution record; exact original unavailable.",
+      "resourcePath": "Illustrations/vindicator-attack-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/battle-attack.png",
+          "sha256": "fb0ff4bfe14846c9f4a43d2cd8580cb6fee18d5858971609b69d6511c2a2ceae"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/vindicator-v1/sd-idle-v2.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-17b09624-39df-4f91-89d1-28fa6437d89a.png",
+      "sha256": "baf74c145b56a58959f91aeb45e3cd9e6bf84fc3149fd79ac04e21cd48807189",
+      "promptFile": "game/art-source/vindicator-v1/sd-idle-v2-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Replacement manually inspected: landscape canvas, complete wings boots sword; runtime review pending.",
+      "promptRecovery": "Recovered semantic prompt from execution record; exact original unavailable.",
+      "resourcePath": "Illustrations/vindicator-sd-idle-candidate-v2",
+      "supersededOriginal": {
+        "path": "game/art-source/vindicator-v1/sd-idle.png",
+        "sha256": "cc3787e85d2bd9d9e7acaccdefa5cd7143e8077f8881dd87e37d4812c3533a6e",
+        "reason": "Portrait canvas rejected: inconsistent with full-canvas SD composition."
+      },
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.idle.png",
+          "sha256": "4108269c31b45f2b04c3832fadbd74b60f7678acffb7c9067a7c53c6f6340f2d"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/vindicator-v1/sd-sit.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8763c163-1a4b-4b89-86c8-d99d555193ab.png",
+      "sha256": "00b55c6eadbf48288f05fc7ea0b4bb77483a6d160e2655a7de55d7d4a37963e5",
+      "promptFile": "game/art-source/vindicator-v1/sd-sit-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "promptRecovery": "Recovered semantic prompt from execution record; exact original unavailable.",
+      "resourcePath": "Illustrations/vindicator-sd-sit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.sit.png",
+          "sha256": "9499fca00689f0b0a9493872358e07d7bbe738e72cf345e2440333cc56a37f1c"
+        },
+        {
+          "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+          "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/vindicator-v1/sd-work.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-01327f3e-c47c-4275-aa0f-fb0932486ae2.png",
+      "sha256": "ad9702bfb9162fc801b5e58c963974c30cfc4101e6aa1f1465b710c9d0a73554",
+      "promptFile": "game/art-source/vindicator-v1/sd-work-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "promptRecovery": "Recovered semantic prompt from execution record; exact original unavailable.",
+      "resourcePath": "Illustrations/vindicator-sd-work-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.work.png",
+          "sha256": "5a40ce35ff1bda08a81bdf8d5aa0e665f6e1417e4d87754dae193bf647c58f2c"
+        },
+        {
+          "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+          "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/vindicator-v1/sd-look.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-575f5c68-f0fb-4e93-9097-4ec321777bb9.png",
+      "sha256": "a7d10292e4507e5dcb53afc8fd8edc1cb27a8e04c8effc533cd29b112f67d4f3",
+      "promptFile": "game/art-source/vindicator-v1/sd-look-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "promptRecovery": "Recovered semantic prompt from execution record; exact original unavailable.",
+      "resourcePath": "Illustrations/vindicator-sd-look-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.look.png",
+          "sha256": "08cba43c16a743d8905a16df39c5a437c219063ddff9a2c2f145228dce805bd5"
+        },
+        {
+          "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+          "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/vindicator-v1/sd-react.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7bfe97f1-064d-45f0-a76e-3dedc6ca082e.png",
+      "sha256": "3dd2a55e7b7e15ccd61516e49ebaa1cb047efc663f54f66d85c6c8fddcfd35a2",
+      "promptFile": "game/art-source/vindicator-v1/sd-react-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-sd-react-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.react.png",
+          "sha256": "a800424afe5b78eb70332f73a8feb30a5fe12542d697a6cc6e2401677fb7d1f8"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/vindicator-v1/sd-talk.png",
+      "generatedPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2aa5146a-4f9a-440f-81ce-af76251aae7c.png",
+      "sha256": "b6d10a056ddd8b02048fd5dca8f425624e6fdca3b6d3260c537c19c1cd84280f",
+      "promptFile": "game/art-source/vindicator-v1/sd-talk-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewNote": "Original manually inspected for identity, intended pose, framing and no second person; Player review pending.",
+      "resourcePath": "Illustrations/vindicator-sd-talk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-vindicator/player/vindicator-sd.talk.png",
+          "sha256": "e278c3f58bdac6c60cddc0c4b74e58872562ede49415dda699e7d76a3133595c"
+        }
+      ]
+    }
+  ],
+  "remainingAssets": []
+}

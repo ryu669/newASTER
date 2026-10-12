@@ -88,7 +88,7 @@ namespace NewAster.Core
             jobStates[actor].EmpoweredUntil=Clock+activeGeneral.durationClock+h.TraitEffect("empowered-clock");
             if(UsesOoparts && activeGeneral.enhancedSlots?.Length!=5){State.Heroes[actor].AddOopartBuff(new BuffInstance{sourceActorId=h.Id,sourceId="general.command",kind="job.empowered",initialValue=activeGeneral.strengthenPercent*(100+OopartBonus(actor,"buff-power"))/100,value=activeGeneral.strengthenPercent*(100+OopartBonus(actor,"buff-power"))/100,expiresAt=Clock+activeGeneral.durationClock});}
             for(int i=0;i<5;i++)UpdateGeneralFormationStats(i);
-            RecordPresentation(BattlePresentationKind.Support,actor,"body","夏の指揮：5枠の効果を強化 ／ "+activeGeneral.durationClock+" Clock",standalone:true);return true;
+            RecordPresentation(BattlePresentationKind.Support,actor,"body","指揮：5枠の効果を強化 ／ "+activeGeneral.durationClock+" Clock",standalone:true);return true;
         }
     }
 }

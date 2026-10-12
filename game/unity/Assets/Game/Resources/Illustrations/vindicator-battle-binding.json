@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.vindicator",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/vindicator-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/vindicator-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/vindicator-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/vindicator-cutin-candidate-v1"
+}

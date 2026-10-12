@@ -1,0 +1,92 @@
+{
+  "status": "pass",
+  "scope": "weapon-master-only",
+  "proof": [
+    {
+      "form": "invisible",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "previousSha256": "6e15dec7d7080eba25bc426aa541c57e7c2b91bc48fd8da50338cc20d5be0973",
+      "currentSha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "invisible",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "previousSha256": "6e24c345f321fe30b6ef7c7b2da34c56c19c0722d015135b1a349bd4f0cb3e58",
+      "currentSha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "invisible",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "previousSha256": "a07b869b5f7b4055da6f616244ffb62ef5fd4982530eaf41eb442376f25ff5fe",
+      "currentSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "invisible",
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "previousSha256": "6f045e9f9cf4d66e10b357069c63d3d390bc94b4d59a74cdd28c74b7ec05a043",
+      "currentSha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "viper",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "previousSha256": "6e15dec7d7080eba25bc426aa541c57e7c2b91bc48fd8da50338cc20d5be0973",
+      "currentSha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "viper",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "previousSha256": "6e24c345f321fe30b6ef7c7b2da34c56c19c0722d015135b1a349bd4f0cb3e58",
+      "currentSha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "viper",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "previousSha256": "a07b869b5f7b4055da6f616244ffb62ef5fd4982530eaf41eb442376f25ff5fe",
+      "currentSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "viper",
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "previousSha256": "6f045e9f9cf4d66e10b357069c63d3d390bc94b4d59a74cdd28c74b7ec05a043",
+      "currentSha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "vindicator",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "previousSha256": "6e15dec7d7080eba25bc426aa541c57e7c2b91bc48fd8da50338cc20d5be0973",
+      "currentSha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "vindicator",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "previousSha256": "6e24c345f321fe30b6ef7c7b2da34c56c19c0722d015135b1a349bd4f0cb3e58",
+      "currentSha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "vindicator",
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "previousSha256": "a07b869b5f7b4055da6f616244ffb62ef5fd4982530eaf41eb442376f25ff5fe",
+      "currentSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    },
+    {
+      "form": "vindicator",
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "previousSha256": "6f045e9f9cf4d66e10b357069c63d3d390bc94b4d59a74cdd28c74b7ec05a043",
+      "currentSha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "verification": "Removing only Weapon Master registrations and its guarded furniture branch reproduces the previously accepted renderer exactly; existing asset and capture hashes unchanged"
+    }
+  ],
+  "supersededTreeRendererProof": "docs/production/plan12-common-weapon-tree-review.json",
+  "note": "Heroine-only registration proof remains historical; shared tree renderer changed subsequently and was visually reviewed for all forms."
+}

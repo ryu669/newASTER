@@ -78,7 +78,7 @@ namespace NewAster.Presentation
             if(GrowthButton(55,104,235,48,returnToFormationFromWeapon?"‹ 編成の設定へ":"‹ 能力へ戻る",BookInputAllowed && homeRequest==null && !formalCampaign.HasPending)){ReturnFromFormationWeapon();return;}
             GrowthFill(62,176,473,632,parchment);Label(90,197,414,55,selected.terminal,sanctuaryHeading);
             DrawWeaponEffect(new Rect(92,265,78,78),WeaponGrowthRules.Icon(selected),owned);
-            Label(188,255,315,96,(selected.initial?"誓いの根":(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7")+"\n"+((hero.StartsWith("heroine.annihilator",StringComparison.Ordinal) || hero=="heroine.shell" || hero=="heroine.oriflamme" || hero=="heroine.nighthawk" || hero=="heroine.slayer-swim" || hero=="heroine.arcane" || hero=="heroine.arcane-academy" || hero=="heroine.shangrila")?"攻撃スキル強化 ×":"通常攻撃 ")+ (WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
+            Label(188,255,315,96,(selected.initial?"誓いの根":(owned?"取得済み":"未解放")+"  ／  Lv."+level+" / 7")+"\n"+((hero.StartsWith("heroine.annihilator",StringComparison.Ordinal) || hero=="heroine.shell" || hero=="heroine.oriflamme" || hero=="heroine.nighthawk" || hero=="heroine.slayer-swim" || hero=="heroine.arcane" || hero=="heroine.arcane-academy" || hero=="heroine.shangrila" || hero=="heroine.aeon" || hero=="heroine.iron-maiden" || hero=="heroine.avalanche" || hero=="heroine.anathema" || hero=="heroine.shiva" || hero=="heroine.invisible" || hero=="heroine.viper" || hero=="heroine.vindicator" || hero=="heroine.weapon-master")?"攻撃スキル強化 ×":"通常攻撃 ")+ (WeaponGrowthRules.Power(selected,level)*100).ToString("0.#")+"%",sanctuaryBody);
             Label(90,235,418,25,WeaponGrowthRules.Branch(selected)+(selected.initial?"":" ／ "+WeaponGrowthRules.Tier(selected)+" / 4"),sanctuarySmall);
             Label(90,340,418,65,"装備："+(equippedNode.initial?"根":WeaponGrowthRules.UniqueAbility(equippedNode))+"\n選択："+(selected.initial?"根":WeaponGrowthRules.UniqueAbility(selected)),new GUIStyle(sanctuarySmall){fontSize=16});
             Label(90,405,335,25,weaponShowLevels?"Lv一覧":"装備比較",sanctuarySmall);
@@ -104,7 +104,8 @@ namespace NewAster.Presentation
             bool sufficient=costs.All(c=>HomeRules.Balance(snapshot,c.resourceId)>=c.amount);
             if(!selected.initial && GrowthButton(83,728,430,55,owned?level==7?"Lv.7  MAX":"神器をLv."+(level+1)+"へ強化":!parents?"親の神器を解放してください":sufficient?"素材で神器を解放":"素材が不足しています",homeRequest==null && !formalCampaign.HasPending && (owned?level<7 && sufficient:parents && sufficient),true))ProposeHome(new HomeOperation(owned?"weapon-level":"weapon",selected.id,owned?(level+1).ToString():null));
             var treeRect=new Rect(571,173,965,640);GrowthFrame(treeRect.x,treeRect.y,treeRect.width,treeRect.height);
-            var layout=WeaponTreeLayout(hero);var tree=SanctuaryTree(hero);var imageRect=ContainImage(new Rect(600,186,906,608),tree.width,tree.height);GUI.DrawTexture(imageRect,tree,ScaleMode.ScaleToFit,true);
+            var layout=WeaponTreeLayout(hero);Rect imageRect;
+            if(!TryDrawLayeredWeaponTree(hero,nodes,new HashSet<string>(state.weaponNodeIds),ref layout,out imageRect)){var tree=SanctuaryTree(hero);imageRect=ContainImage(new Rect(600,186,906,608),tree.width,tree.height);GUI.DrawTexture(imageRect,tree,ScaleMode.ScaleToFit,true);}
             // Use the same native image rectangle for artwork and its authored branch anchors.
             var branchRect=imageRect;
             var path=new HashSet<string>();var pending=new Stack<string>();pending.Push(selected.id);
@@ -112,11 +113,13 @@ namespace NewAster.Presentation
             foreach(var n in nodes)foreach(string parent in n.parentIds){var a=layout.Position(n.id);var b=layout.Position(parent);GrowthLine(branchRect.x+a.x*branchRect.width,branchRect.y+a.y*branchRect.height,branchRect.x+b.x*branchRect.width,branchRect.y+b.y*branchRect.height,path.Contains(n.id)?gold:new Color(.3f,.4f,.4f,.5f),path.Contains(n.id)?3:1);}
             for(int route=0;route<3;route++)Label(620+route*290,183,250,27,new[]{"攻撃","守護","技巧"}[route],new GUIStyle(growthSmallStyle){alignment=TextAnchor.MiddleCenter},gold);
             foreach(var n in nodes){var anchor=layout.Position(n.id);float x=branchRect.x+anchor.x*branchRect.width,y=branchRect.y+anchor.y*branchRect.height;bool acquired=state.weaponNodeIds.Contains(n.id),selectedNow=n.id==selected.id;var rect=new Rect(x-31,y-31,62,62);
-                GrowthFill(x-34,y-30,68,60,new Color(.04f,.11f,.13f,.85f));DrawWeaponNodeEffects(x,y,n,acquired);
+                bool roundNode=HasLayeredWeaponTree(hero);
+                if(roundNode)DrawRoundWeaponNode(x,y,n,acquired,selectedNow,equipment?.nodeId==n.id);
+                else{GrowthFill(x-34,y-30,68,60,new Color(.04f,.11f,.13f,.85f));DrawWeaponNodeEffects(x,y,n,acquired);}
                 bool wearing=equipment?.nodeId==n.id;
-                if(wearing){var blue=new Color(.35f,.85f,1);GrowthLine(x-34,y-31,x+34,y-31,blue,3);GrowthLine(x-34,y+31,x+34,y+31,blue,3);GrowthLine(x-34,y-31,x-34,y+31,blue,3);GrowthLine(x+34,y-31,x+34,y+31,blue,3);Label(x-40,y-52,80,20,"装備",new GUIStyle(growthSmallStyle){fontSize=13,alignment=TextAnchor.MiddleCenter},blue);}
+                if(wearing && !roundNode){var blue=new Color(.35f,.85f,1);GrowthLine(x-34,y-31,x+34,y-31,blue,3);GrowthLine(x-34,y+31,x+34,y+31,blue,3);GrowthLine(x-34,y-31,x-34,y+31,blue,3);GrowthLine(x+34,y-31,x+34,y+31,blue,3);Label(x-40,y-52,80,20,"装備",new GUIStyle(growthSmallStyle){fontSize=13,alignment=TextAnchor.MiddleCenter},blue);}
                 bool ready=n.parentIds.All(p=>state.weaponNodeIds.Contains(p));bool affordable=n.costs.All(c=>HomeRules.Balance(snapshot,c.resourceId)>=c.amount);
-                if(selectedNow)GrowthDiamond(x,y,38);GrowthFill(x-40,y+32,80,23,new Color(.025f,.05f,.075f,.94f));Label(x-40,y+32,80,23,n.initial?"根":acquired?"Lv."+state.WeaponLevel(n.id):!ready?"前提未達":affordable?"解放可":"素材不足",new GUIStyle(growthSmallStyle){fontSize=13,alignment=TextAnchor.MiddleCenter},acquired?gold:ready && affordable?new Color(.5f,1,.6f):ivory);
+                if(selectedNow && !roundNode)GrowthDiamond(x,y,38);GrowthFill(x-40,y+32,80,23,new Color(.025f,.05f,.075f,.94f));Label(x-40,y+32,80,23,n.initial?"根":acquired?"Lv."+state.WeaponLevel(n.id):!ready?"前提未達":affordable?"解放可":"素材不足",new GUIStyle(growthSmallStyle){fontSize=13,alignment=TextAnchor.MiddleCenter},acquired?gold:ready && affordable?new Color(.5f,1,.6f):ivory);
                 if(ImageUiSkin.Button(new Rect(x-38,y-30,76,85),"",GUIStyle.none) && homeRequest==null && BookInputAllowed){selectedNode=n.id;weaponComparisonScroll=Vector2.zero;weaponNextLevelScroll=Vector2.zero;weaponShowLevels=false;PlayProductionUiSound("決定");}
             }
             bool equipped=state.weaponEquipment.Any(e=>e.heroineId==hero && e.nodeId==selected.id);

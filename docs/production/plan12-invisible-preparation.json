@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "status": "accepted-normal-play",
+  "planningId": "aa.person.016",
+  "proposedFormId": "heroine.invisible",
+  "available": true,
+  "reference": "docs/references/characters/invisible.md",
+  "reusesJob": "job.healer",
+  "observedWeaponName": "可能性の獣",
+  "tree": {
+    "base": "common-natural-wood",
+    "foliage": "thin-pink",
+    "flowers": "non-root-unlocked-node-surroundings-only",
+    "ornaments": "small-hanging-unicorn-horn-star-ribbon",
+    "avoid": "node circles and level captions",
+    "routeNames": [
+      "可能性の獣・曙光",
+      "可能性の獣・星虹",
+      "可能性の獣・帰路"
+    ],
+    "rankSuffixes": [
+      "Ⅰ",
+      "Ⅱ",
+      "Ⅲ",
+      "Ⅳ"
+    ],
+    "nameOrigin": "weapon-name-observed; route-suffixes-newaster-original"
+  },
+  "remaining": [],
+  "completionRecord": "docs/production/plan12-invisible-form-record.json"
+}

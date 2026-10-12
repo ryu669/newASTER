@@ -73,6 +73,35 @@ namespace NewAster.Presentation
                 actorContact=original.action=="sit"?new Vector2(.50f,.64f):original.action=="work"?new Vector2(.50f,.49f):new Vector2(.5f,.97f),
                 actorScale=original.action=="work"?1f:original.actorScale,
                 hands=original.action=="work"?new[]{GardenPolygon(.38f,.44f,.60f,.44f,.60f,.52f,.38f,.52f)}:Array.Empty<Vector2[]>()};
+            // WEAPON_MASTER_FURNITURE_BEGIN
+            if(heroineId=="heroine.weapon-master" && original.action=="sit")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.contact,actorContact=new Vector2(.5f,.57f),actorScale=original.actorScale};
+            if(heroineId=="heroine.weapon-master" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=new Vector2(.5f,.43f),actorContact=new Vector2(.408f,.447f),actorScale=1.5f,
+                hands=new[]{GardenPolygon(.330f,.402f,.375f,.402f,.387f,.422f,.381f,.440f,.335f,.436f),GardenPolygon(.432f,.402f,.478f,.402f,.484f,.426f,.475f,.442f,.434f,.438f)}};
+            // WEAPON_MASTER_FURNITURE_END
+            if(heroineId=="heroine.vindicator" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=new Vector2(.5f,.43f),actorContact=new Vector2(.5f,.485f),actorScale=1.5f,
+                hands=new[]{GardenPolygon(.402f,.462f,.443f,.462f,.455f,.481f,.452f,.503f,.414f,.506f,.397f,.485f),GardenPolygon(.551f,.462f,.589f,.462f,.606f,.483f,.593f,.506f,.553f,.503f,.545f,.482f)}};
+            if(heroineId=="heroine.viper" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=new Vector2(.5f,.43f),actorContact=new Vector2(.5f,.53f),actorScale=1.5f,
+                hands=new[]{GardenPolygon(.407f,.524f,.433f,.507f,.451f,.507f,.463f,.524f,.463f,.543f,.453f,.55f,.441f,.544f,.426f,.548f,.409f,.539f),GardenPolygon(.539f,.524f,.551f,.507f,.568f,.507f,.594f,.524f,.592f,.539f,.575f,.548f,.56f,.544f,.548f,.55f,.539f,.543f)}};
+            if(heroineId=="heroine.invisible" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=new Vector2(.5f,.43f),actorContact=new Vector2(.5f,.5f),actorScale=1.5f,
+                hands=new[]{GardenPolygon(.442f,.443f,.467f,.447f,.476f,.48f,.485f,.505f,.478f,.522f,.469f,.518f,.463f,.544f,.449f,.536f,.437f,.523f,.425f,.499f,.423f,.48f,.436f,.467f),GardenPolygon(.533f,.443f,.558f,.443f,.564f,.467f,.577f,.48f,.575f,.499f,.563f,.523f,.551f,.536f,.537f,.544f,.531f,.518f,.522f,.522f,.515f,.505f,.524f,.48f)}};
+            if(new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master"}.Contains(heroineId)){
+                float handY=heroineId=="heroine.iron-maiden"?.46f:heroineId=="heroine.avalanche"?.47f:heroineId=="heroine.anathema"?.50f:.49f;
+                return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                    contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                    actorContact=original.action=="sit"?new Vector2(.5f,.64f):original.action=="work"?new Vector2(.52f,handY+.05f):new Vector2(.5f,.98f),
+                    actorScale=original.action=="work"?1f:original.actorScale,
+                    hands=original.action=="work"?new[]{GardenPolygon(.39f,handY-.025f,.47f,handY-.025f,.54f,handY+.025f,.40f,handY+.025f),GardenPolygon(.59f,handY-.025f,.67f,handY-.025f,.69f,handY+.025f,.59f,handY+.025f)}:Array.Empty<Vector2[]>()};
+            }
+            if(heroineId=="heroine.aeon")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,
+                actorContact=original.action=="sit"?new Vector2(.51f,.65f):original.action=="work"?new Vector2(.65f,.68f):new Vector2(.5f,.98f),
+                actorScale=original.action=="work"?1f:original.actorScale,
+                hands=original.action=="work"?new[]{GardenPolygon(.54f,.57f,.60f,.56f,.65f,.58f,.68f,.61f,.63f,.61f,.58f,.60f,.54f,.60f),GardenPolygon(.71f,.55f,.76f,.55f,.80f,.57f,.83f,.60f,.78f,.59f,.73f,.58f)}:Array.Empty<Vector2[]>()};
             if(heroineId!="heroine.iconoclast")return null;
             return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,

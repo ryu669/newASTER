@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.vindicator.poem-chapter.1",
+      "ownerId": "heroine.vindicator",
+      "title": "帰還の確認",
+      "introduction": "塔の謳を読み終えると、モルトラは点検の記録を閉じた。帰還した人数を、もう一度だけ数える。",
+      "conclusion": "彼女は名簿を数え直さず閉じた。「明日も二人で確認しよう」。今度は最初から、あなたの分の鉛筆も出した。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.vindicator.collection.poem.01",
+          "text": "あなたが手伝おうとすると、彼女は名簿を半分差し出した。",
+          "body": "あなたが手伝おうとすると、彼女は名簿を半分差し出した。「別々に確認すれば、見落としも減る」",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.02",
+          "text": "謳の塔では、戻らなかった者の席が誰にも気づかれぬまま片付けられた。",
+          "body": "謳の塔では、戻らなかった者の席が誰にも気づかれぬまま片付けられた。彼女はその一節へ栞を挟んだ。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.03",
+          "text": "見張り台の点検には二人で上がった。",
+          "body": "見張り台の点検には二人で上がった。モルトラは足場の傷を示し、あなたにも場所を覚えてほしいと言う。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.04",
+          "text": "風が強くなる前に降りようと、あなたから提案した。",
+          "body": "風が強くなる前に降りようと、あなたから提案した。彼女は空を見て、道具をまとめた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.05",
+          "text": "「私一人なら続けられる」。",
+          "body": "「私一人なら続けられる」。言いかけた彼女は、修理する人の帰り道も同じだと気づいた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.06",
+          "text": "二人で予備の手すりを運び、今日は危険な区間へ入らない印をつける。",
+          "body": "二人で予備の手すりを運び、今日は危険な区間へ入らない印をつける。残した仕事にも担当の名前を書いた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」から、帰還の確認で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        }
+      ],
+      "pages": [
+        "塔の謳を読み終えると、モルトラは点検の記録を閉じた。帰還した人数を、もう一度だけ数える。",
+        "あなたが手伝おうとすると、彼女は名簿を半分差し出した。「別々に確認すれば、見落としも減る」",
+        "謳の塔では、戻らなかった者の席が誰にも気づかれぬまま片付けられた。彼女はその一節へ栞を挟んだ。",
+        "見張り台の点検には二人で上がった。モルトラは足場の傷を示し、あなたにも場所を覚えてほしいと言う。",
+        "風が強くなる前に降りようと、あなたから提案した。彼女は空を見て、道具をまとめた。",
+        "「私一人なら続けられる」。言いかけた彼女は、修理する人の帰り道も同じだと気づいた。",
+        "二人で予備の手すりを運び、今日は危険な区間へ入らない印をつける。残した仕事にも担当の名前を書いた。",
+        "戻ったところで、モルトラがあなたの名を呼んだ。返事を聞き、自分も帰ったと告げる。",
+        "記録には作業の遅れと、全員の帰還が並んだ。あなたは明日続ける仕事の欄へ自分の名前を足した。",
+        "彼女は名簿を数え直さず閉じた。「明日も二人で確認しよう」。今度は最初から、あなたの分の鉛筆も出した。"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.poem-chapter.2",
+      "ownerId": "heroine.vindicator",
+      "title": "空席を一つ",
+      "introduction": "記憶晶竜の謳には、去った客のために毎晩席を用意する家があった。モルトラは窓辺の椅子を見た。",
+      "conclusion": "「また誘ってほしい」。手帳の端に書かれたのは議題ではなく、次の昼食の時刻だった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.vindicator.collection.poem.07",
+          "text": "あなたは昼食へ誘った。",
+          "body": "あなたは昼食へ誘った。彼女はすぐに頷き、それから任務の相談かと尋ねた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.08",
+          "text": "一緒に食べたいだけだと伝えると、彼女は手帳を開いたまま黙った。",
+          "body": "一緒に食べたいだけだと伝えると、彼女は手帳を開いたまま黙った。書くべき議題が見つからなかった。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.09",
+          "text": "庭の席を選ぶ時、モルトラは通路を塞がない位置へ椅子を動かした。",
+          "body": "庭の席を選ぶ時、モルトラは通路を塞がない位置へ椅子を動かした。あなたの分も隣へ置く。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.10",
+          "text": "謳の家の主人は、客の好みを覚えていた。",
+          "body": "謳の家の主人は、客の好みを覚えていた。あなたも彼女に、飲みたいものを聞いた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.11",
+          "text": "「何でも構わない」。",
+          "body": "「何でも構わない」。一度そう答え、彼女は温かい茶がよいと言い直した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.12",
+          "text": "食事は急がず進んだ。",
+          "body": "食事は急がず進んだ。あなたがパンを落としかけると、彼女は笑いを隠すようにカップを持ち上げた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」から、空席を一つで守る責任と自分の希望を選ぶ経験へつなぐ。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳には、去った客のために毎晩席を用意する家があった。モルトラは窓辺の椅子を見た。",
+        "あなたは昼食へ誘った。彼女はすぐに頷き、それから任務の相談かと尋ねた。",
+        "一緒に食べたいだけだと伝えると、彼女は手帳を開いたまま黙った。書くべき議題が見つからなかった。",
+        "庭の席を選ぶ時、モルトラは通路を塞がない位置へ椅子を動かした。あなたの分も隣へ置く。",
+        "謳の家の主人は、客の好みを覚えていた。あなたも彼女に、飲みたいものを聞いた。",
+        "「何でも構わない」。一度そう答え、彼女は温かい茶がよいと言い直した。",
+        "食事は急がず進んだ。あなたがパンを落としかけると、彼女は笑いを隠すようにカップを持ち上げた。",
+        "別れた人を忘れたわけではないと、モルトラは話した。あなたは、今の食卓にも座っていてほしいと返した。",
+        "二人で片付ける時、彼女は椅子を一つだけ窓辺に残さなかった。次に使いやすいよう、二つを並べ直す。",
+        "「また誘ってほしい」。手帳の端に書かれたのは議題ではなく、次の昼食の時刻だった。"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.poem-chapter.3",
+      "ownerId": "heroine.vindicator",
+      "title": "剣を置く時間",
+      "introduction": "黒煙城塞の謳を読んだ夜、モルトラは刃の手入れを続けていた。庭の灯りは一つずつ消え始めている。",
+      "conclusion": "庭の入口で別れる前に、あなたは席を空けておくと答えた。モルトラは自分から、その席へ戻ると約束した。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.vindicator.collection.poem.13",
+          "text": "あなたが声をかけると、彼女はあと少しと答えた。",
+          "body": "あなたが声をかけると、彼女はあと少しと答えた。磨き終わった箇所へ、もう一度布を当てる。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.01",
+          "reason": "「終わった戦へ、煙が立つ」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.14",
+          "text": "謳の門番は、休む者の代わりに立ち続けた。",
+          "body": "謳の門番は、休む者の代わりに立ち続けた。最後には交代する合図を聞いても、動けなくなっていた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.02",
+          "reason": "「熱い壁にも、冷たい工房」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.15",
+          "text": "あなたは布を取り上げず、隣の席で明日の予定を開いた。",
+          "body": "あなたは布を取り上げず、隣の席で明日の予定を開いた。一緒に終わる時間を決めようと提案した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.03",
+          "reason": "「鍋の欠けには、夕飯の跡」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.16",
+          "text": "モルトラは鞘の傷を一つ示した。",
+          "body": "モルトラは鞘の傷を一つ示した。今夜直す必要があるか、あなたにも確かめてほしいと言う。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.04",
+          "reason": "「守る砲口が、家を向く」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.17",
+          "text": "危険のない擦り傷だった。",
+          "body": "危険のない擦り傷だった。二人で記録を残し、彼女自身が剣を架け台へ戻した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.05",
+          "reason": "「命令の紙に、帰らない名」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        },
+        {
+          "id": "heroine.vindicator.collection.poem.18",
+          "text": "何も持たない手を見て、彼女は少し落ち着かなさそうにした。",
+          "body": "何も持たない手を見て、彼女は少し落ち着かなさそうにした。あなたは夜の庭を歩こうと誘った。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.06",
+          "reason": "「煤けた窓から、洗濯の声」から、剣を置く時間で守る責任と自分の希望を選ぶ経験へつなぐ。"
+        }
+      ],
+      "pages": [
+        "黒煙城塞の謳を読んだ夜、モルトラは刃の手入れを続けていた。庭の灯りは一つずつ消え始めている。",
+        "あなたが声をかけると、彼女はあと少しと答えた。磨き終わった箇所へ、もう一度布を当てる。",
+        "謳の門番は、休む者の代わりに立ち続けた。最後には交代する合図を聞いても、動けなくなっていた。",
+        "あなたは布を取り上げず、隣の席で明日の予定を開いた。一緒に終わる時間を決めようと提案した。",
+        "モルトラは鞘の傷を一つ示した。今夜直す必要があるか、あなたにも確かめてほしいと言う。",
+        "危険のない擦り傷だった。二人で記録を残し、彼女自身が剣を架け台へ戻した。",
+        "何も持たない手を見て、彼女は少し落ち着かなさそうにした。あなたは夜の庭を歩こうと誘った。",
+        "歩きながら、モルトラは明日飛ぶつもりだと話した。帰る時刻を決め、待つ場所をあなたと相談する。",
+        "「戻ったら、今日の続きを」。彼女が指したのは剣ではなく、途中で閉じた謳の本だった。",
+        "庭の入口で別れる前に、あなたは席を空けておくと答えた。モルトラは自分から、その席へ戻ると約束した。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.vindicator.event.0",
+      "ownerId": "heroine.vindicator",
+      "title": "風向きの報告",
+      "cgResourcePath": "Illustrations/vindicator-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "夕方の庭で、モルトラが空を見上げていた。",
+        "飛んでくると告げた後、あなたの返事を待つ。",
+        "何時に戻るのか尋ねると、彼女は鐘の前にはと答えた。",
+        "あなたは温かい茶を用意しておくと伝えた。",
+        "戻ってきた彼女は、空の冷たさを報告した。",
+        "カップを受け取り、思っていたより長く飛んでいたと打ち明ける。",
+        "あなたが寒くないか聞くと、彼女はもう大丈夫だと言った。",
+        "茶を飲み終えるまで、二人は今日見た空の色を話した。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.event.1",
+      "ownerId": "heroine.vindicator",
+      "title": "二人分の準備",
+      "cgResourcePath": "Illustrations/vindicator-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "モルトラが小さな籠へ昼食を詰めていた。",
+        "あなたに気づくと、庭の奥まで同行してほしいと頼む。",
+        "籠には初めから二人分が入っていた。",
+        "「任務ではない。君と外で食べたいと思った」",
+        "あなたが喜んで頷くと、彼女は籠の留め具を確かめた。",
+        "歩く道は、いつもの点検とは違う花壇沿いだった。",
+        "彼女が選んだ席には、二人で座れる木陰があった。",
+        "あなたは次の休憩には自分が用意すると約束した。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.event.2",
+      "ownerId": "heroine.vindicator",
+      "title": "忠誠ではなく",
+      "cgResourcePath": "Illustrations/vindicator-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "夜の回廊で、モルトラが剣を置いてあなたを待っていた。",
+        "話を聞いてほしいと、普段よりゆっくり告げる。",
+        "あなたが頷くと、彼女は握っていた手を開いた。",
+        "「君といる時間が好きだ。任務のない明日も、その次も、私から会いに行きたい」",
+        "あなたは彼女に会えることが嬉しいと返し、恋人として同じ時間を選びたいと伝えた。",
+        "モルトラは息をつき、隣へ来てよいか尋ねた。",
+        "あなたが手を差し出すと、彼女は確かめるように握った。",
+        "明日の約束に命令は要らなかった。二人は会いたい時刻を相談して決めた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.event.3",
+      "ownerId": "heroine.vindicator",
+      "title": "隣の椅子",
+      "cgResourcePath": "Illustrations/vindicator-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "読書中のあなたの隣へ、モルトラが椅子を運んできた。",
+        "ここに座ってよいかと聞かれ、あなたは本を少し寄せた。",
+        "彼女は同じ頁が見える距離へ腰を下ろした。",
+        "読み終えるたび、どちらからともなく感想を話す。",
+        "あなたが手を伸ばすと、彼女は指を重ねた。",
+        "「今日は、飛びに行かなくても落ち着く」",
+        "それでも飛びたい日は待っていると、あなたは伝えた。",
+        "彼女は笑って頷き、次の頁を一緒に開いた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.vindicator.event.4",
+      "ownerId": "heroine.vindicator",
+      "title": "明日も誘って",
+      "cgResourcePath": "Illustrations/vindicator-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "朝の庭で、モルトラがあなたを散歩へ誘った。",
+        "空は明るく、急いで確かめる仕事もなかった。",
+        "あなたが手を取ると、彼女は歩調を合わせた。",
+        "途中の橋で、明日も一緒に歩きたいと言う。",
+        "あなたは自分からも誘うつもりだったと答えた。",
+        "「それなら、先に誘った方が道を選ぼう」",
+        "初めての決まりに、二人で笑った。",
+        "帰る頃には、モルトラが明日の道をもう一つ考えていた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

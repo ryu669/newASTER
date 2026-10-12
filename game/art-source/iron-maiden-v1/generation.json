@@ -1,0 +1,173 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "prompt": "Create one finished Japanese fantasy RPG heroine full body standing sprite, finely painted anime illustration matching the reference identity, adapting to a clearly mature adult. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. Front three quarter neutral balanced standing pose, full head wings hands and both feet within canvas with margins. 1024x1536 portrait canvas, transparent background, no floor, no shadow backdrop, no letters, no UI, no other people, not a sheet. This is one individual game asset.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-5c82778c-7924-412a-9e86-fd939aa95ef7.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/standing.png",
+      "sha256": "829adbb4d32812971c451fdaa2e996a0a257996d258ea145a75d85c72ce41f72"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Individual close portrait of the same adult woman from chest upward, centered face with entire hair and wing tips composition, 1536x1024 landscape transparent canvas, no frame. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-9651030a-0f11-4b22-ab7a-1bc06d17c0ac.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/portrait.png",
+      "transparent": true,
+      "sha256": "81cbdbf34ced2fa032cbe0f3b33daa122a0c463232ec3b637906b44b25c57349"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a joy expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-0824c72c-a469-4a36-b094-79a9aac18e9c.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/expression-joy.png",
+      "transparent": true,
+      "sha256": "e78cd0533645fd1574b36f645a5b7f04c804a4b18f303bd5b8c57e047e9870bc"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a puzzled expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-37d74ed5-ae03-4304-bdf5-57a294681a7d.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/expression-puzzled.png",
+      "transparent": true,
+      "sha256": "153097a2cd928c651ca42287f266d092fa713673345d3e1159ca94b7a4cd804e"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a determined expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-659da612-552f-4093-8fb4-1eca4751d657.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/expression-determined.png",
+      "transparent": true,
+      "sha256": "3aeb751b68deb7d41f357b00624a68fd4614e594fec5bee8f4f2b6a7943c8b65"
+    },
+    {
+      "key": "attack",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dynamic full body battle attack pose, same weapon and costume, 1024x1536 transparent canvas. Entire body wings and weapon with margins, expressive decisive face, clean readable silhouette. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f20a5432-2ef3-41a2-9a88-90dc414103e2.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/attack.png",
+      "transparent": true,
+      "sha256": "b52e72768f9240f46ba792190e97f970cfaa2789c9a29a8b5a3f3f1699a81b18"
+    },
+    {
+      "key": "hit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Full body battle hit reaction, shoulders recoiling slightly and determined painful face, intact clothing, no injuries or blood, 1024x1536 transparent canvas, all feet and wings visible. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6e8d664c-a4ca-4c9e-9a25-d1444a194d45.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/hit.png",
+      "transparent": true,
+      "sha256": "e25abbb879647d0d347207918021f19f7b044ed2c8ffd76c425d1cf4ae275862"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dramatic skill cut-in waist up, same weapon and heroine, magical colored streaks contained around her, 1536x1024 transparent landscape, no text no frame. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-7a5fd4d1-76f3-4d07-b62b-160444216e9a.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/cutin.png",
+      "transparent": true,
+      "sha256": "100be0051b2ec501ff01d5e72e4d40c73b3c16b69a692d83af804ffc1663dbad"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing idle relaxed. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6d7bc134-cee8-4fe9-80b6-7a0876fc6338.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-idle.png",
+      "transparent": true,
+      "sha256": "fc02fccf544fdb5d0f47665b8dc6e8b4dfef3a5aa0d36ef323522c20a1cd8a8c"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Walking one step toward right. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-1a088385-7421-4102-9b57-3a55ffcd623f.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-walk.png",
+      "transparent": true,
+      "sha256": "8d1ec3011e5d5cb383950add1d546075a53d7ac1d8dcc7c40222bd899ed136ca"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Friendly talking gesture one hand raised. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-d7b73534-0b78-44a6-ab67-d335ae3210d5.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-talk.png",
+      "transparent": true,
+      "sha256": "60d69cba6852727dff39e9e0f3953d74134380db008dc52086dab78e92219389"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Surprised delighted response arms lifted. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f6b5b5de-e1eb-49b9-9a01-3d0c88d68cf1.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-react.png",
+      "transparent": true,
+      "sha256": "9ad44e421a7d7f8636d188b69cefe1c9666032e175ffbed6acbeb9f2205f2454"
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Seated on an invisible bench, legs down, hips center at normalized (.50,.64), no seat drawn. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-7018eaca-d920-44d3-8638-7088849359e0.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-sit.png",
+      "transparent": true,
+      "sha256": "741f0581d20dff08c4d7337fa943d4965908503d7b87b94ebd941ff986a6e17b"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing behind an invisible desk, arms extending forward together as if writing, hands near normalized (.50,.44), no furniture or paper drawn. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-339bbfa4-072d-476e-9f2c-eada0afd68d9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-work.png",
+      "transparent": true,
+      "sha256": "eb8dcbbc0921660991bfc3bba2d9d7012792224cdcca066835a3bcc05d54c153"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing looking upward toward left, feet near normalized (.50,.90), no furniture. No weapon in hands, no furniture, no floor. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-b03f1c71-a446-4050-99a6-664e08c1fd63.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/sd-look.png",
+      "transparent": true,
+      "sha256": "544f184a6881f8dfe8b507be0090838060e58c30e021b734f3125ee701ce8b75"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One game equipment tree illustration, 1536x1024 transparent landscape, NO people NO letters NO numbers. Elegant golden branching tree inspired by this heroine's weapon and costume colors. Central root circular gold socket at (.50,.85); three routes with four glowing circular sockets each: left (.36,.52),(.275,.36),(.185,.25),(.10,.15); center (.50,.58),(.50,.43),(.50,.28),(.50,.13); right (.64,.52),(.725,.36),(.815,.25),(.90,.15). Exactly 13 large solid gold glowing sockets connected by thin ornate branches, generous margins, distinct separated sockets, no wide solid backdrop. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-dfaa0f49-9eca-49f3-b4de-8b75901e88d0.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/equipment-tree-v1.png",
+      "transparent": true,
+      "sha256": "bc79ee73c7c326e8b74f641bd01b2e34f2e0164d9940c93d7eb77c78f38bfdcd",
+      "adoptionStatus": "rejected-character-in-tree"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. calmly enjoying tea at a garden table, her rifle safely leaning in the background Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-395aeb0a-1a71-4f1d-9b67-43da86e2c10e.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/event-0-cg.png",
+      "transparent": false,
+      "sha256": "ff1a88d48a5dd4b802e0e7017b175b790207ff5c7724c3b20eb89de6fe1211e8"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. writing a private letter in a warm study, silver hair flowing over striped coat Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-5da5a967-d435-44ea-b417-bd8f114765f9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/event-1-cg.png",
+      "transparent": false,
+      "sha256": "9df00e3b91c964f3c120bc6b00314f4c4029d8fbfcbcda6c6ad1ef08377e7df4"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. shy heartfelt confession under a garden lantern, a gloved hand held toward viewer but no viewer visible Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-8e701a24-61fa-4d40-a205-eb3152ea6f8b.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/event-2-cg.png",
+      "transparent": false,
+      "sha256": "b953e159139d0d7d573eaa14b0ecd6b745e1044be74586cdb34738f05abcfddf"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. happily choosing a flower for herself at a quiet greenhouse Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-3863bc58-c9e6-4837-905b-b48bb57c8783.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/event-3-cg.png",
+      "transparent": false,
+      "sha256": "b6524e5222a110a5c2a930a5cdf52ec5444a5a33816857502c7aab0b73948508"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. relaxing on a stone garden bench at twilight with a warm peaceful smile Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 26, long silver hair, pink eyes, black and white striped long sleeved modest fitted military nun coat, black headband with golden cross, black gloves, dark stockings and boots, small gold metal collar and loose decorative chain accessories, white angel wings. Carries a long dark steel fire rifle Salamandra pointing down. Calm teasing confidence. Standing freely, no restraints, no torture device. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-0d97f765-c87c-4c9c-a7ff-acad1b438e85.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/iron-maiden-v1/event-4-cg.png",
+      "transparent": false,
+      "sha256": "6d9b3aa90dc18ab981691fe7b02ff95fce8a5de6f855f69e6ac85606d9ae42fa"
+    }
+  ]
+}

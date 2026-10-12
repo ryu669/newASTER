@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 1,
+  "usage": "authoring-only template; not a runtime definition",
+  "personId": "heroine.shiva",
+  "formId": "heroine.shiva",
+  "jobId": "job.healer",
+  "referenceSources": [
+    "045戦闘_シヴァ.mkv",
+    "docs/production/heroine-relationships.md"
+  ],
+  "profile": "docs/characters/shiva.md",
+  "adoptionDecisions": "docs/production/heroine-relationships.md",
+  "status": "complete_published",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/standing.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-standing-candidate-v1.png",
+      "sha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b",
+      "adoptedSha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-battle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-battle.png",
+            "sha256": "60395f6fd8f3700758d590b7afd0f0cf6f3de25ec7887d8f9643d09c4afe91d4"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/portrait.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-shiva-v1.png",
+      "sha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8",
+      "adoptedSha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-detail.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-detail.png",
+            "sha256": "c5448fdbe3a2b196fa969816aa849e704d82baa214b0cf429799c5998fa5bb44"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/expression-joy.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-expression-joy-candidate-v1.png",
+      "sha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5",
+      "adoptedSha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-expression.joy.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.joy.png",
+            "sha256": "34a4e0885b7d4ec9074b886efcf4fba2d71fa9f7aae16d469dbd95e6acfbe54e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/expression-puzzled.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-expression-puzzled-candidate-v1.png",
+      "sha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875",
+      "adoptedSha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-expression.puzzled.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.puzzled.png",
+            "sha256": "eb342c97453b95de4a85a458210dd88c7ffa3abcb6c4872bba3f8636a75d3dcf"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/expression-determined.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-expression-determined-candidate-v1.png",
+      "sha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9",
+      "adoptedSha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-expression.determined.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.determined.png",
+            "sha256": "a273011ef92aea2648b4a4de4ee84f6f930c7042f5e9e73c9a55c6790e559a86"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/attack.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-attack-candidate-v1.png",
+      "sha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf",
+      "adoptedSha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/shiva/attack.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/shiva/attack.png",
+            "sha256": "6a07e4e4dc703fabba6a158fc3dbdf48fddb1fea8b90c4e588ef4e8b3145ad52"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/hit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-hit-candidate-v1.png",
+      "sha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3",
+      "adoptedSha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/shiva/hit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/shiva/hit.png",
+            "sha256": "035b30b465360d3efdc377c38e7fae59dce0942f9e332a38c92f3a707be416d4"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/cutin.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-cutin-candidate-v1.png",
+      "sha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e",
+      "adoptedSha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/shiva/cutin.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/shiva/cutin.png",
+            "sha256": "4e35532ecb7c41ce650fe11956311b437374a66aba0ba78ca9d0203f86b445fc"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-idle.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-idle-candidate-v1.png",
+      "sha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2",
+      "adoptedSha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.idle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.idle.png",
+            "sha256": "c291ad9f5467e318428cc461b0f965002e02dcb6685fde6bd6c47c9c71d35353"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-walk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-walk-candidate-v1.png",
+      "sha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71",
+      "adoptedSha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.walk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.walk.png",
+            "sha256": "2a5d2db1a837ff2e6bd75e20dba7876fb4df1d7138abf2c251c6af2a9f1c8f32"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-talk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-talk-candidate-v1.png",
+      "sha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99",
+      "adoptedSha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.talk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.talk.png",
+            "sha256": "d2cdbd162d01021d9bd17d72037f168404f34d0587fb44a300d6dad804e168d1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-react.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-react-candidate-v1.png",
+      "sha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364",
+      "adoptedSha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.react.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.react.png",
+            "sha256": "6296f649639d99bcf1616fee7d4734fdc8d5ae846ae430d10fd159e4f0cb39d1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "equipment-tree-v1": {
+      "status": "approved",
+      "source": "docs/production/plan12-shiva-tree-bundle.json",
+      "adopted": "game/unity/Assets/Game/Resources/UI/WeaponTrees/shiva.json",
+      "sha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+      "adoptedSha256": "2b82b6394f90e98d96625a2382d541cb7a28abf34028c1f5c1717d85a05ede5d",
+      "purposeReview": {
+        "status": "approved",
+        "subject": "layered-branching-tree-without-people",
+        "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/clear-ornaments/shiva.png",
+          "tmp/plan12-batch/clear-ornaments/shiva.log"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/clear-ornaments/shiva.png",
+            "sha256": "96f58b6bca55d277281c6419a3d3a108d1ea3e55d5dfc7b6908756542d3a8862"
+          }
+        ],
+        "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+        "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+        "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/event-0-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-event-0-cg-candidate-v1.png",
+      "sha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2",
+      "adoptedSha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-cg.0.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.0.png",
+            "sha256": "5e84afeef6b8bb36db5c82b99c5b0abc5d6baaf0b9d9fa29c9f0e52a377d475e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/event-1-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-event-1-cg-candidate-v1.png",
+      "sha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a",
+      "adoptedSha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-cg.1.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.1.png",
+            "sha256": "6d1c951a72538e5c17c4bed1026910c75f16081dc95fb8709de15826216db07b"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/event-2-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-event-2-cg-candidate-v1.png",
+      "sha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c",
+      "adoptedSha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-cg.2.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.2.png",
+            "sha256": "b7f454bb960b957b1fdebcb17d22d2f906c25c1d91946306eef927b588717348"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/event-3-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-event-3-cg-candidate-v1.png",
+      "sha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9",
+      "adoptedSha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-cg.3.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.3.png",
+            "sha256": "2fe93d3edeb4c6535e548a8ca1250375ba9c773036615231201544ac15e5ea7b"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/event-4-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-event-4-cg-candidate-v1.png",
+      "sha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1",
+      "adoptedSha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-cg.4.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.4.png",
+            "sha256": "6cda962aba3f4f87718c3a52707bed9bffd6572c81ed723a168e401f5c3d0780"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-sit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-sit-candidate-v1.png",
+      "sha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0",
+      "adoptedSha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.sit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.sit.png",
+            "sha256": "0aedfac7279d8a6506abfb5f3c914f249f868c0361ef3e06764e675a95ffc1f9"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-work.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-work-candidate-v1.png",
+      "sha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc",
+      "adoptedSha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.work.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.work.png",
+            "sha256": "0fc72caf18a1e1f7ca2f06d914c0db00de3184cc44da49b59c7185b1357f2c2d"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/shiva-v1/sd-look.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/shiva-sd-look-candidate-v1.png",
+      "sha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450",
+      "adoptedSha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/shiva/shiva-sd.look.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.look.png",
+            "sha256": "e6894e8567827962bee6bd3bf8943a436d90c7d6da95db44e17c424d3f33e8c1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    }
+  },
+  "checks": {
+    "identity_and_reaction": {
+      "status": "pass",
+      "evidence": [
+        "docs/characters/shiva.md",
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "three_skills": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/shiva/attack0.log",
+        "tmp/plan12-batch/player-default/shiva/attack1.log",
+        "tmp/plan12-batch/player-default/shiva/attack2.log"
+      ]
+    },
+    "traits_2_job_3_character_3_interaction": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/shiva/trait.png"
+      ]
+    },
+    "weapon_13_nodes": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/shiva/shiva-tree.png",
+        "tmp/plan12-batch/hanging-ornaments/shiva.png",
+        "tmp/plan12-batch/clear-ornaments/shiva.png"
+      ]
+    },
+    "story_3_chapters_30_pages_18_poems": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/shiva/journey.log"
+      ]
+    },
+    "events_basic_3_lover_2_target_variable_count": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/shiva/journey.log"
+      ]
+    },
+    "recruit_formation_garden_adv": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/shiva/recruit.log",
+        "tmp/plan12-batch/player-default/shiva/formation.log",
+        "tmp/plan12-batch/player-default/shiva/garden.log",
+        "tmp/plan12-batch/player-default/shiva/journey.log"
+      ]
+    },
+    "save_migration_atomicity": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "automatic_regression": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "unity_compile": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-compile.log"
+      ]
+    },
+    "portrait_build_validation": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-build.log"
+      ]
+    },
+    "visual_review": {
+      "status": "pass",
+      "evidence": [
+        "docs/production/plan12-first-batch-asset-review.json",
+        "tmp/plan12-batch/hanging-ornaments/shiva.png",
+        "tmp/plan12-batch/clear-ornaments/shiva.png"
+      ]
+    },
+    "player_default_launch": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-player.log",
+        "tmp/plan12-batch/player-default/shiva/command.log"
+      ]
+    },
+    "job_commands_resources_and_states": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/shiva/command.log"
+      ]
+    },
+    "pre_addition_save_compatibility": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "real_asset_size_loading_memory": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/battle-art/shiva/attack.metrics.json",
+        "tmp/plan12-batch/battle-art/shiva/hit.metrics.json",
+        "tmp/plan12-batch/battle-art/shiva/cutin.metrics.json"
+      ]
+    }
+  },
+  "build": {
+    "path": "game/Builds/plan12-first-batch/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "sourceCommit": "6835e69b6598269dfe7b8be314934df333bfa668",
+    "workingTreeChanges": true,
+    "catalogHashes": {
+      "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+      "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c"
+    },
+    "latestChangeBuildLog": "tmp/plan12-batch/clear-ornament-final-build.log"
+  },
+  "unresolved": [],
+  "completionCommit": null,
+  "acceptance": "pass",
+  "acceptancePolicy": {
+    "eventCgMen": "forbidden",
+    "fallbackAssets": "missing",
+    "furniturePoses": "sit/work/look required for every form",
+    "resolution": "default launch only",
+    "expressionAlignment": "compare face position, scale and contour with normal",
+    "aspectRatio": "preserve source proportions",
+    "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
+    "physicalInput": "excluded; automated operations and actual frame review recorded separately",
+    "mastery": "character duplicates only",
+    "equipmentTree": "branching tree without people; root 1 + three branches of four tiers",
+    "sourcePurposeReview": "approve visual purpose before adoption; unchanged approved assets retain review",
+    "completion": "generated, source reviewed, integrated, runtime reviewed, form complete, published are separate states"
+  },
+  "updatedAt": "2026-10-11"
+}

@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 1,
+  "usage": "authoring-only template; not a runtime definition",
+  "personId": "heroine.avalanche",
+  "formId": "heroine.avalanche",
+  "jobId": "job.gunner",
+  "referenceSources": [
+    "006戦闘_アヴァランチ.mkv",
+    "docs/production/heroine-relationships.md"
+  ],
+  "profile": "docs/characters/avalanche.md",
+  "adoptionDecisions": "docs/production/heroine-relationships.md",
+  "status": "complete_published",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/standing.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-standing-candidate-v1.png",
+      "sha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1",
+      "adoptedSha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-battle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-battle.png",
+            "sha256": "88cb78638c6050b78536828ee46bb96bf3f777a3adcf8f621c8553419f5d4f52"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/portrait.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-avalanche-v1.png",
+      "sha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975",
+      "adoptedSha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-detail.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-detail.png",
+            "sha256": "60fb61500922d015ce606867bcaafb456bf66b4ab30d4c70503404adaefed43e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/expression-joy.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-expression-joy-candidate-v1.png",
+      "sha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc",
+      "adoptedSha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-expression.joy.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.joy.png",
+            "sha256": "8747f36608582bb76ac5ddcae050383a0484bf6c7b672796a66221a6834c73fe"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/expression-puzzled.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-expression-puzzled-candidate-v1.png",
+      "sha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27",
+      "adoptedSha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-expression.puzzled.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.puzzled.png",
+            "sha256": "553df0658606568e648b9778bd8953a291be4492bda43d8ebf8a05bc08f85fd1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/expression-determined.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-expression-determined-candidate-v1.png",
+      "sha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5",
+      "adoptedSha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-expression.determined.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.determined.png",
+            "sha256": "b971def132e98efc803681d1a12dda6e5ebbdeb42a1bb710e503acd41ad48bfa"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/attack.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-attack-candidate-v1.png",
+      "sha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2",
+      "adoptedSha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/avalanche/attack.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/avalanche/attack.png",
+            "sha256": "eb9b574d1115434eea45223e55f0efd6bac16143a0465917ab570e90050f417e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/hit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-hit-candidate-v1.png",
+      "sha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792",
+      "adoptedSha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/avalanche/hit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/avalanche/hit.png",
+            "sha256": "13dcbc0fab7575f92a636cddeea8289a7bd7d0b79487ce7f55c95c146b0bec1f"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/cutin.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-cutin-candidate-v1.png",
+      "sha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536",
+      "adoptedSha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/avalanche/cutin.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/avalanche/cutin.png",
+            "sha256": "5ba27cb4003de5110a67368878645ec7fbc5563782486fd984cfe4cdc2dabb5b"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-idle.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-idle-candidate-v1.png",
+      "sha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a",
+      "adoptedSha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.idle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.idle.png",
+            "sha256": "71229795e1c55db9cc73b687a214e164c3ba97d11396849659afa3c16483ff8d"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-walk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-walk-candidate-v1.png",
+      "sha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac",
+      "adoptedSha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.walk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.walk.png",
+            "sha256": "9ef2f184d189125497d4a46595c6217f7398ad27be12a7c98cec09dc826fb9d8"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-talk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-talk-candidate-v1.png",
+      "sha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47",
+      "adoptedSha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.talk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.talk.png",
+            "sha256": "5cca45a1572c4a376f72ca0ee781fc6ce251ba929c7850b2d4438b0f484cebe1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-react.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-react-candidate-v1.png",
+      "sha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010",
+      "adoptedSha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.react.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.react.png",
+            "sha256": "a431a631cfb440a53086637af1168f7d31c746614aa15ae7c3c8931a8e8022f1"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "equipment-tree-v1": {
+      "status": "approved",
+      "source": "docs/production/plan12-avalanche-tree-bundle.json",
+      "adopted": "game/unity/Assets/Game/Resources/UI/WeaponTrees/avalanche.json",
+      "sha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+      "adoptedSha256": "5b56475b8c59fe2327740e5beedb33906d73b188553dd536654567704d30d355",
+      "purposeReview": {
+        "status": "approved",
+        "subject": "layered-branching-tree-without-people",
+        "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/clear-ornaments/avalanche.png",
+          "tmp/plan12-batch/clear-ornaments/avalanche.log"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/clear-ornaments/avalanche.png",
+            "sha256": "1a2934052b264e6bdd9a1790dd74233b5e2ab6e6b1f257e6df7e5895d4802498"
+          }
+        ],
+        "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+        "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+        "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/event-0-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-event-0-cg-candidate-v1.png",
+      "sha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7",
+      "adoptedSha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-cg.0.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.0.png",
+            "sha256": "4809298afd3e28e0a974e3c63d9d914eb1c64d24a8f393a0fc6948eaac803418"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/event-1-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-event-1-cg-candidate-v1.png",
+      "sha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62",
+      "adoptedSha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-cg.1.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.1.png",
+            "sha256": "6e416ab07ef9b2cb8678b082bb5d2ebe7fc69a4152a110a84941e462ca9db12b"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/event-2-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-event-2-cg-candidate-v1.png",
+      "sha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31",
+      "adoptedSha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-cg.2.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.2.png",
+            "sha256": "a6977d421e008b9e47e3283479abb8d9c8aff500d4526bda074a10876b4c470f"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/event-3-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-event-3-cg-candidate-v1.png",
+      "sha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757",
+      "adoptedSha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-cg.3.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.3.png",
+            "sha256": "c6f02a5cc6f933065ed19ac0967d6e34efe2a2fbe04a0c2689804c9620d7a337"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/event-4-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-event-4-cg-candidate-v1.png",
+      "sha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd",
+      "adoptedSha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-cg.4.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.4.png",
+            "sha256": "e7706d784445fa01c9114a8f8c29ff4a9e1accbf55885d9b9e905a518a5f3457"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-sit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-sit-candidate-v1.png",
+      "sha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81",
+      "adoptedSha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.sit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.sit.png",
+            "sha256": "bab4741186fbe6a173b1a860984b0df358c936f6253baac5cafa5eb7e6eef209"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-work.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-work-candidate-v1.png",
+      "sha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f",
+      "adoptedSha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.work.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.work.png",
+            "sha256": "45c3d99d6bdcf33523f740868576b76bd2c83dab2c9c94800a8c8ce79c87136a"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/avalanche-v1/sd-look.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/avalanche-sd-look-candidate-v1.png",
+      "sha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c",
+      "adoptedSha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/avalanche/avalanche-sd.look.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.look.png",
+            "sha256": "e1a53a26bdfc9b16dd827b652a9b80fc3c77037afe1b288482d72777ccf555b4"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    }
+  },
+  "checks": {
+    "identity_and_reaction": {
+      "status": "pass",
+      "evidence": [
+        "docs/characters/avalanche.md",
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "three_skills": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/avalanche/attack0.log",
+        "tmp/plan12-batch/player-default/avalanche/attack1.log",
+        "tmp/plan12-batch/player-default/avalanche/attack2.log"
+      ]
+    },
+    "traits_2_job_3_character_3_interaction": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/avalanche/trait.png"
+      ]
+    },
+    "weapon_13_nodes": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/avalanche/avalanche-tree.png",
+        "tmp/plan12-batch/hanging-ornaments/avalanche.png",
+        "tmp/plan12-batch/clear-ornaments/avalanche.png"
+      ]
+    },
+    "story_3_chapters_30_pages_18_poems": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/avalanche/journey.log"
+      ]
+    },
+    "events_basic_3_lover_2_target_variable_count": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/avalanche/journey.log"
+      ]
+    },
+    "recruit_formation_garden_adv": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/avalanche/recruit.log",
+        "tmp/plan12-batch/player-default/avalanche/formation.log",
+        "tmp/plan12-batch/player-default/avalanche/garden.log",
+        "tmp/plan12-batch/player-default/avalanche/journey.log"
+      ]
+    },
+    "save_migration_atomicity": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "automatic_regression": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "unity_compile": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-compile.log"
+      ]
+    },
+    "portrait_build_validation": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-build.log"
+      ]
+    },
+    "visual_review": {
+      "status": "pass",
+      "evidence": [
+        "docs/production/plan12-first-batch-asset-review.json",
+        "tmp/plan12-batch/hanging-ornaments/avalanche.png",
+        "tmp/plan12-batch/clear-ornaments/avalanche.png"
+      ]
+    },
+    "player_default_launch": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-player.log",
+        "tmp/plan12-batch/player-default/avalanche/command.log"
+      ]
+    },
+    "job_commands_resources_and_states": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/avalanche/command.log"
+      ]
+    },
+    "pre_addition_save_compatibility": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "real_asset_size_loading_memory": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/battle-art/avalanche/attack.metrics.json",
+        "tmp/plan12-batch/battle-art/avalanche/hit.metrics.json",
+        "tmp/plan12-batch/battle-art/avalanche/cutin.metrics.json"
+      ]
+    }
+  },
+  "build": {
+    "path": "game/Builds/plan12-first-batch/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "sourceCommit": "6835e69b6598269dfe7b8be314934df333bfa668",
+    "workingTreeChanges": true,
+    "catalogHashes": {
+      "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+      "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c"
+    },
+    "latestChangeBuildLog": "tmp/plan12-batch/clear-ornament-final-build.log"
+  },
+  "unresolved": [],
+  "completionCommit": null,
+  "acceptance": "pass",
+  "acceptancePolicy": {
+    "eventCgMen": "forbidden",
+    "fallbackAssets": "missing",
+    "furniturePoses": "sit/work/look required for every form",
+    "resolution": "default launch only",
+    "expressionAlignment": "compare face position, scale and contour with normal",
+    "aspectRatio": "preserve source proportions",
+    "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
+    "physicalInput": "excluded; automated operations and actual frame review recorded separately",
+    "mastery": "character duplicates only",
+    "equipmentTree": "branching tree without people; root 1 + three branches of four tiers",
+    "sourcePurposeReview": "approve visual purpose before adoption; unchanged approved assets retain review",
+    "completion": "generated, source reviewed, integrated, runtime reviewed, form complete, published are separate states"
+  },
+  "updatedAt": "2026-10-11"
+}

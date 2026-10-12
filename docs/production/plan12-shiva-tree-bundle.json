@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.shiva",
+  "layoutPath": "game/unity/Assets/Game/Resources/UI/WeaponTrees/shiva.json",
+  "components": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/shiva.json",
+      "sha256": "2b82b6394f90e98d96625a2382d541cb7a28abf34028c1f5c1717d85a05ede5d",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/shiva-ornament-v1.png",
+      "sha256": "f0ba70df6a21ff166604b7ebf3c08bf582560053a5f66537d137fbabe9e167de",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    }
+  ]
+}

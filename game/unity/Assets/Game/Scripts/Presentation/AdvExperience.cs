@@ -22,6 +22,7 @@ namespace NewAster.Presentation
             var slot=HomeData().actorSlots.Single(s=>s.id==actor.SlotId);
             float w=slot.size01.x*1600,h=slot.size01.y*900,x=slot.anchor.x*1600-slot.pivot.x*w,y=slot.anchor.y*900-slot.pivot.y*h;
             var rect=new Rect(x,y,w,Math.Max(1,Math.Min(h,615-y)));var standing=AdvTexture(actor.StandingAsset);var expression=AdvTexture(actor.ExpressionAsset);
+            if(actor.HeroineId=="heroine.invisible" || actor.HeroineId=="heroine.viper" || actor.HeroineId=="heroine.vindicator" || actor.HeroineId=="heroine.weapon-master")rect=new Rect(rect.center.x-450,120,900,495);
             var expressionDef=HomeData().assets.SingleOrDefault(a=>a.id==actor.ExpressionAsset);
             if(expression!=null && standing!=null && expressionDef?.fullFrame!=true && expressionDef?.mappedOverlay!=true && (expression.width!=standing.width || expression.height!=standing.height))expression=null;
             bool fullExpression=expression!=null && expressionDef.fullFrame;

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-11",
+  "planningId": "aa.person.018",
+  "personId": "heroine.vindicator",
+  "formId": "heroine.vindicator",
+  "name": "ヴィンディーケーター",
+  "realName": "モルトラ・バルタ",
+  "jobId": "job.defender",
+  "status": "accepted-normal-play",
+  "available": true,
+  "baselineForms": 22,
+  "targetForms": 23,
+  "profile": "docs/characters/vindicator.md",
+  "reference": "docs/references/characters/vindicator.md",
+  "draftManifest": "game/unity/Assets/Game/ContentDrafts/Vindicator/manifest.json",
+  "artManifest": "game/art-source/vindicator-v1/generation.json",
+  "storyValidation": "3 chapters / 30 pages / 18 poems / 5 events; 70 original paragraphs; previous story unchanged",
+  "remaining": [],
+  "validation": {
+    "log": "tmp/plan12-vindicator-core.log",
+    "status": "pass",
+    "assertions": 12310,
+    "skills": "3x7 actual battle actions; self-buff recoil once; delay success/failure and legacy guaranteed delay"
+  },
+  "completionRecord": "docs/production/plan12-vindicator-form-record.json"
+}

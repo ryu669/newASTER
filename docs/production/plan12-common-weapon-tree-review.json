@@ -1,0 +1,557 @@
+{
+  "status": "approved",
+  "forms": 24,
+  "construction": "one common wooden tree/layout/leaves/flowers/round node frame; color only per form; no hanging ornaments",
+  "resolution": "default 1920x1080",
+  "method": "manual review of all tree captures; saved node stage reloaded in actual Player; no repeated review of unchanged heroine art",
+  "components": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved"
+    }
+  ],
+  "captures": [
+    {
+      "heroineId": "heroine.slayer",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/slayer-tree-stage-0.png",
+      "sha256": "c832c36bc220dfe82a16424c00d6850fd5237c42be554cc8f4652849913dec7e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/slayer-tree-stage-2.png",
+      "sha256": "9d2b3cdc86a48dd69e5d8ce9ff31fbc42c916f5f76829aa72b32c2b9297a84bf",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.slayer",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/slayer-tree-stage-4.png",
+      "sha256": "7fb19e226513f91880acd1cbc2d9a338d1ab2130fc65ab52e846c027372e891e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/annihilator-holy-tree-stage-0.png",
+      "sha256": "4212508bb1e731367dd07d0f819bb8bf354e0e1bf393b96524bf60b9f00a5c7a",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/annihilator-holy-tree-stage-2.png",
+      "sha256": "3b2b7a0724779a1cefa5c2be95f63d99491f8390ff71fd411f60ca5a642869b4",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator-holy",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/annihilator-holy-tree-stage-4.png",
+      "sha256": "f366f7cdeb619e205dbfab9f83c5fb5f9dc07cea619a3ea5129b022a76a93ac0",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/annihilator-tree-stage-0.png",
+      "sha256": "064ee0fdbfb5df3c36156b162b896e992db307e852ed4b1d87697363a4c6a8c5",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/annihilator-tree-stage-2.png",
+      "sha256": "bc6ca1558be9cb229b4d0da5d1e94253c3ce6104b1e6ba7d305c94acb97ce7c7",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.annihilator",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/annihilator-tree-stage-4.png",
+      "sha256": "811cd979d258b9fc7cdcafa46cc5636ca7ee9f75b9685828b7da7fff630360b5",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/arcane-academy-tree-stage-0.png",
+      "sha256": "68dee8f203dedacf1456140e1de90f0c8a752ae3c055e9b8b6580423031af892",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/arcane-academy-tree-stage-2.png",
+      "sha256": "825cd67df1b3425f1eb6768b5e71fbbca3e8202fc0a317d6d48488b77b0fa802",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane-academy",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/arcane-academy-tree-stage-4.png",
+      "sha256": "14c5fefb5757c72b5b0e01b7e40a9431baa72e15b1e0708c19d6a97b9cb44075",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/arcane-tree-stage-0.png",
+      "sha256": "cfbbf352d56a6282aaaf6fd8bda39bb5ecf8a3d94564eddaec7f7f8c35d50d7e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/arcane-tree-stage-2.png",
+      "sha256": "2cd5333235359b20eda65f6fd12e3bdb007ce884f4b3b368f045dc2ba1a8529c",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.arcane",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/arcane-tree-stage-4.png",
+      "sha256": "13483f1d5166e10caf81d9da35199e424ceb0f6e4bf1b60de1a9187895fe63c6",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/echidna-tree-stage-0.png",
+      "sha256": "9ed92e8a13638afe407ad080d74b1d4bc7bfde29d038ab1d7e02d71bc698f19c",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/echidna-tree-stage-2.png",
+      "sha256": "0c814e263d37f3b84f565aeb21b44ab7471858017b4ed169328199113d0331d5",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.echidna",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/echidna-tree-stage-4.png",
+      "sha256": "f5e2a9154bf24af11942f07c67fb9f0549de7c0c710395f8a6e10ad23c9f83d4",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/excalipan-tree-stage-0.png",
+      "sha256": "416de966d161a9db5722e61a772320862132dda1dc94764ebeca7dd46d944797",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/excalipan-tree-stage-2.png",
+      "sha256": "958f88c1740d5f4a6e0cd93d24ab13a6d3a7611896614afe689829ef146fc58b",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.excalipan",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/excalipan-tree-stage-4.png",
+      "sha256": "b0cdbf0798f4eab47cd3b0071a0f81b1cbfd8e30f5f8bb25bbc785ba293886e2",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/iconoclast-tree-stage-0.png",
+      "sha256": "0907edd23f0428ccf2b8a8d2b6b55f134e40fd1d2c75e980fd3088340486fa0a",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/iconoclast-tree-stage-2.png",
+      "sha256": "118216667fa4da1a3d752f3b34989cc8ec90700394e1aa365a2767147bd6777d",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iconoclast",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/iconoclast-tree-stage-4.png",
+      "sha256": "ce6f8b4b752374d1d1dbd7377cbc07a5a15a2d628c53fd96871616a70cfb9fdf",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/nighthawk-tree-stage-0.png",
+      "sha256": "097ac5dd7d18c1574b4f51ac4ce4b7564b830bcb27f549e71d4efdebec31892d",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/nighthawk-tree-stage-2.png",
+      "sha256": "de9f36fd22c714beae49bd8826db010638b37a40c4e930d1e2a4e7eb25e03c6f",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.nighthawk",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/nighthawk-tree-stage-4.png",
+      "sha256": "fd9a4b3f3fca37657001ab78195f5d920adb39c19d8a15cd15e4fd2738052b16",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/oriflamme-tree-stage-0.png",
+      "sha256": "9936f6bf687508ca423f54b5f9b4316650436948395c052c454f85189b5f35c8",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/oriflamme-tree-stage-2.png",
+      "sha256": "4c03afff553de9e28abbeea439ac3a431401e7c130f6fee8e054ec89cb91ed40",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.oriflamme",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/oriflamme-tree-stage-4.png",
+      "sha256": "698e669945c63e44afc287e30f362523ddaf280dea03f4d0ca9c618d0d821490",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.r",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/r-tree-stage-0.png",
+      "sha256": "70cd77899e69880536bbd4587fff9a9934f18d522316ba826add00c9491dc46f",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.r",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/r-tree-stage-2.png",
+      "sha256": "888d0f70e3b7712d91b10312f51e996ed61425b91bd15354853a88000e0dcb02",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.r",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/r-tree-stage-4.png",
+      "sha256": "4acebdbe920146085ba7ffd18efeef67e07f4b34740561b7c52f0260269e2861",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/shangrila-tree-stage-0.png",
+      "sha256": "62c7e3bbd237c902a74abbcc174b3f103ab2756351f1a463f4a5e4c486ab5141",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/shangrila-tree-stage-2.png",
+      "sha256": "c5877afce195429c10e88e8accb91c6a55a4306784ba177f5a52ff414e964066",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shangrila",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/shangrila-tree-stage-4.png",
+      "sha256": "ad866f7b33272e160b158a1473fb0ebc5714f3e47d3e16663078d0a48ede4a95",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/shell-tree-stage-0.png",
+      "sha256": "df0a10762b125a66dc9b61552fea4f1c67a692f2eab864a726a45fe453d9976f",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/shell-tree-stage-2.png",
+      "sha256": "5bec8a52da67f3870b0830bac06112f6e3e219cbf79c04e8fff9bfa7ff330235",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shell",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/shell-tree-stage-4.png",
+      "sha256": "2a0fb0dd9aea79276b1f8b03641ac47a0f0f27d2dc52f592a595195a5366425c",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/slayer-swim-tree-stage-0.png",
+      "sha256": "f0d7a1845f20b1eabafb93067ce9b1cf9fde8c8964f7794fe47a822d5b7a0642",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/slayer-swim-tree-stage-2.png",
+      "sha256": "abc6895130d0bd4a99f60354366ed594df2f264e66db38abb92658f66bc231e5",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.slayer-swim",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/slayer-swim-tree-stage-4.png",
+      "sha256": "33e80ef1f6edf5371224c66b687a518cb7a0ce2e038a53145dc9741fd3c81534",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/undermine-tree-stage-0.png",
+      "sha256": "5ee293ee480470aac7e4ef616f0a64ff550c105f1fc050ee4d51ff2550343d4a",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/undermine-tree-stage-2.png",
+      "sha256": "36448be65dde3075bf1dcdae52d23b8efc1b285a06dedae57d105a8890cbe268",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.undermine",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/undermine-tree-stage-4.png",
+      "sha256": "40d3fb30406a861b30bab0c1e07878c4398ce7def1fb10f022519e23895daaab",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.aeon",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/aeon-tree-stage-0.png",
+      "sha256": "5b949637b631cc5f7a00948afbf172e3352e5896ca5012d9ec22aa8e6bdbb98e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.aeon",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/aeon-tree-stage-2.png",
+      "sha256": "94932554c220cde67a756bbce2736959e7cb60b97dab57e90ae1477e503d0a45",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.aeon",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/aeon-tree-stage-4.png",
+      "sha256": "100ffb18ad02e2ce72cad036641170d2fbb5212802e03e194ecb81819ef5d4b8",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iron-maiden",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/iron-maiden-tree-stage-0.png",
+      "sha256": "8b02978d219a490d1e01da17a4750b7a7cf77a68138ebf51e25fd20b24152de9",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iron-maiden",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/iron-maiden-tree-stage-2.png",
+      "sha256": "b5140f26319f7cb03bcd152e1bf8a5b0f5e60a63cca044af33d864463015207d",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.iron-maiden",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/iron-maiden-tree-stage-4.png",
+      "sha256": "66bfda07c7a879fb6a113098a2bb3b5e544167121a78adfeb178389f631645f9",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.avalanche",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/avalanche-tree-stage-0.png",
+      "sha256": "a9d750609fbc413b4c6749b7ae22e364208719b83ce7b9d3b7e20bb33875c15d",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.avalanche",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/avalanche-tree-stage-2.png",
+      "sha256": "7a945d8d5e0392ed53448dc70044ea3804acc9a5b3c757b692f65f67456ad645",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.avalanche",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/avalanche-tree-stage-4.png",
+      "sha256": "ae9f8f341b9eaf7b3ff05fd221f53faea7e41d1ec768f706ea25469a150a694e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.anathema",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/anathema-tree-stage-0.png",
+      "sha256": "d3df7ce73d0bb51fde181fd6a51646519a3d019fdbdd9640c49b8c11b0e4a247",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.anathema",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/anathema-tree-stage-2.png",
+      "sha256": "87069eba39e1edcb0956d329db63d2ffdfaed147221a3146dbd00b61713133ad",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.anathema",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/anathema-tree-stage-4.png",
+      "sha256": "ea41081ff4ab8edc0a63fe858c1e70c7c7ab917ec1a50a1192fe2a75185eca97",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shiva",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/shiva-tree-stage-0.png",
+      "sha256": "da1d1857ed940ada72b19392d7255ba1834fbfdc71dbb70dc9c0f3b68e184e9b",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shiva",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/shiva-tree-stage-2.png",
+      "sha256": "3c9a11a1161d331fc0c300977ce23adaae7eaf1b8350f80eae4b7ab8f909bc9e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.shiva",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/shiva-tree-stage-4.png",
+      "sha256": "aba1c548d0cae5cb4f08c9b86727854d34ce73132f15af9758ad32b75441df78",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.invisible",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/invisible-tree-stage-0.png",
+      "sha256": "8a0c2cbd519cd3722ee72a6d34489e5e970595167df9bb624c9852e80efb2956",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.invisible",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/invisible-tree-stage-2.png",
+      "sha256": "5fde531666950ba069ec14e702e78167b7b1491c8aeb03b75f4be5748f9c00cf",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.invisible",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/invisible-tree-stage-4.png",
+      "sha256": "be90364c0bb43de64d5b37fa7b6badc3a5bb92e3531a8e19895e7a46b4a9725c",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.viper",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/viper-tree-stage-0.png",
+      "sha256": "6ec6bb6bcb8945e383e95cc5b475114bf9861fe3874406300c9c8cdb63ce2221",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.viper",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/viper-tree-stage-2.png",
+      "sha256": "0e61e6e7fec1fb78e27b02363eb83e47e6b38a30d225ee80b86578ebb6566522",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.viper",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/viper-tree-stage-4.png",
+      "sha256": "7458e5291a64aa4a2d8878da798259c5a4dcdd6cbbf678a7fc1e17a937c0a475",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.vindicator",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/vindicator-tree-stage-0.png",
+      "sha256": "a4ba0c6769a8b473bcc066f7f6b90bda83042f8d8f71895747bfee9a04d7966c",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.vindicator",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/vindicator-tree-stage-2.png",
+      "sha256": "2952622d3459baed2d60abbce69628c091678ef6ccd4105c53f163712d737d26",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.vindicator",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/vindicator-tree-stage-4.png",
+      "sha256": "6ebbbb7db2af468ae01d745c2dce4791364fa104e7b864ca621f4c647794436e",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.weapon-master",
+      "stage": 0,
+      "path": "tmp/plan12-common-tree/player/weapon-master-tree-stage-0.png",
+      "sha256": "4ad23da131bbfba0af43521965033cf2cba0e8c842b0abb8b2ccb2caa40e0197",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.weapon-master",
+      "stage": 2,
+      "path": "tmp/plan12-common-tree/player/weapon-master-tree-stage-2.png",
+      "sha256": "7f66a76bbcc7926c574286db85397fb05c2d6c9eb9077d38156962f01e63db87",
+      "status": "approved"
+    },
+    {
+      "heroineId": "heroine.weapon-master",
+      "stage": 4,
+      "path": "tmp/plan12-common-tree/player/weapon-master-tree-stage-4.png",
+      "sha256": "50359bd096b602a5c4b081dbfb4ea668d327590f3f667dd89e5776c7ba41af90",
+      "status": "approved"
+    }
+  ],
+  "unresolved": [],
+  "finalBuildSaveInitializationCheck": {
+    "status": "pass",
+    "path": "tmp/plan12-common-tree/final-smoke/sweep.log",
+    "sha256": "1be2c848c0fd364abfe83c7e0dbb3e14de3f2da8645a89ac15c0920d011aac0d",
+    "note": "Fresh isolated revision-zero save initialized in final Player; stages 0, 2, 4 saved and reloaded. Existing 72 reviewed frames were not re-reviewed."
+  }
+}

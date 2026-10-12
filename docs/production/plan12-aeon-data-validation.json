@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "personId": "heroine.aeon",
+  "liveForms": 20,
+  "developmentForms": 0,
+  "checks": [
+    "live baseline preserved",
+    "repeatable authoring",
+    "30 pages / 18 poems / 5 events",
+    "profile and source links",
+    "commander address in dialogue"
+  ],
+  "releaseReady": true,
+  "unverified": [],
+  "coreAssertions": 11910,
+  "unityCompile": "pass",
+  "unityJsonUtilityRoundtrip": "pass",
+  "currentAcceptance": "docs/production/plan12-aeon-form-record.json"
+}

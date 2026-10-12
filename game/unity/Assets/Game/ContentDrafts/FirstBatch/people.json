@@ -1,0 +1,222 @@
+[
+  {
+    "key": "iron-maiden",
+    "number": 2,
+    "name": "アイアンメイデン",
+    "realName": "エリザベート・アイゼナッハ",
+    "job": "defender",
+    "second": "miracle-body",
+    "styles": [
+      "teasing",
+      "cool"
+    ],
+    "traits": [
+      "hair.silver",
+      "taste.books",
+      "personality.cool"
+    ],
+    "hp": 10500,
+    "attack": 9500,
+    "defense": 10000,
+    "speed": 9500,
+    "innate": "鋼鉄の棺",
+    "personal": "鋼鉄の棺",
+    "mastery": "サラマンドラの祝福",
+    "weapon": "サラマンドラ",
+    "flavor": "閉じた扉の外にも、守りたい朝がある。鋼の決意で、隣に立つ人の帰り道を支える。",
+    "personalKind": "reduction",
+    "personalPercent": 8,
+    "personalText": "自身が受ける攻撃ダメージを8%軽減。",
+    "bonus": "hp",
+    "icon": "moon",
+    "skills": [
+      [
+        "ディバインパニッシュメント",
+        1.93,
+        130
+      ],
+      [
+        "サラマンドラの守火",
+        0,
+        100
+      ],
+      [
+        "鋼鉄の棺―開かれた守り",
+        1.4,
+        150
+      ]
+    ],
+    "scenes": [
+      "garden tea",
+      "letter in study",
+      "garden confession",
+      "greenhouse flower",
+      "twilight bench"
+    ]
+  },
+  {
+    "key": "avalanche",
+    "number": 6,
+    "name": "アヴァランチ",
+    "realName": "キイラ・エアンド",
+    "job": "gunner",
+    "second": "hunter-eye",
+    "styles": [
+      "teasing",
+      "active"
+    ],
+    "traits": [
+      "hair.black",
+      "personality.active",
+      "taste.sweets"
+    ],
+    "hp": 9500,
+    "attack": 10500,
+    "defense": 10000,
+    "speed": 10500,
+    "innate": "濡羽の御髪",
+    "personal": "乗るぜ勝ち馬！",
+    "mastery": "Yin&Yangの祝福",
+    "weapon": "Yin&Yang",
+    "flavor": "借りを忘れず、次の一手は自分で選ぶ。軽口の奥に、仲間を置き去りにしない熱がある。",
+    "personalKind": "gauge",
+    "personalPercent": 15,
+    "personalText": "弾丸の追加獲得率＋15%。",
+    "bonus": "physical-defense",
+    "icon": "flame",
+    "skills": [
+      [
+        "ダンガンロンド",
+        1.26,
+        75
+      ],
+      [
+        "バッドバレットバレエド",
+        1.78,
+        110
+      ],
+      [
+        "Yin&Yang―返礼の二重奏",
+        2.1,
+        145
+      ]
+    ],
+    "scenes": [
+      "garden fan",
+      "brass tokens",
+      "bridge confession",
+      "noodle stall",
+      "sunrise"
+    ]
+  },
+  {
+    "key": "anathema",
+    "number": 11,
+    "name": "アナテマ",
+    "realName": "アナスタシア・テンプル",
+    "job": "fighter",
+    "second": "full-power",
+    "styles": [
+      "elegant",
+      "affectionate"
+    ],
+    "traits": [
+      "hair.blonde",
+      "taste.sweets",
+      "personality.active"
+    ],
+    "hp": 10000,
+    "attack": 10500,
+    "defense": 9500,
+    "speed": 9500,
+    "innate": "令嬢の極悪覇気",
+    "personal": "騎士の誓い",
+    "mastery": "青薔薇の祝福",
+    "weapon": "青薔薇の夜想曲",
+    "flavor": "なくした席を数えるより、今日の約束に胸を張る。青い薔薇の刃は、選んだ人のために。",
+    "personalKind": "wounded-defense",
+    "personalPercent": 15,
+    "personalText": "HPが50%以下のとき、受ける攻撃ダメージを15%軽減。",
+    "bonus": "critical",
+    "icon": "sword",
+    "skills": [
+      [
+        "おセレブ斬",
+        1.48,
+        85
+      ],
+      [
+        "おロイヤルX斬",
+        1.63,
+        110
+      ],
+      [
+        "おファビュラス豪華剣乱",
+        2.08,
+        140
+      ]
+    ],
+    "scenes": [
+      "rose tea",
+      "dog letter",
+      "blue rose confession",
+      "biscuits",
+      "evening window"
+    ]
+  },
+  {
+    "key": "shiva",
+    "number": 45,
+    "name": "シヴァ",
+    "realName": "柴まりか",
+    "job": "healer",
+    "second": "muscle-nurse",
+    "styles": [
+      "active",
+      "affectionate"
+    ],
+    "traits": [
+      "hair.blonde",
+      "personality.active",
+      "taste.cooking"
+    ],
+    "hp": 10000,
+    "attack": 10500,
+    "defense": 9500,
+    "speed": 10000,
+    "innate": "みんなでがんばろう！",
+    "personal": "ポジティブ思考",
+    "mastery": "あたしがついてるから！",
+    "weapon": "フリスビーテ",
+    "flavor": "元気な声は、隣で休む人にも届く。手を伸ばす強さと、返事を待つ優しさを忘れない。",
+    "personalKind": "regen",
+    "personalPercent": 2,
+    "personalText": "毎ターン、自身の最大HPの2%を回復。",
+    "bonus": "hp",
+    "icon": "leaf",
+    "skills": [
+      [
+        "フリスビーテ・タタク",
+        1.48,
+        100
+      ],
+      [
+        "シヴァ・イスフウ・オーエン",
+        1.4,
+        120
+      ],
+      [
+        "円環の愛―最強破壊パンチ",
+        2.4,
+        170
+      ]
+    ],
+    "scenes": [
+      "meadow ring",
+      "friend letter",
+      "sunset confession",
+      "picnic",
+      "star bench"
+    ]
+  }
+]

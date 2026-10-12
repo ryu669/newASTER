@@ -228,7 +228,7 @@ namespace NewAster.Presentation
                 if(ImageUiSkin.Button(new Rect(rect.x,rect.y,64,64),"",GUIStyle.none) && BookInputAllowed)selectedTrait=selectedTrait==i?-1:i;
             }
             if(GrowthButton(771,726,743, sixty,"神器  ／  装備の木をひらく",BookInputAllowed,true)){growthScreen=GrowthScreen.Weapons;selectedNode=null;}
-            if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);var traitTitle=new GUIStyle(growthTextStyle){wordWrap=false};while(traitTitle.fontSize>16 && traitTitle.CalcSize(new GUIContent(t.name)).x>520)traitTitle.fontSize--;Label(103,633,520,35,t.name,traitTitle,gold);var traitBody=new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true};while(traitBody.fontSize>15 && traitBody.CalcHeight(new GUIContent(t.description),526)>106)traitBody.fontSize--;Label(103,677,526,106,t.description,traitBody);}
+            if(selectedTrait>=0){var t=traits[selectedTrait];GrowthFrame(80,617,586,183);var traitTitle=new GUIStyle(growthTextStyle){wordWrap=false};while(traitTitle.fontSize>16 && traitTitle.CalcSize(new GUIContent(t.name)).x>520)traitTitle.fontSize--;Label(103,633,520,35,t.name,traitTitle,gold);var traitBody=new GUIStyle(growthSmallStyle){fontSize=19,wordWrap=true};while(traitBody.fontSize>12 && traitBody.CalcHeight(new GUIContent(t.description),526)>106)traitBody.fontSize--;Label(103,677,526,106,t.description,traitBody);}
             DrawBookTransition(true);DrawBookFooter(true);
         }
         private void DrawBookHeroineInformation(string id)

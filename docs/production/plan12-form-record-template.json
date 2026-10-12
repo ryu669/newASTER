@@ -14,147 +14,357 @@
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "portrait": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "expression-joy": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "expression-puzzled": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "expression-determined": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "attack": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "hit": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "cutin": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-idle": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-walk": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-talk": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-react": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "equipment-tree-v1": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "event-0-cg": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "event-1-cg": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "event-2-cg": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "event-3-cg": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "event-4-cg": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-sit": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-work": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     },
     "sd-look": {
       "status": "not_started",
       "source": null,
       "adopted": null,
       "sha256": null,
-      "validation": null
+      "validation": null,
+      "purposeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "sha256": null
+      },
+      "runtimeReview": {
+        "status": "not_started",
+        "evidence": [],
+        "displayPath": null
+      }
     }
   },
   "checks": {
@@ -240,6 +450,9 @@
     "aspectRatio": "preserve source proportions",
     "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
     "physicalInput": "excluded; automated operations and actual frame review recorded separately",
-    "mastery": "character duplicates only"
+    "mastery": "character duplicates only",
+    "equipmentTree": "branching tree without people; root 1 + three branches of four tiers",
+    "sourcePurposeReview": "approve visual purpose before adoption; unchanged approved assets retain review",
+    "completion": "generated, source reviewed, integrated, runtime reviewed, form complete, published are separate states"
   }
 }

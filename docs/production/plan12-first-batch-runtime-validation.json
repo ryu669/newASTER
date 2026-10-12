@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-11",
+  "status": "pass",
+  "releaseReady": true,
+  "forms": 20,
+  "people": 17,
+  "newPeople": [
+    "aeon",
+    "iron-maiden",
+    "avalanche",
+    "anathema",
+    "shiva"
+  ],
+  "coreAssertions": 12023,
+  "unityCompileSources": 274,
+  "resolution": "1920x1080 default launch only",
+  "physicalInput": "not tested; automated job operations and manual frame review",
+  "oldSave": "15-to-20 Player physical save/load, exact pre-join field equality; 16-to-20 atomicity regression",
+  "metrics": [
+    {
+      "peakWorkingSetBytes": 588353536,
+      "resolution": "1920x1080",
+      "pose": "attack",
+      "seconds": 11.8651544,
+      "hero": "aeon"
+    },
+    {
+      "peakWorkingSetBytes": 571568128,
+      "resolution": "1920x1080",
+      "pose": "hit",
+      "seconds": 11.8875268,
+      "hero": "aeon"
+    },
+    {
+      "peakWorkingSetBytes": 595636224,
+      "resolution": "1920x1080",
+      "pose": "cutin",
+      "seconds": 11.8447456,
+      "hero": "aeon"
+    },
+    {
+      "peakWorkingSetBytes": 583372800,
+      "resolution": "1920x1080",
+      "pose": "attack",
+      "seconds": 11.834159,
+      "hero": "iron-maiden"
+    },
+    {
+      "peakWorkingSetBytes": 592314368,
+      "resolution": "1920x1080",
+      "pose": "hit",
+      "seconds": 11.8324979,
+      "hero": "iron-maiden"
+    },
+    {
+      "peakWorkingSetBytes": 605954048,
+      "resolution": "1920x1080",
+      "pose": "cutin",
+      "seconds": 11.8445723,
+      "hero": "iron-maiden"
+    },
+    {
+      "peakWorkingSetBytes": 575672320,
+      "resolution": "1920x1080",
+      "pose": "attack",
+      "seconds": 11.8551012,
+      "hero": "avalanche"
+    },
+    {
+      "peakWorkingSetBytes": 589021184,
+      "resolution": "1920x1080",
+      "pose": "hit",
+      "seconds": 11.8305947,
+      "hero": "avalanche"
+    },
+    {
+      "peakWorkingSetBytes": 599257088,
+      "resolution": "1920x1080",
+      "pose": "cutin",
+      "seconds": 11.8279249,
+      "hero": "avalanche"
+    },
+    {
+      "peakWorkingSetBytes": 581242880,
+      "resolution": "1920x1080",
+      "pose": "attack",
+      "seconds": 11.8500408,
+      "hero": "anathema"
+    },
+    {
+      "peakWorkingSetBytes": 574881792,
+      "resolution": "1920x1080",
+      "pose": "hit",
+      "seconds": 11.8482865,
+      "hero": "anathema"
+    },
+    {
+      "peakWorkingSetBytes": 584916992,
+      "resolution": "1920x1080",
+      "pose": "cutin",
+      "seconds": 11.8387066,
+      "hero": "anathema"
+    },
+    {
+      "peakWorkingSetBytes": 587776000,
+      "resolution": "1920x1080",
+      "pose": "attack",
+      "seconds": 11.8234488,
+      "hero": "shiva"
+    },
+    {
+      "peakWorkingSetBytes": 616615936,
+      "resolution": "1920x1080",
+      "pose": "hit",
+      "seconds": 11.8539,
+      "hero": "shiva"
+    },
+    {
+      "peakWorkingSetBytes": 600657920,
+      "resolution": "1920x1080",
+      "pose": "cutin",
+      "seconds": 11.8228695,
+      "hero": "shiva"
+    }
+  ],
+  "evidence": [
+    "tmp/plan12-batch/production-core-validation.log",
+    "tmp/plan12-batch/production-build.log",
+    "tmp/plan12-batch/production-compile.log",
+    "tmp/plan12-batch/production-player.log",
+    "tmp/plan12-batch/final-production-validation.log"
+  ],
+  "remaining": [],
+  "displayUpdates": [
+    {
+      "change": "branch-hung ornaments",
+      "heroes": [
+        "iron-maiden",
+        "avalanche",
+        "anathema",
+        "shiva"
+      ],
+      "rendererSha256": "6bc7185f67582e77dc1e915c014f95fa6fbd2488d5a925352c84282be730150c",
+      "defaultResolution": "1920x1080",
+      "visualReview": "approved for each affected tree",
+      "evidence": [
+        "tmp/plan12-batch/hanging-ornament-final-build.log",
+        "tmp/plan12-batch/hanging-ornament-final-compile.log",
+        "tmp/plan12-batch/hanging-ornaments/iron-maiden.png",
+        "tmp/plan12-batch/hanging-ornaments/avalanche.png",
+        "tmp/plan12-batch/hanging-ornaments/anathema.png",
+        "tmp/plan12-batch/hanging-ornaments/shiva.png"
+      ]
+    },
+    {
+      "change": "hanging ornament clearance from node frames and Lv captions",
+      "heroes": [
+        "iron-maiden",
+        "avalanche",
+        "anathema",
+        "shiva"
+      ],
+      "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+      "defaultResolution": "1920x1080",
+      "visualReview": "approved for each affected tree",
+      "evidence": [
+        "tmp/plan12-batch/clear-ornament-final-build.log",
+        "tmp/plan12-batch/clear-ornament-final-compile.log",
+        "tmp/plan12-batch/clear-ornaments/iron-maiden.png",
+        "tmp/plan12-batch/clear-ornaments/avalanche.png",
+        "tmp/plan12-batch/clear-ornaments/anathema.png",
+        "tmp/plan12-batch/clear-ornaments/shiva.png"
+      ]
+    }
+  ]
+}

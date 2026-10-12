@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-11",
+  "status": "pass",
+  "coreAssertions": 12023,
+  "unity": "6000.6.3f1",
+  "unityCompile": "pass",
+  "unityJsonUtilityRoundtrip": "pass",
+  "checkedFileSha256": {
+    "game/unity/Assets/Game/ContentDrafts/Aeon/aeon-story.json": "fe441fd7825d2d2b5662b54183e564f230c78d01d61d1d93ded899f65c4acfc7",
+    "game/unity/Assets/Game/ContentDrafts/Aeon/combat.json": "5e06f8895e912915c505c613a337124c1cb249f067db382ea1cc263da0762773",
+    "game/unity/Assets/Game/ContentDrafts/Aeon/manifest.json": "9b70534debf6e8cc38d8f144f2206ab592c9e04c5a5a48300d50cd9147ffe185",
+    "game/unity/Assets/Game/ContentDrafts/Aeon/story.json": "dd06c04b34a27c2cf9295c8e31d169bc950e87ba64b86926ae3aa8e1da1a68ee"
+  },
+  "commands": [
+    "tools/validate-automatic-chain.ps1",
+    "Unity -batchmode -nographics -executeMethod Plan12AeonDataValidation.Validate"
+  ],
+  "evidence": [
+    "tmp/plan12-batch/production-core-validation.log",
+    "tmp/plan12-batch/production-build.log",
+    "tmp/plan12-batch/production-player.log",
+    "docs/production/plan12-aeon-form-record.json"
+  ],
+  "releaseReady": true,
+  "remaining": []
+}

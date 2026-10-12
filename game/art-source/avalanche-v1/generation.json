@@ -1,0 +1,173 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "prompt": "Create one finished Japanese fantasy RPG heroine full body standing sprite, finely painted anime illustration matching the reference identity, adapting to a clearly mature adult. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. Front three quarter neutral balanced standing pose, full head wings hands and both feet within canvas with margins. 1024x1536 portrait canvas, transparent background, no floor, no shadow backdrop, no letters, no UI, no other people, not a sheet. This is one individual game asset.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-56e8eba6-4770-4ca4-b5e2-df4ee2577f09.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/standing.png",
+      "sha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Individual close portrait of the same adult woman from chest upward, centered face with entire hair and wing tips composition, 1536x1024 landscape transparent canvas, no frame. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f896c9f3-2541-406f-a3cf-276c0c4c93e6.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/portrait.png",
+      "transparent": true,
+      "sha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a joy expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-aac2d1f1-750a-43f4-9366-fb8c852519b9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/expression-joy.png",
+      "transparent": true,
+      "sha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a puzzled expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-571ceb3e-fb27-45e1-809e-feddcd5a6912.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/expression-puzzled.png",
+      "transparent": true,
+      "sha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a determined expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-1e27d5a2-809a-4a2d-bd0a-4424ff874395.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/expression-determined.png",
+      "transparent": true,
+      "sha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5"
+    },
+    {
+      "key": "attack",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dynamic full body battle attack pose, same weapon and costume, 1024x1536 transparent canvas. Entire body wings and weapon with margins, expressive decisive face, clean readable silhouette. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-cf1b9e08-acf4-442d-9e36-50fe660dd2bb.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/attack.png",
+      "transparent": true,
+      "sha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2"
+    },
+    {
+      "key": "hit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Full body battle hit reaction, shoulders recoiling slightly and determined painful face, intact clothing, no injuries or blood, 1024x1536 transparent canvas, all feet and wings visible. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-06c5e015-1b9b-4018-b595-64e8e7927ed5.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/hit.png",
+      "transparent": true,
+      "sha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dramatic skill cut-in waist up, same weapon and heroine, magical colored streaks contained around her, 1536x1024 transparent landscape, no text no frame. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-aa076d17-2701-4ff9-8e6a-b2cec3dfb382.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/cutin.png",
+      "transparent": true,
+      "sha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing idle relaxed. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-8c0654ca-00d5-4d1e-8fa8-c256ae501ca3.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-idle.png",
+      "transparent": true,
+      "sha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Walking one step toward right. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-aaf1e52d-9f19-4f70-beed-dbc33489c7c9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-walk.png",
+      "transparent": true,
+      "sha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Friendly talking gesture one hand raised. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-c2a978e6-ab9c-43f8-9a12-c33899c654b4.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-talk.png",
+      "transparent": true,
+      "sha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Surprised delighted response arms lifted. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-7e55a2ba-b809-45be-a838-f9fa775eb3f3.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-react.png",
+      "transparent": true,
+      "sha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010"
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Seated on an invisible bench, legs down, hips center at normalized (.50,.64), no seat drawn. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-bb97d17a-a684-4c27-8d8a-7c9f63121a42.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-sit.png",
+      "transparent": true,
+      "sha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing behind an invisible desk, arms extending forward together as if writing, hands near normalized (.50,.44), no furniture or paper drawn. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-13c091b2-cab5-4e07-9cce-4fae3152e84e.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-work.png",
+      "transparent": true,
+      "sha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing looking upward toward left, feet near normalized (.50,.90), no furniture. No weapon in hands, no furniture, no floor. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-07f77bc5-37d6-44c7-8d5e-3bf150a55d65.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/sd-look.png",
+      "transparent": true,
+      "sha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One game equipment tree illustration, 1536x1024 transparent landscape, NO people NO letters NO numbers. Elegant golden branching tree inspired by this heroine's weapon and costume colors. Central root circular gold socket at (.50,.85); three routes with four glowing circular sockets each: left (.36,.52),(.275,.36),(.185,.25),(.10,.15); center (.50,.58),(.50,.43),(.50,.28),(.50,.13); right (.64,.52),(.725,.36),(.815,.25),(.90,.15). Exactly 13 large solid gold glowing sockets connected by thin ornate branches, generous margins, distinct separated sockets, no wide solid backdrop. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-957b5532-c032-4b36-bf4f-cd944134da42.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/equipment-tree-v1.png",
+      "transparent": true,
+      "sha256": "3c691ac1eb0cf790e46fcd89b01d641c671c52ab44108b08919a0d8f311f4430",
+      "adoptionStatus": "rejected-character-in-tree"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. confidently spinning a red folding fan at an empty garden table Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-01efe767-d0d2-4de9-8dd0-5a3bcd8767bb.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/event-0-cg.png",
+      "transparent": false,
+      "sha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. sorting brass tokens in her palm in a warm workshop Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-547309c2-85eb-4ad1-8fce-fd7d3f66a28e.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/event-1-cg.png",
+      "transparent": false,
+      "sha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. sincere affectionate confession on a moonlit bridge, fan closed against her chest Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-608c4af7-46d0-402b-8dbe-83acf09ef952.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/event-2-cg.png",
+      "transparent": false,
+      "sha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. laughing over a steaming bowl of noodles at a quiet outdoor stall Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-58fd0402-e009-4b31-8cc2-01ae3b7ce566.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/event-3-cg.png",
+      "transparent": false,
+      "sha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. peacefully watching sunrise with a red fan on her lap Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult woman about 25, black hair with red streaks in two large elaborate buns, red eyes, fitted red and gold embroidered high neck qipao extending to knees with modest slits over opaque black leggings, gold earrings, white angel wings, red folding fan at waist, two small purple gold pistols Yin and Yang in relaxed downward hands. Streetwise confident grin. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-594a157e-6d7f-4c08-b3a8-677cabe74976.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/avalanche-v1/event-4-cg.png",
+      "transparent": false,
+      "sha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd"
+    }
+  ]
+}

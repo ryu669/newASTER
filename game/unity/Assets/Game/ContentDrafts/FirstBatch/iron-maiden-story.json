@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.iron-maiden.poem-chapter.1",
+      "ownerId": "heroine.iron-maiden",
+      "title": "鍵を預ける朝",
+      "introduction": "黒煙城塞の謳を読み、エリザベートは門の鍵を手に取った。閉めれば安全だという記録を、最後まで信じてよいのかと尋ねる。",
+      "conclusion": "あなたと並べた椀の脇で、色糸が光った。守る仕事に、帰って食事をする時間も加わった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.iron-maiden.collection.poem.01",
+          "text": "城の外に残った畑には、毎朝人が通う。",
+          "body": "城の外に残った畑には、毎朝人が通う。彼女は門番へ、誰が帰る時刻なのかを聞きに行った。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.01",
+          "reason": "「終わった戦へ、煙が立つ」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.02",
+          "text": "鍵束は重かった。",
+          "body": "鍵束は重かった。あなたが半分持とうとすると、彼女は一つだけ選んで渡した。「全部預けるのは、まだ早いわ」",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.02",
+          "reason": "「熱い壁にも、冷たい工房」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.03",
+          "text": "修理中の橋では、荷を運ぶ女性が立ち往生していた。",
+          "body": "修理中の橋では、荷を運ぶ女性が立ち往生していた。彼女は銃を背へ回し、板の端を支えた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.03",
+          "reason": "「鍋の欠けには、夕飯の跡」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.04",
+          "text": "門の閉まる音に、女性の肩が跳ねた。",
+          "body": "門の閉まる音に、女性の肩が跳ねた。エリザベートは急かさず、扉の脇で帰り道を指さした。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.04",
+          "reason": "「守る砲口が、家を向く」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.05",
+          "text": "庭へ戻ると、彼女は鍵に小さな色糸を結んだ。",
+          "body": "庭へ戻ると、彼女は鍵に小さな色糸を結んだ。誰でも区別できる印が、鋼の輪で揺れた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.05",
+          "reason": "「命令の紙に、帰らない名」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.06",
+          "text": "謳の中の門守は、一度も持ち場を離れなかった。",
+          "body": "謳の中の門守は、一度も持ち場を離れなかった。その代わり、誰が通れなくなったかを知らなかった。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.06",
+          "reason": "「煤けた窓から、洗濯の声」を受け、鍵を預ける朝で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "黒煙城塞の謳を読み、エリザベートは門の鍵を手に取った。閉めれば安全だという記録を、最後まで信じてよいのかと尋ねる。",
+        "城の外に残った畑には、毎朝人が通う。彼女は門番へ、誰が帰る時刻なのかを聞きに行った。",
+        "鍵束は重かった。あなたが半分持とうとすると、彼女は一つだけ選んで渡した。「全部預けるのは、まだ早いわ」",
+        "修理中の橋では、荷を運ぶ女性が立ち往生していた。彼女は銃を背へ回し、板の端を支えた。",
+        "門の閉まる音に、女性の肩が跳ねた。エリザベートは急かさず、扉の脇で帰り道を指さした。",
+        "庭へ戻ると、彼女は鍵に小さな色糸を結んだ。誰でも区別できる印が、鋼の輪で揺れた。",
+        "謳の中の門守は、一度も持ち場を離れなかった。その代わり、誰が通れなくなったかを知らなかった。",
+        "昼食の鐘が鳴る。彼女はあなたを先に行かせかけて、代役へ鍵束を渡した。",
+        "食堂の扉を自分で開けると、温かい匂いがした。「こちらの戸なら、開いている方がいいわね」",
+        "あなたと並べた椀の脇で、色糸が光った。守る仕事に、帰って食事をする時間も加わった。"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.poem-chapter.2",
+      "ownerId": "heroine.iron-maiden",
+      "title": "鋼の名前と小さな花",
+      "introduction": "記憶晶竜の謳には、名前の代わりに役目だけを刻まれた人がいた。彼女はその頁で指を止める。",
+      "conclusion": "温室を出る頃、鉢には新しい札が立っていた。鋼の名前の隣に、育つものの名が一つ増えた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.iron-maiden.collection.poem.07",
+          "text": "アイアンメイデンと呼ばれれば仕事へ向かえる。",
+          "body": "アイアンメイデンと呼ばれれば仕事へ向かえる。エリザベートと呼ばれると、返事の後に何を話すか考えてしまうという。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.08",
+          "text": "あなたは庭の花について尋ねた。",
+          "body": "あなたは庭の花について尋ねた。彼女は知らないと答え、知らないままで済ませず温室へ歩いた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.09",
+          "text": "鉢を持ち上げると、土が袖へこぼれた。",
+          "body": "鉢を持ち上げると、土が袖へこぼれた。鋼の銃を扱う手が、小さな根を傷つけないよう止まった。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.10",
+          "text": "花の名前を教わり、彼女は札へ書いた。",
+          "body": "花の名前を教わり、彼女は札へ書いた。字が細すぎて、あなたが顔を近づけると笑う。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.11",
+          "text": "謳の石板は、役目を果たした人の暮らしを記していなかった。",
+          "body": "謳の石板は、役目を果たした人の暮らしを記していなかった。彼女は札の裏へ、今日水をやった日付を足した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.12",
+          "text": "雨が強くなり、温室の屋根が鳴る。",
+          "body": "雨が強くなり、温室の屋根が鳴る。彼女はあなたの上着が濡れているのに気づき、乾いた布を取った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、鋼の名前と小さな花で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳には、名前の代わりに役目だけを刻まれた人がいた。彼女はその頁で指を止める。",
+        "アイアンメイデンと呼ばれれば仕事へ向かえる。エリザベートと呼ばれると、返事の後に何を話すか考えてしまうという。",
+        "あなたは庭の花について尋ねた。彼女は知らないと答え、知らないままで済ませず温室へ歩いた。",
+        "鉢を持ち上げると、土が袖へこぼれた。鋼の銃を扱う手が、小さな根を傷つけないよう止まった。",
+        "花の名前を教わり、彼女は札へ書いた。字が細すぎて、あなたが顔を近づけると笑う。",
+        "謳の石板は、役目を果たした人の暮らしを記していなかった。彼女は札の裏へ、今日水をやった日付を足した。",
+        "雨が強くなり、温室の屋根が鳴る。彼女はあなたの上着が濡れているのに気づき、乾いた布を取った。",
+        "布を渡すだけで済むのに、袖口を丁寧に拭いてくれた。あなたが名を呼ぶと、手が少し止まる。",
+        "「今のは、仕事の返事じゃないわ」。エリザベートはそう言い、もう一度呼んでほしいと頼んだ。",
+        "温室を出る頃、鉢には新しい札が立っていた。鋼の名前の隣に、育つものの名が一つ増えた。"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.poem-chapter.3",
+      "ownerId": "heroine.iron-maiden",
+      "title": "開いた戸の向こう",
+      "introduction": "空を閉じた塔の謳を読む夜、彼女は窓の留め金を確かめていた。風が強いが、戸口にはまだ灯りがある。",
+      "conclusion": "夜の戸は閉じた。窓辺の灯りだけは残り、エリザベートはあなたと一緒に温かい食事へ向かった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.iron-maiden.collection.poem.13",
+          "text": "遅く帰る庭師のための灯りだった。",
+          "body": "遅く帰る庭師のための灯りだった。あなたが座ると、エリザベートも椅子を引いた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.14",
+          "text": "塔の人々は侵入を恐れ、迎える合図まで消した。",
+          "body": "塔の人々は侵入を恐れ、迎える合図まで消した。彼女はその一行を二度読んだ。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.15",
+          "text": "見張りがいなければ危険はある。",
+          "body": "見張りがいなければ危険はある。けれど、誰も帰れない守り方は選びたくないと話す。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.16",
+          "text": "あなたは迎えに行く時刻を決めた。",
+          "body": "あなたは迎えに行く時刻を決めた。彼女は銃を取ったが、あなたが籠を持つと少し笑った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.17",
+          "text": "道の角で庭師に会った。",
+          "body": "道の角で庭師に会った。籠は野菜でいっぱいで、三人で分けて持つことになった。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.iron-maiden.collection.poem.18",
+          "text": "庭へ着くと、彼女が先に戸を押さえた。",
+          "body": "庭へ着くと、彼女が先に戸を押さえた。腕は重そうでも、急いで閉めようとはしなかった。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、開いた戸の向こうで今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "空を閉じた塔の謳を読む夜、彼女は窓の留め金を確かめていた。風が強いが、戸口にはまだ灯りがある。",
+        "遅く帰る庭師のための灯りだった。あなたが座ると、エリザベートも椅子を引いた。",
+        "塔の人々は侵入を恐れ、迎える合図まで消した。彼女はその一行を二度読んだ。",
+        "見張りがいなければ危険はある。けれど、誰も帰れない守り方は選びたくないと話す。",
+        "あなたは迎えに行く時刻を決めた。彼女は銃を取ったが、あなたが籠を持つと少し笑った。",
+        "道の角で庭師に会った。籠は野菜でいっぱいで、三人で分けて持つことになった。",
+        "庭へ着くと、彼女が先に戸を押さえた。腕は重そうでも、急いで閉めようとはしなかった。",
+        "台所で野菜を洗う間、あなたは次の番を申し出た。彼女は鍵を一つ、迷わず差し出した。",
+        "「待っていてもらうのも、悪くないわね」。銃を置いた隣に、明日の買い物籠が並ぶ。",
+        "夜の戸は閉じた。窓辺の灯りだけは残り、エリザベートはあなたと一緒に温かい食事へ向かった。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.iron-maiden.event.0",
+      "ownerId": "heroine.iron-maiden",
+      "title": "湯気の向こうの素顔",
+      "cgResourcePath": "Illustrations/iron-maiden-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "庭の長机で、エリザベートが空いた椅子を示した。",
+        "あなたが茶を注ぐと、彼女は熱さを確かめてから手を添える。",
+        "今日は見張りの交代を済ませてきたという。",
+        "「急いで飲まなくていいの。私も、そうしてみるわ」",
+        "砂糖を一つ入れ、少し考えてもう一つ足した。",
+        "あなたが見ていると、甘い物は嫌いではないと笑う。",
+        "次は自分が茶を選ぶと、店の場所を尋ねた。",
+        "冷める前に飲み終えた椀の脇へ、次の約束が残った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.event.1",
+      "ownerId": "heroine.iron-maiden",
+      "title": "宛名を選ぶ時間",
+      "cgResourcePath": "Illustrations/iron-maiden-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "机の手紙には、エリザベートとだけ書かれていた。",
+        "役目ではなく自分へ届いた便りだと、彼女は説明した。",
+        "返事の書き方を尋ねられ、あなたは今日の茶の話を挙げる。",
+        "彼女は笑い、砂糖の数まで書く必要があるかと聞いた。",
+        "便箋へ向かう横顔は、いつもの見張りより穏やかだった。",
+        "あなたが立つと、もう少し隣で待ってほしいと言う。",
+        "封を折る時、彼女はあなたの名前も確かめた。",
+        "次は二人で店へ行ったことを書ける、と手紙を胸へ寄せた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.event.2",
+      "ownerId": "heroine.iron-maiden",
+      "title": "守りたい席",
+      "cgResourcePath": "Illustrations/iron-maiden-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "庭の灯りの下で、エリザベートがあなたを待っていた。",
+        "今夜は護衛の相談ではないと、先に話す。",
+        "あなたが隣へ座ると、手袋の指をゆっくりほどいた。",
+        "「あなたが好き。仕事が終わった後にも、会いたい人なの」",
+        "あなたも好きだと答え、恋人としてそばにいたいと伝えた。",
+        "彼女は返事を確かめ、つないでよいかと手を差し出す。",
+        "握る手の温かさに、いつもの余裕が少し崩れた。",
+        "帰り道は交代の時刻ではなく、明日会う時刻を決めながら歩いた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.event.3",
+      "ownerId": "heroine.iron-maiden",
+      "title": "一輪を自分のために",
+      "cgResourcePath": "Illustrations/iron-maiden-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "温室で、彼女はあなたへ花の鉢を見せた。",
+        "贈る相手を尋ねると、今日は自分の窓へ置くと言う。",
+        "あなたは日当たりのよい場所を一緒に探した。",
+        "エリザベートは鉢を抱え、あなたが来た時にも見える高さを選ぶ。",
+        "水をやり過ぎないよう、二人で印を付けた。",
+        "「会う理由を増やしたいだけかもしれないわね」",
+        "あなたが明日も見に来ると言うと、嬉しそうに頷いた。",
+        "花がまだ咲かなくても、その窓辺で待つ約束はできた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.iron-maiden.event.4",
+      "ownerId": "heroine.iron-maiden",
+      "title": "鍵を置いた夕方",
+      "cgResourcePath": "Illustrations/iron-maiden-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "夕方の庭で、彼女は鍵束を鞄へしまった。",
+        "あなたが来ると、空いた手で隣を叩く。",
+        "今日の失敗を話すと、彼女も茶葉を取り違えた話をした。",
+        "二人で笑う間、見張りの声は遠くで別の人が返した。",
+        "「今日は、ここへ帰ってきたかったの」",
+        "あなたが肩を寄せると、エリザベートも少し体を預けた。",
+        "次の休みに歩きたい道を、小さな地図へ書く。",
+        "日が沈んでも急がず、彼女はあなたの返事を聞いてから立ち上がった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

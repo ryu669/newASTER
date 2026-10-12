@@ -32,6 +32,9 @@ namespace NewAster.Core
         public int AttackReductionPercent {get;private set;}
         internal void AddResistance(string kind,int amount)
         {if(!Kinds.Contains(kind) || amount<0)throw new ArgumentException("Invalid additional resistance.");resistances[kind]=Math.Min(10000,(resistances.TryGetValue(kind,out var value)?value:0)+amount);}
+        public int DefenseReductionPercent {get;private set;}
+        public int DefenseReductionTurns {get;private set;}
+        public void SetDefenseReduction(int percent,int turns){if(percent<1 || percent>50 || turns<1 || turns>10)throw new ArgumentException("Invalid defense reduction.");DefenseReductionPercent=percent;DefenseReductionTurns=turns;}
         public int AttackReductionTurns {get;private set;}
         public void SetAttackReduction(int percent,int turns){if(percent<1 || percent>50 || turns<1 || turns>10)throw new ArgumentException("Invalid attack reduction.");AttackReductionPercent=percent;AttackReductionTurns=turns;}
         public int IgnitionFlags {get;private set;}
@@ -52,13 +55,13 @@ namespace NewAster.Core
             meter[effect.kind]=value;return activated;
         }
         public int Dot(int maxHp) => (int)Math.Min(int.MaxValue,(long)maxHp*((Active("burn")?2:0)+(Active("poison")?3:0)+(Active("bleed")?2:0)+(Active("frostbite")?2:0))/100);
-        public void Tick() {if(AttackReductionTurns>0 && --AttackReductionTurns==0)AttackReductionPercent=0;if(FireVulnerabilityTurns>0 && --FireVulnerabilityTurns==0)FireVulnerabilityPercent=0;foreach(var kind in duration.Keys.ToArray()) duration[kind]=Math.Max(0,duration[kind]-1);}
+        public void Tick() {if(DefenseReductionTurns>0 && --DefenseReductionTurns==0)DefenseReductionPercent=0;if(AttackReductionTurns>0 && --AttackReductionTurns==0)AttackReductionPercent=0;if(FireVulnerabilityTurns>0 && --FireVulnerabilityTurns==0)FireVulnerabilityPercent=0;foreach(var kind in duration.Keys.ToArray()) duration[kind]=Math.Max(0,duration[kind]-1);}
         public void Remove(string kind) {duration[kind]=0;}
         public void ClearAll(){meter.Clear();duration.Clear();FireVulnerabilityPercent=FireVulnerabilityTurns=IgnitionFlags=AttackReductionPercent=AttackReductionTurns=0;}
         public int ActivationDamage(string kind,int maxHp)=>kind=="poison"?Math.Max(1,(int)((long)maxHp*3/100)):kind=="burn" || kind=="bleed" || kind=="frostbite"?Math.Max(1,(int)((long)maxHp*2/100)):0;
         public static string EffectDescription(string kind)=>kind=="poison"?"発症時と行動終了時に最大HPの3%ダメージ。":kind=="burn"?"発症時・行動終了時に2%ダメージ、攻撃力20%低下。":kind=="frostbite"?"発症時・行動終了時に2%ダメージ、速度20%低下。":kind=="bleed"?"発症時・行動終了時に2%ダメージ。回復を受けられない。":kind=="stun"?"次の行動を自動で1回飛ばす。":kind=="jamming"?"選択可能な対象からランダムに対象を選ぶ。":kind=="absent"?"行動不可。行動終了時にHP5%回復。被会心率+25%。ダメージを受けると解除。":kind=="sickness"?"攻撃力20%低下、受ける最終ダメージ25%増加。":kind=="fracture"?"攻撃後に自身の最大HP5%ダメージ。攻撃しないスキルでは発生しない。":"雷の最終ダメージ25%増加。発症時・行動終了時に次行動待機+20。";
         public static string Label(string kind) => kind=="burn"?"火傷":kind=="bleed"?"出血":kind=="poison"?"毒":kind=="stun"?"スタン":kind=="sickness"?"病弱":kind=="fracture"?"骨折":kind=="frostbite"?"凍傷":kind=="jamming"?"ジャミング":kind=="absent"?"うわの空":"帯電";
-        public string Description => (AttackReductionTurns>0?"攻撃−"+AttackReductionPercent+"%（残り"+AttackReductionTurns+"） / ":"")+ (IgnitionFlags>0?"IGNITION "+IgnitionFlags+"/3 / ":"")+ (FireVulnerabilityTurns>0?"火弱点＋"+FireVulnerabilityPercent+"%（残り"+FireVulnerabilityTurns+"） / ":"")+string.Join(" / ",Kinds.Where(k=>Meter(k)>0 || Active(k)).Select(k=>Label(k)+":"+Meter(k)+(Active(k)?"（残り"+Remaining(k)+"）":"")));
+        public string Description => (DefenseReductionTurns>0?"防御−"+DefenseReductionPercent+"%（残り"+DefenseReductionTurns+"） / ":"")+ (AttackReductionTurns>0?"攻撃−"+AttackReductionPercent+"%（残り"+AttackReductionTurns+"） / ":"")+ (IgnitionFlags>0?"IGNITION "+IgnitionFlags+"/3 / ":"")+ (FireVulnerabilityTurns>0?"火弱点＋"+FireVulnerabilityPercent+"%（残り"+FireVulnerabilityTurns+"） / ":"")+string.Join(" / ",Kinds.Where(k=>Meter(k)>0 || Active(k)).Select(k=>Label(k)+":"+Meter(k)+(Active(k)?"（残り"+Remaining(k)+"）":"")));
     }
     public static class EnemyAttackTargets
     {

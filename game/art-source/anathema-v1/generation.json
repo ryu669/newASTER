@@ -1,0 +1,173 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "prompt": "Create one finished Japanese fantasy RPG heroine full body standing sprite, finely painted anime illustration matching the reference identity, adapting to a clearly mature adult. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. Front three quarter neutral balanced standing pose, full head wings hands and both feet within canvas with margins. 1024x1536 portrait canvas, transparent background, no floor, no shadow backdrop, no letters, no UI, no other people, not a sheet. This is one individual game asset.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-c836a62e-1222-4ea7-a9f6-3222565db269.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/standing.png",
+      "sha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Individual close portrait of the same adult woman from chest upward, centered face with entire hair and wing tips composition, 1536x1024 landscape transparent canvas, no frame. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-932d45f1-4496-4621-9c0c-22d4b0fd624e.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/portrait.png",
+      "transparent": true,
+      "sha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a joy expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-b8a4010e-04ac-49ca-8de9-a90740664cb7.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/expression-joy.png",
+      "transparent": true,
+      "sha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a puzzled expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-8086ac0d-85f1-42d6-be6d-f318c415df94.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/expression-puzzled.png",
+      "transparent": true,
+      "sha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a determined expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-56014371-70c1-4c93-84a8-3d628e7d25e8.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/expression-determined.png",
+      "transparent": true,
+      "sha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551"
+    },
+    {
+      "key": "attack",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dynamic full body battle attack pose, same weapon and costume, 1024x1536 transparent canvas. Entire body wings and weapon with margins, expressive decisive face, clean readable silhouette. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-d919a4e1-b3c0-47c8-b4f6-4ab6e9cda671.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/attack.png",
+      "transparent": true,
+      "sha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d"
+    },
+    {
+      "key": "hit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Full body battle hit reaction, shoulders recoiling slightly and determined painful face, intact clothing, no injuries or blood, 1024x1536 transparent canvas, all feet and wings visible. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-c6cc4fab-8c18-4ed9-9ba0-fad165e2b0db.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/hit.png",
+      "transparent": true,
+      "sha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dramatic skill cut-in waist up, same weapon and heroine, magical colored streaks contained around her, 1536x1024 transparent landscape, no text no frame. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-ed6a497a-2e67-48c7-af54-e847a2a52405.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/cutin.png",
+      "transparent": true,
+      "sha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing idle relaxed. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6a3d30b5-4d3c-48fc-8b50-952e9b4f6c79.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-idle.png",
+      "transparent": true,
+      "sha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Walking one step toward right. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-0f898e91-14ce-490b-b202-6beb0a6a294f.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-walk.png",
+      "transparent": true,
+      "sha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Friendly talking gesture one hand raised. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6aa80918-5e1c-48f2-a7ff-f7b2b231bf86.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-talk.png",
+      "transparent": true,
+      "sha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Surprised delighted response arms lifted. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-51aed449-3e21-4d87-9624-553b67f36893.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-react.png",
+      "transparent": true,
+      "sha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f"
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Seated on an invisible bench, legs down, hips center at normalized (.50,.64), no seat drawn. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-d664c0e6-49af-4119-85b6-029d91f58984.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-sit.png",
+      "transparent": true,
+      "sha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing behind an invisible desk, arms extending forward together as if writing, hands near normalized (.50,.44), no furniture or paper drawn. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-25828a8a-c341-430e-87f1-4dd7cb1257e9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-work.png",
+      "transparent": true,
+      "sha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing looking upward toward left, feet near normalized (.50,.90), no furniture. No weapon in hands, no furniture, no floor. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-2d9d7a8c-4bba-419c-8be8-00da454cf200.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/sd-look.png",
+      "transparent": true,
+      "sha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One game equipment tree illustration, 1536x1024 transparent landscape, NO people NO letters NO numbers. Elegant golden branching tree inspired by this heroine's weapon and costume colors. Central root circular gold socket at (.50,.85); three routes with four glowing circular sockets each: left (.36,.52),(.275,.36),(.185,.25),(.10,.15); center (.50,.58),(.50,.43),(.50,.28),(.50,.13); right (.64,.52),(.725,.36),(.815,.25),(.90,.15). Exactly 13 large solid gold glowing sockets connected by thin ornate branches, generous margins, distinct separated sockets, no wide solid backdrop. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-e34ff108-910e-4f14-9077-f9d0a30115a0.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/equipment-tree-v1.png",
+      "transparent": true,
+      "sha256": "27060c027dae2b8b3974ae51cbf45249a5a464e8627f7e921d4bb0995a1aa7d1",
+      "adoptionStatus": "rejected-character-in-tree"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. proudly arranging a small tea set in a rose garden Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-af8e9b42-9734-44e3-a29c-23c97ff5040d.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/event-0-cg.png",
+      "transparent": false,
+      "sha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. reading a letter with a drawing of a little fluffy dog in a quiet library Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-4fc64c7c-a839-49db-83bd-e9ca1c583faa.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/event-1-cg.png",
+      "transparent": false,
+      "sha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. bashful heartfelt confession beside blooming blue roses, hand to chest Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-3e5d5205-0b50-4cba-a613-0af94e74c7c1.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/event-2-cg.png",
+      "transparent": false,
+      "sha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. attempting to bake round biscuits in a bright kitchen, a little flour on sleeve Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f4afa491-c8ce-4034-ad83-c401d0cff7b1.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/event-3-cg.png",
+      "transparent": false,
+      "sha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. resting her ornate blue rose sword and enjoying evening tea by a window Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult noble woman about 25, blonde large drill twin tails with pink tips, rose pink eyes, two dark burgundy curved horns and small gold crown, black burgundy gold fully covered armored bodice and long layered skirt, blue cape, white angel wings. Holds ornate blue rose sword downwards. Proud lively confident smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6fd65383-e0fe-496f-b9f9-54e9f4865d54.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/anathema-v1/event-4-cg.png",
+      "transparent": false,
+      "sha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d"
+    }
+  ]
+}

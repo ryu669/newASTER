@@ -26,10 +26,10 @@ namespace NewAster.Data
             }
             enemy.Validate();return enemy;
         }
-        private static readonly string[] WeaponOwners={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk","heroine.slayer-swim","heroine.arcane","heroine.arcane-academy","heroine.shangrila"};
+        private static readonly string[] WeaponOwners={"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r","heroine.annihilator","heroine.annihilator-holy","heroine.shell","heroine.oriflamme","heroine.nighthawk","heroine.slayer-swim","heroine.arcane","heroine.arcane-academy","heroine.shangrila","heroine.aeon","heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master"};
         private static int WeaponOwner(string id){int index=Array.IndexOf(WeaponOwners,id);if(index<0)throw new ArgumentException("Missing authored weapon identity "+id);return index;}
-        private static readonly int[] Attacks={8,5,15,10,6,18,4,7,12,9,6,16,5,8,14,7,5,13,9,6,15,6,8,12,9,7,14,10,6,16,8,6,14,8,6,14,9,5,15,8,7,14,11,6,16};
-        private static readonly float[] Powers={1.15f,1.25f,1.4f,1.12f,1.28f,1.38f,1.22f,1.12f,1.35f,1.2f,1.18f,1.42f,1.25f,1.1f,1.36f,1.18f,1.12f,1.38f,1.2f,1.15f,1.4f,1.12f,1.2f,1.32f,1.2f,1.14f,1.36f,1.2f,1.12f,1.4f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.2f,1.12f,1.36f,1.22f,1.14f,1.4f};
+        private static readonly int[] Attacks={8,5,15,10,6,18,4,7,12,9,6,16,5,8,14,7,5,13,9,6,15,6,8,12,9,7,14,10,6,16,8,6,14,8,6,14,9,5,15,8,7,14,11,6,16,8,6,14,8,6,14,8,6,14,8,6,14,8,6,14,8,6,14,8,10,14,8,10,14,8,10,14};
+        private static readonly float[] Powers={1.15f,1.25f,1.4f,1.12f,1.28f,1.38f,1.22f,1.12f,1.35f,1.2f,1.18f,1.42f,1.25f,1.1f,1.36f,1.18f,1.12f,1.38f,1.2f,1.15f,1.4f,1.12f,1.2f,1.32f,1.2f,1.14f,1.36f,1.2f,1.12f,1.4f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.2f,1.12f,1.36f,1.22f,1.14f,1.4f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.14f,1.38f,1.18f,1.25f,1.38f,1.18f,1.25f,1.38f,1.18f,1.25f,1.38f};
         public static void ApplyHome(HomeExperienceCatalog home,CombatDefinitionCatalog combat,CollectionCatalog collection)
         {
             home.abilityIds=new[]{"ability.production.weapon-attack"};home.skillIds=new[]{"skill.production.weapon-basic"};
@@ -76,6 +76,8 @@ namespace NewAster.Data
             }
             foreach(var n in expanded.Where(n=>!n.initial)){
                 int tier=WeaponGrowthRules.Tier(n),route=WeaponGrowthRules.Route(n);
+                n.terminal=WeaponNodeNames.Name(n.heroineId,route,tier);
+                if(tier==4)n.weaponTraitName=n.terminal;
                 n.uniqueAbilityKind=route==0?"damage":route==2?"gauge":combat.Hero(n.heroineId).jobId=="job.healer"?"regen":"reduction";
                 n.uniqueAbilityPercent=n.uniqueAbilityKind=="regen"?new[]{1,2,3,5}[tier-1]:route==2?new[]{8,16,28,40}[tier-1]:new[]{3,6,10,16}[tier-1];
             }

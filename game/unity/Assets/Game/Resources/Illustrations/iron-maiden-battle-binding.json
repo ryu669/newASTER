@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.iron-maiden",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/iron-maiden-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/iron-maiden-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/iron-maiden-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/iron-maiden-cutin-candidate-v1"
+}

@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.weapon-master",
+  "available": true,
+  "assets": [
+    {
+      "key": "attack",
+      "path": "game/art-source/weapon-master-v1/attack-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-98636963-9f77-4122-ad22-05d765fcb078.png",
+      "sha256": "e8398fb6d98304e797eed6337184f7146ba2eb38af538917977263d77df1cf9d",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body dynamic firing stance facing left, entire rifle and wings inside, small muzzle flash only at barrel. No large effects, no enemy.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-attack-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/battle-attack.png",
+          "sha256": "8a70ea5d1433b9c2ebf35b518f890418e7b6477f35e8f74f260f65c209741aaf"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/weapon-master-v1/cutin-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ba0cb5f7-e357-4ee2-8091-db3cb12a1404.png",
+      "sha256": "b06cb20a19d442e3988652ca5de82271241ffdd8416b8fd831a6db0887ffc2ea",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Dramatic waist up skill activation portrait, face smiling determined, hands checking modular weapon, wings framing her. No text.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-cutin-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/battle-cutin.png",
+          "sha256": "1812d055412adbcc61b2673f39df21f7c949d0d5b263c7ddf62b7695f759fe18"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/weapon-master-v1/event-0-cg-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b82c06fb-5769-45ae-abf1-f0d80e7de9df.png",
+      "sha256": "87b04b7cd725b6336fe757f436e01501ac214812ad0dec9e09f353120729f1da",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. OVERRIDE transparent instruction: fully painted opaque romantic fantasy game event illustration with lush setting. ONLY the reference adult woman, no other characters even shadows hands reflections silhouettes. Sunny garden bench, merchant showing a handwritten price tag with NO legible text, smiling warmly, rifle put away.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-event-0-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-cg.0.png",
+          "sha256": "7204ad76a0adb3fb7c279561a9b6f997f7c8ff1eb8ef2a00e1464a419160fbdd"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.0.png",
+          "sha256": "4bfe575fadf306e2516ad94226752c50e3d9d8ee584bb44ba7b088820c4eebcc"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/weapon-master-v1/event-1-cg-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-dd9d5be9-7a4c-40b3-b63a-1778fc8c7d94.png",
+      "sha256": "d567fdf20fff655e3e2471993de8133eb18bbab09f48263554df58359ad23cec",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. OVERRIDE transparent instruction: fully painted opaque romantic fantasy game event illustration with lush setting. ONLY the reference adult woman, no other characters even shadows hands reflections silhouettes. Quiet first aid study table by a window, woman examining clean rolled bandages and a closed medical notebook, gentle concentration.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-event-1-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-cg.1.png",
+          "sha256": "2c07b22fa5b7d430f6515df94816a2a4bdc3d6dd31740538b3838980b6fdec62"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.1.png",
+          "sha256": "5412f58b095e80b73db7176fa83a73b4cff35f53dd8c4150f841a04f8940c990"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/weapon-master-v1/event-2-cg-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-aaa0d5ca-9256-42ca-86f2-6aa1e5a7bc31.png",
+      "sha256": "6ced05f7abbb975cc83979c94346bf3c65d7716da28362ed06b905862850100f",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. OVERRIDE transparent instruction: fully painted opaque romantic fantasy game event illustration with lush setting. ONLY the reference adult woman, no other characters even shadows hands reflections silhouettes. Moonlit garden path, woman looking lovingly toward viewer, one open hand near her heart, sincere confession, no other person.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-event-2-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-cg.2.png",
+          "sha256": "62ff46e667e52b20934ae58f21007d80dc0bbee8b122b689c8275183796ada96"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.2.png",
+          "sha256": "c4fe3acd5336445e1441bed9d99efbd35623fa4d8b6b4be552af1ed828749c02"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/weapon-master-v1/event-3-cg-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-bedfcd49-90a2-43a9-a5ca-9d52644aa1e2.png",
+      "sha256": "9d64398d530484d3755e26bbce90cc0a2dba869be67771e0bc859befe41efd2e",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. OVERRIDE transparent instruction: fully painted opaque romantic fantasy game event illustration with lush setting. ONLY the reference adult woman, no other characters even shadows hands reflections silhouettes. Cozy tea table in a conservatory, woman smiling bashfully over steaming cup, flowers outside.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-event-3-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-cg.3.png",
+          "sha256": "51ba50cb8c0010e9f7a68444cdd8af077f0a66ea3c5643722cfeb5053c46fc3b"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.3.png",
+          "sha256": "14e23080a1c0e349524dd4b286ca9d2face05438be0a5c6a0ad251b6312a94f2"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/weapon-master-v1/event-4-cg-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-484fea96-9c5b-4b91-a5c9-1a7994847172.png",
+      "sha256": "83175c088ca2809932fb49f90459a376172d25929f882df26794dbaf9238b333",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. OVERRIDE transparent instruction: fully painted opaque romantic fantasy game event illustration with lush setting. ONLY the reference adult woman, no other characters even shadows hands reflections silhouettes. Morning woodland bridge, woman inviting viewer for a walk, soft joyful smile, sunlit leaves.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-event-4-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-cg.4.png",
+          "sha256": "500b3c2611c92230aec7909a9cfc6d610bf964d0367c65ea5abb5c7a54bcbb48"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.4.png",
+          "sha256": "f9bdb0aa2c7ba59a3141a6ef513f0415dca6a5ac6ce1a7c98a05b4a534a33af7"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/weapon-master-v1/expression-determined-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c2a5c174-98fd-49e3-b7b5-21764f5e6ad2.png",
+      "sha256": "ff722aca471768100f6e885afa7115289d16076230c35365436a998fbcfb7cb3",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body standing same costume and posture, expression determined, rifle lowered.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-expression-determined-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-expression.determined.png",
+          "sha256": "90868cc7a53d1a575de355f670f6247370eb2f8aca8c349092902876c4ccd80f"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/weapon-master-v1/expression-joy-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a7cdcd71-9b11-4f09-95ba-bbd20e6e48b2.png",
+      "sha256": "3316fb92980255b590bf819bbb064e46edba2a328b4f8325beebf8ce371d259f",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body standing same costume and posture, expression joy, rifle lowered.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-expression-joy-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-expression.joy.png",
+          "sha256": "0748f6fc1aa2d4ea9937f823ab01c72fb4eeb97ca48d0e5bbfff949b460dfe11"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/weapon-master-v1/expression-puzzled-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-af7ac021-89f2-4dca-816d-4f7b92bc8020.png",
+      "sha256": "4f52eb421725bceb78dadc3e2de04e2fbc7ec9f3e639e28dc3bdf75bb7f618e6",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body standing same costume and posture, expression puzzled, rifle lowered.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-expression-puzzled-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-expression.puzzled.png",
+          "sha256": "cfef69dc63046c1d93fb58715fc8fbeb493ecaa6ba082f0027d79e8fa9c2c2fe"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/weapon-master-v1/hit-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7250e9bd-aa4f-45c0-9733-7c7a7bee1718.png",
+      "sha256": "c5a38e04bae1396b370e98f29dc795167ae7610ab85eceed76545a6c67d99ff5",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body recoil from impact, eyes narrowed, balanced stance, rifle down pointing toward bottom left well within margins, no wounds.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-hit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/battle-hit.png",
+          "sha256": "cc69835b559a1c9f404e8b6d8f44d464da33135b59d53836d822dec79c7c1553"
+        }
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/weapon-master-v1/portrait-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1ea2b747-0129-4396-a9f9-1da3ffa130c5.png",
+      "sha256": "413a26ed75ac1347f8f31efa32520df997788478e7af642c2d459c1de1965034",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body portrait reference, gentle smile, face straight to viewer, adult 7 heads proportions, rifle lowered.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/heroine-portrait-weapon-master-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/recruit.png",
+          "sha256": "45af5710353b59f0c626bb5c75b72e5c1235bb9ab42106b1f2ba4c33a5c6acc2"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/trait.png",
+          "sha256": "30c3088f4358d7fb13cc3ab398a0caea4a103ace422fced11715db70a741cc1f"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/weapon-master-v1/sd-idle-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-404bc037-8e58-45f6-bedd-d9aaecb87a7d.png",
+      "sha256": "233b2814c09b38ffe0995c7ece7e464a369f152613216385a55215c648d546d0",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose standing casually, hands relaxed. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-idle-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.idle.png",
+          "sha256": "4c36bda84e131e76c649804fff7aba3c1b10e79e6a7c9a71bae114dd346f1e67"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/weapon-master-v1/sd-look-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-48937cf1-5901-4a73-90f6-dc46a9022051.png",
+      "sha256": "6731c79bc504be3e39f299dfe32b2e8f8b136562547beec663ed2877c0fd2d11",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose looking UP LEFT, one hand shading brow, NO rifle. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-look-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.look.png",
+          "sha256": "9ff6a8f92023c61c346fc20bf2186cc71e96b4db20e2089c5f52f2b4b06eb5ed"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+          "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/weapon-master-v1/sd-react-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-f7d61801-4593-4140-8fd3-65b8944b974f.png",
+      "sha256": "24672b9b9ec94b1e3faf3b59c72ae84bf66104819a8b2f23983cea398947975f",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose surprised delighted, both hands near chest. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-react-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.react.png",
+          "sha256": "ac7a4577961b66d6ff0e5cc0ee3b372f6be7250f3db875323b644a5523b0a0a3"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/weapon-master-v1/sd-sit-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ff0ecdf3-7547-4cf9-9d5f-3e1fdb28c195.png",
+      "sha256": "4a9efe85874f4b948fcc9e0f0f706ab669d76c1d47ae848eacea39dd77bbda80",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose sitting on invisible chair, thighs horizontal, knees 90 degrees and lower legs vertically dangling, hands on lap, NO chair or rifle. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-sit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.sit.png",
+          "sha256": "9365c830951d96b3c34187c621dd82d0d971e200d96bed36c9166e9bc629b0ee"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+          "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/weapon-master-v1/sd-talk-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-97330090-98c9-42cd-90d0-66b805178add.png",
+      "sha256": "db6474707e6bbbdfe7778392d590224c758da2a9c4dfd75be1702f37693edc10",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose friendly talking with one hand open. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-talk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.talk.png",
+          "sha256": "49c314e8f3e60501f15d781f421140990d511bdf0aca8ea4d4417067d112c300"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/weapon-master-v1/sd-walk-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b791800f-4ea1-444b-86fe-eca67f7b795e.png",
+      "sha256": "44a46e4aa5dc95547017efb019eaf21fe2d7ec4cbf45483454add73c99870176",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose walking left, arms naturally swinging. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-walk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.walk.png",
+          "sha256": "5dee741c6840a635da9c03e020dbf5ac0a8389557e580db2e573edcde9f67274"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/weapon-master-v1/sd-work-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0272aa93-b306-4794-816e-e3d102e4a00c.png",
+      "sha256": "960266ece5b2b10d2cfdc0cfa5d0c6ec89cf2d1053bb9ba8e619a77ec653a752",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Chibi SD sprite 2.5 heads tall, still clearly adult character design. Full body only 65% canvas height. Pose working at invisible desk, standing two hands forward at waist palms DOWN, NO object desk rifle or tool. NO scenery or furniture.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-sd-work-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.work.png",
+          "sha256": "585e2e748dc3d2ea32cc5069036abd9cb866dd26ca6948981e79f4b94f9750c5"
+        },
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+          "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+        }
+      ]
+    },
+    {
+      "key": "standing",
+      "path": "game/art-source/weapon-master-v1/standing-v2.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-deaa7da3-f693-48dd-824c-837b07e07794.png",
+      "sha256": "409771036fb4e80fb6921467e857a6872021399c1a519fc0b21ccbc103d43d92",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. Full body standing, friendly slight smile, 7 heads adult proportions. Rifle points down safely.",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "Illustrations/weapon-master-standing-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-weapon-master/player/weapon-master-expression.normal.png",
+          "sha256": "7e338ce69c02bde015868252a2b1cc934e85596fb22c42495183489e351f3342"
+        }
+      ]
+    }
+  ],
+  "remainingAssets": 0,
+  "retiredAssets": [
+    {
+      "key": "tree-ornament",
+      "path": "game/art-source/weapon-master-v1/tree-ornament-v1.png",
+      "originalPath": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-559acdab-e36a-4267-b3c4-3efad6fa6633.png",
+      "sha256": "5a7c5f224ed73968e88e61bacd17a3b2a5c5abb8b9e32a6bb67072cb7d804c45",
+      "prompt": "One production Japanese fantasy RPG sprite, landscape 1536x1024. Exactly one adult woman age 24, retain reference identity: short black bob lime tips, golden eyes, black/lime hooded technical jacket, opaque high-neck top, shorts over opaque dark leggings, boots, white wings, modular gray black lime gun backpack. Clean refined anime shading. Genuine transparent EMPTY background, absolutely NO glow halo haze vignette ground shadow or background pixels. All requested body parts and wing tips inside with 10% clear margins, no lettering, no UI, no other person. ONLY one small hanging ornament object, NO character NO tree NO wings: delicate cord suspends small brass merchant weighing scale, lime glass bead and miniature gun-metal cartridge charm. Compact delicate ornament, centered, easy silhouette.",
+      "purposeReview": "approved",
+      "runtimeReview": "rejected",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "sourceReviewMethod": "manual original/contact-sheet inspection: identity, expression, pose, clipping, adult-only event composition",
+      "resourcePath": "UI/WeaponTrees/weapon-master-ornament-v1",
+      "reason": "吊り下げ装飾が不自然なため削除。全キャラ共通の木・葉・花・丸い枠を使用。"
+    }
+  ]
+}

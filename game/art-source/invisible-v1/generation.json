@@ -1,0 +1,421 @@
+{
+  "tool": "built-in-imagegen",
+  "pixelEdits": false,
+  "assets": [
+    {
+      "key": "standing",
+      "path": "game/art-source/invisible-v1/standing.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-29c398da-0895-4619-811c-1fd7af6391b2.png",
+      "prompt": "Game production asset, polished Japanese fantasy anime illustration, landscape canvas 1536x1024, genuinely transparent background RGBA. One full-body adult female heroine, Invisible (Yuniko Shinada), explicitly age 25, mature adult face and adult proportions. Pink long twin tails, lavender eyes, white feather wings, small pale unicorn horn hair ornament, blue ribbons. White and pink modest high-neck long-sleeved adventurer dress with pastel blue trim, opaque navy star-patterned tights and white boots. Holds slim white crystal-tipped staff with a pink star and blue ribbon. Cheerful but gentle neutral expression. Full body head wings staff and boots all within canvas, centered, ample transparent margins, no background, no text, no frame, no other people. Production standing pose for visual novel, richly shaded consistent clean anime game art. Avoid childlike proportions.",
+      "sha256": "94dc9103fd289f6e5b0abde7f1b9da6b8d268c5f9ac64e152407ee80d9076995",
+      "resourcePath": "Illustrations/invisible-standing-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-expression.normal.png",
+          "sha256": "a48f2addfca0f00bdec3ec28da286358a7562bf0861600868115dfdc56e4d780"
+        }
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/invisible-v1/portrait.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-bc144fb6-a252-4533-8ff4-11d6b7857d18.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated selection portrait: adult heroine waist-up, face large centered around x50% y35%, wings and staff visible, crop below waist, no frame. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "357d63f2a93460bae2ab5ab9a42adafa0aa3fd7d2b55f8446bbebe4558e65908",
+      "resourcePath": "Illustrations/heroine-portrait-invisible-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/recruit.png",
+          "sha256": "37d7a25ad2b606445a2843ffb34db562cbb92fb2b685a8a31e5680d465a49ba9"
+        },
+        {
+          "path": "tmp/plan12-invisible/refined/trait.png",
+          "sha256": "a519e30220ba48069347993df05d651cc13cf97c951ff6d53b084ca5a05c76dc"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/invisible-v1/expression-joy.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-9958b6c4-7771-47fe-b174-d5a5503cd41a.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Change ONLY facial expression to happy warm smile. Lock exact face location size head outline hair body pose staff wing clothing and framing of reference. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "703cc918ea5ddd6f68b5460656e7aac35cdc5191f3c8165a52d95e27872433bd",
+      "resourcePath": "Illustrations/invisible-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-expression.joy.png",
+          "sha256": "2a57f26e1f1635b1b39ef209da43211fc4798f60ef4764eaa98f799335bb49b3"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/invisible-v1/expression-puzzled.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-99f7d540-bcab-4379-9ff7-5c10143f673c.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Change ONLY facial expression to mildly puzzled worried brows, eyes open, small uncertain mouth. Lock exact face location size head outline hair body pose staff wings clothing and framing. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "60cfcf760c6db9d8774c46b69d60820050935413431c08c8651da5b6cedfebe1",
+      "resourcePath": "Illustrations/invisible-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-expression.puzzled.png",
+          "sha256": "a206e70c63185effec39c4bdfc4455f29fac1524d6da9b0b12a8736a70ee5c70"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/invisible-v1/expression-determined.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-9283bcd9-489e-4a91-907b-12788254f90e.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Change ONLY facial expression to calmly determined eyes and firm small smile. Lock exact face location size head outline hair body pose staff wings clothing and framing. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "63d97fb1732912944232d6e50d0c5474b4a08e294a96da71597a529d38c900be",
+      "resourcePath": "Illustrations/invisible-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-expression.determined.png",
+          "sha256": "e183d1c0fe03155ad28f598651c8790df5093cb61d9b0c76ffd9510544c2affc"
+        }
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "game/art-source/invisible-v1/attack.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b972857e-5859-43f0-8458-8158c5086408.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated full-body battle action pose: extending slim star staff forward while casting rainbow healing magic, windswept pink twin tails and spread wings, entire body and staff contained with margins. No enemies or other people. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "6acd855b83d3bb8402142360795173461e31003f9c79962e32c0a80f4303c90b",
+      "resourcePath": "Illustrations/invisible-attack-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/battle-attack.png",
+          "sha256": "e0a34fddd0bdb2db28c1ef15b6083d37daf395487928ec8bc48159289bf3370f"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/invisible-v1/hit.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7b583b3e-8dba-481b-b606-a0d49253d199.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated full-body battle hit reaction: leaning back one step, eyes tense, bracing with staff, wings recoiling, entire body contained with margins. No wounds, no torn clothes, no other people. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "c9d8bc17cab5085e67c34241126b8094002fc645b1da9e4f423de528dbf655bd",
+      "resourcePath": "Illustrations/invisible-hit-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/battle-hit.png",
+          "sha256": "fb397953c4344fec7eeefab29a886a75955be778ab92db51e7fcd91fe22601b8"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/invisible-v1/cutin.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-be1554fa-d559-46f7-9936-f55371f4448e.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated full-body dramatic special-skill illustration: raising star staff high and spreading wings, pink blue rainbow starlight swirling in small arcs, entire figure with margins, no text no frame. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "e26bc4394175b6ac084769991a5db88c5e1f80713e9de945ead3eebb038884f3",
+      "resourcePath": "Illustrations/invisible-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/battle-cutin.png",
+          "sha256": "7fc48fd9b06020643f03658634c293767fee7b7e8e7789075fa934a7230827ef"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/invisible-v1/sd-idle.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0b8705c4-71a0-4599-b101-008735c9cbf6.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose standing neutrally. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "09e4e77deac6d2cc1786c2f28b7ab9bb96da463b0926428515a51c7ce6658175",
+      "resourcePath": "Illustrations/invisible-sd-idle-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.idle.png",
+          "sha256": "8afa08885fbc732e19706c4fb0a30a460a5cb7bad24df0331f25e868f576bdd3"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/invisible-v1/sd-walk.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-43a9cf87-deee-4d90-9c94-ff63dcfff924.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose walking clearly one foot forward. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "d9be8d1567b7686ca6490b14cfd3eb5a65c7953c792158d00ed527ddbd818560",
+      "resourcePath": "Illustrations/invisible-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.walk.png",
+          "sha256": "974f02952d6c8e30b02686a55f985a7f005c88076b33fa4aa1b735eea806bed3"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/invisible-v1/sd-talk.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e32ccdef-ea26-4ef8-bab8-c0d3d2b3925b.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose speaking with one hand raised. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "aaf23c54a7dd3bb8eda0ee9202a545ad241fb5e230ae8b78ebc296a9e5a4f06a",
+      "resourcePath": "Illustrations/invisible-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.talk.png",
+          "sha256": "47eeba64233095d4dc923be9886f6aa521885b1e4b67951e71bf9b099655cf2b"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/invisible-v1/sd-react.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4d8b5d9e-aa2d-42f2-bbb4-f55a9c8b9c9e.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose surprised joyful little jump. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "7bb0f6bcdffe047b59ebd11f0d329852c8c55883bb157cfd96e032e58f7204ba",
+      "resourcePath": "Illustrations/invisible-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.react.png",
+          "sha256": "27e65c4373c50bda5e80125294c1ac7f64144b277c26a10b1e2d8cdee104ca4f"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/invisible-v1/sd-sit.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-22639920-94d3-409c-a3e5-747a89416a30.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose sitting on invisible chair, hips lowered knees bent and feet forward, no actual chair. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "b5ea60139f5d44bb69f4caa2ff46c38819826b9860b7a04788a8f24d6628b348",
+      "resourcePath": "Illustrations/invisible-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.sit.png",
+          "sha256": "140a767299a00134b9e00b8d7e133a87b71e69fb8c7c13f195e968863255a331"
+        },
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+          "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/invisible-v1/sd-work.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-02a12274-1401-49d7-8289-39047104ef7e.png",
+      "prompt": "Create replacement game production asset landscape 1536x1024 RGBA transparent. Preserve the reference’s adult heroine identity, pink twin tails, purple eyes, white feather wings, white pink blue outfit, opaque navy star tights, small chibi game proportions. CHANGE POSE: standing upright behind a work desk that will be drawn separately. FULL BODY from head to both feet, feet on ground, straight legs, torso leaning forward only slightly. Both arms reach forward at WAIST HEIGHT, hands open and together around x50% y55% of canvas to work on a desk. No staff, no plants, no furniture, no props. Head around x50% y22%, feet around y92%. Do not kneel, do not squat. Figure centered with transparent margins; genuinely transparent background, no haze, no gradient, no ground shadow, no text. Same hairstyle, dress, wings as reference.",
+      "sha256": "02c03b90ab2cdc258de8c32a59e6767076ef5f4f64aedfc63794e4fd04eceded",
+      "resourcePath": "Illustrations/invisible-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Individually reviewed replacement: upright working pose, both hands forward, no furniture baked into original",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-sd.work.png",
+          "sha256": "475ca0efa914ae14f3578427728815e2ccdae2ab838cc6a3c29cacd6f54d9f5d"
+        },
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+          "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/invisible-v1/sd-look.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-11d06787-44e1-4558-ba4f-be2cff705a9a.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose looking upward with head clearly tilted back. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "fa954e9e3de1c6ec3605425892bb808514a5d5b4ab3a7736d133ccce38687142",
+      "resourcePath": "Illustrations/invisible-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-sd.look.png",
+          "sha256": "cde75b51a2dab3495d96907591f3b866113b38209301f3c86844d3a738e3db53"
+        },
+        {
+          "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+          "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/invisible-v1/event-0-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4b6ad861-427a-43b9-bb30-8992b27312eb.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Landscape visual novel event illustration, this adult heroine ONLY sitting at a garden table making a small star ribbon bookmark, empty second chair, tea cup, gentle daytime light. Full painted background, no text no male person no hands or silhouette from another person.",
+      "sha256": "1272c3acaf557b5b3921bd60323f285f1f170ded0d60f5e502a9868766c9ab33",
+      "resourcePath": "Illustrations/invisible-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-cg.0.png",
+          "sha256": "76b495a6a1fb3e713132149ac09c90a5db6e752079f00a5cae6822b96ce7e046"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.0.png",
+          "sha256": "dc4522a25a503a7b9c7f4a1cdba02116fa0d328d8cf4b7381251579755b5fd3b"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/invisible-v1/event-1-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0f6e85c7-6c2e-46f3-99b8-df4ed9f0c4ac.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Landscape visual novel event illustration, this adult heroine ONLY in a lamplit reading room holding a neatly folded letter, calm thoughtful smile, star staff resting by desk. Full painted background, no text no other people.",
+      "sha256": "834fa70995e939935e6d07e4cdd8b37d4a2465d8af068fe398e99156d7488bfd",
+      "resourcePath": "Illustrations/invisible-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-cg.1.png",
+          "sha256": "a2618c9897bfa72eff17fd49fcb2ce356884f94539292b188ad83a893e72f811"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.1.png",
+          "sha256": "d9a644ec120faced078e5b19372d8952db43996c842072d13f44a2b9062c591f"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/invisible-v1/event-2-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-95320bdc-9411-4920-9398-01030fc49f5e.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Landscape visual novel event illustration, this adult heroine ONLY standing on a moonlit garden bridge, hands gently held together at chest, shy sincere confession smile looking at viewer, fully clothed. Full painted background, no text no other people.",
+      "sha256": "45024c443bd2b7f8eb6732f8a20da7229a3be20e9556832965c3e317b771b1bb",
+      "resourcePath": "Illustrations/invisible-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-cg.2.png",
+          "sha256": "eb5eb01bfad922843e3b27ca72750e7625eaa466fdb69ac5b16336e8a1702f06"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.2.png",
+          "sha256": "13dfa8a4ff70e4f10766ba4c32e6f738af87db6d7f183354e22a6cb4332837b7"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/invisible-v1/event-3-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-78ee9608-23e5-4f65-b022-af5fdc25d615.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Landscape visual novel event illustration, this adult heroine ONLY happily arranging pastel flower pots in greenhouse, white wings folded, sleeves tidy, pink afternoon light. Full painted background, no text no other people.",
+      "sha256": "c95c678030a915b8c24c7af2826c46fb26887598da93ee730cbe334a1488b2c0",
+      "resourcePath": "Illustrations/invisible-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-cg.3.png",
+          "sha256": "d9470415bfd53cbcef4ff0f284ac455c191b535b126b49f3ac6a33f1e3b5a817"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.3.png",
+          "sha256": "4552d6bb9ecee0bdbd47a6253b129625549642f7bfc1f1cda2fa8ce6fc893ecf"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/invisible-v1/event-4-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e429d8e2-7a98-49af-9b0e-091c9d1a56c4.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Landscape visual novel event illustration, this adult heroine ONLY sitting on garden bench at dawn with a warm cup of tea, looking toward viewer with peaceful affectionate smile. Full painted background, no text no other people.",
+      "sha256": "36aaf8e115c3196e4cf26a0c8c1f1573f5b94e207d448fdcb125f24d56db5025",
+      "resourcePath": "Illustrations/invisible-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/invisible-cg.4.png",
+          "sha256": "c018315caed745648877b4eb8d4d4694ab1699e6b3c981e9611f9b0163a09597"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.4.png",
+          "sha256": "24394ca46bd36dc1ed7c9583f3ba9dfca6e0fc0d6dbc72971519938bf3f06689"
+        }
+      ]
+    },
+    {
+      "key": "tree-ornament",
+      "path": "game/art-source/invisible-v1/tree-ornament.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c87744b5-caab-41a1-9976-3e9fea262a48.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Generate a single small hanging charm asset inspired by her star staff: delicate white unicorn horn encircled by a small pink star and pale blue ribbon, a tiny gold hanging ring at top, narrow ornament silhouette, NO woman NO face NO person NO tree NO node NO background. Transparent canvas 1536x1024 with ornament centered. Fine fantasy game illustration. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "0bc03122533c811d0e1e77f39489bc19e576e901060722683e265d0dcdb31e70",
+      "resourcePath": "UI/WeaponTrees/invisible-ornament-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "approved",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-invisible/player/tree0.png",
+          "sha256": "92bc0d7dd62913f749246be0b72f1185a71fd2a4b535130f8381f3e284e9fc99"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/tree2.png",
+          "sha256": "013835ec7c116a1029a1b4d64c031d5e0aa631c8f1bca6051f8dcc66adbe091c"
+        },
+        {
+          "path": "tmp/plan12-invisible/player/tree4.png",
+          "sha256": "b8c7f75896ed7e40d4ed51fec5675f15ffd5f361ea92c4142bec91a117dba8ca"
+        }
+      ]
+    }
+  ],
+  "rejectedAssets": [
+    {
+      "key": "sd-work",
+      "path": "game/art-source/invisible-v1/rejected-sd-work-kneeling.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b426750e-59bd-4353-af3c-5903141c601b.png",
+      "prompt": "Production game asset 1536x1024 landscape. Reference image is character identity and design guide. Preserve the same adult 25-year-old woman, mature proportions, pink twin tails, white feather wings, white/pink/blue modest dress, opaque navy star tights, white boots, slim star staff, clean polished anime rendering. Dedicated super-deformed chibi game sprite of this adult heroine, same recognizable hair colors white wings and dress and star staff. One figure ONLY, entire sprite within margins. Pose leaning forward tending an unseen small plant, hands working, no furniture. Transparent background. Genuine fully transparent background. Remove all gray/white haze, gradients, shadows and glowing background behind the figure. Only character/ornament pixels, smooth alpha edges. No black matte, no checkerboard, no text.",
+      "sha256": "deab0444680681a73150f1803c4af72b9446643140e58e3e22f0300b6099e8a7",
+      "resourcePath": "Illustrations/invisible-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "purposeEvidence": "Original inspected individually: adult heroine identity, distinct purpose/pose, no males in five CGs; ornament contains no person",
+      "runtimeReview": "pending",
+      "reason": "Rejected runtime furniture composite: kneeling pose placed face too close to desktop"
+    }
+  ]
+}

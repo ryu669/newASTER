@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.invisible"
+  ],
+  "baselineForms": 20,
+  "targetForms": 21,
+  "requiredAssetsPerForm": 21,
+  "sourceAdaptations": "Lv7の単体回復130%を基準。単体の攻撃40/魔防80%を20/40%へ、全体160%・6ターンを130%・3ターンへ調整。回避3回は本作独自の速度15%・2ターンへ変更。弱体は15%・3ターン。固有回復+10%は維持。ジョブマスタリーは重複のみ。"
+}

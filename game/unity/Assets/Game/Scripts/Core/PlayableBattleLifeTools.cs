@@ -36,7 +36,9 @@ namespace NewAster.Core
         public bool CanChooseAlly(int actor,int slot,int ally)
         {
             if(ally<0 || ally>=5 || !State.Heroes[ally].IsAlive)return false;
-            return IsAllyBuff(actor,slot) || PreviewHealing(actor,ally,slot)>0 || commandDefinitions?[actor,slot].cleanseAll==true && EnemyStatusState.Kinds.Any(State.Heroes[ally].Status.Active);
+            return IsAllyBuff(actor,slot) || PreviewHealing(actor,ally,slot)>0 ||
+                commandDefinitions?[actor,slot].effectRuleId=="effect.heal" && commandDefinitions[actor,slot].selfEffects?.Length>0 ||
+                commandDefinitions?[actor,slot].cleanseAll==true && EnemyStatusState.Kinds.Any(State.Heroes[ally].Status.Active);
         }
     }
 }

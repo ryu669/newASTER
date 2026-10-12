@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.avalanche",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/avalanche-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/avalanche-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/avalanche-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/avalanche-cutin-candidate-v1"
+}

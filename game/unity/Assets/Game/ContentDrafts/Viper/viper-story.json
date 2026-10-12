@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.viper.poem-chapter.1",
+      "ownerId": "heroine.viper",
+      "title": "余白のある時刻表",
+      "introduction": "黒煙城塞の謳を読み終えると、ドロシーは壁の当番表を見上げた。休む時刻まで細かく埋まっている。",
+      "conclusion": "翌日の表には、皆がそれぞれ選ぶ時間が残った。ドロシーはそこへ、あなたとの昼食だけ小さく書いた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.viper.collection.poem.01",
+          "text": "「飯の時間は助かるけどさ、散歩まで命令されんの？」。",
+          "body": "「飯の時間は助かるけどさ、散歩まで命令されんの？」。彼女は表を破らず、あなたへ空いた紙を求めた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.01",
+          "reason": "「終わった戦へ、煙が立つ」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.02",
+          "text": "城塞の門番は、鐘が鳴れば必ず同じ場所へ戻る。",
+          "body": "城塞の門番は、鐘が鳴れば必ず同じ場所へ戻る。戻らなかった人の理由は、謳に残っていなかった。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.02",
+          "reason": "「熱い壁にも、冷たい工房」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.03",
+          "text": "あなたは当番の交代が必要だと説明した。",
+          "body": "あなたは当番の交代が必要だと説明した。ドロシーは頷き、仕事の欄だけ先に書き写した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.03",
+          "reason": "「鍋の欠けには、夕飯の跡」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.04",
+          "text": "「そこは分かってるって」。",
+          "body": "「そこは分かってるって」。彼女が消したのは、休憩中の席を指定する一行だった。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.04",
+          "reason": "「守る砲口が、家を向く」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.05",
+          "text": "試しに半日だけ変えることにした。",
+          "body": "試しに半日だけ変えることにした。彼女は約束の時刻に戻り、銃の整備を引き受けた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.05",
+          "reason": "「命令の紙に、帰らない名」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.06",
+          "text": "庭を歩いていた人から、橋の手すりが緩んでいると聞いたという。",
+          "body": "庭を歩いていた人から、橋の手すりが緩んでいると聞いたという。表の余白へ修理の印を足す。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.06",
+          "reason": "「煤けた窓から、洗濯の声」を受け、余白のある時刻表で自由と約束を選ぶ本人の経験を描く。"
+        }
+      ],
+      "pages": [
+        "黒煙城塞の謳を読み終えると、ドロシーは壁の当番表を見上げた。休む時刻まで細かく埋まっている。",
+        "「飯の時間は助かるけどさ、散歩まで命令されんの？」。彼女は表を破らず、あなたへ空いた紙を求めた。",
+        "城塞の門番は、鐘が鳴れば必ず同じ場所へ戻る。戻らなかった人の理由は、謳に残っていなかった。",
+        "あなたは当番の交代が必要だと説明した。ドロシーは頷き、仕事の欄だけ先に書き写した。",
+        "「そこは分かってるって」。彼女が消したのは、休憩中の席を指定する一行だった。",
+        "試しに半日だけ変えることにした。彼女は約束の時刻に戻り、銃の整備を引き受けた。",
+        "庭を歩いていた人から、橋の手すりが緩んでいると聞いたという。表の余白へ修理の印を足す。",
+        "あなたが次の散歩も頼むと、ドロシーは眉を上げた。「頼まれなくても、見つけたら言うよ」",
+        "夕方、二人で橋を確かめた。鐘を聞きながら戻る道は、朝より少し遠回りだった。",
+        "翌日の表には、皆がそれぞれ選ぶ時間が残った。ドロシーはそこへ、あなたとの昼食だけ小さく書いた。"
+      ]
+    },
+    {
+      "id": "heroine.viper.poem-chapter.2",
+      "ownerId": "heroine.viper",
+      "title": "二枚のナプキン",
+      "introduction": "記憶晶竜の謳には、訪れる客ごとに違う顔を見せる主人がいた。ドロシーは器を磨きながら笑った。",
+      "conclusion": "片付ける時にも皿は丁寧に重ねられた。その所作も乱暴な冗談も、次の食事へそのまま持ってきてほしいと伝えた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.viper.collection.poem.07",
+          "text": "「愛想よくすりゃ、開く扉もあるしね」。",
+          "body": "「愛想よくすりゃ、開く扉もあるしね」。そう言う彼女の指は、縁の欠けた皿を迷わず脇へよけた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.08",
+          "text": "あなたは今夜の食事を庭で取ろうと誘った。",
+          "body": "あなたは今夜の食事を庭で取ろうと誘った。誰かを迎える練習ではなく、二人の休憩だと添えた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.09",
+          "text": "彼女は白い布を二枚用意し、風で飛ばないよう端を折った。",
+          "body": "彼女は白い布を二枚用意し、風で飛ばないよう端を折った。座る姿勢にも、いつもの軽口とは違う静けさがあった。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.10",
+          "text": "あなたが見ていることに気づくと、「別に、珍しくもないだろ」と椀を寄せる。",
+          "body": "あなたが見ていることに気づくと、「別に、珍しくもないだろ」と椀を寄せる。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.11",
+          "text": "食卓の作法を教わった話は短かった。",
+          "body": "食卓の作法を教わった話は短かった。あなたは続きを迫らず、パンを分ける位置だけ尋ねた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.12",
+          "text": "ドロシーはあなたの手を見て、刃を置く場所を示した。",
+          "body": "ドロシーはあなたの手を見て、刃を置く場所を示した。「ほら、その方が安心して取れる」",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、二枚のナプキンで自由と約束を選ぶ本人の経験を描く。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳には、訪れる客ごとに違う顔を見せる主人がいた。ドロシーは器を磨きながら笑った。",
+        "「愛想よくすりゃ、開く扉もあるしね」。そう言う彼女の指は、縁の欠けた皿を迷わず脇へよけた。",
+        "あなたは今夜の食事を庭で取ろうと誘った。誰かを迎える練習ではなく、二人の休憩だと添えた。",
+        "彼女は白い布を二枚用意し、風で飛ばないよう端を折った。座る姿勢にも、いつもの軽口とは違う静けさがあった。",
+        "あなたが見ていることに気づくと、「別に、珍しくもないだろ」と椀を寄せる。",
+        "食卓の作法を教わった話は短かった。あなたは続きを迫らず、パンを分ける位置だけ尋ねた。",
+        "ドロシーはあなたの手を見て、刃を置く場所を示した。「ほら、その方が安心して取れる」",
+        "謳の主人が最後に誰を招いたかは分からない。二人は読み残した頁へ栞を挟み、温かいうちに食べた。",
+        "「今日はいい子のフリ、いらないんだな」。あなたが頷くと、彼女はようやく声を立てて笑った。",
+        "片付ける時にも皿は丁寧に重ねられた。その所作も乱暴な冗談も、次の食事へそのまま持ってきてほしいと伝えた。"
+      ]
+    },
+    {
+      "id": "heroine.viper.poem-chapter.3",
+      "ownerId": "heroine.viper",
+      "title": "自分の名前で帰る",
+      "introduction": "塔の謳を読んでいたドロシーが、窓に映る自分へ目を向けた。誰かの代わりに立つ話だった。",
+      "conclusion": "点検の報告書に本人が署名する。あなたは隣へ日付を足し、約束した席へ一緒に向かった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.viper.collection.poem.13",
+          "text": "「似せるのは得意なんだけどさ」。",
+          "body": "「似せるのは得意なんだけどさ」。あなたは、今日の記録には誰の名前を書くかと尋ねた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.14",
+          "text": "彼女は少し考え、自分の名前を差し出した。",
+          "body": "彼女は少し考え、自分の名前を差し出した。借り物の肩書きではなく、ドロシー・ナイナーと。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.15",
+          "text": "見張り台の点検へ二人で上がる。",
+          "body": "見張り台の点検へ二人で上がる。途中の階段で、彼女はあなたの歩幅に合わせて速度を落とした。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.16",
+          "text": "上から見れば庭の道は細い。",
+          "body": "上から見れば庭の道は細い。帰ってくる人のための灯りが、昼のうちにも一つずつ確かめられていた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.17",
+          "text": "「あたしが戻んなかったら、呼びに来る？」。",
+          "body": "「あたしが戻んなかったら、呼びに来る？」。あなたは探しに行くと答え、困る前に知らせてほしいとも言った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        },
+        {
+          "id": "heroine.viper.collection.poem.18",
+          "text": "彼女は笑い飛ばしかけ、やめた。",
+          "body": "彼女は笑い飛ばしかけ、やめた。戻る時刻を自分で決め、あなたの手帳へ書き込む。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、自分の名前で帰るで自由と約束を選ぶ本人の経験を描く。"
+        }
+      ],
+      "pages": [
+        "塔の謳を読んでいたドロシーが、窓に映る自分へ目を向けた。誰かの代わりに立つ話だった。",
+        "「似せるのは得意なんだけどさ」。あなたは、今日の記録には誰の名前を書くかと尋ねた。",
+        "彼女は少し考え、自分の名前を差し出した。借り物の肩書きではなく、ドロシー・ナイナーと。",
+        "見張り台の点検へ二人で上がる。途中の階段で、彼女はあなたの歩幅に合わせて速度を落とした。",
+        "上から見れば庭の道は細い。帰ってくる人のための灯りが、昼のうちにも一つずつ確かめられていた。",
+        "「あたしが戻んなかったら、呼びに来る？」。あなたは探しに行くと答え、困る前に知らせてほしいとも言った。",
+        "彼女は笑い飛ばしかけ、やめた。戻る時刻を自分で決め、あなたの手帳へ書き込む。",
+        "謳の塔は同じ顔の住人を増やしていった。二人の記録には、名前の違う筆跡が並んだ。",
+        "階段を降りたところで、ドロシーはあなたを昼食へ誘った。「今日はあたしが誘ってんの。間違えんなよ」",
+        "点検の報告書に本人が署名する。あなたは隣へ日付を足し、約束した席へ一緒に向かった。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.viper.event.0",
+      "ownerId": "heroine.viper",
+      "title": "一杯ぶんの反則",
+      "cgResourcePath": "Illustrations/viper-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "昼下がりの庭で、ドロシーが二つのカップを並べた。",
+        "仕事の話なら終わってからにしろと、あなたへ椅子を引く。",
+        "香りを確かめる手つきは意外なほど丁寧だった。",
+        "「指揮官、砂糖いくつ？」",
+        "答えると、彼女は自分の分と取り違えないよう向きを変えた。",
+        "今日は誰の頼みでもなく、あなたと飲みたかったという。",
+        "あなたが礼を言うと、彼女は軽く肩をすくめた。",
+        "空いたカップは、二人が次の約束をするまで片付けられなかった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.viper.event.1",
+      "ownerId": "heroine.viper",
+      "title": "合図は撃たずに",
+      "cgResourcePath": "Illustrations/viper-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "射場を片付けた後、ドロシーが紙の標的を折っていた。",
+        "あなたが近づくと、銃は既に安全を確かめて置かれていた。",
+        "折った紙には、明日の散歩の時刻だけが書いてある。",
+        "「毎回大声で呼ぶのも面倒だし、これで分かるだろ」",
+        "あなたが受け取ると、彼女は行きたい場所を一つ足した。",
+        "任務の経路にはない、庭の奥の小さな花壇だった。",
+        "遅れたら先に行くと言いながら、待ち合わせ場所も丁寧に書く。",
+        "あなたは返事の印をつけ、明日は自分から迎えに行くと約束した。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.viper.event.2",
+      "ownerId": "heroine.viper",
+      "title": "名前を呼んで",
+      "cgResourcePath": "Illustrations/viper-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "夕暮れの回廊で、ドロシーがあなたを呼び止めた。",
+        "軽い冗談の続きを探すように、少しだけ言葉が止まる。",
+        "あなたが待つと、彼女は正面へ向き直った。",
+        "「あたし、あんたが好き。誰かの代わりじゃなく、あたしを見ててほしい」",
+        "あなたはドロシーが好きだと返し、恋人としてこれからも誘い合いたいと伝えた。",
+        "彼女は笑い、今度はドロシーと呼んでほしいと言った。",
+        "あなたが名前を呼ぶと、差し出された手を自分から握った。",
+        "帰り道の約束は、彼女自身の名前で交わされた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.viper.event.3",
+      "ownerId": "heroine.viper",
+      "title": "ほどかない結び目",
+      "cgResourcePath": "Illustrations/viper-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "食事の支度中、ドロシーが襟のリボンを結び直していた。",
+        "あなたに見られると、曲がっていないかと尋ねる。",
+        "ほんの少し傾いていると答え、直してよいか聞いた。",
+        "彼女は頷いて、手が届くところまで近づいた。",
+        "結び終わっても、彼女はすぐには離れなかった。",
+        "「こういうの、あんたに頼むのは嫌じゃないんだよな」",
+        "あなたは次も呼んでほしいと答え、恋人の手を取った。",
+        "二人の食卓には、まだ湯気の立つ皿が待っていた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.viper.event.4",
+      "ownerId": "heroine.viper",
+      "title": "休みの日の帰り道",
+      "cgResourcePath": "Illustrations/viper-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "朝の庭で、ドロシーが約束より少し早く待っていた。",
+        "今日は行く先を決めずに歩こうと言う。",
+        "あなたが頷くと、彼女は銃のない方の手を差し出した。",
+        "「帰る場所は決まってるし、途中くらい適当でいいだろ」",
+        "二人は花壇を回り、橋の上でしばらく足を止めた。",
+        "あなたが寒くないか尋ねると、彼女は握る手を少し寄せた。",
+        "帰ったら一緒に温かいものを飲みたいという。",
+        "予定のない一日にも、恋人と帰る約束だけは自然に残った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

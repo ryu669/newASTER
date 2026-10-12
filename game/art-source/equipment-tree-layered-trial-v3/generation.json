@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "built-in image_gen",
+  "status": "browser-prototype-not-integrated",
+  "prompt": "One isolated small blooming deep crimson camellia flower, five to eight rich red petals with readable golden stamens, tiny dark stem, finely painted fantasy RPG tree decoration. Front three-quarter view, centered with generous transparent margins, square canvas. Single open flower only, no bouquet, garland, tree, branches, leaves, person, text, frame or backdrop. Deep ruby crimson heroine color, warm subtle highlights, recognizable at 25-40 pixels when displayed. Transparent background.",
+  "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-019cf794-1145-4269-b705-be108529d50e.png",
+  "asset": "crimson-flower.png",
+  "inheritedAssets": "../equipment-tree-layered-trial-v2/generation.json",
+  "ornamentScale": 1.85,
+  "heroineColor": "#991b35",
+  "checks": [
+    "root only: zero flowers",
+    "each route tier II: 12 flowers",
+    "full unlock: 24 flowers",
+    "root region excluded",
+    "branches progress independently",
+    "parent skipping refused",
+    "1920x1080 browser screenshot reviewed",
+    "dense canopy clusters: root 0, tier II 324, full 692",
+    "wood drawn in front of foliage; roots excluded; node controls remain in front",
+    "flowers beside unlocked nodes only, drawn behind node controls"
+  ],
+  "sha256": "ab3f3aa6338d08e50bd7cfe4a6ebc6874ab6699ffab38e1c6f52464ebf68f306",
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "alphaRange": [
+    0,
+    255
+  ],
+  "bloomPlacement": "two flowers beside each unlocked non-root node; root never blooms",
+  "foliage": {
+    "asset": "silver-foliage.png",
+    "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-b0f0500d-62a3-4ce6-b389-396eac58602c.png",
+    "prompt": "One small airy cluster of five to seven natural silver-gray leaves on a very short fine twig, delicate painted fantasy RPG decorative foliage, subtle cool green gray undersides, organic uneven arrangement, readable at small size. Isolated centered with generous margins on transparent square background. Only one compact foliage cluster, NO flower, fruit, jewel, metal, garland, wreath, tree, trunk, person, text, UI or backdrop. Natural leaves, not metallic jewelry. Intended to sit beside separate deep crimson flowers around a fantasy tree.",
+    "sha256": "ba06ee204549f29f238e1a585522c6b9c764993b7cafe186435d57d5ff39db49",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sourcePixels": "unchanged"
+  },
+  "canopyPlacement": "dense crown behind wood, unlocked by route and tier; no added foliage at roots",
+  "simpleFoliage": {
+    "asset": "silver-foliage-simple-v2.png",
+    "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-e534e0f7-3251-4e9c-aaa0-ff73005a60aa.png",
+    "mode": "built-in image_gen",
+    "prompt": "A single small airy sprig of five simple flat oval leaves, muted cool sage silver gray. Fantasy game foliage sprite. Very simple elegant hand painted silhouettes, thin papery translucent leaves, low contrast, soft matte colors, almost no vein detail, no bright white highlights, no metallic shine, no heavy outlines, no photorealistic texture. Leaves loosely spaced with gaps, extremely fine short stem. Centered isolated asset on a fully transparent square background with modest clear margins. No flowers, jewels, tree, UI, letters or backdrop. Readable as delicate lightweight foliage when repeated in a dense canopy, not a silver ornament.",
+    "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "alphaRange": [
+      0,
+      255
+    ],
+    "sourcePixels": "unchanged",
+    "displayOpacity": 0.48,
+    "displaySize": [
+      0.064,
+      0.085
+    ],
+    "fullClusters": 692,
+    "tierIIClusters": 323
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.invisible",
+  "formId": "heroine.invisible",
+  "jobId": "job.healer",
+  "status": "complete_published",
+  "profile": "docs/characters/invisible.md",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/standing.png",
+      "sha256": "94dc9103fd289f6e5b0abde7f1b9da6b8d268c5f9ac64e152407ee80d9076995",
+      "resourcePath": "Illustrations/invisible-standing-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "94dc9103fd289f6e5b0abde7f1b9da6b8d268c5f9ac64e152407ee80d9076995",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-expression.normal.png",
+            "sha256": "a48f2addfca0f00bdec3ec28da286358a7562bf0861600868115dfdc56e4d780"
+          }
+        ]
+      }
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/portrait.png",
+      "sha256": "357d63f2a93460bae2ab5ab9a42adafa0aa3fd7d2b55f8446bbebe4558e65908",
+      "resourcePath": "Illustrations/heroine-portrait-invisible-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "357d63f2a93460bae2ab5ab9a42adafa0aa3fd7d2b55f8446bbebe4558e65908",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/recruit.png",
+            "sha256": "37d7a25ad2b606445a2843ffb34db562cbb92fb2b685a8a31e5680d465a49ba9"
+          },
+          {
+            "path": "tmp/plan12-invisible/refined/trait.png",
+            "sha256": "a519e30220ba48069347993df05d651cc13cf97c951ff6d53b084ca5a05c76dc"
+          }
+        ]
+      }
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/expression-joy.png",
+      "sha256": "703cc918ea5ddd6f68b5460656e7aac35cdc5191f3c8165a52d95e27872433bd",
+      "resourcePath": "Illustrations/invisible-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "703cc918ea5ddd6f68b5460656e7aac35cdc5191f3c8165a52d95e27872433bd",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-expression.joy.png",
+            "sha256": "2a57f26e1f1635b1b39ef209da43211fc4798f60ef4764eaa98f799335bb49b3"
+          }
+        ]
+      }
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/expression-puzzled.png",
+      "sha256": "60cfcf760c6db9d8774c46b69d60820050935413431c08c8651da5b6cedfebe1",
+      "resourcePath": "Illustrations/invisible-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "60cfcf760c6db9d8774c46b69d60820050935413431c08c8651da5b6cedfebe1",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-expression.puzzled.png",
+            "sha256": "a206e70c63185effec39c4bdfc4455f29fac1524d6da9b0b12a8736a70ee5c70"
+          }
+        ]
+      }
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/expression-determined.png",
+      "sha256": "63d97fb1732912944232d6e50d0c5474b4a08e294a96da71597a529d38c900be",
+      "resourcePath": "Illustrations/invisible-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "63d97fb1732912944232d6e50d0c5474b4a08e294a96da71597a529d38c900be",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-expression.determined.png",
+            "sha256": "e183d1c0fe03155ad28f598651c8790df5093cb61d9b0c76ffd9510544c2affc"
+          }
+        ]
+      }
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/attack.png",
+      "sha256": "6acd855b83d3bb8402142360795173461e31003f9c79962e32c0a80f4303c90b",
+      "resourcePath": "Illustrations/invisible-attack-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "6acd855b83d3bb8402142360795173461e31003f9c79962e32c0a80f4303c90b",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/battle-attack.png",
+            "sha256": "e0a34fddd0bdb2db28c1ef15b6083d37daf395487928ec8bc48159289bf3370f"
+          }
+        ]
+      }
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/hit.png",
+      "sha256": "c9d8bc17cab5085e67c34241126b8094002fc645b1da9e4f423de528dbf655bd",
+      "resourcePath": "Illustrations/invisible-hit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c9d8bc17cab5085e67c34241126b8094002fc645b1da9e4f423de528dbf655bd",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/battle-hit.png",
+            "sha256": "fb397953c4344fec7eeefab29a886a75955be778ab92db51e7fcd91fe22601b8"
+          }
+        ]
+      }
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/cutin.png",
+      "sha256": "e26bc4394175b6ac084769991a5db88c5e1f80713e9de945ead3eebb038884f3",
+      "resourcePath": "Illustrations/invisible-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "e26bc4394175b6ac084769991a5db88c5e1f80713e9de945ead3eebb038884f3",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/battle-cutin.png",
+            "sha256": "7fc48fd9b06020643f03658634c293767fee7b7e8e7789075fa934a7230827ef"
+          }
+        ]
+      }
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-idle.png",
+      "sha256": "09e4e77deac6d2cc1786c2f28b7ab9bb96da463b0926428515a51c7ce6658175",
+      "resourcePath": "Illustrations/invisible-sd-idle-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "09e4e77deac6d2cc1786c2f28b7ab9bb96da463b0926428515a51c7ce6658175",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.idle.png",
+            "sha256": "8afa08885fbc732e19706c4fb0a30a460a5cb7bad24df0331f25e868f576bdd3"
+          }
+        ]
+      }
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-walk.png",
+      "sha256": "d9be8d1567b7686ca6490b14cfd3eb5a65c7953c792158d00ed527ddbd818560",
+      "resourcePath": "Illustrations/invisible-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "d9be8d1567b7686ca6490b14cfd3eb5a65c7953c792158d00ed527ddbd818560",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.walk.png",
+            "sha256": "974f02952d6c8e30b02686a55f985a7f005c88076b33fa4aa1b735eea806bed3"
+          }
+        ]
+      }
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-talk.png",
+      "sha256": "aaf23c54a7dd3bb8eda0ee9202a545ad241fb5e230ae8b78ebc296a9e5a4f06a",
+      "resourcePath": "Illustrations/invisible-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "aaf23c54a7dd3bb8eda0ee9202a545ad241fb5e230ae8b78ebc296a9e5a4f06a",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.talk.png",
+            "sha256": "47eeba64233095d4dc923be9886f6aa521885b1e4b67951e71bf9b099655cf2b"
+          }
+        ]
+      }
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-react.png",
+      "sha256": "7bb0f6bcdffe047b59ebd11f0d329852c8c55883bb157cfd96e032e58f7204ba",
+      "resourcePath": "Illustrations/invisible-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "7bb0f6bcdffe047b59ebd11f0d329852c8c55883bb157cfd96e032e58f7204ba",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.react.png",
+            "sha256": "27e65c4373c50bda5e80125294c1ac7f64144b277c26a10b1e2d8cdee104ca4f"
+          }
+        ]
+      }
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-sit.png",
+      "sha256": "b5ea60139f5d44bb69f4caa2ff46c38819826b9860b7a04788a8f24d6628b348",
+      "resourcePath": "Illustrations/invisible-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b5ea60139f5d44bb69f4caa2ff46c38819826b9860b7a04788a8f24d6628b348",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.sit.png",
+            "sha256": "140a767299a00134b9e00b8d7e133a87b71e69fb8c7c13f195e968863255a331"
+          },
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+            "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+          }
+        ]
+      }
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-work.png",
+      "sha256": "02c03b90ab2cdc258de8c32a59e6767076ef5f4f64aedfc63794e4fd04eceded",
+      "resourcePath": "Illustrations/invisible-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "02c03b90ab2cdc258de8c32a59e6767076ef5f4f64aedfc63794e4fd04eceded",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-sd.work.png",
+            "sha256": "475ca0efa914ae14f3578427728815e2ccdae2ab838cc6a3c29cacd6f54d9f5d"
+          },
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+            "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+          }
+        ]
+      }
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/sd-look.png",
+      "sha256": "fa954e9e3de1c6ec3605425892bb808514a5d5b4ab3a7736d133ccce38687142",
+      "resourcePath": "Illustrations/invisible-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "fa954e9e3de1c6ec3605425892bb808514a5d5b4ab3a7736d133ccce38687142",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-sd.look.png",
+            "sha256": "cde75b51a2dab3495d96907591f3b866113b38209301f3c86844d3a738e3db53"
+          },
+          {
+            "path": "tmp/plan12-invisible/refined/invisible-sd.furniture.png",
+            "sha256": "ed36a6fb56439143c122f9187e5d9ad9842c086dfde510b2485fb089bd4d12b3"
+          }
+        ]
+      }
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/event-0-cg.png",
+      "sha256": "1272c3acaf557b5b3921bd60323f285f1f170ded0d60f5e502a9868766c9ab33",
+      "resourcePath": "Illustrations/invisible-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "1272c3acaf557b5b3921bd60323f285f1f170ded0d60f5e502a9868766c9ab33",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-cg.0.png",
+            "sha256": "76b495a6a1fb3e713132149ac09c90a5db6e752079f00a5cae6822b96ce7e046"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.0.png",
+            "sha256": "dc4522a25a503a7b9c7f4a1cdba02116fa0d328d8cf4b7381251579755b5fd3b"
+          }
+        ]
+      }
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/event-1-cg.png",
+      "sha256": "834fa70995e939935e6d07e4cdd8b37d4a2465d8af068fe398e99156d7488bfd",
+      "resourcePath": "Illustrations/invisible-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "834fa70995e939935e6d07e4cdd8b37d4a2465d8af068fe398e99156d7488bfd",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-cg.1.png",
+            "sha256": "a2618c9897bfa72eff17fd49fcb2ce356884f94539292b188ad83a893e72f811"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.1.png",
+            "sha256": "d9a644ec120faced078e5b19372d8952db43996c842072d13f44a2b9062c591f"
+          }
+        ]
+      }
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/event-2-cg.png",
+      "sha256": "45024c443bd2b7f8eb6732f8a20da7229a3be20e9556832965c3e317b771b1bb",
+      "resourcePath": "Illustrations/invisible-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "45024c443bd2b7f8eb6732f8a20da7229a3be20e9556832965c3e317b771b1bb",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-cg.2.png",
+            "sha256": "eb5eb01bfad922843e3b27ca72750e7625eaa466fdb69ac5b16336e8a1702f06"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.2.png",
+            "sha256": "13dfa8a4ff70e4f10766ba4c32e6f738af87db6d7f183354e22a6cb4332837b7"
+          }
+        ]
+      }
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/event-3-cg.png",
+      "sha256": "c95c678030a915b8c24c7af2826c46fb26887598da93ee730cbe334a1488b2c0",
+      "resourcePath": "Illustrations/invisible-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c95c678030a915b8c24c7af2826c46fb26887598da93ee730cbe334a1488b2c0",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-cg.3.png",
+            "sha256": "d9470415bfd53cbcef4ff0f284ac455c191b535b126b49f3ac6a33f1e3b5a817"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.3.png",
+            "sha256": "4552d6bb9ecee0bdbd47a6253b129625549642f7bfc1f1cda2fa8ce6fc893ecf"
+          }
+        ]
+      }
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/event-4-cg.png",
+      "sha256": "36aaf8e115c3196e4cf26a0c8c1f1573f5b94e207d448fdcb125f24d56db5025",
+      "resourcePath": "Illustrations/invisible-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "36aaf8e115c3196e4cf26a0c8c1f1573f5b94e207d448fdcb125f24d56db5025",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/invisible-cg.4.png",
+            "sha256": "c018315caed745648877b4eb8d4d4694ab1699e6b3c981e9611f9b0163a09597"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/gallery-frames/invisible-cg.4.png",
+            "sha256": "24394ca46bd36dc1ed7c9583f3ba9dfca6e0fc0d6dbc72971519938bf3f06689"
+          }
+        ]
+      }
+    },
+    "tree-ornament": {
+      "status": "approved",
+      "source": "game/art-source/invisible-v1/tree-ornament.png",
+      "sha256": "0bc03122533c811d0e1e77f39489bc19e576e901060722683e265d0dcdb31e70",
+      "resourcePath": "UI/WeaponTrees/invisible-ornament-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "0bc03122533c811d0e1e77f39489bc19e576e901060722683e265d0dcdb31e70",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-invisible/player/tree0.png",
+            "sha256": "92bc0d7dd62913f749246be0b72f1185a71fd2a4b535130f8381f3e284e9fc99"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/tree2.png",
+            "sha256": "013835ec7c116a1029a1b4d64c031d5e0aa631c8f1bca6051f8dcc66adbe091c"
+          },
+          {
+            "path": "tmp/plan12-invisible/player/tree4.png",
+            "sha256": "b8c7f75896ed7e40d4ed51fec5675f15ffd5f361ea92c4142bec91a117dba8ca"
+          }
+        ]
+      }
+    }
+  },
+  "treeComponents": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/invisible-ornament-v1.png",
+      "sha256": "0bc03122533c811d0e1e77f39489bc19e576e901060722683e265d0dcdb31e70",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/invisible.json",
+      "sha256": "0262d12428bae0e99a21befc72aac1074453fad6a969e36038cf3d988aa014b3",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    }
+  ],
+  "resolution": "default launch 1920x1080",
+  "method": "manual actual Player frame review; automated behavior separately recorded; physical input excluded",
+  "unresolved": [],
+  "updatedAt": "2026-10-11",
+  "renderers": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "sha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved",
+      "previousReviewedSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "sha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "status": "approved"
+    }
+  ],
+  "acceptance": "pass",
+  "build": {
+    "path": "game/Builds/plan12-invisible/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "workingTreeChanges": true
+  },
+  "validationLogs": [
+    {
+      "path": "tmp/plan12-invisible-core-final.log",
+      "sha256": "fbf7883d121a95dd39321e2bd7d8730a309fb6ec5795ed099f1f32af4d0b970e"
+    },
+    {
+      "path": "tmp/plan12-invisible-build-final.log",
+      "sha256": "22123d9dd116f0a64e5eeda617c6c29b431fd3a1e01d9d574fba9beb4a125096"
+    },
+    {
+      "path": "tmp/plan12-invisible/production-player.log",
+      "sha256": "44981c63685e9bbf1f108728352b5a7fcd8a7121b8231e2329be7cb59c1685ce"
+    }
+  ],
+  "scopeUpdates": [
+    {
+      "date": "2026-10-11",
+      "reason": "Viper-only branch/registration additions in shared renderer files. Existing Invisible branches, parameters, source assets and capture hashes unchanged; source diff reviewed. No completed image review reopened.",
+      "renderers": [
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+          "previousSha256": "2389339e7e7f6b30077a43d85eec917faed82c35ed9af1d0deab5d3e65557b0b",
+          "sha256": "aa5e0d841f1257be511914a6b7fe084a5af16a498174fca9cd69c757bee979ce"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+          "previousSha256": "a26131780367fe838c5feff1cb4a7748d35ee66a226e7aaa4a969811c43da6aa",
+          "sha256": "c5e5bf38760b820668632d6321787d593673ea3bd6fcdd97c00c293f5c03dfcc"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+          "previousSha256": "cdcfbe4a71d06ea984633f02f8093e1a86df91298593719895c4f45b9ed3bf79",
+          "sha256": "760a5ab1538a23d734a53b15b33b328ecc3d837f06ed7239fc74f58be83efe22"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+          "previousSha256": "7799f354142b304a51c8c1df2ee28ca83353600b48546c183e74748cbc4b34c3",
+          "sha256": "05bba79b1cc448b436e054288fd4ddbf319ad472c713d9407985c99969851491"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "reason": "Reviewed Vindicator-only registration/branch additions (connect-plan12-vindicator.py): full-body ADV flag, layered tree support, home expression registration, furniture fallback. Existing heroine branches, parameters, assets and capture hashes unchanged. No completed visual reviews reopened.",
+      "renderers": [
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+          "previousSha256": "aa5e0d841f1257be511914a6b7fe084a5af16a498174fca9cd69c757bee979ce",
+          "sha256": "6e15dec7d7080eba25bc426aa541c57e7c2b91bc48fd8da50338cc20d5be0973"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+          "previousSha256": "c5e5bf38760b820668632d6321787d593673ea3bd6fcdd97c00c293f5c03dfcc",
+          "sha256": "a6949b0fdd05411cd7a0ff913366aba8a973dd59d4b0ffb10526fe159ba05b49"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+          "previousSha256": "760a5ab1538a23d734a53b15b33b328ecc3d837f06ed7239fc74f58be83efe22",
+          "sha256": "a07b869b5f7b4055da6f616244ffb62ef5fd4982530eaf41eb442376f25ff5fe"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+          "previousSha256": "05bba79b1cc448b436e054288fd4ddbf319ad472c713d9407985c99969851491",
+          "sha256": "6f045e9f9cf4d66e10b357069c63d3d390bc94b4d59a74cdd28c74b7ec05a043"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "reason": "Reviewed Vindicator-only registration/branch additions (connect-plan12-vindicator.py): full-body ADV flag, layered tree support, home expression registration, furniture fallback. Existing heroine branches, parameters, assets and capture hashes unchanged. No completed visual reviews reopened.",
+      "renderers": [
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+          "previousSha256": "a6949b0fdd05411cd7a0ff913366aba8a973dd59d4b0ffb10526fe159ba05b49",
+          "sha256": "6e24c345f321fe30b6ef7c7b2da34c56c19c0722d015135b1a349bd4f0cb3e58"
+        }
+      ]
+    }
+  ],
+  "rendererScopeUpdate": "docs/production/plan12-weapon-master-renderer-scope.json",
+  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json"
+}

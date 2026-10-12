@@ -1,0 +1,788 @@
+{
+  "schemaVersion": 1,
+  "usage": "authoring-only template; not a runtime definition",
+  "personId": "heroine.aeon",
+  "formId": "heroine.aeon",
+  "jobId": "job.general",
+  "referenceSources": [
+    "003戦闘_アイオーン.mkv @ 15,30",
+    "003_アイオーン.mkv @ 340,360,380,400,430",
+    "046_シヴァ1周年.mkv @ 180,200,250,280,300"
+  ],
+  "profile": "docs/characters/aeon.md",
+  "adoptionDecisions": "docs/references/characters/aeon.md",
+  "status": "complete_published",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/standing.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-standing-candidate-v1.png",
+      "sha256": "37595ac2ea5c97299ed3787068f76fe5ae4859e716643e7af020771eb523b092",
+      "adoptedSha256": "37595ac2ea5c97299ed3787068f76fe5ae4859e716643e7af020771eb523b092",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "37595ac2ea5c97299ed3787068f76fe5ae4859e716643e7af020771eb523b092",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-battle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-battle.png",
+            "sha256": "48851df7915f75595d9d140c054afd892a4ef93dd9a610dc697dc18174b4d69a"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/portrait.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-aeon-v1.png",
+      "sha256": "6f04621bfba8cf0f0e0980c655706566e17cef853450a709f33fd63ed7391da0",
+      "adoptedSha256": "6f04621bfba8cf0f0e0980c655706566e17cef853450a709f33fd63ed7391da0",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "6f04621bfba8cf0f0e0980c655706566e17cef853450a709f33fd63ed7391da0",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-detail.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-detail.png",
+            "sha256": "0669067a1f68228e9609d3bd4a9f046a8ea88fcce61efa6b26fd6533ef6b6094"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/expression-joy.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-expression-joy-candidate-v1.png",
+      "sha256": "c61c3acc235066451b49c7f28148f838040ba423efb73167981da5c7def5b908",
+      "adoptedSha256": "c61c3acc235066451b49c7f28148f838040ba423efb73167981da5c7def5b908",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c61c3acc235066451b49c7f28148f838040ba423efb73167981da5c7def5b908",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-expression.joy.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-expression.joy.png",
+            "sha256": "e0592bd9328cf4e05ea2a9445ad2630d5ebf21cabac4ca02da0de8e33116e918"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/expression-puzzled.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-expression-puzzled-candidate-v1.png",
+      "sha256": "2404dd14f0f97e634a71e7b2f7d16cd80743fd1f5b1309eb1f8457801ac83f88",
+      "adoptedSha256": "2404dd14f0f97e634a71e7b2f7d16cd80743fd1f5b1309eb1f8457801ac83f88",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "2404dd14f0f97e634a71e7b2f7d16cd80743fd1f5b1309eb1f8457801ac83f88",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-expression.puzzled.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-expression.puzzled.png",
+            "sha256": "7e0b676e0ae301e4c23e4caa2600aeb721ec1a80a925ffc4cd614b59f6d7c16d"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/expression-determined.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-expression-determined-candidate-v1.png",
+      "sha256": "d33f4f716e7ef21d88e687775a92158338b09b80c9a1b04c006af803f259a12d",
+      "adoptedSha256": "d33f4f716e7ef21d88e687775a92158338b09b80c9a1b04c006af803f259a12d",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "d33f4f716e7ef21d88e687775a92158338b09b80c9a1b04c006af803f259a12d",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-expression.determined.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-expression.determined.png",
+            "sha256": "3991d974204affefa033ad063f4f33626cbe76a4ac44e2bc0cce65323f5e4edb"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/attack.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-attack-candidate-v1.png",
+      "sha256": "4fdfae8c2d630347826a417fcd6387054f7956f5acee4861d25784a2c95245c5",
+      "adoptedSha256": "4fdfae8c2d630347826a417fcd6387054f7956f5acee4861d25784a2c95245c5",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4fdfae8c2d630347826a417fcd6387054f7956f5acee4861d25784a2c95245c5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/aeon/attack.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/aeon/attack.png",
+            "sha256": "15bc231d3828e01c0ee4ec05d04acc2f1cc8a58792222604883a43303e0a8b92"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/hit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-hit-candidate-v1.png",
+      "sha256": "7cb0b3a736f161db75f5bbc1460c878a3fc71798628a3e9cadfde64c512abe31",
+      "adoptedSha256": "7cb0b3a736f161db75f5bbc1460c878a3fc71798628a3e9cadfde64c512abe31",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "7cb0b3a736f161db75f5bbc1460c878a3fc71798628a3e9cadfde64c512abe31",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/aeon/hit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/aeon/hit.png",
+            "sha256": "0d35275c339ae4210de7fd59840257d20cf1fb60c4bbaaadbb2a66290cdc9b2d"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/cutin.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-cutin-candidate-v1.png",
+      "sha256": "9f087111083f875f742f14b826e106d19cff6df0eb2195454295ad07dfd69ccb",
+      "adoptedSha256": "9f087111083f875f742f14b826e106d19cff6df0eb2195454295ad07dfd69ccb",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "9f087111083f875f742f14b826e106d19cff6df0eb2195454295ad07dfd69ccb",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/aeon/cutin.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/aeon/cutin.png",
+            "sha256": "e10c696a8b494241545df33f07dd001bd70445e4fc7ac96b50435643bb869edc"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-idle.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-idle-candidate-v1.png",
+      "sha256": "6ebc7a50b9fbecd7c96fb3071b78eff31b2baccfb1e03ebdf275271a0acf6ba0",
+      "adoptedSha256": "6ebc7a50b9fbecd7c96fb3071b78eff31b2baccfb1e03ebdf275271a0acf6ba0",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "6ebc7a50b9fbecd7c96fb3071b78eff31b2baccfb1e03ebdf275271a0acf6ba0",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.idle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.idle.png",
+            "sha256": "0e17c630cb6fcd3fface954daa8817bc94598f07188d6ea85b56464e02a440e2"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-walk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-walk-candidate-v1.png",
+      "sha256": "3b4c74b855cfbfdcd2f5732e4e0ab2e91cee9f2cd754514a3283bedae7d22173",
+      "adoptedSha256": "3b4c74b855cfbfdcd2f5732e4e0ab2e91cee9f2cd754514a3283bedae7d22173",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "3b4c74b855cfbfdcd2f5732e4e0ab2e91cee9f2cd754514a3283bedae7d22173",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.walk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.walk.png",
+            "sha256": "0130506d800b3611765b33aa2b9ab3fab7a9e41a014eca89a314eed5012c552c"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-talk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-talk-candidate-v1.png",
+      "sha256": "97b7d899ac94537a025f6cc22d7b85cfd47a6dba20b729fc14599770db671f9e",
+      "adoptedSha256": "97b7d899ac94537a025f6cc22d7b85cfd47a6dba20b729fc14599770db671f9e",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "97b7d899ac94537a025f6cc22d7b85cfd47a6dba20b729fc14599770db671f9e",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.talk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.talk.png",
+            "sha256": "9d90955bf7caa5cbb81ff650d2bd3fe4aa80388acf799e6c36eef19a7cf0d1b3"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-react.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-react-candidate-v1.png",
+      "sha256": "c5e35cba152e5a995301af56a23f3fdac59f1a7c6a0d1aec54c2e144308826a2",
+      "adoptedSha256": "c5e35cba152e5a995301af56a23f3fdac59f1a7c6a0d1aec54c2e144308826a2",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "c5e35cba152e5a995301af56a23f3fdac59f1a7c6a0d1aec54c2e144308826a2",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.react.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.react.png",
+            "sha256": "45cf05e0eee8d1481875a1afaf0a3831c841054f79919f84b02be167d0aac9e4"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "equipment-tree-v1": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/equipment-tree-v1.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-aeon-v1.png",
+      "sha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+      "adoptedSha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+      "purposeReview": {
+        "status": "approved",
+        "subject": "branching-tree-without-people",
+        "reason": "人物なしの木の原画を視認済み。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/weapon.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/weapon.png",
+            "sha256": "cc45daac74d376af5fb3790d2f65cba57cd00cb865cc06a426e14f62f42b5cc2"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/event-0-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-event-0-cg-candidate-v1.png",
+      "sha256": "b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db",
+      "adoptedSha256": "b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-cg.0.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-cg.0.png",
+            "sha256": "8d800473aaa1b81a0c9c76f676b46bc657c73b5df728a23b6b343cf81f072c1e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/event-1-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-event-1-cg-candidate-v1.png",
+      "sha256": "64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe",
+      "adoptedSha256": "64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-cg.1.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-cg.1.png",
+            "sha256": "eb973dd80c14c2b2ab47b942b9ec34928ef4354e9498589d20dbe291876a6998"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/event-2-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-event-2-cg-candidate-v1.png",
+      "sha256": "416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7",
+      "adoptedSha256": "416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-cg.2.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-cg.2.png",
+            "sha256": "51ef0a75a4d94736fe55723e1983b3d901226b8afd9d7707cbc47ea1776ee18a"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/event-3-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-event-3-cg-candidate-v1.png",
+      "sha256": "a4931c470f4406ce96f0275a47045b4171e1fbeacdcfa2537d74ad8c8c3f4e47",
+      "adoptedSha256": "a4931c470f4406ce96f0275a47045b4171e1fbeacdcfa2537d74ad8c8c3f4e47",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "a4931c470f4406ce96f0275a47045b4171e1fbeacdcfa2537d74ad8c8c3f4e47",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-cg.3.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-cg.3.png",
+            "sha256": "46f546b735c0aa0bb359cb1ffb834012597c99d466fc632f303965d4a52a0394"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/event-4-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-event-4-cg-candidate-v1.png",
+      "sha256": "e01d4b81fcc867209aed9083991f1bf74d8dfe229015edbc5ee4ee18fef67b4e",
+      "adoptedSha256": "e01d4b81fcc867209aed9083991f1bf74d8dfe229015edbc5ee4ee18fef67b4e",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "e01d4b81fcc867209aed9083991f1bf74d8dfe229015edbc5ee4ee18fef67b4e",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-cg.4.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-cg.4.png",
+            "sha256": "c23fc2a36869dce85e7e0d35868e8e8b9b6309f4b4e63ab055e43ab57c0141fd"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-sit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-sit-candidate-v1.png",
+      "sha256": "247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff",
+      "adoptedSha256": "247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.sit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.sit.png",
+            "sha256": "2aecbdbfe90bf02d720bf6bb92480cf1ef95105e0ba1274d73440e0678e919a0"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-work.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-work-candidate-v1.png",
+      "sha256": "bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52",
+      "adoptedSha256": "bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.work.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.work.png",
+            "sha256": "d0af8d70f5119772780a30a24a6ec29fa0c686a8443a11da11061774e417eeeb"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/aeon-v1/sd-look.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/aeon-sd-look-candidate-v1.png",
+      "sha256": "6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a",
+      "adoptedSha256": "6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-aeon/player-default/aeon-sd.look.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-aeon/player-default/aeon-sd.look.png",
+            "sha256": "ea12faec76fc6db30ff1f4f80deaebee5b3ea1323d43b28db976b0f92a4820ae"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    }
+  },
+  "checks": {
+    "identity_and_reaction": {
+      "status": "pass",
+      "evidence": [
+        "docs/characters/aeon.md",
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "three_skills": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-aeon/player-default/attack0.log",
+        "tmp/plan12-aeon/player-default/attack1.log",
+        "tmp/plan12-aeon/player-default/attack2.log"
+      ]
+    },
+    "traits_2_job_3_character_3_interaction": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-aeon/player-default/trait.png"
+      ]
+    },
+    "weapon_13_nodes": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-aeon/player-default/weapon.png"
+      ]
+    },
+    "story_3_chapters_30_pages_18_poems": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-aeon/player-default/journey.log"
+      ]
+    },
+    "events_basic_3_lover_2_target_variable_count": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-aeon/player-default/journey.log"
+      ]
+    },
+    "recruit_formation_garden_adv": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-aeon/player-default/recruit.log",
+        "tmp/plan12-aeon/player-default/formation.log",
+        "tmp/plan12-aeon/player-default/garden.log",
+        "tmp/plan12-aeon/player-default/journey.log"
+      ]
+    },
+    "save_migration_atomicity": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "automatic_regression": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "unity_compile": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-compile.log"
+      ]
+    },
+    "portrait_build_validation": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-build.log"
+      ]
+    },
+    "visual_review": {
+      "status": "pass",
+      "evidence": [
+        "docs/production/plan12-first-batch-asset-review.json"
+      ]
+    },
+    "player_default_launch": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-player.log",
+        "tmp/plan12-aeon/player-default/command.log"
+      ]
+    },
+    "job_commands_resources_and_states": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-aeon/player-default/command.log"
+      ]
+    },
+    "pre_addition_save_compatibility": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "real_asset_size_loading_memory": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/battle-art/aeon/attack.metrics.json",
+        "tmp/plan12-batch/battle-art/aeon/hit.metrics.json",
+        "tmp/plan12-batch/battle-art/aeon/cutin.metrics.json"
+      ]
+    }
+  },
+  "build": {
+    "path": "game/Builds/plan12-first-batch/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "sourceCommit": "6835e69b6598269dfe7b8be314934df333bfa668",
+    "workingTreeChanges": true,
+    "catalogHashes": {
+      "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+      "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c"
+    },
+    "latestChangeBuildLog": "tmp/plan12-batch/clear-ornament-final-build.log"
+  },
+  "unresolved": [],
+  "completionCommit": null,
+  "acceptance": "pass",
+  "acceptancePolicy": {
+    "eventCgMen": "forbidden",
+    "fallbackAssets": "missing",
+    "furniturePoses": "sit/work/look required for every form",
+    "resolution": "default launch only",
+    "expressionAlignment": "compare face position, scale and contour with normal",
+    "aspectRatio": "preserve source proportions",
+    "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
+    "physicalInput": "excluded; automated operations and actual frame review recorded separately",
+    "mastery": "character duplicates only",
+    "equipmentTree": "branching tree without people; root 1 + three branches of four tiers",
+    "sourcePurposeReview": "approve visual purpose before adoption; unchanged approved assets retain review",
+    "completion": "generated, source reviewed, integrated, runtime reviewed, form complete, published are separate states"
+  },
+  "updatedAt": "2026-10-11"
+}

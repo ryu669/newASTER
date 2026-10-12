@@ -1,0 +1,32 @@
+"""Create batch acceptance entry points, preserving the normal UI paths."""
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1];S=ROOT/'game/unity/Assets/Game/Scripts'
+def edit(p,old,new):
+    p=S/p;t=p.read_text(encoding='utf-8')
+    if new not in t:
+        assert old in t,(p,old);p.write_text(t.replace(old,new),encoding='utf-8')
+t=(S/'Presentation/Plan12AeonAcceptance.cs').read_text(encoding='utf-8')
+t=t.replace('PreparePlan12AeonCapture','PreparePlan12FirstBatchCapture').replace('"-captureAeon"','"-captureFirstBatch"').replace('"-aeonView"','"-batchView"')
+t=t.replace('string view=vi>=0?args[vi+1]:"detail",hero="heroine.aeon";','string view=vi>=0?args[vi+1]:"detail";int hi=Array.IndexOf(args,"-batchHero");string hero="heroine."+args[hi+1];\n            AcceptanceCheck(new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva"}.Contains(hero),"Known batch heroine");')
+t=t.replace('"aeon-"','hero.Substring(8)+"-"').replace('"PLAN12_AEON_PLAYER_PASS view="+view','"PLAN12_FIRST_BATCH_PLAYER_PASS hero="+hero+" view="+view')
+t=t.replace('save.home.commanderHeroineId=hero;','save.home.commanderHeroineId=null;')
+t=t.replace('AcceptanceCheck(encounter.JobState(0).Id=="job.general" && encounter.CommanderActor==0,"Aeon commands her own formation");','AcceptanceCheck(encounter.JobState(0).Id==combatDefinitions.Hero(hero).jobId,"Dedicated heroine job is active");')
+t=t.replace('if(view=="command"){encounter.State.Heroes[0].GainResource(15);AcceptanceCheck(encounter.ActivateGeneralCommand(0),"Aeon command activates");}', 'if(view=="command"){plan10UiCapture=true;ValidateJobPanelOperations(0);}')
+t=t.replace('else if(view!="battle")','else if(view!="battle")')
+t=t.replace('AcceptanceCheck(encounter.Act(0,slot,"body"),"Aeon skill executes");','foreach(var h in encounter.State.Heroes)h.TakeDamage(Math.Max(1,h.MaxHitPoints/3));AcceptanceCheck(encounter.Act(0,slot,"body"),"Dedicated heroine skill executes");')
+t=t.replace('Aeon','First-batch heroine')
+(S/'Presentation/Plan12FirstBatchAcceptance.cs').write_text(t,encoding='utf-8')
+edit('Presentation/PrototypeBootstrap.cs','PreparePlan12AeonCapture(args);','PreparePlan12AeonCapture(args);\n            PreparePlan12FirstBatchCapture(args);')
+edit('Presentation/PrototypeBootstrap.cs','var source=Resources.Load<TextAsset>(', 'var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-captureFirstBatch")?"Combat/battle-plan12-first-batch":')
+edit('Presentation/ProductionStoryExperience.cs','combatDefinitions.HeroineIds.Contains("heroine.aeon")?', 'combatDefinitions.HeroineIds.Contains("heroine.iron-maiden")?"Story/plan12-first-batch-story-content":combatDefinitions.HeroineIds.Contains("heroine.aeon")?')
+edit('Presentation/ProductionStoryExperience.cs','Environment.GetCommandLineArgs().Contains("-captureAeon")','Environment.GetCommandLineArgs().Contains("-captureFirstBatch") || Environment.GetCommandLineArgs().Contains("-captureAeon")')
+edit('Presentation/Plan12ArtSweepAcceptance.cs','hero=="heroine.aeon")','new[]{"heroine.aeon","heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva"}.Contains(hero))')
+build=ROOT/'game/unity/Assets/Game/Editor/Plan12AeonBuild.cs';t=build.read_text(encoding='utf-8').replace('Plan12AeonBuild','Plan12FirstBatchBuild')
+t=t.replace('Directory.GetFiles("Assets/Game/Resources/Illustrations","*aeon*.png")','new[]{"iron-maiden","avalanche","anathema","shiva"}.SelectMany(k=>Directory.GetFiles("Assets/Game/Resources/Illustrations","*"+k+"*.png")).ToArray()')
+t=t.replace('paths.Length!=21','paths.Length!=84').replace('"Combat/battle-plan12-aeon"','"Combat/battle-plan12-first-batch"').replace('"Story/plan12-aeon-story-content"','"Story/plan12-first-batch-story-content"').replace('combat.HeroineIds.Length!=16','combat.HeroineIds.Length!=20')
+t=t.replace('home.weaponNodes.Count(n=>n.heroineId=="heroine.aeon")!=13','new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva"}.Any(id=>home.weaponNodes.Count(n=>n.heroineId==id)!=13)')
+t=t.replace('PLAN12_AEON_UNITY_PASS 16 forms / 13 people / 21 images / 13 tree nodes / 30 pages','PLAN12_FIRST_BATCH_UNITY_PASS 20 forms / 17 people / 84 new images / 52 new tree nodes / 120 new pages')
+t=t.replace('../Builds/plan12-aeon/','../Builds/plan12-first-batch/').replace('PLAN12_AEON_BUILD_PASS','PLAN12_FIRST_BATCH_BUILD_PASS')
+t=t.replace('        AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);','        Plan12AssetReviewGate.Validate();\n        HeroinePortraitBuildValidation.Validate();\n        AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);')
+(build.parent/'Plan12FirstBatchBuild.cs').write_text(t,encoding='utf-8')
+print('FIRST_BATCH_RUNTIME_PREPARED; normal default remains Aeon until validated')

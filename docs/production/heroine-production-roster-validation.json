@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "videoFilesCovered": 233,
+  "peopleCandidates": 197,
+  "sourceTotals": {
+    "aa": {
+      "videos": 107,
+      "people": 87,
+      "provisionalForms": 106,
+      "implementedForms": 20
+    },
+    "kyoshin": {
+      "videos": 126,
+      "people": 110,
+      "provisionalForms": 126,
+      "implementedForms": 0
+    }
+  },
+  "implementedPeopleCovered": 17,
+  "implementedFormsCovered": 20,
+  "nameReadingsKyoshin": 126,
+  "limits": [
+    "AA names primarily from filenames",
+    "Costume labels for Kyoshin are visual provisional labels",
+    "AA002 extra video grouping provisional",
+    "Not a character profile or full audio review"
+  ],
+  "ladyXSeparatePeopleVerified": true,
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json"
+}

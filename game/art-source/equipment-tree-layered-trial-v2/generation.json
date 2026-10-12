@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "mode": "built-in image_gen",
+  "status": "prototype",
+  "assets": [
+    {
+      "key": "common-tree",
+      "prompt": "One shared base asset for fantasy RPG equipment growth tree. Natural real tree illustration, intricate dark brown charcoal bark, broad rooted trunk with twisting exposed roots, three major spreading boughs branching into many delicate uneven twigs, asymmetrical organic silhouette. Sparse small neutral silver gray leaves scattered over branch tips, airy crown with open spaces so game buttons can sit on visible boughs. Whole tree including all root and twig tips within generous margins. Landscape 1536x1024 transparent background. Hand-painted high-quality fantasy game illustration. NO UI, sockets, circles, labels, people, creatures, jewels, metal ornaments, emblems, ground or backdrop. This must look like an actual living ancient tree, not a diagram, wire, metal conduit or geometric Y. Trunk centered near x50% bottom85%; main boughs spread left center right with four readable branch junctions up each direction. Do not render UI.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-bfed66e8-4ce7-424b-a283-0b9905bb1375.png",
+      "path": "game/art-source/equipment-tree-layered-trial-v2/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "nativeSize": [
+        1536,
+        1024
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "key": "silver-leaf",
+      "prompt": "One single tiny silver metallic leaf applique for a fantasy game tree, finely painted, softly curved leaf with subtle veins and dark stem, vertical three-quarter view, isolated centered with wide margins. 512x512 transparent background. One leaf only, no cluster, garland, tree, person, UI, letters or backdrop.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-548c41e9-11be-4e98-9358-625d2c502be1.png",
+      "path": "game/art-source/equipment-tree-layered-trial-v2/silver-leaf.png",
+      "sha256": "abb3223915d54f509f21f3877ea47be4d77f96507af0c9ac744446290481ea07",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "ruby",
+      "prompt": "One single small dark crimson ruby in a minimal black iron setting with tiny gold edge, a droplet charm, fine painted fantasy game item applique, isolated centered generous margins. 512x512 transparent background. One tiny jewel only, NO large emblem, chain, garland, leaf, tree, person, UI, text or backdrop.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-a58cc43d-8a76-4d98-b953-f48d37026a67.png",
+      "path": "game/art-source/equipment-tree-layered-trial-v2/ruby.png",
+      "sha256": "e2e726fdc113a5f162141185876e1262a9d306f79daca723e72f6960be5d6a1d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ]
+    },
+    {
+      "key": "iron-clasp",
+      "prompt": "One single small black wrought iron branch clasp, narrow curled bracket with subtle silver engraved edge and one tiny gold rivet, fantasy game item illustration, isolated centered generous margins. 512x512 transparent background. One compact clasp only, NO large crest, garland, tree, branches, person, letters, UI or backdrop.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-5d891318-e486-486d-b5c1-78df9c313be1.png",
+      "path": "game/art-source/equipment-tree-layered-trial-v2/iron-clasp.png",
+      "sha256": "f77f43fd7537e063a90860ae84edca63896277f6bc616b3787dad842b31c4ef9",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "alphaRange": [
+        0,
+        255
+      ]
+    }
+  ]
+}

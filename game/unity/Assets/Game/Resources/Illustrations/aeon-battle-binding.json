@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.aeon",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/aeon-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/aeon-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/aeon-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/aeon-cutin-candidate-v1"
+}

@@ -1,0 +1,795 @@
+{
+  "schemaVersion": 1,
+  "usage": "authoring-only template; not a runtime definition",
+  "personId": "heroine.anathema",
+  "formId": "heroine.anathema",
+  "jobId": "job.fighter",
+  "referenceSources": [
+    "011戦闘_アナテマ.mkv",
+    "docs/production/heroine-relationships.md"
+  ],
+  "profile": "docs/characters/anathema.md",
+  "adoptionDecisions": "docs/production/heroine-relationships.md",
+  "status": "complete_published",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/standing.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-standing-candidate-v1.png",
+      "sha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc",
+      "adoptedSha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-battle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-battle.png",
+            "sha256": "ff5cad566871275caf231ad47b2635b29acc01ed1e2dd5bc28179f57f32706fd"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/portrait.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/heroine-portrait-anathema-v1.png",
+      "sha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba",
+      "adoptedSha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-detail.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-detail.png",
+            "sha256": "42be157a12a2d32d5a9c9164d09c95ae5f47e701db2215fe5354d61176f63ca3"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/expression-joy.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-expression-joy-candidate-v1.png",
+      "sha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f",
+      "adoptedSha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-expression.joy.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.joy.png",
+            "sha256": "0a94036fe73973ef29d5e0846df015f391f238541b4cc7bf8ccf55677e2acd78"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/expression-puzzled.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-expression-puzzled-candidate-v1.png",
+      "sha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5",
+      "adoptedSha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-expression.puzzled.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.puzzled.png",
+            "sha256": "b9bbb9f71c6660ced66463d9298a27d713abf38819cf84c5245c20c7518958da"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/expression-determined.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-expression-determined-candidate-v1.png",
+      "sha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551",
+      "adoptedSha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-expression.determined.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.determined.png",
+            "sha256": "bbf77dfb5ab0fb3ddda92daf5bf721fac7f44643d42e81f73cb31e1528789e8f"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/attack.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-attack-candidate-v1.png",
+      "sha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d",
+      "adoptedSha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/anathema/attack.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/anathema/attack.png",
+            "sha256": "fcaa1beccf1280c4e12d67edc222982e4e28e01dd01bccc5312c662e2cf387bd"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/hit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-hit-candidate-v1.png",
+      "sha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4",
+      "adoptedSha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/anathema/hit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/anathema/hit.png",
+            "sha256": "9dc65038dfdf2a0af14fcacfb5cd666fb7814af8cab1cbea44fd71d2c1a6a460"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/cutin.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-cutin-candidate-v1.png",
+      "sha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803",
+      "adoptedSha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/battle-art/anathema/cutin.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/battle-art/anathema/cutin.png",
+            "sha256": "b658ed8d4d17b4e05c491eb6e1c446f9656cae306b5c932178659544816a7afe"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-idle.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-idle-candidate-v1.png",
+      "sha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a",
+      "adoptedSha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.idle.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.idle.png",
+            "sha256": "d403a18bf89b862374ade926ca62a99b6419b5c8e05f6e9384b07f77359457c3"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-walk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-walk-candidate-v1.png",
+      "sha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980",
+      "adoptedSha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.walk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.walk.png",
+            "sha256": "6ab04e76e15c767c12fb1bf822cab1a5b5ed13234892a9b9aedfccfe61e068ad"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-talk.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-talk-candidate-v1.png",
+      "sha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117",
+      "adoptedSha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.talk.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.talk.png",
+            "sha256": "51d95cacbe9e7b0f445c384eefcea3d77d368bab3db7d11e11d2dccc9ee108fa"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-react.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-react-candidate-v1.png",
+      "sha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f",
+      "adoptedSha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.react.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.react.png",
+            "sha256": "2095d4d228b69d61a755022a68477f29c4065d97fbe6f1a5d45a9760a74e8e2e"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "equipment-tree-v1": {
+      "status": "approved",
+      "source": "docs/production/plan12-anathema-tree-bundle.json",
+      "adopted": "game/unity/Assets/Game/Resources/UI/WeaponTrees/anathema.json",
+      "sha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+      "adoptedSha256": "ea4bc2906086fff79298051c38f269fbb809930fc53bea1cb103dde80b4dc2d7",
+      "purposeReview": {
+        "status": "approved",
+        "subject": "layered-branching-tree-without-people",
+        "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/clear-ornaments/anathema.png",
+          "tmp/plan12-batch/clear-ornaments/anathema.log"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/clear-ornaments/anathema.png",
+            "sha256": "71db733c804a6beaf8ff5289e08e1b53a3e17e6d7d7a28fe029909c541a21d90"
+          }
+        ],
+        "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+        "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+        "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/event-0-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-event-0-cg-candidate-v1.png",
+      "sha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8",
+      "adoptedSha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-cg.0.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.0.png",
+            "sha256": "038a22baa13c46123ff08a4347670ccddcb54c7e2d186a3e47d2221c45c9b122"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/event-1-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-event-1-cg-candidate-v1.png",
+      "sha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519",
+      "adoptedSha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-cg.1.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.1.png",
+            "sha256": "09364abe3b7e5da779b79edf78a3f3acc2a155da1763457508dca866687bbfdd"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/event-2-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-event-2-cg-candidate-v1.png",
+      "sha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1",
+      "adoptedSha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-cg.2.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.2.png",
+            "sha256": "ece0e2a42913aa79d2e38b26624eb4e1895f1a71d351cd8ae58cd5cc4351b0fa"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/event-3-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-event-3-cg-candidate-v1.png",
+      "sha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5",
+      "adoptedSha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-cg.3.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.3.png",
+            "sha256": "ca251ccbb83c04305e0b1b422bc376946abbcd61b5364fbb5a8e869f076565ac"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/event-4-cg.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-event-4-cg-candidate-v1.png",
+      "sha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d",
+      "adoptedSha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-cg.4.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.4.png",
+            "sha256": "e0b5d45f3c80e1c5f01b50414c32c068b83b76f2d6ce0040be89e5a38e984285"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-sit.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-sit-candidate-v1.png",
+      "sha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b",
+      "adoptedSha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.sit.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.sit.png",
+            "sha256": "426f0a2ad1dd678b9702082f73756488e2ef72f6fe4815735d3071cd1c59fd74"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-work.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-work-candidate-v1.png",
+      "sha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed",
+      "adoptedSha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.work.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.work.png",
+            "sha256": "8e766750ec4b6057f1e48a5a12b386ef526e54583b47e66ad721b50250f8064a"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/anathema-v1/sd-look.png",
+      "adopted": "game/unity/Assets/Game/Resources/Illustrations/anathema-sd-look-candidate-v1.png",
+      "sha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05",
+      "adoptedSha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05",
+      "purposeReview": {
+        "status": "approved",
+        "subject": null,
+        "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+        "reviewedAt": "2026-10-11"
+      },
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedAt": "2026-10-11",
+        "reviewedSha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05",
+        "resolution": "1920x1080 default launch",
+        "method": "manual actual Player frame review; physical input excluded",
+        "evidence": [
+          "tmp/plan12-batch/player-default/anathema/anathema-sd.look.png"
+        ],
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.look.png",
+            "sha256": "7ffcf65f74aaa5ba7d7dd29ad29a0acfb9a91ada67e5126ce3f2979818d6e734"
+          }
+        ]
+      },
+      "validation": "source hash and actual default-resolution Player frame reviewed"
+    }
+  },
+  "checks": {
+    "identity_and_reaction": {
+      "status": "pass",
+      "evidence": [
+        "docs/characters/anathema.md",
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "three_skills": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/anathema/attack0.log",
+        "tmp/plan12-batch/player-default/anathema/attack1.log",
+        "tmp/plan12-batch/player-default/anathema/attack2.log"
+      ]
+    },
+    "traits_2_job_3_character_3_interaction": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/anathema/trait.png"
+      ]
+    },
+    "weapon_13_nodes": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/anathema/anathema-tree.png",
+        "tmp/plan12-batch/hanging-ornaments/anathema.png",
+        "tmp/plan12-batch/clear-ornaments/anathema.png"
+      ]
+    },
+    "story_3_chapters_30_pages_18_poems": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/player-default/anathema/journey.log"
+      ]
+    },
+    "events_basic_3_lover_2_target_variable_count": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/anathema/journey.log"
+      ]
+    },
+    "recruit_formation_garden_adv": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/anathema/recruit.log",
+        "tmp/plan12-batch/player-default/anathema/formation.log",
+        "tmp/plan12-batch/player-default/anathema/garden.log",
+        "tmp/plan12-batch/player-default/anathema/journey.log"
+      ]
+    },
+    "save_migration_atomicity": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "automatic_regression": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log"
+      ]
+    },
+    "unity_compile": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-compile.log"
+      ]
+    },
+    "portrait_build_validation": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-build.log"
+      ]
+    },
+    "visual_review": {
+      "status": "pass",
+      "evidence": [
+        "docs/production/plan12-first-batch-asset-review.json",
+        "tmp/plan12-batch/hanging-ornaments/anathema.png",
+        "tmp/plan12-batch/clear-ornaments/anathema.png"
+      ]
+    },
+    "player_default_launch": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-player.log",
+        "tmp/plan12-batch/player-default/anathema/command.log"
+      ]
+    },
+    "job_commands_resources_and_states": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/player-default/anathema/command.log"
+      ]
+    },
+    "pre_addition_save_compatibility": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/production-core-validation.log",
+        "tmp/plan12-batch/production-player.log"
+      ]
+    },
+    "real_asset_size_loading_memory": {
+      "status": "pass",
+      "evidence": [
+        "tmp/plan12-batch/battle-art/anathema/attack.metrics.json",
+        "tmp/plan12-batch/battle-art/anathema/hit.metrics.json",
+        "tmp/plan12-batch/battle-art/anathema/cutin.metrics.json"
+      ]
+    }
+  },
+  "build": {
+    "path": "game/Builds/plan12-first-batch/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "sourceCommit": "6835e69b6598269dfe7b8be314934df333bfa668",
+    "workingTreeChanges": true,
+    "catalogHashes": {
+      "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+      "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c"
+    },
+    "latestChangeBuildLog": "tmp/plan12-batch/clear-ornament-final-build.log"
+  },
+  "unresolved": [],
+  "completionCommit": null,
+  "acceptance": "pass",
+  "acceptancePolicy": {
+    "eventCgMen": "forbidden",
+    "fallbackAssets": "missing",
+    "furniturePoses": "sit/work/look required for every form",
+    "resolution": "default launch only",
+    "expressionAlignment": "compare face position, scale and contour with normal",
+    "aspectRatio": "preserve source proportions",
+    "completedReview": "reopen only changed assets or affected display paths; decide completion per form",
+    "physicalInput": "excluded; automated operations and actual frame review recorded separately",
+    "mastery": "character duplicates only",
+    "equipmentTree": "branching tree without people; root 1 + three branches of four tiers",
+    "sourcePurposeReview": "approve visual purpose before adoption; unchanged approved assets retain review",
+    "completion": "generated, source reviewed, integrated, runtime reviewed, form complete, published are separate states"
+  },
+  "updatedAt": "2026-10-11"
+}

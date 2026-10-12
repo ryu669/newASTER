@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 23,
+  "people": 20,
+  "added": "heroine.vindicator",
+  "record": "docs/production/plan12-vindicator-form-record.json",
+  "oldSave": "22-to-23; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}
