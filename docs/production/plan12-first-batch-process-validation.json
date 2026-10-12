@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "expectedAdoptionResult": "blocked",
+  "checks": [
+    "all four character-containing trees rejected",
+    "approving checkbox alone cannot override wrong tree subject",
+    "source hash change reopens review",
+    "21 review records per form",
+    "Aeon tree approval preserved"
+  ],
+  "rejectedTreeCount": 4,
+  "formsComplete": false,
+  "scope": "historical negative regression before layered replacement; not current release status",
+  "currentAcceptance": "docs/production/plan12-first-batch-runtime-validation.json"
+}

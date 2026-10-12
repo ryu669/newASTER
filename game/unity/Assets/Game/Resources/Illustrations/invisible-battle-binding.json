@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.invisible",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/invisible-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/invisible-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/invisible-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/invisible-cutin-candidate-v1"
+}

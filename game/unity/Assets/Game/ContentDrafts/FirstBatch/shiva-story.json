@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.shiva.poem-chapter.1",
+      "ownerId": "heroine.shiva",
+      "title": "応援の声が届くまで",
+      "introduction": "塔の謳を読んだまりかは、大きな声で呼べば届くのにと言った。窓の外では、休憩中の庭師が目を閉じている。",
+      "conclusion": "庭の椅子で並んで休む。応援する声は静かでも、あなたの隣にはちゃんと届いていた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.shiva.collection.poem.01",
+          "text": "あなたが声を落とすと、彼女も気づいた。",
+          "body": "あなたが声を落とすと、彼女も気づいた。元気を分けたい相手が、今は眠りたいかもしれない。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.02",
+          "text": "朝の練習へ誘う紙を作った。",
+          "body": "朝の練習へ誘う紙を作った。まりかは集合時刻の隣に、途中で休んでもよいと書き足す。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.03",
+          "text": "最初の一周は皆で走った。",
+          "body": "最初の一周は皆で走った。二周目に遅れた人を見つけ、彼女は戻って歩く速さを尋ねた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.04",
+          "text": "頑張れと言いかけ、肩の力を抜く。",
+          "body": "頑張れと言いかけ、肩の力を抜く。相手が話し終えるまで、環を投げずに待った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.05",
+          "text": "謳の塔からは命令だけが響いた。",
+          "body": "謳の塔からは命令だけが響いた。応える声を聞かなければ、閉じた窓と変わらないと彼女は話す。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.06",
+          "text": "練習の後、温かい飲み物を分けた。",
+          "body": "練習の後、温かい飲み物を分けた。走らなかった人にも、まりかは同じ椀を差し出した。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、応援の声が届くまでで今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "塔の謳を読んだまりかは、大きな声で呼べば届くのにと言った。窓の外では、休憩中の庭師が目を閉じている。",
+        "あなたが声を落とすと、彼女も気づいた。元気を分けたい相手が、今は眠りたいかもしれない。",
+        "朝の練習へ誘う紙を作った。まりかは集合時刻の隣に、途中で休んでもよいと書き足す。",
+        "最初の一周は皆で走った。二周目に遅れた人を見つけ、彼女は戻って歩く速さを尋ねた。",
+        "頑張れと言いかけ、肩の力を抜く。相手が話し終えるまで、環を投げずに待った。",
+        "謳の塔からは命令だけが響いた。応える声を聞かなければ、閉じた窓と変わらないと彼女は話す。",
+        "練習の後、温かい飲み物を分けた。走らなかった人にも、まりかは同じ椀を差し出した。",
+        "あなたが楽しかったと伝えると、彼女はほっと笑う。大きな歓声より、その返事を待っていた。",
+        "次の予定には、散歩の組もできた。まりかは両方の道を確かめ、戻る場所を一つにした。",
+        "庭の椅子で並んで休む。応援する声は静かでも、あなたの隣にはちゃんと届いていた。"
+      ]
+    },
+    {
+      "id": "heroine.shiva.poem-chapter.2",
+      "ownerId": "heroine.shiva",
+      "title": "懐音先輩への便り",
+      "introduction": "記憶晶竜の謳を整理する机で、まりかは便箋を広げた。懐音先輩へ何から書こうか迷っている。",
+      "conclusion": "庭へ出る時、あなたを明日の散歩へ誘った。思い出を話した後にも、新しい約束をする声が弾んでいた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.shiva.collection.poem.07",
+          "text": "楽しい話ばかり並べると、今日の疲れを隠してしまう。",
+          "body": "楽しい話ばかり並べると、今日の疲れを隠してしまう。彼女は最初の一行を消した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.08",
+          "text": "あなたは今日の練習を尋ねた。",
+          "body": "あなたは今日の練習を尋ねた。まりかは走り過ぎたことも、皆で休めたことも話した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.09",
+          "text": "謳には、過去の声に返事をし続けた人がいる。",
+          "body": "謳には、過去の声に返事をし続けた人がいる。彼女は便箋へ、今ここで会った人のことを書いた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.10",
+          "text": "懐音のことを大切に思う話を、あなたにも聞いてほしいと言う。",
+          "body": "懐音のことを大切に思う話を、あなたにも聞いてほしいと言う。あなたは筆を置き、続きを待った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.11",
+          "text": "遠い記憶の意味を、一つの答えへ急ぎたくない。",
+          "body": "遠い記憶の意味を、一つの答えへ急ぎたくない。まりかは知っている声と、分からないことを分けて話した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.12",
+          "text": "窓辺の花が風で傾いた。",
+          "body": "窓辺の花が風で傾いた。あなたが鉢を戻すと、彼女はその仕草を手紙へ書き加えた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、懐音先輩への便りで今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳を整理する机で、まりかは便箋を広げた。懐音先輩へ何から書こうか迷っている。",
+        "楽しい話ばかり並べると、今日の疲れを隠してしまう。彼女は最初の一行を消した。",
+        "あなたは今日の練習を尋ねた。まりかは走り過ぎたことも、皆で休めたことも話した。",
+        "謳には、過去の声に返事をし続けた人がいる。彼女は便箋へ、今ここで会った人のことを書いた。",
+        "懐音のことを大切に思う話を、あなたにも聞いてほしいと言う。あなたは筆を置き、続きを待った。",
+        "遠い記憶の意味を、一つの答えへ急ぎたくない。まりかは知っている声と、分からないことを分けて話した。",
+        "窓辺の花が風で傾いた。あなたが鉢を戻すと、彼女はその仕草を手紙へ書き加えた。",
+        "「今度、この人の話もしたいな」。あなたが照れると、まりかは筆を止めずに笑った。",
+        "封をする前に、返事を急がなくてよいと添えた。便りを送ることと、相手の暮らしを待つことを一緒に選んだ。",
+        "庭へ出る時、あなたを明日の散歩へ誘った。思い出を話した後にも、新しい約束をする声が弾んでいた。"
+      ]
+    },
+    {
+      "id": "heroine.shiva.poem-chapter.3",
+      "ownerId": "heroine.shiva",
+      "title": "世界より小さな約束",
+      "introduction": "紅晶暴君の謳を読んだ夜、まりかは世界を救うという言葉の大きさに黙った。机には明日の買い物表がある。",
+      "conclusion": "世界を変える宣言はなかった。明日の皿を洗う約束が、まりかをあなたの隣へ帰してくれた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.shiva.collection.poem.13",
+          "text": "全部を引き受ければ誰かが楽になる。",
+          "body": "全部を引き受ければ誰かが楽になる。そう考えて、先に返事をしたことはないかと尋ねた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.01",
+          "reason": "「岩の胸にも、眠れない灯」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.14",
+          "text": "あなたは表の空欄を見せた。",
+          "body": "あなたは表の空欄を見せた。頼める人へ聞く前に、まりかの名前ばかり書くつもりはなかった。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.02",
+          "reason": "「掘り当てた朝を、一人で抱かない」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.15",
+          "text": "彼女は魚を選ぶ役を引き受け、重い荷は一緒に持ってほしいと頼んだ。",
+          "body": "彼女は魚を選ぶ役を引き受け、重い荷は一緒に持ってほしいと頼んだ。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.03",
+          "reason": "「鍵の重さは、扉より深い」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.16",
+          "text": "朝市へ行くと、予定の店は閉まっていた。",
+          "body": "朝市へ行くと、予定の店は閉まっていた。まりかは慌てたが、あなたと別の食材を探した。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.04",
+          "reason": "「冷えた掌へ、欠片を渡す」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.17",
+          "text": "一つの予定が変わっても、食事は作れる。",
+          "body": "一つの予定が変わっても、食事は作れる。彼女は籠の葉物を見て、ようやく息を吐いた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.05",
+          "reason": "「光る石にも、休む夜を」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.shiva.collection.poem.18",
+          "text": "謳の王は、自分以外の答えを許さなかった。",
+          "body": "謳の王は、自分以外の答えを許さなかった。まりかは台所で皆の好みを聞き、味付けを変えた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.06",
+          "reason": "「暗さを語れば、火は近くなる」を受け、世界より小さな約束で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "紅晶暴君の謳を読んだ夜、まりかは世界を救うという言葉の大きさに黙った。机には明日の買い物表がある。",
+        "全部を引き受ければ誰かが楽になる。そう考えて、先に返事をしたことはないかと尋ねた。",
+        "あなたは表の空欄を見せた。頼める人へ聞く前に、まりかの名前ばかり書くつもりはなかった。",
+        "彼女は魚を選ぶ役を引き受け、重い荷は一緒に持ってほしいと頼んだ。",
+        "朝市へ行くと、予定の店は閉まっていた。まりかは慌てたが、あなたと別の食材を探した。",
+        "一つの予定が変わっても、食事は作れる。彼女は籠の葉物を見て、ようやく息を吐いた。",
+        "謳の王は、自分以外の答えを許さなかった。まりかは台所で皆の好みを聞き、味付けを変えた。",
+        "食事の後に眠くなると、無理に片付けを続けなかった。あなたへ頼み、明日は自分が洗うと約束した。",
+        "「あたしがついてる、って。一人で全部やるって意味じゃないよね」。あなたが頷くと、肩を寄せて笑った。",
+        "世界を変える宣言はなかった。明日の皿を洗う約束が、まりかをあなたの隣へ帰してくれた。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.shiva.event.0",
+      "ownerId": "heroine.shiva",
+      "title": "一周だけの約束",
+      "cgResourcePath": "Illustrations/shiva-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "まりかは草原で、投げる環をくるりと回した。",
+        "あなたを練習へ誘い、疲れたら歩こうと先に伝える。",
+        "一周の途中で息が上がると、自分から速さを落とした。",
+        "笑いながら戻る道で、今日の空の色を教えてくれる。",
+        "庭へ着くと、冷たい水ではなく温かい茶を選んだ。",
+        "「楽しかったって、また言ってもらいたいな」",
+        "あなたが次も来たいと答えると、まりかの声が弾んだ。",
+        "二人の予定には、走った後に休む時間も書かれた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.shiva.event.1",
+      "ownerId": "heroine.shiva",
+      "title": "便箋の空いた行",
+      "cgResourcePath": "Illustrations/shiva-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "まりかは手紙の最後の行で筆を止めていた。",
+        "懐音先輩へ、あなたのことも書きたいという。",
+        "何と呼ぶか考える顔を、あなたは隣で見守った。",
+        "元気な時も疲れた時も会いたい人、と彼女は書いた。",
+        "読み上げてから照れ、勝手に決めてよかったかと尋ねる。",
+        "あなたは嬉しいと答え、今日の話を一つ足した。",
+        "まりかは封を折り、返事が来たらまた話そうと笑う。",
+        "遠い友人の話も、今日の約束も、同じ机へ置けた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.shiva.event.2",
+      "ownerId": "heroine.shiva",
+      "title": "夕焼けの返事",
+      "cgResourcePath": "Illustrations/shiva-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "夕焼けの草原で、まりかは環を鞄へしまった。",
+        "応援の言葉ではなく、今の自分の気持ちを伝えたいという。",
+        "あなたが待つと、両手を胸の前で重ねた。",
+        "「あなたが好き。明日も、その先も、一緒にいたい」",
+        "あなたも好きだと答え、恋人として隣にいたいと伝えた。",
+        "まりかは嬉しそうに笑い、もう一度聞いてよいかと尋ねる。",
+        "同じ返事をすると、そっとあなたの手を取った。",
+        "帰り道は走らず、手の温かさを確かめながら歩いた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.shiva.event.3",
+      "ownerId": "heroine.shiva",
+      "title": "半分ずつの昼ごはん",
+      "cgResourcePath": "Illustrations/shiva-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "庭の布の上に、まりかが二つの椀を並べた。",
+        "今日は恋人と食事をする日だと、少し照れて話す。",
+        "果物を切る役をあなたへ頼み、自分は茶を用意した。",
+        "大きさが揃わなくても、先に笑って好きな方を選ぶ。",
+        "あなたが疲れていないか聞くと、今日はよく眠ったと答えた。",
+        "「休んでから来るのも、約束のうちだね」",
+        "食後は片付けを分け、余った時間を隣で過ごした。",
+        "明日の弁当の相談が、日陰の移る頃まで続いた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.shiva.event.4",
+      "ownerId": "heroine.shiva",
+      "title": "星を待つ二人",
+      "cgResourcePath": "Illustrations/shiva-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "まりかは庭の椅子で、空が暗くなるのを待っていた。",
+        "あなたが来ると、羽を少し畳んで席を空ける。",
+        "今日うまく言えなかったことを、途中で止まりながら話した。",
+        "あなたは続きを急がず、温かい椀を手渡した。",
+        "星が一つ見えると、彼女は声を上げかけて笑った。",
+        "「何もない日も、あなたと話したいな」",
+        "あなたが頷くと、まりかは肩へ静かに寄った。",
+        "帰る前に明日会う場所を決め、今夜の星をもう一度見上げた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using NewAster.Core;
+using NewAster.Data;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.Build.Reporting;
+public static class Plan12VindicatorBuild
+{
+    [Serializable] private sealed class ArtManifest { public ArtRecord[] assets; }
+    [Serializable] private sealed class ArtRecord { public string path,sha256,resourcePath,purposeReview,runtimeReview; public Capture[] captureFiles; }
+    [Serializable] private sealed class Capture {public string path,sha256;}
+    [Serializable] private sealed class FormRecord { public string status; public TreeComponent[] treeComponents,renderers; }
+    [Serializable] private sealed class TreeComponent {public string path,sha256,status;}
+    public static void ValidateRelease(){
+        ValidateAssets(true);
+        var record=JsonUtility.FromJson<FormRecord>(File.ReadAllText("../../docs/production/plan12-vindicator-form-record.json"));
+        if(record.status!="runtime_review_complete" && record.status!="complete_published" || record.treeComponents==null || record.treeComponents.Length<5)throw new Exception("Vindicator tree review incomplete.");
+        if(record.renderers==null || record.renderers.Length<4)throw new Exception("Vindicator renderer review missing.");
+        foreach(var component in record.treeComponents.Concat(record.renderers))using(var sha=SHA256.Create())if(component.status!="approved" || BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes("../../"+component.path))).Replace("-","").ToLowerInvariant()!=component.sha256)throw new Exception("Vindicator tree/renderer changed after review: "+component.path);
+        Debug.Log("PLAN12_VINDICATOR_RELEASE_ART_PASS 21 source/runtime reviews and layered tree components");
+    }
+    private static void ValidateAssets(bool release)
+    {
+        var manifest=JsonUtility.FromJson<ArtManifest>(File.ReadAllText("../art-source/vindicator-v1/generation.json"));
+        if(manifest.assets.Length!=21)throw new Exception("Vindicator requires twenty dedicated character images and a dedicated tree ornament.");
+        foreach(var a in manifest.assets){
+            if(a.purposeReview!="approved" || release && a.runtimeReview!="approved")throw new Exception("Vindicator art review incomplete: "+a.path);
+            if(release){
+                if(a.captureFiles==null || a.captureFiles.Length==0)throw new Exception("Vindicator runtime evidence missing: "+a.path);
+                foreach(var c in a.captureFiles){
+                    if(c.sha256==null || c.sha256.Length!=64)throw new Exception("Vindicator evidence digest missing: "+c.path);
+                    string evidence="../../"+c.path;
+                    if(File.Exists(evidence))using(var sha=SHA256.Create())if(BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(evidence))).Replace("-","").ToLowerInvariant()!=c.sha256)throw new Exception("Vindicator evidence changed: "+c.path);
+                }
+            }
+            string path="Assets/Game/Resources/"+a.resourcePath+".png";
+            string hash;using(var sha=SHA256.Create())hash=BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(path))).Replace("-","").ToLowerInvariant();
+            if(hash!=a.sha256 || !ProductionAssetAcceptance.Hashes.TryGetValue(a.resourcePath,out var accepted) || accepted!=hash)throw new Exception("Vindicator image digest mismatch: "+path);
+            var importer=(TextureImporter)AssetImporter.GetAtPath(path);HeroinePortraitImporter.Configure(importer);importer.SaveAndReimport();
+            var image=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            Debug.Log("VINDICATOR_IMPORT_CHECK "+a.resourcePath+" type="+AssetDatabase.GetMainAssetTypeAtPath(path)+" loaded="+(image!=null));
+            if(image==null || image.width<1536 || image.height<1024 || image.width*2!=image.height*3)throw new Exception("Vindicator image size/aspect mismatch: "+path+" dimensions="+(image==null?"null":image.width+"x"+image.height));
+        }
+    }
+    public static void ValidateAndBuild()
+    {
+        AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);ValidateAssets(false);HeroinePortraitBuildValidation.Validate();
+        var combat=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>("Combat/battle-plan12-vindicator").text);combat.Validate();
+        var story=JsonUtility.FromJson<ProductionStoryContent>(Resources.Load<TextAsset>("Story/plan12-vindicator-story-content").text);story.Validate(combat.HeroineIds,WorldCatalog.ColossusIds.ToArray());
+        var home=ProductionStoryCatalog.Home(combat,story);home.Validate(true);
+        var restored=JsonUtility.FromJson<ProductionStoryContent>(JsonUtility.ToJson(story));
+        if(combat.HeroineIds.Length!=23 || home.weaponNodes.Count(n=>n.heroineId=="heroine.vindicator")!=13 || restored.chapters.Where(c=>c.ownerId=="heroine.vindicator").Sum(c=>c.pages.Length)!=30)throw new Exception("Vindicator content incomplete.");
+        foreach(var path in home.assets.Select(a=>a.resourcePath).Distinct())if(Resources.Load(path)==null)throw new Exception("Missing production art "+path);
+        Debug.Log("PLAN12_VINDICATOR_UNITY_PASS forms=23 people=20 images=21 nodes=13 pages=30");
+        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Game/Scenes/Bootstrap.unity"},locationPathName="../Builds/plan12-vindicator/newASTER.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
+        if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Vindicator build failed "+report.summary.result);
+        string notices="../Builds/plan12-vindicator/ThirdPartyNotices/NotoSansCJKjp";Directory.CreateDirectory(notices);
+        foreach(var name in new[]{"OFL.txt","NOTICE.txt"})File.Copy("Assets/Game/Resources/Fonts/"+name,Path.Combine(notices,name),true);
+        Debug.Log("PLAN12_VINDICATOR_BUILD_PASS bytes="+report.summary.totalSize);
+    }
+}

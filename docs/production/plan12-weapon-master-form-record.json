@@ -1,0 +1,465 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.weapon-master",
+  "formId": "heroine.weapon-master",
+  "jobId": "job.gunner",
+  "status": "complete_published",
+  "profile": "docs/characters/weapon-master.md",
+  "images": {
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/attack-v1.png",
+      "sha256": "e8398fb6d98304e797eed6337184f7146ba2eb38af538917977263d77df1cf9d",
+      "resourcePath": "Illustrations/weapon-master-attack-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "e8398fb6d98304e797eed6337184f7146ba2eb38af538917977263d77df1cf9d",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/battle-attack.png",
+            "sha256": "8a70ea5d1433b9c2ebf35b518f890418e7b6477f35e8f74f260f65c209741aaf"
+          }
+        ]
+      }
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/cutin-v1.png",
+      "sha256": "b06cb20a19d442e3988652ca5de82271241ffdd8416b8fd831a6db0887ffc2ea",
+      "resourcePath": "Illustrations/weapon-master-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b06cb20a19d442e3988652ca5de82271241ffdd8416b8fd831a6db0887ffc2ea",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/battle-cutin.png",
+            "sha256": "1812d055412adbcc61b2673f39df21f7c949d0d5b263c7ddf62b7695f759fe18"
+          }
+        ]
+      }
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/event-0-cg-v1.png",
+      "sha256": "87b04b7cd725b6336fe757f436e01501ac214812ad0dec9e09f353120729f1da",
+      "resourcePath": "Illustrations/weapon-master-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "87b04b7cd725b6336fe757f436e01501ac214812ad0dec9e09f353120729f1da",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-cg.0.png",
+            "sha256": "7204ad76a0adb3fb7c279561a9b6f997f7c8ff1eb8ef2a00e1464a419160fbdd"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.0.png",
+            "sha256": "4bfe575fadf306e2516ad94226752c50e3d9d8ee584bb44ba7b088820c4eebcc"
+          }
+        ]
+      }
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/event-1-cg-v1.png",
+      "sha256": "d567fdf20fff655e3e2471993de8133eb18bbab09f48263554df58359ad23cec",
+      "resourcePath": "Illustrations/weapon-master-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "d567fdf20fff655e3e2471993de8133eb18bbab09f48263554df58359ad23cec",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-cg.1.png",
+            "sha256": "2c07b22fa5b7d430f6515df94816a2a4bdc3d6dd31740538b3838980b6fdec62"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.1.png",
+            "sha256": "5412f58b095e80b73db7176fa83a73b4cff35f53dd8c4150f841a04f8940c990"
+          }
+        ]
+      }
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/event-2-cg-v1.png",
+      "sha256": "6ced05f7abbb975cc83979c94346bf3c65d7716da28362ed06b905862850100f",
+      "resourcePath": "Illustrations/weapon-master-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "6ced05f7abbb975cc83979c94346bf3c65d7716da28362ed06b905862850100f",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-cg.2.png",
+            "sha256": "62ff46e667e52b20934ae58f21007d80dc0bbee8b122b689c8275183796ada96"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.2.png",
+            "sha256": "c4fe3acd5336445e1441bed9d99efbd35623fa4d8b6b4be552af1ed828749c02"
+          }
+        ]
+      }
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/event-3-cg-v1.png",
+      "sha256": "9d64398d530484d3755e26bbce90cc0a2dba869be67771e0bc859befe41efd2e",
+      "resourcePath": "Illustrations/weapon-master-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "9d64398d530484d3755e26bbce90cc0a2dba869be67771e0bc859befe41efd2e",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-cg.3.png",
+            "sha256": "51ba50cb8c0010e9f7a68444cdd8af077f0a66ea3c5643722cfeb5053c46fc3b"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.3.png",
+            "sha256": "14e23080a1c0e349524dd4b286ca9d2face05438be0a5c6a0ad251b6312a94f2"
+          }
+        ]
+      }
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/event-4-cg-v1.png",
+      "sha256": "83175c088ca2809932fb49f90459a376172d25929f882df26794dbaf9238b333",
+      "resourcePath": "Illustrations/weapon-master-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "83175c088ca2809932fb49f90459a376172d25929f882df26794dbaf9238b333",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-cg.4.png",
+            "sha256": "500b3c2611c92230aec7909a9cfc6d610bf964d0367c65ea5abb5c7a54bcbb48"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/gallery-frames/weapon-master-cg.4.png",
+            "sha256": "f9bdb0aa2c7ba59a3141a6ef513f0415dca6a5ac6ce1a7c98a05b4a534a33af7"
+          }
+        ]
+      }
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/expression-determined-v1.png",
+      "sha256": "ff722aca471768100f6e885afa7115289d16076230c35365436a998fbcfb7cb3",
+      "resourcePath": "Illustrations/weapon-master-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "ff722aca471768100f6e885afa7115289d16076230c35365436a998fbcfb7cb3",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-expression.determined.png",
+            "sha256": "90868cc7a53d1a575de355f670f6247370eb2f8aca8c349092902876c4ccd80f"
+          }
+        ]
+      }
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/expression-joy-v1.png",
+      "sha256": "3316fb92980255b590bf819bbb064e46edba2a328b4f8325beebf8ce371d259f",
+      "resourcePath": "Illustrations/weapon-master-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "3316fb92980255b590bf819bbb064e46edba2a328b4f8325beebf8ce371d259f",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-expression.joy.png",
+            "sha256": "0748f6fc1aa2d4ea9937f823ab01c72fb4eeb97ca48d0e5bbfff949b460dfe11"
+          }
+        ]
+      }
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/expression-puzzled-v1.png",
+      "sha256": "4f52eb421725bceb78dadc3e2de04e2fbc7ec9f3e639e28dc3bdf75bb7f618e6",
+      "resourcePath": "Illustrations/weapon-master-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "4f52eb421725bceb78dadc3e2de04e2fbc7ec9f3e639e28dc3bdf75bb7f618e6",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-expression.puzzled.png",
+            "sha256": "cfef69dc63046c1d93fb58715fc8fbeb493ecaa6ba082f0027d79e8fa9c2c2fe"
+          }
+        ]
+      }
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/hit-v1.png",
+      "sha256": "c5a38e04bae1396b370e98f29dc795167ae7610ab85eceed76545a6c67d99ff5",
+      "resourcePath": "Illustrations/weapon-master-hit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c5a38e04bae1396b370e98f29dc795167ae7610ab85eceed76545a6c67d99ff5",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/battle-hit.png",
+            "sha256": "cc69835b559a1c9f404e8b6d8f44d464da33135b59d53836d822dec79c7c1553"
+          }
+        ]
+      }
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/portrait-v1.png",
+      "sha256": "413a26ed75ac1347f8f31efa32520df997788478e7af642c2d459c1de1965034",
+      "resourcePath": "Illustrations/heroine-portrait-weapon-master-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "413a26ed75ac1347f8f31efa32520df997788478e7af642c2d459c1de1965034",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/recruit.png",
+            "sha256": "45af5710353b59f0c626bb5c75b72e5c1235bb9ab42106b1f2ba4c33a5c6acc2"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/trait.png",
+            "sha256": "30c3088f4358d7fb13cc3ab398a0caea4a103ace422fced11715db70a741cc1f"
+          }
+        ]
+      }
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-idle-v1.png",
+      "sha256": "233b2814c09b38ffe0995c7ece7e464a369f152613216385a55215c648d546d0",
+      "resourcePath": "Illustrations/weapon-master-sd-idle-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "233b2814c09b38ffe0995c7ece7e464a369f152613216385a55215c648d546d0",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.idle.png",
+            "sha256": "4c36bda84e131e76c649804fff7aba3c1b10e79e6a7c9a71bae114dd346f1e67"
+          }
+        ]
+      }
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-look-v1.png",
+      "sha256": "6731c79bc504be3e39f299dfe32b2e8f8b136562547beec663ed2877c0fd2d11",
+      "resourcePath": "Illustrations/weapon-master-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "6731c79bc504be3e39f299dfe32b2e8f8b136562547beec663ed2877c0fd2d11",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.look.png",
+            "sha256": "9ff6a8f92023c61c346fc20bf2186cc71e96b4db20e2089c5f52f2b4b06eb5ed"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+            "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+          }
+        ]
+      }
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-react-v1.png",
+      "sha256": "24672b9b9ec94b1e3faf3b59c72ae84bf66104819a8b2f23983cea398947975f",
+      "resourcePath": "Illustrations/weapon-master-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "24672b9b9ec94b1e3faf3b59c72ae84bf66104819a8b2f23983cea398947975f",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.react.png",
+            "sha256": "ac7a4577961b66d6ff0e5cc0ee3b372f6be7250f3db875323b644a5523b0a0a3"
+          }
+        ]
+      }
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-sit-v1.png",
+      "sha256": "4a9efe85874f4b948fcc9e0f0f706ab669d76c1d47ae848eacea39dd77bbda80",
+      "resourcePath": "Illustrations/weapon-master-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "4a9efe85874f4b948fcc9e0f0f706ab669d76c1d47ae848eacea39dd77bbda80",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.sit.png",
+            "sha256": "9365c830951d96b3c34187c621dd82d0d971e200d96bed36c9166e9bc629b0ee"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+            "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+          }
+        ]
+      }
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-talk-v1.png",
+      "sha256": "db6474707e6bbbdfe7778392d590224c758da2a9c4dfd75be1702f37693edc10",
+      "resourcePath": "Illustrations/weapon-master-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "db6474707e6bbbdfe7778392d590224c758da2a9c4dfd75be1702f37693edc10",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.talk.png",
+            "sha256": "49c314e8f3e60501f15d781f421140990d511bdf0aca8ea4d4417067d112c300"
+          }
+        ]
+      }
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-walk-v1.png",
+      "sha256": "44a46e4aa5dc95547017efb019eaf21fe2d7ec4cbf45483454add73c99870176",
+      "resourcePath": "Illustrations/weapon-master-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "44a46e4aa5dc95547017efb019eaf21fe2d7ec4cbf45483454add73c99870176",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.walk.png",
+            "sha256": "5dee741c6840a635da9c03e020dbf5ac0a8389557e580db2e573edcde9f67274"
+          }
+        ]
+      }
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/sd-work-v1.png",
+      "sha256": "960266ece5b2b10d2cfdc0cfa5d0c6ec89cf2d1053bb9ba8e619a77ec653a752",
+      "resourcePath": "Illustrations/weapon-master-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "960266ece5b2b10d2cfdc0cfa5d0c6ec89cf2d1053bb9ba8e619a77ec653a752",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.work.png",
+            "sha256": "585e2e748dc3d2ea32cc5069036abd9cb866dd26ca6948981e79f4b94f9750c5"
+          },
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-sd.furniture.png",
+            "sha256": "d54b04070540d86b5ea18d76d3bd9acdb5e897b39949700043e912e27538ed63"
+          }
+        ]
+      }
+    },
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/weapon-master-v1/standing-v2.png",
+      "sha256": "409771036fb4e80fb6921467e857a6872021399c1a519fc0b21ccbc103d43d92",
+      "resourcePath": "Illustrations/weapon-master-standing-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "409771036fb4e80fb6921467e857a6872021399c1a519fc0b21ccbc103d43d92",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-weapon-master/player/weapon-master-expression.normal.png",
+            "sha256": "7e338ce69c02bde015868252a2b1cc934e85596fb22c42495183489e351f3342"
+          }
+        ]
+      }
+    }
+  },
+  "treeComponents": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "status": "approved"
+    }
+  ],
+  "renderers": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "sha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "sha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "status": "approved"
+    }
+  ],
+  "resolution": "default launch 1920x1080",
+  "method": "manual actual Player frame review; automated behavior separately recorded; physical input excluded",
+  "unresolved": [],
+  "updatedAt": "2026-10-11",
+  "acceptance": "pass",
+  "build": {
+    "path": "game/Builds/plan12-weapon-master/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "workingTreeChanges": true
+  },
+  "validationLogs": [
+    {
+      "path": "tmp/plan12-weapon-master-core.log",
+      "sha256": "4b769c982ecfae9c406bd6af8b422f9f65e6855946e06ba3924f3d7738d9568c"
+    },
+    {
+      "path": "tmp/plan12-weapon-master-build-final.log",
+      "sha256": "21a6899e0ea9634ee37f9d7bf49b9110700dcb6332056a7a41e7c877d2325b93"
+    },
+    {
+      "path": "tmp/plan12-weapon-master/production-player.log",
+      "sha256": "2247648203a40350d90da4c41b2fcc9c437f1f63abd1a348c4364eabd0646c5c"
+    }
+  ],
+  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json"
+}

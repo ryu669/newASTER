@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.viper",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/viper-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/viper-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/viper-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/viper-cutin-candidate-v1"
+}

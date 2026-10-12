@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.shiva",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/shiva-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/shiva-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/shiva-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/shiva-cutin-candidate-v1"
+}

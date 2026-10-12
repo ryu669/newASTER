@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.anathema",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/anathema-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/anathema-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/anathema-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/anathema-cutin-candidate-v1"
+}

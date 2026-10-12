@@ -1,0 +1,66 @@
+[
+  {
+    "hero": "avalanche",
+    "prompt": "One small decorative open folding fan charm for a fantasy weapon tree. Black lacquer ribs, tiny warm brass fittings, ivory and dark teal fan paper, one red tassel. Front view, compact clear silhouette. Refined hand painted Japanese fantasy game item art. Single isolated ornament only, centered occupying 75% of square canvas, transparent background. No character, no hands, no tree, no text, no border, no additional objects. Intended to repeat at about 55 pixels across amongst branches; simple recognizable shapes, restrained detail.",
+    "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3c311e6a-93ed-418d-a089-b4121bdf1a91.png",
+    "asset": "avalanche-ornament-v1",
+    "sha256": "9a471fcfdbe49f5c990feab8d815733c476fe3643ae9940d8a654717e8edfd91",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "review": {
+      "status": "approved",
+      "date": "2026-10-11",
+      "reason": "原画を視認。人物なしの単独装飾、透明背景、ヒロインのモチーフを確認。"
+    }
+  },
+  {
+    "hero": "anathema",
+    "prompt": "One small cobalt blue rose ornament for a fantasy weapon tree, with two small antique gold leaves. Front view, compact round silhouette. Refined hand painted Japanese fantasy game item art. Single isolated ornament only, centered occupying 75% of square canvas, transparent background. No character, no hands, no tree, no text, no border, no additional objects. Intended to repeat at about 55 pixels across amongst branches; clear petals, simple recognizable shapes.",
+    "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4becd5aa-003b-4ba1-ab32-4a68073a0ba8.png",
+    "asset": "anathema-ornament-v1",
+    "sha256": "afaf7b0a01528d2be7b4e8ff1e17d1db8a95bc0e2d1ff49735bdd34a016bf872",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "review": {
+      "status": "approved",
+      "date": "2026-10-11",
+      "reason": "原画を視認。人物なしの単独装飾、透明背景、ヒロインのモチーフを確認。"
+    }
+  },
+  {
+    "hero": "shiva",
+    "prompt": "One small ornamental golden circular ring charm for a fantasy weapon tree, with a tiny ivory ribbon tied at its lower right and a small warm orange enamel heart inset. Front view, compact clear silhouette. Refined hand painted Japanese fantasy game item art. Single isolated ornament only, centered occupying 75% of square canvas, transparent background. No character, no hands, no tree, no text, no border, no additional objects. Intended to repeat at about 55 pixels across amongst branches; simple recognizable shapes, restrained detail.",
+    "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d4f5b5a2-078e-4194-aa26-221c674ecc87.png",
+    "asset": "shiva-ornament-v1",
+    "sha256": "f0ba70df6a21ff166604b7ebf3c08bf582560053a5f66537d137fbabe9e167de",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "review": {
+      "status": "approved",
+      "date": "2026-10-11",
+      "reason": "原画を視認。人物なしの単独装飾、透明背景、ヒロインのモチーフを確認。"
+    }
+  },
+  {
+    "hero": "neutral-flower",
+    "prompt": "A single simple ivory white five-petal blossom, tiny pale pearl center, front facing, no stem and no leaves. Delicate hand-painted fantasy game botanical sprite. Flat soft thin petals, restrained shading, neutral white with no pink or blue tint. Compact clear silhouette for use at 35 pixels. One blossom centered filling 75% of a square canvas. Transparent background. No text, frame, character, tree, or additional objects. This neutral flower will be tinted to heroine colors by the game.",
+    "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-74e53fe2-4d27-43df-a511-473adbcf241d.png",
+    "asset": "neutral-flower-v1",
+    "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "review": {
+      "status": "approved",
+      "date": "2026-10-11",
+      "reason": "原画を視認。人物なしの単独装飾、透明背景、ヒロインのモチーフを確認。"
+    }
+  }
+]

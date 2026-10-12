@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.anathema.poem-chapter.1",
+      "ownerId": "heroine.anathema",
+      "title": "青薔薇の椅子",
+      "introduction": "紅晶暴君の謳には、誰も座らない豪華な椅子があった。アナスタシアは彫刻を褒めた後、背もたれの高さを測った。",
+      "conclusion": "夕方、椅子には泥の跡が残った。アナスタシアは楽しそうに拭き、次も使うと言った。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.anathema.collection.poem.01",
+          "text": "庭の茶会にも立派な椅子を置きたいという。",
+          "body": "庭の茶会にも立派な椅子を置きたいという。あなたは、運ぶ前に座る人へ聞こうと提案した。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.01",
+          "reason": "「岩の胸にも、眠れない灯」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.02",
+          "text": "庭師は作業着を気にし、柔らかな布の椅子を避けた。",
+          "body": "庭師は作業着を気にし、柔らかな布の椅子を避けた。アナスタシアは驚いて、自分の袖を見た。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.02",
+          "reason": "「掘り当てた朝を、一人で抱かない」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.03",
+          "text": "雨の後は泥の付く道だった。",
+          "body": "雨の後は泥の付く道だった。彼女は椅子を運びかけた足を止め、まず板を敷いた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.03",
+          "reason": "「鍵の重さは、扉より深い」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.04",
+          "text": "謳の王は椅子を守るために客を追い返した。",
+          "body": "謳の王は椅子を守るために客を追い返した。彼女は席を空けるための準備こそ大切だと呟く。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.04",
+          "reason": "「冷えた掌へ、欠片を渡す」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.05",
+          "text": "茶器は揃わなかった。",
+          "body": "茶器は揃わなかった。柄の違う椀をあなたが並べると、彼女は一つずつ向きを整えた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.05",
+          "reason": "「光る石にも、休む夜を」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.06",
+          "text": "最初の客が笑って腰掛けた。",
+          "body": "最初の客が笑って腰掛けた。アナスタシアは礼儀の説明を飲み込み、温かい茶を注いだ。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.06",
+          "reason": "「暗さを語れば、火は近くなる」を受け、青薔薇の椅子で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "紅晶暴君の謳には、誰も座らない豪華な椅子があった。アナスタシアは彫刻を褒めた後、背もたれの高さを測った。",
+        "庭の茶会にも立派な椅子を置きたいという。あなたは、運ぶ前に座る人へ聞こうと提案した。",
+        "庭師は作業着を気にし、柔らかな布の椅子を避けた。アナスタシアは驚いて、自分の袖を見た。",
+        "雨の後は泥の付く道だった。彼女は椅子を運びかけた足を止め、まず板を敷いた。",
+        "謳の王は椅子を守るために客を追い返した。彼女は席を空けるための準備こそ大切だと呟く。",
+        "茶器は揃わなかった。柄の違う椀をあなたが並べると、彼女は一つずつ向きを整えた。",
+        "最初の客が笑って腰掛けた。アナスタシアは礼儀の説明を飲み込み、温かい茶を注いだ。",
+        "自分の席は最後になった。あなたが隣を引くと、そこでよいのかと小さく確かめる。",
+        "「ええ、今日はここが上座ですわ」。彼女はあなたへだけ聞こえる声で言い、焼き菓子を分けた。",
+        "夕方、椅子には泥の跡が残った。アナスタシアは楽しそうに拭き、次も使うと言った。"
+      ]
+    },
+    {
+      "id": "heroine.anathema.poem-chapter.2",
+      "ownerId": "heroine.anathema",
+      "title": "手紙の中のポメ",
+      "introduction": "記憶晶竜の謳を読む机へ、彼女は犬の小さな絵を置いた。ポメのことを、今日は話してみたいという。",
+      "conclusion": "あなたへ次の散歩も誘った。机の絵をしまう手は、別れをやり直す手ではなく、明日の約束を作る手だった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.anathema.collection.poem.07",
+          "text": "失った暮らしの話をすると、昔の家へ全部戻りたくなるのかと自分でも考えてしまう。",
+          "body": "失った暮らしの話をすると、昔の家へ全部戻りたくなるのかと自分でも考えてしまう。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.08",
+          "text": "あなたは絵を急いで持ち上げず、彼女が向けるのを待った。",
+          "body": "あなたは絵を急いで持ち上げず、彼女が向けるのを待った。丸い耳と、勢いのある尾が描かれていた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.09",
+          "text": "謳の旅人は、離れた相手が幸せでも自分を忘れたと嘆いた。",
+          "body": "謳の旅人は、離れた相手が幸せでも自分を忘れたと嘆いた。アナスタシアは、その気持ちが分かると言った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.10",
+          "text": "しばらく黙った後、幸せに暮らしているならよかったとも話す。",
+          "body": "しばらく黙った後、幸せに暮らしているならよかったとも話す。どちらも本当で、順番を決められない。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.11",
+          "text": "庭の犬の散歩を頼まれた。",
+          "body": "庭の犬の散歩を頼まれた。彼女は似た姿を探さず、その犬の歩く速さを聞いた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.12",
+          "text": "途中で水を欲しがると、あなたと器を探した。",
+          "body": "途中で水を欲しがると、あなたと器を探した。昔の習慣を、そのまま押し付けずに済んだ。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、手紙の中のポメで今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳を読む机へ、彼女は犬の小さな絵を置いた。ポメのことを、今日は話してみたいという。",
+        "失った暮らしの話をすると、昔の家へ全部戻りたくなるのかと自分でも考えてしまう。",
+        "あなたは絵を急いで持ち上げず、彼女が向けるのを待った。丸い耳と、勢いのある尾が描かれていた。",
+        "謳の旅人は、離れた相手が幸せでも自分を忘れたと嘆いた。アナスタシアは、その気持ちが分かると言った。",
+        "しばらく黙った後、幸せに暮らしているならよかったとも話す。どちらも本当で、順番を決められない。",
+        "庭の犬の散歩を頼まれた。彼女は似た姿を探さず、その犬の歩く速さを聞いた。",
+        "途中で水を欲しがると、あなたと器を探した。昔の習慣を、そのまま押し付けずに済んだ。",
+        "帰ってきた犬は飼い主へ駆けた。アナスタシアは手を振り、今度はちゃんと笑った。",
+        "絵の裏へ今日の日付を書いた。忘れないことと、ここで暮らすことは一緒にできると話した。",
+        "あなたへ次の散歩も誘った。机の絵をしまう手は、別れをやり直す手ではなく、明日の約束を作る手だった。"
+      ]
+    },
+    {
+      "id": "heroine.anathema.poem-chapter.3",
+      "ownerId": "heroine.anathema",
+      "title": "誓いを言い直す",
+      "introduction": "塔の謳に、立派な誓いを守るために助けを断った騎士がいた。彼女は剣の鞘へ手を置く。",
+      "conclusion": "青薔薇の剣は椅子の脇に置かれた。騎士の誓いは、隣の人へ椀を渡す仕草にも続いていた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.anathema.collection.poem.13",
+          "text": "騎士なら一人で片付けるべきだと、昔なら言ったかもしれない。",
+          "body": "騎士なら一人で片付けるべきだと、昔なら言ったかもしれない。あなたが荷車を示すと、少し困った顔をした。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.14",
+          "text": "茶会の道具を運ぶ仕事だった。",
+          "body": "茶会の道具を運ぶ仕事だった。重さは持てても、扉を開ける手が足りない。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.15",
+          "text": "彼女は剣を外し、あなたへ戸を頼んだ。",
+          "body": "彼女は剣を外し、あなたへ戸を頼んだ。小さな依頼なのに、言い終えるまで時間が掛かった。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.16",
+          "text": "庭の風で布が飛んだ。",
+          "body": "庭の風で布が飛んだ。あなたが荷を置く間、アナスタシアが走って拾った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.17",
+          "text": "一人で完璧に運ぶ予定は崩れた。",
+          "body": "一人で完璧に運ぶ予定は崩れた。それでも誰もけがをせず、茶器も揃った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.anathema.collection.poem.18",
+          "text": "謳の騎士は、誓いを言い直す言葉を持たなかった。",
+          "body": "謳の騎士は、誓いを言い直す言葉を持たなかった。彼女は新しい紙へ、助けが必要なら頼むと書く。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、誓いを言い直すで今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "塔の謳に、立派な誓いを守るために助けを断った騎士がいた。彼女は剣の鞘へ手を置く。",
+        "騎士なら一人で片付けるべきだと、昔なら言ったかもしれない。あなたが荷車を示すと、少し困った顔をした。",
+        "茶会の道具を運ぶ仕事だった。重さは持てても、扉を開ける手が足りない。",
+        "彼女は剣を外し、あなたへ戸を頼んだ。小さな依頼なのに、言い終えるまで時間が掛かった。",
+        "庭の風で布が飛んだ。あなたが荷を置く間、アナスタシアが走って拾った。",
+        "一人で完璧に運ぶ予定は崩れた。それでも誰もけがをせず、茶器も揃った。",
+        "謳の騎士は、誓いを言い直す言葉を持たなかった。彼女は新しい紙へ、助けが必要なら頼むと書く。",
+        "あなたが署名を求めると、大げさですわと笑った。けれど、自分の名前を丁寧に書いた。",
+        "「明日も、隣にいてくださる？」。仕事の依頼より静かな声へ、あなたは返事をした。",
+        "青薔薇の剣は椅子の脇に置かれた。騎士の誓いは、隣の人へ椀を渡す仕草にも続いていた。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.anathema.event.0",
+      "ownerId": "heroine.anathema",
+      "title": "お茶会の招待状",
+      "cgResourcePath": "Illustrations/anathema-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "アナスタシアは小さな招待状をあなたへ渡した。",
+        "庭のすぐ隣なのに、丁寧な地図まで描いてある。",
+        "あなたが時刻通りに着くと、彼女は先に席を温めていた。",
+        "茶葉を選んだ理由を話し、好みに合うか少し心配そうに見る。",
+        "あなたがおいしいと答えると、胸を張るまで一拍掛かった。",
+        "今日は格式より、あなたが来たことが嬉しいという。",
+        "焼き菓子を二つに分け、欠けた所を笑い合った。",
+        "次の招待は口で伝えてもよいかと、帰り際に尋ねた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.anathema.event.1",
+      "ownerId": "heroine.anathema",
+      "title": "絵の裏の近況",
+      "cgResourcePath": "Illustrations/anathema-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "机に置かれた犬の絵を、彼女がそっと向けた。",
+        "ポメの話を、今日は嬉しい所まで聞いてほしいという。",
+        "あなたは椅子を寄せ、彼女の話す速さに合わせた。",
+        "寂しさがなくなったわけではないと、アナスタシアは話す。",
+        "それでも幸せでいてほしいと、自分の声で言えた。",
+        "あなたが頷くと、絵の裏へ今日の散歩の話を書いた。",
+        "「あなたにも、また聞いていただきたいですわ」",
+        "その願いを聞いたあなたへ、彼女は新しい茶を淹れた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.anathema.event.2",
+      "ownerId": "heroine.anathema",
+      "title": "名前で交わす誓い",
+      "cgResourcePath": "Illustrations/anathema-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "青薔薇の前で、アナスタシアは剣を置いた。",
+        "騎士の宣言より、自分の願いを聞いてほしいという。",
+        "あなたが向き合うと、誇らしげな声が少し震えた。",
+        "「あなたが好きです。アナスタシアとして、隣にいたいの」",
+        "あなたも好きだと伝え、恋人として一緒に歩みたいと答えた。",
+        "彼女は目を見開き、やがて嬉しそうに頷いた。",
+        "手を取ってよいかと尋ね、返事を待ってから指を重ねる。",
+        "二人の誓いは小さな声で交わされ、帰る道にも続いていた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.anathema.event.3",
+      "ownerId": "heroine.anathema",
+      "title": "焼き色の相談",
+      "cgResourcePath": "Illustrations/anathema-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "台所で、アナスタシアが丸い生地を並べていた。",
+        "恋人へ出すのだから完璧に、と言いかけてあなたを呼ぶ。",
+        "同じ厚さにする方法を尋ねられ、二人で板を探した。",
+        "袖へ粉が付くと、彼女は少しだけ照れて笑った。",
+        "焼き上がりの一つは色が濃く、あなたが半分を取った。",
+        "彼女も食べてみて、次は時間を短くしようと頷く。",
+        "「また一緒に作ってくださる？」",
+        "あなたの返事を聞き、失敗した分まで包んで大切に持ち帰った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.anathema.event.4",
+      "ownerId": "heroine.anathema",
+      "title": "窓辺の休息",
+      "cgResourcePath": "Illustrations/anathema-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "夕方の窓辺で、彼女は青薔薇の剣を外した。",
+        "あなたへ温かい椀を渡し、自分も椅子へ腰掛ける。",
+        "今日は何も立派なことをしていないと、少し困った顔をした。",
+        "あなたは一緒に食事をしたかったと伝えた。",
+        "アナスタシアは安心したように笑い、肩を寄せる。",
+        "明日の予定へ、ただ休む時間を一つ残した。",
+        "あなたがその時間に会いたいと言うと、嬉しそうに印を付けた。",
+        "窓の灯りを消す前に、恋人の名前を静かに呼んだ。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

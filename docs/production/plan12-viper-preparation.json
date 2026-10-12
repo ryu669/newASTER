@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-11",
+  "personId": "heroine.viper",
+  "formId": "heroine.viper",
+  "planningId": "aa.person.017",
+  "name": "ヴァイパー",
+  "realName": "ドロシー・ナイナー",
+  "jobId": "job.gunner",
+  "available": true,
+  "status": "accepted-normal-play",
+  "baselineForms": 21,
+  "targetForms": 22,
+  "profile": "docs/characters/viper.md",
+  "reference": "docs/references/characters/viper.md",
+  "draftManifest": "game/unity/Assets/Game/ContentDrafts/Viper/manifest.json",
+  "artManifest": "game/art-source/viper-v1/generation.json",
+  "validation": {
+    "log": "tmp/plan12-viper-core.log",
+    "status": "pass",
+    "assertions": 12120,
+    "skills": "all 3 at levels 1-7 actual battle execution",
+    "baseline": "all previous heroine/skill/chain/reference/story records unchanged"
+  },
+  "remaining": [],
+  "completionRecord": "docs/production/plan12-viper-form-record.json"
+}

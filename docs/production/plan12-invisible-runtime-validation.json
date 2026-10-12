@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 21,
+  "people": 18,
+  "added": "heroine.invisible",
+  "record": "docs/production/plan12-invisible-form-record.json",
+  "oldSave": "20-to-21; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}

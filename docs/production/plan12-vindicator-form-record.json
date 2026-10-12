@@ -1,0 +1,526 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.vindicator",
+  "formId": "heroine.vindicator",
+  "jobId": "job.defender",
+  "status": "complete_published",
+  "profile": "docs/characters/vindicator.md",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/standing.png",
+      "sha256": "493f7185ddee1cd412eb928bb0bea2b3f9a5082d7680913358712e6e73f95b41",
+      "resourcePath": "Illustrations/vindicator-standing-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "493f7185ddee1cd412eb928bb0bea2b3f9a5082d7680913358712e6e73f95b41",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-expression.normal.png",
+            "sha256": "80e742a10f3904dcd94027d7f972e5c3807a4c78aa73ec362900f0a37126018c"
+          }
+        ]
+      }
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/portrait.png",
+      "sha256": "f8ef5f4c97223887b1fb4a62b7ad4f15dc8f5a0520d4f8f502f10671ffb818cc",
+      "resourcePath": "Illustrations/heroine-portrait-vindicator-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "f8ef5f4c97223887b1fb4a62b7ad4f15dc8f5a0520d4f8f502f10671ffb818cc",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/recruit.png",
+            "sha256": "678515768df848cb70831f4f0dbc22ab06739bd1d55d8872a05f186c44a3cd1f"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/trait.png",
+            "sha256": "e10f698b0f6e593eb57d11f24db989960c625df3eddc2cb8068dc7e2221d02c4"
+          }
+        ]
+      }
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/expression-joy.png",
+      "sha256": "bb25f5fababd7ad0998cc8c7b2847dd4496b9c6d6b4c5ad4d13a1f36abbf7aaa",
+      "resourcePath": "Illustrations/vindicator-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "bb25f5fababd7ad0998cc8c7b2847dd4496b9c6d6b4c5ad4d13a1f36abbf7aaa",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-expression.joy.png",
+            "sha256": "f84f5fa6cd1d3d3febdb29f69a93736a5b21622e7c573918b6cc9e1a7b04a0db"
+          }
+        ]
+      }
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/expression-puzzled.png",
+      "sha256": "c59f59f05a6b5fbc0e95642b941f4735e153106bb12cdc7c3c881c34fd606be5",
+      "resourcePath": "Illustrations/vindicator-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c59f59f05a6b5fbc0e95642b941f4735e153106bb12cdc7c3c881c34fd606be5",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-expression.puzzled.png",
+            "sha256": "ff4aec24d7920c03336bb52aa31487ccbfbaad74e13f44ea5e75c48fa8eaa21c"
+          }
+        ]
+      }
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/expression-determined.png",
+      "sha256": "d83e6eb910beafca47c7745dc1700c5e65e8a803c0d1ea70e8a09a839ab14dc3",
+      "resourcePath": "Illustrations/vindicator-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "d83e6eb910beafca47c7745dc1700c5e65e8a803c0d1ea70e8a09a839ab14dc3",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-expression.determined.png",
+            "sha256": "4e4f6e47095e7c5348d4f0582a79c34f1398071da367d4bd2b9b6c9b5421bd3f"
+          }
+        ]
+      }
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/event-0-cg.png",
+      "sha256": "f43958742d9cb6fa18913a6450410c5491d62703b21e514f3ead47b208541ef6",
+      "resourcePath": "Illustrations/vindicator-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "f43958742d9cb6fa18913a6450410c5491d62703b21e514f3ead47b208541ef6",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-cg.0.png",
+            "sha256": "021bd8b535942874de40b25bba0a066e522a293339637958f7afdc8233cf80b7"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.0.png",
+            "sha256": "3522e9b36b9652e332b03c860b9ae591e1098fce3355a09b4cb85e00aad19daa"
+          }
+        ]
+      }
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/event-1-cg.png",
+      "sha256": "2b26a89f2f4173fb5770681285719fe5fde08957e03055b71592f09dc8d9d32b",
+      "resourcePath": "Illustrations/vindicator-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "2b26a89f2f4173fb5770681285719fe5fde08957e03055b71592f09dc8d9d32b",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-cg.1.png",
+            "sha256": "351ccd8e9e52b4cf2ee4048ff2d5e617e730d9743f90164e52a6b07902c515b6"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.1.png",
+            "sha256": "925e12ec0838605797d2ec421036b4479b2ff6e57030181c755e4b96675a57b9"
+          }
+        ]
+      }
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/event-2-cg.png",
+      "sha256": "a7a54baba93a35c8b1259b82b704ac51a0c2bf4e5cb9ec3f6525717e1d329ef1",
+      "resourcePath": "Illustrations/vindicator-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "a7a54baba93a35c8b1259b82b704ac51a0c2bf4e5cb9ec3f6525717e1d329ef1",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-cg.2.png",
+            "sha256": "f1bb2f0e4aad1e8633ab6bec30f991757b6326d2b6250c4061780674e2739b11"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.2.png",
+            "sha256": "5e6e7f95bd9881dcc9397eb587db13a5a44aa992f11f170f44bcd85528fb629c"
+          }
+        ]
+      }
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/event-3-cg.png",
+      "sha256": "368735281903260914a8e735d3bb42b4b349a31dc945fc7f07753cc3cda8ff8e",
+      "resourcePath": "Illustrations/vindicator-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "368735281903260914a8e735d3bb42b4b349a31dc945fc7f07753cc3cda8ff8e",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-cg.3.png",
+            "sha256": "57e7ab90dd65e0a4bc1d65a820e0905c3ba2dd8c33735b5f7151bf661845e3aa"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.3.png",
+            "sha256": "5b10fbdf8ee56db7d3b063f11b1564d2fd5e036638c42eaafab13c44f1696db1"
+          }
+        ]
+      }
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/event-4-cg.png",
+      "sha256": "b0f3805654d590b80e82e3df4ba1fef02593942e459db3b1068d36c9676e3b76",
+      "resourcePath": "Illustrations/vindicator-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b0f3805654d590b80e82e3df4ba1fef02593942e459db3b1068d36c9676e3b76",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-cg.4.png",
+            "sha256": "a2a6463da7e4a2bfced51912d4d2e5108cfbfb96735ca07ee514700a5130300e"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/gallery-frames/vindicator-cg.4.png",
+            "sha256": "123e7b0f9f195c0f4d18a214cf7ad47f8294316491176d50bab3b23e70a19aba"
+          }
+        ]
+      }
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/cutin.png",
+      "sha256": "30bee89f57fb1bb0a56005acf3f01e26e4d610ea1f67a296bd2c739885471593",
+      "resourcePath": "Illustrations/vindicator-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "30bee89f57fb1bb0a56005acf3f01e26e4d610ea1f67a296bd2c739885471593",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/battle-cutin.png",
+            "sha256": "66565bfe4d0c8058d8c07ebe5f3874328c7fb0d399c3d378495488af88746c28"
+          }
+        ]
+      }
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/hit-v2.png",
+      "sha256": "9fad332c3224c04e12dae3390e45cb9118400396c112f91f9353d5f758912e85",
+      "resourcePath": "Illustrations/vindicator-hit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "9fad332c3224c04e12dae3390e45cb9118400396c112f91f9353d5f758912e85",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/battle-hit.png",
+            "sha256": "49e6fa02c373fd6d9b8955ef5e2e6a150e48ca94b9c3dd0d57c975e45ecbcf97"
+          }
+        ]
+      }
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-walk.png",
+      "sha256": "ff199fd0e93d5fea2e7a267892e10f8da7bad7c25b05b9df6922e27ca24e43d8",
+      "resourcePath": "Illustrations/vindicator-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "ff199fd0e93d5fea2e7a267892e10f8da7bad7c25b05b9df6922e27ca24e43d8",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.walk.png",
+            "sha256": "4370ad18c9c5deca925f6a4175de9ace725386ce09eaf55c2fcc07d4657d9f40"
+          }
+        ]
+      }
+    },
+    "tree-ornament": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/tree-ornament.png",
+      "sha256": "d4e637a722cce1b97d1a8ab03c5ec229cd0c79c8d9bb91d7179c0d5304809489",
+      "resourcePath": "UI/WeaponTrees/vindicator-ornament-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "d4e637a722cce1b97d1a8ab03c5ec229cd0c79c8d9bb91d7179c0d5304809489",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/tree0.png",
+            "sha256": "87d8407a1d4c824bea23874d32ebca86d96bb5d9086b8bd37e61048fc05bef3c"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/tree2.png",
+            "sha256": "0ebb106fcbc0e8d2a8caf0c11344a4dd0810eef49d860e1bbf8907eac82a0e12"
+          },
+          {
+            "path": "tmp/plan12-vindicator/player/tree4.png",
+            "sha256": "91d94af5629d8c2177cb0aa4135ef23084d13739bc1a22dabe38dacefce80dfa"
+          }
+        ]
+      }
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/attack.png",
+      "sha256": "3e730141581fb1028ee58d135f8c0f2c5e78c8848aed2916cc7ce0388b4a97aa",
+      "resourcePath": "Illustrations/vindicator-attack-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "3e730141581fb1028ee58d135f8c0f2c5e78c8848aed2916cc7ce0388b4a97aa",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/battle-attack.png",
+            "sha256": "fb0ff4bfe14846c9f4a43d2cd8580cb6fee18d5858971609b69d6511c2a2ceae"
+          }
+        ]
+      }
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-idle-v2.png",
+      "sha256": "baf74c145b56a58959f91aeb45e3cd9e6bf84fc3149fd79ac04e21cd48807189",
+      "resourcePath": "Illustrations/vindicator-sd-idle-candidate-v2",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "baf74c145b56a58959f91aeb45e3cd9e6bf84fc3149fd79ac04e21cd48807189",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.idle.png",
+            "sha256": "4108269c31b45f2b04c3832fadbd74b60f7678acffb7c9067a7c53c6f6340f2d"
+          }
+        ]
+      }
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-sit.png",
+      "sha256": "00b55c6eadbf48288f05fc7ea0b4bb77483a6d160e2655a7de55d7d4a37963e5",
+      "resourcePath": "Illustrations/vindicator-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "00b55c6eadbf48288f05fc7ea0b4bb77483a6d160e2655a7de55d7d4a37963e5",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.sit.png",
+            "sha256": "9499fca00689f0b0a9493872358e07d7bbe738e72cf345e2440333cc56a37f1c"
+          },
+          {
+            "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+            "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+          }
+        ]
+      }
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-work.png",
+      "sha256": "ad9702bfb9162fc801b5e58c963974c30cfc4101e6aa1f1465b710c9d0a73554",
+      "resourcePath": "Illustrations/vindicator-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "ad9702bfb9162fc801b5e58c963974c30cfc4101e6aa1f1465b710c9d0a73554",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.work.png",
+            "sha256": "5a40ce35ff1bda08a81bdf8d5aa0e665f6e1417e4d87754dae193bf647c58f2c"
+          },
+          {
+            "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+            "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+          }
+        ]
+      }
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-look.png",
+      "sha256": "a7d10292e4507e5dcb53afc8fd8edc1cb27a8e04c8effc533cd29b112f67d4f3",
+      "resourcePath": "Illustrations/vindicator-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "a7d10292e4507e5dcb53afc8fd8edc1cb27a8e04c8effc533cd29b112f67d4f3",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.look.png",
+            "sha256": "08cba43c16a743d8905a16df39c5a437c219063ddff9a2c2f145228dce805bd5"
+          },
+          {
+            "path": "tmp/plan12-vindicator/refined/vindicator-sd.furniture.png",
+            "sha256": "6c8a2fb45c84ecae89ef1fb7b694cef1e6d49e18f1ae43c868b323e34ff4d595"
+          }
+        ]
+      }
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-react.png",
+      "sha256": "3dd2a55e7b7e15ccd61516e49ebaa1cb047efc663f54f66d85c6c8fddcfd35a2",
+      "resourcePath": "Illustrations/vindicator-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "3dd2a55e7b7e15ccd61516e49ebaa1cb047efc663f54f66d85c6c8fddcfd35a2",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.react.png",
+            "sha256": "a800424afe5b78eb70332f73a8feb30a5fe12542d697a6cc6e2401677fb7d1f8"
+          }
+        ]
+      }
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/vindicator-v1/sd-talk.png",
+      "sha256": "b6d10a056ddd8b02048fd5dca8f425624e6fdca3b6d3260c537c19c1cd84280f",
+      "resourcePath": "Illustrations/vindicator-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b6d10a056ddd8b02048fd5dca8f425624e6fdca3b6d3260c537c19c1cd84280f",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-vindicator/player/vindicator-sd.talk.png",
+            "sha256": "e278c3f58bdac6c60cddc0c4b74e58872562ede49415dda699e7d76a3133595c"
+          }
+        ]
+      }
+    }
+  },
+  "treeComponents": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/vindicator-ornament-v1.png",
+      "sha256": "d4e637a722cce1b97d1a8ab03c5ec229cd0c79c8d9bb91d7179c0d5304809489",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/vindicator.json",
+      "sha256": "e05a9d011ca89847c7ab988e69096428e754454f2434572ab4093de57054b235",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    }
+  ],
+  "resolution": "default launch 1920x1080",
+  "method": "manual actual Player frame review; automated behavior separately recorded; physical input excluded",
+  "unresolved": [],
+  "updatedAt": "2026-10-11",
+  "renderers": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "sha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved",
+      "previousReviewedSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "sha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "status": "approved"
+    }
+  ],
+  "acceptance": "pass",
+  "build": {
+    "path": "game/Builds/plan12-vindicator/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "workingTreeChanges": true
+  },
+  "validationLogs": [
+    {
+      "path": "tmp/plan12-vindicator-core.log",
+      "sha256": "8af7de1edc8d4d14e8950102e2fce78a52ad878252505a44108c3119b531ded0"
+    },
+    {
+      "path": "tmp/plan12-vindicator-build-final.log",
+      "sha256": "1e26bedb30f6b2c10b6ce4d1c05fedc7abe5a70cd1742d8efde1a98b4653a520"
+    },
+    {
+      "path": "tmp/plan12-vindicator/production-player.log",
+      "sha256": "35862164a20fea90209c87760c9d8d28c7c3bbb0abf6994d0fdaca9b10fd7195"
+    },
+    {
+      "path": "tmp/plan12-vindicator-compile.log",
+      "sha256": "ec618c60218871e44b763ffba42e8e29d3fee469f99f9148a5581d8d795d9347"
+    },
+    {
+      "path": "tmp/plan12-vindicator/refined/furniture.log",
+      "sha256": "05350c2a0406455ce62a37f515685f771986acb75a8dedcf2ed53bac17e4696d"
+    },
+    {
+      "path": "tmp/plan12-vindicator-player-cases.log",
+      "sha256": "401b2dfa02312a3c3b9d3723e526f7738cac27feb533de7a6097e387b636ec41"
+    }
+  ],
+  "verification": {
+    "coreAssertions": 12310,
+    "unitySources": 277,
+    "playerCases": 19,
+    "refinement": "Vindicator-only desk contact, hand regions and scale; final single-view capture unchanged; capture shutdown bounds fixed and no exception.",
+    "sourceCorrection": "モルトラ・バルタ; アズーラ・スイ belongs to a different heroine.",
+    "sourceAdaptation": "Source 60% cast interruption adapted to 60% enemy wait delay because no boss cast-state model exists."
+  },
+  "rendererScopeUpdate": "docs/production/plan12-weapon-master-renderer-scope.json",
+  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json"
+}

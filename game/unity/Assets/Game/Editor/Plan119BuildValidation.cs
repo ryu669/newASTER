@@ -13,13 +13,20 @@ public sealed class Plan119BuildValidation:IPreprocessBuildWithReport
     public void OnPreprocessBuild(BuildReport report)=>Validate();
     public static void Validate()
     {
+        if(!Plan12WeaponMasterBuild.ReviewPreview){
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-first-batch")Plan12AssetReviewGate.ValidateRelease();
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-invisible"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();}
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-viper"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();}
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-weapon-master"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();Plan12VindicatorBuild.ValidateRelease();Plan12WeaponMasterBuild.ValidateRelease();}
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-vindicator"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();Plan12VindicatorBuild.ValidateRelease();}
+        }else Debug.Log("COMMON_TREE_REVIEW_PREVIEW: release visual approval pending; content checks remain enabled.");
         if(Directory.Exists(Plan119LoadFixtureImporter.Root))throw new BuildFailedException("Test image fixtures must be removed before building the product.");
         if(AssetDatabase.FindAssets("t:Model",new[]{"Assets/Game"}).Length!=0)throw new BuildFailedException("Retired 3D models must not be packaged in the 2D product.");
         Debug.Log("PRODUCTION_2D_ONLY_PASS modelAssets=0");
         T Load<T>(string path)=>JsonUtility.FromJson<T>((Resources.Load<TextAsset>(path)??throw new ArgumentException("Missing production catalog: "+path)).text);
-        var combat=Load<CombatDefinitionCatalog>("Combat/battle-plan11-7");
+        var combat=Load<CombatDefinitionCatalog>(ProductionContentPaths.Combat);
         ProductionEconomyCatalog.Kinder(combat.HeroineIds).Validate(combat.HeroineIds);
-        var story=Load<ProductionStoryContent>("Story/plan10-shangrila-story-content");
+        var story=Load<ProductionStoryContent>(ProductionContentPaths.Story);
         var errors=HeroineProductionValidation.Errors(combat,story,Load<HeroinePortraitCatalog>("UI/heroine-portrait-framing"),Load<HeroineWeaponTreeCatalog>("UI/heroine-weapon-trees"));
         if(errors.Length>0)throw new BuildFailedException(string.Join("\n",errors));
         var home=ProductionStoryCatalog.Home(combat,story);home.Validate(true);

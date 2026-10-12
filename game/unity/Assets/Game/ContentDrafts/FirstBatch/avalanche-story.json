@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.avalanche.poem-chapter.1",
+      "ownerId": "heroine.avalanche",
+      "title": "借りの数え方",
+      "introduction": "紅晶暴君の謳を読み終えると、キイラは帳面へ細い線を引いた。借りを覚える癖だと言う。",
+      "conclusion": "借りの線は消えなかった。その横へ、あなたとまた行きたい店の印が増えた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.avalanche.collection.poem.01",
+          "text": "あなたが茶を運ぶと、新しい線が増えた。",
+          "body": "あなたが茶を運ぶと、新しい線が増えた。礼を言われるより先に数えられ、あなたは少し笑う。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.01",
+          "reason": "「岩の胸にも、眠れない灯」を受け、借りの数え方で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.02",
+          "text": "謳の王は、受け取った物すべてへ値を付けた。",
+          "body": "謳の王は、受け取った物すべてへ値を付けた。彼女は自分の帳面を伏せ、王と同じにはしたくないと話した。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.02",
+          "reason": "「掘り当てた朝を、一人で抱かない」を受け、借りの数え方で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.03",
+          "text": "市場で荷車の修理を手伝うことになった。",
+          "body": "市場で荷車の修理を手伝うことになった。キイラは代金を聞いたが、持ち主はあとで食事に来てと言った。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.03",
+          "reason": "「鍵の重さは、扉より深い」を受け、借りの数え方で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.04",
+          "text": "作業は思ったより長引いた。",
+          "body": "作業は思ったより長引いた。あなたが持つ車輪を、彼女が手早く留めた。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.04",
+          "reason": "「冷えた掌へ、欠片を渡す」を受け、借りの数え方で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.05",
+          "text": "終わった時、帳面を出しかけてやめた。",
+          "body": "終わった時、帳面を出しかけてやめた。食事の約束まで返済にするのは窮屈だと言う。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.05",
+          "reason": "「光る石にも、休む夜を」を受け、借りの数え方で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.06",
+          "text": "屋台の湯気を前に、彼女は昔助けられた話を少しだけした。",
+          "body": "屋台の湯気を前に、彼女は昔助けられた話を少しだけした。恩は忘れないが、今日の人まで疑いたくない。",
+          "sourcePoemId": "colossus.red-crystal-tyrant.collection.poem.06",
+          "reason": "「暗さを語れば、火は近くなる」を受け、借りの数え方で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "紅晶暴君の謳を読み終えると、キイラは帳面へ細い線を引いた。借りを覚える癖だと言う。",
+        "あなたが茶を運ぶと、新しい線が増えた。礼を言われるより先に数えられ、あなたは少し笑う。",
+        "謳の王は、受け取った物すべてへ値を付けた。彼女は自分の帳面を伏せ、王と同じにはしたくないと話した。",
+        "市場で荷車の修理を手伝うことになった。キイラは代金を聞いたが、持ち主はあとで食事に来てと言った。",
+        "作業は思ったより長引いた。あなたが持つ車輪を、彼女が手早く留めた。",
+        "終わった時、帳面を出しかけてやめた。食事の約束まで返済にするのは窮屈だと言う。",
+        "屋台の湯気を前に、彼女は昔助けられた話を少しだけした。恩は忘れないが、今日の人まで疑いたくない。",
+        "あなたが取り皿を渡すと、彼女は一番大きな具を返した。「これで帳消し、じゃないからね」",
+        "庭へ帰り、帳面の空欄に料理の名前を書いた。次は自分が作ると、妙に真剣な顔をする。",
+        "借りの線は消えなかった。その横へ、あなたとまた行きたい店の印が増えた。"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.poem-chapter.2",
+      "ownerId": "heroine.avalanche",
+      "title": "勝ち馬を降りる日",
+      "introduction": "塔の謳には、勝つ側へ乗り換え続けた人がいた。キイラは器用だと言いかけ、最後の頁で黙った。",
+      "conclusion": "新しい木の影はまだ小さい。それでも彼女は、来年そこで昼食を取る約束を帳面へ書いた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.avalanche.collection.poem.07",
+          "text": "その人は勝った後、迎えてくれる場所を持たなかった。",
+          "body": "その人は勝った後、迎えてくれる場所を持たなかった。彼女は閉じた扇を机へ置く。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.08",
+          "text": "あなたと苗木を運ぶ約束の日、近道の橋が壊れていた。",
+          "body": "あなたと苗木を運ぶ約束の日、近道の橋が壊れていた。彼女は別の道をすぐ見つけた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.09",
+          "text": "けれど、後ろの荷車にはその坂を登れない車輪があった。",
+          "body": "けれど、後ろの荷車にはその坂を登れない車輪があった。キイラは戻り、車輪の幅を確かめた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.10",
+          "text": "先に着けば手間を避けられる。",
+          "body": "先に着けば手間を避けられる。彼女はそう口にしてから、あなたへ縄を渡した。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.11",
+          "text": "二人で引いた荷車は遅かった。",
+          "body": "二人で引いた荷車は遅かった。途中で休むと、彼女は汗を拭き、勝ち負けの話をやめた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.12",
+          "text": "苗木を植える場所には、ほかの庭師が穴を掘って待っていた。",
+          "body": "苗木を植える場所には、ほかの庭師が穴を掘って待っていた。遅れたことより、届いたことを喜んだ。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、勝ち馬を降りる日で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "塔の謳には、勝つ側へ乗り換え続けた人がいた。キイラは器用だと言いかけ、最後の頁で黙った。",
+        "その人は勝った後、迎えてくれる場所を持たなかった。彼女は閉じた扇を机へ置く。",
+        "あなたと苗木を運ぶ約束の日、近道の橋が壊れていた。彼女は別の道をすぐ見つけた。",
+        "けれど、後ろの荷車にはその坂を登れない車輪があった。キイラは戻り、車輪の幅を確かめた。",
+        "先に着けば手間を避けられる。彼女はそう口にしてから、あなたへ縄を渡した。",
+        "二人で引いた荷車は遅かった。途中で休むと、彼女は汗を拭き、勝ち負けの話をやめた。",
+        "苗木を植える場所には、ほかの庭師が穴を掘って待っていた。遅れたことより、届いたことを喜んだ。",
+        "キイラは扇であなたへ風を送った。「今日は、こっちへ乗って正解だった」",
+        "あなたが休む場所を空けると、彼女も座る。勝った後の席を、自分で残せた気がすると話した。",
+        "新しい木の影はまだ小さい。それでも彼女は、来年そこで昼食を取る約束を帳面へ書いた。"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.poem-chapter.3",
+      "ownerId": "heroine.avalanche",
+      "title": "二挺の銃を置く場所",
+      "introduction": "記憶晶竜の謳に、両手の荷を離せない旅人がいた。キイラは二挺の銃を机へ並べる。",
+      "conclusion": "机には扇だけが残った。あなたが届けると、彼女は明日の席をもう一つ空けていた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.avalanche.collection.poem.13",
+          "text": "何も持たず歩くのは落ち着かない。",
+          "body": "何も持たず歩くのは落ち着かない。軽口のあと、あなたの反応を確かめた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.14",
+          "text": "あなたは武器庫の鍵を見せ、今夜は庭で食事だけだと話した。",
+          "body": "あなたは武器庫の鍵を見せ、今夜は庭で食事だけだと話した。彼女は片方を預け、もう片方へ手を置く。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.15",
+          "text": "扇を探すために手を離すと、銃は動かなかった。",
+          "body": "扇を探すために手を離すと、銃は動かなかった。当たり前のことを、少し長く見ていた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.16",
+          "text": "台所で麺をほぐす仕事を頼まれた。",
+          "body": "台所で麺をほぐす仕事を頼まれた。両手が必要になり、彼女は残りの銃も預けた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.17",
+          "text": "湯気で前髪が湿る。",
+          "body": "湯気で前髪が湿る。あなたが布を渡すと、彼女は扇が使えないと笑った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        },
+        {
+          "id": "heroine.avalanche.collection.poem.18",
+          "text": "謳の旅人は、手を空けて初めて差し出された椀を受け取った。",
+          "body": "謳の旅人は、手を空けて初めて差し出された椀を受け取った。キイラは自分の椀を両手で持つ。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、二挺の銃を置く場所で今の暮らしへ応答する。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳に、両手の荷を離せない旅人がいた。キイラは二挺の銃を机へ並べる。",
+        "何も持たず歩くのは落ち着かない。軽口のあと、あなたの反応を確かめた。",
+        "あなたは武器庫の鍵を見せ、今夜は庭で食事だけだと話した。彼女は片方を預け、もう片方へ手を置く。",
+        "扇を探すために手を離すと、銃は動かなかった。当たり前のことを、少し長く見ていた。",
+        "台所で麺をほぐす仕事を頼まれた。両手が必要になり、彼女は残りの銃も預けた。",
+        "湯気で前髪が湿る。あなたが布を渡すと、彼女は扇が使えないと笑った。",
+        "謳の旅人は、手を空けて初めて差し出された椀を受け取った。キイラは自分の椀を両手で持つ。",
+        "食事の間、物音に振り向くことはあった。それでも席を立つ前に、あなたへ声を掛けた。",
+        "帰りに銃を受け取り、礼を言った。貸し借りの線を引く前に、また作ろうと誘う。",
+        "机には扇だけが残った。あなたが届けると、彼女は明日の席をもう一つ空けていた。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.avalanche.event.0",
+      "ownerId": "heroine.avalanche",
+      "title": "扇の裏の約束",
+      "cgResourcePath": "Illustrations/avalanche-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "キイラは庭の椅子を扇で示した。",
+        "あなたが座ると、今日は勝負抜きだと先に言う。",
+        "持ってきた菓子を分け、欠けた方を自分で取った。",
+        "あなたが替えようとすると、味は同じだと笑った。",
+        "昔の癖で損得を考えるが、あなたの前では休みたいという。",
+        "あなたは茶を足し、好きなだけ休んでよいと答えた。",
+        "彼女は扇の裏へ、次のお茶の時刻を書いた。",
+        "帰り際、借りではなく誘いだからねと念を押した。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.event.1",
+      "ownerId": "heroine.avalanche",
+      "title": "数えない一枚",
+      "cgResourcePath": "Illustrations/avalanche-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "机に並べた真鍮の札を、キイラが磨いていた。",
+        "余った一枚をあなたへ渡し、何に使うか考えてと言う。",
+        "あなたは次の食事の目印にしようと答えた。",
+        "彼女は意外そうに見てから、自分の札を隣へ置く。",
+        "二枚を同じ袋へ入れ、返済の印ではないと確かめた。",
+        "磨いた指先に粉が付いており、あなたが布を渡す。",
+        "キイラは礼を言い、今度は帳面を出さなかった。",
+        "食事の場所を相談する声が、夕方まで途切れなかった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.event.2",
+      "ownerId": "heroine.avalanche",
+      "title": "逃げない返事",
+      "cgResourcePath": "Illustrations/avalanche-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "月明かりの橋で、キイラは扇を閉じた。",
+        "冗談にして逃げられる言い方を、今日はやめたいという。",
+        "あなたが待つと、彼女は真っすぐ顔を上げた。",
+        "「あんたが好き。一緒にいる明日を、あたしが選びたい」",
+        "あなたも好きだと答え、恋人になりたいと伝えた。",
+        "キイラは笑いかけて、少しだけ目を潤ませた。",
+        "つないだ手は離さず、帰る速さをあなたへ合わせる。",
+        "橋を渡った後も、二人で歩く道を自分から選んだ。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.event.3",
+      "ownerId": "heroine.avalanche",
+      "title": "湯気まで半分",
+      "cgResourcePath": "Illustrations/avalanche-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "屋台の端で、キイラが二つの椀を待っていた。",
+        "今日は好みを聞いてから頼んだと、得意そうに話す。",
+        "あなたがひと口食べるまで、彼女は箸を止めて見ていた。",
+        "おいしいと答えると、ようやく自分も食べ始めた。",
+        "辛味を足し過ぎ、二人で水を探して笑う。",
+        "「次は、あたしが作る方を食べてよ」",
+        "あなたが楽しみだと答えると、真剣に具の名前を覚えた。",
+        "空いた椀を並べ、帰りには恋人の手を自然に取った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.avalanche.event.4",
+      "ownerId": "heroine.avalanche",
+      "title": "朝の席は二つ",
+      "cgResourcePath": "Illustrations/avalanche-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "日の出前、キイラは庭の席へ扇を置いた。",
+        "あなたが眠そうに来ると、温かい茶を渡す。",
+        "何か得があるのかと冗談を言い、自分で首を振った。",
+        "ただ同じ朝を見たかったと、静かな声で話す。",
+        "あなたが隣へ寄ると、肩の間の隙間がなくなった。",
+        "光が差すまで、帳面も銃も鞄の中にあった。",
+        "次はもっと遅い時間にしようと、二人で相談する。",
+        "キイラは席の札を二枚重ね、また来ようと笑った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

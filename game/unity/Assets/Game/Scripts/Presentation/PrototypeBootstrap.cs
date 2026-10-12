@@ -82,7 +82,7 @@ namespace NewAster.Presentation
                 if(referenceSource==null) throw new ArgumentException("Combat/heroine-reference missing");
                 heroineReferences=JsonUtility.FromJson<HeroineReferenceCatalog>(referenceSource.text);heroineReferences.Validate();
                 Debug.Log("HEROINE_REFERENCE_PASS version=1 status=reference-only heroes=5 skills=15");
-                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-capturePlan10Ui")?"Combat/battle-plan11-7":Environment.GetCommandLineArgs().Contains("-captureShangrila")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureArcaneAcademy")?"Combat/battle-plan10-arcane-academy":Environment.GetCommandLineArgs().Contains("-captureArcane")?"Combat/battle-plan10-arcane":Environment.GetCommandLineArgs().Contains("-captureSlayerSwim")?"Combat/battle-plan10-slayer-swim":Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":"Combat/battle-plan11-7");
+                var source=Resources.Load<TextAsset>(Environment.GetCommandLineArgs().Contains("-plan12WeaponMasterPreview")?"Combat/battle-plan12-weapon-master":Environment.GetCommandLineArgs().Contains("-plan12VindicatorPreview")?"Combat/battle-plan12-vindicator":Environment.GetCommandLineArgs().Contains("-plan12ViperPreview")?"Combat/battle-plan12-viper":Environment.GetCommandLineArgs().Contains("-plan12InvisiblePreview")?"Combat/battle-plan12-invisible":Environment.GetCommandLineArgs().Contains("-captureProductionRoster")?ProductionContentPaths.Combat:(Environment.GetCommandLineArgs().Contains("-captureFirstBatch") || Environment.GetCommandLineArgs().Contains("-plan12FirstBatchPreview"))?"Combat/battle-plan12-first-batch":(Environment.GetCommandLineArgs().Contains("-capturePlan10Ui") || Environment.GetCommandLineArgs().Contains("-captureAeon"))?"Combat/battle-plan12-aeon":Environment.GetCommandLineArgs().Contains("-captureShangrila")?"Combat/battle-plan10-shangrila":Environment.GetCommandLineArgs().Contains("-captureArcaneAcademy")?"Combat/battle-plan10-arcane-academy":Environment.GetCommandLineArgs().Contains("-captureArcane")?"Combat/battle-plan10-arcane":Environment.GetCommandLineArgs().Contains("-captureSlayerSwim")?"Combat/battle-plan10-slayer-swim":Environment.GetCommandLineArgs().Contains("-captureNighthawk")?"Combat/battle-plan10-nighthawk":Environment.GetCommandLineArgs().Contains("-captureOriflamme")?"Combat/battle-plan10-oriflamme":Environment.GetCommandLineArgs().Contains("-captureShell")?"Combat/battle-plan10-shell":Environment.GetCommandLineArgs().Contains("-captureAnnihilator")?"Combat/battle-plan10-annihilator":Environment.GetCommandLineArgs().Contains("-capturePlan10")?"Combat/battle-plan10":Environment.GetCommandLineArgs().Contains("-presentationCapture")?"Combat/battle-formal":ProductionContentPaths.Combat);
                 if(source==null) throw new ArgumentException("Combat/battle-formal missing");
                 combatDefinitions=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combatDefinitions.Validate();
                 Debug.Log("COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes="+combatDefinitions.heroines.Length+" skills="+combatDefinitions.skills.Length+" chains="+combatDefinitions.chainActions.Length);
@@ -103,7 +103,7 @@ namespace NewAster.Presentation
             int cgIndex=Array.IndexOf(args,"-inspectPlan9Cg");
             if(cgIndex>=0 && cgIndex+1<args.Length)plan9Cg=args[cgIndex+1];
             if(plan9Cg!=null)Debug.Log("PLAN9_CG_CAPTURE heroine="+plan9ArtHero+" event="+plan9Cg);
-            for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; StartBattle(WorldCatalog.ColossusIds[0]); }
+            for(int i=0;i<args.Length-1;i++) if(args[i]=="-presentationCapture") { capturePath=args[i+1]; title=false; if(!args.Contains("-treeStage"))StartBattle(WorldCatalog.ColossusIds[0]); }
             if(capturePath!=null && args.Contains("-captureSixParts")) PrepareSixPartCapture(args);
             if(capturePath!=null && args.Contains("-captureAllySelection")) {
                 Debug.LogWarning("Formal roster has no selected-allies healing skill; legacy capture option ignored.");
@@ -116,7 +116,7 @@ namespace NewAster.Presentation
                 while(encounter.AvailableHero!=3 && !encounter.Ended) encounter.Pass();
                 SelectNextHero();
             }
-            if(capturePath!=null) { Application.runInBackground=true;encounter.DrainPresentationEvents(); }
+            if(capturePath!=null) { Application.runInBackground=true;encounter?.DrainPresentationEvents(); }
             if(capturePath!=null && args.Contains("-captureGrowth")) {
                 heroineRosterOpen=false;
                 encounter=null;book.ChangeBookmark(BookBookmark.Heroines);
@@ -185,6 +185,9 @@ namespace NewAster.Presentation
             PreparePlan10ArcaneCapture(args);
             PreparePlan10ArcaneAcademyCapture(args);
             PreparePlan10ShangrilaCapture(args);
+            PreparePlan12AeonCapture(args);
+            PreparePlan12FirstBatchCapture(args);
+            PreparePlan12ProductionCapture(args);
             PreparePlan10UiAuditCapture(args);
             PreparePlan11Capture(args);
             PrepareQuality119ColdBook(args);

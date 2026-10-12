@@ -17,6 +17,11 @@ namespace NewAster.Data
             Map(home,"shangrila",449,337,81,62,1024,1536);
             Map(home,"shell",470,280,85,67,1024,1536);
             Map(home,"slayer-swim",444,196,100,71,1024,1536);
+            Map(home,"aeon",470,177,103,71,1024,1536);
+            Map(home,"iron-maiden",438,110,122,78,1024,1536);
+            Map(home,"avalanche",447,165,130,92,1024,1536);
+            Map(home,"anathema",478,179,125,90,1024,1536);
+            Map(home,"shiva",485,167,132,96,1024,1536);
         }
         private static void Map(HomeExperienceCatalog home,string key,float x,float y,float w,float h,float canvasW,float canvasH)
         {

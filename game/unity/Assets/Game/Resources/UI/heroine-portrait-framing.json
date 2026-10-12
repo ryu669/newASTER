@@ -122,6 +122,78 @@
       "faceCenterY": 0.37,
       "faceHeight": 0.18,
       "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.aeon",
+      "resourcePath": "Illustrations/heroine-portrait-aeon-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.31,
+      "faceHeight": 0.19,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.iron-maiden",
+      "resourcePath": "Illustrations/heroine-portrait-iron-maiden-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.35,
+      "faceHeight": 0.25,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.avalanche",
+      "resourcePath": "Illustrations/heroine-portrait-avalanche-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.35,
+      "faceHeight": 0.25,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.anathema",
+      "resourcePath": "Illustrations/heroine-portrait-anathema-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.35,
+      "faceHeight": 0.25,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.shiva",
+      "resourcePath": "Illustrations/heroine-portrait-shiva-v1",
+      "faceCenterX": 0.5,
+      "faceCenterY": 0.35,
+      "faceHeight": 0.25,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.invisible",
+      "resourcePath": "Illustrations/heroine-portrait-invisible-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.27,
+      "faceHeight": 0.28,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.viper",
+      "resourcePath": "Illustrations/heroine-portrait-viper-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.29,
+      "faceHeight": 0.28,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.vindicator",
+      "resourcePath": "Illustrations/heroine-portrait-vindicator-v1",
+      "faceCenterX": 0.55,
+      "faceCenterY": 0.27,
+      "faceHeight": 0.25,
+      "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.weapon-master",
+      "resourcePath": "Illustrations/heroine-portrait-weapon-master-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.17,
+      "faceHeight": 0.2,
+      "legacyPortrait": false
     }
   ]
 }

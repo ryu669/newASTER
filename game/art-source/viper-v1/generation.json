@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "formId": "heroine.viper",
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "path": "game/art-source/viper-v1/standing.png",
+      "generatedPath": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f0e790d2-d559-4398-a443-27cddf30887b.png",
+      "sha256": "70629915a26131a8cab19b674e7dfa5e5d4419627ad6a576cb4f6f9bebbcdfbe",
+      "promptFile": "game/art-source/viper-v1/standing-prompt.txt",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-standing-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-expression.normal.png",
+          "sha256": "2efd7df130462cf42f782daf9ef654b01d27c51a41b6a2db85abdb330c7d7467"
+        }
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/viper-v1/portrait.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-45b318d6-4674-49f8-b289-5989b60998c0.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Dedicated waist-up character portrait: large clear face centered, self-assured gentle smirk, looking at viewer, hair/wings visible, leave modest margins. No gun obscuring face.",
+      "sha256": "46fab7ca01184c6f402b3585b5ca04dab812fdca619f614742bb20407d8b2977",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/heroine-portrait-viper-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/recruit.png",
+          "sha256": "47e361c9475bfeeb33af1a4067eb7bb41633b33f67f794f69d860fef5d0d684a"
+        },
+        {
+          "path": "tmp/plan12-viper/player/trait.png",
+          "sha256": "55df563220d47cae216f413ed7180bdd2f22e2d17f1a7fd64dc3e329484aef06"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/viper-v1/expression-joy.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-098c6e70-3c8c-46ab-afd6-2f26ae54cd4a.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Full body same standing posture, distinctly joyful open smile and relaxed eyebrows, warm happy eyes. Complete boots wings halo and hair inside generous margins.",
+      "sha256": "bfe17df13809db68b9c4ab096914b85db9700922da65534e3ad57ceea6c5819c",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-expression-joy-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-expression.joy.png",
+          "sha256": "1b865dc8a6f68162b4973e867229cf353e9f71408321c25d91623e9ee905637e"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/viper-v1/expression-puzzled.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-f3a03ff9-93a1-43af-b65c-8a13e2073a87.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Full body same posture, distinctly puzzled concerned face, brows gently drawn inward, mouth slightly parted without smile. Complete boots wings halo and hair inside generous margins.",
+      "sha256": "5ec5db751534f2c0bcfbbf8c3e76f231f278a19435f9c9bc299b38b86848b5b8",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-expression-puzzled-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-expression.puzzled.png",
+          "sha256": "04b20025a4174345f3251d1e516f5987d617c2d5d3cabc0cce824f818bf3bc49"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/viper-v1/expression-determined.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1ea29f09-1702-49ae-8967-b6233acedad6.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Full body same posture, distinctly serious determined face, brows lowered and firm closed mouth, direct resolute gaze without smile. Complete boots wings halo and hair inside generous margins.",
+      "sha256": "5daf9a9bd500c51b109c824a559a8e2f2fba30ac49de672126bccc6b89bba447",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-expression-determined-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-expression.determined.png",
+          "sha256": "90ec537d9447caf91ba67b75b9f2f9d41e2525e88519dc1e9f4752cefd3129e5"
+        }
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "game/art-source/viper-v1/attack.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-188a5cd2-19eb-464a-b4b1-3d2657919aa1.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Correct dedicated attack sprite, FULL BODY holding rotary gun with BOTH HANDS horizontally to screen left. Confident focused face, wide planted feet. IMPORTANT subject INCLUDING all wings and muzzle flash occupies only central 70% of canvas width and 85% of height; leave WIDE empty transparent margins on all four sides. Wings folded enough so no feather touches any edge. No halo glow fog or full canvas aura. Compact firing flash also fully inside left margin. No cropping, complete boots, complete wing tips.",
+      "sha256": "09f51def0f92df79f23eaffbbf8fc1a0f9ef2b862a697d767ee530244e5e85b6",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-attack-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/battle-attack.png",
+          "sha256": "3083c7391675be968307deb6126a67ccdf8c558e73eba1923585c898a75e510e"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/viper-v1/hit.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-03689d6d-83b0-4bc1-9d8e-91ce7e48b451.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Dedicated FULL BODY damage reaction sprite, flinching backward, pained eyes partly shut, shoulders twisted, gun lowered safely with two hands, feet braced, wings ruffled. Clothes intact, no injury or blood. Clearly different pose from standing.",
+      "sha256": "27073f1809ffce76eff639d91190ee3437692ac43879537e4d3c3e004eefeef8",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-hit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/battle-hit.png",
+          "sha256": "acdf6d2b3517442e5e4109b67d3b65f03d2029f82445a8259e68aa454844e8da"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/viper-v1/cutin.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-bf232d76-a52b-44aa-ae4f-879c435bf15d.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Dedicated cinematic battle cut-in composition, upper thighs to head, face large and fiercely determined, rotary gun across lower foreground aiming toward left, bright amber feather energy arcs behind wings, transparent alpha everywhere outside character and controlled effect, no opaque background.",
+      "sha256": "b9a48d7dad5d33957cf759274f3fab2ff4c27afc4da4cf9ba25b7ec3efc67f96",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-cutin-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/battle-cutin.png",
+          "sha256": "1995ab610f1ed038deed08daa7801e7364ccfe275c1613de30906dba46a111f0"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/viper-v1/sd-idle.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a667e77f-b558-4b95-98f4-b852fad7d177.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, cute 2.7 heads tall proportions, large expressive face, small wings and halo, full body upright idle pose, smiling mischievously, compact rotary gun lowered at side, all body inside central 55% canvas. Preserve white coat dress and black tights, boots. Simple readable details, transparent outside silhouette. No floor or shadow.",
+      "sha256": "5b80ef328452385c6a16b3c272b8fce8eb86cc5c81182fd3a119bb6de062baca",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-idle-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.idle.png",
+          "sha256": "6685feb9d628e5987540663d1f6cb4813b6f82798c7bfb38824e4f7cb0a67e4d"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/viper-v1/sd-walk.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-875a0d01-e30a-46e6-ac72-0e3a5c681da5.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: walking to screen right, one leg forward and opposite arm swinging, cheerful side glance",
+      "sha256": "7acdbd719c19376d8c67e3ab498b4bbd358bf8ae0597297069828ba85928770d",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-walk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.walk.png",
+          "sha256": "1e7f4567d6e08260e6663d12afc843160e4284a338242678b93ccc7caa4a209a"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/viper-v1/sd-talk.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-79c0c198-664a-4579-9cc2-6b6e75bf1478.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: talking animatedly with one open hand gesturing at chest level, mouth speaking, feet planted",
+      "sha256": "332c70b61cf63e24e93a233def472df923931ef289e95afd238e620caa521a8a",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-talk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.talk.png",
+          "sha256": "a4c4a0126b20160840e7abfe5b5ceb01b57335d5b04b752be9540e834699cd50"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/viper-v1/sd-react.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-92b5a338-7802-4c89-b9f4-f1283920b437.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: surprised reaction with wide eyes and both hands raised near shoulders, slight backward lean",
+      "sha256": "acb888fcf1e876937eb14706f9ab5f9c33e0593219e713ee004b31c592659a0d",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-react-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.react.png",
+          "sha256": "275c39555ff4b3e33ee088e5bf1582ee4331adc023b08c86d00d2e612b20bc4d"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/viper-v1/sd-sit.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e13bd2dc-1c4e-4999-921c-c84a6c248c62.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: seated relaxed on an INVISIBLE chair, knees bent 90 degrees, feet lower, hands resting on lap, no chair drawn, no gun",
+      "sha256": "6f9bef846e456e48229d99f5603c04faefcfea61ef2fbe357011c8082838a4f6",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-sit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.sit.png",
+          "sha256": "c77c47ce9cc10943363445f90ecd972e1554ef71c8fdf0e57fdfb74943ac9cad"
+        },
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+          "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/viper-v1/sd-work.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5089e7e2-6d80-4478-9e0b-b68d78047a8d.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: standing perfectly upright with straight legs, facing front, BOTH hands extended forward at waist level, palms downward fingers relaxed as if resting on invisible tabletop. Hands at normalized canvas x .45 and .55 y .50, feet near y .90. Absolutely NO desk chair tool gun paper or prop; no kneeling. Small wings. Clear hands separated from white sleeves.",
+      "sha256": "8aeb5663911191c6e5e86394ec7af6e91b4c544b68162f53e18b6b78aaaa57fb",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-work-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.work.png",
+          "sha256": "4ed50d9a1e10f974917c9458e410d48dfeab5214ed77762c2502897beebdc476"
+        },
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+          "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/viper-v1/sd-look.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-58217891-32fb-431f-8a67-d4dae5e6fe4a.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Genuine transparent background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. Super-deformed chibi sprite of same adult character, consistent 2.7 heads tall proportions, large cute readable expressive face, white black-piped coat dress dusty rose ribbon black tights boots, blonde hair and flower hairpin, small amber-coral-white wings, halo. Full body centered with generous margins, no floor or shadow or scenery. Dedicated pose: standing and looking upward toward screen right, chin raised, eyes following something above, one hand lightly shielding brow, no gun",
+      "sha256": "661a22d639fa04709ad0bedd82bf5c4821ea89cde6e53b34f54554879e253d5a",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-sd-look-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.look.png",
+          "sha256": "1eaaa92178c011969fb0f449c2977a22bf95f5c6ae313b9fe95b7e3421c80287"
+        },
+        {
+          "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+          "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/viper-v1/event-0-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3b7a17ec-c98e-4bcb-888d-2a3c2ed4a0f5.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Opaque painted scene background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. LANDSCAPE EVENT CG 1536x1024. Non-chibi adult proportions. Wide cinematic polished painted composition, heroine large and face clearly recognizable, environment richly rendered, absolutely only ONE woman, no males or other people, no human shadows or silhouettes or hands from viewer, no text or letters. Quiet afternoon garden tea table. The heroine alone in scene seated elegantly, pouring tea into two cups and looking warmly toward viewer. Fully dressed in her reference costume. Sunlit leaves, flower hairpin clearly visible, rich blue gold garden setting. An empty chair can imply company, but no second person or body parts.",
+      "sha256": "3562d200c504e389bd6fc56ead74f1f81125b92cfbdff057b0e73851b4b62949",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-event-0-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-cg.0.png",
+          "sha256": "5780a43157f30f78f86ec6fedbffc7fe8993d2249b2e21cff89995d41b691162"
+        },
+        {
+          "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.0.png",
+          "sha256": "17cef160de25cd7e7232580c89793e07368b93017b857a611ca575db63a0a9e3"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/viper-v1/event-1-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ad62d5e9-87b3-48fd-a737-81a7b92d05ff.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Opaque painted scene background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. LANDSCAPE EVENT CG 1536x1024. Non-chibi adult proportions. Wide cinematic polished painted composition, heroine large and face clearly recognizable, environment richly rendered, absolutely only ONE woman, no males or other people, no human shadows or silhouettes or hands from viewer, no text or letters. After practice in fantasy shooting range beside a lush garden, heroine smiling playfully while holding a small folded blank paper invitation toward viewer. Rotary gun safely resting pointed down on distant rack, no firing. Late afternoon amber light, expression and hand readable, costume exact.",
+      "sha256": "ffd366531fa755cbaf53ced21d4434cf6a47b619679820115c04638979b4382c",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-event-1-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-cg.1.png",
+          "sha256": "660bacd974b2f2e159a99ee1c271fce93e4a5a141ac35c6fb0565fcf3c38006e"
+        },
+        {
+          "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.1.png",
+          "sha256": "b6233393a0e50a828a60bfae986b430d8ee5240868aa84c94c99e30b019aa0e7"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/viper-v1/event-2-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-550f5598-b990-477a-a2a3-6cbeba6b01d6.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Opaque painted scene background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. LANDSCAPE EVENT CG 1536x1024. Non-chibi adult proportions. Wide cinematic polished painted composition, heroine large and face clearly recognizable, environment richly rendered, absolutely only ONE woman, no males or other people, no human shadows or silhouettes or hands from viewer, no text or letters. Confession at sunset in an ornate open stone garden corridor. Heroine alone faces viewer with sincere slightly blushing tender smile, one open hand offered to viewer but no other hand/body/person in image. Same full white black-piped outfit and rose bow, amber coral wing tips, warm glowing sky and hanging flowers.",
+      "sha256": "b69ace05204303e1ca3f3ea1562332281b2e4308e7fca680e7d1e8b21061cd41",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-event-2-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-cg.2.png",
+          "sha256": "a65a4ef73a78ddbcedae7cc276e40f39bdddfd35a15b31a9c5efb1cad26ceac9"
+        },
+        {
+          "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.2.png",
+          "sha256": "adc48c026c1e899f8cdf828dd4a74ffabcbee85a8c5b2a057f5d52d259031516"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/viper-v1/event-3-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-bba361e4-fff0-4a6e-84d5-7b6f77046198.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Opaque painted scene background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. LANDSCAPE EVENT CG 1536x1024. Non-chibi adult proportions. Wide cinematic polished painted composition, heroine large and face clearly recognizable, environment richly rendered, absolutely only ONE woman, no males or other people, no human shadows or silhouettes or hands from viewer, no text or letters. Romantic quiet dinner preparation in a cozy fantasy conservatory. Heroine alone stands near table, gently holding her own dusty rose collar ribbon between her own fingers, intimate affectionate soft gaze toward viewer, slightly shy smile. Fully clothed, closed collar, covered chest, evening candle and blue moonlight, plated food behind.",
+      "sha256": "019446f97737e087448fb2e2e51da2516a893f985c32246c7d43d26136a432ff",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-event-3-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-cg.3.png",
+          "sha256": "dac3baab0b3fff5f0c01e2fd535c1d812b594f4789ca9971ef38d314930e49e4"
+        },
+        {
+          "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.3.png",
+          "sha256": "d1e4594a1639e80265690cfc1e868a1ea626caa178323456c69f4591afa7bc71"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/viper-v1/event-4-cg.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0d5e8759-5c9d-4c80-bb43-98bf3542d5a9.png",
+      "prompt": "Use the reference as the exact same adult 25-year-old Viper: face, golden blonde hair, silver flower hairpin, pale blue-gray eyes, white black-piped tailored coat dress, dusty rose collar bow, black tights and ankle boots, white wings fading gold and coral, slender gold halo and black/silver rotary gun with red/blue cylinders. High quality detailed painterly anime RPG illustration. Opaque painted scene background, landscape 1536x1024, no text UI frame logos other people. Preserve identity and costume. LANDSCAPE EVENT CG 1536x1024. Non-chibi adult proportions. Wide cinematic polished painted composition, heroine large and face clearly recognizable, environment richly rendered, absolutely only ONE woman, no males or other people, no human shadows or silhouettes or hands from viewer, no text or letters. Peaceful morning walk on a graceful stone garden bridge. Heroine alone glances back toward viewer, warm teasing smile, one arm slightly extended invitation to walk. Full reference outfit, blonde hair and gold coral wings catch morning light. Misty garden flowers and water reflections, no people anywhere.",
+      "sha256": "336bb09a718015113fc493d7b0b2afc340c38563067cc4fb88f6d9b93acdaaa0",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "Illustrations/viper-event-4-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/viper-cg.4.png",
+          "sha256": "c30b7ecde907a848fe89d4d3e15fd6437096834f57c72c884ef0f0338642a470"
+        },
+        {
+          "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.4.png",
+          "sha256": "8aa6c76fee49500edb451e101e98ac1abb7c600d9d1c021415975aea504c8119"
+        }
+      ]
+    },
+    {
+      "key": "tree-ornament",
+      "path": "game/art-source/viper-v1/tree-ornament.png",
+      "generatedFrom": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-01a7b67a-5091-4b8c-978f-5841eb989b0b.png",
+      "prompt": "Create ONE small hanging charm cluster for a fantasy weapon tree, landscape 1536x1024 transparent alpha canvas. Absolutely NO character person face body weapon tree or branch. Delicate small silver six-petal flower, TWO short brass cartridge pendants, tiny dusty rose ribbon tied onto a short thin gold hanging cord. Designed to repeat as tiny ornaments dangling from multiple tree branches. Charm cluster occupies central 40% of canvas, clean readable silhouette, no large centerpiece emblem, no background. High quality painterly game item illustration, subtle restrained gilding. Coordinate colors with blonde white pink Viper reference, but do not depict her.",
+      "sha256": "60c7e0a21c26c0ddd62f0a1b7f1c4e270e60312e9e00828e82568ca9d1a74269",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "resourcePath": "UI/WeaponTrees/viper-ornament-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-viper/player/tree0.png",
+          "sha256": "03f39c2697c206a397fcdda1656ae6204a2ae058c1167aea25b174bc8257f79c"
+        },
+        {
+          "path": "tmp/plan12-viper/player/tree2.png",
+          "sha256": "fefba636e10371b9b8d577da67e883655b3fc20c5bd26e18ba4ce16c9c9a0982"
+        },
+        {
+          "path": "tmp/plan12-viper/player/tree4.png",
+          "sha256": "c7587ffdf228b2442c9dc4ada7e7630c795508311fcf33a07219914b50cf88b1"
+        }
+      ]
+    }
+  ],
+  "requiredAssets": 21,
+  "remainingAssets": [],
+  "rejectedAttempts": [
+    {
+      "key": "attack",
+      "path": "game/art-source/viper-v1/rejected/attack-v1.png",
+      "sha256": "9d3341f9aa671dfcc956b0ae3d3dae744885203ddd009f4668b20290d9c8bff0",
+      "reason": "right wing clipped by source image edge; regenerated with larger transparent margin",
+      "adopted": false
+    }
+  ]
+}

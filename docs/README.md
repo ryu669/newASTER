@@ -4,6 +4,12 @@
 
 ## 制作を進める
 
+- [Plan12第1ロットの手順見直し](production/plan12-first-batch-process-review.md)：神器画像の用途違いを不採用に戻し、原画審査・接続・実画面確認・公開を分離する。
+- [AAと巨神と誓女の人物対応・時系列](production/aa-kyoshin-person-timeline.md)：シャラトの本名一致、ローラからユリケンヌへの継承、NEWHOPEまでの相対順。
+- [AAと巨神と誓女の関連](production/aa-kyoshin-connections.md)：共通人物名・世界観・物語の接点19件。根拠と人物対応の保留を区別。
+- [ヒロイン同士の関係](production/heroine-relationships.md)：天使・神獣動画からの一次整理。相手の同定、時系列、根拠時刻と未確認範囲。
+
+- [ヒロイン量産候補リスト](production/heroine-production-roster.md)：指定2フォルダの全233動画を人物・形態ごとに整理。実装済み15形態と追加録画候補を区別する。
 - [Plan12 制作準備](production/plan12-preparation.txt)：第1ロットの手順、未完了の受入条件、形態別記録ひな形と準備確認。
 - [ヒロイン追加方法](production/heroine-addition-guide.md)：資料確認、人物・形態ID、戦闘、物語、家具姿勢を含む専用21画像、接続、旧セーブ互換、形態単位の完了判定。
 - [ジョブ別実装手順](production/job-implementation-guide.md)：13ジョブのCore・独立コマンド／資源パネル・出撃前設定・状態別検証。既存ジョブ再利用と新規実装の確認範囲。

@@ -1,0 +1,173 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "prompt": "Create one finished Japanese fantasy RPG heroine full body standing sprite, finely painted anime illustration matching the reference identity, adapting to a clearly mature adult. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. Front three quarter neutral balanced standing pose, full head wings hands and both feet within canvas with margins. 1024x1536 portrait canvas, transparent background, no floor, no shadow backdrop, no letters, no UI, no other people, not a sheet. This is one individual game asset.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-e04aa03a-c6af-4b37-9d26-3daac4b40ef2.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/standing.png",
+      "sha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Individual close portrait of the same adult woman from chest upward, centered face with entire hair and wing tips composition, 1536x1024 landscape transparent canvas, no frame. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-2e87ad1f-45a2-4898-bd4f-845574d9f3ab.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/portrait.png",
+      "transparent": true,
+      "sha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a joy expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-8a3349b0-e4eb-408a-bdba-031142d7b1a0.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/expression-joy.png",
+      "transparent": true,
+      "sha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5"
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a puzzled expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-67891bfe-57a2-4f31-b4df-ee689e2e2f12.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/expression-puzzled.png",
+      "transparent": true,
+      "sha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875"
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. EDIT this exact full body standing reference. Change ONLY eyes eyebrows mouth into a determined expression. Preserve EXACT canvas size 1024x1536, face location, head outline, hair, body, hands, weapon, wings and every other pixel composition. No motion, no new pose. Transparent background. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-b56569cf-a586-45b7-83ba-6cf7fc3849a1.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/expression-determined.png",
+      "transparent": true,
+      "sha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9"
+    },
+    {
+      "key": "attack",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dynamic full body battle attack pose, same weapon and costume, 1024x1536 transparent canvas. Entire body wings and weapon with margins, expressive decisive face, clean readable silhouette. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-58410b6f-ac25-45f5-a87e-81cca27c5428.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/attack.png",
+      "transparent": true,
+      "sha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf"
+    },
+    {
+      "key": "hit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Full body battle hit reaction, shoulders recoiling slightly and determined painful face, intact clothing, no injuries or blood, 1024x1536 transparent canvas, all feet and wings visible. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-ab8c5b0c-a094-4057-863a-76b4133ae1e5.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/hit.png",
+      "transparent": true,
+      "sha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3"
+    },
+    {
+      "key": "cutin",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. Dramatic skill cut-in waist up, same weapon and heroine, magical colored streaks contained around her, 1536x1024 transparent landscape, no text no frame. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-4ce127ef-eb1f-401a-95e0-b01af3df90eb.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/cutin.png",
+      "transparent": true,
+      "sha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e"
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing idle relaxed. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-a73929ba-ef07-4ef2-a543-9e9664acb85b.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-idle.png",
+      "transparent": true,
+      "sha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2"
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Walking one step toward right. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-2140dc5a-4518-4feb-9bb4-d5e52c0e308b.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-walk.png",
+      "transparent": true,
+      "sha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71"
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Friendly talking gesture one hand raised. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-0999ad2a-39a5-4d72-9d00-ed741554d58f.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-talk.png",
+      "transparent": true,
+      "sha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99"
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Surprised delighted response arms lifted. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-1c2e61ae-44a2-465f-88a4-2affaccace93.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-react.png",
+      "transparent": true,
+      "sha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364"
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Seated on an invisible bench, legs down, hips center at normalized (.50,.64), no seat drawn. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-54e81549-12f2-44f6-b006-2c1bfa9e2915.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-sit.png",
+      "transparent": true,
+      "sha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0"
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing behind an invisible desk, arms extending forward together as if writing, hands near normalized (.50,.44), no furniture or paper drawn. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-b67760f3-1f35-4985-8624-f704d5d40ec9.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-work.png",
+      "transparent": true,
+      "sha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc"
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One individual chibi garden sprite of the same adult heroine, 3 head tall miniature proportions, 1024x1024 transparent square, full wings and body with margins. Standing looking upward toward left, feet near normalized (.50,.90), no furniture. No weapon in hands, no furniture, no floor. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-ff3f4ee4-4f20-42cf-bea1-0542d49d0224.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/sd-look.png",
+      "transparent": true,
+      "sha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450"
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One game equipment tree illustration, 1536x1024 transparent landscape, NO people NO letters NO numbers. Elegant golden branching tree inspired by this heroine's weapon and costume colors. Central root circular gold socket at (.50,.85); three routes with four glowing circular sockets each: left (.36,.52),(.275,.36),(.185,.25),(.10,.15); center (.50,.58),(.50,.43),(.50,.28),(.50,.13); right (.64,.52),(.725,.36),(.815,.25),(.90,.15). Exactly 13 large solid gold glowing sockets connected by thin ornate branches, generous margins, distinct separated sockets, no wide solid backdrop. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-94734802-c687-485b-a8ab-0ed4e70c83b3.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/equipment-tree-v1.png",
+      "transparent": true,
+      "sha256": "97ed3bb752be5405707d276dac9fda59abe02d1e5d26a040448af322c5b95373",
+      "adoptionStatus": "rejected-character-in-tree"
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. cheerfully holding a glowing throwing ring in a sunny meadow Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-f72a6490-0587-4fd4-b0d7-e3732653c248.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/event-0-cg.png",
+      "transparent": false,
+      "sha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2"
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. writing a letter to a close friend with a gentle thoughtful smile in a warm study Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-6569720b-bb6e-42c8-8378-bdf87edefc43.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/event-1-cg.png",
+      "transparent": false,
+      "sha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a"
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. joyful heartfelt confession at sunset, both hands clasped near chest Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-d4acf212-0691-4461-8dbd-79fd0d82725c.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/event-2-cg.png",
+      "transparent": false,
+      "sha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c"
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. sharing a picnic scene alone with two cups and fruit, no other person visible Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-4b721ef8-8f14-40fe-a05e-1d1bc501117a.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/event-3-cg.png",
+      "transparent": false,
+      "sha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9"
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Create ONE individual production asset for Japanese fantasy RPG newASTER. Maintain the exact character identity, colors, hair, eyes, costume and weapon of the supplied standing reference, clearly mature adult. One finished fantasy visual novel event illustration, 1536x1024 landscape opaque. The SAME mature adult heroine alone, only ONE woman and exactly TWO hands, NO men, no other people, no visible protagonist or extra hands. peacefully looking at stars from a garden bench, pink white wings relaxed Background richly painted, expressive face, beautiful warm light, intact modest reference clothing, no text no UI. A mature adult athletic woman about 25, short blonde bob, violet eyes, white fitted sports jacket with blue piping and gold buttons over high neck top, red neck scarf, knee length blue pleated skirt over opaque leggings, blue white ankle boots, large pink white angel wings, holds silver purple glowing throwing ring Frisbeete. Energetic warm smile. No collage, no sprite sheet, no labels.",
+      "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-92af2657-bcb1-43e2-8da8-05be16992b2c.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/shiva-v1/event-4-cg.png",
+      "transparent": false,
+      "sha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1"
+    }
+  ]
+}

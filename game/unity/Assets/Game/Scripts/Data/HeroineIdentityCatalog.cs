@@ -12,6 +12,11 @@ namespace NewAster.Data
         {
             string name,master,icon,bonus;
             switch(h.id){
+                case "heroine.iron-maiden":icon="moon";bonus="最大HP＋5%";break;
+                case "heroine.avalanche":icon="flame";bonus="物理防御＋5%";break;
+                case "heroine.anathema":icon="sword";bonus="会心率＋5%";break;
+                case "heroine.shiva":icon="leaf";bonus="最大HP＋5%";break;
+                case "heroine.aeon":icon="moon";bonus="物理防御＋5%";break;
                 case "heroine.slayer":icon="sword";bonus="会心率＋5%";break;
                 case "heroine.iconoclast":icon="flame";bonus="攻撃＋5%";break;
                 case "heroine.undermine":icon="leaf";bonus="最大HP＋5%";break;
@@ -27,6 +32,10 @@ namespace NewAster.Data
                 case "heroine.arcane":icon="star";bonus="物理防御＋5%";break;
                 case "heroine.arcane-academy":icon="star";bonus="魔法防御＋5%";break;
                 case "heroine.shangrila":icon="star";bonus="会心率＋5%";break;
+                case "heroine.invisible":icon="star";bonus="魔法防御＋5%";break;
+                case "heroine.viper":icon="sword";bonus="物理防御＋5%";break;
+                case "heroine.vindicator":icon="moon";bonus="魔法防御＋5%";break;
+                case "heroine.weapon-master":icon="sword";bonus="攻撃＋5%";break;
                 default:throw new ArgumentException("人物固有の特性定義がありません。");
             }
             var authored=HeroineAuthoredNames.For(h.id);name=authored.Innate;master=authored.Mastery;

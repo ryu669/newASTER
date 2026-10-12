@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.iron-maiden",
+  "layoutPath": "game/unity/Assets/Game/Resources/UI/WeaponTrees/iron-maiden.json",
+  "components": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/iron-maiden.json",
+      "sha256": "4d49f0b14081dd4a055792d0499ae2a0327d3fa5a636d963c56a9346bfd4e01f",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/crimson-flower.png",
+      "sha256": "ab3f3aa6338d08e50bd7cfe4a6ebc6874ab6699ffab38e1c6f52464ebf68f306",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/iron-clasp.png",
+      "sha256": "f77f43fd7537e063a90860ae84edca63896277f6bc616b3787dad842b31c4ef9",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/ruby.png",
+      "sha256": "e2e726fdc113a5f162141185876e1262a9d306f79daca723e72f6960be5d6a1d",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-leaf.png",
+      "sha256": "abb3223915d54f509f21f3877ea47be4d77f96507af0c9ac744446290481ea07",
+      "status": "approved"
+    }
+  ]
+}

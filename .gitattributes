@@ -8,3 +8,11 @@
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 # The parity fixture hashes engine.mjs bytes; keep its checkout stable.
+# Reviewed tree bundles hash these text files as well as PNGs. Preserve their
+# Windows review bytes on every checkout, independently of core.autocrlf.
+game/unity/Assets/Game/Resources/UI/WeaponTrees/*.json text eol=crlf
+game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json text eol=crlf
+game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs text eol=crlf
+game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs text eol=crlf
+game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs text eol=crlf
+game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs text eol=crlf

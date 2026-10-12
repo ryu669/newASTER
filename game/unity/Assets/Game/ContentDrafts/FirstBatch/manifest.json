@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "stage": "complete-published",
+  "available": true,
+  "formIds": [
+    "heroine.iron-maiden",
+    "heroine.avalanche",
+    "heroine.anathema",
+    "heroine.shiva"
+  ],
+  "baselineForms": 16,
+  "targetForms": 20,
+  "requiredAssetsPerForm": 21,
+  "sourceAdaptations": {
+    "iron-maiden": "動画の1技を収録。中断30%は本作の敵WT+30へ変更。2・3技は本作オリジナル。",
+    "avalanche": "動画の2技を収録。3技は本作オリジナル。",
+    "anathema": "防御-100は本作の防御20%無視へ変更。騎士の誓いは低HP時の被害15%軽減へ調整。",
+    "shiva": "動画の3技を収録。ポジティブ思考は本作の毎ターン2%自己回復へ調整。"
+  },
+  "sourceStoryPolicy": "人物の関係と性格を参考にした本作オリジナル。転生説・年齢・作品横断同一人物説を確定扱いしない。",
+  "unresolved": [],
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-first-batch.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-first-batch-story-content.json",
+  "combatSourceSha256": "788a91f1e1f8edbad7ff386f48dfe53b77cb99f4ba7cb43ad24899d0d8f71f48",
+  "storySourceSha256": "91f0e217bffe7f4ef67089f7135077d158390a5b386c93293107361460927a5c"
+}

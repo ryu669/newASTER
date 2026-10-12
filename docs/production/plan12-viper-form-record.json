@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.viper",
+  "formId": "heroine.viper",
+  "jobId": "job.gunner",
+  "status": "complete_published",
+  "profile": "docs/characters/viper.md",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/standing.png",
+      "sha256": "70629915a26131a8cab19b674e7dfa5e5d4419627ad6a576cb4f6f9bebbcdfbe",
+      "resourcePath": "Illustrations/viper-standing-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "70629915a26131a8cab19b674e7dfa5e5d4419627ad6a576cb4f6f9bebbcdfbe",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-expression.normal.png",
+            "sha256": "2efd7df130462cf42f782daf9ef654b01d27c51a41b6a2db85abdb330c7d7467"
+          }
+        ]
+      }
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/portrait.png",
+      "sha256": "46fab7ca01184c6f402b3585b5ca04dab812fdca619f614742bb20407d8b2977",
+      "resourcePath": "Illustrations/heroine-portrait-viper-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "46fab7ca01184c6f402b3585b5ca04dab812fdca619f614742bb20407d8b2977",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/recruit.png",
+            "sha256": "47e361c9475bfeeb33af1a4067eb7bb41633b33f67f794f69d860fef5d0d684a"
+          },
+          {
+            "path": "tmp/plan12-viper/player/trait.png",
+            "sha256": "55df563220d47cae216f413ed7180bdd2f22e2d17f1a7fd64dc3e329484aef06"
+          }
+        ]
+      }
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/expression-joy.png",
+      "sha256": "bfe17df13809db68b9c4ab096914b85db9700922da65534e3ad57ceea6c5819c",
+      "resourcePath": "Illustrations/viper-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "bfe17df13809db68b9c4ab096914b85db9700922da65534e3ad57ceea6c5819c",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-expression.joy.png",
+            "sha256": "1b865dc8a6f68162b4973e867229cf353e9f71408321c25d91623e9ee905637e"
+          }
+        ]
+      }
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/expression-puzzled.png",
+      "sha256": "5ec5db751534f2c0bcfbbf8c3e76f231f278a19435f9c9bc299b38b86848b5b8",
+      "resourcePath": "Illustrations/viper-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "5ec5db751534f2c0bcfbbf8c3e76f231f278a19435f9c9bc299b38b86848b5b8",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-expression.puzzled.png",
+            "sha256": "04b20025a4174345f3251d1e516f5987d617c2d5d3cabc0cce824f818bf3bc49"
+          }
+        ]
+      }
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/expression-determined.png",
+      "sha256": "5daf9a9bd500c51b109c824a559a8e2f2fba30ac49de672126bccc6b89bba447",
+      "resourcePath": "Illustrations/viper-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "5daf9a9bd500c51b109c824a559a8e2f2fba30ac49de672126bccc6b89bba447",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-expression.determined.png",
+            "sha256": "90ec537d9447caf91ba67b75b9f2f9d41e2525e88519dc1e9f4752cefd3129e5"
+          }
+        ]
+      }
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/attack.png",
+      "sha256": "09f51def0f92df79f23eaffbbf8fc1a0f9ef2b862a697d767ee530244e5e85b6",
+      "resourcePath": "Illustrations/viper-attack-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "09f51def0f92df79f23eaffbbf8fc1a0f9ef2b862a697d767ee530244e5e85b6",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/battle-attack.png",
+            "sha256": "3083c7391675be968307deb6126a67ccdf8c558e73eba1923585c898a75e510e"
+          }
+        ]
+      }
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/hit.png",
+      "sha256": "27073f1809ffce76eff639d91190ee3437692ac43879537e4d3c3e004eefeef8",
+      "resourcePath": "Illustrations/viper-hit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "27073f1809ffce76eff639d91190ee3437692ac43879537e4d3c3e004eefeef8",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/battle-hit.png",
+            "sha256": "acdf6d2b3517442e5e4109b67d3b65f03d2029f82445a8259e68aa454844e8da"
+          }
+        ]
+      }
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/cutin.png",
+      "sha256": "b9a48d7dad5d33957cf759274f3fab2ff4c27afc4da4cf9ba25b7ec3efc67f96",
+      "resourcePath": "Illustrations/viper-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b9a48d7dad5d33957cf759274f3fab2ff4c27afc4da4cf9ba25b7ec3efc67f96",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/battle-cutin.png",
+            "sha256": "1995ab610f1ed038deed08daa7801e7364ccfe275c1613de30906dba46a111f0"
+          }
+        ]
+      }
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-idle.png",
+      "sha256": "5b80ef328452385c6a16b3c272b8fce8eb86cc5c81182fd3a119bb6de062baca",
+      "resourcePath": "Illustrations/viper-sd-idle-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "5b80ef328452385c6a16b3c272b8fce8eb86cc5c81182fd3a119bb6de062baca",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.idle.png",
+            "sha256": "6685feb9d628e5987540663d1f6cb4813b6f82798c7bfb38824e4f7cb0a67e4d"
+          }
+        ]
+      }
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-walk.png",
+      "sha256": "7acdbd719c19376d8c67e3ab498b4bbd358bf8ae0597297069828ba85928770d",
+      "resourcePath": "Illustrations/viper-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "7acdbd719c19376d8c67e3ab498b4bbd358bf8ae0597297069828ba85928770d",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.walk.png",
+            "sha256": "1e7f4567d6e08260e6663d12afc843160e4284a338242678b93ccc7caa4a209a"
+          }
+        ]
+      }
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-talk.png",
+      "sha256": "332c70b61cf63e24e93a233def472df923931ef289e95afd238e620caa521a8a",
+      "resourcePath": "Illustrations/viper-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "332c70b61cf63e24e93a233def472df923931ef289e95afd238e620caa521a8a",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.talk.png",
+            "sha256": "a4c4a0126b20160840e7abfe5b5ceb01b57335d5b04b752be9540e834699cd50"
+          }
+        ]
+      }
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-react.png",
+      "sha256": "acb888fcf1e876937eb14706f9ab5f9c33e0593219e713ee004b31c592659a0d",
+      "resourcePath": "Illustrations/viper-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "acb888fcf1e876937eb14706f9ab5f9c33e0593219e713ee004b31c592659a0d",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.react.png",
+            "sha256": "275c39555ff4b3e33ee088e5bf1582ee4331adc023b08c86d00d2e612b20bc4d"
+          }
+        ]
+      }
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-sit.png",
+      "sha256": "6f9bef846e456e48229d99f5603c04faefcfea61ef2fbe357011c8082838a4f6",
+      "resourcePath": "Illustrations/viper-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "6f9bef846e456e48229d99f5603c04faefcfea61ef2fbe357011c8082838a4f6",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.sit.png",
+            "sha256": "c77c47ce9cc10943363445f90ecd972e1554ef71c8fdf0e57fdfb74943ac9cad"
+          },
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+            "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+          }
+        ]
+      }
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-work.png",
+      "sha256": "8aeb5663911191c6e5e86394ec7af6e91b4c544b68162f53e18b6b78aaaa57fb",
+      "resourcePath": "Illustrations/viper-sd-work-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "8aeb5663911191c6e5e86394ec7af6e91b4c544b68162f53e18b6b78aaaa57fb",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.work.png",
+            "sha256": "4ed50d9a1e10f974917c9458e410d48dfeab5214ed77762c2502897beebdc476"
+          },
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+            "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+          }
+        ]
+      }
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/sd-look.png",
+      "sha256": "661a22d639fa04709ad0bedd82bf5c4821ea89cde6e53b34f54554879e253d5a",
+      "resourcePath": "Illustrations/viper-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "661a22d639fa04709ad0bedd82bf5c4821ea89cde6e53b34f54554879e253d5a",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.look.png",
+            "sha256": "1eaaa92178c011969fb0f449c2977a22bf95f5c6ae313b9fe95b7e3421c80287"
+          },
+          {
+            "path": "tmp/plan12-viper/player/viper-sd.furniture.png",
+            "sha256": "13bfa06998c5ed8dcc84071c1027e1401ddb41606771113a97535b3e81f1ae5c"
+          }
+        ]
+      }
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/event-0-cg.png",
+      "sha256": "3562d200c504e389bd6fc56ead74f1f81125b92cfbdff057b0e73851b4b62949",
+      "resourcePath": "Illustrations/viper-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "3562d200c504e389bd6fc56ead74f1f81125b92cfbdff057b0e73851b4b62949",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-cg.0.png",
+            "sha256": "5780a43157f30f78f86ec6fedbffc7fe8993d2249b2e21cff89995d41b691162"
+          },
+          {
+            "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.0.png",
+            "sha256": "17cef160de25cd7e7232580c89793e07368b93017b857a611ca575db63a0a9e3"
+          }
+        ]
+      }
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/event-1-cg.png",
+      "sha256": "ffd366531fa755cbaf53ced21d4434cf6a47b619679820115c04638979b4382c",
+      "resourcePath": "Illustrations/viper-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "ffd366531fa755cbaf53ced21d4434cf6a47b619679820115c04638979b4382c",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-cg.1.png",
+            "sha256": "660bacd974b2f2e159a99ee1c271fce93e4a5a141ac35c6fb0565fcf3c38006e"
+          },
+          {
+            "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.1.png",
+            "sha256": "b6233393a0e50a828a60bfae986b430d8ee5240868aa84c94c99e30b019aa0e7"
+          }
+        ]
+      }
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/event-2-cg.png",
+      "sha256": "b69ace05204303e1ca3f3ea1562332281b2e4308e7fca680e7d1e8b21061cd41",
+      "resourcePath": "Illustrations/viper-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "b69ace05204303e1ca3f3ea1562332281b2e4308e7fca680e7d1e8b21061cd41",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-cg.2.png",
+            "sha256": "a65a4ef73a78ddbcedae7cc276e40f39bdddfd35a15b31a9c5efb1cad26ceac9"
+          },
+          {
+            "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.2.png",
+            "sha256": "adc48c026c1e899f8cdf828dd4a74ffabcbee85a8c5b2a057f5d52d259031516"
+          }
+        ]
+      }
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/event-3-cg.png",
+      "sha256": "019446f97737e087448fb2e2e51da2516a893f985c32246c7d43d26136a432ff",
+      "resourcePath": "Illustrations/viper-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "019446f97737e087448fb2e2e51da2516a893f985c32246c7d43d26136a432ff",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-cg.3.png",
+            "sha256": "dac3baab0b3fff5f0c01e2fd535c1d812b594f4789ca9971ef38d314930e49e4"
+          },
+          {
+            "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.3.png",
+            "sha256": "d1e4594a1639e80265690cfc1e868a1ea626caa178323456c69f4591afa7bc71"
+          }
+        ]
+      }
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/event-4-cg.png",
+      "sha256": "336bb09a718015113fc493d7b0b2afc340c38563067cc4fb88f6d9b93acdaaa0",
+      "resourcePath": "Illustrations/viper-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "336bb09a718015113fc493d7b0b2afc340c38563067cc4fb88f6d9b93acdaaa0",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/viper-cg.4.png",
+            "sha256": "c30b7ecde907a848fe89d4d3e15fd6437096834f57c72c884ef0f0338642a470"
+          },
+          {
+            "path": "tmp/plan12-viper/player/gallery-frames/viper-cg.4.png",
+            "sha256": "8aa6c76fee49500edb451e101e98ac1abb7c600d9d1c021415975aea504c8119"
+          }
+        ]
+      }
+    },
+    "tree-ornament": {
+      "status": "approved",
+      "source": "game/art-source/viper-v1/tree-ornament.png",
+      "sha256": "60c7e0a21c26c0ddd62f0a1b7f1c4e270e60312e9e00828e82568ca9d1a74269",
+      "resourcePath": "UI/WeaponTrees/viper-ornament-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "60c7e0a21c26c0ddd62f0a1b7f1c4e270e60312e9e00828e82568ca9d1a74269",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-viper/player/tree0.png",
+            "sha256": "03f39c2697c206a397fcdda1656ae6204a2ae058c1167aea25b174bc8257f79c"
+          },
+          {
+            "path": "tmp/plan12-viper/player/tree2.png",
+            "sha256": "fefba636e10371b9b8d577da67e883655b3fc20c5bd26e18ba4ce16c9c9a0982"
+          },
+          {
+            "path": "tmp/plan12-viper/player/tree4.png",
+            "sha256": "c7587ffdf228b2442c9dc4ada7e7630c795508311fcf33a07219914b50cf88b1"
+          }
+        ]
+      }
+    }
+  },
+  "treeComponents": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/viper-ornament-v1.png",
+      "sha256": "60c7e0a21c26c0ddd62f0a1b7f1c4e270e60312e9e00828e82568ca9d1a74269",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/viper.json",
+      "sha256": "1608234689c2e8b74707a15925e7a5bd8cc1e7f2ee2a9812a458d22e565d2fa3",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "status": "approved",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    }
+  ],
+  "resolution": "default launch 1920x1080",
+  "method": "manual actual Player frame review; automated behavior separately recorded; physical input excluded",
+  "unresolved": [],
+  "updatedAt": "2026-10-11",
+  "renderers": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "sha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved",
+      "previousReviewedSha256": "d2529c117d786b166a6444e14639f71dc6cf2ad55e99c84ffc01a22c750ba424",
+      "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "sha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "status": "approved"
+    }
+  ],
+  "acceptance": "pass",
+  "build": {
+    "path": "game/Builds/plan12-viper/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "workingTreeChanges": true
+  },
+  "validationLogs": [
+    {
+      "path": "tmp/plan12-viper-core.log",
+      "sha256": "c349730061b9bfd72389550a60046b4c02fc8247fcf5bc77c676d9d3d54d85b9"
+    },
+    {
+      "path": "tmp/plan12-viper-build-final.log",
+      "sha256": "f8df789dc2b4f67f6f662a3275eccc584a6f4ee6ae99afb21546be94db7205f4"
+    },
+    {
+      "path": "tmp/plan12-viper/production-player.log",
+      "sha256": "5e4036c408705690b0057ec04e787b46d9e0d40ee5cc7cc4d0d0f08294abebd3"
+    }
+  ],
+  "scopeUpdates": [
+    {
+      "date": "2026-10-11",
+      "reason": "Reviewed Vindicator-only registration/branch additions (connect-plan12-vindicator.py): full-body ADV flag, layered tree support, home expression registration, furniture fallback. Existing heroine branches, parameters, assets and capture hashes unchanged. No completed visual reviews reopened.",
+      "renderers": [
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+          "previousSha256": "aa5e0d841f1257be511914a6b7fe084a5af16a498174fca9cd69c757bee979ce",
+          "sha256": "6e15dec7d7080eba25bc426aa541c57e7c2b91bc48fd8da50338cc20d5be0973"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+          "previousSha256": "c5e5bf38760b820668632d6321787d593673ea3bd6fcdd97c00c293f5c03dfcc",
+          "sha256": "a6949b0fdd05411cd7a0ff913366aba8a973dd59d4b0ffb10526fe159ba05b49"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+          "previousSha256": "760a5ab1538a23d734a53b15b33b328ecc3d837f06ed7239fc74f58be83efe22",
+          "sha256": "a07b869b5f7b4055da6f616244ffb62ef5fd4982530eaf41eb442376f25ff5fe"
+        },
+        {
+          "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+          "previousSha256": "05bba79b1cc448b436e054288fd4ddbf319ad472c713d9407985c99969851491",
+          "sha256": "6f045e9f9cf4d66e10b357069c63d3d390bc94b4d59a74cdd28c74b7ec05a043"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "reason": "Reviewed Vindicator-only registration/branch additions (connect-plan12-vindicator.py): full-body ADV flag, layered tree support, home expression registration, furniture fallback. Existing heroine branches, parameters, assets and capture hashes unchanged. No completed visual reviews reopened.",
+      "renderers": [
+        {
+          "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+          "previousSha256": "a6949b0fdd05411cd7a0ff913366aba8a973dd59d4b0ffb10526fe159ba05b49",
+          "sha256": "6e24c345f321fe30b6ef7c7b2da34c56c19c0722d015135b1a349bd4f0cb3e58"
+        }
+      ]
+    }
+  ],
+  "rendererScopeUpdate": "docs/production/plan12-weapon-master-renderer-scope.json",
+  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json"
+}

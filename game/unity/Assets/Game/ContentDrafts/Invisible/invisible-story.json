@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.invisible.poem-chapter.1",
+      "ownerId": "heroine.invisible",
+      "title": "空いた椅子の返事",
+      "introduction": "記憶晶竜の謳を読む席で、ゆにこは空いた椅子を少し横へ寄せた。そこにも誰かが座るのだと言う。",
+      "conclusion": "椅子を片付ける前に、ゆにこは明日もこの席で読もうと言った。見えるものだけを並べるより、話せる場所を一つ増やす約束になった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.invisible.collection.poem.01",
+          "text": "あなたが椀を二つ置くと、彼女は三つ目を頼まなかった。",
+          "body": "あなたが椀を二つ置くと、彼女は三つ目を頼まなかった。友達はお茶を飲むより、湯気を追う方が好きらしい。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.02",
+          "text": "謳には、誰にも見えない客のために門を開け続けた人がいた。",
+          "body": "謳には、誰にも見えない客のために門を開け続けた人がいた。最後の頁にも、客の姿は記されていない。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.03",
+          "text": "「指揮官には、見えないんだよね」。",
+          "body": "「指揮官には、見えないんだよね」。ゆにこは確かめるように尋ねた。あなたは見えるふりをせず、彼女の話を聞きたいと答えた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.04",
+          "text": "彼女は椅子の背へ青いリボンを結んだ。",
+          "body": "彼女は椅子の背へ青いリボンを結んだ。友達がここにいると知らせる目印で、誰かを試すためではない。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.05",
+          "text": "風が吹き、栞が床へ落ちた。",
+          "body": "風が吹き、栞が床へ落ちた。ゆにこは空いた席へ何か言い、あなたと同時に手を伸ばして笑った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.06",
+          "text": "謳の客が本当にいたかは、今も分からない。",
+          "body": "謳の客が本当にいたかは、今も分からない。あなたは今日の記録へ、三人分の場所を空けて読んだと書いた。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、空いた椅子の返事で本人の選択と暮らしを描く。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳を読む席で、ゆにこは空いた椅子を少し横へ寄せた。そこにも誰かが座るのだと言う。",
+        "あなたが椀を二つ置くと、彼女は三つ目を頼まなかった。友達はお茶を飲むより、湯気を追う方が好きらしい。",
+        "謳には、誰にも見えない客のために門を開け続けた人がいた。最後の頁にも、客の姿は記されていない。",
+        "「指揮官には、見えないんだよね」。ゆにこは確かめるように尋ねた。あなたは見えるふりをせず、彼女の話を聞きたいと答えた。",
+        "彼女は椅子の背へ青いリボンを結んだ。友達がここにいると知らせる目印で、誰かを試すためではない。",
+        "風が吹き、栞が床へ落ちた。ゆにこは空いた席へ何か言い、あなたと同時に手を伸ばして笑った。",
+        "謳の客が本当にいたかは、今も分からない。あなたは今日の記録へ、三人分の場所を空けて読んだと書いた。",
+        "「ボクの話、途中でやめなくてもいい？」。頷くと、ゆにこは友達の好きな星の形を指で描いた。",
+        "あなたには見えないままでも、彼女が楽しそうに話す理由は少しずつ分かった。問いかけると、答えを考える声が弾む。",
+        "椅子を片付ける前に、ゆにこは明日もこの席で読もうと言った。見えるものだけを並べるより、話せる場所を一つ増やす約束になった。"
+      ]
+    },
+    {
+      "id": "heroine.invisible.poem-chapter.2",
+      "ownerId": "heroine.invisible",
+      "title": "退却路に置く灯り",
+      "introduction": "黒煙城塞の謳には、門を守った者の名が並ぶ。ゆにこは、帰ってきた人の名はどこにあるのかと尋ねた。",
+      "conclusion": "灯りを片付ける手をあなたが手伝う。ゆにこは今度も一緒に帰ろうと言い、杖より先に荷物を半分預けた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.invisible.collection.poem.07",
+          "text": "あなたは後ろの頁を開いたが、そこには門の図しかなかった。",
+          "body": "あなたは後ろの頁を開いたが、そこには門の図しかなかった。彼女はしばらく、その図を見ていた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.01",
+          "reason": "「終わった戦へ、煙が立つ」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.08",
+          "text": "庭の避難訓練で集合の声を頼まれた。",
+          "body": "庭の避難訓練で集合の声を頼まれた。ゆにこは杖を握り、声を出す前に道の端へ灯りを置いた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.02",
+          "reason": "「熱い壁にも、冷たい工房」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.09",
+          "text": "歩く速さの違う人が集まり、列はすぐに伸びた。",
+          "body": "歩く速さの違う人が集まり、列はすぐに伸びた。彼女は先頭へ急がず、最後の人へ声をかけた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.03",
+          "reason": "「鍋の欠けには、夕飯の跡」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.10",
+          "text": "大きな力を見せれば従ってもらえるのかと、ゆにこは小さく言った。",
+          "body": "大きな力を見せれば従ってもらえるのかと、ゆにこは小さく言った。あなたは、今の灯りで道が分かったと答えた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.04",
+          "reason": "「守る砲口が、家を向く」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.11",
+          "text": "曲がり角で一人が迷った。",
+          "body": "曲がり角で一人が迷った。彼女は叱らず戻り、次は目印をここにも置こうと一緒に確かめた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.05",
+          "reason": "「命令の紙に、帰らない名」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.12",
+          "text": "謳にない帰り道を、二人で紙へ描き足す。",
+          "body": "謳にない帰り道を、二人で紙へ描き足す。勝った話の下にも、帰った人数を書く欄ができた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.06",
+          "reason": "「煤けた窓から、洗濯の声」を受け、退却路に置く灯りで本人の選択と暮らしを描く。"
+        }
+      ],
+      "pages": [
+        "黒煙城塞の謳には、門を守った者の名が並ぶ。ゆにこは、帰ってきた人の名はどこにあるのかと尋ねた。",
+        "あなたは後ろの頁を開いたが、そこには門の図しかなかった。彼女はしばらく、その図を見ていた。",
+        "庭の避難訓練で集合の声を頼まれた。ゆにこは杖を握り、声を出す前に道の端へ灯りを置いた。",
+        "歩く速さの違う人が集まり、列はすぐに伸びた。彼女は先頭へ急がず、最後の人へ声をかけた。",
+        "大きな力を見せれば従ってもらえるのかと、ゆにこは小さく言った。あなたは、今の灯りで道が分かったと答えた。",
+        "曲がり角で一人が迷った。彼女は叱らず戻り、次は目印をここにも置こうと一緒に確かめた。",
+        "謳にない帰り道を、二人で紙へ描き足す。勝った話の下にも、帰った人数を書く欄ができた。",
+        "「怖かったって言っても、次を任せてもらえるかな」。あなたは頷き、困った場所も聞かせてほしいと頼んだ。",
+        "訓練の終わりに、ゆにこは皆の返事を一人ずつ待った。強い声ではなかったが、最後まで数を間違えなかった。",
+        "灯りを片付ける手をあなたが手伝う。ゆにこは今度も一緒に帰ろうと言い、杖より先に荷物を半分預けた。"
+      ]
+    },
+    {
+      "id": "heroine.invisible.poem-chapter.3",
+      "ownerId": "heroine.invisible",
+      "title": "明日の色を選ぶ",
+      "introduction": "塔の謳に、空の色を一つに決めた人々がいた。ゆにこは机へピンクと青の糸を置き、どちらも好きだと言う。",
+      "conclusion": "できた目印が庭へ揺れる。ゆにこはあなたの隣で次の色を考え、帰り際には自分から手を差し出した。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.invisible.collection.poem.13",
+          "text": "庭で使う目印を作っていた。",
+          "body": "庭で使う目印を作っていた。遠くから見えることと、見た人が笑えることを両方叶えたいらしい。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.14",
+          "text": "あなたが青を指すと、彼女はピンクを隣へ重ねた。",
+          "body": "あなたが青を指すと、彼女はピンクを隣へ重ねた。一つだけに決めなくても、結び方はある。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.15",
+          "text": "最初の結び目は大きすぎ、風ですぐ裏返った。",
+          "body": "最初の結び目は大きすぎ、風ですぐ裏返った。ゆにこは失敗作を隠さず、あなたへ持っていてと頼んだ。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.16",
+          "text": "二人で細い糸へ替えると、星の形がはっきりした。",
+          "body": "二人で細い糸へ替えると、星の形がはっきりした。空いた椅子へ話しかける声も、今日は途切れなかった。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.17",
+          "text": "謳の塔は違う色を見つけるたび窓を閉じた。",
+          "body": "謳の塔は違う色を見つけるたび窓を閉じた。ゆにこは窓を開け、できた星を昼の光へかざした。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        },
+        {
+          "id": "heroine.invisible.collection.poem.18",
+          "text": "あなたが似合うと伝えると、誰にと尋ね返された。",
+          "body": "あなたが似合うと伝えると、誰にと尋ね返された。ゆにこの色だと答えると、指先が少し止まる。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、明日の色を選ぶで本人の選択と暮らしを描く。"
+        }
+      ],
+      "pages": [
+        "塔の謳に、空の色を一つに決めた人々がいた。ゆにこは机へピンクと青の糸を置き、どちらも好きだと言う。",
+        "庭で使う目印を作っていた。遠くから見えることと、見た人が笑えることを両方叶えたいらしい。",
+        "あなたが青を指すと、彼女はピンクを隣へ重ねた。一つだけに決めなくても、結び方はある。",
+        "最初の結び目は大きすぎ、風ですぐ裏返った。ゆにこは失敗作を隠さず、あなたへ持っていてと頼んだ。",
+        "二人で細い糸へ替えると、星の形がはっきりした。空いた椅子へ話しかける声も、今日は途切れなかった。",
+        "謳の塔は違う色を見つけるたび窓を閉じた。ゆにこは窓を開け、できた星を昼の光へかざした。",
+        "あなたが似合うと伝えると、誰にと尋ね返された。ゆにこの色だと答えると、指先が少し止まる。",
+        "「ボクも、明日の予定に入れてね」。仕事がある時だけでなく、お茶を飲む時にも呼んでほしいという。",
+        "あなたは二人分の時刻を紙へ書いた。ゆにこはその脇に小さな星を描き、友達の場所も忘れなかった。",
+        "できた目印が庭へ揺れる。ゆにこはあなたの隣で次の色を考え、帰り際には自分から手を差し出した。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.invisible.event.0",
+      "ownerId": "heroine.invisible",
+      "title": "星の栞をひとつ",
+      "cgResourcePath": "Illustrations/invisible-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "庭の机で、ゆにこは青いリボンを折っていた。",
+        "本へ挟む星を作るのだと、あなたにも端を持たせる。",
+        "力を入れ過ぎると曲がるから、と指で細く示した。",
+        "「指揮官、上手。ボクより星っぽいかも」",
+        "あなたが笑うと、彼女は自分の少し丸い星も並べた。",
+        "違う形なら本を取り違えないねと、嬉しそうに言う。",
+        "空いた椅子へ何か話し、次の色をあなたへ尋ねた。",
+        "読みかけの頁には、それぞれ違う星が挟まった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.invisible.event.1",
+      "ownerId": "heroine.invisible",
+      "title": "書き直した宛名",
+      "cgResourcePath": "Illustrations/invisible-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "読書室で、ゆにこが封筒を裏返した。",
+        "昔の部隊へ送る手紙ではなく、今日のお礼だという。",
+        "あなたが椅子を引くと、宛名をもう一度確かめた。",
+        "「指揮官へ、でいい？　役目じゃなくて、ちゃんとあなたに」",
+        "あなたは受け取りたいと答え、書き終えるまで待った。",
+        "彼女は昨日の小さな失敗も、助かったことも書いた。",
+        "封を閉じる手はまだ迷ったが、隠すようには握らなかった。",
+        "渡した後、次は返事を一緒に読んでよと笑った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.invisible.event.2",
+      "ownerId": "heroine.invisible",
+      "title": "見つけてくれた人",
+      "cgResourcePath": "Illustrations/invisible-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "月の明るい橋で、ゆにこは杖を手すりへ立てかけた。",
+        "今日は集合の合図ではないと、先にあなたへ言う。",
+        "声を探して黙った後、あなたの顔をまっすぐ見た。",
+        "「ボク、指揮官が好き。任務がなくても、隣にいたい」",
+        "あなたも好きだと答え、恋人として一緒にいたいと伝えた。",
+        "ゆにこは返事を聞き直さず、嬉しそうに目を細めた。",
+        "つないでよいかと尋ねてから、そっと手を伸ばした。",
+        "帰る道でも友達の話は続き、その途中へ二人の明日の約束が加わった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.invisible.event.3",
+      "ownerId": "heroine.invisible",
+      "title": "同じ鉢にはしないで",
+      "cgResourcePath": "Illustrations/invisible-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "温室で、ゆにこはピンクと青の花を見比べていた。",
+        "あなたが並べようとすると、土の好みが違うらしいと言う。",
+        "鉢を分け、置く場所だけ隣にしてみた。",
+        "「一緒にいるって、全部そろえることじゃないんだね」",
+        "あなたは恋人の手へ小さな札を渡し、名前を書いてもらった。",
+        "彼女は自分の字の横へ、あなたにも日付を書かせた。",
+        "水やりの順番を決めると、明日も会えるねと笑う。",
+        "窓を閉める前に、二人はそれぞれの鉢をもう一度確かめた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.invisible.event.4",
+      "ownerId": "heroine.invisible",
+      "title": "集合より早い朝",
+      "cgResourcePath": "Illustrations/invisible-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "夜明けの庭で、ゆにこは両手で椀を温めていた。",
+        "あなたを見ると、空いていた隣の席を少し拭く。",
+        "集合にはまだ早いけれど、待ちたかったという。",
+        "「ボクが呼ぶ前に来てくれたの、嬉しいな」",
+        "あなたが肩を寄せると、彼女も静かに体を預けた。",
+        "見えない友達は今日は向こうで遊んでいるらしい。",
+        "お茶が冷めるまで、二人は明日の予定を少しずつ話した。",
+        "誰かを集める声を出す前に、ゆにこは恋人の名前を優しく呼んだ。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

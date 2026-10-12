@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.vindicator"
+  ],
+  "baselineForms": 22,
+  "targetForms": 23,
+  "requiredAssetsPerForm": 21,
+  "remaining": []
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "prototype",
+  "base": "common-tree.svg",
+  "heroineId": "heroine.iron-maiden",
+  "decoration": "iron-maiden-decoration-v1.png",
+  "nodes": [
+    {
+      "x": 0.5,
+      "y": 0.85
+    },
+    {
+      "x": 0.36,
+      "y": 0.52
+    },
+    {
+      "x": 0.5,
+      "y": 0.58
+    },
+    {
+      "x": 0.64,
+      "y": 0.52
+    },
+    {
+      "x": 0.275,
+      "y": 0.36
+    },
+    {
+      "x": 0.5,
+      "y": 0.43
+    },
+    {
+      "x": 0.725,
+      "y": 0.36
+    },
+    {
+      "x": 0.185,
+      "y": 0.25
+    },
+    {
+      "x": 0.5,
+      "y": 0.28
+    },
+    {
+      "x": 0.815,
+      "y": 0.25
+    },
+    {
+      "x": 0.1,
+      "y": 0.15
+    },
+    {
+      "x": 0.5,
+      "y": 0.13
+    },
+    {
+      "x": 0.9,
+      "y": 0.15
+    }
+  ],
+  "decorationPlacement": [
+    {
+      "x": 0.5,
+      "y": 0.73,
+      "width": 0.21,
+      "rotation": 0
+    },
+    {
+      "x": 0.38,
+      "y": 0.55,
+      "width": 0.24,
+      "rotation": -42
+    },
+    {
+      "x": 0.62,
+      "y": 0.55,
+      "width": 0.24,
+      "rotation": 42
+    }
+  ],
+  "layerOrder": [
+    "shared tree",
+    "heroine decoration",
+    "interactive nodes and labels"
+  ]
+}

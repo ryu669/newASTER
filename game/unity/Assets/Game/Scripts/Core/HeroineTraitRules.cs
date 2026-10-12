@@ -14,7 +14,15 @@ namespace NewAster.Core
                 case "heroine.iconoclast":case "heroine.r":case "heroine.oriflamme":key="attack";break;
                 case "heroine.undermine":case "heroine.annihilator-holy":key="hp";break;
                 case "heroine.echidna":case "heroine.arcane-academy":key="magic-defense";break;
-                case "heroine.excalipan":case "heroine.shell":case "heroine.slayer-swim":case "heroine.arcane":key="physical-defense";break;
+                case "heroine.excalipan":case "heroine.shell":case "heroine.slayer-swim":case "heroine.arcane":case "heroine.aeon":key="physical-defense";break;
+                case "heroine.iron-maiden":key="hp";break;
+                case "heroine.avalanche":key="physical-defense";break;
+                case "heroine.anathema":key="critical";break;
+                case "heroine.shiva":key="hp";break;
+                case "heroine.invisible":key="magic-defense";break;
+                case "heroine.viper":key="physical-defense";break;
+                case "heroine.vindicator":key="magic-defense";break;
+                case "heroine.weapon-master":key="attack";break;
                 default:return 0;
             }
             return key==stat?(key=="critical"?500:5):0;

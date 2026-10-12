@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 24,
+  "people": 21,
+  "added": "heroine.weapon-master",
+  "record": "docs/production/plan12-weapon-master-form-record.json",
+  "oldSave": "23-to-24; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}

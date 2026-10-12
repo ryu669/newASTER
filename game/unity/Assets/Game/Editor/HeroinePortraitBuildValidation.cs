@@ -19,6 +19,7 @@ public sealed class HeroinePortraitImporter : AssetPostprocessor
     internal static void Configure(TextureImporter importer)
     {
         importer.textureType = TextureImporterType.Default;
+        importer.textureShape = TextureImporterShape.Texture2D;
         importer.alphaSource = TextureImporterAlphaSource.FromInput;
         importer.alphaIsTransparency = true;
         importer.sRGBTexture = true;
@@ -86,13 +87,29 @@ public sealed class HeroinePortraitBuildValidation : IPreprocessBuildWithReport
         var json=Resources.Load<TextAsset>("UI/heroine-weapon-trees");if(json==null)throw new ArgumentException("Missing weapon tree layouts.");
         var catalog=JsonUtility.FromJson<HeroineWeaponTreeCatalog>(json.text);catalog.Validate();
         foreach(var heroine in portraits.entries)catalog.Entry(heroine.heroineId);
-        foreach(var e in catalog.entries){
+        var active=JsonUtility.FromJson<CombatDefinitionCatalog>(Resources.Load<TextAsset>(ProductionContentPaths.Combat).text).HeroineIds.Except(new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master"}).ToArray();
+        // Unreleased draft forms are checked by their own acceptance build.
+        foreach(var e in catalog.entries.Where(e=>active.Contains(e.heroineId))){
             string[] suffixes={"root","alpha","beta","gamma","alpha.tier2","beta.tier2","gamma.tier2","alpha.tier3","beta.tier3","gamma.tier3","alpha.tier4","beta.tier4","gamma.tier4"};foreach(string suffix in suffixes)e.Position(e.heroineId+".weapon."+suffix);
-            ValidateTreeImage(e.resourcePath,e);
+            var native=e.resourcePath=="UI/WeaponTrees/common-tree"?new HeroineWeaponTreeDef{heroineId=e.heroineId,nodes=e.nodes.Select(n=>new HeroineWeaponTreeAnchor{nodeId=n.nodeId,position=new HomePoint{x=(n.position.x-.1f)/.8f,y=(n.position.y-.1f)/.8f}}).ToArray()}:e;
+            ValidateTreeImage(e.resourcePath,native);
             for(int i=0;i<e.nodes.Length;i++)for(int j=i+1;j<e.nodes.Length;j++)if(Math.Abs(e.nodes[i].position.x-e.nodes[j].position.x)*906<76 && Math.Abs(e.nodes[i].position.y-e.nodes[j].position.y)*604<85)throw new ArgumentException("Weapon node hit areas overlap: "+e.heroineId);
         }
+        foreach(var hero in new[]{"iron-maiden","avalanche","anathema","shiva","invisible","viper","vindicator","weapon-master"})ValidateLayeredTree(hero);
         ValidateTreeImage("UI/weapon-effects-v1",null);
         Debug.Log("HEROINE_WEAPON_TREE_BUILD_PASS "+catalog.entries.Length+" native image trees, 195 opaque branch anchors, distinct effect image atlas");
+    }
+    [Serializable] private sealed class LayeredTreeLayout { public string heroineId;public HeroineWeaponTreeAnchor[] nodes; }
+    private static void ValidateLayeredTree(string hero)
+    {
+        var source=Resources.Load<TextAsset>("UI/WeaponTrees/"+hero);
+        if(source==null)throw new ArgumentException("Missing layered tree layout");
+        var layered=JsonUtility.FromJson<LayeredTreeLayout>(source.text);
+        if(layered.heroineId!="heroine."+hero || layered.nodes.Length!=13 || layered.nodes.Select(n=>n.nodeId).Distinct().Count()!=13)throw new ArgumentException("Invalid layered tree nodes: "+hero);
+        var native=new HeroineWeaponTreeDef{heroineId=layered.heroineId,nodes=layered.nodes.Select(n=>new HeroineWeaponTreeAnchor{nodeId=n.nodeId,position=new HomePoint{x=(n.position.x-.1f)/.8f,y=(n.position.y-.1f)/.8f}}).ToArray()};
+        ValidateTreeImage("UI/WeaponTrees/common-tree",native);
+        for(int i=0;i<layered.nodes.Length;i++)for(int j=i+1;j<layered.nodes.Length;j++)if(Math.Abs(layered.nodes[i].position.x-layered.nodes[j].position.x)*906<76 && Math.Abs(layered.nodes[i].position.y-layered.nodes[j].position.y)*604<85)throw new ArgumentException("Layered tree node hit areas overlap");
+        Debug.Log("LAYERED_TREE_ANCHORS_PASS 13 opaque anchors / nonoverlapping hit areas");
     }
     private static void ValidateTreeImage(string resource,HeroineWeaponTreeDef layout)
     {

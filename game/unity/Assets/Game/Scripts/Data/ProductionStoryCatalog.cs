@@ -67,6 +67,8 @@ namespace NewAster.Data
             Plan10ArcaneHomeArt.Apply(home);
             Plan10ArcaneAcademyHomeArt.Apply(home);
             Plan10ShangrilaHomeArt.Apply(home);
+            Plan12AeonHomeArt.Apply(home);
+            Plan12FirstBatchHomeArt.Apply(home);
             Plan12ExpressionAlignment.Apply(home);
             var used=new HashSet<string>(home.displays.SelectMany(d=>new[]{d.standingAssetId}.Concat(d.expressions.Select(e=>e.assetId)).Concat(d.poses.Select(p=>p.assetId)))
                 .Concat(home.gardens.SelectMany(g=>new[]{g.backgroundAssetId}.Concat(g.middleAssetIds).Concat(g.foregroundAssetIds)))

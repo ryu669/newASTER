@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.weapon-master",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/weapon-master-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/weapon-master-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/weapon-master-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/weapon-master-cutin-candidate-v1"
+}

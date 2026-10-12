@@ -2,6 +2,8 @@
 
 物語制作は[本作の人物資料](../characters/README.md)から始める。このフォルダは参考観察を保存し、原作の未確認事項と本作で決めた設定を混同しない。
 
+[ヒロイン量産候補リスト](../production/heroine-production-roster.md)に指定2フォルダの全動画を整理。[巨神126本の名前表示の観察](kyoshin-heroine-name-observations.json)は今回のリストの根拠。以前の部分的な追加資料一覧より広い範囲を収録するが、人物設定・全音声の調査完了は意味しない。
+
 <!-- plan10-current:start -->
 ## 今回追加した人物記録
 

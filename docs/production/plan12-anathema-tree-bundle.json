@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.anathema",
+  "layoutPath": "game/unity/Assets/Game/Resources/UI/WeaponTrees/anathema.json",
+  "components": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/anathema.json",
+      "sha256": "ea4bc2906086fff79298051c38f269fbb809930fc53bea1cb103dde80b4dc2d7",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/anathema-ornament-v1.png",
+      "sha256": "afaf7b0a01528d2be7b4e8ff1e17d1db8a95bc0e2d1ff49735bdd34a016bf872",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    }
+  ]
+}

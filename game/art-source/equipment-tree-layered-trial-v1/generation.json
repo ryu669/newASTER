@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "prototype-not-integrated",
+  "mode": "built-in image_gen",
+  "heroineId": "heroine.iron-maiden",
+  "source": "C:/Users/nishi/.codex/generated_images/01a122d9-2314-7463-b91b-94d1a4d927cb/exec-8da6ecf6-9268-4288-889d-b2f73c1a37db.png",
+  "prompt": "Create ONE isolated decorative ornament asset for a fantasy RPG equipment tree UI. Transparent background. A compact elegant crescent garland of silver metallic leaves and fine black wrought iron filigree, with three small dark ruby red gemstones, a tiny restrained flame shaped ruby centerpiece, and delicate gold accents. Refined painted Japanese fantasy game item illustration, readable silhouette, silver gray dominant, black secondary, crimson accents. The ornament is only a removable decorative applique to overlay on an existing branching tree. Absolutely NO person, face, body, hair, wings, clothing, portrait, character silhouette, tree, trunk, branches, UI sockets, circles, text, numbers, background or floor. Do not draw the equipment tree itself. One ornament cluster only, centered on square transparent canvas with generous margins, 1024x1024.",
+  "asset": "iron-maiden-decoration-v1.png",
+  "purpose": "transparent-decoration-only",
+  "base": "common-tree.svg",
+  "notes": [
+    "The shared tree is a code-authored vector prototype; no heroine-specific tree image is generated.",
+    "The source decoration is preserved without pixel edits.",
+    "Three placements reuse one generated decoration; nodes and labels are a separate upper layer.",
+    "Browser preview checked at 1920x1080; this is not a Unity Player acceptance."
+  ],
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "alphaRange": [
+    0,
+    255
+  ],
+  "sha256": "244125394f417958b3f3693749cf666f69fa3c4e298d1c6947f78054ba06899d",
+  "review": {
+    "status": "prototype-reviewed",
+    "subject": "ornament only; no people or tree",
+    "composition": "13 fixed node positions; silver leaves, black filigree and rubies placed over shared base; labels drawn in front",
+    "preview": "comparison.png",
+    "gameIntegration": "not performed"
+  }
+}

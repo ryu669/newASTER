@@ -1,0 +1,1145 @@
+{
+  "sourceRoot": "D:/M02_gamemovie/巨神と誓女/巨神と誓女_誓女データ",
+  "reviewed": "2026-10-10",
+  "scope": "126本の名前表示を30秒で確認。20秒の人物頁も補助参照。別衣装候補16組の見た目と113/114の外見を比較。両者はユーザー指定により別人物として確定。人物の全設定・全音声・全詩の精読ではない。",
+  "records": [
+    {
+      "sourceNumber": 1,
+      "displayName": "BB",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 2,
+      "displayName": "Drビクター",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 3,
+      "displayName": "《氷の魔女》シェラザード",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 4,
+      "displayName": "《炎の騎士》エヴァ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 5,
+      "displayName": "《炎の騎士》セラフ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 6,
+      "displayName": "《竜使い》リーナ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 7,
+      "displayName": "《竜狩り》ヴィーナ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 8,
+      "displayName": "あんみつ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 9,
+      "displayName": "あーや",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 10,
+      "displayName": "いちごちゃん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 11,
+      "displayName": "おぎん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 12,
+      "displayName": "つう",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 13,
+      "displayName": "つくし",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 14,
+      "displayName": "つくし",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "花嫁風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 15,
+      "displayName": "ねおん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 16,
+      "displayName": "ねおん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "晴れ着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 17,
+      "displayName": "みゅう",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 18,
+      "displayName": "ゆうか",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 19,
+      "displayName": "アイノ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 20,
+      "displayName": "アシエル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 21,
+      "displayName": "アスタル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 22,
+      "displayName": "アスタル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "晴れ着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 23,
+      "displayName": "アッシュ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 24,
+      "displayName": "アテナ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 25,
+      "displayName": "アリア",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 26,
+      "displayName": "アリシア",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 27,
+      "displayName": "アンジェ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 28,
+      "displayName": "イモコ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 29,
+      "displayName": "インクィジター",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 30,
+      "displayName": "ウルリカ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 31,
+      "displayName": "エフデ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 32,
+      "displayName": "エリカ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 33,
+      "displayName": "エルメ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 34,
+      "displayName": "エルメ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "水着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 35,
+      "displayName": "カイネ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 36,
+      "displayName": "カリスマ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 37,
+      "displayName": "ガブリン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 38,
+      "displayName": "ガン＆レット",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 39,
+      "displayName": "ガーネット",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 40,
+      "displayName": "ガーネット",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "水着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 41,
+      "displayName": "キュウ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 42,
+      "displayName": "クッキー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 43,
+      "displayName": "クロ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 44,
+      "displayName": "クロ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "晴れ着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 45,
+      "displayName": "サコ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 46,
+      "displayName": "サヒメ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 47,
+      "displayName": "サンドリヨン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 48,
+      "displayName": "シカリオ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 49,
+      "displayName": "シノワ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 50,
+      "displayName": "シーア",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 51,
+      "displayName": "ジェイ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 52,
+      "displayName": "スタルカ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 53,
+      "displayName": "ステフ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 54,
+      "displayName": "スピードスター",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 55,
+      "displayName": "スペード・クイーン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 56,
+      "displayName": "スレンダーガール",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 57,
+      "displayName": "スーシャ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 58,
+      "displayName": "ソフィ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 59,
+      "displayName": "ソフィ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "水着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 60,
+      "displayName": "ティターニア",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 61,
+      "displayName": "テンゼン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 62,
+      "displayName": "ディージェー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 63,
+      "displayName": "デュラハン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 64,
+      "displayName": "トゥルー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 65,
+      "displayName": "トゥルー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "バレンタイン風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 66,
+      "displayName": "ドライバー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 67,
+      "displayName": "ドリルル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 68,
+      "displayName": "ナンバー・ナイン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 69,
+      "displayName": "ニコル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 70,
+      "displayName": "ネメジス",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 71,
+      "displayName": "ハニー・ポット",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 72,
+      "displayName": "ハリエル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 73,
+      "displayName": "ハル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 74,
+      "displayName": "ハート姫",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 75,
+      "displayName": "ハート姫",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "花嫁風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 76,
+      "displayName": "パネコ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 77,
+      "displayName": "ヒエン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 78,
+      "displayName": "ヒコリ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 79,
+      "displayName": "ビューティ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 80,
+      "displayName": "ビューティ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "バレンタイン風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 81,
+      "displayName": "ピノ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 82,
+      "displayName": "ファラオちゃん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 83,
+      "displayName": "ファラオちゃん",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "聖夜風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 84,
+      "displayName": "フライハイト",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 85,
+      "displayName": "ブリトニー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 86,
+      "displayName": "ヘルミーラ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 87,
+      "displayName": "ペッコ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 88,
+      "displayName": "ペロー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 89,
+      "displayName": "マガツ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 90,
+      "displayName": "マグダ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 91,
+      "displayName": "マリー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 92,
+      "displayName": "ミシル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 93,
+      "displayName": "ミト",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 94,
+      "displayName": "ミレイ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 95,
+      "displayName": "ミンサー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 96,
+      "displayName": "ミンサー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "花嫁風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 97,
+      "displayName": "メガエラ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 98,
+      "displayName": "メガエラ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "水着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 99,
+      "displayName": "モトコ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 100,
+      "displayName": "モモ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 101,
+      "displayName": "モルフェ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 102,
+      "displayName": "ユミ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 103,
+      "displayName": "ユルユル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 104,
+      "displayName": "ユルユル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "花嫁風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 105,
+      "displayName": "ユーエ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 106,
+      "displayName": "ヨル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 107,
+      "displayName": "ライカ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 108,
+      "displayName": "ライカ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "晴れ着",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 109,
+      "displayName": "ラファル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 110,
+      "displayName": "リッパー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 111,
+      "displayName": "リリ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 112,
+      "displayName": "レイオマノ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 113,
+      "displayName": "レディX(少女)",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": "ユーザー指定：113はレディX(少女)、114はレディX(大人)。別人物として登録する。",
+      "observedDisplayName": "レディX",
+      "identityAuthority": "user-instruction"
+    },
+    {
+      "sourceNumber": 114,
+      "displayName": "レディX(大人)",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": "ユーザー指定：113はレディX(少女)、114はレディX(大人)。別人物として登録する。",
+      "observedDisplayName": "レディX",
+      "identityAuthority": "user-instruction"
+    },
+    {
+      "sourceNumber": 115,
+      "displayName": "レム子",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 116,
+      "displayName": "ロビン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 117,
+      "displayName": "ヴィオラ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 118,
+      "displayName": "ヴードゥー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 119,
+      "displayName": "ヴードゥー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": "聖夜風",
+      "costumeHintStatus": "見た目による仮分類（正式衣装名は未確認）",
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 120,
+      "displayName": "掃除屋チリー",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 121,
+      "displayName": "竜母のミラ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 122,
+      "displayName": "竜語りのノン",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 123,
+      "displayName": "鉄腕のメル",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 124,
+      "displayName": "魔眼のルイ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 125,
+      "displayName": "黒騎士",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    },
+    {
+      "sourceNumber": 126,
+      "displayName": "龍殺しのケイ",
+      "observedSecond": 30,
+      "evidenceRegion": "キャラクター詳細画面の左上の名前表示",
+      "costumeHint": null,
+      "costumeHintStatus": null,
+      "identityNote": null
+    }
+  ]
+}

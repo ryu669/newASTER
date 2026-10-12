@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.weapon-master"
+  ],
+  "baselineForms": 23,
+  "targetForms": 24,
+  "requiredAssetsPerForm": 20,
+  "remaining": []
+}

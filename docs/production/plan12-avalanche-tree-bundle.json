@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "heroineId": "heroine.avalanche",
+  "layoutPath": "game/unity/Assets/Game/Resources/UI/WeaponTrees/avalanche.json",
+  "components": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/avalanche.json",
+      "sha256": "5b56475b8c59fe2327740e5beedb33906d73b188553dd536654567704d30d355",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/avalanche-ornament-v1.png",
+      "sha256": "9a471fcfdbe49f5c990feab8d815733c476fe3643ae9940d8a654717e8edfd91",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    }
+  ]
+}

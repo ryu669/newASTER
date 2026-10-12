@@ -31,8 +31,8 @@ namespace NewAster.Core
         public int BaseAttack { get; }
         public int BaseCriticalChanceBp { get; }
         private readonly int basePhysicalDefense,baseMagicDefense;
-        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent+RelicDefensePercent+OopartStatPercent("physical-defense"))/100)/(IsPanzer && !ArmorActive?5:1);
-        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent+RelicDefensePercent+OopartStatPercent("magic-defense"))/100)/(IsPanzer && !ArmorActive?5:1);
+        public int PhysicalDefense => (int)Math.Min(int.MaxValue,(long)basePhysicalDefense*(100+JobAllStatsPercent+GeneralPhysicalDefensePercent+EffectPercent("physical-defense")+RelicDefensePercent+OopartStatPercent("physical-defense"))/100)/(IsPanzer && !ArmorActive?5:1);
+        public int MagicDefense => (int)Math.Min(int.MaxValue,(long)baseMagicDefense*(100+JobAllStatsPercent+GeneralMagicDefensePercent+EffectPercent("magic-defense")+RelicDefensePercent+OopartStatPercent("magic-defense"))/100)/(IsPanzer && !ArmorActive?5:1);
         public int WeaponCriticalDamageBonus { get; }
         public string TraitId { get; }
         private readonly string[] visibleTraitIds;

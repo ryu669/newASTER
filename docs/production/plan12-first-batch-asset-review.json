@@ -1,0 +1,3109 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-11",
+  "status": "complete_published",
+  "forms": [
+    {
+      "key": "aeon",
+      "status": "complete_published",
+      "assets": [
+        {
+          "key": "attack",
+          "path": "game/art-source/aeon-v1/attack.png",
+          "sha256": "4fdfae8c2d630347826a417fcd6387054f7956f5acee4861d25784a2c95245c5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4fdfae8c2d630347826a417fcd6387054f7956f5acee4861d25784a2c95245c5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/aeon/attack.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/aeon/attack.png",
+                "sha256": "15bc231d3828e01c0ee4ec05d04acc2f1cc8a58792222604883a43303e0a8b92"
+              }
+            ]
+          }
+        },
+        {
+          "key": "cutin",
+          "path": "game/art-source/aeon-v1/cutin.png",
+          "sha256": "9f087111083f875f742f14b826e106d19cff6df0eb2195454295ad07dfd69ccb",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "9f087111083f875f742f14b826e106d19cff6df0eb2195454295ad07dfd69ccb",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/aeon/cutin.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/aeon/cutin.png",
+                "sha256": "e10c696a8b494241545df33f07dd001bd70445e4fc7ac96b50435643bb869edc"
+              }
+            ]
+          }
+        },
+        {
+          "key": "equipment-tree-v1",
+          "path": "game/art-source/aeon-v1/equipment-tree-v1.png",
+          "sha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+          "purposeReview": {
+            "status": "approved",
+            "subject": "branching-tree-without-people",
+            "reason": "人物なしの木の原画を視認済み。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/weapon.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/weapon.png",
+                "sha256": "cc45daac74d376af5fb3790d2f65cba57cd00cb865cc06a426e14f62f42b5cc2"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-0-cg",
+          "path": "game/art-source/aeon-v1/event-0-cg.png",
+          "sha256": "b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-cg.0.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-cg.0.png",
+                "sha256": "8d800473aaa1b81a0c9c76f676b46bc657c73b5df728a23b6b343cf81f072c1e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-1-cg",
+          "path": "game/art-source/aeon-v1/event-1-cg.png",
+          "sha256": "64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-cg.1.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-cg.1.png",
+                "sha256": "eb973dd80c14c2b2ab47b942b9ec34928ef4354e9498589d20dbe291876a6998"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-2-cg",
+          "path": "game/art-source/aeon-v1/event-2-cg.png",
+          "sha256": "416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-cg.2.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-cg.2.png",
+                "sha256": "51ef0a75a4d94736fe55723e1983b3d901226b8afd9d7707cbc47ea1776ee18a"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-3-cg",
+          "path": "game/art-source/aeon-v1/event-3-cg.png",
+          "sha256": "a4931c470f4406ce96f0275a47045b4171e1fbeacdcfa2537d74ad8c8c3f4e47",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "a4931c470f4406ce96f0275a47045b4171e1fbeacdcfa2537d74ad8c8c3f4e47",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-cg.3.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-cg.3.png",
+                "sha256": "46f546b735c0aa0bb359cb1ffb834012597c99d466fc632f303965d4a52a0394"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-4-cg",
+          "path": "game/art-source/aeon-v1/event-4-cg.png",
+          "sha256": "e01d4b81fcc867209aed9083991f1bf74d8dfe229015edbc5ee4ee18fef67b4e",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "e01d4b81fcc867209aed9083991f1bf74d8dfe229015edbc5ee4ee18fef67b4e",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-cg.4.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-cg.4.png",
+                "sha256": "c23fc2a36869dce85e7e0d35868e8e8b9b6309f4b4e63ab055e43ab57c0141fd"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-determined",
+          "path": "game/art-source/aeon-v1/expression-determined.png",
+          "sha256": "d33f4f716e7ef21d88e687775a92158338b09b80c9a1b04c006af803f259a12d",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "d33f4f716e7ef21d88e687775a92158338b09b80c9a1b04c006af803f259a12d",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-expression.determined.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-expression.determined.png",
+                "sha256": "3991d974204affefa033ad063f4f33626cbe76a4ac44e2bc0cce65323f5e4edb"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-joy",
+          "path": "game/art-source/aeon-v1/expression-joy.png",
+          "sha256": "c61c3acc235066451b49c7f28148f838040ba423efb73167981da5c7def5b908",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c61c3acc235066451b49c7f28148f838040ba423efb73167981da5c7def5b908",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-expression.joy.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-expression.joy.png",
+                "sha256": "e0592bd9328cf4e05ea2a9445ad2630d5ebf21cabac4ca02da0de8e33116e918"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-puzzled",
+          "path": "game/art-source/aeon-v1/expression-puzzled.png",
+          "sha256": "2404dd14f0f97e634a71e7b2f7d16cd80743fd1f5b1309eb1f8457801ac83f88",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "2404dd14f0f97e634a71e7b2f7d16cd80743fd1f5b1309eb1f8457801ac83f88",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-expression.puzzled.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-expression.puzzled.png",
+                "sha256": "7e0b676e0ae301e4c23e4caa2600aeb721ec1a80a925ffc4cd614b59f6d7c16d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "hit",
+          "path": "game/art-source/aeon-v1/hit.png",
+          "sha256": "7cb0b3a736f161db75f5bbc1460c878a3fc71798628a3e9cadfde64c512abe31",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "7cb0b3a736f161db75f5bbc1460c878a3fc71798628a3e9cadfde64c512abe31",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/aeon/hit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/aeon/hit.png",
+                "sha256": "0d35275c339ae4210de7fd59840257d20cf1fb60c4bbaaadbb2a66290cdc9b2d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "portrait",
+          "path": "game/art-source/aeon-v1/portrait.png",
+          "sha256": "6f04621bfba8cf0f0e0980c655706566e17cef853450a709f33fd63ed7391da0",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "6f04621bfba8cf0f0e0980c655706566e17cef853450a709f33fd63ed7391da0",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-detail.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-detail.png",
+                "sha256": "0669067a1f68228e9609d3bd4a9f046a8ea88fcce61efa6b26fd6533ef6b6094"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-idle",
+          "path": "game/art-source/aeon-v1/sd-idle.png",
+          "sha256": "6ebc7a50b9fbecd7c96fb3071b78eff31b2baccfb1e03ebdf275271a0acf6ba0",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "6ebc7a50b9fbecd7c96fb3071b78eff31b2baccfb1e03ebdf275271a0acf6ba0",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.idle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.idle.png",
+                "sha256": "0e17c630cb6fcd3fface954daa8817bc94598f07188d6ea85b56464e02a440e2"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-look",
+          "path": "game/art-source/aeon-v1/sd-look.png",
+          "sha256": "6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.look.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.look.png",
+                "sha256": "ea12faec76fc6db30ff1f4f80deaebee5b3ea1323d43b28db976b0f92a4820ae"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-react",
+          "path": "game/art-source/aeon-v1/sd-react.png",
+          "sha256": "c5e35cba152e5a995301af56a23f3fdac59f1a7c6a0d1aec54c2e144308826a2",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c5e35cba152e5a995301af56a23f3fdac59f1a7c6a0d1aec54c2e144308826a2",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.react.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.react.png",
+                "sha256": "45cf05e0eee8d1481875a1afaf0a3831c841054f79919f84b02be167d0aac9e4"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-sit",
+          "path": "game/art-source/aeon-v1/sd-sit.png",
+          "sha256": "247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.sit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.sit.png",
+                "sha256": "2aecbdbfe90bf02d720bf6bb92480cf1ef95105e0ba1274d73440e0678e919a0"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-talk",
+          "path": "game/art-source/aeon-v1/sd-talk.png",
+          "sha256": "97b7d899ac94537a025f6cc22d7b85cfd47a6dba20b729fc14599770db671f9e",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "97b7d899ac94537a025f6cc22d7b85cfd47a6dba20b729fc14599770db671f9e",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.talk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.talk.png",
+                "sha256": "9d90955bf7caa5cbb81ff650d2bd3fe4aa80388acf799e6c36eef19a7cf0d1b3"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-walk",
+          "path": "game/art-source/aeon-v1/sd-walk.png",
+          "sha256": "3b4c74b855cfbfdcd2f5732e4e0ab2e91cee9f2cd754514a3283bedae7d22173",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "3b4c74b855cfbfdcd2f5732e4e0ab2e91cee9f2cd754514a3283bedae7d22173",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.walk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.walk.png",
+                "sha256": "0130506d800b3611765b33aa2b9ab3fab7a9e41a014eca89a314eed5012c552c"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-work",
+          "path": "game/art-source/aeon-v1/sd-work.png",
+          "sha256": "bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-sd.work.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-sd.work.png",
+                "sha256": "d0af8d70f5119772780a30a24a6ec29fa0c686a8443a11da11061774e417eeeb"
+              }
+            ]
+          }
+        },
+        {
+          "key": "standing",
+          "path": "game/art-source/aeon-v1/standing.png",
+          "sha256": "37595ac2ea5c97299ed3787068f76fe5ae4859e716643e7af020771eb523b092",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "37595ac2ea5c97299ed3787068f76fe5ae4859e716643e7af020771eb523b092",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-aeon/player-default/aeon-battle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-aeon/player-default/aeon-battle.png",
+                "sha256": "48851df7915f75595d9d140c054afd892a4ef93dd9a610dc697dc18174b4d69a"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "iron-maiden",
+      "status": "complete_published",
+      "assets": [
+        {
+          "key": "attack",
+          "path": "game/art-source/iron-maiden-v1/attack.png",
+          "sha256": "b52e72768f9240f46ba792190e97f970cfaa2789c9a29a8b5a3f3f1699a81b18",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b52e72768f9240f46ba792190e97f970cfaa2789c9a29a8b5a3f3f1699a81b18",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/iron-maiden/attack.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/iron-maiden/attack.png",
+                "sha256": "4c4a3c7e90ab779a76d8b4d9c7b4769e8dbb8dd738cb19d19cf1d559b71440ae"
+              }
+            ]
+          }
+        },
+        {
+          "key": "cutin",
+          "path": "game/art-source/iron-maiden-v1/cutin.png",
+          "sha256": "100be0051b2ec501ff01d5e72e4d40c73b3c16b69a692d83af804ffc1663dbad",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "100be0051b2ec501ff01d5e72e4d40c73b3c16b69a692d83af804ffc1663dbad",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/iron-maiden/cutin.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/iron-maiden/cutin.png",
+                "sha256": "0b38172d5f5bba6b655b7f529379f9568f21e86a38860a4af02ab2ed3fe7152d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "equipment-tree-v1",
+          "path": "docs/production/plan12-iron-maiden-tree-bundle.json",
+          "sha256": "1f59cee6dd99be8f29eb2ad662d788c0df11fc9faa3df3ca27c7602a739a6a09",
+          "purposeReview": {
+            "status": "approved",
+            "subject": "layered-branching-tree-without-people",
+            "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "1f59cee6dd99be8f29eb2ad662d788c0df11fc9faa3df3ca27c7602a739a6a09",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/clear-ornaments/iron-maiden.png",
+              "tmp/plan12-batch/clear-ornaments/iron-maiden.log"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/clear-ornaments/iron-maiden.png",
+                "sha256": "88ad63f46f72bae71f7547c90332dda0f3b6c24af7bd8d6006adf5fef25a76a5"
+              }
+            ],
+            "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+            "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+            "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+          },
+          "previousVersions": [
+            {
+              "key": "equipment-tree-v1",
+              "path": "game/art-source/iron-maiden-v1/equipment-tree-v1.png",
+              "sha256": "bc79ee73c7c326e8b74f641bd01b2e34f2e0164d9940c93d7eb77c78f38bfdcd",
+              "purposeReview": {
+                "status": "rejected",
+                "subject": "character-with-node-decoration",
+                "reason": "人物入りで神器の木の用途に不適合。座標合わせでは採用不可。再制作が必要。",
+                "reviewedAt": "2026-10-11"
+              },
+              "runtimeReview": {
+                "status": "pending-record-reconciliation",
+                "evidence": []
+              }
+            }
+          ],
+          "previousDisplayReviews": [
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "1f59cee6dd99be8f29eb2ad662d788c0df11fc9faa3df3ca27c7602a739a6a09",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-tree.png"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-tree.png",
+                  "sha256": "2b0b371ff445a03a75f482671e4115c153c9305c38f35bd2f0d551c5b7e5dec7"
+                }
+              ]
+            },
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "1f59cee6dd99be8f29eb2ad662d788c0df11fc9faa3df3ca27c7602a739a6a09",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/hanging-ornaments/iron-maiden.png",
+                "tmp/plan12-batch/hanging-ornaments/iron-maiden.log"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/hanging-ornaments/iron-maiden.png",
+                  "sha256": "4ba8a5f58e57ebc5811f4a1c561a0e886e11fe3e0417a0acfdda4b2b3d0c5304"
+                }
+              ],
+              "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+              "rendererSha256": "6bc7185f67582e77dc1e915c014f95fa6fbd2488d5a925352c84282be730150c",
+              "change": "Small ornaments suspended from opaque wood branch anchors on short cords; existing nodes, flowers and leaves preserved"
+            }
+          ]
+        },
+        {
+          "key": "event-0-cg",
+          "path": "game/art-source/iron-maiden-v1/event-0-cg.png",
+          "sha256": "ff1a88d48a5dd4b802e0e7017b175b790207ff5c7724c3b20eb89de6fe1211e8",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "ff1a88d48a5dd4b802e0e7017b175b790207ff5c7724c3b20eb89de6fe1211e8",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.0.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.0.png",
+                "sha256": "02b5726b1c8e68e504348c0962dce1aeec0d5e518f9172766018e1dc6459be2d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-1-cg",
+          "path": "game/art-source/iron-maiden-v1/event-1-cg.png",
+          "sha256": "9df00e3b91c964f3c120bc6b00314f4c4029d8fbfcbcda6c6ad1ef08377e7df4",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "9df00e3b91c964f3c120bc6b00314f4c4029d8fbfcbcda6c6ad1ef08377e7df4",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.1.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.1.png",
+                "sha256": "a07abf55f2cf98484d54a521bc72a9c624c8152ee9c208ca645228cb7a75c848"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-2-cg",
+          "path": "game/art-source/iron-maiden-v1/event-2-cg.png",
+          "sha256": "b953e159139d0d7d573eaa14b0ecd6b745e1044be74586cdb34738f05abcfddf",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b953e159139d0d7d573eaa14b0ecd6b745e1044be74586cdb34738f05abcfddf",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.2.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.2.png",
+                "sha256": "6b9a81c85620159ee29c17f76b6dc3db6ec799d0adde93e8db9ab3e7f9bb26c2"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-3-cg",
+          "path": "game/art-source/iron-maiden-v1/event-3-cg.png",
+          "sha256": "b6524e5222a110a5c2a930a5cdf52ec5444a5a33816857502c7aab0b73948508",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b6524e5222a110a5c2a930a5cdf52ec5444a5a33816857502c7aab0b73948508",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.3.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.3.png",
+                "sha256": "e36df053b39ce5bb5b5e8cf6841d74f89a2fd97da28c292f38c209bdb45595d7"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-4-cg",
+          "path": "game/art-source/iron-maiden-v1/event-4-cg.png",
+          "sha256": "6d9b3aa90dc18ab981691fe7b02ff95fce8a5de6f855f69e6ac85606d9ae42fa",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "6d9b3aa90dc18ab981691fe7b02ff95fce8a5de6f855f69e6ac85606d9ae42fa",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.4.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-cg.4.png",
+                "sha256": "c531a072fe292ad9da4ab2c86f9bbd1dee322ac7136feab2410325c2d74caec8"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-determined",
+          "path": "game/art-source/iron-maiden-v1/expression-determined.png",
+          "sha256": "3aeb751b68deb7d41f357b00624a68fd4614e594fec5bee8f4f2b6a7943c8b65",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "3aeb751b68deb7d41f357b00624a68fd4614e594fec5bee8f4f2b6a7943c8b65",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.determined.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.determined.png",
+                "sha256": "f9621d3ccff57f98ad1f40a076d8c0ac10df55c29c3723e7ed785bc7eb7420d5"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-joy",
+          "path": "game/art-source/iron-maiden-v1/expression-joy.png",
+          "sha256": "e78cd0533645fd1574b36f645a5b7f04c804a4b18f303bd5b8c57e047e9870bc",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "e78cd0533645fd1574b36f645a5b7f04c804a4b18f303bd5b8c57e047e9870bc",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.joy.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.joy.png",
+                "sha256": "140ae2dabbb386ac9a7363b53d2e5eaf1bc1dd00f7c1f3b9c2bd806abb2987d0"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-puzzled",
+          "path": "game/art-source/iron-maiden-v1/expression-puzzled.png",
+          "sha256": "153097a2cd928c651ca42287f266d092fa713673345d3e1159ca94b7a4cd804e",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "153097a2cd928c651ca42287f266d092fa713673345d3e1159ca94b7a4cd804e",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.puzzled.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-expression.puzzled.png",
+                "sha256": "009421ebc9a899bb8b4d2c3caa48e24f9b31c5159879e021c7ba9358609582a9"
+              }
+            ]
+          }
+        },
+        {
+          "key": "hit",
+          "path": "game/art-source/iron-maiden-v1/hit.png",
+          "sha256": "e25abbb879647d0d347207918021f19f7b044ed2c8ffd76c425d1cf4ae275862",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "e25abbb879647d0d347207918021f19f7b044ed2c8ffd76c425d1cf4ae275862",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/iron-maiden/hit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/iron-maiden/hit.png",
+                "sha256": "33a979a27f3161e0e31989adb83164e9dc0ca868f6903bac5be990dc87e6c253"
+              }
+            ]
+          }
+        },
+        {
+          "key": "portrait",
+          "path": "game/art-source/iron-maiden-v1/portrait.png",
+          "sha256": "81cbdbf34ced2fa032cbe0f3b33daa122a0c463232ec3b637906b44b25c57349",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "81cbdbf34ced2fa032cbe0f3b33daa122a0c463232ec3b637906b44b25c57349",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-detail.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-detail.png",
+                "sha256": "d965fc33e2c38cff80949f864bdd54d562ff5630bfa00f72a30d4810d5385f29"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-idle",
+          "path": "game/art-source/iron-maiden-v1/sd-idle.png",
+          "sha256": "fc02fccf544fdb5d0f47665b8dc6e8b4dfef3a5aa0d36ef323522c20a1cd8a8c",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "fc02fccf544fdb5d0f47665b8dc6e8b4dfef3a5aa0d36ef323522c20a1cd8a8c",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.idle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.idle.png",
+                "sha256": "ffc3ef7e52e5ed206f899321ae174a9ed7cee041de7fe1edf04b25fa14fe793c"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-look",
+          "path": "game/art-source/iron-maiden-v1/sd-look.png",
+          "sha256": "544f184a6881f8dfe8b507be0090838060e58c30e021b734f3125ee701ce8b75",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "544f184a6881f8dfe8b507be0090838060e58c30e021b734f3125ee701ce8b75",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.look.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.look.png",
+                "sha256": "aa65b469118dfb32bed92108b58d6e442e813c983e9dc09bc289442761cee82c"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-react",
+          "path": "game/art-source/iron-maiden-v1/sd-react.png",
+          "sha256": "9ad44e421a7d7f8636d188b69cefe1c9666032e175ffbed6acbeb9f2205f2454",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "9ad44e421a7d7f8636d188b69cefe1c9666032e175ffbed6acbeb9f2205f2454",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.react.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.react.png",
+                "sha256": "6e5b7534e4b5813359046de6607ce2d8b72e969183b1eb4e6cccf4c9aa8da7cc"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-sit",
+          "path": "game/art-source/iron-maiden-v1/sd-sit.png",
+          "sha256": "741f0581d20dff08c4d7337fa943d4965908503d7b87b94ebd941ff986a6e17b",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "741f0581d20dff08c4d7337fa943d4965908503d7b87b94ebd941ff986a6e17b",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.sit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.sit.png",
+                "sha256": "334f7a90a495978e0355b09d9e4d34f074169f0936f9fba3bb1e81b07ecd663b"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-talk",
+          "path": "game/art-source/iron-maiden-v1/sd-talk.png",
+          "sha256": "60d69cba6852727dff39e9e0f3953d74134380db008dc52086dab78e92219389",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "60d69cba6852727dff39e9e0f3953d74134380db008dc52086dab78e92219389",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.talk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.talk.png",
+                "sha256": "5909137a59cac525c18742ebecb99cb89c70592c6429e66dc301e12168e73e58"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-walk",
+          "path": "game/art-source/iron-maiden-v1/sd-walk.png",
+          "sha256": "8d1ec3011e5d5cb383950add1d546075a53d7ac1d8dcc7c40222bd899ed136ca",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "8d1ec3011e5d5cb383950add1d546075a53d7ac1d8dcc7c40222bd899ed136ca",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.walk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.walk.png",
+                "sha256": "11c77552d8c3b67730b3535b316e80bd08419f4aa59dcb54e9695022d81a1ec9"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-work",
+          "path": "game/art-source/iron-maiden-v1/sd-work.png",
+          "sha256": "eb8dcbbc0921660991bfc3bba2d9d7012792224cdcca066835a3bcc05d54c153",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "eb8dcbbc0921660991bfc3bba2d9d7012792224cdcca066835a3bcc05d54c153",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.work.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-sd.work.png",
+                "sha256": "7ca26b8f5b209d1bd3270cc60e76da41fb1c8c0e2a2a66ede2188e52a753d951"
+              }
+            ]
+          }
+        },
+        {
+          "key": "standing",
+          "path": "game/art-source/iron-maiden-v1/standing.png",
+          "sha256": "829adbb4d32812971c451fdaa2e996a0a257996d258ea145a75d85c72ce41f72",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "829adbb4d32812971c451fdaa2e996a0a257996d258ea145a75d85c72ce41f72",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-battle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/iron-maiden/iron-maiden-battle.png",
+                "sha256": "8d5e6874dfaab812778da297380f92086ec7bc45ac1a3baff8750df565f5dc6a"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "avalanche",
+      "status": "complete_published",
+      "assets": [
+        {
+          "key": "attack",
+          "path": "game/art-source/avalanche-v1/attack.png",
+          "sha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "3ce59764fcbc0602b30fc45a69b4469b6bc7c7c4222da4f27eda8c000b8dcab2",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/avalanche/attack.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/avalanche/attack.png",
+                "sha256": "eb9b574d1115434eea45223e55f0efd6bac16143a0465917ab570e90050f417e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "cutin",
+          "path": "game/art-source/avalanche-v1/cutin.png",
+          "sha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4faacb5f4e15efd6667ed30164ed8ad734e851b6b5be54af53f45aa4490ca536",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/avalanche/cutin.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/avalanche/cutin.png",
+                "sha256": "5ba27cb4003de5110a67368878645ec7fbc5563782486fd984cfe4cdc2dabb5b"
+              }
+            ]
+          }
+        },
+        {
+          "key": "equipment-tree-v1",
+          "path": "docs/production/plan12-avalanche-tree-bundle.json",
+          "sha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+          "purposeReview": {
+            "status": "approved",
+            "subject": "layered-branching-tree-without-people",
+            "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/clear-ornaments/avalanche.png",
+              "tmp/plan12-batch/clear-ornaments/avalanche.log"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/clear-ornaments/avalanche.png",
+                "sha256": "1a2934052b264e6bdd9a1790dd74233b5e2ab6e6b1f257e6df7e5895d4802498"
+              }
+            ],
+            "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+            "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+            "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+          },
+          "previousVersions": [
+            {
+              "key": "equipment-tree-v1",
+              "path": "game/art-source/avalanche-v1/equipment-tree-v1.png",
+              "sha256": "3c691ac1eb0cf790e46fcd89b01d641c671c52ab44108b08919a0d8f311f4430",
+              "purposeReview": {
+                "status": "rejected",
+                "subject": "character-with-node-decoration",
+                "reason": "人物入りで神器の木の用途に不適合。座標合わせでは採用不可。再制作が必要。",
+                "reviewedAt": "2026-10-11"
+              },
+              "runtimeReview": {
+                "status": "pending-record-reconciliation",
+                "evidence": []
+              }
+            }
+          ],
+          "previousDisplayReviews": [
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/player-default/avalanche/avalanche-tree.png"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/player-default/avalanche/avalanche-tree.png",
+                  "sha256": "df6af25d87038db29c29273ea5400ca27bb498f3bd91a4dcf44a612bd19985db"
+                }
+              ]
+            },
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "2a56ef31c6442c1c83e27eed1afce51280d18d3e0e732b084dd7b0a3fd710d01",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/hanging-ornaments/avalanche.png",
+                "tmp/plan12-batch/hanging-ornaments/avalanche.log"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/hanging-ornaments/avalanche.png",
+                  "sha256": "3a1306c1ad1d706cc83a07d9ca1ab7c2626801f831813528ee629f8117c95f39"
+                }
+              ],
+              "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+              "rendererSha256": "6bc7185f67582e77dc1e915c014f95fa6fbd2488d5a925352c84282be730150c",
+              "change": "Small ornaments suspended from opaque wood branch anchors on short cords; existing nodes, flowers and leaves preserved"
+            }
+          ]
+        },
+        {
+          "key": "event-0-cg",
+          "path": "game/art-source/avalanche-v1/event-0-cg.png",
+          "sha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-cg.0.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.0.png",
+                "sha256": "4809298afd3e28e0a974e3c63d9d914eb1c64d24a8f393a0fc6948eaac803418"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-1-cg",
+          "path": "game/art-source/avalanche-v1/event-1-cg.png",
+          "sha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-cg.1.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.1.png",
+                "sha256": "6e416ab07ef9b2cb8678b082bb5d2ebe7fc69a4152a110a84941e462ca9db12b"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-2-cg",
+          "path": "game/art-source/avalanche-v1/event-2-cg.png",
+          "sha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-cg.2.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.2.png",
+                "sha256": "a6977d421e008b9e47e3283479abb8d9c8aff500d4526bda074a10876b4c470f"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-3-cg",
+          "path": "game/art-source/avalanche-v1/event-3-cg.png",
+          "sha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "0df6190acde2841b9e1f1b522ee2037a5ea73aa1656595d14ecd8708abca2757",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-cg.3.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.3.png",
+                "sha256": "c6f02a5cc6f933065ed19ac0967d6e34efe2a2fbe04a0c2689804c9620d7a337"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-4-cg",
+          "path": "game/art-source/avalanche-v1/event-4-cg.png",
+          "sha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "b001f46c4f86ec96879048449e5cf42d0717750a7f3e7540def5fdf81d1683fd",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-cg.4.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-cg.4.png",
+                "sha256": "e7706d784445fa01c9114a8f8c29ff4a9e1accbf55885d9b9e905a518a5f3457"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-determined",
+          "path": "game/art-source/avalanche-v1/expression-determined.png",
+          "sha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c245dab64b3fa8afd072ce92b9c5c19dda6bc598db3c72d9f283558cbf2c67e5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-expression.determined.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.determined.png",
+                "sha256": "b971def132e98efc803681d1a12dda6e5ebbdeb42a1bb710e503acd41ad48bfa"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-joy",
+          "path": "game/art-source/avalanche-v1/expression-joy.png",
+          "sha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "084a6ba5280ce7ed85be2f323955f65987f4411ab4226cac1fd7e8f40a0959fc",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-expression.joy.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.joy.png",
+                "sha256": "8747f36608582bb76ac5ddcae050383a0484bf6c7b672796a66221a6834c73fe"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-puzzled",
+          "path": "game/art-source/avalanche-v1/expression-puzzled.png",
+          "sha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "72a7b19ba831700f7e46b38baf212609c3184703c328709518b7c13674616a27",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-expression.puzzled.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-expression.puzzled.png",
+                "sha256": "553df0658606568e648b9778bd8953a291be4492bda43d8ebf8a05bc08f85fd1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "hit",
+          "path": "game/art-source/avalanche-v1/hit.png",
+          "sha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "1b54f072f13d8bd3a00c8db3e372166da7901edc5ea154552d9a06a874bca792",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/avalanche/hit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/avalanche/hit.png",
+                "sha256": "13dcbc0fab7575f92a636cddeea8289a7bd7d0b79487ce7f55c95c146b0bec1f"
+              }
+            ]
+          }
+        },
+        {
+          "key": "portrait",
+          "path": "game/art-source/avalanche-v1/portrait.png",
+          "sha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "71d3e7dc87fb82c51ef22a356aa2c8dedcc12873c930486da052319609cc4975",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-detail.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-detail.png",
+                "sha256": "60fb61500922d015ce606867bcaafb456bf66b4ab30d4c70503404adaefed43e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-idle",
+          "path": "game/art-source/avalanche-v1/sd-idle.png",
+          "sha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "9b91c0682d48487970d94158c26ab6e6752e7b791d56960153058bf75de2cf6a",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.idle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.idle.png",
+                "sha256": "71229795e1c55db9cc73b687a214e164c3ba97d11396849659afa3c16483ff8d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-look",
+          "path": "game/art-source/avalanche-v1/sd-look.png",
+          "sha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.look.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.look.png",
+                "sha256": "e1a53a26bdfc9b16dd827b652a9b80fc3c77037afe1b288482d72777ccf555b4"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-react",
+          "path": "game/art-source/avalanche-v1/sd-react.png",
+          "sha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "2820bfc4c90d1face5ec3adc2bcf10856eb3f51761d8cbcef9879e6fca589010",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.react.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.react.png",
+                "sha256": "a431a631cfb440a53086637af1168f7d31c746614aa15ae7c3c8931a8e8022f1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-sit",
+          "path": "game/art-source/avalanche-v1/sd-sit.png",
+          "sha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.sit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.sit.png",
+                "sha256": "bab4741186fbe6a173b1a860984b0df358c936f6253baac5cafa5eb7e6eef209"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-talk",
+          "path": "game/art-source/avalanche-v1/sd-talk.png",
+          "sha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "f9b88f11a699c2b86beb4f2f89433df2b9c54eb025fe4ba28557e50f679eee47",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.talk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.talk.png",
+                "sha256": "5cca45a1572c4a376f72ca0ee781fc6ce251ba929c7850b2d4438b0f484cebe1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-walk",
+          "path": "game/art-source/avalanche-v1/sd-walk.png",
+          "sha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "5cb80e8b55163b98917873caaf9b836c6dca98dc695d38365d31566e533e59ac",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.walk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.walk.png",
+                "sha256": "9ef2f184d189125497d4a46595c6217f7398ad27be12a7c98cec09dc826fb9d8"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-work",
+          "path": "game/art-source/avalanche-v1/sd-work.png",
+          "sha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-sd.work.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-sd.work.png",
+                "sha256": "45c3d99d6bdcf33523f740868576b76bd2c83dab2c9c94800a8c8ce79c87136a"
+              }
+            ]
+          }
+        },
+        {
+          "key": "standing",
+          "path": "game/art-source/avalanche-v1/standing.png",
+          "sha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "1d72116d3e2a02985a9ce6297250d96c88ebffeaee50ab03591604176011bbf1",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/avalanche/avalanche-battle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/avalanche/avalanche-battle.png",
+                "sha256": "88cb78638c6050b78536828ee46bb96bf3f777a3adcf8f621c8553419f5d4f52"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "anathema",
+      "status": "complete_published",
+      "assets": [
+        {
+          "key": "attack",
+          "path": "game/art-source/anathema-v1/attack.png",
+          "sha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "2908e7067824a48c7d876fd8e0d6f0582e39c416c19c5ce8fead84436f4a299d",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/anathema/attack.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/anathema/attack.png",
+                "sha256": "fcaa1beccf1280c4e12d67edc222982e4e28e01dd01bccc5312c662e2cf387bd"
+              }
+            ]
+          }
+        },
+        {
+          "key": "cutin",
+          "path": "game/art-source/anathema-v1/cutin.png",
+          "sha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "0075a67b99db76df3190599e599b18c9ccfc03166b6c22cda0c9090b51d40803",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/anathema/cutin.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/anathema/cutin.png",
+                "sha256": "b658ed8d4d17b4e05c491eb6e1c446f9656cae306b5c932178659544816a7afe"
+              }
+            ]
+          }
+        },
+        {
+          "key": "equipment-tree-v1",
+          "path": "docs/production/plan12-anathema-tree-bundle.json",
+          "sha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+          "purposeReview": {
+            "status": "approved",
+            "subject": "layered-branching-tree-without-people",
+            "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/clear-ornaments/anathema.png",
+              "tmp/plan12-batch/clear-ornaments/anathema.log"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/clear-ornaments/anathema.png",
+                "sha256": "71db733c804a6beaf8ff5289e08e1b53a3e17e6d7d7a28fe029909c541a21d90"
+              }
+            ],
+            "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+            "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+            "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+          },
+          "previousVersions": [
+            {
+              "key": "equipment-tree-v1",
+              "path": "game/art-source/anathema-v1/equipment-tree-v1.png",
+              "sha256": "27060c027dae2b8b3974ae51cbf45249a5a464e8627f7e921d4bb0995a1aa7d1",
+              "purposeReview": {
+                "status": "rejected",
+                "subject": "character-with-node-decoration",
+                "reason": "人物入りで神器の木の用途に不適合。座標合わせでは採用不可。再制作が必要。",
+                "reviewedAt": "2026-10-11"
+              },
+              "runtimeReview": {
+                "status": "pending-record-reconciliation",
+                "evidence": []
+              }
+            }
+          ],
+          "previousDisplayReviews": [
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/player-default/anathema/anathema-tree.png"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/player-default/anathema/anathema-tree.png",
+                  "sha256": "07c8e7e502acf0a4015b1de35e886fd26abccbfae1b1118aa3a4946ee944f475"
+                }
+              ]
+            },
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "92422be50f0f53611aabd22cdb4dc2e32c9f5857a9399b15175fbfcd3deea6ac",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/hanging-ornaments/anathema.png",
+                "tmp/plan12-batch/hanging-ornaments/anathema.log"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/hanging-ornaments/anathema.png",
+                  "sha256": "31692aedb7d5c82136420bd72ffe5e40862d7e6e58d6884b8a1c736bb3716b9d"
+                }
+              ],
+              "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+              "rendererSha256": "6bc7185f67582e77dc1e915c014f95fa6fbd2488d5a925352c84282be730150c",
+              "change": "Small ornaments suspended from opaque wood branch anchors on short cords; existing nodes, flowers and leaves preserved"
+            }
+          ]
+        },
+        {
+          "key": "event-0-cg",
+          "path": "game/art-source/anathema-v1/event-0-cg.png",
+          "sha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-cg.0.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.0.png",
+                "sha256": "038a22baa13c46123ff08a4347670ccddcb54c7e2d186a3e47d2221c45c9b122"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-1-cg",
+          "path": "game/art-source/anathema-v1/event-1-cg.png",
+          "sha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-cg.1.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.1.png",
+                "sha256": "09364abe3b7e5da779b79edf78a3f3acc2a155da1763457508dca866687bbfdd"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-2-cg",
+          "path": "game/art-source/anathema-v1/event-2-cg.png",
+          "sha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-cg.2.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.2.png",
+                "sha256": "ece0e2a42913aa79d2e38b26624eb4e1895f1a71d351cd8ae58cd5cc4351b0fa"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-3-cg",
+          "path": "game/art-source/anathema-v1/event-3-cg.png",
+          "sha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "f5578e2d656c1320bba6c23095f4a633e8554094045e3c09a4be6671d937cfc5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-cg.3.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.3.png",
+                "sha256": "ca251ccbb83c04305e0b1b422bc376946abbcd61b5364fbb5a8e869f076565ac"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-4-cg",
+          "path": "game/art-source/anathema-v1/event-4-cg.png",
+          "sha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4ad2e051aba4926bcbba898b310d3401c5979c04c5861f5274af394a4db5eb9d",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-cg.4.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-cg.4.png",
+                "sha256": "e0b5d45f3c80e1c5f01b50414c32c068b83b76f2d6ce0040be89e5a38e984285"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-determined",
+          "path": "game/art-source/anathema-v1/expression-determined.png",
+          "sha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "6a8f3e89ce920307b2eb077762911b5a98fcb7fd388394ba46f26177068a8551",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-expression.determined.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.determined.png",
+                "sha256": "bbf77dfb5ab0fb3ddda92daf5bf721fac7f44643d42e81f73cb31e1528789e8f"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-joy",
+          "path": "game/art-source/anathema-v1/expression-joy.png",
+          "sha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "0aaf419eaeef743ccdf15fc5eb9dfa4ed1f44d16873a150d7a42a9a33c99677f",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-expression.joy.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.joy.png",
+                "sha256": "0a94036fe73973ef29d5e0846df015f391f238541b4cc7bf8ccf55677e2acd78"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-puzzled",
+          "path": "game/art-source/anathema-v1/expression-puzzled.png",
+          "sha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "e13eb564e72e15b092728f58611f31c4304a328368a4aba7a524e8980ab68ec5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-expression.puzzled.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-expression.puzzled.png",
+                "sha256": "b9bbb9f71c6660ced66463d9298a27d713abf38819cf84c5245c20c7518958da"
+              }
+            ]
+          }
+        },
+        {
+          "key": "hit",
+          "path": "game/art-source/anathema-v1/hit.png",
+          "sha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "2c60eba102adb90dc770fd6ccd7166466ea98dee8f77537247bb438f845f26f4",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/anathema/hit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/anathema/hit.png",
+                "sha256": "9dc65038dfdf2a0af14fcacfb5cd666fb7814af8cab1cbea44fd71d2c1a6a460"
+              }
+            ]
+          }
+        },
+        {
+          "key": "portrait",
+          "path": "game/art-source/anathema-v1/portrait.png",
+          "sha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "519991ea25ecc82f833a5ede5a9807972bd0b0e54abd0f7deb467afd3fe2f0ba",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-detail.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-detail.png",
+                "sha256": "42be157a12a2d32d5a9c9164d09c95ae5f47e701db2215fe5354d61176f63ca3"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-idle",
+          "path": "game/art-source/anathema-v1/sd-idle.png",
+          "sha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "80334eae044d6912eb8672aad50a8c050ea8a5403a9c9a2b7e87241e8c9eb37a",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.idle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.idle.png",
+                "sha256": "d403a18bf89b862374ade926ca62a99b6419b5c8e05f6e9384b07f77359457c3"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-look",
+          "path": "game/art-source/anathema-v1/sd-look.png",
+          "sha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.look.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.look.png",
+                "sha256": "7ffcf65f74aaa5ba7d7dd29ad29a0acfb9a91ada67e5126ce3f2979818d6e734"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-react",
+          "path": "game/art-source/anathema-v1/sd-react.png",
+          "sha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "bc58fef3b3962929419aa21be922615ba528856bde841be19e75b88d73876b5f",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.react.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.react.png",
+                "sha256": "2095d4d228b69d61a755022a68477f29c4065d97fbe6f1a5d45a9760a74e8e2e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-sit",
+          "path": "game/art-source/anathema-v1/sd-sit.png",
+          "sha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.sit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.sit.png",
+                "sha256": "426f0a2ad1dd678b9702082f73756488e2ef72f6fe4815735d3071cd1c59fd74"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-talk",
+          "path": "game/art-source/anathema-v1/sd-talk.png",
+          "sha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "d42739881136e57ec7ce5abd1f897c364b9a5f9ff0ea57e18d7f587417d3d117",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.talk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.talk.png",
+                "sha256": "51d95cacbe9e7b0f445c384eefcea3d77d368bab3db7d11e11d2dccc9ee108fa"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-walk",
+          "path": "game/art-source/anathema-v1/sd-walk.png",
+          "sha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "0cfa4608cd777be00a3d6e49fd3f2ef2c04722d579c17bbdac2c49f9a19af980",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.walk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.walk.png",
+                "sha256": "6ab04e76e15c767c12fb1bf822cab1a5b5ed13234892a9b9aedfccfe61e068ad"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-work",
+          "path": "game/art-source/anathema-v1/sd-work.png",
+          "sha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-sd.work.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-sd.work.png",
+                "sha256": "8e766750ec4b6057f1e48a5a12b386ef526e54583b47e66ad721b50250f8064a"
+              }
+            ]
+          }
+        },
+        {
+          "key": "standing",
+          "path": "game/art-source/anathema-v1/standing.png",
+          "sha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4ce668d8e3e4db0e15fdc3d362edd0d164babb260a9c976f5456973485ead6cc",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/anathema/anathema-battle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/anathema/anathema-battle.png",
+                "sha256": "ff5cad566871275caf231ad47b2635b29acc01ed1e2dd5bc28179f57f32706fd"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "shiva",
+      "status": "complete_published",
+      "assets": [
+        {
+          "key": "attack",
+          "path": "game/art-source/shiva-v1/attack.png",
+          "sha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "1893a26af6a7b85a27f21f774edc6c12856674e6ba17821673e99862300855cf",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/shiva/attack.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/shiva/attack.png",
+                "sha256": "6a07e4e4dc703fabba6a158fc3dbdf48fddb1fea8b90c4e588ef4e8b3145ad52"
+              }
+            ]
+          }
+        },
+        {
+          "key": "cutin",
+          "path": "game/art-source/shiva-v1/cutin.png",
+          "sha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "ca4c675483d180b60598d63d32a8b4b66f0a7ac2af37e886aca64732e03cd86e",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/shiva/cutin.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/shiva/cutin.png",
+                "sha256": "4e35532ecb7c41ce650fe11956311b437374a66aba0ba78ca9d0203f86b445fc"
+              }
+            ]
+          }
+        },
+        {
+          "key": "equipment-tree-v1",
+          "path": "docs/production/plan12-shiva-tree-bundle.json",
+          "sha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": "layered-branching-tree-without-people",
+            "reason": "了承済みの自然木・薄い葉群・ノード横の花・専用小装飾を採用。根は葉と花の対象外。構成画像は原画を視認、各部品と配置をハッシュ固定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/clear-ornaments/shiva.png",
+              "tmp/plan12-batch/clear-ornaments/shiva.log"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/clear-ornaments/shiva.png",
+                "sha256": "96f58b6bca55d277281c6419a3d3a108d1ea3e55d5dfc7b6908756542d3a8862"
+              }
+            ],
+            "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+            "rendererSha256": "3aa6dd5a6243c67fd771f141ae0444f54ef2213178cdf5c580528d7e484c9b47",
+            "change": "Hanging ornament bounds exclude node frames and captions; cached nearest clear placement; actual frame manually reviewed"
+          },
+          "previousVersions": [
+            {
+              "key": "equipment-tree-v1",
+              "path": "game/art-source/shiva-v1/equipment-tree-v1.png",
+              "sha256": "97ed3bb752be5405707d276dac9fda59abe02d1e5d26a040448af322c5b95373",
+              "purposeReview": {
+                "status": "rejected",
+                "subject": "character-with-node-decoration",
+                "reason": "人物入りで神器の木の用途に不適合。座標合わせでは採用不可。再制作が必要。",
+                "reviewedAt": "2026-10-11"
+              },
+              "runtimeReview": {
+                "status": "pending-record-reconciliation",
+                "evidence": []
+              }
+            }
+          ],
+          "previousDisplayReviews": [
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/player-default/shiva/shiva-tree.png"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/player-default/shiva/shiva-tree.png",
+                  "sha256": "39f9680f3694e7b8122e8aac46aa3f000ba9b050fb49fa2a62cbf0ecbf3668a4"
+                }
+              ]
+            },
+            {
+              "status": "approved",
+              "reviewedAt": "2026-10-11",
+              "reviewedSha256": "4e575f4640ff3b44207c067131481b7ea71655a74f8b95052f7215aa234c83e5",
+              "resolution": "1920x1080 default launch",
+              "method": "manual actual Player frame review; physical input excluded",
+              "evidence": [
+                "tmp/plan12-batch/hanging-ornaments/shiva.png",
+                "tmp/plan12-batch/hanging-ornaments/shiva.log"
+              ],
+              "captureFiles": [
+                {
+                  "path": "tmp/plan12-batch/hanging-ornaments/shiva.png",
+                  "sha256": "d72f623b2675fa3473dd5df185a738b2bb543cca1b5025483b67e9823d1af1c5"
+                }
+              ],
+              "rendererPath": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+              "rendererSha256": "6bc7185f67582e77dc1e915c014f95fa6fbd2488d5a925352c84282be730150c",
+              "change": "Small ornaments suspended from opaque wood branch anchors on short cords; existing nodes, flowers and leaves preserved"
+            }
+          ]
+        },
+        {
+          "key": "event-0-cg",
+          "path": "game/art-source/shiva-v1/event-0-cg.png",
+          "sha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-cg.0.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.0.png",
+                "sha256": "5e84afeef6b8bb36db5c82b99c5b0abc5d6baaf0b9d9fa29c9f0e52a377d475e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-1-cg",
+          "path": "game/art-source/shiva-v1/event-1-cg.png",
+          "sha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-cg.1.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.1.png",
+                "sha256": "6d1c951a72538e5c17c4bed1026910c75f16081dc95fb8709de15826216db07b"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-2-cg",
+          "path": "game/art-source/shiva-v1/event-2-cg.png",
+          "sha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-cg.2.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.2.png",
+                "sha256": "b7f454bb960b957b1fdebcb17d22d2f906c25c1d91946306eef927b588717348"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-3-cg",
+          "path": "game/art-source/shiva-v1/event-3-cg.png",
+          "sha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "13ba640a763f9ca8db57bd8065cef3c24238510492f2cf4bd3ba96189107c0f9",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-cg.3.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.3.png",
+                "sha256": "2fe93d3edeb4c6535e548a8ca1250375ba9c773036615231201544ac15e5ea7b"
+              }
+            ]
+          }
+        },
+        {
+          "key": "event-4-cg",
+          "path": "game/art-source/shiva-v1/event-4-cg.png",
+          "sha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "aee1c0e50fd3b78c6a1cedeccdc0d70607fd27f51685512c10ab88a0992284f1",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-cg.4.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-cg.4.png",
+                "sha256": "6cda962aba3f4f87718c3a52707bed9bffd6572c81ed723a168e401f5c3d0780"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-determined",
+          "path": "game/art-source/shiva-v1/expression-determined.png",
+          "sha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "a5e9e9102714f96028c359462752de8b02135c392650ca25c147a2cd3074aac9",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-expression.determined.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.determined.png",
+                "sha256": "a273011ef92aea2648b4a4de4ee84f6f930c7042f5e9e73c9a55c6790e559a86"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-joy",
+          "path": "game/art-source/shiva-v1/expression-joy.png",
+          "sha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "8a65498beb035b4c152881dbede74e730b6b45a259346238de3defeedced4eb5",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-expression.joy.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.joy.png",
+                "sha256": "34a4e0885b7d4ec9074b886efcf4fba2d71fa9f7aae16d469dbd95e6acfbe54e"
+              }
+            ]
+          }
+        },
+        {
+          "key": "expression-puzzled",
+          "path": "game/art-source/shiva-v1/expression-puzzled.png",
+          "sha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "31423f5efcdcc765e9ee93725f4f9bd18e5dbaec6e19316cf236b03ec1982875",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-expression.puzzled.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-expression.puzzled.png",
+                "sha256": "eb342c97453b95de4a85a458210dd88c7ffa3abcb6c4872bba3f8636a75d3dcf"
+              }
+            ]
+          }
+        },
+        {
+          "key": "hit",
+          "path": "game/art-source/shiva-v1/hit.png",
+          "sha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "ab64c63cda5f2c6dadb249ce04e28672d971e839cf7298925837e81b1c485fe3",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/battle-art/shiva/hit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/battle-art/shiva/hit.png",
+                "sha256": "035b30b465360d3efdc377c38e7fae59dce0942f9e332a38c92f3a707be416d4"
+              }
+            ]
+          }
+        },
+        {
+          "key": "portrait",
+          "path": "game/art-source/shiva-v1/portrait.png",
+          "sha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "9f4254120b500804368f6415137c5ebadd57a77787695155b872812352d29cc8",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-detail.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-detail.png",
+                "sha256": "c5448fdbe3a2b196fa969816aa849e704d82baa214b0cf429799c5998fa5bb44"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-idle",
+          "path": "game/art-source/shiva-v1/sd-idle.png",
+          "sha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "f28be365b86f91878ed8eee01b9b32ddc6a5a0b5105704270a84fe459fa1c2c2",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.idle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.idle.png",
+                "sha256": "c291ad9f5467e318428cc461b0f965002e02dcb6685fde6bd6c47c9c71d35353"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-look",
+          "path": "game/art-source/shiva-v1/sd-look.png",
+          "sha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.look.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.look.png",
+                "sha256": "e6894e8567827962bee6bd3bf8943a436d90c7d6da95db44e17c424d3f33e8c1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-react",
+          "path": "game/art-source/shiva-v1/sd-react.png",
+          "sha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c351c14f544895313c59cff2ffd6ec38dfe0b1e0c55bb0a6a8ee56c514a8d364",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.react.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.react.png",
+                "sha256": "6296f649639d99bcf1616fee7d4734fdc8d5ae846ae430d10fd159e4f0cb39d1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-sit",
+          "path": "game/art-source/shiva-v1/sd-sit.png",
+          "sha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.sit.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.sit.png",
+                "sha256": "0aedfac7279d8a6506abfb5f3c914f249f868c0361ef3e06764e675a95ffc1f9"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-talk",
+          "path": "game/art-source/shiva-v1/sd-talk.png",
+          "sha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "87e5a73f489798360abf0475f48c126881f590b48e63e1ba3437cbcf13136e99",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.talk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.talk.png",
+                "sha256": "d2cdbd162d01021d9bd17d72037f168404f34d0587fb44a300d6dad804e168d1"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-walk",
+          "path": "game/art-source/shiva-v1/sd-walk.png",
+          "sha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "2026-10-11に原画の比較シートを視認。CGは男性なし、表情差分は同一人物・衣装・姿勢、SDは指定の独立姿勢を確認。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "886ab827417b21471c6e782d3f14b118881e58151b762af6c0c22ecb186b4a71",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.walk.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.walk.png",
+                "sha256": "2a5d2db1a837ff2e6bd75e20dba7876fb4df1d7138abf2c251c6af2a9f1c8f32"
+              }
+            ]
+          }
+        },
+        {
+          "key": "sd-work",
+          "path": "game/art-source/shiva-v1/sd-work.png",
+          "sha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-sd.work.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-sd.work.png",
+                "sha256": "0fc72caf18a1e1f7ca2f06d914c0db00de3184cc44da49b59c7185b1357f2c2d"
+              }
+            ]
+          }
+        },
+        {
+          "key": "standing",
+          "path": "game/art-source/shiva-v1/standing.png",
+          "sha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b",
+          "purposeReview": {
+            "status": "approved",
+            "subject": null,
+            "reason": "本チャットで原画を視認済み。実画面の確認完了とは別判定。",
+            "reviewedAt": "2026-10-11"
+          },
+          "runtimeReview": {
+            "status": "approved",
+            "reviewedAt": "2026-10-11",
+            "reviewedSha256": "fa33d5654a5d8e8278bdb88f6dd86657b2434b03cad89fa857f90ffc760b201b",
+            "resolution": "1920x1080 default launch",
+            "method": "manual actual Player frame review; physical input excluded",
+            "evidence": [
+              "tmp/plan12-batch/player-default/shiva/shiva-battle.png"
+            ],
+            "captureFiles": [
+              {
+                "path": "tmp/plan12-batch/player-default/shiva/shiva-battle.png",
+                "sha256": "60395f6fd8f3700758d590b7afd0f0cf6f3de25ec7887d8f9643d09c4afe91d4"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "policy": "Source-purpose review is required before adoption. Captures and successful automation are not visual approval. Preserve prior reviews for unchanged asset hashes and display paths."
+}

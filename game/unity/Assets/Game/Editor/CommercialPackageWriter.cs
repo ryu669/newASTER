@@ -16,7 +16,7 @@ public static class CommercialPackageWriter
     public static void Write(string player)
     {
         string root=Path.GetDirectoryName(Path.GetFullPath(player));
-        var source=Resources.Load<TextAsset>("Combat/battle-plan11-7");
+        var source=Resources.Load<TextAsset>(NewAster.Data.ProductionContentPaths.Combat);
         if(source==null)throw new InvalidOperationException("Missing production catalog for package.");
         var combat=JsonUtility.FromJson<CombatDefinitionCatalog>(source.text);combat.Validate();
         string version=PlayerSettings.bundleVersion;

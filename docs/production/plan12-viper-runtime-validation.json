@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 22,
+  "people": 19,
+  "added": "heroine.viper",
+  "record": "docs/production/plan12-viper-form-record.json",
+  "oldSave": "21-to-22; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}

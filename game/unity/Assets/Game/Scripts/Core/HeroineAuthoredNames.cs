@@ -13,6 +13,11 @@ namespace NewAster.Core
         public static HeroineAuthoredIdentity For(string id)
         {
             switch(id){
+                case "heroine.iron-maiden":return new HeroineAuthoredIdentity("鋼鉄の棺","鋼鉄の棺","サラマンドラの祝福","サラマンドラ","閉じた扉の外にも、守りたい朝がある。鋼の決意で、隣に立つ人の帰り道を支える。");
+                case "heroine.avalanche":return new HeroineAuthoredIdentity("濡羽の御髪","乗るぜ勝ち馬！","Yin&Yangの祝福","Yin&Yang","借りを忘れず、次の一手は自分で選ぶ。軽口の奥に、仲間を置き去りにしない熱がある。");
+                case "heroine.anathema":return new HeroineAuthoredIdentity("令嬢の極悪覇気","騎士の誓い","青薔薇の祝福","青薔薇の夜想曲","なくした席を数えるより、今日の約束に胸を張る。青い薔薇の刃は、選んだ人のために。");
+                case "heroine.shiva":return new HeroineAuthoredIdentity("みんなでがんばろう！","ポジティブ思考","あたしがついてるから！","フリスビーテ","元気な声は、隣で休む人にも届く。手を伸ばす強さと、返事を待つ優しさを忘れない。");
+                case "heroine.aeon":return new HeroineAuthoredIdentity("カリスマ","灰は灰に、塵は塵に","呪いは愛に","ハルモニア","永遠を知る声で、今日のあなたを呼ぶ。繰り返す明日にも、自分で選ぶ願いがある。");
                 case "heroine.slayer":return new HeroineAuthoredIdentity("神殺しの誓い","当たらなければ平気です！","騎士剣の祝福","騎士剣グラウ","守りたい明日がある。そのためなら、空を裂く刃にもなれる。");
                 case "heroine.iconoclast":return new HeroineAuthoredIdentity("戦いの中で成長するタイプ","限界を砕くゆうしゃ","ゆうしゃの祝福","ゆうしゃのけん","越えられない壁なら、壊して進む。昨日の自分にも追いつかせない。");
                 case "heroine.undermine":return new HeroineAuthoredIdentity("アンブレイカブル","絶対自分領域","ミラクルボディの祝福","にゃんちゃみの盾","傷つくことにも慣れている。それでも、帰る場所までは壊させない。");
@@ -28,6 +33,10 @@ namespace NewAster.Core
                 case "heroine.arcane":return new HeroineAuthoredIdentity("わたくしのとっておき","ポジティブ思考","冒険者の祝福","ハンドキャノン","まだ見ぬ宝は、きっと次の曲がり角。とっておきは、驚く顔と一緒に。");
                 case "heroine.arcane-academy":return new HeroineAuthoredIdentity("わたくしが一番上手く使えるの","自信家","オーパーツは裏切りませんわ","クロノグリモワール","答えを見つけるまで、何度でも頁をめくる。失敗も次の一手の材料ですわ。");
                 case "heroine.shangrila":return new HeroineAuthoredIdentity("7時間寝れた","冷静沈着","納期5分前の焦燥","象撃ち銃","眠れた朝の照準はぶれない。仕事を終えたら、今度こそ静かな休息を。");
+                case "heroine.invisible":return new HeroineAuthoredIdentity("私もみんなも逃げないよ！","お人好し","ユニコーンはみんなの味方☆","可能性の獣","誰にも見えない友達と、隣で返事をくれる人。星の灯りを結んで、みんなの帰る道を照らす。");
+                case "heroine.viper":return new HeroineAuthoredIdentity("喧嘩上等","金髪美女","約束の帰投","アヴェンジャー","乱暴な冗談の合間に、皿を置く手だけは静か。自由に出かけ、交わした約束へ自分の名前で帰ってくる。");
+                case "heroine.vindicator":return new HeroineAuthoredIdentity("痛みを糧に","反撃の心得","無神論者","黒大剣リーパー","帰還を確かめる厳しい声。誘われる嬉しさを隠しても、隣にはもう一つ椅子を置いている。");
+                case "heroine.weapon-master":return new HeroineAuthoredIdentity("強装弾","火遊び","諸兵科連合","換装銃架ハルモニア","値札を直す手と、包帯を巻く手。明日も店を開けられるように、今日の助け方を一緒に考える。");
                 default:throw new ArgumentException("Missing authored heroine names: "+id);
             }
         }

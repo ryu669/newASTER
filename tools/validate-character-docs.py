@@ -31,4 +31,23 @@ for person in index['people']:
         if '://' not in target:
             assert (path.parent / target.split('#')[0]).exists(), f'{pid}: broken link {target}'
 assert actual == expected, f'Person/form coverage differs: {actual.keys()} / {expected.keys()}'
+development_ids = set()
+for person in index.get('developmentPeople', []):
+    pid = person['personId']
+    assert pid not in actual and pid not in development_ids, f'Duplicate development person: {pid}'
+    development_ids.add(pid)
+    manifest = json.loads((ROOT / person['manifest']).read_text(encoding='utf-8'))
+    assert person['available'] is False and manifest['available'] is False, f'Premature release: {pid}'
+    draft_combat = json.loads((ROOT / person['combatSource']).read_text(encoding='utf-8-sig'))
+    draft_story = json.loads((ROOT / person['storySource']).read_text(encoding='utf-8-sig'))
+    text = (ROOT / person['profile']).read_text(encoding='utf-8')
+    for heading in ['概要・性格', '口調', '葛藤・関係の進め方', '避ける描写', '参考資料・採用判断']:
+        assert '## ' + heading in text, f'{pid}: missing {heading}'
+    for form in person['formIds']:
+        assert form not in {h['id'] for h in combat['heroines']}, f'Draft form already live: {form}'
+        assert any(h['id'] == form and h['personId'] == pid for h in draft_combat['heroines'])
+        for kind in ['chapters', 'events']:
+            records = [r for r in draft_story[kind] if r['ownerId'] == form]
+            assert records and all('`' + r['id'] + '`' in text for r in records), f'Missing development story references: {form}'
 print(f'CHARACTER_DOCS_PASS people={len(actual)} forms={sum(map(len, actual.values()))}')
+print(f'DEVELOPMENT_CHARACTER_DOCS_PASS people={len(development_ids)}; not included in live counts')

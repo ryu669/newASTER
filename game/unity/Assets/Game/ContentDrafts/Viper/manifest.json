@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.viper"
+  ],
+  "baselineForms": 21,
+  "targetForms": 22,
+  "requiredAssetsPerForm": 21,
+  "sourceAdaptations": "映像の2技をLv1基準へ採用。第3技210%/WT155とチェイン80%は本作独自。原作祝福の効果は不明なので本作の木の効果として別途調整。ジョブマスタリーはキャラ重複のみ。",
+  "remaining": [],
+  "completionRecord": "docs/production/plan12-viper-form-record.json"
+}

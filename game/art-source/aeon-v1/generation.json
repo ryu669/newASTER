@@ -1,0 +1,147 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "standing.png",
+  "standingPrompt": "Production game asset: Aeon (尾頭懐音), adult woman aged 25+, refined Japanese fantasy anime illustration. Single complete full-body character on genuinely transparent background, native portrait 1024x1536. Long flowing dark aubergine hair with side bangs, bright cyan blue eyes, calm knowing gentle smile. Navy tailored long military-style jacket with brass buttons and subtle gold trim, white blouse, red neck ribbon, navy pleated skirt, opaque dark stockings and dark ankle boots. Two large dark purple feather angel wings, thin violet circular halo above head, small cyan flower-shaped pendant. Carry an elegant purple spiral staff with circular intertwined ornament and no text. Upright relaxed standing pose, facing camera slightly three-quarter, one hand near chest. All fingers anatomically correct. Entire halo, head, wings, staff, both boots fully within canvas with 6% transparent margin. Adult mature face and proportions. Rich detailed painted shading consistent with existing fantasy RPG portraits. No UI, no borders, no labels, no school setting, no other person. Transparent alpha, no painted background or ground shadow.",
+  "assets": [
+    {
+      "key": "expression-joy",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nPrecise edit: change ONLY facial expression to warm joyful smile with softly lifted cheeks. Keep every other pixel, full body pose, head position and size, eyes, hair, wings, staff, costume and canvas EXACTLY aligned to the standing reference. Same 1024x1536 native canvas; actual transparent alpha. No new accessories or scenery.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-be601a82-899d-44ae-bead-d4f3eac65d7c.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/expression-joy.png",
+      "transparent": true
+    },
+    {
+      "key": "portrait",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 landscape 3:2 transparent upper-body portrait. Show whole hair crown, head, both shoulders, chest through waist with ample transparent margins above and below face; face centered around x=.50,y=.35, forehead-to-chin height about .18 of canvas. Friendly intelligent expression. Do not crop or enlarge the source; paint a separate high detail upper-body composition.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-42954259-b2d9-4756-a409-cbad408a692b.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/portrait.png",
+      "transparent": true
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nPrecise edit: change ONLY facial expression to slightly puzzled with subtly raised eyebrow and gently parted lips. Keep every other pixel, full body pose, head position and size, eyes, hair, wings, staff, costume and canvas EXACTLY aligned to the standing reference. Same 1024x1536 native canvas; actual transparent alpha. No new accessories or scenery.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d8e3b588-6337-4512-8c17-b18f55502068.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/expression-puzzled.png",
+      "transparent": true
+    },
+    {
+      "key": "hit",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1536 full-body transparent damage reaction, mild startled face, body leaning back slightly and wings flexed, staff held firmly, no wounds or torn clothing. Whole body and accessories inside frame with 6% margin.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-95f7503c-d4b1-4c59-aad3-83a0ede195c4.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/hit.png",
+      "transparent": true
+    },
+    {
+      "key": "cutin",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 transparent dramatic skill cut-in, complete adult woman head-to-toe with extended dark purple wings and spiral staff, surrounded by elegant luminous violet clock rings and cyan petals, leave 6% margins so all halo/wing/staff/boots visible. No clock digits, no text.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c7590dd3-2e63-4001-a12f-573257ca6cb3.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/cutin.png",
+      "transparent": true
+    },
+    {
+      "key": "attack",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1536 full-body transparent action pose, stepping forward and raising spiral staff, restrained violet circular magical ribbons around staff, confident focused face. Whole halo, wings, staff, hands and both boots inside frame with 6% margin; one body and two arms.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4a15181d-79f0-44b6-bad0-8c5ea9f98314.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/attack.png",
+      "transparent": true
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nPrecise edit: change ONLY facial expression to calm determined focused eyes and composed mouth. Keep every other pixel, full body pose, head position and size, eyes, hair, wings, staff, costume and canvas EXACTLY aligned to the standing reference. Same 1024x1536 native canvas; actual transparent alpha. No new accessories or scenery.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-98770c92-3c8c-4b2a-95bf-3b8ebeed4428.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/expression-determined.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: relaxed standing holding staff. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e11c135c-0e1e-4670-9996-cf03fd178f13.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-idle.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: walking toward the right, one leg forward, full boots visible. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a562d8b9-556e-442e-9443-e7eb30cda038.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-walk.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: leaning forward slightly sorting an invisible tabletop with both hands, boots visible; no table or furniture painted. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8a824193-6985-460a-8ea1-d2381434f9b4.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-work.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: friendly speaking with one open hand, staff in other hand. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-158fd828-e2ec-4550-9b0d-f4b8f5c0d5d5.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-talk.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: looking upward to the upper right with chin raised naturally, pointing gently, full body visible. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-a74b1c1f-627c-49e5-b8a9-af6621c0b30f.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-look.png",
+      "transparent": true
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: pleasantly surprised with slightly lifted wings. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-52f2fdf4-0069-4e7d-9445-f9031eb07a93.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-react.png",
+      "transparent": true
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 full scene event illustration. Aeon alone at a quiet wooden desk by an open garden window, writing a letter with fountain pen and holding an envelope, warm thoughtful amused smile, violet wing feathers gently framing her. Paper has no readable lettering. Empty second chair. No other person or body part.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-27c92ccb-5536-4443-8f26-dd7460779780.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/event-1-cg.png",
+      "transparent": false
+    },
+    {
+      "key": "equipment-tree-v1",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 landscape transparent illustration of an actual magical TREE, no character. Visible gnarled trunk centered x=.50, root base y=.85, branching into three distinct spreading boughs, four readable clear round natural knot locations per bough at y=.66,.49,.32,.15. Left bough x=.28,.20,.14,.08; center bough x=.50,.50,.50,.50; right bough x=.72,.80,.86,.92. Root at .50,.85 makes 13 knot sites total. Violet bark spiraling like the staff, violet/cyan leaves and golden military filigree, restrained glowing rings entwined with branches. All roots and leaves inside 5% margins, leave clear negative space around the knots for UI overlays. No drawn UI circles, labels, numbers or lettering.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d3840b01-6e53-4f8a-ba95-b22195231bd0.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/equipment-tree-v1.png",
+      "transparent": true
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 full scene event illustration. Aeon alone at a sunlit garden table, smiling at two bowls of soup and half a loaf of bread, hands gently holding her own bowl. Extra chair is empty. Garden and warm afternoon light. Wings folded naturally. No male figure or body part, no other characters.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-f554b51b-ebbd-4b07-a42f-84a359b0927a.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/event-0-cg.png",
+      "transparent": false
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 full scene romantic confession illustration. Aeon alone in a softly lit evening garden, holding a plain paper bookmark near her heart, cyan eyes looking warmly toward camera, modest blush and sincere smile. Full coat and covered blouse, folded purple wings, violet halo softly glowing. Empty space beside her on the bench, no other person, no hands from viewer.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-9bc28f7b-976e-4254-8060-5753a2e20857.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/event-2-cg.png",
+      "transparent": false
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 full scene romantic everyday illustration. Aeon alone seated on a garden bench at sunset, leaning slightly toward an empty place beside her, quietly smiling and holding a bookmark and closed book in lap. Gentle violet wings behind bench and ring halo overhead, warm tranquil dusk. No other person, no male silhouettes, no viewer hands.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0dc85ad3-3cc6-43d0-9b03-addd8045d85b.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/event-4-cg.png",
+      "transparent": false
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1536x1024 full scene event illustration. Aeon alone at a morning orchard market stall, smiling while holding a red apple near her face and carrying a wicker basket containing three apples. Dappled sunlight on navy coat and purple wings. No vendors, no crowds, no male figures or disembodied hands.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-9952ec31-d5f1-4017-a2a8-7bde5bb3d131.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/event-3-cg.png",
+      "transparent": false
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Use the referenced standing illustration as the exact character identity and costume reference: Aeon, an adult woman aged 25+, long dark aubergine hair, cyan eyes, navy gold-trimmed military coat, white blouse, red neck ribbon, dark stockings, ankle boots, two dark purple feather wings and violet ring halo, cyan flower brooch, elegant purple spiral staff. High quality painted anime fantasy RPG art. One female character only; no males, no companions, no text, UI or borders. Preserve the same adult face, hair, accessories and costume details.\nNative 1024x1024 transparent chibi garden sprite of the exact same adult woman, cute three-heads-high stylized proportions, identifiable cyan eyes, aubergine hair, navy coat, red ribbon, purple feather wings and small ring halo. Pose: seated upright with knees together and hands resting on lap, feet visible; no chair or furniture painted, suitable for positioning onto a game bench. Entire silhouette, halo, wings, staff if held and boots inside canvas with 8% margin. One sprite only, no floor, shadow or background.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4af1f4c9-d8de-442e-bba0-27f1984da443.png",
+      "path": "D:/AIGAME/newASTER/game/art-source/aeon-v1/sd-sit.png",
+      "transparent": true
+    }
+  ]
+}

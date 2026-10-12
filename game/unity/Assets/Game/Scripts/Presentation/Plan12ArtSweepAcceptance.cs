@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
@@ -34,7 +34,14 @@ namespace NewAster.Presentation
             artSweep=new List<ArtSweepItem>();
             foreach(var hero in combatDefinitions.HeroineIds){
                 if(!artSweepGalleryOnly)foreach(var view in new[]{"detail","tree","expression.normal","expression.joy","expression.puzzled","expression.determined","sd.idle","sd.walk","sd.talk","sd.react","sd.sit","sd.work","sd.look","battle"})artSweep.Add(new ArtSweepItem{hero=hero,view=view});
+                if(!artSweepGalleryOnly && new[]{"heroine.aeon","heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master"}.Contains(hero))artSweep.Add(new ArtSweepItem{hero=hero,view="sd.furniture"});
                 foreach(var e in ProductionStoryData().events.Where(e=>e.ownerId==hero))artSweep.Add(new ArtSweepItem{hero=hero,view="cg."+e.id.Split('.').Last(),source=e.id});
+            }
+            if(args.Contains("-commonTreeSweep")){
+                artSweep=combatDefinitions.HeroineIds.SelectMany(hero=>new[]{0,2,4}.Select(stage=>new ArtSweepItem{hero=hero,view="tree-stage-"+stage})).ToList();
+                acceptanceStore=new FormalCampaignStore(Path.Combine(artSweepDirectory,"tree-stage-save-"+Guid.NewGuid().ToString("N")+".json"),UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode,UnityFormalCampaignJson.DecodeHeader);
+                var initial=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));initial.revision=0;
+                AcceptanceCheck(acceptanceStore.Save(initial),"Shared tree isolated save initialized");
             }
             int heroFilter=Array.IndexOf(args,"-plan12ArtHero"),viewFilter=Array.IndexOf(args,"-plan12ArtViews");
             if(heroFilter>=0)artSweep=artSweep.Where(item=>item.hero=="heroine."+args[heroFilter+1]).ToList();
@@ -51,6 +58,7 @@ namespace NewAster.Presentation
                 if(++artSweepFrame<3 || !File.Exists(artSweepImage))return true;
                 var done=artSweep[artSweepIndex];
                 artSweepRecords.Add(new ArtSweepRecord{heroineId=done.hero,view=done.view,source=done.source,image=Path.GetFileName(artSweepImage)});
+                if(done.view.StartsWith("tree-stage-"))File.WriteAllText(Path.ChangeExtension(artSweepImage,"complete"),"Actual Player tree stage saved, reloaded and captured; manual review separate.");
                 artSweepScreenshot=false;
             }else if(artSweepIndex>=0){
                 if(++artSweepFrame<3)return true;
@@ -64,6 +72,19 @@ namespace NewAster.Presentation
             adv=null;advCgGallery=false;encounter=null;title=false;help=false;bookSystemOpen=false;artSweepSd=null;heroineRosterOpen=false;growthScreen=GrowthScreen.Overview;selectedNode=null;
             book.RequestSubject(BookBookmark.Heroines,item.hero);book.CompleteTransition();
             if(item.view=="tree")growthScreen=GrowthScreen.Weapons;
+            else if(item.view.StartsWith("tree-stage-")){
+                int stage=int.Parse(item.view.Substring(11));
+                var save=UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(formalCampaign.Snapshot));
+                var owned=HomeData().weaponNodes.Where(n=>n.heroineId==item.hero && (n.initial || WeaponGrowthRules.Tier(n)<=stage)).Select(n=>n.id);
+                save.home.weaponNodeIds=save.home.weaponNodeIds.Where(id=>!id.StartsWith(item.hero+".weapon.",StringComparison.Ordinal)).Union(owned).ToArray();
+                save.home.weaponLevels=save.home.weaponLevels.Where(level=>save.home.weaponNodeIds.Contains(level.nodeId)).ToArray();
+                save.revision++;
+                AcceptanceCheck(acceptanceStore.Save(save),"Shared tree stage saved");
+                AcceptanceCheck(acceptanceStore.Load(out var restored)==FormalLoadResult.Loaded,"Shared tree stage reloaded");
+                AcceptanceCheck(restored.home.weaponNodeIds.Count(id=>id.StartsWith(item.hero+".weapon.",StringComparison.Ordinal))==1+stage*3,"Exact shared tree unlock count");
+                BindFormalCampaign(restored);book.RequestSubject(BookBookmark.Heroines,item.hero);book.CompleteTransition();growthScreen=GrowthScreen.Weapons;
+                Debug.Log("COMMON_TREE_SAVE_PASS hero="+item.hero+" stage="+stage+" nonRoot="+(stage*3));
+            }
             else if(item.view.StartsWith("expression.") || item.view.StartsWith("cg.")){
                 var home=HomeData();var e=home.events.First(e=>e.heroineId==item.hero && (item.source==null || e.id==item.source));
                 item.source=e.id;
@@ -96,12 +117,22 @@ namespace NewAster.Presentation
         }
         private bool DrawArtSweepSd()
         {
-            if(artSweep==null || artSweepSd==null)return false;
+            if(artSweep==null || artSweepSd==null || artSweepIndex<0 || artSweepIndex>=artSweep.Count)return false;
             Styles();BeginAspectCanvas();GrowthStyles();GrowthFill(0,0,1600,900,new Color(.12f,.18f,.2f));
             var hero=artSweep[artSweepIndex].hero;
             Label(50,30,1500,60,combatDefinitions.Hero(hero).name+" ／ 家具用SD固定姿勢確認 ／ "+artSweepSd,heading,Color.white);
+            if(artSweepSd=="furniture"){
+                for(int i=0;i<3;i++){
+                    var f=HomeData().furniture.Single(x=>x.id=="furniture.fixture."+i);
+                    var use=GardenUse(f.id,hero);AcceptanceCheck(use!=null,"Dedicated furniture composition: "+hero+" / "+i);
+                    DrawGardenArtUse(new Rect(30+i*460,300,350,350),AdvTexture(f.assetId),use,true,hero);
+                    Label(40+i*520,760,490,50,use.action,growthTextStyle,Color.white);
+                }
+                return true;
+            }
             string resource="Illustrations/"+hero.Substring("heroine.".Length)+"-sd-"+artSweepSd+"-candidate-v1";
             bool fallback=Resources.Load<Texture2D>(resource)==null;
+            if(hero=="heroine.vindicator" && artSweepSd=="idle")resource="Illustrations/vindicator-sd-idle-candidate-v2";
             if(fallback)resource="Illustrations/"+hero.Substring("heroine.".Length)+"-sd-idle-candidate-v1";
             AcceptanceCheck(Resources.Load<Texture2D>(resource)!=null,"Art sweep SD or runtime idle fallback exists: "+resource);
             DrawGardenResident(new Rect(100,110,1400,650),new HomeOccupant{heroineId=hero,actionId="action."+artSweepSd,x=.5f,y=.7f});
