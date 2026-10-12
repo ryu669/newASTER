@@ -11,7 +11,7 @@ internal static class DailyInteractionTests
     public static void Run(Action<bool,string> check,string resources)
     {
         var defs=DailyInteractionContent.Definitions;var art=DailyInteractionContent.Presentations;
-        check(InteractionTraitCatalog.Ids.Length==27 && InteractionTraitCatalog.Ids.Distinct().Count()==27,"DL-01 exact 27 shared interaction definitions");
+        check(InteractionTraitCatalog.Ids.Length==28 && InteractionTraitCatalog.Ids.Distinct().Count()==28,"DL-01 exact 28 shared interaction definitions");
         foreach(string category in new[]{"common","trait","pair"})check(defs.Count(d=>d.category==category)==20,"DL-07 twenty authored "+category+" parts");
         foreach(var d in defs){d.Validate();var p=art.Single(a=>a.id==d.presentationId);check(p.seconds>=5 && p.seconds<=20 && !string.IsNullOrEmpty(p.description) && d.scriptId==null,"DL-07 each shared part works without invented dialogue");}
         var person=new ReactionStyleProfile{main="active",sub="cool"};
@@ -43,7 +43,7 @@ internal static class DailyInteractionTests
         released=0;completed=0;session=new DailyInteractionSession("session.cancel","garden.test","date","date.walk",new[]{"heroine.a"},parts,new DailyPresentationState(),()=>released++,n=>completed++);session.Cancel();session.Cancel();session.Tick(2,true);check(released==1 && completed==0 && session.Cancelled,"DL-12 cancel releases once and never notifies completion");
         check(DailyDateCatalog.Definitions.Length==5 && DailyDateCatalog.Definitions.All(d=>d.minimumAffection==10),"DL-09 five level-ten dates");
         var timer=Stopwatch.StartNew();for(int i=0;i<256;i++){
-            var h=actor("heroine.scale."+i,new[]{InteractionTraitCatalog.Ids[i%27]});var ctx=new DailyInteractionContext{subject=h,time="night",weather="clear"};
+            var h=actor("heroine.scale."+i,new[]{InteractionTraitCatalog.Ids[i%InteractionTraitCatalog.Ids.Length]});var ctx=new DailyInteractionContext{subject=h,time="night",weather="clear"};
             check(DailyInteractionSelector.Choose(defs,ctx,new DailyInteractionHistory(),n=>i%n)!=null,"DL-13 selection for person "+i);
         }timer.Stop();Console.WriteLine("DAILY_256_SELECTION_MS "+timer.Elapsed.TotalMilliseconds.ToString("F1"));
         var options=new JsonSerializerOptions{IncludeFields=true};var combat=JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(Path.Combine(resources,"Combat/battle-plan10-shangrila.json")),options);

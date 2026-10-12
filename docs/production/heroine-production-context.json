@@ -2940,11 +2940,13 @@
         "aa-021",
         "aa-022"
       ],
-      "implementedFormIds": [],
+      "implementedFormIds": [
+        "heroine.april"
+      ],
       "groupingBasis": "同じ作品内の名前表示／ファイル名と別衣装接尾辞。作品をまたいだ同一人物認定はしない。",
       "productionLot": null,
       "productionPriority": null,
-      "profileStatus": "未着手",
+      "profileStatus": "既存人物資料を参照",
       "observedIdentity": [
         {
           "name": "エイプリル",
@@ -2973,8 +2975,8 @@
           "observedSecond": null,
           "recordKind": "form-reference",
           "recordNote": null,
-          "implementationId": null,
-          "implementationStatus": "未実装"
+          "implementationId": "heroine.april",
+          "implementationStatus": "実装済み"
         },
         {
           "source": "aa",

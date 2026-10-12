@@ -1,8 +1,8 @@
 # Unityゲーム実装
 
-現行は24形態・21人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan12WeaponMasterBuild.ValidateAndBuild`、出力は `Builds/plan12-weapon-master/newASTER.exe`。
+現行は25形態・22人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan12AprilBuild.ValidateAndBuild`、出力は `Builds/plan12-april/newASTER.exe`。
 
-通常入口は `ProductionContentPaths` で戦闘・物語を指定する。現行Resourcesは `Combat/battle-plan12-weapon-master` と `Story/plan12-weapon-master-story-content`。[5人の完了記録](../docs/production/plan12-first-batch-runtime-validation.json)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
+通常入口は `ProductionContentPaths` で戦闘・物語を指定する。現行Resourcesは `Combat/battle-plan12-april` と `Story/plan12-april-story-content`。[5人の完了記録](../docs/production/plan12-first-batch-runtime-validation.json)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
 
 ## 実装の配置
 
@@ -26,3 +26,5 @@
 ヴァイパーの専用21画像・3技・旧セーブ移行・標準画面19ケースの [完了記録](../docs/production/plan12-viper-form-record.json)。ヴィンディーケーターとウェポンマスターも通常プレイへ追加済み。装備の木は全24形態で共通化し、吊り下げ装飾を廃止した。
 
 ウェポンマスターの[完了記録](../docs/production/plan12-weapon-master-form-record.json)、全24形態の[共通の木の確認記録](../docs/production/plan12-common-weapon-tree-review.json)。
+
+エイプリル通常版の専用20画像・3章・5交流・3技と旧24形態セーブ移行を確認。[完了記録](../docs/production/plan12-april-form-record.json)。通常プレイは25形態・22人物。

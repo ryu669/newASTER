@@ -2328,6 +2328,103 @@
           }
         }
       ]
+    },
+    {
+      "heroineId": "heroine.april",
+      "resourcePath": "UI/WeaponTrees/common-tree",
+      "nodes": [
+        {
+          "nodeId": "heroine.april.weapon.root",
+          "position": {
+            "x": 0.5,
+            "y": 0.788
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.alpha",
+          "position": {
+            "x": 0.396,
+            "y": 0.571
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.beta",
+          "position": {
+            "x": 0.485,
+            "y": 0.628
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.gamma",
+          "position": {
+            "x": 0.62,
+            "y": 0.574
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.alpha.tier2",
+          "position": {
+            "x": 0.30700000000000005,
+            "y": 0.516
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.beta.tier2",
+          "position": {
+            "x": 0.5,
+            "y": 0.48
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.gamma.tier2",
+          "position": {
+            "x": 0.7320000000000001,
+            "y": 0.4680000000000001
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.alpha.tier3",
+          "position": {
+            "x": 0.21200000000000002,
+            "y": 0.42200000000000004
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.beta.tier3",
+          "position": {
+            "x": 0.529,
+            "y": 0.33199999999999996
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.gamma.tier3",
+          "position": {
+            "x": 0.8210000000000001,
+            "y": 0.39
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.alpha.tier4",
+          "position": {
+            "x": 0.18200000000000002,
+            "y": 0.274
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.beta.tier4",
+          "position": {
+            "x": 0.476,
+            "y": 0.18400000000000002
+          }
+        },
+        {
+          "nodeId": "heroine.april.weapon.gamma.tier4",
+          "position": {
+            "x": 0.8190000000000001,
+            "y": 0.228
+          }
+        }
+      ]
     }
   ]
 }

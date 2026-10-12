@@ -73,6 +73,11 @@ namespace NewAster.Presentation
                 actorContact=original.action=="sit"?new Vector2(.50f,.64f):original.action=="work"?new Vector2(.50f,.49f):new Vector2(.5f,.97f),
                 actorScale=original.action=="work"?1f:original.actorScale,
                 hands=original.action=="work"?new[]{GardenPolygon(.38f,.44f,.60f,.44f,.60f,.52f,.38f,.52f)}:Array.Empty<Vector2[]>()};
+            // APRIL_FURNITURE_BEGIN
+            if(heroineId=="heroine.april" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
+                contact=new Vector2(.5f,.43f),actorContact=new Vector2(.48f,.533f),actorScale=1.5f,
+                hands=new[]{GardenPolygon(.35f,.50f,.43f,.50f,.43f,.60f,.35f,.60f),GardenPolygon(.53f,.53f,.61f,.53f,.61f,.61f,.53f,.61f)}};
+            // APRIL_FURNITURE_END
             // WEAPON_MASTER_FURNITURE_BEGIN
             if(heroineId=="heroine.weapon-master" && original.action=="sit")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=original.contact,actorContact=new Vector2(.5f,.57f),actorScale=original.actorScale};
@@ -89,7 +94,7 @@ namespace NewAster.Presentation
             if(heroineId=="heroine.invisible" && original.action=="work")return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                 contact=new Vector2(.5f,.43f),actorContact=new Vector2(.5f,.5f),actorScale=1.5f,
                 hands=new[]{GardenPolygon(.442f,.443f,.467f,.447f,.476f,.48f,.485f,.505f,.478f,.522f,.469f,.518f,.463f,.544f,.449f,.536f,.437f,.523f,.425f,.499f,.423f,.48f,.436f,.467f),GardenPolygon(.533f,.443f,.558f,.443f,.564f,.467f,.577f,.48f,.575f,.499f,.563f,.523f,.551f,.536f,.537f,.544f,.531f,.518f,.522f,.522f,.515f,.505f,.524f,.48f)}};
-            if(new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master"}.Contains(heroineId)){
+            if(new[]{"heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master","heroine.april"}.Contains(heroineId)){
                 float handY=heroineId=="heroine.iron-maiden"?.46f:heroineId=="heroine.avalanche"?.47f:heroineId=="heroine.anathema"?.50f:.49f;
                 return new GardenArtUse{furnitureId=original.furnitureId,action=original.action,ground=original.ground,front=original.front,
                     contact=original.action=="work"?new Vector2(.5f,.43f):original.contact,

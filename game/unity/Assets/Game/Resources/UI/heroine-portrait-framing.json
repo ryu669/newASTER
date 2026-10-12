@@ -194,6 +194,14 @@
       "faceCenterY": 0.17,
       "faceHeight": 0.2,
       "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.april",
+      "resourcePath": "Illustrations/heroine-portrait-april-v1",
+      "faceCenterX": 0.49,
+      "faceCenterY": 0.31,
+      "faceHeight": 0.22,
+      "legacyPortrait": false
     }
   ]
 }

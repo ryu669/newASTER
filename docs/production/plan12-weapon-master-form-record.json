@@ -396,7 +396,7 @@
     },
     {
       "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
-      "sha256": "402fcfde38ae8416dfed3b19fbf0728e97f5955126779473a704ab82b90363d4",
+      "sha256": "20369f133dc4d78519b011bbde153d5ddcf4829a6660abe84b9f6add63655b82",
       "status": "approved"
     },
     {
@@ -411,19 +411,19 @@
     },
     {
       "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
-      "sha256": "b00c6ebfdad39243b351ff6361bfb9921613a61e112b2d89f057b895817327ec",
+      "sha256": "345900078fd060c5cecd5cefe70b043bd70aaf94ea2bcba5eabf515f926b9848",
       "status": "approved"
     }
   ],
   "renderers": [
     {
       "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
-      "sha256": "32d7ad45a6bc3bfff255a05d96f33ee27e217acd83ffe700ed365dacba724da0",
+      "sha256": "031f97a7315039821bc2e560bfac2a303825f1e91f69be288c189ade2d27a122",
       "status": "approved"
     },
     {
       "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
-      "sha256": "8f9329e673709170bfee6f5e0f2183268f16a05f34a63339ed47ec41822adf4b",
+      "sha256": "c08a3842dfee838f0aece5ce34648debb5409c7d7fd2f14bc86dc276cbce2908",
       "status": "approved"
     },
     {
@@ -433,7 +433,7 @@
     },
     {
       "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
-      "sha256": "1680f3a1c6dc63cff33a36572d0619673e069087d937c6a346354d0da5bbea01",
+      "sha256": "c3b55b05e1c53776160e28624f72186ed6bfa95be56ab7c73e77560e50d2aea6",
       "status": "approved"
     }
   ],
@@ -461,5 +461,6 @@
       "sha256": "2247648203a40350d90da4c41b2fcc9c437f1f63abd1a348c4364eabd0646c5c"
     }
   ],
-  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json"
+  "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json",
+  "aprilRegistrationScopeProof": "docs/production/plan12-april-renderer-scope.json"
 }

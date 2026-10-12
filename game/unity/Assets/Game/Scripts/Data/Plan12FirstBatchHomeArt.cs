@@ -4,7 +4,7 @@ namespace NewAster.Data
 {
     public static class Plan12FirstBatchHomeArt
     {
-        public static void Apply(HomeExperienceCatalog home){foreach(var key in new[]{"iron-maiden","avalanche","anathema","shiva","invisible","viper","vindicator","weapon-master"})ApplyOne(home,key);}
+        public static void Apply(HomeExperienceCatalog home){foreach(var key in new[]{"iron-maiden","avalanche","anathema","shiva","invisible","viper","vindicator","weapon-master","april"})ApplyOne(home,key);}
         private static void ApplyOne(HomeExperienceCatalog home,string key)
         {
             var display=home.displays.SingleOrDefault(d=>d.heroineId=="heroine."+key);if(display==null)return;
@@ -12,7 +12,7 @@ namespace NewAster.Data
             string standing="art.plan12."+key+".standing";
             assets.Add(new HomeAssetDef{id=standing,kind="standing",resourcePath="Illustrations/"+key+"-standing-candidate-v1",fullFrame=true,placeholder=true});
             display.standingAssetId=standing;display.usePortraitCrop=true;display.portraitCrop01=new HomeRect{x=0,y=0,width=1,height=.55f};
-            if(key=="invisible" || key=="viper" || key=="vindicator" || key=="weapon-master")display.usePortraitCrop=false;
+            if(key=="invisible" || key=="viper" || key=="vindicator" || key=="weapon-master" || key=="april")display.usePortraitCrop=false;
             display.expressions=new[]{"normal","joy","puzzled","determined"}.Select(e=>{
                 string id="art.plan12."+key+".expression."+e;
                 assets.Add(new HomeAssetDef{id=id,kind="expression",resourcePath="Illustrations/"+key+"-"+(e=="normal"?"standing":"expression-"+e)+"-candidate-v1",fullFrame=true,placeholder=true});

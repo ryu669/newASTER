@@ -35,7 +35,7 @@ internal static class Plan119QualityTests
         var errors=HeroineProductionValidation.Errors(combat,story,portraits,trees);
         check(errors.Length==0,"11-9A production audit: "+string.Join("; ",errors));
         check(combat.heroines.Length==15 && combat.heroines.Select(h=>h.jobId).Distinct().Count()==13,"11-9A fifteen forms cover thirteen jobs");
-        check(InteractionTraitCatalog.Ids.Length==27 && CombatTraitCatalog.Ids.Length==30,"11-9B interaction and combat catalogs have separate counts");
+        check(InteractionTraitCatalog.Ids.Length==28 && CombatTraitCatalog.Ids.Length==30,"11-9B interaction and combat catalogs have separate counts");
         foreach(var hero in combat.heroines){var set=CombatTraitCatalog.Resolve(hero);check(set.uniqueTraitIds.Length==3 && set.interactionTraitIds.Length==3 && set.VisibleIds.Length==8,"11-9A standard job 2 / character 3 / interaction 3: "+hero.id);}
         var originalInteractions=combat.heroines[0].interactionTraitIds;combat.heroines[0].interactionTraitIds=originalInteractions.Take(2).ToArray();
         check(HeroineProductionValidation.Errors(combat,story,portraits,trees).Any(e=>e.Contains(combat.heroines[0].id+" / traits /")),"11-9A missing interaction slot reports the form");combat.heroines[0].interactionTraitIds=originalInteractions;

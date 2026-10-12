@@ -2,7 +2,7 @@
 
 Windows・オフライン向け、Unityの2DイラストRPG。万物の書から巨神獣を召喚し、詩と素材を集めて世界を復元し、天使ヒロインの物語と交流を進める。
 
-現行は **24形態・21人・全13ジョブ、15巨神獣・7世界、117章792詩・120交流**。アイオーン、アイアンメイデン、アヴァランチ、アナテマ、シヴァ、インヴィジブル、ヴァイパー、ヴィンディーケーター、ウェポンマスターまで追加済み。加入・戦闘・育成・神器・編成・庭・ADVを接続し、性格・口調・概要を人物資料へ保存している。
+現行は **25形態・22人・全13ジョブ、15巨神獣・7世界、120章810詩・125交流**。アイオーン、アイアンメイデン、アヴァランチ、アナテマ、シヴァ、インヴィジブル、ヴァイパー、ヴィンディーケーター、ウェポンマスター、エイプリルまで追加済み。加入・戦闘・育成・神器・編成・庭・ADVを接続し、性格・口調・概要を人物資料へ保存している。
 
 万物の書のしおりで各画面を移動し、操作説明は右上の「？」から開く。立ち絵は元画像の比率を維持する。神器は全ヒロイン共通の自然木と丸いノード枠で表示し、開放に連動する薄い葉・ノード周囲の花を本人のイメージカラーで重ねる。吊り下げ装飾は使用しない。オーパーツ42種類は巨神獣討伐・レリックハントで入手できる。
 
@@ -16,9 +16,9 @@ Plan11-4では、編成枠のオーパーツ装備、5能力のLv成長と累積
 
 ## 起動・ビルド
 
-ローカルの最新実行ファイルは `game/Builds/plan12-weapon-master/newASTER.exe`。実行ファイルと元動画はGitへ同梱しない。
+ローカルの最新実行ファイルは `game/Builds/plan12-april/newASTER.exe`。実行ファイルと元動画はGitへ同梱しない。
 
-Unity **6000.6.3f1**で `game/unity` を開き、`Assets/Game/Scenes/Bootstrap.unity` を再生する。WindowsビルドはEditorの `Plan12WeaponMasterBuild.ValidateAndBuild` を実行する。通常入口は `ProductionContentPaths` に定義した `Combat/battle-plan12-weapon-master` と `Story/plan12-weapon-master-story-content`。[5人の完了記録](docs/production/plan12-first-batch-runtime-validation.json)に確認結果を保存している。
+Unity **6000.6.3f1**で `game/unity` を開き、`Assets/Game/Scenes/Bootstrap.unity` を再生する。WindowsビルドはEditorの `Plan12AprilBuild.ValidateAndBuild` を実行する。通常入口は `ProductionContentPaths` に定義した `Combat/battle-plan12-april` と `Story/plan12-april-story-content`。[5人の完了記録](docs/production/plan12-first-batch-runtime-validation.json)に確認結果を保存している。
 
 万物の書の「誓女・育成」から「新しい天使を迎える」で計画10の追加形態へ無償加入できる。所持する異なる人物から5人を編成し、巨神獣のページから出撃する。衣装違いは好感度・恋人関係を共有し、育成・神器・読書進行は形態別に保持する。
 
@@ -54,3 +54,5 @@ Core回帰検証9,413項目、Unity C#221ソース、Windowsビルドが合格�
 ヴァイパーの専用21画像・3技・旧セーブ移行・標準画面19ケースの [完了記録](docs/production/plan12-viper-form-record.json)。ヴィンディーケーターとウェポンマスターも通常プレイへ追加済み。装備の木は全24形態で共通化し、吊り下げ装飾を廃止した。
 
 ウェポンマスターの[完了記録](docs/production/plan12-weapon-master-form-record.json)、全24形態の[共通の木の確認記録](docs/production/plan12-common-weapon-tree-review.json)。
+
+エイプリル通常版の専用20画像・3章・5交流・3技と旧24形態セーブ移行を確認。[完了記録](docs/production/plan12-april-form-record.json)。通常プレイは25形態・22人物。

@@ -25,6 +25,7 @@ public static class AutomaticChainTests
         Plan12FirstBatchTests.Run(Check,Path.GetFullPath(Path.Combine(Path.GetDirectoryName(args[0]),"..")));
         Plan12VindicatorTests.Run(Check,Path.GetFullPath("game/unity/Assets/Game/Resources"));
         Plan12WeaponMasterTests.Run(Check,Path.GetFullPath("game/unity/Assets/Game/Resources"));
+        Plan12AprilTests.Run(Check,Path.GetFullPath("game/unity/Assets/Game/Resources"));
         Plan12ViperTests.Run(Check,Path.GetFullPath("game/unity/Assets/Game/Resources"));
         Plan12InvisibleTests.Run(Check,Path.GetFullPath("game/unity/Assets/Game/Resources"));
         Plan11TerraformTests.Run(Check);

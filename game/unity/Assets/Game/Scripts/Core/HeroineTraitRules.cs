@@ -23,6 +23,7 @@ namespace NewAster.Core
                 case "heroine.viper":key="physical-defense";break;
                 case "heroine.vindicator":key="magic-defense";break;
                 case "heroine.weapon-master":key="attack";break;
+                case "heroine.april":key="hp";break;
                 default:return 0;
             }
             return key==stat?(key=="critical"?500:5):0;

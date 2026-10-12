@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "tool": "built-in-imagegen",
+  "assets": [
+    {
+      "key": "standing",
+      "path": "game/art-source/april-v1/standing.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-449ab920-21f7-458a-ad2e-ed087928b454.png",
+      "prompt": "Adult lavender garden noblewoman; original full-body standing asset, transparent.",
+      "sha256": "44c315ed99bf09e60bbf0b72ecc6dad63eee9e19e24d3402dbd1f95ab3c00a9f",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-standing-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-expression.normal.png",
+          "sha256": "176bf9c4b8745289b4312bb6b5243c213bc91f33141991d952fd9ec3ff49417e"
+        }
+      ]
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/april-v1/portrait.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-80955d54-b1cf-43ab-b031-971db3fed442.png",
+      "prompt": "Dedicated 1536x1024 3:2 adult upper-body portrait preserving standing identity, transparent.",
+      "sha256": "953e40932b96184de3a68d7bd1bfc0e927ca70b3f5aeeb3c69416f6615ebe787",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/heroine-portrait-april-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/recruit.png",
+          "sha256": "c63613f7dc96ba79e71dc15b2c5a06e717c73762539a7dcaeafb75a7e3e717df"
+        },
+        {
+          "path": "tmp/plan12-april/player/trait.png",
+          "sha256": "64188e6115499fddd1f877f9aa21fe86b7c2fc4f464ef00e42da4908100eac96"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/april-v1/expression-joy.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-60bcdb0b-646d-45b1-838c-497876fef917.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: expression-joy. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body identical pose and composition to reference, warmly smiling, visibly happy eyes. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "83f3ebf964650ed33d3a7ae3f99c3e93c2135f797b033b1054f9e973cc3c8dd6",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-expression-joy-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-expression.joy.png",
+          "sha256": "d6ec5744432f9497b9153c5f69085d1e939b6197ee2c3b7a00ec5e585533b5a1"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/april-v1/expression-puzzled.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c85fc12e-18c3-4b55-a46f-b7d9de3a1eb7.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: expression-puzzled. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body identical pose and composition to reference, slightly raised eyebrows, softly concerned puzzled expression. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "8097d98a74790892bf4a8928fc79eeecc6985c50001d07046427336496a14355",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-expression-puzzled-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-expression.puzzled.png",
+          "sha256": "8bd4748db5b1ebcc31d72f0a35dcde862f0422f489039620290e56d0db45b7b6"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/april-v1/expression-determined.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5fbb872f-a225-4fa8-a0f8-5f37a8bd68ec.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: expression-determined. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body identical pose and composition to reference, resolute composed expression. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "330f67c1b0a33792f38a1ab669c5f6c6712df597f0b3b258122c50578186a048",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-expression-determined-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-expression.determined.png",
+          "sha256": "6c572c88d3bea32ce719b7b5ef773b71722dfb721b80b64ab09c0097d867664f"
+        }
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "game/art-source/april-v1/attack.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0a8f866e-2bd5-490d-98ea-16ed6fb6520e.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: attack. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body combat thrust with golden rapier pointed diagonally left, dynamic but elegant balanced stance, lavender petal trail. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "08c993301a931629ac4e33302a9b17ad67a0a02dda88d1881fb37001ab2938b5",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-attack-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/battle-attack.png",
+          "sha256": "e47ad82110712cb91ad2ec3b467befed43ac375d8f239350b1c4d55544cbbc19"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/april-v1/hit.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-cea112e6-a847-4ef5-b63c-d9d14d632fed.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: hit. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body briefly recoiling from a blow, eyes narrowed, wings lifted protectively, no wounds. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "dbb38c0aa2909fc4025a9e2b9af405674aae00fbca88eaa701706b2d97be6492",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-hit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/battle-hit.png",
+          "sha256": "ef060d6ec613c9e43628d88894554085f57c9705df016bc8005dc14eea0ebda1"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/april-v1/cutin.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-191b5e04-91ba-435a-897b-10fbfda22680.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: cutin. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full-body ultimate skill pose, rapier raised diagonally upward, sweeping pale lavender wind and petals surround her, figure completely readable. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "c7500628f12a4193cf9a0d52ddbb3e373d48f6b6a2079d51ba79e8c966f2cf35",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-cutin-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/battle-cutin.png",
+          "sha256": "b0679bba24c02605d202e2d0369ab03778072f8f4af75bde7967885b13223c72"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/april-v1/sd-idle.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-00f25116-37ae-452a-9b7a-ed5cd2d154a0.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-idle. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall full-body standing neutral idle, arms relaxed. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "ab1cc51dace8fefd32c2414270304e8344a056c739bcba50d856aee5fba8924b",
+      "width": 1179,
+      "height": 1334,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-idle-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.idle.png",
+          "sha256": "9409ce7f2938c6001f748b2f787508711e636642f07f09c4d1d01c8f792ca104"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/april-v1/sd-walk.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-0bf6818f-ec44-448a-8824-492c36d12f6e.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-walk. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall full-body walking, one foot forward. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "8dba2a8e2f2c689cbe090f781dac8e446804c498baab542a86b346118bb9a6c9",
+      "width": 1212,
+      "height": 1297,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-walk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.walk.png",
+          "sha256": "5fa3af23af29568a6502209d469b8091e588d1dd65d18b7d4428364ef3ee25cb"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/april-v1/sd-talk.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-97fdeb53-fc12-423d-823b-531e829153f6.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-talk. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall full-body talking, one hand at chest. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "1ba09dd2c400cb4516fc217839882a3a1166648c6e8f3deb170e62c10e7efcbf",
+      "width": 1147,
+      "height": 1371,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-talk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.talk.png",
+          "sha256": "636302541b9cd533323125dddd7b0dd3d9791e7fe0ba37257a1216a695a497a9"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/april-v1/sd-react.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-33d20d31-9856-449e-bbf9-29f507b3a4d1.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-react. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall full-body surprised delighted reaction, both hands raised modestly. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "e6aa7af5ecd60fb1d7f6048d601a2655277e3cf44bd48798f4597d10bf599a11",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-react-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.react.png",
+          "sha256": "5c6a29e37b66f68f318445fa6e51a955f2d924e7e655238f1ebf099ee83ae3ab"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/april-v1/sd-sit.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-c4d86801-b1ae-4b92-b346-3ecadea0c17f.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-sit. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall seated on invisible garden bench, legs bent forward, hands on lap, no furniture. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "598bd5619319c0cedbde4a559c0db8c73da23c965524e4f1680e1cbf56ceabaf",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-sit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.sit.png",
+          "sha256": "b3455d13e16d7e7ce5b5780e2696183c033df314545fe598349327561807455d"
+        },
+        {
+          "path": "tmp/plan12-april/player/april-sd.furniture.png",
+          "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/april-v1/sd-work-v2.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-44fecc68-3b20-4090-895e-f46b550d8577.png",
+      "prompt": "Dedicated sd-work asset for Japanese RPG April. Use reference ONLY for the adult woman's identity, lavender bob and violet eyes, gold halo, dark purple ribbon, white angel wings and ivory/lavender high-neck embroidered opaque dress. Make a cute 3-head-tall chibi full body in a 1536x1024 landscape transparent RGBA canvas. She STANDS upright facing front with a slight forward lean, BOTH arms reach forward at waist height, one hand lightly holds a quill, other hand rests palm-down at the SAME height, as if writing at a table. No kneeling or sitting, no watering can, plant pot, book, furniture or table in the image. Body centered, hands clearly visible around canvas center X .5 Y .50, head and face entirely above hands, feet around Y .90. Halo top at Y .08, spread white wings and entire shoes fully inside with margins. Same polished anime linework and colors. Genuine transparent background. No text or other characters.",
+      "sha256": "c56e415255e8e083626315e0abccee2e54be727f7b9d178c292ac76c99af6ac1",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Upright work posture, intact wings and feet, two visible hands with quill; dedicated desk pose.",
+      "resourcePath": "Illustrations/april-sd-work-candidate-v2",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.work.png",
+          "sha256": "27b31a2a6324aa9f55faa0e776b7c1e314e6b03f15a9d197e5fbdfcb62a78a7a"
+        },
+        {
+          "path": "tmp/plan12-april/player/april-sd.furniture.png",
+          "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/april-v1/sd-look.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-341864a4-d896-4931-9c6a-4b81aee58b7d.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-look. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall full-body looking upward studying leaves, one hand shading eyes. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "477bc4c3918ae79bb96a1f34fa3eff1e23296ef345a99922c83616682169cf80",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-look-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-sd.look.png",
+          "sha256": "588ac1378a5dd9d461d5412219738bc60623e58a6aa8a945a4b0713e32492de5"
+        },
+        {
+          "path": "tmp/plan12-april/player/april-sd.furniture.png",
+          "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/april-v1/event-0-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-afce8085-3106-4af2-b623-a96706f199c6.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: event-0-cg. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full landscape garden greenhouse illustration. She sits alone at small tea table pouring herbal tea into two cups; the second place empty. Lavender flowers at window. Warm morning light. Landscape 1536x1024 or larger 3:2 scene. Only this one woman; NO men, other people, hands of unseen people, silhouettes or human reflections. No text or interface.",
+      "sha256": "8b97c443fe6511d7e0905c94dff144e8655663aa2476fdf42390a4475b77b6ba",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-event-0-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-cg.0.png",
+          "sha256": "0c74e2b4da29c95dba2f0353bd8cf45786bc9151e9482c9a5b800147a70973dc"
+        },
+        {
+          "path": "tmp/plan12-april/player/gallery-frames/april-cg.0.png",
+          "sha256": "d76188ebf9926ca2e7762472d7a02a2d794ca58f7b78351be6ba4732681ebef1"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/april-v1/event-1-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-e8c4f655-1639-473d-bcf4-ffb5ee9f889c.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: event-1-cg. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full landscape garden illustration. She kneels beside a wooden seedling box in greenhouse, carefully tying a plant label with a hopeful thoughtful smile. Morning sunshine. Landscape 1536x1024 or larger 3:2 scene. Only this one woman; NO men, other people, hands of unseen people, silhouettes or human reflections. No text or interface.",
+      "sha256": "3ded4fcaa6777aac92fb9b415aa22f71776ae6c19620420ef8f14f6b28160009",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-event-1-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-cg.1.png",
+          "sha256": "6c4b8507afff175c4259fcef34a7e624b71e014e0d0215d0d485a3b749c2cf79"
+        },
+        {
+          "path": "tmp/plan12-april/player/gallery-frames/april-cg.1.png",
+          "sha256": "779191ce83664e8e837e2b0db7bc7285f8f8c1a55d806f7aa626f3b3b23f9155"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/april-v1/event-2-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-33c7bbff-4436-48b1-b152-fb12514aa516.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: event-2-cg. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full landscape romantic garden illustration. She stands alone beside blooming lavender rose arch at dusk, looks affectionately toward viewer with hand over heart, gentle blush. No person at viewer position visible. Landscape 1536x1024 or larger 3:2 scene. Only this one woman; NO men, other people, hands of unseen people, silhouettes or human reflections. No text or interface.",
+      "sha256": "4f1c5342df10c76637001cb679c62f074cda659df700ef3549496aece2b2f76a",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-event-2-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-cg.2.png",
+          "sha256": "da63b3c1abc20bb776ceaa0755cb9b6f8df8c7408941f49c599d3162a7861d55"
+        },
+        {
+          "path": "tmp/plan12-april/player/gallery-frames/april-cg.2.png",
+          "sha256": "98d361dcda71f2624753f41eb43142b70d764a229485641722a11182a26031b9"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/april-v1/event-3-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-4e808c72-0686-4307-aae7-a5d54dc2fcc4.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: event-3-cg. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full landscape romantic greenhouse tea illustration. She sits alone on a garden bench holding a little notebook, softly laughing toward viewer, two teacups on side table, warm afternoon. Landscape 1536x1024 or larger 3:2 scene. Only this one woman; NO men, other people, hands of unseen people, silhouettes or human reflections. No text or interface.",
+      "sha256": "8e51e83b3df07c51bc5dc6978e7679d000294292b44c408efffcaa08a7b4000c",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-event-3-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-cg.3.png",
+          "sha256": "53359ecd30aa3e6cd2184074466a4101b6e48be58484fe3985f0448c7ba965f6"
+        },
+        {
+          "path": "tmp/plan12-april/player/gallery-frames/april-cg.3.png",
+          "sha256": "1e6c204ac81d0875763afa8228fd43cc770f5c9630518b1f48d7613e2282532b"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/april-v1/event-4-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-aa77722d-e687-421a-ad3b-7f98cb7b7a2a.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: event-4-cg. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Full landscape romantic garden illustration. She stands alone on a small bridge at dawn holding two wrapped picnic baskets with a warm inviting smile. Lavender flower borders, soft light. Landscape 1536x1024 or larger 3:2 scene. Only this one woman; NO men, other people, hands of unseen people, silhouettes or human reflections. No text or interface.",
+      "sha256": "f4fc087f96b1ecaf122d5d660243a5c8b0e92abcd1d360130534e7b18b618575",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-event-4-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-april/player/april-cg.4.png",
+          "sha256": "8cb19f439c81b2ab2c3f2f6fc57441e6379ebf80edfcf0cf1c218173e03c4d1a"
+        },
+        {
+          "path": "tmp/plan12-april/player/gallery-frames/april-cg.4.png",
+          "sha256": "1ec71bd4b5053bd1ab9cd600781a62f7d2133f23f768c2724e68af94b7c96def"
+        }
+      ]
+    }
+  ],
+  "remainingAssets": [],
+  "retiredAssets": [
+    {
+      "key": "sd-work",
+      "path": "game/art-source/april-v1/sd-work.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-ee4a1806-5c21-425a-899d-035caa05a990.png",
+      "prompt": "Dedicated Japanese fantasy RPG asset: sd-work. EXACT same clearly adult 25-year-old woman, face, lavender bob haircut, violet eyes, black-purple bow, gold halo, ivory/lavender high-neck embroidered opaque dress, yellow flower accents, puff sleeves and white feathered wings as reference. Fine-line polished anime style. Chibi 3-head-tall kneeling gardening with small watering can, watering one small seedling pot. Genuine transparent alpha background. Entire head halo wings limbs dress shoes and weapon (if present) contained with comfortable margins, no cut-off. One character only, no scenery, no text or UI. For chibi images simplify dress details while retaining palette and features.",
+      "sha256": "2aa0b40dc0d00cc929a416f96ca06f22635d8cf7f57aca7a6d6601a179f73e04",
+      "width": 1161,
+      "height": 1355,
+      "mode": "RGBA",
+      "purposeReview": "approved",
+      "runtimeReview": "rejected",
+      "sourceReviewEvidence": [
+        "tmp/plan12-april/source-review-1.jpg",
+        "tmp/plan12-april/source-review-2.jpg",
+        "tmp/plan12-april/source-review-3.jpg",
+        "tmp/plan12-april/source-review-4.jpg"
+      ],
+      "sourceReviewNotes": "Adult identity, complete intended anatomy, consistent lavender/ivory outfit, intact halo/wings and asset silhouette checked. Five CGs individually inspected: no men or other human figures.",
+      "resourcePath": "Illustrations/april-sd-work-candidate-v1",
+      "reason": "Kneeling gardening pose is occluded by the shared work desk."
+    }
+  ]
+}

@@ -12,7 +12,7 @@ namespace NewAster.Core
     public static class InteractionTraitCatalog
     {
         private static readonly InteractionTraitDef[] definitions = {
-            Def("hair.blonde","黄金の冠"),Def("hair.black","烏羽の艶"),Def("hair.silver","月光の糸"),Def("hair.red","紅蓮の髪"),
+            Def("hair.blonde","黄金の冠"),Def("hair.black","烏羽の艶"),Def("hair.silver","月光の糸"),Def("hair.red","紅蓮の髪"),Def("hair.purple","藤霞の髪"),
             Def("body.slender","エアロダイナミクス"),Def("body.glamorous","豊穣の曲線"),Def("body.muscular","鋼の輪郭"),Def("body.petite","小さな巨人"),
             Def("taste.muscle","筋肉は裏切らない"),Def("taste.books","紙魚の友"),Def("taste.sweets","砂糖の誘惑"),Def("taste.cooking","台所の錬金術師"),Def("taste.mechanics","歯車の恋人"),Def("taste.flowers","花語り"),
             Def("personality.cool","氷面の微笑"),Def("personality.active","静止不能"),Def("personality.shy","頬染めの名人"),Def("personality.night","月の住人"),
@@ -28,6 +28,7 @@ namespace NewAster.Core
                 case "hair.blonde":return "陽光を梳いたような髪が、翼の影まで明るくする。";
                 case "hair.black":return "夜を映す艶やかな髪。その奥の眼差しは、いつもあなたを見ている。";
                 case "hair.silver":return "月明かりを束ねた髪が、風の通り道に淡くきらめく。";
+                case "hair.purple":return "淡い藤色の髪に、庭を渡る風が遊ぶ。花の香りに振り向けば、穏やかな笑顔がある。";
                 case "hair.red":return "炎を思わせる髪には、胸の奥の熱まで隠せない。";
                 case "body.slender":return "風をすり抜ける軽やかな輪郭。翼を広げれば、誰より遠くへ。";
                 case "body.glamorous":return "豊かな曲線にも、誇りにも、自分らしさが息づいている。";
