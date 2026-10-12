@@ -1,8 +1,8 @@
 # Unityゲーム実装
 
-現行は計画10、15形態・12人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan10ShangrilaBuild.ValidateAndBuild`、出力は `Builds/plan10-shangrila/newASTER.exe`。
+現行は24形態・21人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan12WeaponMasterBuild.ValidateAndBuild`、出力は `Builds/plan12-weapon-master/newASTER.exe`。
 
-通常入口のResourcesは `Combat/battle-plan10-shangrila.json` と `Story/plan10-shangrila-story-content.json`。[実装とUI確認](../docs/production/plan10-four-heroines-and-ui.md)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
+通常入口は `ProductionContentPaths` で戦闘・物語を指定する。現行Resourcesは `Combat/battle-plan12-weapon-master` と `Story/plan12-weapon-master-story-content`。[5人の完了記録](../docs/production/plan12-first-batch-runtime-validation.json)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
 
 ## 実装の配置
 
@@ -15,8 +15,14 @@
 
 ## 検証
 
-リポジトリルートで `tools/validate-plan10-expanded-roster.ps1` を実行する。Core/Data8,546項目とUnity C#185ソースが合格。Playerの画面検証は最新ビルド後に `tools/validate-plan10-ui-player.ps1` と人物別スクリプトを実行する。隔離した保存データを使用し、撮影と同じ出力先への再ビルドを同時に行わない。
+リポジトリルートで `tools/validate-automatic-chain.ps1` と `tools/compile-unity-scripts.ps1` を実行する。Core/Data12,435項目とUnity C#278ソースが合格。Playerは `tools/validate-plan12-first-batch-player.ps1` と人物別スクリプトを使用する。確認済みの形態は変更のある画像・表示経路だけを再確認する。隔離した保存データを使用し、撮影と同じ出力先への再ビルドを同時に行わない。
 
 ## 過去の試作
 
 `core/` のJavaScript縦切りと `Builds/playable/` は過去の試作。現在の正式カタログ・本文・ジョブをこれらの固定編成へ合わせない。旧セーブの扱いは[保存仕様](../docs/systems/save-and-migration.md)、当時のビルドや検証は[履歴](../docs/archive/README.md)を参照する。
+
+インヴィジブルの追加・画像・戦闘・保存の受入記録は [完了記録](../docs/production/plan12-invisible-form-record.json)を参照。
+
+ヴァイパーの専用21画像・3技・旧セーブ移行・標準画面19ケースの [完了記録](../docs/production/plan12-viper-form-record.json)。ヴィンディーケーターとウェポンマスターも通常プレイへ追加済み。装備の木は全24形態で共通化し、吊り下げ装飾を廃止した。
+
+ウェポンマスターの[完了記録](../docs/production/plan12-weapon-master-form-record.json)、全24形態の[共通の木の確認記録](../docs/production/plan12-common-weapon-tree-review.json)。
