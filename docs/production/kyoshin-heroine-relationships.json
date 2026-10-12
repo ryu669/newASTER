@@ -38,8 +38,16 @@
       "file": "巨神と誓女_OP.mp4",
       "path": "D:\\M02_gamemovie\\巨神と誓女\\巨神と誓女_データ\\巨神と誓女_OP.mp4",
       "durationSeconds": 259.57,
-      "checkedSeconds": [],
-      "reviewStatus": "未確認"
+      "checkedSeconds": [
+        175,
+        180,
+        182,
+        184,
+        186,
+        190,
+        195
+      ],
+      "reviewStatus": "3:04前後の部分確認・フレストニアの地名を照合（2026-10-12）。全編・音声は未確認。"
     },
     {
       "file": "巨神と誓女_ガチャ.mp4",
