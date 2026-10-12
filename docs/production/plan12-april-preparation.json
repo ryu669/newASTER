@@ -1,0 +1,20 @@
+{
+  "status": "accepted-normal-play",
+  "available": true,
+  "personId": "heroine.april",
+  "sourcePersonId": "aa.person.021",
+  "realName": "ケアト・アーニスリンナ",
+  "jobId": "job.fighter",
+  "chapters": 3,
+  "pages": 30,
+  "poems": 18,
+  "events": 5,
+  "images": 20,
+  "weaponNameOrigin": "video-observed base name; three route suffixes newaster-original",
+  "completionRecord": "docs/production/plan12-april-form-record.json",
+  "validation": {
+    "assertions": 12533,
+    "unitySources": 279
+  },
+  "remaining": []
+}

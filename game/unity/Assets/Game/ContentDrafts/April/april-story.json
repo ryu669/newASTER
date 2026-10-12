@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "production-story-2026-10-04",
+  "provenance": "newaster-original",
+  "chapters": [
+    {
+      "id": "heroine.april.poem-chapter.1",
+      "ownerId": "heroine.april",
+      "title": "植え直す場所",
+      "introduction": "記憶晶竜の謳を読んだケアトは、古い花壇の図面を広げた。そこには、今は失われた庭の花の配置が描かれていた。",
+      "conclusion": "翌朝の庭で、彼女は図面より先に苗を見た。新しい葉の小さな変化を、嬉しそうにあなたへ知らせた。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.april.collection.poem.01",
+          "text": "「同じように植えたら、少しは戻るでしょうか」。",
+          "body": "「同じように植えたら、少しは戻るでしょうか」。指先が止まったのは、いちばん日当たりのよい区画だった。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.01",
+          "reason": "「声をしまえば、別れは止まるか」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.02",
+          "text": "あなたは今の庭へ一緒に出ようと誘った。",
+          "body": "あなたは今の庭へ一緒に出ようと誘った。図面の庭と違い、午後には建物の影が落ちる。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.02",
+          "reason": "「昨日の笑顔に、今日を預けない」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.03",
+          "text": "ケアトは土を指でほぐし、ここでは同じ花が弱るかもしれないと言った。",
+          "body": "ケアトは土を指でほぐし、ここでは同じ花が弱るかもしれないと言った。懐かしい配置のままでは育たない。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.03",
+          "reason": "「写した名前の外にも、人はいる」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.04",
+          "text": "謳の中に残る記憶と、目の前の土は違う。",
+          "body": "謳の中に残る記憶と、目の前の土は違う。あなたは図面を捨てず、余白へ今の日照を書き足した。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.04",
+          "reason": "「欠けた音を、黙って抱く」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.05",
+          "text": "彼女は日陰に強い苗を選んだ。",
+          "body": "彼女は日陰に強い苗を選んだ。昔の庭にあった花は、もう一つの鉢へ植えることにする。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.05",
+          "reason": "「記録の重さで、手を塞がない」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.06",
+          "text": "「昔のことを大事にするほど、変えられなくなっていました」。",
+          "body": "「昔のことを大事にするほど、変えられなくなっていました」。あなたは二つの鉢を並べるのを手伝った。",
+          "sourcePoemId": "colossus.memory-crystal-dragon.collection.poem.06",
+          "reason": "「一度の言葉を、永遠の命令にしない」を受け、植え直す場所で失敗を引き受けながら育て直す方法を考える。"
+        }
+      ],
+      "pages": [
+        "記憶晶竜の謳を読んだケアトは、古い花壇の図面を広げた。そこには、今は失われた庭の花の配置が描かれていた。",
+        "「同じように植えたら、少しは戻るでしょうか」。指先が止まったのは、いちばん日当たりのよい区画だった。",
+        "あなたは今の庭へ一緒に出ようと誘った。図面の庭と違い、午後には建物の影が落ちる。",
+        "ケアトは土を指でほぐし、ここでは同じ花が弱るかもしれないと言った。懐かしい配置のままでは育たない。",
+        "謳の中に残る記憶と、目の前の土は違う。あなたは図面を捨てず、余白へ今の日照を書き足した。",
+        "彼女は日陰に強い苗を選んだ。昔の庭にあった花は、もう一つの鉢へ植えることにする。",
+        "「昔のことを大事にするほど、変えられなくなっていました」。あなたは二つの鉢を並べるのを手伝った。",
+        "古い名前の札と新しい育て方の札が、同じ箱に入る。彼女はどちらも自分の字で書き直した。",
+        "夕方、葉が風に揺れた。ケアトは明日の水やりの時刻を決め、あなたにも見に来てほしいと頼んだ。",
+        "翌朝の庭で、彼女は図面より先に苗を見た。新しい葉の小さな変化を、嬉しそうにあなたへ知らせた。"
+      ]
+    },
+    {
+      "id": "heroine.april.poem-chapter.2",
+      "ownerId": "heroine.april",
+      "title": "よい知らせを待たずに",
+      "introduction": "黒煙城塞の謳を閉じると、ケアトは配給用の薬草箱へ向かった。乾燥を終えた葉を、人数分に分ける約束だった。",
+      "conclusion": "不足の札を外す日まで、ケアトは報告を続けた。よい知らせの日だけでなく、困った日にも顔を上げられるようになった。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.april.collection.poem.07",
+          "text": "箱の底に湿った束があった。",
+          "body": "箱の底に湿った束があった。彼女は一つを持ち上げ、使えるかどうか確かめてから、そっと戻した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.01",
+          "reason": "「終わった戦へ、煙が立つ」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.08",
+          "text": "「わたくしが乾燥棚を選びましたの」。",
+          "body": "「わたくしが乾燥棚を選びましたの」。その声は、誰かへ知らせる前から謝罪になっていた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.02",
+          "reason": "「熱い壁にも、冷たい工房」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.09",
+          "text": "あなたはまず使える束と使えない束を分けようと伝えた。",
+          "body": "あなたはまず使える束と使えない束を分けようと伝えた。理由を調べるため、濡れた束も印をつけて残す。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.03",
+          "reason": "「鍋の欠けには、夕飯の跡」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.10",
+          "text": "予定より足りないと分かると、彼女は皆に渡す量を減らす案を口にした。",
+          "body": "予定より足りないと分かると、彼女は皆に渡す量を減らす案を口にした。あなたは担当者へ不足を知らせようと提案した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.04",
+          "reason": "「守る砲口が、家を向く」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.11",
+          "text": "ケアトは数を書き、遅れの見込みも添えた。",
+          "body": "ケアトは数を書き、遅れの見込みも添えた。報告を受けた仲間が、別の棚にある備蓄を分けてくれた。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.05",
+          "reason": "「命令の紙に、帰らない名」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.12",
+          "text": "謳の城塞に残る沈黙を、彼女は思い返した。",
+          "body": "謳の城塞に残る沈黙を、彼女は思い返した。知らせないまま守れるものがあると思っていたと、小さく話した。",
+          "sourcePoemId": "colossus.black-smoke-citadel.collection.poem.06",
+          "reason": "「煤けた窓から、洗濯の声」を受け、よい知らせを待たずにで失敗を引き受けながら育て直す方法を考える。"
+        }
+      ],
+      "pages": [
+        "黒煙城塞の謳を閉じると、ケアトは配給用の薬草箱へ向かった。乾燥を終えた葉を、人数分に分ける約束だった。",
+        "箱の底に湿った束があった。彼女は一つを持ち上げ、使えるかどうか確かめてから、そっと戻した。",
+        "「わたくしが乾燥棚を選びましたの」。その声は、誰かへ知らせる前から謝罪になっていた。",
+        "あなたはまず使える束と使えない束を分けようと伝えた。理由を調べるため、濡れた束も印をつけて残す。",
+        "予定より足りないと分かると、彼女は皆に渡す量を減らす案を口にした。あなたは担当者へ不足を知らせようと提案した。",
+        "ケアトは数を書き、遅れの見込みも添えた。報告を受けた仲間が、別の棚にある備蓄を分けてくれた。",
+        "謳の城塞に残る沈黙を、彼女は思い返した。知らせないまま守れるものがあると思っていたと、小さく話した。",
+        "あなたは今回の報告で、使えない葉が配られずに済んだと伝えた。彼女は結果と自分の責任を別々の行へ記した。",
+        "棚を直した後、彼女は次の確認をあなたに頼んだ。判断を預けるのでなく、一緒に見落としを探してほしいという。",
+        "不足の札を外す日まで、ケアトは報告を続けた。よい知らせの日だけでなく、困った日にも顔を上げられるようになった。"
+      ]
+    },
+    {
+      "id": "heroine.april.poem-chapter.3",
+      "ownerId": "heroine.april",
+      "title": "庭の外の約束",
+      "introduction": "塔の謳の頁をめくりながら、ケアトは午後の散歩を楽しみにしていると言った。その横には庭仕事の予定表がある。",
+      "conclusion": "予定表の午後の欄には、花の名前ではなくあなたと歩いた道が記された。次の約束の欄は、二人で相談して埋めることにした。",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "poems": [
+        {
+          "id": "heroine.april.collection.poem.13",
+          "text": "出発の前、伸びた枝を見つけた彼女は鋏を取った。",
+          "body": "出発の前、伸びた枝を見つけた彼女は鋏を取った。次の枝へ手を伸ばしたところで、あなたと目が合う。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.01",
+          "reason": "「嵐を止めたら、風も眠った」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.14",
+          "text": "「あと少しだけ、整えてもよろしいかしら」。",
+          "body": "「あと少しだけ、整えてもよろしいかしら」。あなたは帰ってからでも間に合う枝か尋ねた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.02",
+          "reason": "「揺れない麦にも、空腹の音」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.15",
+          "text": "彼女は葉の状態を確かめ、今日中なら大丈夫だと答えた。",
+          "body": "彼女は葉の状態を確かめ、今日中なら大丈夫だと答えた。鋏を置いても、手はまだ予定表を探していた。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.03",
+          "reason": "「閉じた窓では、助けが聞こえない」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.16",
+          "text": "塔の謳を読んだ時、誰かのための仕事が途切れないことを彼女は誇らしく思った。",
+          "body": "塔の謳を読んだ時、誰かのための仕事が途切れないことを彼女は誇らしく思った。今はその人の休みも気に掛かる。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.04",
+          "reason": "「静けさだけを、幸せと呼ばない」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.17",
+          "text": "あなたは次の水やりの担当を確かめ、庭の鍵を返した。",
+          "body": "あなたは次の水やりの担当を確かめ、庭の鍵を返した。ケアトは散歩の行き先を、自分から一つ選んだ。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.05",
+          "reason": "「一枚の板に、空を任せない」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        },
+        {
+          "id": "heroine.april.collection.poem.18",
+          "text": "小川のほとりには名前を知らない花があった。",
+          "body": "小川のほとりには名前を知らない花があった。すぐ調べようとした彼女は、今日は色だけ覚えて帰ると笑った。",
+          "sourcePoemId": "colossus.sky-tower-machine.collection.poem.06",
+          "reason": "「止めた雨にも、待つ畑がある」を受け、庭の外の約束で失敗を引き受けながら育て直す方法を考える。"
+        }
+      ],
+      "pages": [
+        "塔の謳の頁をめくりながら、ケアトは午後の散歩を楽しみにしていると言った。その横には庭仕事の予定表がある。",
+        "出発の前、伸びた枝を見つけた彼女は鋏を取った。次の枝へ手を伸ばしたところで、あなたと目が合う。",
+        "「あと少しだけ、整えてもよろしいかしら」。あなたは帰ってからでも間に合う枝か尋ねた。",
+        "彼女は葉の状態を確かめ、今日中なら大丈夫だと答えた。鋏を置いても、手はまだ予定表を探していた。",
+        "塔の謳を読んだ時、誰かのための仕事が途切れないことを彼女は誇らしく思った。今はその人の休みも気に掛かる。",
+        "あなたは次の水やりの担当を確かめ、庭の鍵を返した。ケアトは散歩の行き先を、自分から一つ選んだ。",
+        "小川のほとりには名前を知らない花があった。すぐ調べようとした彼女は、今日は色だけ覚えて帰ると笑った。",
+        "二人で腰を下ろすと、彼女はあなたの休みの過ごし方を尋ねた。答えを聞いてから、次も一緒に来たいと続ける。",
+        "帰り道の歩調は、庭へ急ぐ時よりゆっくりだった。ケアトは肩を並べ、今日の好きな景色を一つずつ挙げた。",
+        "予定表の午後の欄には、花の名前ではなくあなたと歩いた道が記された。次の約束の欄は、二人で相談して埋めることにした。"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "heroine.april.event.0",
+      "ownerId": "heroine.april",
+      "title": "一杯目の香り",
+      "cgResourcePath": "Illustrations/april-event-0-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 1,
+      "establishesLover": false,
+      "paragraphs": [
+        "温室へ入ると、ケアトが二つの茶碗を温めていた。",
+        "今日は自分で育てた香草を試してほしいと、席を勧めてくれる。",
+        "あなたが好みを伝えると、彼女は少しずつ葉を合わせた。",
+        "「指揮官さんの一杯は、こちらですわ」。差し出す手に、かすかな土の匂いが残る。",
+        "ひと口飲んで感想を返すと、彼女は嬉しそうに覚え書きをつけた。",
+        "あなたも次は茶菓子を用意したいと伝える。",
+        "ケアトは茶の出来だけでなく、あなたと飲めたことが嬉しいと言った。",
+        "窓を少し開け、二人は冷めるまでの香りをゆっくり楽しんだ。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.april.event.1",
+      "ownerId": "heroine.april",
+      "title": "芽を待つ札",
+      "cgResourcePath": "Illustrations/april-event-1-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 5,
+      "establishesLover": false,
+      "paragraphs": [
+        "苗箱の前で、ケアトが名札を結び直していた。",
+        "芽の出ない区画にも、同じように水をやっている。",
+        "あなたが隣へしゃがむと、種を確かめる日を決めたのだと教えてくれた。",
+        "「待つのと、見ないふりをするのは違いますものね」。彼女は土の乾き具合を記す。",
+        "あなたは次の確認にも付き合いたいと伝え、日付を一緒に書いた。",
+        "ケアトは札を見てから、あなたの顔を見上げた。",
+        "うまく育った時だけ呼ぶつもりだったと、少し照れて打ち明ける。",
+        "二人で苗箱を日向へ運ぶと、彼女は明日も来てほしいと笑った。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.april.event.2",
+      "ownerId": "heroine.april",
+      "title": "肩書きを置く夜",
+      "cgResourcePath": "Illustrations/april-event-2-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 10,
+      "establishesLover": true,
+      "paragraphs": [
+        "花のアーチの下で、ケアトがあなたを待っていた。",
+        "普段より言葉を選び、今日は王家の話をしに来たのではないと言う。",
+        "あなたは彼女の正面へ立ち、続きを静かに待った。",
+        "「わたくし、あなたが好きです。肩書きのない時間も、ご一緒したいのです」",
+        "あなたもケアトへの想いを伝え、恋人としてこれからを歩みたいと答えた。",
+        "彼女は息をついて笑い、自分からあなたの手を取った。",
+        "立派に振る舞えない日にも会いたいと言うと、あなたはその日も一緒にいたいと返した。",
+        "帰り道、二人は次に会う時刻を決めた。誰かに示すためではない、小さな約束だった。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.april.event.3",
+      "ownerId": "heroine.april",
+      "title": "空白の午後",
+      "cgResourcePath": "Illustrations/april-event-3-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 15,
+      "establishesLover": false,
+      "paragraphs": [
+        "温室のベンチで、ケアトが白い頁のままの手帳を開いていた。",
+        "庭の仕事は仲間に頼めたので、今日は二人で好きに過ごせると言う。",
+        "あなたが隣に座ると、彼女は肩の触れる位置へ少し寄った。",
+        "何から始めるか相談しているうちに、茶がちょうど飲み頃になる。",
+        "ケアトは手帳を閉じ、今していることを続けたいと笑った。",
+        "あなたも頷き、彼女の好きな花の話を聞いた。",
+        "「何も決めていないのに、満ちておりますね」。そっと重ねた指が温かい。",
+        "午後の光が移るまで、恋人同士の話はゆっくり続いた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    },
+    {
+      "id": "heroine.april.event.4",
+      "ownerId": "heroine.april",
+      "title": "朝の橋で",
+      "cgResourcePath": "Illustrations/april-event-4-cg-candidate-v1",
+      "backgroundResourcePath": "Illustrations/forest-far-candidate-v1",
+      "affectionRequired": 20,
+      "establishesLover": false,
+      "paragraphs": [
+        "朝の橋で、ケアトが小さな包みを二つ抱えていた。",
+        "片方には昼食、もう片方にはあなたの好きな茶葉が入っている。",
+        "あなたが荷物を受け取ると、彼女は空いた手をそっと差し出した。",
+        "「今日はわたくしの好きな道へ、ご案内してもよろしいかしら」",
+        "喜んで頷くと、彼女は橋の先の花壇を指した。",
+        "庭で過ごした日々の話から、次の季節の約束へ話が移る。",
+        "あなたはその頃も一緒に歩きたいと伝え、彼女の手を握り返した。",
+        "ケアトは嬉しそうに歩調を合わせた。朝の道には、まだ二人の足音だけが響いていた。"
+      ],
+      "expressions": [
+        "normal",
+        "puzzled",
+        "normal",
+        "determined",
+        "joy",
+        "normal",
+        "joy",
+        "joy"
+      ]
+    }
+  ]
+}

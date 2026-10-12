@@ -27,6 +27,7 @@ namespace NewAster.Core
                 case "heroine.viper":return new ReactionStyleProfile{main="teasing",sub="cool"};
                 case "heroine.weapon-master":return new ReactionStyleProfile{main="active",sub="affectionate"};
                 case "heroine.vindicator":return new ReactionStyleProfile{main="cool",sub="reserved"};
+                case "heroine.april":return new ReactionStyleProfile{main="elegant",sub="affectionate"};
                 default:throw new ArgumentException("A main reaction style must be authored for "+personId);
             }
         }

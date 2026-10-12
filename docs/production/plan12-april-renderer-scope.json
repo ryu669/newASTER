@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "scope": "april-only",
+  "baselineCommit": "e50222ef30b11e5b526e0c752d0cd7231e94a552",
+  "proof": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "currentSha256": "031f97a7315039821bc2e560bfac2a303825f1e91f69be288c189ade2d27a122",
+      "verification": "Removing only April registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "currentSha256": "c08a3842dfee838f0aece5ce34648debb5409c7d7fd2f14bc86dc276cbce2908",
+      "verification": "Removing only April registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan7ArtSample.cs",
+      "currentSha256": "0404b017c334731c1a56e6ed9f2f7061bf22123d75d83cedb775f7f1aada0a46",
+      "verification": "Removing only April registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "currentSha256": "c3b55b05e1c53776160e28624f72186ed6bfa95be56ab7c73e77560e50d2aea6",
+      "verification": "Removing only April registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "currentSha256": "20369f133dc4d78519b011bbde153d5ddcf4829a6660abe84b9f6add63655b82",
+      "verification": "Only April entry appended; existing colors, layout and anchors unchanged."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "currentSha256": "345900078fd060c5cecd5cefe70b043bd70aaf94ea2bcba5eabf515f926b9848",
+      "verification": "Only April entry appended; existing colors, layout and anchors unchanged."
+    }
+  ]
+}

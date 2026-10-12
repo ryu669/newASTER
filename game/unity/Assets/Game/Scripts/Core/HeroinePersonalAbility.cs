@@ -39,6 +39,7 @@ namespace NewAster.Core
                 case "heroine.viper":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.viper").Personal,"sword","本体への与ダメージ＋8%。","body",8);
                 case "heroine.vindicator":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.vindicator").Personal,"sword","反撃の与ダメージ＋20%。","counter",20);
                 case "heroine.weapon-master":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.weapon-master").Personal,"flame","火傷状態の対象への与ダメージ＋20%。","burned",20);
+                case "heroine.april":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.april").Personal,"leaf","自身の回復スキルによる回復量＋10%。","healing",10);
                 default:return null;
             }
         }

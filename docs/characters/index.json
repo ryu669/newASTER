@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-10-11",
-  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-weapon-master.json",
-  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-weapon-master-story-content.json",
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-april.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-april-story-content.json",
   "people": [
     {
       "personId": "heroine.slayer",
@@ -172,6 +172,14 @@
       "profile": "docs/characters/weapon-master.md",
       "formIds": [
         "heroine.weapon-master"
+      ]
+    },
+    {
+      "personId": "heroine.april",
+      "name": "エイプリル",
+      "profile": "docs/characters/april.md",
+      "formIds": [
+        "heroine.april"
       ]
     }
   ],

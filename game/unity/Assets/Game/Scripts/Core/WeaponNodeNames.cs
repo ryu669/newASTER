@@ -15,6 +15,7 @@ namespace NewAster.Core
                 heroineId=="heroine.viper"?new[]{"暁鐘","花火","帰路"}:
                 heroineId=="heroine.vindicator"?new[]{"誓衛","静空","黎明"}:
                 heroineId=="heroine.weapon-master"?new[]{"黎光","翠雨","旅路"}:
+                heroineId=="heroine.april"?new[]{"萌芽","花冠","再生"}:
                 new[]{"ルーメン","クストス","ウェント"};
             return Format(HeroineAuthoredNames.For(heroineId).Weapon,variants,route,tier);
         }

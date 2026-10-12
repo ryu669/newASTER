@@ -11,7 +11,7 @@
       "videos": 107,
       "people": 87,
       "provisionalForms": 106,
-      "implementedForms": 24
+      "implementedForms": 25
     },
     "kyoshin": {
       "videos": 126,
@@ -21,7 +21,7 @@
     }
   },
   "countingPolicy": "人物は作品別に管理。衣装は別形態。AA002の2本は同一形態の追加録画候補として暫定統合。巨神113/114はユーザー指定により別人物。巨神の衣装名は見た目の仮分類。",
-  "coverage": "AA107本のファイル名と現行24形態の実装を照合。巨神126本は30秒の画面内名前表示を目視確認。人物設定・全音声・スキルの調査完了を意味しない。",
+  "coverage": "AA107本のファイル名と現行25形態の実装を照合。巨神126本は30秒の画面内名前表示を目視確認。人物設定・全音声・スキルの調査完了を意味しない。",
   "people": [
     {
       "planningId": "aa.person.001",
@@ -295,11 +295,13 @@
         "aa-021",
         "aa-022"
       ],
-      "implementedFormIds": [],
+      "implementedFormIds": [
+        "heroine.april"
+      ],
       "groupingBasis": "同じ作品内の名前表示／ファイル名と別衣装接尾辞。作品をまたいだ同一人物認定はしない。",
       "productionLot": null,
       "productionPriority": null,
-      "profileStatus": "未着手"
+      "profileStatus": "既存人物資料を参照"
     },
     {
       "planningId": "aa.person.023",
@@ -3629,8 +3631,8 @@
       "observedSecond": null,
       "recordKind": "form-reference",
       "recordNote": null,
-      "implementationId": null,
-      "implementationStatus": "未実装"
+      "implementationId": "heroine.april",
+      "implementationStatus": "実装済み"
     },
     {
       "source": "aa",

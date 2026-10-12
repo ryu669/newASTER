@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 25,
+  "people": 22,
+  "added": "heroine.april",
+  "record": "docs/production/plan12-april-form-record.json",
+  "oldSave": "24-to-25; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}

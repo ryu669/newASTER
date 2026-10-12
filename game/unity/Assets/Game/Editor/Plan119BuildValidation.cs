@@ -13,10 +13,11 @@ public sealed class Plan119BuildValidation:IPreprocessBuildWithReport
     public void OnPreprocessBuild(BuildReport report)=>Validate();
     public static void Validate()
     {
-        if(!Plan12WeaponMasterBuild.ReviewPreview){
+        if(!Plan12WeaponMasterBuild.ReviewPreview && !Plan12AprilBuild.ReviewPreview){
         if(ProductionContentPaths.Combat=="Combat/battle-plan12-first-batch")Plan12AssetReviewGate.ValidateRelease();
         if(ProductionContentPaths.Combat=="Combat/battle-plan12-invisible"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();}
         if(ProductionContentPaths.Combat=="Combat/battle-plan12-viper"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();}
+        if(ProductionContentPaths.Combat=="Combat/battle-plan12-april"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();Plan12VindicatorBuild.ValidateRelease();Plan12WeaponMasterBuild.ValidateRelease();Plan12AprilBuild.ValidateRelease();}
         if(ProductionContentPaths.Combat=="Combat/battle-plan12-weapon-master"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();Plan12VindicatorBuild.ValidateRelease();Plan12WeaponMasterBuild.ValidateRelease();}
         if(ProductionContentPaths.Combat=="Combat/battle-plan12-vindicator"){Plan12AssetReviewGate.ValidateRelease();Plan12InvisibleBuild.ValidateRelease();Plan12ViperBuild.ValidateRelease();Plan12VindicatorBuild.ValidateRelease();}
         }else Debug.Log("COMMON_TREE_REVIEW_PREVIEW: release visual approval pending; content checks remain enabled.");

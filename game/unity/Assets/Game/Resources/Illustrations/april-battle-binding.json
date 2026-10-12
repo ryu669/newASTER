@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.april",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/april-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/april-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/april-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/april-cutin-candidate-v1"
+}

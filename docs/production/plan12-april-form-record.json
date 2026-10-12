@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "personId": "heroine.april",
+  "formId": "heroine.april",
+  "jobId": "job.fighter",
+  "status": "complete_published",
+  "profile": "docs/characters/april.md",
+  "images": {
+    "standing": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/standing.png",
+      "sha256": "44c315ed99bf09e60bbf0b72ecc6dad63eee9e19e24d3402dbd1f95ab3c00a9f",
+      "resourcePath": "Illustrations/april-standing-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "44c315ed99bf09e60bbf0b72ecc6dad63eee9e19e24d3402dbd1f95ab3c00a9f",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-expression.normal.png",
+            "sha256": "176bf9c4b8745289b4312bb6b5243c213bc91f33141991d952fd9ec3ff49417e"
+          }
+        ]
+      }
+    },
+    "portrait": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/portrait.png",
+      "sha256": "953e40932b96184de3a68d7bd1bfc0e927ca70b3f5aeeb3c69416f6615ebe787",
+      "resourcePath": "Illustrations/heroine-portrait-april-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "953e40932b96184de3a68d7bd1bfc0e927ca70b3f5aeeb3c69416f6615ebe787",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/recruit.png",
+            "sha256": "c63613f7dc96ba79e71dc15b2c5a06e717c73762539a7dcaeafb75a7e3e717df"
+          },
+          {
+            "path": "tmp/plan12-april/player/trait.png",
+            "sha256": "64188e6115499fddd1f877f9aa21fe86b7c2fc4f464ef00e42da4908100eac96"
+          }
+        ]
+      }
+    },
+    "expression-joy": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/expression-joy.png",
+      "sha256": "83f3ebf964650ed33d3a7ae3f99c3e93c2135f797b033b1054f9e973cc3c8dd6",
+      "resourcePath": "Illustrations/april-expression-joy-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "83f3ebf964650ed33d3a7ae3f99c3e93c2135f797b033b1054f9e973cc3c8dd6",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-expression.joy.png",
+            "sha256": "d6ec5744432f9497b9153c5f69085d1e939b6197ee2c3b7a00ec5e585533b5a1"
+          }
+        ]
+      }
+    },
+    "expression-puzzled": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/expression-puzzled.png",
+      "sha256": "8097d98a74790892bf4a8928fc79eeecc6985c50001d07046427336496a14355",
+      "resourcePath": "Illustrations/april-expression-puzzled-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "8097d98a74790892bf4a8928fc79eeecc6985c50001d07046427336496a14355",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-expression.puzzled.png",
+            "sha256": "8bd4748db5b1ebcc31d72f0a35dcde862f0422f489039620290e56d0db45b7b6"
+          }
+        ]
+      }
+    },
+    "expression-determined": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/expression-determined.png",
+      "sha256": "330f67c1b0a33792f38a1ab669c5f6c6712df597f0b3b258122c50578186a048",
+      "resourcePath": "Illustrations/april-expression-determined-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "330f67c1b0a33792f38a1ab669c5f6c6712df597f0b3b258122c50578186a048",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-expression.determined.png",
+            "sha256": "6c572c88d3bea32ce719b7b5ef773b71722dfb721b80b64ab09c0097d867664f"
+          }
+        ]
+      }
+    },
+    "attack": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/attack.png",
+      "sha256": "08c993301a931629ac4e33302a9b17ad67a0a02dda88d1881fb37001ab2938b5",
+      "resourcePath": "Illustrations/april-attack-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "08c993301a931629ac4e33302a9b17ad67a0a02dda88d1881fb37001ab2938b5",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/battle-attack.png",
+            "sha256": "e47ad82110712cb91ad2ec3b467befed43ac375d8f239350b1c4d55544cbbc19"
+          }
+        ]
+      }
+    },
+    "hit": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/hit.png",
+      "sha256": "dbb38c0aa2909fc4025a9e2b9af405674aae00fbca88eaa701706b2d97be6492",
+      "resourcePath": "Illustrations/april-hit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "dbb38c0aa2909fc4025a9e2b9af405674aae00fbca88eaa701706b2d97be6492",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/battle-hit.png",
+            "sha256": "ef060d6ec613c9e43628d88894554085f57c9705df016bc8005dc14eea0ebda1"
+          }
+        ]
+      }
+    },
+    "cutin": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/cutin.png",
+      "sha256": "c7500628f12a4193cf9a0d52ddbb3e373d48f6b6a2079d51ba79e8c966f2cf35",
+      "resourcePath": "Illustrations/april-cutin-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c7500628f12a4193cf9a0d52ddbb3e373d48f6b6a2079d51ba79e8c966f2cf35",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/battle-cutin.png",
+            "sha256": "b0679bba24c02605d202e2d0369ab03778072f8f4af75bde7967885b13223c72"
+          }
+        ]
+      }
+    },
+    "sd-idle": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-idle.png",
+      "sha256": "ab1cc51dace8fefd32c2414270304e8344a056c739bcba50d856aee5fba8924b",
+      "resourcePath": "Illustrations/april-sd-idle-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "ab1cc51dace8fefd32c2414270304e8344a056c739bcba50d856aee5fba8924b",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.idle.png",
+            "sha256": "9409ce7f2938c6001f748b2f787508711e636642f07f09c4d1d01c8f792ca104"
+          }
+        ]
+      }
+    },
+    "sd-walk": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-walk.png",
+      "sha256": "8dba2a8e2f2c689cbe090f781dac8e446804c498baab542a86b346118bb9a6c9",
+      "resourcePath": "Illustrations/april-sd-walk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "8dba2a8e2f2c689cbe090f781dac8e446804c498baab542a86b346118bb9a6c9",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.walk.png",
+            "sha256": "5fa3af23af29568a6502209d469b8091e588d1dd65d18b7d4428364ef3ee25cb"
+          }
+        ]
+      }
+    },
+    "sd-talk": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-talk.png",
+      "sha256": "1ba09dd2c400cb4516fc217839882a3a1166648c6e8f3deb170e62c10e7efcbf",
+      "resourcePath": "Illustrations/april-sd-talk-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "1ba09dd2c400cb4516fc217839882a3a1166648c6e8f3deb170e62c10e7efcbf",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.talk.png",
+            "sha256": "636302541b9cd533323125dddd7b0dd3d9791e7fe0ba37257a1216a695a497a9"
+          }
+        ]
+      }
+    },
+    "sd-react": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-react.png",
+      "sha256": "e6aa7af5ecd60fb1d7f6048d601a2655277e3cf44bd48798f4597d10bf599a11",
+      "resourcePath": "Illustrations/april-sd-react-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "e6aa7af5ecd60fb1d7f6048d601a2655277e3cf44bd48798f4597d10bf599a11",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.react.png",
+            "sha256": "5c6a29e37b66f68f318445fa6e51a955f2d924e7e655238f1ebf099ee83ae3ab"
+          }
+        ]
+      }
+    },
+    "sd-sit": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-sit.png",
+      "sha256": "598bd5619319c0cedbde4a559c0db8c73da23c965524e4f1680e1cbf56ceabaf",
+      "resourcePath": "Illustrations/april-sd-sit-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "598bd5619319c0cedbde4a559c0db8c73da23c965524e4f1680e1cbf56ceabaf",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.sit.png",
+            "sha256": "b3455d13e16d7e7ce5b5780e2696183c033df314545fe598349327561807455d"
+          },
+          {
+            "path": "tmp/plan12-april/player/april-sd.furniture.png",
+            "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+          }
+        ]
+      }
+    },
+    "sd-work": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-work-v2.png",
+      "sha256": "c56e415255e8e083626315e0abccee2e54be727f7b9d178c292ac76c99af6ac1",
+      "resourcePath": "Illustrations/april-sd-work-candidate-v2",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "c56e415255e8e083626315e0abccee2e54be727f7b9d178c292ac76c99af6ac1",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.work.png",
+            "sha256": "27b31a2a6324aa9f55faa0e776b7c1e314e6b03f15a9d197e5fbdfcb62a78a7a"
+          },
+          {
+            "path": "tmp/plan12-april/player/april-sd.furniture.png",
+            "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+          }
+        ]
+      }
+    },
+    "sd-look": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/sd-look.png",
+      "sha256": "477bc4c3918ae79bb96a1f34fa3eff1e23296ef345a99922c83616682169cf80",
+      "resourcePath": "Illustrations/april-sd-look-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "477bc4c3918ae79bb96a1f34fa3eff1e23296ef345a99922c83616682169cf80",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-sd.look.png",
+            "sha256": "588ac1378a5dd9d461d5412219738bc60623e58a6aa8a945a4b0713e32492de5"
+          },
+          {
+            "path": "tmp/plan12-april/player/april-sd.furniture.png",
+            "sha256": "c2e67aa461e11d4ac719ae2d1b5b2951aa5f6bb61e24614c2e9bdd1b634db1c7"
+          }
+        ]
+      }
+    },
+    "event-0-cg": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/event-0-cg.png",
+      "sha256": "8b97c443fe6511d7e0905c94dff144e8655663aa2476fdf42390a4475b77b6ba",
+      "resourcePath": "Illustrations/april-event-0-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "8b97c443fe6511d7e0905c94dff144e8655663aa2476fdf42390a4475b77b6ba",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-cg.0.png",
+            "sha256": "0c74e2b4da29c95dba2f0353bd8cf45786bc9151e9482c9a5b800147a70973dc"
+          },
+          {
+            "path": "tmp/plan12-april/player/gallery-frames/april-cg.0.png",
+            "sha256": "d76188ebf9926ca2e7762472d7a02a2d794ca58f7b78351be6ba4732681ebef1"
+          }
+        ]
+      }
+    },
+    "event-1-cg": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/event-1-cg.png",
+      "sha256": "3ded4fcaa6777aac92fb9b415aa22f71776ae6c19620420ef8f14f6b28160009",
+      "resourcePath": "Illustrations/april-event-1-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "3ded4fcaa6777aac92fb9b415aa22f71776ae6c19620420ef8f14f6b28160009",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-cg.1.png",
+            "sha256": "6c4b8507afff175c4259fcef34a7e624b71e014e0d0215d0d485a3b749c2cf79"
+          },
+          {
+            "path": "tmp/plan12-april/player/gallery-frames/april-cg.1.png",
+            "sha256": "779191ce83664e8e837e2b0db7bc7285f8f8c1a55d806f7aa626f3b3b23f9155"
+          }
+        ]
+      }
+    },
+    "event-2-cg": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/event-2-cg.png",
+      "sha256": "4f1c5342df10c76637001cb679c62f074cda659df700ef3549496aece2b2f76a",
+      "resourcePath": "Illustrations/april-event-2-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "4f1c5342df10c76637001cb679c62f074cda659df700ef3549496aece2b2f76a",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-cg.2.png",
+            "sha256": "da63b3c1abc20bb776ceaa0755cb9b6f8df8c7408941f49c599d3162a7861d55"
+          },
+          {
+            "path": "tmp/plan12-april/player/gallery-frames/april-cg.2.png",
+            "sha256": "98d361dcda71f2624753f41eb43142b70d764a229485641722a11182a26031b9"
+          }
+        ]
+      }
+    },
+    "event-3-cg": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/event-3-cg.png",
+      "sha256": "8e51e83b3df07c51bc5dc6978e7679d000294292b44c408efffcaa08a7b4000c",
+      "resourcePath": "Illustrations/april-event-3-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "8e51e83b3df07c51bc5dc6978e7679d000294292b44c408efffcaa08a7b4000c",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-cg.3.png",
+            "sha256": "53359ecd30aa3e6cd2184074466a4101b6e48be58484fe3985f0448c7ba965f6"
+          },
+          {
+            "path": "tmp/plan12-april/player/gallery-frames/april-cg.3.png",
+            "sha256": "1e6c204ac81d0875763afa8228fd43cc770f5c9630518b1f48d7613e2282532b"
+          }
+        ]
+      }
+    },
+    "event-4-cg": {
+      "status": "approved",
+      "source": "game/art-source/april-v1/event-4-cg.png",
+      "sha256": "f4fc087f96b1ecaf122d5d660243a5c8b0e92abcd1d360130534e7b18b618575",
+      "resourcePath": "Illustrations/april-event-4-cg-candidate-v1",
+      "purposeReview": "approved",
+      "runtimeReview": {
+        "status": "approved",
+        "reviewedSha256": "f4fc087f96b1ecaf122d5d660243a5c8b0e92abcd1d360130534e7b18b618575",
+        "captureFiles": [
+          {
+            "path": "tmp/plan12-april/player/april-cg.4.png",
+            "sha256": "8cb19f439c81b2ab2c3f2f6fc57441e6379ebf80edfcf0cf1c218173e03c4d1a"
+          },
+          {
+            "path": "tmp/plan12-april/player/gallery-frames/april-cg.4.png",
+            "sha256": "1ec71bd4b5053bd1ab9cd600781a62f7d2133f23f768c2724e68af94b7c96def"
+          }
+        ]
+      }
+    }
+  },
+  "treeComponents": [
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-layout.json",
+      "sha256": "b03118cd386db6cb0e6bc21c104498f740f142aa5f7cc42d5711913c707d9ae3",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/common-tree.png",
+      "sha256": "59ee357824d246d0c4ce799bacb6f02c1e73116527e84c826bd5b61cafa78529",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "sha256": "20369f133dc4d78519b011bbde153d5ddcf4829a6660abe84b9f6add63655b82",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/neutral-flower-v1.png",
+      "sha256": "e986f68e9bcc5fc78ffe53a09fcf840b908061a849ca914e8b84d6983ffac3db",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/silver-foliage-simple-v2.png",
+      "sha256": "7413599d02c2189339031a442f2452634d71493cf8d660e2bdbdff74acd28af6",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "sha256": "345900078fd060c5cecd5cefe70b043bd70aaf94ea2bcba5eabf515f926b9848",
+      "status": "approved"
+    }
+  ],
+  "renderers": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "sha256": "031f97a7315039821bc2e560bfac2a303825f1e91f69be288c189ade2d27a122",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "sha256": "c08a3842dfee838f0aece5ce34648debb5409c7d7fd2f14bc86dc276cbce2908",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/LayeredWeaponTree.cs",
+      "sha256": "6cb5701bc08a5ce9cf27aa7bc1373b818c913c20ddd9d14788f9ca714ff93109",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan7ArtSample.cs",
+      "sha256": "0404b017c334731c1a56e6ed9f2f7061bf22123d75d83cedb775f7f1aada0a46",
+      "status": "approved"
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "sha256": "c3b55b05e1c53776160e28624f72186ed6bfa95be56ab7c73e77560e50d2aea6",
+      "status": "approved"
+    }
+  ],
+  "resolution": "default launch 1920x1080",
+  "method": "manual actual Player frame review; automated behavior separately recorded; physical input excluded",
+  "unresolved": [],
+  "updatedAt": "2026-10-12",
+  "acceptance": "pass",
+  "build": {
+    "path": "game/Builds/plan12-april/newASTER.exe",
+    "sha256": "96b492cb271111251fe42b8646e65370a1b7b566773a1e35b34c3f2d1ae70873",
+    "workingTreeChanges": true
+  },
+  "validationLogs": [
+    {
+      "path": "tmp/plan12-april-core.log",
+      "sha256": "af6aed8d23b58cb82cc6820b42b689004ea9ff2004c7accdf2ec3bef82e13a18"
+    },
+    {
+      "path": "tmp/plan12-april-build-final.log",
+      "sha256": "508a9edefa2883a42944f23c080db837c63cb4a381bff34a5fcb5d846d74d305"
+    },
+    {
+      "path": "tmp/plan12-april/production-player.log",
+      "sha256": "ec7938ad9fa1323b0fc5eab18706118f964c8d52130001b31124ffcbe4165d04"
+    }
+  ]
+}

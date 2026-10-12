@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.april"
+  ],
+  "baselineForms": 24,
+  "targetForms": 25,
+  "requiredAssetsPerForm": 20,
+  "remaining": []
+}
