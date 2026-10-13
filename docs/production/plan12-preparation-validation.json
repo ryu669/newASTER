@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "scope": "authoring prerequisites only",
-  "people": 12,
-  "forms": 15,
+  "people": 22,
+  "forms": 25,
   "jobs": 13,
   "preparationCheck": "passed",
   "firstLot": [],
@@ -18,19 +18,19 @@
   "evidence": [
     {
       "path": "docs/characters/index.json",
-      "sha256": "92d9d43c80720fbb1df99a8a2b8d8bc499219ccb39cd258fc19f239cdfac4866"
+      "sha256": "348f168a536f692a43f49aa9d0aea268ef876795c1e2cb0b71de1422504290dc"
     },
     {
-      "path": "game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json",
-      "sha256": "911608a37ad96b81b22b850f067e67a6978b61f5213125680b577f942b1f749b"
+      "path": "game/unity/Assets/Game/Resources/Combat/battle-plan12-april.json",
+      "sha256": "5e6c8c50566c26f33b25372318e8bec966d0c469e7e002f38865259f02460e9a"
     },
     {
-      "path": "game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json",
-      "sha256": "602509f180753057ecb7360a4d6b0cc8c16b50c9ead4af955ddd2f5c0ab9f0b0"
+      "path": "game/unity/Assets/Game/Resources/Story/plan12-april-story-content.json",
+      "sha256": "47c893a104ab1dae6e2b904e6975d884986ad8d95e5f9c8b75d96c369c7823a7"
     },
     {
       "path": "docs/production/heroine-addition-guide.md",
-      "sha256": "31992426052750d4791d38bad7036dfe17b7890c3258d932f0929e832b0d6fb0"
+      "sha256": "3518015f11ace40929cc8a98e5b38a28f09ddebfdc4005747b43ed1971c5a3a7"
     },
     {
       "path": "docs/production/job-implementation-guide.md",
@@ -46,7 +46,7 @@
     },
     {
       "path": "docs/production/plan12-production-handoff.txt",
-      "sha256": "41f82f8c80739ff8cd48eca49d1b34f9d2b22e403f0acb527fbeebb2af30a448"
+      "sha256": "407b3fb1351ad3d39aca702393edc7087eb120b8230a3e250f6d33588e6fa9c8"
     },
     {
       "path": "docs/production/plan12-preparation.txt",
@@ -54,7 +54,7 @@
     },
     {
       "path": "docs/production/plan12-form-record-template.json",
-      "sha256": "3e556283b8d6341497d23e39dae8718d780b0dfdc805680e4eb9cd0c3fe5b135"
+      "sha256": "0b2274f2e9851d0f51d89f5de89bb481012afcdedb798573606f70ddc2ebbc12"
     },
     {
       "path": "docs/production/navigation-route-validation.json",
@@ -70,11 +70,11 @@
     },
     {
       "path": "tools/validate-character-docs.py",
-      "sha256": "83a32ccf09017304dc318083e7ec5bbc8dce152c2c9d0c5101712f80f7e652e3"
+      "sha256": "4cd0f19ab15218ea37441c85cc20e8c3adbb9c7002a70f78581da58edcea6621"
     },
     {
       "path": "tools/validate-automatic-chain.ps1",
-      "sha256": "a8222a2fa24778eae5f0e63164e16eb961011c2b1ac9de3bbb096c70278c1990"
+      "sha256": "e52eb74403310d6134ef8ba09b82cfe32f75aaedda721860d6c12a3538742192"
     },
     {
       "path": "tools/compile-unity-scripts.ps1",

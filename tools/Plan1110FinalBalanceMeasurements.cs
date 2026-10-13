@@ -20,7 +20,7 @@ public static class Plan1110FinalBalanceMeasurements
     public static void Main(string[] args)
     {
         Combat=JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(args[0]),Json);Combat.Validate();
-        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText("game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json"),Json);
+        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(args.Length>6?args[6]:"game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json"),Json);
         Collection=ProductionStoryCatalog.Collection(Combat,story);Home=ProductionStoryCatalog.Home(Combat,story);
         if(args[5]=="TeamFollowup")TeamFollowup(args[1]);else if(args[5]=="Teams")Teams(args[1]);else if(args[5]=="Journey")Journey(args[1]);else if(args[5]=="FinishJourney")new EarnedJourney(args[1],true).FinishRing();else if(args[5]=="Audit")Audit(args[1]);else Matrix(args[1]);
     }
@@ -96,7 +96,7 @@ public static class Plan1110FinalBalanceMeasurements
     static void WriteMatrix(string output,List<Result> rows)
     {
         var summary=rows.GroupBy(r=>r.profile).Select(g=>new{profile=g.Key,runs=g.Sum(r=>r.seeds),wins=g.Sum(r=>r.wins),caps=g.Sum(r=>r.caps),failures=g.Count(r=>!r.accepted)}).ToArray();
-        File.WriteAllText(output,JsonSerializer.Serialize(new{schemaVersion=1,runs=rows.Sum(r=>r.seeds),failures=rows.Count(r=>!r.accepted),criteria="starter >=7/8; trained Lv50 skill7 with job-support policy >=3/4; max-slot and max-party all wins; underlevel <=2/8; diagnostic and support-stress profiles have no victory minimum; zero 4000-operation caps everywhere",scope="Current15 forms, all15 enemies, three weapon routes, all42 ooparts. Max-slot crosses all42 with three routes and20/100% rolls. Max-party uses distinct slot equipment, all15 enemies, duplicate0/5, both command policies. Damage/heal-only Lv50 and skill1 are diagnostic: ignoring songs/volley is not a required winning strategy. Synthetic gear fixtures are separate from earned journey.",summary,utilities=Utilities,rows},Json));
+        File.WriteAllText(output,JsonSerializer.Serialize(new{schemaVersion=1,runs=rows.Sum(r=>r.seeds),failures=rows.Count(r=>!r.accepted),criteria="starter >=7/8; trained Lv50 skill7 with job-support policy >=3/4; max-slot and max-party all wins; underlevel <=2/8; diagnostic and support-stress profiles have no victory minimum; zero 4000-operation caps everywhere",scope="Current"+Combat.HeroineIds.Length+" forms, all15 enemies, three weapon routes, all42 ooparts. Max-slot crosses all42 with three routes and20/100% rolls. Max-party uses distinct slot equipment, all15 enemies, duplicate0/5, both command policies. Damage/heal-only Lv50 and skill1 are diagnostic: ignoring songs/volley is not a required winning strategy. Synthetic gear fixtures are separate from earned journey.",summary,utilities=Utilities,rows},Json));
     }
     static void Audit(string output)
     {

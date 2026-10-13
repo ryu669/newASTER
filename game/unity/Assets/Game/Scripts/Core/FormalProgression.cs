@@ -95,6 +95,7 @@ namespace NewAster.Core
         private bool saving;
         private readonly string[] knownIds;
         public FormalGrowthSave Snapshot => current.Copy();
+        public long Revision => current.revision;
         public bool HasPending => pending!=null;
         public FormalProgression(FormalGrowthSave save,string[] knownHeroineIds)
         {

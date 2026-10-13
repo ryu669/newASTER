@@ -11,6 +11,7 @@ namespace NewAster.Presentation
         private SaveSlotManager saveSlots;
         private DelayedSaveCoordinator delayedSaves;
         private bool saveManagementOpen,saveSlotBlocked,saveSlotDeleted;
+        private bool startupLoadedExistingSlot;
         private int saveSelectedSlot=1;
         private SaveSlotSummary[] saveSummaries;
         private SaveSlotSummary restoreChoice;
@@ -49,21 +50,22 @@ namespace NewAster.Presentation
         private void InitializeSlotCampaign()
         {
             int.TryParse(Application.version.Split('.')[0],out int major);int generation=major>=1?1:0;
-            InitializeSaveSlots(Application.persistentDataPath,generation);
+            InitializeSaveSlots(RuntimeTimingEnabled?runtimeTimingRoot:Application.persistentDataPath,generation);
+            RuntimeTimingMark("save-inspect-start");
             var summary=saveSlots.Inspect(saveSlots.ActiveSlot);
-            if(summary.Status==SaveSlotStatus.Ready){BindFormalCampaign(saveSlots.Load(saveSlots.ActiveSlot));return;}
+            if(summary.Status==SaveSlotStatus.Ready){startupLoadedExistingSlot=true;BindFormalCampaign(saveSlots.Load(saveSlots.ActiveSlot));return;}
             if(summary.Status!=SaveSlotStatus.Empty){
                 saveSlotBlocked=true;BindFormalCampaign(NewSlotProgress());OpenSaveManagement();saveManagementMessage="このスロットを読み込めません。バックアップ・他スロット・空きスロットの新規開始を選択してください。";return;
             }
             if(File.Exists(Path.Combine(saveSlots.Transactions.Root,"active-slot"))){saveSlotDeleted=true;BindFormalCampaign(NewSlotProgress());title=true;OpenSaveManagement();saveManagementMessage="使用中のスロットは空です。他の記録をロードするか、空き枠で新規開始してください。";return;}
             // Development-only import. Source files are read and left intact; release never reads them.
             FormalCampaignSave progress=null;
-            if(generation==0 && saveSlots.ActiveSlot==1 && (File.Exists(formalCampaignStore.SavePath) || File.Exists(formalCampaignStore.SavePath+".bak"))){
+            if(!RuntimeTimingEnabled && generation==0 && saveSlots.ActiveSlot==1 && (File.Exists(formalCampaignStore.SavePath) || File.Exists(formalCampaignStore.SavePath+".bak"))){
                 var result=formalCampaignStore.Load(out progress);
                 if(result!=FormalLoadResult.Loaded){saveSlotBlocked=true;BindFormalCampaign(NewSlotProgress());OpenSaveManagement();saveManagementMessage="開発版の旧セーブを自動移行できませんでした。元ファイルは保持しています。空きスロットで新規開始できます。";return;}
                 if(ProductionStoryMigration.Required(progress))progress=ProductionStoryMigration.Prepare(progress,combatDefinitions,ProductionStoryData(),s=>UnityFormalCampaignJson.Decode(UnityFormalCampaignJson.Encode(s)));
             }
-            else if(generation==0 && saveSlots.ActiveSlot==1){
+            else if(!RuntimeTimingEnabled && generation==0 && saveSlots.ActiveSlot==1){
                 var legacy=new FormalGrowthStore(Path.Combine(Application.persistentDataPath,"formal-growth-v1.json"),"newaster.formal-growth",s=>JsonUtility.ToJson(s,true),s=>JsonUtility.FromJson<FormalGrowthSave>(s));
                 var growthResult=legacy.Load(out var growth);var worldResult=CampaignSaveStore.LoadFormalSplit(out var world);
                 if(growthResult==FormalLoadResult.Blocked || growthResult==FormalLoadResult.RecoveredBackup || worldResult==FormalLoadResult.Blocked || worldResult==FormalLoadResult.RecoveredBackup){saveSlotBlocked=true;BindFormalCampaign(NewSlotProgress());OpenSaveManagement();saveManagementMessage="旧形式の記録を安全に読み込めません。元ファイルを保持しています。他スロットで新規開始できます。";return;}
@@ -86,7 +88,7 @@ namespace NewAster.Presentation
             try{delayedSaves.Flush(Time.realtimeSinceStartupAsDouble,DateTime.UtcNow);saveSlots.FlushActiveSlotSetting();if(saveSlots.ActiveSlotSettingPending){nextSaveRetry=Time.realtimeSinceStartupAsDouble+5;status=saveManagementMessage="進行は保存済みですが、使用中スロットの設定を保存できません。再起動時は記録を選び直してください。";}}
             catch(Exception e){nextSaveRetry=Time.realtimeSinceStartupAsDouble+5;saveManagementMessage="自動保存できませんでした。変更を保持して再試行します。空き容量・権限を確認してください。";status=saveManagementMessage;Debug.LogWarning("SAVE_SLOT_DEFERRED_FAILED "+e.GetType().Name);}
         }
-        private void RequestSettingsSave(){settingsSaveDirty=true;settingsSaveDue=Time.realtimeSinceStartup+5;}
+        private void RequestSettingsSave(){if(RuntimeTimingEnabled)return;settingsSaveDirty=true;settingsSaveDue=Time.realtimeSinceStartup+5;}
         private bool FlushSettingsSave()
         {try{if(settingsSaveDirty)PlayerPrefs.Save();settingsSaveDirty=false;return true;}catch(Exception e){status="設定を保存できませんでした。";Debug.LogWarning(e.Message);return false;}}
         private bool FlushSaveChanges()

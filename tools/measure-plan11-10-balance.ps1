@@ -1,4 +1,4 @@
-param([string]$Output='tmp/plan11-10-balance.json',[switch]$Equipment,[switch]$Arsenal,[switch]$Progression,[ValidateSet('','Matrix','Journey','FinishJourney','Audit','Teams','TeamFollowup')][string]$Final='')
+param([string]$Output='tmp/plan11-10-balance.json',[string]$CombatPath='game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json',[string]$StoryPath='game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json',[switch]$Equipment,[switch]$Arsenal,[switch]$Progression,[ValidateSet('','Matrix','Journey','FinishJourney','Audit','Teams','TeamFollowup')][string]$Final='')
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
 $runtime='C:\Program Files\Unity\Hub\Editor\6000.6.3f1\Editor\Data\DotNetSdk'
@@ -19,4 +19,4 @@ $lines | Set-Content $response -Encoding UTF8
 if($LASTEXITCODE -ne 0){throw 'Balance harness compilation failed'}
 '{"runtimeOptions":{"tfm":"net8.0","framework":{"name":"Microsoft.NETCore.App","version":"8.0.0"}}}' | Set-Content ([IO.Path]::ChangeExtension($assembly,'runtimeconfig.json'))
 Push-Location $repo
-try { & $dotnet $assembly 'game/unity/Assets/Game/Resources/Combat/battle-plan11-7.json' $Output $Equipment.IsPresent $Arsenal.IsPresent $Progression.IsPresent $Final; if($LASTEXITCODE -ne 0){throw 'Balance measurement failed'} } finally {Pop-Location}
+try { & $dotnet $assembly $CombatPath $Output $Equipment.IsPresent $Arsenal.IsPresent $Progression.IsPresent $Final $StoryPath; if($LASTEXITCODE -ne 0){throw 'Balance measurement failed'} } finally {Pop-Location}

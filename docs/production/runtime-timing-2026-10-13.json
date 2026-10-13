@@ -1,0 +1,272 @@
+{
+  "date": "2026-10-13",
+  "environment": {
+    "cpu": "Intel Core i7-13700F",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "ramGiB": 32,
+    "resolution": "default 1920x1080, no resolution overrides",
+    "osCache": "uncontrolled",
+    "backgroundWorkload": "not isolated; no other applications closed"
+  },
+  "player": "D:\\AIGAME\\newASTER\\game\\Builds\\plan12-april\\newASTER.exe",
+  "playerSha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873",
+  "managedAssemblySha256": "01165b550b7834f8eb4eb8b31efc24bd5dd07bbd4e0a042c32ed16477f38d624",
+  "forms": 25,
+  "startup": {
+    "scope": "process launch through first FORMAL_CAMPAIGN_READY log observation; 50ms polling; isolated diagnostic new progress; not first interactive frame or ordinary existing-save load",
+    "runsMs": [
+      3103.7,
+      3112.5,
+      3016.1
+    ],
+    "medianMs": 3103.7
+  },
+  "firstBook": {
+    "scope": "title open handler through all requested portraits ready and end of rendered frame; three separate processes; no portrait preloading; uncontrolled OS cache; excludes process launch and GPU fence",
+    "runsMs": [
+      829.61,
+      296.852,
+      313.423
+    ],
+    "medianMs": 313.423
+  },
+  "garden": {
+    "scope": "one short run, 180 normal frames and 300 watch frames; isolated immediate diagnostic persistence",
+    "normalFps": 59.95,
+    "normalP95FrameMs": 16.697,
+    "normalMaxFrameMs": 16.698,
+    "watchFps": 30.0,
+    "bookCreateCpuMs": 3.472,
+    "pageStateCpuMs": 0.001,
+    "normalMeasuredUpdateMaxMs": 2.4116,
+    "normalMeasuredGuiMaxMs": 2.2494,
+    "peakWorkingSetMiB": 551.3515625
+  },
+  "save": {
+    "scope": "Current Core SaveSlotManager including durable writes, checksum, two backups and read verification; System.Text.Json codec, not Unity JsonUtility or Player timings; synthetic receipt counts",
+    "runs": [
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 1,
+        "saveMs": 14.0575,
+        "loadMs": 5.3556,
+        "copyMs": 0.5326,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 2,
+        "saveMs": 28.8358,
+        "loadMs": 5.9697,
+        "copyMs": 0.5359,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 3,
+        "saveMs": 32.1072,
+        "loadMs": 5.6034,
+        "copyMs": 0.4956,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 4,
+        "saveMs": 22.5734,
+        "loadMs": 5.731,
+        "copyMs": 0.499,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 5,
+        "saveMs": 23.352,
+        "loadMs": 5.6143,
+        "copyMs": 0.5961,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 1,
+        "saveMs": 33.6915,
+        "loadMs": 14.2936,
+        "copyMs": 2.3387,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 2,
+        "saveMs": 38.2826,
+        "loadMs": 14.6255,
+        "copyMs": 2.3357,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 3,
+        "saveMs": 43.1126,
+        "loadMs": 12.1004,
+        "copyMs": 1.8873,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 4,
+        "saveMs": 52.6132,
+        "loadMs": 11.5458,
+        "copyMs": 1.5875,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 5,
+        "saveMs": 39.215,
+        "loadMs": 11.8706,
+        "copyMs": 1.6252,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 1,
+        "saveMs": 188.4125,
+        "loadMs": 69.9698,
+        "copyMs": 10.6307,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 2,
+        "saveMs": 186.6301,
+        "loadMs": 79.5488,
+        "copyMs": 13.5351,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 3,
+        "saveMs": 214.3229,
+        "loadMs": 69.5895,
+        "copyMs": 11.354,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 4,
+        "saveMs": 193.2675,
+        "loadMs": 58.2734,
+        "copyMs": 10.628,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 5,
+        "saveMs": 209.5845,
+        "loadMs": 77.1616,
+        "copyMs": 14.5744,
+        "payloadBytes": 1359382
+      }
+    ]
+  },
+  "saveMedians": [
+    {
+      "additionalGrowthReceipts": 0,
+      "saveMs": 23.352,
+      "loadMs": 5.6143,
+      "copyMs": 0.5326,
+      "payloadBytes": 31597
+    },
+    {
+      "additionalGrowthReceipts": 1000,
+      "saveMs": 39.215,
+      "loadMs": 12.1004,
+      "copyMs": 1.8873,
+      "payloadBytes": 162382
+    },
+    {
+      "additionalGrowthReceipts": 10000,
+      "saveMs": 193.2675,
+      "loadMs": 69.9698,
+      "copyMs": 11.354,
+      "payloadBytes": 1359382
+    }
+  ],
+  "limits": [
+    "Non-visible book trial produced a black capture and no readiness marker; excluded from rendered timing. Process exited normally, not a confirmed antivirus block or game crash.",
+    "First observed hidden launch reached campaign-ready at 6581.3ms; visible restart series was already OS-cache warm. No OS-cold result is claimed.",
+    "Normal startup intro has up to 2.4s by source; diagnostics skip it. Not added to startup milliseconds as if it were an end-to-end measurement.",
+    "Save benchmarks use current Core SaveSlotManager and durable disk writes with two backups, but System.Text.Json codecs rather than Unity JsonUtility. Do not label them Player or end-to-end growth operation timings.",
+    "Synthetic additional receipts lack a long real-play battle/collection history; full late-game load/save may differ.",
+    "Minimum-spec and long-session performance not measured."
+  ],
+  "evidence": [
+    {
+      "processToCampaignReadyMs": 3103.7,
+      "peakWorkingSetBytes": 198979584,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r"
+      ],
+      "case": "startup-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\startup-1\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3112.5,
+      "peakWorkingSetBytes": 201240576,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r"
+      ],
+      "case": "startup-2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\startup-2\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3016.1,
+      "peakWorkingSetBytes": 199368704,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r"
+      ],
+      "case": "startup-3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\startup-3\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3067.9,
+      "peakWorkingSetBytes": 592904192,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+        "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=829.610 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+      ],
+      "case": "book-1",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\book-1\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3045.3,
+      "peakWorkingSetBytes": 616574976,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+        "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=296.852 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+      ],
+      "case": "book-2",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\book-2\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3075.2,
+      "peakWorkingSetBytes": 610025472,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+        "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=313.423 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+      ],
+      "case": "book-3",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\book-3\\player.log"
+    },
+    {
+      "processToCampaignReadyMs": 3072.8,
+      "peakWorkingSetBytes": 578134016,
+      "markers": [
+        "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+        "PLAN11_9_PLAYER_MEASUREMENT bookCreateMs=3.472 pageProcessMs=0.001 normalFps=59.95 watchFps=30.00 residentTextureRgbaEstimateBytes=361385660 productionForms=25 syntheticTextures=0 physicalInput=0 listening=0\r",
+        "PLAN11_9_NORMAL_FRAME_MEASUREMENT p95Ms=16.697 maxMs=16.698 progressSnapshotCopies=0 scope=isolatedGardenWithImmediateDiagnosticPersistence\r",
+        "PLAN11_9_PLAYER_QUALITY_PASS\r"
+      ],
+      "case": "garden",
+      "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\de4dbb4ce7674ea084527488e5c1dd59\\garden\\player.log"
+    }
+  ]
+}

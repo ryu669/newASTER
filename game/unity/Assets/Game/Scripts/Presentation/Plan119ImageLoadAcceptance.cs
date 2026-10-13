@@ -37,7 +37,7 @@ namespace NewAster.Presentation
         }
         private void RecordQuality119ColdBook()
         {
-            if(quality119ColdBookClock==null || quality119ColdBookRecorded || heroinePortraitRequests.Count>0 || Event.current.type!=EventType.Repaint || !IsBookScreen)return;
+            if(quality119ColdBookClock==null || quality119ColdBookRecorded || heroinePortraitRequests.Count>0 || heroinePortraitLoads>0 || Event.current.type!=EventType.Repaint || !IsBookScreen)return;
             quality119ColdBookRecorded=true;StartCoroutine(FinishQuality119ColdBook());
         }
         private IEnumerator FinishQuality119ColdBook()

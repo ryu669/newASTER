@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NewAster.Core
 {
@@ -58,13 +59,17 @@ namespace NewAster.Core
             affection?.Validate();
             playRewards?.Validate();
             previousNarrative?.Validate();
-            if(home!=null && home.receipts.Any(r=>growth.receipts.Any(g=>g.transactionId==r.transactionId) || world.claimedBattleIds.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
+            var growthById=growth.receipts.ToDictionary(r=>r.transactionId,StringComparer.Ordinal);
+            var claimed=new HashSet<string>(world.claimedBattleIds,StringComparer.Ordinal);
+            var poems=new HashSet<string>(world.poemIds,StringComparer.Ordinal);
+            var chapters=new HashSet<string>(world.unlockedStoryIds,StringComparer.Ordinal);
+            if(home!=null && home.receipts.Any(r=>growthById.ContainsKey(r.transactionId) || claimed.Contains(r.transactionId)))throw new ArgumentException("Home transaction identity conflicts with existing receipt.");
             if(collection!=null)foreach(var r in collection.receipts)
-                if(!growth.receipts.Any(g=>g.transactionId==r.battle.battleId && g.signature==new FormalBattleEndRequest(r,0).Signature))throw new ArgumentException("Collection transaction receipt mismatch.");
+                if(!growthById.TryGetValue(r.battle.battleId,out var g) || g.signature!=new FormalBattleEndRequest(r,0).Signature)throw new ArgumentException("Collection transaction receipt mismatch.");
             if(collection!=null)foreach(var receipt in collection.receipts)
-                if(!world.claimedBattleIds.Contains(receipt.battle.battleId) || receipt.acquiredPoemIds.Any(id=>!world.poemIds.Contains(id)) || receipt.unlockedChapterIds.Any(id=>!world.unlockedStoryIds.Contains(id)))throw new ArgumentException("Collection receipt without durable world state.");
+                if(!claimed.Contains(receipt.battle.battleId) || receipt.acquiredPoemIds.Any(id=>!poems.Contains(id)) || receipt.unlockedChapterIds.Any(id=>!chapters.Contains(id)))throw new ArgumentException("Collection receipt without durable world state.");
             foreach(var receipt in growth.receipts.Where(r=>r.signature.StartsWith("victory|",StringComparison.Ordinal)))
-                if(!world.claimedBattleIds.Contains(receipt.transactionId))throw new ArgumentException("Victory receipt without world reward.");
+                if(!claimed.Contains(receipt.transactionId))throw new ArgumentException("Victory receipt without world reward.");
         }
         public static void ValidateWorld(CampaignSaveV2 w)
         {

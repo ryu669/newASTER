@@ -115,6 +115,7 @@ namespace NewAster.Presentation
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.HeroineIds);
             book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
+            RuntimeTimingMark("campaign-ready");
             TrialObserve("save","loaded","revision="+unified.revision);
             TrialObserve("economy","opening-balance",$"nectar={unified.growth.nectar};crystals={unified.growth.awakeningCrystals};stones={unified.growth.stones}");
         }

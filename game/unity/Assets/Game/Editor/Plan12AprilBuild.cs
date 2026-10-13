@@ -10,6 +10,12 @@ using UnityEditor.Build.Reporting;
 public static class Plan12AprilBuild
 {
     public static bool ReviewPreview { get; private set; }
+    private static string buildOutput="../Builds/plan12-april/newASTER.exe";
+    public static void BuildRuntimeImprovementsPreview()
+    {
+        buildOutput="../Builds/runtime-improvements/newASTER.exe";
+        try{BuildReviewPreview();}finally{buildOutput="../Builds/plan12-april/newASTER.exe";}
+    }
     public static void BuildReviewPreview()
     {
         ReviewPreview=true;
@@ -61,9 +67,9 @@ public static class Plan12AprilBuild
         if(combat.HeroineIds.Length!=25 || home.weaponNodes.Count(n=>n.heroineId=="heroine.april")!=13 || restored.chapters.Where(c=>c.ownerId=="heroine.april").Sum(c=>c.pages.Length)!=30)throw new Exception("April content incomplete.");
         foreach(var path in home.assets.Select(a=>a.resourcePath).Distinct())if(Resources.Load(path)==null)throw new Exception("Missing production art "+path);
         Debug.Log("PLAN12_APRIL_UNITY_PASS forms=25 people=22 images=20 nodes=13 pages=30");
-        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Game/Scenes/Bootstrap.unity"},locationPathName="../Builds/plan12-april/newASTER.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
+        var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Game/Scenes/Bootstrap.unity"},locationPathName=buildOutput,target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});
         if(report.summary.result!=BuildResult.Succeeded)throw new Exception("April build failed "+report.summary.result);
-        string notices="../Builds/plan12-april/ThirdPartyNotices/NotoSansCJKjp";Directory.CreateDirectory(notices);
+        string notices=Path.Combine(Path.GetDirectoryName(buildOutput),"ThirdPartyNotices/NotoSansCJKjp");Directory.CreateDirectory(notices);
         foreach(var name in new[]{"OFL.txt","NOTICE.txt"})File.Copy("Assets/Game/Resources/Fonts/"+name,Path.Combine(notices,name),true);
         Debug.Log("PLAN12_APRIL_BUILD_PASS bytes="+report.summary.totalSize);
     }

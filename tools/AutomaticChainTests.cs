@@ -35,6 +35,7 @@ public static class AutomaticChainTests
         CollectionContractTests.Run(Check);
         FormalProgressionTests.Run(Check);
         FormalCampaignTests.Run(Check);
+        SaveHistoryPerformanceTests.Run(Check);
         FormalRecoveryTests.Run(Check);
         FormalEngagementTests.Run(Check);
         var options=new JsonSerializerOptions {IncludeFields=true};

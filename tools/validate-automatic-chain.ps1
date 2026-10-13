@@ -10,6 +10,7 @@ $refs=Get-ChildItem (Join-Path $pack.FullName 'ref/net8.0') -Filter '*.dll'
 $sources=Get-ChildItem (Join-Path $repo 'game/unity/Assets/Game/Scripts/Core'),(Join-Path $repo 'game/unity/Assets/Game/Scripts/Data') -Filter '*.cs'
 $assembly=Join-Path $output 'AutomaticChainTests.dll'
 $lines=@('-nologo','-nostdlib+','-target:exe','-langversion:9',('-out:"'+$assembly+'"'))
+$lines+='"'+(Join-Path $PSScriptRoot 'SaveHistoryPerformanceTests.cs')+'"'
 $lines+=$refs | ForEach-Object {'-r:"'+$_.FullName+'"'}
 $lines+=$sources | ForEach-Object {'"'+$_.FullName+'"'}
 $lines+='"'+(Join-Path $PSScriptRoot 'AutomaticChainTests.cs')+'"'

@@ -14,7 +14,7 @@ namespace NewAster.Presentation
         private void InitializeFormalEntrance(string[] args)
         {
             formalEntranceCapture=Array.IndexOf(args,"-capturePlan9Intro")>=0;
-            formalEntranceComplete=Array.IndexOf(args,"-presentationCapture")>=0 && !formalEntranceCapture;
+            formalEntranceComplete=(Array.IndexOf(args,"-presentationCapture")>=0 || startupLoadedExistingSlot) && !formalEntranceCapture;
             if(!formalDiagnostic && Array.IndexOf(args,"-presentationCapture")<0 && PlayerPrefs.HasKey("art.fullscreen"))
                 Screen.fullScreenMode=PlayerPrefs.GetInt("art.fullscreen",0)==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
         }

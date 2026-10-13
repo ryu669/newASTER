@@ -54,6 +54,8 @@ namespace NewAster.Presentation
         private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
         private void Awake()
         {
+            if(runtimeTimingConfigurationError!=null){enabled=false;Application.Quit(2);return;}
+            RuntimeTimingMark("awake");
             // Exit before opening any ordinary save store or initializing gameplay.
             if (TrialBaselineResources.RunDiagnostic(Environment.GetCommandLineArgs())) { enabled = false; return; }
             InitializeTrialTelemetry();
@@ -192,6 +194,7 @@ namespace NewAster.Presentation
             PreparePlan11Capture(args);
             PrepareQuality119ColdBook(args);
             PrepareArtSweep(args);
+            PrepareRuntimeImprovementsCapture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -207,6 +210,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            UpdateRuntimeTiming();
             if(UpdateArtSweep())return;
             using var qualityCost=new Quality119CostScope(this,0);
             TryStartQuality119();
@@ -278,7 +282,7 @@ namespace NewAster.Presentation
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();}finally{RecordMeasuredGui(started);}
+            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();RecordRuntimeTimingFrame();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
