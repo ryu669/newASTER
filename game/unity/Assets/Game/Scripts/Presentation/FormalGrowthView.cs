@@ -107,7 +107,7 @@ namespace NewAster.Presentation
             lifeSnapshotCached=null;gardenLifeRuntime?.Stop();gardenLifeRuntime=null;StopLifeAudio();
             if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
             if(ProductionStoryActive){WeaponGrowthRules.EnsureRoots(unified,HomeData());OopartSaveAdapter.Migrate(unified.collection,CollectionData(),unified.home?.formationIds.Length==5?unified.home.formationIds:combatDefinitions.FormationIds);AffectionSaveAdapter.Migrate(unified,HomeData());AffectionEventResolver.Refresh(unified,HomeData());AffectionSaveAdapter.ValidateContent(unified,HomeData());}
-            unified.collection?.ValidateContent(SelectCollectionCatalog());
+            unified.collection?.ValidateContent(CollectionData());
             unified.home?.ValidateContent(HomeData(),unified);
             unified.gardenLife?.ValidateContent(unified,HomeData());
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);

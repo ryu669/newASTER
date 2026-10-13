@@ -17,11 +17,17 @@ namespace NewAster.Presentation
             new Rect(135,255,240,76), new Rect(395,255,240,76), new Rect(655,255,240,76),
             new Rect(135,350,240,76), new Rect(395,350,240,76), new Rect(655,350,240,76), new Rect(135,445,240,76)
         };
+        private FormalCampaignJournal terraformPreviewSource;
+        private long terraformPreviewRevision=-1;
+        private TerraformSave terraformPreviewCached;
         private TerraformSave TerraformPreview()
         {
-            var snapshot = formalCampaign.Snapshot;
-            TerraformRules.Synchronize(snapshot, CollectionData());
-            return snapshot.world.terraform;
+            if(!ReferenceEquals(terraformPreviewSource,formalCampaign) || terraformPreviewRevision!=formalCampaign.Revision){
+                var snapshot=formalCampaign.Snapshot;
+                TerraformRules.Synchronize(snapshot,CollectionData());terraformPreviewCached=snapshot.world.terraform;
+                terraformPreviewSource=formalCampaign;terraformPreviewRevision=formalCampaign.Revision;
+            }
+            return terraformPreviewCached;
         }
         private void DrawTerraformBookPage()
         {

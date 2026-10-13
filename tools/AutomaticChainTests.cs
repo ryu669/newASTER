@@ -61,6 +61,7 @@ public static class AutomaticChainTests
         Plan9ColossusTests.Run(Check,formal());
         Plan9ColossusEndTests.Run(Check,formal());
         HeroineRosterTests.Run(Check);
+        HeroineUiScaleTests.Run(Check);
         HeroineSanctuaryTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
         Plan9EconomySupplyTests.Run(Check,formal(),File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")));
         Plan9StoryTests.Run(Check,File.ReadAllText(Path.Combine(Path.GetDirectoryName(args[0]),"../Story/plan9-story-content.json")),formal());

@@ -195,6 +195,7 @@ namespace NewAster.Presentation
             PrepareQuality119ColdBook(args);
             PrepareArtSweep(args);
             PrepareRuntimeImprovementsCapture(args);
+            PrepareScaleUiCapture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -241,6 +242,7 @@ namespace NewAster.Presentation
                 if(plan10UiCapture && !measureArt)ready=Time.realtimeSinceStartup>=10;
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
                 if(Quality119Capture)ready=quality119Complete;
+                if(scaleUiActive)ready=scaleUiComplete;
                 if(Quality119EnvironmentAudioCapture)ready=quality119EnvironmentAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();

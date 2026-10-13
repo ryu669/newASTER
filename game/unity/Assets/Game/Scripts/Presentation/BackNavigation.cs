@@ -1,4 +1,4 @@
-﻿using NewAster.Core;
+using NewAster.Core;
 using UnityEngine;
 
 namespace NewAster.Presentation
@@ -31,6 +31,8 @@ namespace NewAster.Presentation
             else if(bookSystemOpen && titlePanel!=null)CloseTitlePanel();
             else if(bookSystemOpen)bookSystemOpen=false;
             else if(rosterFilterOpen)rosterFilterOpen=false;
+            else if(storyPickerOpen && book.Bookmark==BookBookmark.Stories)storyPickerOpen=false;
+            else if(formationJobPicker && book.Bookmark==BookBookmark.Formation)formationJobPicker=false;
             else if(expansionRecruitmentOpen)CloseExpansionRecruitment();
             else if(exchangeMaterial!=null){exchangeMaterial=null;exchangeError=null;}
             else if(CloseAffectionLayer()){}

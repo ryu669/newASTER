@@ -53,7 +53,7 @@ namespace NewAster.Presentation
         {
             if(exchangeMaterial!=null){DrawExchange();return;}
             var owners=CollectionData().owners.Where(o=>o.kind=="colossus").ToArray();materialPage=Mathf.Clamp(materialPage,0,owners.Length-1);
-            var owner=owners[materialPage];
+            var owner=owners[materialPage];var state=LifeSnapshot();
             if(GrowthButton(150,280,180,50,"‹ 巨神獣",materialPage>0))materialPage--;
             Label(360,282,870,50,WorldCatalog.Colossi.Single(c=>c.Id==owner.id).DisplayName+"  ／  素材図鑑",growthTitleStyle);
             if(GrowthButton(1250,280,180,50,"巨神獣 ›",materialPage+1<owners.Length))materialPage++;
@@ -61,8 +61,8 @@ namespace NewAster.Presentation
                 var r=CollectionData().resources.Single(m=>m.id==owner.materialIds[i]);float y=350+i*108;GrowthFrame(150,y,1280,98);
                 DrawSanctuaryIcon(new Rect(169,y+22,52,52),"resource",MaterialColor(r.rarity));
                 Label(245,y+14,615,42,r.RarityName+"  "+r.name,growthTextStyle,MaterialColor(r.rarity));
-                var state=formalCampaign.Snapshot;Label(885,y+14,505,40,"所持 "+HomeRules.Balance(state,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
-                int unit=MaterialExchangeService.UnitCost(r);if(unit>0){Label(245,y+58,620,30,"交換：1個 "+unit+"ネクタル",growthSmallStyle);int[] quantities={1,5,10,MaterialExchangeService.Maximum(state,r)};string[] labels={"1","5","10","MAX"};for(int n=0;n<4;n++)if(GrowthButton(885+n*122,y+55,112,34,labels[n],quantities[n]>0 && quantities[n]<=MaterialExchangeService.Maximum(state,r) && BookInputAllowed))ProposeExchange(r,quantities[n]);}
+                Label(885,y+14,505,40,"所持 "+HomeRules.Balance(state,r.id)+" ／ Lv."+r.minDropLevel+"以上の勝利",growthSmallStyle);
+                int unit=MaterialExchangeService.UnitCost(r);if(unit>0){Label(245,y+48,620,30,"交換：1個 "+unit+"ネクタル",growthSmallStyle);int[] quantities={1,5,10,MaterialExchangeService.Maximum(state,r)};string[] labels={"1","5","10","MAX"};for(int n=0;n<4;n++)if(GrowthButton(885+n*122,y+48,112,34,labels[n],quantities[n]>0 && quantities[n]<=MaterialExchangeService.Maximum(state,r) && BookInputAllowed))ProposeExchange(r,quantities[n]);}
             }
             Label(150,794,1280,60,"N → R → SR → SSR。上位神器は複数の巨神獣の希少素材を使用します。\n敗北・撤退では素材を獲得しません。",growthSmallStyle);
         }

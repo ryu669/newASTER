@@ -32,18 +32,19 @@ namespace NewAster.Core
             foreach(var job in jobs) {job.Validate();if(!Id(job.id)) throw new ArgumentException("Invalid job ID.");}
             var kinds=new[]{"trait","weapon-tree","poem-chapter","poem-link","affinity-event","lover-event"};
             if(contentReferences==null || contentReferences.Any(r=>r==null || !Id(r.id) || !Id(r.ownerId) || !kinds.Contains(r.kind) || (r.status!="reserved" && r.status!="implemented")) || contentReferences.Select(r=>r.id).Distinct().Count()!=contentReferences.Length) throw new ArgumentException("Invalid heroine content registry.");
+            var references=contentReferences.ToDictionary(r=>r.id,StringComparer.Ordinal);
             foreach(var hero in heroines) {
                 if(combatTraitVersion<0 || combatTraitVersion>1 || combatTraitVersion==1 && string.IsNullOrEmpty(hero.secondTraitId))throw new ArgumentException("Missing required common combat traits.");
                 InteractionTraitCatalog.Validate(hero);
                 if(!string.IsNullOrEmpty(hero.reactionStyleMain))new ReactionStyleProfile{main=hero.reactionStyleMain,sub=string.IsNullOrEmpty(hero.reactionStyleSub)?null:hero.reactionStyleSub}.Validate();
                 var job=jobs.SingleOrDefault(j=>j.id==hero.jobId);if(job==null) throw new ArgumentException("Missing heroine job.");
                 if(hero.hpBp<9000 || hero.hpBp>11000 || hero.attackBp<9000 || hero.attackBp>11000 || hero.defenseBp<9000 || hero.defenseBp>11000 || hero.hpBp+hero.attackBp+hero.defenseBp!=30000 || hero.speedBp<9500 || hero.speedBp>10500 || (long)job.speed*hero.speedBp/10000<1) throw new ArgumentException("Invalid character stat construction.");
-                ValidateReference(hero,hero.traitId,"trait");ValidateReference(hero,hero.weaponTreeId,"weapon-tree");
-                ValidateReferences(hero,hero.poemChapters,"poem-chapter",3);ValidateReferences(hero,hero.poemLinks,"poem-link",18);
-                ValidateReferences(hero,hero.affinityEventIds,"affinity-event",3);ValidateReferences(hero,hero.loverEventIds,"lover-event",2);
+                ValidateReference(references,hero,hero.traitId,"trait");ValidateReference(references,hero,hero.weaponTreeId,"weapon-tree");
+                ValidateReferences(references,hero,hero.poemChapters,"poem-chapter",3);ValidateReferences(references,hero,hero.poemLinks,"poem-link",18);
+                ValidateReferences(references,hero,hero.affinityEventIds,"affinity-event",3);ValidateReferences(references,hero,hero.loverEventIds,"lover-event",2);
                 if(hero.traitHpPercent<0 || hero.traitHpPercent>100 || hero.traitAttackPercent<0 || hero.traitAttackPercent>100) throw new ArgumentException("Invalid trait stats.");
                 if((long)job.hp*hero.hpBp*(100+hero.traitHpPercent)/1000000<1 || (long)job.attack*hero.attackBp*(100+hero.traitAttackPercent)/1000000<1) throw new ArgumentException("Character stats cannot round down to zero.");
-                if(contentReferences.Single(r=>r.id==hero.traitId).status!="implemented") throw new ArgumentException("Combat trait must be implemented.");
+                if(references[hero.traitId].status!="implemented") throw new ArgumentException("Combat trait must be implemented.");
                 for(int slot=0;slot<3;slot++) {
                     var skill=Skill(hero.id,slot);
                     bool observed=skill.ruleOrigin=="video-observation-plus-newaster-original" && !string.IsNullOrEmpty(skill.sourceFile) && skill.sourceFile.EndsWith(".mkv",StringComparison.OrdinalIgnoreCase) && skill.sourceSecond>=0 && skill.observedSkillLevel==7;
@@ -57,15 +58,15 @@ namespace NewAster.Core
             if(chainActions.Any(a=>a.ruleOrigin!="newaster-original")) throw new ArgumentException("Fixed actions must be explicitly authored original definitions.");
             if(contentReferences.Any(r=>!heroines.Any(h=>h.id==r.ownerId))) throw new ArgumentException("Orphan heroine content.");
         }
-        private void ValidateReference(HeroineCombatDef hero,string id,string kind)
+        private void ValidateReference(System.Collections.Generic.Dictionary<string,HeroineContentRef> references,HeroineCombatDef hero,string id,string kind)
         {
-            var r=contentReferences.SingleOrDefault(x=>x.id==id);
+            references.TryGetValue(id??"",out var r);
             if(!Id(id) || r==null || r.ownerId!=hero.id || r.kind!=kind) throw new ArgumentException("Missing or cross-owner heroine content reference.");
         }
-        private void ValidateReferences(HeroineCombatDef hero,string[] ids,string kind,int count)
+        private void ValidateReferences(System.Collections.Generic.Dictionary<string,HeroineContentRef> references,HeroineCombatDef hero,string[] ids,string kind,int count)
         {
             if(ids==null || ids.Length!=count || ids.Distinct().Count()!=count) throw new ArgumentException("Invalid heroine content count.");
-            foreach(var id in ids) ValidateReference(hero,id,kind);
+            foreach(var id in ids) ValidateReference(references,hero,id,kind);
         }
     }
 }

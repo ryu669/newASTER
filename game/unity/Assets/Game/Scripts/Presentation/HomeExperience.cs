@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.IO;
 using NewAster.Core;
@@ -34,7 +34,7 @@ namespace NewAster.Presentation
         private HomeExperienceCatalog HomeData()=>homeData??(homeData=SelectHomeCatalog());
         private HomeOperation homeOperation;private FormalHomeRequest homeRequest;
         private string homeError,selectedFurniture,selectedResident,selectedNode;private float previewX=.5f,previewY=.65f;private bool placing;
-        private FormalHomeProgress HomeState=>formalCampaign.Snapshot.home??FormalHomeProgress.Empty(HomeData().contentVersion);
+        private FormalHomeProgress HomeState=>LifeSnapshot().home??FormalHomeProgress.Empty(HomeData().contentVersion);
         private void ProposeHome(HomeOperation op){if(!HomeOperationsAllowed)return;if(homeRequest!=null || formalCampaign.HasPending || formalProgression.HasPending)return;homeOperation=op;homeRequest=new FormalHomeRequest(Guid.NewGuid().ToString("N"),op.Kind=="equip"?"weapon":op.Kind=="remove"?"place":op.Kind=="use"?"occupant":op.Kind,formalCampaign.Snapshot.revision,HomeData().contentVersion,op.Key);homeError=null;}
         private void ConfirmHome()
         {

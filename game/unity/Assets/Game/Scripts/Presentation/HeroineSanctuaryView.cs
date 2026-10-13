@@ -185,11 +185,11 @@ namespace NewAster.Presentation
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);var snapshot=LifeSnapshot().growth;string resultKey=heroineQuery+"|"+heroineJobFilter+"|"+affectionRosterFilter+"|"+formalCampaign.Revision;if(bookHeroineResults==null || bookHeroineResultKey!=resultKey){bookHeroineResults=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).ToArray();bookHeroineResultKey=resultKey;}var entries=bookHeroineResults;
             var saved=book.PageState;var activeFilters=new[]{heroineJobFilter.ToString(),affectionRosterFilter.ToString()};if(saved.searchQuery!=heroineQuery || !(saved.filterIds??Array.Empty<string>()).SequenceEqual(activeFilters)){saved.searchQuery=heroineQuery;saved.filterIds=activeFilters;bookNavigationDirty=true;}book.SetResults(BookBookmark.Heroines,entries.Select(e=>e.id));
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
-            int people=snapshot.heroines.Select(h=>combatDefinitions.PersonId(h.heroineId)).Distinct().Count();
+            int people=HeroineIndex().PersonCount;
             Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
             var page=entries.Skip(heroinePage*HeroinePageSize).Take(HeroinePageSize).ToArray();
             for(int i=0;i<page.Length;i++){
-                var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
+                var entry=page[i];var h=HeroineIndex().Growth(entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
                 DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
@@ -203,6 +203,7 @@ namespace NewAster.Presentation
             if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"該当なし",growthTextStyle);}
             if(GrowthButton(62,808,210,52,"‹ 前の12人",heroinePage>0 && BookInputAllowed))heroinePage--;
 
+            DrawPageEnds(300,814,990,ref heroinePage,pages,BookInputAllowed);
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
             GUI.enabled=previousEnabled;if(rosterFilterOpen)DrawRosterFilter(jobs);DrawAnnihilatorRecruitmentDialog();

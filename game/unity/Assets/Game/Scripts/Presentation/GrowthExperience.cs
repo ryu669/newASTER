@@ -77,7 +77,7 @@ namespace NewAster.Presentation
         private void DrawLegacyGrowthExperience()
         {
             GrowthStyles();if(!book.HasSubject)return;string id=book.SubjectId;var definition=combatDefinitions.Hero(id);
-            var snapshot=formalProgression.Snapshot;var heroine=snapshot.heroines.Single(h=>h.heroineId==id);
+            var snapshot=GrowthSnapshot();var heroine=snapshot.heroines.Single(h=>h.heroineId==id);
             SanctuaryStyles();SanctuaryHeader("","");GrowthFill(38,95,1524,732,new Color(.055f,.10f,.14f));
             GrowthFrame(62,176,473,632);GrowthFrame(571,176,965,632);GrowthLine(555,105,555,800,gold,2);
             GrowthLine(90,56,640,56,gold);GrowthLine(960,56,1510,56,gold);GrowthDiamond(800,56,17);

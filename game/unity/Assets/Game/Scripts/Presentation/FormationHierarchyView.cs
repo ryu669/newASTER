@@ -21,7 +21,7 @@ namespace NewAster.Presentation
             }
             growthScreen=GrowthScreen.Overview;
         }
-        private void OpenFormationHeroReplacement(int slot){formationSlot=slot;formationLayer=2;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;formationPage=0;formationQuery="";formationCandidateHero=CurrentFormation()[slot];}
+        private void OpenFormationHeroReplacement(int slot){formationJobPicker=false;formationSlot=slot;formationLayer=2;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;formationPage=0;formationQuery="";formationCandidateHero=CurrentFormation()[slot];}
         private void OpenFormationOopartReplacement(int slot){formationSlot=slot;oopartSlot=slot;formationLayer=3;formationSelectionPagePending=true;formationDetailScroll=Vector2.zero;oopartPickerPage=0;oopartPickerQuery="";formationCandidateOopart=OopartSnapshot().collection.ooparts.slots[slot].equippedOopartId;}
         private void DrawHierarchicalFormation()
         {
@@ -54,7 +54,7 @@ namespace NewAster.Presentation
                 if(ImageUiSkin.Button(portrait,"",GUIStyle.none) && interactive)OpenFormationHeroReplacement(slot);
                 Label(x+17,214,120,31,(i+1).ToString(),growthSmallStyle,gold);
                 if(GrowthButton(x+220,216,42,30,"⋯",interactive)){formationSlot=slot;formationLayer=1;}
-                var h=id==null?null:formalProgression.Snapshot.heroines.Single(g=>g.heroineId==id);
+                var h=id==null?null:HeroineIndex().Growth(id);
                 string name=id==null?"—":combatDefinitions.Hero(id).name;var nameStyle=new GUIStyle(growthTextStyle){fontSize=21,alignment=TextAnchor.MiddleCenter};while(nameStyle.fontSize>14 && nameStyle.CalcSize(new GUIContent(name)).x>246)nameStyle.fontSize--;
                 Label(x+14,550,250,39,name,nameStyle);if(h!=null)Label(x+14,589,250,30,"Lv."+h.level,new GUIStyle(growthSmallStyle){alignment=TextAnchor.MiddleCenter});
                 string gear=o.slots[i].equippedOopartId;var itemRect=new Rect(x+12,632,254,81);GrowthFrame(itemRect.x,itemRect.y,itemRect.width,itemRect.height);

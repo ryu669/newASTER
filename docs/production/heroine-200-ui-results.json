@@ -1,0 +1,272 @@
+{
+  "sharedFixtureArt": true,
+  "persons": 200,
+  "measurements": [
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "roster-last",
+      "readyMs": 1260.59
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.696,
+      "view": "roster-search",
+      "readyMs": 34.299
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "roster-empty",
+      "readyMs": 34.699
+    },
+    {
+      "maxFrameMs": 266.911,
+      "p95FrameMs": 16.697,
+      "view": "formation-last",
+      "readyMs": 330.932
+    },
+    {
+      "maxFrameMs": 16.698,
+      "p95FrameMs": 16.697,
+      "view": "formation-search",
+      "readyMs": 45.941
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.664,
+      "view": "formation-jobs",
+      "readyMs": 53.008
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "formation-empty",
+      "readyMs": 44.571
+    },
+    {
+      "maxFrameMs": 16.696,
+      "p95FrameMs": 16.664,
+      "view": "rates-last",
+      "readyMs": 55.268
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "rates-search",
+      "readyMs": 45.127
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "exchange",
+      "readyMs": 44.621
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "tickets",
+      "readyMs": 47.199
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "tickets-empty",
+      "readyMs": 47.185
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "garden-last",
+      "readyMs": 65.769
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "garden-search",
+      "readyMs": 35.97
+    },
+    {
+      "maxFrameMs": 266.915,
+      "p95FrameMs": 16.697,
+      "view": "detail",
+      "readyMs": 329.549
+    },
+    {
+      "maxFrameMs": 16.713,
+      "p95FrameMs": 16.697,
+      "view": "tree",
+      "readyMs": 53.363
+    },
+    {
+      "maxFrameMs": 16.729,
+      "p95FrameMs": 16.697,
+      "view": "level",
+      "readyMs": 34.458
+    },
+    {
+      "maxFrameMs": 16.713,
+      "p95FrameMs": 16.697,
+      "view": "awakening",
+      "readyMs": 34.496
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "duplicate",
+      "readyMs": 34.257
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "skill",
+      "readyMs": 34.698
+    },
+    {
+      "maxFrameMs": 16.713,
+      "p95FrameMs": 16.697,
+      "view": "affection",
+      "readyMs": 64.821
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "stories",
+      "readyMs": 64.256
+    },
+    {
+      "maxFrameMs": 33.376,
+      "p95FrameMs": 33.376,
+      "view": "stories-select",
+      "readyMs": 56.882
+    },
+    {
+      "maxFrameMs": 33.393,
+      "p95FrameMs": 33.377,
+      "view": "stories-last",
+      "readyMs": 59.866
+    },
+    {
+      "maxFrameMs": 33.394,
+      "p95FrameMs": 33.393,
+      "view": "stories-empty",
+      "readyMs": 49.28
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "formation-overview",
+      "readyMs": 84.64
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "formation-member",
+      "readyMs": 47.059
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "targets",
+      "readyMs": 47.224
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.697,
+      "view": "items",
+      "readyMs": 47.381
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "materials",
+      "readyMs": 48.685
+    },
+    {
+      "maxFrameMs": 16.697,
+      "p95FrameMs": 16.664,
+      "view": "newworld",
+      "readyMs": 72.096
+    },
+    {
+      "maxFrameMs": 16.864,
+      "p95FrameMs": 16.697,
+      "view": "worlds",
+      "readyMs": 72.223
+    },
+    {
+      "maxFrameMs": 16.696,
+      "p95FrameMs": 16.664,
+      "view": "colossi",
+      "readyMs": 53.448
+    },
+    {
+      "maxFrameMs": 16.664,
+      "p95FrameMs": 16.664,
+      "view": "hunt",
+      "readyMs": 46.178
+    },
+    {
+      "maxFrameMs": 316.951,
+      "p95FrameMs": 16.697,
+      "view": "battle",
+      "readyMs": 369.671
+    }
+  ],
+  "forms": 203,
+  "output": "tmp/heroine-scale-ui/04ceb299a95941f1a7ed76c520201ccb",
+  "peakWorkingSetBytes": 657514496,
+  "defaultResolution": "1920x1080",
+  "screens": 36,
+  "evidenceSha256": {
+    "affection.png": "5f461b88a48b5e498f24a650568e446a80e87c26e29eea8e885765dc56e103a2",
+    "awakening.png": "bbc3e1da609e513bb4f7d6c50d3b240f3d0b38672528322d2e4e87f66faabe21",
+    "battle.png": "c91e735ad9129f26f989f2ed309fc64d903f0497511c9a6d6a30fa15a8cf9037",
+    "colossi.png": "0d1aa82c256619468ba937c80f137f49cdd795614edeefafd8dbb3755d612d10",
+    "detail.png": "61a7a53cdbb0a21843636aae86acbd1b06d288ba406d60abb4e96ab35187866f",
+    "duplicate.png": "71820d466689f34023d7f2bade698ae5467bb3472d83060e715b418e3223ecf6",
+    "exchange.png": "a1341fd76194d1b84f447e2cfc9d38e7029611dfc42dee66953c729cfd0e6ac6",
+    "formation-empty.png": "e669f4b81d7997f88d1ccdcb681f66acd79018c3d1c4e6b26cf052ffac67090c",
+    "formation-jobs.png": "7d686c25a3ab6c5b3a34d671785d8ebc7fc0af7c976362401fd95b848c4c39c7",
+    "formation-last.png": "513394dc30001078fb7991a61c97caef31c2adb1e6200189519b9f1721a53fa1",
+    "formation-member.png": "c2f32a89ff18df1a5163eab0c043c2a8b4d3bb6b3f683f8fe80bdd675a6ad5a6",
+    "formation-overview.png": "300adbfc2b8d0ddf9c9fde0ca243f50dec45657fd21f821f273a6752890dedbb",
+    "formation-search.png": "51c51ff663359f8e8cd89991281933cf2da90b4897e61022c1ef7b9e86fce3c0",
+    "frame.png": "d3c8a961195221fd448beda201f51594a8e803467dd6b6e0c427283854267db4",
+    "garden-last.png": "d4502ed1a89b1da2b4d748500909a0751300af7ee8b4737537a2df37bf793dd3",
+    "garden-search.png": "855c59d199491f9796c0d8e3b70958ef503048cd0fb73b3b8561785342babd89",
+    "hunt.png": "1bf5266ce0d451a9c77842165aef56e9f571795e2ef456598545ab6d8d642e3c",
+    "items.png": "94fb66cde129765fddf05bc2720f2c5f7f5185f1d2aeec971e9592407cd7b6aa",
+    "level.png": "44951550918f2cb85729a908dcfb8ddc5fe9272e317ed267cfb37147566f7d48",
+    "materials.png": "d145116ad07b93a7cba72f9b6d6ba15cda0ce7e6cdea31e178e61370ab0ea67a",
+    "newworld.png": "3889a4d83082e91c47f6644d4cdcba1f751f6e80fb4ef0c56f8d58f95c1d28c2",
+    "player.log": "cd9f84c434c543747ac7d3bc23a518115725a4b3432599bc0d7a36cb8d3718de",
+    "rates-last.png": "3f9d777e1fb94206a7bc90937352e34bdadd24a7c14e6bc0a556c8d564b7d65f",
+    "rates-search.png": "edc732a30250db2269cde47bff9ff955bd4101c78f8f8518653ec8ca4048b9da",
+    "roster-empty.png": "a5220d5ff3b3428f90c257d2a8674c93b66b60ecf3367ecf40bcd242ac8cd1e7",
+    "roster-last.png": "944c95b7ceefb5af61c74509826fef257198b18e6e6054afa28356286090e0ae",
+    "roster-search.png": "bf6b9b7c3cd586d90a00a6f421c2ae5fecd216360a07a329e3d3099789de08c4",
+    "scale-ui-times.txt": "6d3c22341227dbb5b5770a82d2c78133a035090cbff6bb6e36c8fc7fb2d6de8d",
+    "skill.png": "fb775fe42fc7c8f71950052b2e977059abaa51fa65c5b2eb78b3576fcf81c335",
+    "stories-empty.png": "b1cfe6da018aa384ccc7f03d0c2e4e7d733e9a9b877f1d8b572f2c038780f758",
+    "stories-last.png": "4f0c51bd648f698fef36eb5d89bbb7c3242dc287ac2ab51560c6629e3345d1d0",
+    "stories-select.png": "836ea3a736a682ccf40570727a35b495dc517863a9f2eb3410771b2f9ba8e7a2",
+    "stories.png": "0d06568b7abff62eac605ebabc38e79a0576d29ee42aca09af6c9b1bb388e1ca",
+    "targets.png": "de679cd3450e12785c66ad36a5d4626e608ead457380e127ad2c356bc43e8ac5",
+    "tickets-empty.png": "8e0a017c5ecb4d09d1403c61c893653f9d371c7ad56c544eb0f45b6680b1414c",
+    "tickets.png": "b17ca2543512ed1a756e4fae219d35209398372593aef93775ed7446e0572012",
+    "tree.png": "9f9dbac5b34b27e79338815ce6fff8bf8f1d1ee9efe742e9eb7fa6e12d52ce30",
+    "worlds.png": "d895f270d54e849981e620f7e082ec04af698eb716d2463abbb11595c8c9f188"
+  },
+  "normalRegression": {
+    "output": "tmp/runtime-improvements-player/fb491a0f0dcf4907a94e13e02a12bfaa",
+    "cases": [
+      "cache",
+      "paging"
+    ],
+    "passed": true
+  },
+  "coreAssertions": 12774,
+  "unityBuildLog": "tmp/scale-ui-build-14.log",
+  "physicalInput": false
+}

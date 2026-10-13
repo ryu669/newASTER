@@ -35,8 +35,9 @@ namespace NewAster.Presentation
         private void ValidateSlotContent(FormalCampaignSave value)
         {
             value.Validate();
-            if(value.growth.heroines.Any(h=>!combatDefinitions.HeroineIds.Contains(h.heroineId)))throw new ArgumentException("未対応の人物が含まれています。対応するゲーム版で開いてください。");
-            value.collection?.ValidateContent(SelectCollectionCatalog());
+            var supported=new System.Collections.Generic.HashSet<string>(combatDefinitions.HeroineIds);
+            if(value.growth.heroines.Any(h=>!supported.Contains(h.heroineId)))throw new ArgumentException("未対応の人物が含まれています。対応するゲーム版で開いてください。");
+            value.collection?.ValidateContent(CollectionData());
             if(value.home!=null && !ProductionStoryMigration.Required(value))value.home.ValidateContent(HomeData(),value);
             value.gardenLife?.ValidateContent(value,HomeData());
             if(value.affection!=null)AffectionSaveAdapter.ValidateContent(value,HomeData());
