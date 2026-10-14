@@ -12,6 +12,8 @@ namespace NewAster.Presentation
     public sealed partial class PrototypeBootstrap
     {
         private bool scaleUiActive,scaleUiComplete;
+        private int scalePeople,scaleForms;
+        private string scaleLastId,scaleLastQuery;
         private static string ScaleReplace(string value,string from,string to)=>value==null?null:value==from?to:value.EndsWith("."+from,StringComparison.Ordinal)?value.Substring(0,value.Length-from.Length)+to:value.Replace(from+".",to+".");
         private static T ScaleCopy<T>(T value){var copy=Activator.CreateInstance<T>();foreach(var field in typeof(T).GetFields(BindingFlags.Public|BindingFlags.Instance))field.SetValue(copy,field.GetValue(value));return copy;}
         private static object ScaleClone(object value,string from,string to)
@@ -46,7 +48,12 @@ namespace NewAster.Presentation
             var sourceCombat=ScaleCopy(combatDefinitions);var sourceHome=ScaleCopy(HomeData());var sourceCollection=ScaleCopy(CollectionData());var sourceStory=ScaleCopy(ProductionStoryData());
             HeroFraming("heroine.slayer");var sourcePortrait=ScaleCopy(portraitFraming);
             var save=formalCampaign.Snapshot;int existingPeople=combatDefinitions.HeroineIds.Select(combatDefinitions.PersonId).Distinct().Count();
-            for(int n=1;n<=200-existingPeople;n++){
+            int target=200;int targetAt=Array.IndexOf(args,"-scaleTargetPeople");
+            if(targetAt>=0 && (targetAt+1>=args.Length || !int.TryParse(args[targetAt+1],out target) || target<1 || target>1000))throw new ArgumentException("Invalid scale target (1..1000).");
+            scalePeople=Math.Max(target,existingPeople+1);int additions=scalePeople-existingPeople;scaleForms=combatDefinitions.HeroineIds.Length+additions;
+            scaleLastId="heroine.scale."+additions.ToString("D3");scaleLastQuery="検証"+new string(additions.ToString("D3").Select(c=>(char)(c+0xFEE0)).ToArray());
+            foreach(string id in combatDefinitions.HeroineIds.Except(save.growth.heroines.Select(h=>h.heroineId)))save.growth.heroines=save.growth.heroines.Concat(new[]{new FormalHeroineGrowth{heroineId=id}}).ToArray();
+            for(int n=1;n<=additions;n++){
                 string id="heroine.scale."+n.ToString("D3");const string from="heroine.slayer";
                 ExpandScaleArrays(combatDefinitions,sourceCombat,from,id);ExpandScaleArrays(homeData,sourceHome,from,id);ExpandScaleArrays(collectionCatalog,sourceCollection,from,id);ExpandScaleArrays(productionStory,sourceStory,from,id);ExpandScaleArrays(portraitFraming,sourcePortrait,from,id);
                 var hero=combatDefinitions.Hero(id);hero.name="検証"+n.ToString("D3")+(n%10==0?"・長い名前のヒロイン":"");hero.personId=id;
@@ -54,17 +61,17 @@ namespace NewAster.Presentation
                 save.growth.heroines=save.growth.heroines.Concat(new[]{new FormalHeroineGrowth{heroineId=id,level=1+n%50}}).ToArray();
             }
             combatDefinitions.Validate();portraitFraming.Validate();heroineRoster=null;save.revision++;
-            save.growth.stones=3000;save.growth.kinderPoints=200;save.growth.tickets=new[]{new HeroineTicket{heroineId="heroine.scale.178",count=1}};
-            BindFormalCampaign(save);AcceptanceCheck(acceptanceStore.Save(formalCampaign.Snapshot),"Persist isolated 200-person fixture before testing transactions");InitializeKinder();AcceptanceCheck(HeroineIndex().PersonCount==200 && GrowthSnapshot().heroines.Length==203,"200 persons / 203 distinct forms");
-            var all=HeroineIndex().Search("",ownedOnly:true);AcceptanceCheck(all.Length==203 && all.Distinct().Count()==203,"Every form selectable without truncation");
-            AcceptanceCheck(HeroineIndex().Search("検証１７８",ownedOnly:true).Single()=="heroine.scale.178","Full-width query finds last synthetic person");
-            kinderQuery="";AcceptanceCheck(KinderCatalogIds(KinderScreen.Tickets,GrowthSnapshot()).SequenceEqual(new[]{"heroine.scale.178"}),"Ticket selection searches actual owned tickets across 203 forms");
+            save.growth.stones=3000;save.growth.kinderPoints=200;save.growth.tickets=new[]{new HeroineTicket{heroineId=scaleLastId,count=1}};
+            BindFormalCampaign(save);AcceptanceCheck(acceptanceStore.Save(formalCampaign.Snapshot),"Persist isolated 200-person fixture before testing transactions");InitializeKinder();AcceptanceCheck(HeroineIndex().PersonCount==scalePeople && GrowthSnapshot().heroines.Length==scaleForms,"Dynamic person and form counts match the expanded catalog");
+            var all=HeroineIndex().Search("",ownedOnly:true);AcceptanceCheck(all.Length==scaleForms && all.Distinct().Count()==scaleForms,"Every form selectable without truncation");
+            AcceptanceCheck(HeroineIndex().Search(scaleLastQuery,ownedOnly:true).Single()==scaleLastId,"Full-width query finds last synthetic person");
+            kinderQuery="";AcceptanceCheck(KinderCatalogIds(KinderScreen.Tickets,GrowthSnapshot()).SequenceEqual(new[]{scaleLastId}),"Ticket selection searches actual owned tickets across 203 forms");
             var timer=System.Diagnostics.Stopwatch.StartNew();combatDefinitions.Validate();Debug.Log("SCALE_PROFILE combat="+timer.ElapsedMilliseconds);timer.Restart();HomeData().Validate();Debug.Log("SCALE_PROFILE home="+timer.ElapsedMilliseconds);timer.Restart();CollectionData().Validate();Debug.Log("SCALE_PROFILE collection="+timer.ElapsedMilliseconds);timer.Restart();OopartSnapshot();Debug.Log("SCALE_PROFILE oopart="+timer.ElapsedMilliseconds);
             StartCoroutine(CaptureScaleUiScreens());
         }
         private void VerifyScaleUiOperations()
         {
-            const string id="heroine.scale.178";
+            string id=scaleLastId;
             encounter=null;storyPickerOpen=false;formationJobPicker=false;affectionPanel=false;kinderGarden=false;
             book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;
             ProposeHome(new HomeOperation("formation",id,"0"));ConfirmHome();
@@ -90,14 +97,14 @@ namespace NewAster.Presentation
                 var clock=System.Diagnostics.Stopwatch.StartNew();title=false;encounter=null;formationOpen=false;kinderGarden=false;collectionOpen=false;affectionPanel=false;affectionShop=false;growthScreen=GrowthScreen.Overview;gardenLifePanel=null;heroineRosterOpen=true;
                 heroineQuery="";heroineJobFilter=0;affectionRosterFilter=0;heroinePage=0;kinderQuery="";kinderPage=0;
                 book.SetResults(BookBookmark.Heroines,GrowthSnapshot().heroines.Select(h=>h.heroineId));book.ChangeBookmark(BookBookmark.Heroines);book.CompleteTransition();
-                if(view.StartsWith("roster")){heroinePage=view=="roster-last"?16:0;heroineQuery=view=="roster-search"?"検証１７８":view=="roster-empty"?"見つからない名前":"";}
-                else if(view.StartsWith("formation")){book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;OpenFormationHeroReplacement(0);formationSelectionPagePending=false;formationPage=25;formationCandidateHero="heroine.scale.178";formationJobPicker=view=="formation-jobs";formationQuery=view=="formation-search"?"検証１７８":view=="formation-empty"?"見つからない名前":"";if(view=="formation-overview")formationLayer=0;else if(view=="formation-member")formationLayer=1;}
+                if(view.StartsWith("roster")){heroinePage=view=="roster-last"?(scaleForms-1)/HeroinePageSize:0;heroineQuery=view=="roster-search"?scaleLastQuery:view=="roster-empty"?"見つからない名前":"";}
+                else if(view.StartsWith("formation")){book.ChangeBookmark(BookBookmark.Formation);book.CompleteTransition();formationOpen=true;OpenFormationHeroReplacement(0);formationSelectionPagePending=false;formationPage=(scaleForms-1)/8;formationCandidateHero=scaleLastId;formationJobPicker=view=="formation-jobs";formationQuery=view=="formation-search"?scaleLastQuery:view=="formation-empty"?"見つからない名前":"";if(view=="formation-overview")formationLayer=0;else if(view=="formation-member")formationLayer=1;}
                 else if(view.StartsWith("rates") || view=="targets" || view=="exchange" || view.StartsWith("tickets")){
                     book.ChangeBookmark(BookBookmark.Summoning);book.CompleteTransition();kinderGarden=true;kinderScreen=view=="targets"?KinderScreen.Targets:view.StartsWith("rates")?KinderScreen.Rates:view=="exchange"?KinderScreen.Exchange:KinderScreen.Tickets;
-                    kinderQuery=view=="rates-search" || view=="exchange"?"検証１７８":view=="tickets-empty"?"見つからない名前":"";kinderPage=view=="rates-last"?41:0;
+                    kinderQuery=view=="rates-search" || view=="exchange"?scaleLastQuery:view=="tickets-empty"?"見つからない名前":"";kinderPage=view=="rates-last"?(scaleForms-1)/5:0;
                 }else if(view.StartsWith("garden")){
-                    gardenLifeCapture=true;book.ChangeBookmark(BookBookmark.Gardens);book.CompleteTransition();gardenLifePanel="人物";gardenLifeQuery=view=="garden-search"?"検証１７８":"";gardenLifeResidentFilter="全員";gardenLifeScroll=new Vector2(0,view=="garden-last"?203*55:0);StartLifeScene();
-                }else if(view.StartsWith("stories")){book.ChangeBookmark(BookBookmark.Stories);book.CompleteTransition();storyPickerOpen=view!="stories";storyPickerQuery=view=="stories-select"?"検証１７８":view=="stories-empty"?"見つからない名前":"";storyPickerPage=view=="stories-last"?999:0;}
+                    gardenLifeCapture=true;book.ChangeBookmark(BookBookmark.Gardens);book.CompleteTransition();gardenLifePanel="人物";gardenLifeQuery=view=="garden-search"?scaleLastQuery:"";gardenLifeResidentFilter="全員";gardenLifeScroll=new Vector2(0,view=="garden-last"?scaleForms*55:0);StartLifeScene();
+                }else if(view.StartsWith("stories")){book.ChangeBookmark(BookBookmark.Stories);book.CompleteTransition();storyPickerOpen=view!="stories";storyPickerQuery=view=="stories-select"?scaleLastQuery:view=="stories-empty"?"見つからない名前":"";storyPickerPage=view=="stories-last"?int.MaxValue:0;}
                 else if(new[]{"items","materials","newworld","worlds","colossi","hunt","battle"}.Contains(view)){
                     book.ChangeBookmark(view=="items" || view=="materials"?BookBookmark.Items:view=="newworld"?BookBookmark.NewWorld:view=="worlds"?BookBookmark.PossibleWorlds:view=="hunt"?BookBookmark.RelicHunt:BookBookmark.Colossi);book.CompleteTransition();collectionTab=view=="materials"?2:1;
                     if(view=="battle")StartBattle(WorldCatalog.Colossi[0].Id);
@@ -113,7 +120,7 @@ namespace NewAster.Presentation
 
                 yield return new WaitForSecondsRealtime(.25f);
             }
-            File.WriteAllLines(Path.Combine(folder,"scale-ui-times.txt"),measurements);VerifyScaleUiOperations();Debug.Log("SCALE_UI_PLAYER_PASS persons=200 forms=203 screens=35 sharedFixtureArt=true");scaleUiComplete=true;
+            File.WriteAllLines(Path.Combine(folder,"scale-ui-times.txt"),measurements);VerifyScaleUiOperations();Debug.Log("SCALE_UI_PLAYER_PASS persons="+scalePeople+" forms="+scaleForms+" screens=35 sharedFixtureArt=true");scaleUiComplete=true;
         }
     }
 }

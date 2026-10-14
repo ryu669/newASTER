@@ -243,6 +243,7 @@ namespace NewAster.Presentation
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
                 if(Quality119Capture)ready=quality119Complete;
                 if(scaleUiActive)ready=scaleUiComplete;
+                if(mediaWarmCapture)ready=mediaWarmComplete;
                 if(Quality119EnvironmentAudioCapture)ready=quality119EnvironmentAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();
@@ -479,6 +480,7 @@ namespace NewAster.Presentation
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             formalCampaign.LockOopartsForBattle();
             illustrationView?.Dispose();illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus),ScheduleHeroineAssetCleanup);
+            StartCoroutine(illustrationView.WarmHeroes(CurrentFormation()));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();

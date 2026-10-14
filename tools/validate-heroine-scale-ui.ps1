@@ -1,10 +1,10 @@
-param([string]$PlayerPath='game/Builds/plan12-april/newASTER.exe')
+param([string]$PlayerPath='game/Builds/plan12-april/newASTER.exe',[ValidateRange(1,1000)][int]$TargetPeople=200)
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
 $output=Join-Path $repo ('tmp/heroine-scale-ui/'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Force $output | Out-Null
 $log=Join-Path $output 'player.log';$png=Join-Path $output 'frame.png'
-$p=Start-Process (Join-Path $repo $PlayerPath) -ArgumentList @('-logFile',$log,'-presentationCapture',$png,'-plan12AprilPreview','-capturePlan10Ui','-uiView','roster','-validateScaleUi') -WindowStyle Normal -PassThru
+$p=Start-Process (Join-Path $repo $PlayerPath) -ArgumentList @('-logFile',$log,'-presentationCapture',$png,'-plan12AprilPreview','-capturePlan10Ui','-uiView','roster','-validateScaleUi','-scaleTargetPeople',$TargetPeople) -WindowStyle Normal -PassThru
 $clock=[Diagnostics.Stopwatch]::StartNew();$peak=0L
 try{
  while(-not $p.WaitForExit(100)){
@@ -26,6 +26,8 @@ try{
   $row
  })
  if($measurements.Count -ne 35){throw "Incomplete timing coverage: $output"}
- @{persons=200;forms=203;sharedFixtureArt=$true;screens=$files.Count;peakWorkingSetBytes=$peak;defaultResolution='1920x1080';output=$output;measurements=$measurements} | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $output 'results.json') -Encoding utf8
+ if($text -notmatch 'SCALE_UI_PLAYER_PASS persons=(\d+) forms=(\d+)'){throw 'Missing dynamic population counts'}
+ $people=[int]$Matches[1];$forms=[int]$Matches[2];if($people -lt $TargetPeople -or $forms -lt $people){throw 'Invalid scale population'}
+ @{persons=$people;forms=$forms;sharedFixtureArt=$true;screens=$files.Count;peakWorkingSetBytes=$peak;defaultResolution='1920x1080';output=$output;measurements=$measurements} | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $output 'results.json') -Encoding utf8
  "SCALE_UI_VALIDATION_PASS $output"
 }finally{if(-not $p.HasExited){Stop-Process -Id $p.Id}}

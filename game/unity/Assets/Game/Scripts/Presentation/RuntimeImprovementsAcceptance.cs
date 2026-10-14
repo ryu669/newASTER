@@ -7,6 +7,7 @@ namespace NewAster.Presentation
 {
     public sealed partial class PrototypeBootstrap
     {
+        private bool mediaWarmCapture,mediaWarmComplete;
         private void PrepareRuntimeImprovementsCapture(string[] args)
         {
             if(!args.Contains("-validateRuntimeImprovements"))return;
@@ -23,6 +24,25 @@ namespace NewAster.Presentation
             AcceptanceCheck(!ReferenceEquals(before,after) && !ReferenceEquals(preview,updated) && after.heroines.Single(h=>h.heroineId==id).level==growth.level+1 && updated.MaxHitPoints>preview.MaxHitPoints,"Committed growth invalidates caches and changes actual stats");
             AcceptanceCheck(ReferenceEquals(after,GrowthSnapshot()) && ReferenceEquals(updated,HeroineDetailPreview(id,after)),"Updated caches are stable");
             Debug.Log("RUNTIME_IMPROVEMENTS_CACHE_PASS reuse=true failedSave=unchanged retry=durable stats=updated");
+            if(args.Contains("-validateMediaWarmup")){mediaWarmCapture=true;StartCoroutine(ValidateMediaWarmup());}
+        }
+        private System.Collections.IEnumerator ValidateMediaWarmup()
+        {
+            string source="heroine.april.event.0";
+            ReadProductionDiagnosticScene(source,false);BeginAdv(source,true);CloseAdv();BeginAdv(source,true);
+            string before=UnityFormalCampaignJson.Encode(formalCampaign.Snapshot);int steps=0;double deadline=Time.realtimeSinceStartupAsDouble+30;
+            while(adv.CgId==null && !adv.EndReached){
+                AcceptanceCheck(Time.realtimeSinceStartupAsDouble<deadline && steps<100,"Async ADV reaches CG without stale request deadlock");
+                if(AdvVisualReady()){adv.Resume();adv.Tick(2);AdvanceAdv();steps++;}
+                yield return null;
+            }
+            while(!AdvVisualReady()){AcceptanceCheck(Time.realtimeSinceStartupAsDouble<deadline,"ADV image load completes");yield return null;}
+            AcceptanceCheck(adv.CgId!=null && AdvTexture(adv.CgId)!=null && advImageFailures.Count==0,"Authored CG is loaded, not a placeholder");
+            AcceptanceCheck(before==UnityFormalCampaignJson.Encode(formalCampaign.Snapshot),"Async replay remains read-only");
+            yield return new WaitForEndOfFrame();ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(capturePath),"adv-async-cg.png"));
+            yield return null;CloseAdv();yield return illustrationView.WarmHeroes(CurrentFormation());
+            AcceptanceCheck(illustrationView.CachedLayerCount<=36,"Battle prefetch respects existing cache capacity");
+            Debug.Log("MEDIA_WARM_PLAYER_PASS async-adv / cancel-reopen / authored-cg / replay-readonly / battle-prefetch-cache");mediaWarmComplete=true;
         }
         private void MeasureSaveHistory()
         {
