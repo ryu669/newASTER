@@ -44,11 +44,12 @@ namespace NewAster.Core
         {
             RequirePointer(slot,expected);Validation.Validate(document);
             var backups=new System.Collections.Generic.List<string>();
+            var verifiedText=new System.Collections.Generic.List<string>();
             string preserved=null;
             if(expected!=null){
                 for(int n=0;n<=2;n++){
                     string old=FilePath(slot,expected,n);if(!File.Exists(old))continue;
-                    try{Validation.Read(old);backups.Add(old);}catch(Exception e)when(ExpectedFailure(e)){
+                    try{string text=File.ReadAllText(old,Encoding.UTF8);Validation.ReadText(text,out _);backups.Add(old);verifiedText.Add(text);}catch(Exception e)when(ExpectedFailure(e)){
                         if(!restoring)throw;
                         if(n==0)preserved=old;
                     }
@@ -57,7 +58,9 @@ namespace NewAster.Core
             string id=Guid.NewGuid().ToString("N"),folder=Path.GetDirectoryName(FilePath(slot,id));Directory.CreateDirectory(folder);
             DurableWrite(FilePath(slot,id),Validation.Encode(document));Validation.Read(FilePath(slot,id));Fault?.Invoke("latest-verified");
             for(int n=0;n<Math.Min(2,backups.Count);n++){
-                File.Copy(backups[n],FilePath(slot,id,n+1));Validation.Read(FilePath(slot,id,n+1));
+                string target=FilePath(slot,id,n+1);File.Copy(backups[n],target);
+                // Compare against the exact content validated above, not a second mutable source read.
+                if(!string.Equals(File.ReadAllText(target,Encoding.UTF8),verifiedText[n],StringComparison.Ordinal))throw new IOException("Backup changed while copying.");
             }
             if(preserved!=null)File.Copy(preserved,Path.Combine(folder,"preserved-corrupt.json"));
             Fault?.Invoke("backups-verified");RequirePointer(slot,expected);

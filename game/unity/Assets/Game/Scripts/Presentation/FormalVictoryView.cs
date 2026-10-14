@@ -16,7 +16,7 @@ namespace NewAster.Presentation
         private bool formalVictoryDiagnosticFailure;
         private void StartCollection()
         {
-            collectionCatalog=SelectCollectionCatalog();
+            collectionCatalog=CollectionData();
             collectionSession=new BattleCollectionSession(collectionCatalog,battleId,activeColossus,selectedLevel,formalCampaign.Snapshot.revision,encounter.State.Heroes.Select(h=>h.Id).ToArray(),encounter.Seed,ActiveColossusDefinition(activeColossus).contentVersion,activeRelicHunt);
             singingRandom=new System.Random(unchecked(encounter.Seed ^ 0x534F4E47));lastSinging=null;
             // Trial prioritizes missing source poems; ordinary fixture keeps uniform sampling.

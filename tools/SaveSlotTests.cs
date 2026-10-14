@@ -75,6 +75,25 @@ public static class SaveSlotTests
         check(SaveSlotManager.GenerationDirectory(root,0)!=SaveSlotManager.GenerationDirectory(root,1),"SV-15 directories separate");
         var many=Fresh();many.growth.heroines=Enumerable.Range(0,256).Select(i=>new FormalHeroineGrowth{heroineId="heroine.test-"+i}).ToArray();m.Save(1,many,now);check(m.Load(1).growth.heroines.Length==256,"SV-17 256 persons round trip");
         FullSystems(check,resources,Manager(Path.Combine(root,"systems")));
+        // A valid but different source written between validation and copy must not be published.
+        var changed=Manager(Path.Combine(root,"changed-backup"));changed.Save(1,Fresh(1),now);changed.Save(1,Fresh(2),now);
+        string original=File.ReadAllText(Latest(changed,1)),originalPointer=changed.Transactions.Pointer(1);
+        changed.Transactions.Fault=stage=>{if(stage=="latest-verified")File.WriteAllText(Latest(changed,1),JsonSerializer.Serialize(Validation().Create(Fresh(55),Guid.NewGuid().ToString("N"),now),Json));};
+        reject(()=>changed.Save(1,Fresh(3),now),"Backup source changed after validation is rejected even when valid JSON");
+        check(changed.Transactions.Pointer(1)==originalPointer,"Changed backup never publishes staged commit");
+        File.WriteAllText(Latest(changed,1),original);changed.Transactions.Fault=null;changed.Save(1,Fresh(3),now);
+        check(changed.Load(1).revision==3 && changed.Inspect(1,2).Status==SaveSlotStatus.Ready,"Retry after backup copy failure retains complete rotation");
+        int decodes=0;
+        var measuredValidation=new SaveValidationService(0,"test",Encode,text=>{decodes++;return Decode<FormalCampaignSave>(text);},s=>JsonSerializer.Serialize(s,Json),Decode<GameSave>);
+        var measured=new SaveSlotManager(new SaveTransactionService(Path.Combine(root,"measured"),measuredValidation));
+        var history=Fresh();history.growth.receipts=Enumerable.Range(0,10000).Select(i=>new GrowthReceipt{transactionId="perf."+i,signature="perf|"+i}).ToArray();
+        for(int i=0;i<3;i++)measured.Save(1,history,now);
+        decodes=0;var watch=Stopwatch.StartNew();measured.Load(1);watch.Stop();
+        check(decodes==1,"Load validates and decodes history exactly once within its lock");
+        Console.WriteLine("SAVE_SLOT_HISTORY_MEASUREMENT receipts=10000 operation=load ms="+watch.Elapsed.TotalMilliseconds.ToString("F3")+" decodes="+decodes);
+        decodes=0;watch.Restart();measured.Save(1,history,now);watch.Stop();
+        check(decodes==7,"Save verifies old and new documents without re-decoding copied backups");
+        Console.WriteLine("SAVE_SLOT_HISTORY_MEASUREMENT receipts=10000 operation=save ms="+watch.Elapsed.TotalMilliseconds.ToString("F3")+" decodes="+decodes);
         foreach(string stage in new[]{"latest-verified","backups-verified","before-publish","after-publish"}){
             var crash=Manager(Path.Combine(root,"crash-"+stage));for(int i=1;i<=3;i++)crash.Save(1,Fresh(i),now);string before=Fingerprint(crash,1);
             var start=new ProcessStartInfo(Environment.ProcessPath){UseShellExecute=false,CreateNoWindow=true};start.ArgumentList.Add(Assembly.GetExecutingAssembly().Location);start.ArgumentList.Add("--save-crash-helper");start.ArgumentList.Add(crash.Transactions.Root);start.ArgumentList.Add(stage);

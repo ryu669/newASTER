@@ -13,6 +13,8 @@ namespace NewAster.Presentation
         private GrowthReceipt kinderReceipt;
         private string kinderSaveError;
         private int kinderSelection,kinderCount=1,kinderPage;
+        private string kinderQuery="";
+        private bool kinderOwnedTicketsOnly=true;
         private float kinderRevealStarted;
         private void InitializeKinder()
         {
@@ -75,13 +77,13 @@ namespace NewAster.Presentation
         }
         private void DrawKinderExperience()
         {
-            GrowthStyles();var state=formalProgression.Snapshot;
+            GrowthStyles();var state=GrowthSnapshot();
             bool priorEnabled=GUI.enabled;bool confirming=kinderScreen==KinderScreen.Confirmation;var visible=confirming?kinderOrigin:kinderScreen;if(expansionRecruitmentOpen || confirming)GUI.enabled=false;
             PalaceBackdrop("leaf");GrowthFill(38,95,1524,732,ink);GrowthFrame(46,87,1508,732);GrowthLine(555,105,555,800,gold,2);
             if(visible!=KinderScreen.Entrance && GrowthButton(80,118,180,48,"‹ 戻る",!formalProgression.HasPending))KinderBack();
             Label(92,214,420,72,"キンダーガーデン",growthTitleStyle);
-            DrawHeroPortrait(new Rect(92,300,420,340),kinderBanner.heroineIds[kinderSelection]);
-            Label(92,650,420,65,combatDefinitions.Hero(kinderBanner.heroineIds[kinderSelection]).name,growthTextStyle,gold);
+            if(kinderSelection>=0 && kinderSelection<kinderBanner.heroineIds.Length){DrawHeroPortrait(new Rect(92,300,420,340),kinderBanner.heroineIds[kinderSelection]);
+            Label(92,650,420,65,combatDefinitions.Hero(kinderBanner.heroineIds[kinderSelection]).name,growthTextStyle,gold);}
             Label(92,737,420,40,"実装済み全"+kinderBanner.heroineIds.Length+"形態 ／ 育成素材",growthSmallStyle);
             Label(605,125,885,48,"石 "+state.stones.ToString("N0")+"　／　ポイント "+state.kinderPoints+"　／　チケット "+state.tickets.Sum(t=>t.count),growthTextStyle);
             string[] titles={"召喚","召喚","ポイント交換","専用チケット","提供割合","確認","召喚結果","召喚","召喚対象"};
@@ -110,31 +112,45 @@ namespace NewAster.Presentation
             var labels=new[]{"召喚対象","提供割合","ポイント交換","チケット使用"};
             for(int n=0;n<4;n++)if(GrowthButton(605+n*224,284,213,48,(screen==tabs[n]?"◆ ":"")+labels[n],BookInputAllowed,screen==tabs[n])){kinderScreen=tabs[n];kinderPage=0;return;}
             bool rates=screen==KinderScreen.Rates,exchange=screen==KinderScreen.Exchange,tickets=screen==KinderScreen.Tickets;
-            Label(605,342,885,38,rates?"1回の召喚で出現する確率":exchange?"100ポイントで、選んだ誓女の専用チケット1枚":tickets?"使う専用チケットを選択":"衣装違いを含む全"+kinderBanner.heroineIds.Length+"形態",growthSmallStyle,gold);
-            int count=kinderBanner.heroineIds.Length+(rates?kinderBanner.materials.Length:0),pages=Math.Max(1,(count+4)/5);
+            Label(605,346,125,34,"名前検索",growthSmallStyle);
+            string query=ImageUiSkin.TextField(new Rect(740,342,435,38),kinderQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=21});
+            if(query!=kinderQuery){kinderQuery=query;kinderPage=0;}
+            if(GrowthButton(1185,342,100,38,"クリア",kinderQuery.Length>0)){kinderQuery="";kinderPage=0;}
+            if(tickets && GrowthButton(1295,342,195,38,kinderOwnedTicketsOnly?"所持のみ":"すべて",BookInputAllowed)){kinderOwnedTicketsOnly=!kinderOwnedTicketsOnly;kinderPage=0;}
+            var ids=KinderCatalogIds(screen,state);int count=ids.Length+(rates && kinderQuery.Length==0?kinderBanner.materials.Length:0),pages=Math.Max(1,(count+4)/5);
+            if(kinderSelection<0 || kinderSelection>=kinderBanner.heroineIds.Length || !ids.Contains(kinderBanner.heroineIds[kinderSelection]))kinderSelection=ids.Length==0?-1:Array.IndexOf(kinderBanner.heroineIds,ids[0]);
             kinderPage=Mathf.Clamp(kinderPage,0,pages-1);
             for(int row=0;row<5;row++){
                 int index=kinderPage*5+row;if(index>=count)break;float y=391+row*55;
-                if(index<kinderBanner.heroineIds.Length){
-                    string id=kinderBanner.heroineIds[index],name=combatDefinitions.Hero(id).name;
+                if(index<ids.Length){
+                    string id=ids[index],name=combatDefinitions.Hero(id).name;
+                    int sourceIndex=Array.IndexOf(kinderBanner.heroineIds,id);
                     int owned=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
                     string detail=rates?((decimal)FormalKinderBanner.HeroineRateBp/100/kinderBanner.heroineIds.Length).ToString("0.####")+"%":tickets?"チケット "+owned+"枚":exchange?"100ポイント":state.heroines.Any(h=>h.heroineId==id)?"所持":"未所持";
-                    bool selected=kinderSelection==index;
-                    if(GrowthButton(605,y,885,49,(selected?"◆ ":"")+name+"　／　"+detail,BookInputAllowed,selected))kinderSelection=index;
+                    bool selected=kinderSelection==sourceIndex;
+                    if(GrowthButton(605,y,885,49,(selected?"◆ ":"")+name+"　／　"+detail,BookInputAllowed,selected))kinderSelection=sourceIndex;
                 }else{
-                    var material=kinderBanner.materials[index-kinderBanner.heroineIds.Length];
+                    var material=kinderBanner.materials[index-ids.Length];
                     decimal chance=(100m-(decimal)FormalKinderBanner.HeroineRateBp/100)*material.weight/kinderBanner.materials.Sum(m=>m.weight);
                     Label(623,y+7,850,38,(material.kind=="nectar"?"ネクタル":"覚醒結晶")+" "+material.amount+"個　／　"+chance.ToString("0.####")+"%",growthTextStyle);
                 }
             }
-            if(GrowthButton(605,678,205,40,"‹ 前へ",kinderPage>0 && BookInputAllowed))kinderPage--;
+            if(count==0)Label(605,440,885,65,tickets?"該当するチケットがありません":"該当する誓女がいません",growthTextStyle);
+            DrawPageEnds(605,678,885,ref kinderPage,pages,BookInputAllowed);
+            if(GrowthButton(683,678,115,40,"‹ 前へ",kinderPage>0 && BookInputAllowed))kinderPage--;
             Label(825,683,420,32,(kinderPage+1)+" / "+pages+(rates?"　★6合計 "+((decimal)FormalKinderBanner.HeroineRateBp/100).ToString("0.##")+"%":""),growthSmallStyle);
-            if(GrowthButton(1285,678,205,40,"次へ ›",kinderPage+1<pages && BookInputAllowed))kinderPage++;
-            if(exchange || tickets){
+            if(GrowthButton(1290,678,115,40,"次へ ›",kinderPage+1<pages && BookInputAllowed))kinderPage++;
+            if((exchange || tickets) && kinderSelection>=0){
                 string id=kinderBanner.heroineIds[kinderSelection];int owned=state.tickets.SingleOrDefault(t=>t.heroineId==id)?.count??0;
                 Label(605,724,885,30,combatDefinitions.Hero(id).name+" ／ 専用チケット "+owned+"枚",growthSmallStyle);
                 if(GrowthButton(605,763,885,48,exchange?"この誓女のチケットと交換":"このチケットを使う",BookInputAllowed && (exchange?state.kinderPoints>=100:owned>0),true))ConfirmKinder(exchange?KinderOperation.Exchange:KinderOperation.TicketDraw,state,id);
             }
+        }
+        private string[] KinderCatalogIds(KinderScreen screen,FormalGrowthSave state)
+        {
+            var ids=HeroineIndex().Search(kinderQuery,source:kinderBanner.heroineIds);
+            if(screen==KinderScreen.Tickets && kinderOwnedTicketsOnly){var owned=new System.Collections.Generic.HashSet<string>(state.tickets.Where(t=>t.count>0).Select(t=>t.heroineId));ids=ids.Where(owned.Contains).ToArray();}
+            return ids;
         }
         private void PrepareKinderCapture(string[] args)
         {
@@ -155,6 +171,7 @@ namespace NewAster.Presentation
                 formalProgression.CommitKinder(kinderRequest,kinderBanner,max=>max==10000?(draws++==0?0:300):max==kinderBanner.heroineIds.Length?actor:0,s=>true);
                 kinderReceipt=formalProgression.KinderReceipt(kinderRequest.Id);kinderScreen=KinderScreen.Result;
             }
+            if(kinderScreen==KinderScreen.Rates || kinderScreen==KinderScreen.Exchange || kinderScreen==KinderScreen.Tickets)kinderPage=Math.Max(0,Array.IndexOf(KinderCatalogIds(kinderScreen,save),kinderBanner.heroineIds[kinderSelection]))/5;
             Debug.Log("KINDER_ALL_IMPLEMENTED_CAPTURE_PASS forms="+kinderBanner.heroineIds.Length+" selection="+kinderBanner.heroineIds[kinderSelection]+" page="+(kinderPage+1)+" physicalInput=0");
         }
     }

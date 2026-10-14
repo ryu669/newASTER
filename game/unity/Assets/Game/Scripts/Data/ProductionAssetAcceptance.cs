@@ -19,22 +19,9 @@ namespace NewAster.Data
             {"UI/WeaponTrees/silver-foliage","ba06ee204549f29f238e1a585522c6b9c764993b7cafe186435d57d5ff39db49"},
             {"UI/WeaponTrees/silver-leaf","abb3223915d54f509f21f3877ea47be4d77f96507af0c9ac744446290481ea07"},
 
-            {"Illustrations/heroine-weapon-tree-slayer-v1","4cefcb6b5651f7d1f8cbd63522db181e5aa490cc51bf5e1fe96b9fa1c5bc223f"},
-            {"Illustrations/heroine-weapon-tree-annihilator-holy-v1","c61b8add0dd9af0696fc8285fa219bde2d2bf71452385fb6aceb8a2b6da3e68d"},
-            {"Illustrations/heroine-weapon-tree-annihilator-v1","55ed07021e94e49c485a169ec37be6f0681629538cd0c2cfe1aadf728adf3133"},
-            {"Illustrations/heroine-weapon-tree-arcane-academy-v1","591019a98de898567bc776f059ff74b7bbdd8f7e0c47f36c8ec6ff60d74c7738"},
-            {"Illustrations/heroine-weapon-tree-arcane-v1","15383e001b1e51c707b926c84f75760a03603a749c6599c0498253f975a4181c"},
-            {"Illustrations/heroine-weapon-tree-echidna-v1","758c88db33ff10934e9f81e3b07f5f672338b7d40c53e9ed244b0aff0548c36e"},
-            {"Illustrations/heroine-weapon-tree-excalipan-v1","4c5049089ddee132b235f30b255b9b5089148d1bb383f8b0e01f1cc90ada494e"},
+
             {"UI/weapon-effects-v1","9766980f00a193eb8c8cfa54139218b4e3b9ba0237fa43e22871104752179940"},
-            {"Illustrations/heroine-weapon-tree-iconoclast-v1","d755eb41144175260e03b19b6fb2117791632ddbfc3251fa9337fab115daddd8"},
-            {"Illustrations/heroine-weapon-tree-nighthawk-v1","7e85ff8b39436af949052b73479faa729aee36bf31b937629886c72f4c93086e"},
-            {"Illustrations/heroine-weapon-tree-oriflamme-v1","71202590e5025c6e09738a916178463778c94f944ff174d3b8ed1b97ac3c8139"},
-            {"Illustrations/heroine-weapon-tree-r-v1","b0a5cb8bcb13cb3a2ff34734fdb776322c4e2f551ed0659e221b6f1ce54f166b"},
-            {"Illustrations/heroine-weapon-tree-shangrila-v1","800217f322cc32a834c34818a32b9e572367290b27891ec325949707863557fe"},
-            {"Illustrations/heroine-weapon-tree-shell-v1","dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40"},
-            {"Illustrations/heroine-weapon-tree-slayer-swim-v1","ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8"},
-            {"Illustrations/heroine-weapon-tree-undermine-v1","d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8"},
+
             {"UI/garden-memorial-furniture-v1","72e4c5fb63e3fb6f7bf746026056c89d2270940524c7dc7ad55fd084c5e348b4"},
             {"UI/book-emblems-v1","7d557a87fea78badee8753039ca6b84865b7a3a49a2559a2a8eaab7a1ce98da8"},
             {"Illustrations/heroine-portrait-shangrila-v2","410485d59de5b7779f9cb288c1e8f1ec692eb48ed79b8ef9d86e7782e8d7771e"},
@@ -521,7 +508,7 @@ namespace NewAster.Data
             {"Illustrations/aeon-sd-sit-candidate-v1","247b32f2be24875c23bcb4c48152ab1b0f03ed1edcf453ac096ca7dd098c2aff"},
             {"Illustrations/aeon-sd-work-candidate-v1","bdf0a0a54622aef1094fa6a2c915698109766431a51140d0ad2739932e491e52"},
             {"Illustrations/aeon-sd-look-candidate-v1","6b3126b36e39f79364636bfb7501745ceec4e85a02f34da407ad4fce72d1794a"},
-            {"Illustrations/heroine-weapon-tree-aeon-v1","b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2"},
+
             {"Illustrations/aeon-event-0-cg-candidate-v1","b3c5749217d69274bfa4506a39ca865ebf596923e8ab72389b2f1c6124c0e6db"},
             {"Illustrations/aeon-event-1-cg-candidate-v1","64cf0cea0340c041af13df9786d2947df4a91f9ad153d720e19537cba944a5fe"},
             {"Illustrations/aeon-event-2-cg-candidate-v1","416231b892caca8999f41dc75530faf81e8b0df20e40b95bd84ccdcd48f569e7"},
@@ -543,7 +530,7 @@ namespace NewAster.Data
             {"Illustrations/iron-maiden-sd-sit-candidate-v1","741f0581d20dff08c4d7337fa943d4965908503d7b87b94ebd941ff986a6e17b"},
             {"Illustrations/iron-maiden-sd-work-candidate-v1","eb8dcbbc0921660991bfc3bba2d9d7012792224cdcca066835a3bcc05d54c153"},
             {"Illustrations/iron-maiden-sd-look-candidate-v1","544f184a6881f8dfe8b507be0090838060e58c30e021b734f3125ee701ce8b75"},
-            {"Illustrations/heroine-weapon-tree-iron-maiden-v1","bc79ee73c7c326e8b74f641bd01b2e34f2e0164d9940c93d7eb77c78f38bfdcd"},
+
             {"Illustrations/iron-maiden-event-0-cg-candidate-v1","ff1a88d48a5dd4b802e0e7017b175b790207ff5c7724c3b20eb89de6fe1211e8"},
             {"Illustrations/iron-maiden-event-1-cg-candidate-v1","9df00e3b91c964f3c120bc6b00314f4c4029d8fbfcbcda6c6ad1ef08377e7df4"},
             {"Illustrations/iron-maiden-event-2-cg-candidate-v1","b953e159139d0d7d573eaa14b0ecd6b745e1044be74586cdb34738f05abcfddf"},
@@ -564,7 +551,7 @@ namespace NewAster.Data
             {"Illustrations/avalanche-sd-sit-candidate-v1","50a4798397239be6101de28295a921888d4735e869fcd987e0dd585562947b81"},
             {"Illustrations/avalanche-sd-work-candidate-v1","68bf807d766a4e332812db1f6d1b860591d2948801027ab4131d31d4313ce59f"},
             {"Illustrations/avalanche-sd-look-candidate-v1","1da2aaf480514b33435040a22748ef1a9c7b4527ec3a4bef6227bad9b2758c1c"},
-            {"Illustrations/heroine-weapon-tree-avalanche-v1","3c691ac1eb0cf790e46fcd89b01d641c671c52ab44108b08919a0d8f311f4430"},
+
             {"Illustrations/avalanche-event-0-cg-candidate-v1","4e1a47b5577f441f6dd855a4c97b23bb8553893e88856e9a9c51de2e6995dbf7"},
             {"Illustrations/avalanche-event-1-cg-candidate-v1","e7531ae49a2c7604e494db523fc1af39e4a559e3db7fdef7167169875510db62"},
             {"Illustrations/avalanche-event-2-cg-candidate-v1","c1006f61247d976fb1ec6668856b99c9366dd035beeb1c0d627bfe1622dd2d31"},
@@ -585,7 +572,7 @@ namespace NewAster.Data
             {"Illustrations/anathema-sd-sit-candidate-v1","84194bc18a4b3c4bc29486b4de9d6086bbe900a8151d34081582cb36caf31a5b"},
             {"Illustrations/anathema-sd-work-candidate-v1","52d612d1cafebf9b9dfdd8a54c18cab613b23f032859c67fbd5f3c482602a5ed"},
             {"Illustrations/anathema-sd-look-candidate-v1","5abf68497ae712001982190b109e7901473d6a931614518de23bb8131983ad05"},
-            {"Illustrations/heroine-weapon-tree-anathema-v1","27060c027dae2b8b3974ae51cbf45249a5a464e8627f7e921d4bb0995a1aa7d1"},
+
             {"Illustrations/anathema-event-0-cg-candidate-v1","ca8074e3079861240e3aa662453a6255c47234a90b5af89f83c92c5624c37ba8"},
             {"Illustrations/anathema-event-1-cg-candidate-v1","a35cc26c847b02be130ffac2fd27b2242fb0c4a052511f16f62f0660c7da8519"},
             {"Illustrations/anathema-event-2-cg-candidate-v1","60e57dabafc2eb4419568b887b92b8fe2ce11b8205da9adb637cd799f008c7a1"},
@@ -606,7 +593,7 @@ namespace NewAster.Data
             {"Illustrations/shiva-sd-sit-candidate-v1","5c0c52110ce5062434ab3bf13ce2236b451d178b9fab3225ba1399b883a4cfa0"},
             {"Illustrations/shiva-sd-work-candidate-v1","c73c88fd1f11a6205113550caddb1ac43b1b265e46e0f3c725a131476a5177fc"},
             {"Illustrations/shiva-sd-look-candidate-v1","481c9139c280497ff2f9feb59aff044ea2ae26a383d6402fbb794db3c288a450"},
-            {"Illustrations/heroine-weapon-tree-shiva-v1","97ed3bb752be5405707d276dac9fda59abe02d1e5d26a040448af322c5b95373"},
+
             {"Illustrations/shiva-event-0-cg-candidate-v1","89028b7bc6c9ae1699a1f91649dd08c6475c533c131db0a7a9fd778d998eb5d2"},
             {"Illustrations/shiva-event-1-cg-candidate-v1","66d29c3b5fd285a28c8ac757089cf1e45283c0205405fb1042c266e28a6ea92a"},
             {"Illustrations/shiva-event-2-cg-candidate-v1","ae66bceb8823845c3e127419cce93fe62161dfa6452feae6f516c96ba6e3e82c"},

@@ -10,6 +10,7 @@ $refs=Get-ChildItem (Join-Path $pack.FullName 'ref/net8.0') -Filter '*.dll'
 $sources=Get-ChildItem (Join-Path $repo 'game/unity/Assets/Game/Scripts/Core'),(Join-Path $repo 'game/unity/Assets/Game/Scripts/Data') -Filter '*.cs'
 $assembly=Join-Path $output 'AutomaticChainTests.dll'
 $lines=@('-nologo','-nostdlib+','-target:exe','-langversion:9',('-out:"'+$assembly+'"'))
+$lines+='"'+(Join-Path $PSScriptRoot 'SaveHistoryPerformanceTests.cs')+'"'
 $lines+=$refs | ForEach-Object {'-r:"'+$_.FullName+'"'}
 $lines+=$sources | ForEach-Object {'"'+$_.FullName+'"'}
 $lines+='"'+(Join-Path $PSScriptRoot 'AutomaticChainTests.cs')+'"'
@@ -70,6 +71,7 @@ $lines+='"'+(Join-Path $PSScriptRoot 'Plan14OopartTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan15BookTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan16EconomyTests.cs')+'"'
 $lines+='"'+(Join-Path $PSScriptRoot 'Plan16WatchTests.cs')+'"'
+$lines+='"'+(Join-Path $PSScriptRoot 'HeroineUiScaleTests.cs')+'"'
 $response=Join-Path $output 'compile.rsp'
 [IO.File]::WriteAllLines($response,$lines,[Text.UTF8Encoding]::new($false))
 & $DotNet (Join-Path $sdk.FullName 'Roslyn/bincore/csc.dll') ('@'+$response)

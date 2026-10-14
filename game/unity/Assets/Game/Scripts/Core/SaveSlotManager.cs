@@ -21,13 +21,16 @@ namespace NewAster.Core
         private readonly SaveTransactionService transactions;
         public SaveBackupService(SaveTransactionService transactions){this.transactions=transactions;}
         internal SaveSlotSummary InspectLocked(int slot,int backup)
+        {return InspectLocked(slot,backup,out _);}
+        internal SaveSlotSummary InspectLocked(int slot,int backup,out FormalCampaignSave save)
         {
+            save=null;
             var result=new SaveSlotSummary{Slot=slot,Backup=backup,Status=SaveSlotStatus.Empty};
             try{
                 result.Commit=transactions.Pointer(slot);if(result.Commit==null)return result;
                 string file=transactions.FilePath(slot,result.Commit,backup);
                 if(!File.Exists(file)){result.Status=backup==0?SaveSlotStatus.Corrupt:SaveSlotStatus.Empty;return result;}
-                var doc=transactions.Validation.Read(file);var save=transactions.Validation.Validate(doc);
+                var doc=transactions.Validation.Read(file,out save);
                 result.Header=doc.header;result.Checksum=doc.checksum;result.Status=SaveSlotStatus.Ready;
                 result.PlaySeconds=save.playRewards?.totalPlaySeconds??save.engagement?.activeSeconds??0;result.Heroes=save.growth.heroines.Length;result.Victories=save.world.claimedBattleIds.Length;result.HighestLevel=save.world.highestBattleLevel;
             }catch(UnsupportedSaveException){result.Status=SaveSlotStatus.Unsupported;}
@@ -45,9 +48,8 @@ namespace NewAster.Core
         {
             if(offer==null || offer.Backup<1 || offer.Backup>2 || offer.Status!=SaveSlotStatus.Ready)throw new ArgumentException("Choose a valid backup first.");
             transactions.RequirePointer(offer.Slot,offer.Commit);
-            var doc=transactions.Validation.Read(transactions.FilePath(offer.Slot,offer.Commit,offer.Backup));
+            var doc=transactions.Validation.Read(transactions.FilePath(offer.Slot,offer.Commit,offer.Backup),out var save);
             if(doc.checksum!=offer.Checksum)throw new InvalidOperationException("Backup changed since confirmation.");
-            var save=transactions.Validation.Validate(doc);
             return transactions.CommitLocked(offer.Slot,offer.Commit,transactions.Validation.Create(save,doc.header.saveId,now),true);
         }
     }
@@ -83,8 +85,7 @@ namespace NewAster.Core
         public FormalCampaignSave Load(int slot)
         {
             using(Transactions.Lock()){
-                var offer=Backups.InspectLocked(slot,0);if(offer.Status!=SaveSlotStatus.Ready)throw new ArgumentException("This slot cannot be loaded. Choose a backup or another slot.");
-                var save=Transactions.Validation.Validate(Transactions.Validation.Read(Transactions.FilePath(slot,offer.Commit)));
+                var offer=Backups.InspectLocked(slot,0,out var save);if(offer.Status!=SaveSlotStatus.Ready)throw new ArgumentException("This slot cannot be loaded. Choose a backup or another slot.");
                 observed[slot]=offer.Commit;SetActiveLocked(slot);return save;
             }
         }

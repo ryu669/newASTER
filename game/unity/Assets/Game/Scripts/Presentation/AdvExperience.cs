@@ -9,12 +9,46 @@ namespace NewAster.Presentation
         private AdvSession adv;private FormalHomeRequest advRequest;private HomeReadLine advPendingLine;private int advSavedLines;private bool advBacklog,advHelp,advCgGallery;private Vector2 advScroll;private string advError;
         private AudioSource advBgm,advSe;private int advSoundRevision;private bool advAudioPaused;
         private BoundedCache<string,Texture2D> advImages;
+        private readonly System.Collections.Generic.Dictionary<string,int> advImageRequests=new System.Collections.Generic.Dictionary<string,int>();
+        private readonly System.Collections.Generic.HashSet<string> advImageFailures=new System.Collections.Generic.HashSet<string>();
+        private int advImageGeneration;
+        private bool advImageWorker;
+        private string advImageInFlight;
+        private void RequestAdvImage(string path)
+        {
+            if(advImageFailures.Contains(path) || path==advImageInFlight || advImages!=null && advImages.TryGetValue(path,out _))return;
+            if(advImageRequests.Count<24)advImageRequests[path]=advImageGeneration;
+            if(!advImageWorker){advImageWorker=true;StartCoroutine(LoadAdvImages());}
+        }
+        private System.Collections.IEnumerator LoadAdvImages()
+        {
+            try{
+                while(advImageRequests.Count>0){
+                    var next=advImageRequests.First();advImageRequests.Remove(next.Key);
+                    if(next.Value!=advImageGeneration)continue;
+                    advImageInFlight=next.Key;
+                    var request=Resources.LoadAsync<Texture2D>(next.Key);yield return request;
+                    var texture=request.asset as Texture2D;request=null;advImageInFlight=null;
+                    if(next.Value==advImageGeneration){
+                        if(texture==null)advImageFailures.Add(next.Key);
+                        else{if(advImages==null)advImages=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);advImages[next.Key]=texture;}
+                    }else ScheduleHeroineAssetCleanup();
+                    texture=null;yield return null;
+                }
+            }finally{advImageInFlight=null;advImageWorker=false;}
+        }
+        private bool AdvVisualReady()
+        {
+            if(adv==null)return true;
+            var ids=adv.CgId!=null?new[]{adv.CgId}:new[]{adv.BackgroundId}.Concat(adv.HideActors?Array.Empty<string>():adv.Actors.SelectMany(a=>new[]{a.StandingAsset,a.ExpressionAsset}));
+            bool ready=true;foreach(string id in ids.Where(id=>id!=null).Distinct())if(AdvTexture(id)==null)ready=false;return ready;
+        }
         private Texture2D AdvTexture(string assetId)
         {
             var asset=HomeData().assets.SingleOrDefault(a=>a.id==assetId);
             if(asset==null || string.IsNullOrWhiteSpace(asset.resourcePath))return null;
             if(advImages==null)advImages=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
-            if(!advImages.TryGetValue(asset.resourcePath,out var texture)){texture=Resources.Load<Texture2D>(asset.resourcePath);advImages[asset.resourcePath]=texture;}
+            if(!advImages.TryGetValue(asset.resourcePath,out var texture)){if(adv!=null){RequestAdvImage(asset.resourcePath);return null;}texture=Resources.Load<Texture2D>(asset.resourcePath);advImages[asset.resourcePath]=texture;}
             return texture;
         }
         private void DrawAdvActor(AdvActorState actor)
@@ -76,6 +110,10 @@ namespace NewAster.Presentation
             if(!unlocked || replay && !read)return;
             adv=new AdvSession(c,e?.sceneId??ch.sceneId,source,replay,snapshot.home?.readLineKeys);adv.SetSpeed(PlayerPrefs.GetInt("plan6.text-speed",30));advSavedLines=0;advRequest=null;advPendingLine=null;advBacklog=false;advHelp=false;advCgGallery=false;advError=null;advScroll=Vector2.zero;
             if((plan8StoryTrial || ProductionStoryActive) && !replay)adv.ResumeAtFirstUnread();
+            advImageGeneration++;advImageRequests.Clear();advImageFailures.Clear();AdvVisualReady();
+            foreach(var command in c.scripts.Single(s=>s.id==adv.SceneId).commands.Where(cmd=>cmd.kind=="cg" || cmd.kind=="background").Take(12)){
+                var asset=c.assets.SingleOrDefault(a=>a.id==command.assetId);if(!string.IsNullOrWhiteSpace(asset?.resourcePath))RequestAdvImage(asset.resourcePath);
+            }
             advSoundRevision=0;advAudioPaused=false;SyncAdvAudio();if(!ProductionStoryActive){advBgm.clip=Resources.Load<AudioClip>(ArtSampleSettings.AudioResource("bgm"));advBgm.loop=true;if(advBgm.clip!=null)advBgm.Play();}
             if(advBgm.clip!=null)TrialObserve("audio","adv-bgm-requested",advBgm.clip.name+";loop=true");
             TrialObserve("reading",replay?"replay-start":"start",source);
@@ -97,16 +135,20 @@ namespace NewAster.Presentation
             try{if(formalCampaign.CommitAdvEnd(advRequest,HomeData(),adv,formalDiagnostic?SaveDiagnosticCampaign:SaveTrialObservedCampaign)==GrowthCommitResult.SaveFailed){advError="読了を保存できません。同じ候補を再保存します。";return;}adv.MarkCommitted();advRequest=null;advError=null;campaign=new CampaignState(NewAster.Data.WorldCatalog.ColossusIds,formalCampaign.Snapshot.world);}
             catch(Exception e){advError="読了の保存を停止しました："+e.Message;}
         }
-        private void AdvanceAdv(){if(adv==null || advCgGallery || formalCampaign.HasPending || advRequest!=null)return;adv.Advance();PersistAdvLine();SyncAdvAudio();}
-        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;TrialObserve("reading",adv.Completed?"completed":"interrupted",adv.SourceId);book.EndReading();adv=null;advBacklog=false;advHelp=false;advCgGallery=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
+        private void AdvanceAdv(){if(adv==null || advCgGallery || formalCampaign.HasPending || advRequest!=null || !formalDiagnostic && !AdvVisualReady())return;adv.Advance();PersistAdvLine();SyncAdvAudio();}
+        private void CloseAdv(){if(adv==null || formalCampaign.HasPending || advRequest!=null)return;TrialObserve("reading",adv.Completed?"completed":"interrupted",adv.SourceId);book.EndReading();adv=null;advImageGeneration++;advImageRequests.Clear();advBacklog=false;advHelp=false;advCgGallery=false;if(advBgm!=null){advBgm.Stop();advSe.Stop();}}
         private void UpdateAdv()
         {
-            if(adv==null)return;if(!Application.isFocused || advBacklog || advHelp || advCgGallery || formalCampaign.HasPending || advRequest!=null){adv.Pause();SyncAdvAudio();return;}adv.Tick(Time.unscaledDeltaTime);PersistAdvLine();SyncAdvAudio();
+            if(adv==null || !AdvVisualReady())return;if(!Application.isFocused || advBacklog || advHelp || advCgGallery || formalCampaign.HasPending || advRequest!=null){adv.Pause();SyncAdvAudio();return;}adv.Tick(Time.unscaledDeltaTime);PersistAdvLine();SyncAdvAudio();
         }
         private void DrawAdv()
         {
             bool previousAdvEnabled=GUI.enabled;GUI.enabled=previousAdvEnabled && !advBacklog && !advHelp;
             drawingModal=true;GrowthStyles();GrowthFill(0,0,1600,900,new Color(.09f,.17f,.22f));
+            if(!AdvVisualReady()){
+                GUI.enabled=previousAdvEnabled;Label(450,380,700,60,advImageFailures.Count>0?"画像を読み込めませんでした。開き直してください。":"物語の絵を読み込んでいます…",growthTitleStyle);
+                if(GrowthButton(1300,25,240,48,"閉じる",advRequest==null && !formalCampaign.HasPending))CloseAdv();return;
+            }
             var background=AdvTexture(adv.BackgroundId);if(background!=null)GUI.DrawTexture(new Rect(0,100,1600,515),background,ScaleMode.ScaleAndCrop);
             bool hasCg=adv.CgId!=null;
             if(hasCg)

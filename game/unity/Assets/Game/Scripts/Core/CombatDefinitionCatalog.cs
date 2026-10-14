@@ -74,7 +74,11 @@ namespace NewAster.Core
         private static bool Id(string id) => id!=null && Regex.IsMatch(id,"^[a-z0-9._-]{1,96}$");
         private static bool Scale(float value,bool positive=false) => !float.IsNaN(value) && !float.IsInfinity(value) && (positive?value>0:value>=0) && value<=100;
         public HeroineCombatDef Hero(string id) => heroines.Single(h=>h.id==id);
-        public SkillCombatDef Skill(string heroId,int slot) => skills.Single(s=>s.id==Hero(heroId).skills[slot]);
+        public SkillCombatDef Skill(string heroId,int slot)
+        {
+            string skillId=Hero(heroId).skills[slot];
+            return skills.Single(s=>s.id==skillId);
+        }
         public string[] FormationIds => schemaVersion==1?Enumerable.Range(0,5).Select(i=>"hero-"+i).ToArray():(string[])formation.Clone();
         public string[] HeroineIds => new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r"}.Where(id=>heroines.Any(h=>h.id==id)).Concat(heroines.Select(h=>h.id).Except(new[]{"heroine.slayer","heroine.iconoclast","heroine.undermine","heroine.echidna","heroine.excalipan","heroine.r"}).OrderBy(id=>id,StringComparer.Ordinal)).ToArray();
         public string PersonId(string id)=>string.IsNullOrEmpty(Hero(id).personId)?id:Hero(id).personId;
@@ -153,22 +157,25 @@ namespace NewAster.Core
             }
             ValidateFormal();if(IsFormal)ValidateGeneralFormations();
         }
-        public SkillTimingDefinition[,] Timings()
+        public SkillTimingDefinition[,] Timings() {Validate();return TimingsValidated();}
+        internal SkillTimingDefinition[,] TimingsValidated()
         {
-            Validate();var result=new SkillTimingDefinition[5,3];
+            var result=new SkillTimingDefinition[5,3];
             for(int i=0;i<5;i++) for(int slot=0;slot<3;slot++) {var s=Skill(HeroIdAt(i),slot);result[i,slot]=new SkillTimingDefinition(s.recoveryPercent,s.castPercent);}
             return result;
         }
-        public HealingSkillDefinition[] Healing()
+        public HealingSkillDefinition[] Healing() {Validate();return HealingValidated();}
+        internal HealingSkillDefinition[] HealingValidated()
         {
-            Validate();return Enumerable.Range(0,5).SelectMany(i=>Enumerable.Range(0,3).Select(slot=>new {actor=i,slot,skill=Skill(HeroIdAt(i),slot)}))
+            return Enumerable.Range(0,5).SelectMany(i=>Enumerable.Range(0,3).Select(slot=>new {actor=i,slot,skill=Skill(HeroIdAt(i),slot)}))
                 .Where(x=>x.skill.effectRuleId=="effect.heal").Select(x=>new HealingSkillDefinition(x.actor,x.slot,x.skill.name,
                     x.skill.targetRuleId=="target.self"?HealingTargetRule.Self:x.skill.targetRuleId=="target.selected-allies"?HealingTargetRule.SelectedAllies:HealingTargetRule.AllLivingAllies,
                     x.skill.targetCount,x.skill.resourceCost,x.skill.baseHealing,(decimal)x.skill.powerScale)).ToArray();
         }
-        public HeroineChainAction[] Chain()
+        public HeroineChainAction[] Chain() {Validate();return ChainValidated();}
+        internal HeroineChainAction[] ChainValidated()
         {
-            Validate();return Enumerable.Range(0,5).Select(i=>{var h=Hero(HeroIdAt(i));return MakeChain(chainActions.Single(x=>x.id==h.chainActionId));}).ToArray();
+            return Enumerable.Range(0,5).Select(i=>{var h=Hero(HeroIdAt(i));return MakeChain(chainActions.Single(x=>x.id==h.chainActionId));}).ToArray();
         }
         private static HeroineChainAction MakeChain(ChainCombatDef a)
         {

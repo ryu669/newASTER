@@ -1,0 +1,146 @@
+{
+  "status": "archived-outside-Resources",
+  "assets": [
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-aeon-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-aeon-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-aeon-v1",
+      "sha256": "b253bdbd7e017afba8092d4ca9c3683aca328e5db5304aca6d4f48a9328f89c2",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-anathema-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-anathema-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-anathema-v1",
+      "sha256": "27060c027dae2b8b3974ae51cbf45249a5a464e8627f7e921d4bb0995a1aa7d1",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-annihilator-holy-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-annihilator-holy-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-holy-v1",
+      "sha256": "c61b8add0dd9af0696fc8285fa219bde2d2bf71452385fb6aceb8a2b6da3e68d",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-annihilator-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-annihilator-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-annihilator-v1",
+      "sha256": "55ed07021e94e49c485a169ec37be6f0681629538cd0c2cfe1aadf728adf3133",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-arcane-academy-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-arcane-academy-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-academy-v1",
+      "sha256": "591019a98de898567bc776f059ff74b7bbdd8f7e0c47f36c8ec6ff60d74c7738",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-arcane-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-arcane-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-arcane-v1",
+      "sha256": "15383e001b1e51c707b926c84f75760a03603a749c6599c0498253f975a4181c",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-avalanche-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-avalanche-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-avalanche-v1",
+      "sha256": "3c691ac1eb0cf790e46fcd89b01d641c671c52ab44108b08919a0d8f311f4430",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-echidna-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-echidna-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-echidna-v1",
+      "sha256": "758c88db33ff10934e9f81e3b07f5f672338b7d40c53e9ed244b0aff0548c36e",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-excalipan-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-excalipan-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-excalipan-v1",
+      "sha256": "4c5049089ddee132b235f30b255b9b5089148d1bb383f8b0e01f1cc90ada494e",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-iconoclast-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-iconoclast-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-iconoclast-v1",
+      "sha256": "d755eb41144175260e03b19b6fb2117791632ddbfc3251fa9337fab115daddd8",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-iron-maiden-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-iron-maiden-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-iron-maiden-v1",
+      "sha256": "bc79ee73c7c326e8b74f641bd01b2e34f2e0164d9940c93d7eb77c78f38bfdcd",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-nighthawk-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-nighthawk-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-nighthawk-v1",
+      "sha256": "7e85ff8b39436af949052b73479faa729aee36bf31b937629886c72f4c93086e",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-oriflamme-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-oriflamme-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-oriflamme-v1",
+      "sha256": "71202590e5025c6e09738a916178463778c94f944ff174d3b8ed1b97ac3c8139",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-r-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-r-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-r-v1",
+      "sha256": "b0a5cb8bcb13cb3a2ff34734fdb776322c4e2f551ed0659e221b6f1ce54f166b",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-shangrila-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-shangrila-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shangrila-v1",
+      "sha256": "800217f322cc32a834c34818a32b9e572367290b27891ec325949707863557fe",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-shell-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-shell-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shell-v1",
+      "sha256": "dec93d547e95e5b6867748554cfe4c964f2f7d3058a1bf07a3988e572b5d4e40",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-shiva-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-shiva-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-shiva-v1",
+      "sha256": "97ed3bb752be5405707d276dac9fda59abe02d1e5d26a040448af322c5b95373",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-slayer-swim-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-slayer-swim-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-swim-v1",
+      "sha256": "ac668e001678acca1fe0243832947666adf45a4edcb37f113cd58e4ecd1e42e8",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-slayer-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-slayer-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-slayer-v1",
+      "sha256": "4cefcb6b5651f7d1f8cbd63522db181e5aa490cc51bf5e1fe96b9fa1c5bc223f",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    },
+    {
+      "previousPath": "game/unity/Assets/Game/Resources/Illustrations/heroine-weapon-tree-undermine-v1.png",
+      "archivePath": "game/unity/Assets/Game/ArtCandidates/RetiredWeaponTrees/heroine-weapon-tree-undermine-v1.png",
+      "resourcePath": "Illustrations/heroine-weapon-tree-undermine-v1",
+      "sha256": "d2869c64ca3c28538a86060676b9ea5968b0f9eaf72b062e826fbfb16089d5b8",
+      "reason": "Replaced by shared natural tree; no active Resources JSON references"
+    }
+  ],
+  "sourceBytes": 61123473
+}

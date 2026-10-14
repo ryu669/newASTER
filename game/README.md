@@ -28,3 +28,5 @@
 ウェポンマスターの[完了記録](../docs/production/plan12-weapon-master-form-record.json)、全24形態の[共通の木の確認記録](../docs/production/plan12-common-weapon-tree-review.json)。
 
 エイプリル通常版の専用20画像・3章・5交流・3技と旧24形態セーブ移行を確認。[完了記録](../docs/production/plan12-april-form-record.json)。通常プレイは25形態・22人物。
+
+2026-10-13: 保存履歴照合・表示データ再利用・肖像の非同期読み込み・既存セーブ起動を改善。通常配布版の無償デバッグ加入入口を非表示にした。[検証結果](../docs/production/runtime-improvements-2026-10-13.txt)。

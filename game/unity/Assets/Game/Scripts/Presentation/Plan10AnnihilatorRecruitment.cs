@@ -14,6 +14,7 @@ namespace NewAster.Presentation
         private string[] UnownedExpansionForms()=>combatDefinitions.HeroineIds.Skip(5).Where(id=>combatDefinitions.HeroineIds.Contains(id) && !formalProgression.Snapshot.heroines.Any(h=>h.heroineId==id)).ToArray();
         private void DrawExpansionRecruitmentButton()
         {
+            if(!Application.isEditor && !Debug.isDebugBuild && !formalDiagnostic)return;
             int count=UnownedExpansionForms().Length;if(count==0)return;
             if(GrowthButton(80,118,430,48,"デバッグ：新しい天使を迎える",BookInputAllowed && homeRequest==null && !formalCampaign.HasPending))expansionRecruitmentOpen=true;
         }

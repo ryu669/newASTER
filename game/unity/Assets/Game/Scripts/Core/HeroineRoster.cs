@@ -47,9 +47,9 @@ namespace NewAster.Core
         }
         public HeroineRosterEntry[] Search(string query,string jobId,IEnumerable<string> ownedIds)
         {
-            var owned=ownedIds==null?null:new HashSet<string>(ownedIds);query=(query??"").Trim();
+            var owned=ownedIds==null?null:new HashSet<string>(ownedIds);query=HeroineUiIndex.Normalize(query);
             if(owned!=null && owned.Any(id=>!entries.ContainsKey(id)))throw new ArgumentException("Unknown owned heroine ID.");
-            return entries.Values.Where(e=>e.stage=="available" && (jobId==null || e.jobId==jobId) && (owned==null || owned.Contains(e.id)) && (query.Length==0 || e.name.IndexOf(query,StringComparison.OrdinalIgnoreCase)>=0 || e.id.IndexOf(query,StringComparison.OrdinalIgnoreCase)>=0)).OrderBy(e=>e.name,StringComparer.Ordinal).ThenBy(e=>e.id,StringComparer.Ordinal).Select(Copy).ToArray();
+            return entries.Values.Where(e=>e.stage=="available" && (jobId==null || e.jobId==jobId) && (owned==null || owned.Contains(e.id)) && (query.Length==0 || HeroineUiIndex.Normalize(e.name).Contains(query) || e.id.IndexOf(query,StringComparison.OrdinalIgnoreCase)>=0)).OrderBy(e=>e.name,StringComparer.Ordinal).ThenBy(e=>e.id,StringComparer.Ordinal).Select(Copy).ToArray();
         }
     }
 }

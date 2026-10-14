@@ -11,7 +11,21 @@ namespace NewAster.Presentation
         private BattleIllustrationManifest manifest;
         private string warning;
         private BattleImpactEffects impactEffects;
-        public void Dispose(){impactEffects?.Dispose();impactEffects=null;}
+        private bool disposed;
+        public void Dispose(){disposed=true;impactEffects?.Dispose();impactEffects=null;}
+        public System.Collections.IEnumerator WarmHeroes(System.Collections.Generic.IEnumerable<string> ids)
+        {
+            if(manifest==null)yield break;
+            var heroes=ids.Select(id=>manifest.heroes.FirstOrDefault(h=>h.heroineId==id)).Where(h=>h!=null).ToArray();
+            var paths=heroes.Select(h=>h.resourcePath).Concat(heroes.SelectMany(h=>new[]{h.attackResourcePath,h.hitResourcePath,h.cutinResourcePath})).Where(p=>!string.IsNullOrWhiteSpace(p)).Distinct();
+            foreach(string path in paths){
+                if(disposed)yield break;if(layers.TryGetValue(path,out _))continue;
+                var request=Resources.LoadAsync<Texture2D>(path);yield return request;
+                var texture=request.asset as Texture2D;request=null;
+                if(disposed)yield break;if(texture!=null)layers[path]=texture;
+                texture=null;yield return null;
+            }
+        }
         public bool Ready=>manifest!=null && body!=null;
         public int PartCount=>manifest?.parts.Length??0;
         private Texture2D background,body,middle,foreground,enemyMajor;

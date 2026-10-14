@@ -11,7 +11,17 @@ namespace NewAster.Presentation
         private bool OopartModalVisible=>oopartPanel || oopartRequest!=null;
         private string StatName(string key)=>key=="hp"?"HP":key=="attack"?"攻撃":key=="physical-defense"?"物理防御":key=="magic-defense"?"魔法防御":"速度";
         private string StatText(StatValues v)=>string.Join(" ／ ",StatValues.Names.Select(k=>StatName(k)+" +"+v.Get(k)));
-        private FormalCampaignSave OopartSnapshot(){var s=LifeSnapshot();OopartSaveAdapter.Migrate(s.collection,CollectionData(),CurrentFormation());s.collection.ooparts?.SyncFormation(CurrentFormation());return s;}
+        private FormalCampaignSave oopartSnapshotSource;
+        private CollectionCatalog oopartSnapshotCatalog;
+        private FormalCampaignSave OopartSnapshot()
+        {
+            var s=LifeSnapshot();var catalog=CollectionData();
+            if(!ReferenceEquals(s,oopartSnapshotSource) || !ReferenceEquals(catalog,oopartSnapshotCatalog)){
+                var formation=CurrentFormation();OopartSaveAdapter.Migrate(s.collection,catalog,formation);s.collection.ooparts?.SyncFormation(formation);
+                oopartSnapshotSource=s;oopartSnapshotCatalog=catalog;
+            }
+            return s;
+        }
         private void OpenOoparts(int slot,string id=null){if(!BookInputAllowed || encounter!=null)return;oopartSlot=slot;oopartPanel=true;oopartError=null;oopartMessage=null;oopartScroll=Vector2.zero;selectedOopart=id??OopartSnapshot().collection.ooparts.slots[slot].equippedOopartId??OopartSnapshot().collection.ooparts.progress.FirstOrDefault()?.oopartId;}
         private void ProposeOopart(string kind,string target=null,int count=1,string stat=null){if(oopartRequest!=null || formalCampaign.HasPending || encounter!=null)return;oopartRequest=new OopartRequest(Guid.NewGuid().ToString("N"),formalCampaign.Revision,kind,target,oopartSlot,count,stat);oopartError=null;}
         private void CommitOopart()

@@ -188,7 +188,7 @@ namespace NewAster.Presentation
         }
         private void DrawLifeFurniture(FormalCampaignSave save)
         {
-            gardenLifeQuery=GUI.TextField(new Rect(998,260,550,36),gardenLifeQuery);if(Btn(998,303,550,35,"分類："+gardenLifeCategory+" ／ 名前・用途で検索")){string[] names={"全て","装飾","生活","催事"};gardenLifeCategory=names[(Array.IndexOf(names,gardenLifeCategory)+1)%4];}
+            string query=ImageUiSkin.TextField(new Rect(998,260,550,36),gardenLifeQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=20});if(query!=gardenLifeQuery){gardenLifeQuery=query;gardenLifeScroll=Vector2.zero;}if(Btn(998,303,550,35,"分類："+gardenLifeCategory+" ／ 名前・用途で検索")){string[] names={"全て","装飾","生活","催事"};gardenLifeCategory=names[(Array.IndexOf(names,gardenLifeCategory)+1)%4];}
             var defs=HomeData().furniture.Where(f=>gardenLifeCategory=="全て" || f.lifeCategory==(gardenLifeCategory=="装飾"?"Decoration":gardenLifeCategory=="生活"?"Life":"Activity")).Where(f=>gardenLifeQuery.Length==0 || GardenFurnitureName(f.id).Contains(gardenLifeQuery) || string.Join(" ",GardenLifeRuntime.FurnitureTags(f).Select(GardenLifeCatalog.InteractionName)).Contains(gardenLifeQuery)).ToArray();
             gardenLifeScroll=GUI.BeginScrollView(new Rect(998,345,550,340),gardenLifeScroll,new Rect(0,0,525,Math.Max(340,defs.Length*90)));
             for(int i=0;i<defs.Length;i++){
@@ -202,11 +202,13 @@ namespace NewAster.Presentation
         }
         private void DrawLifeResidents(FormalCampaignSave save)
         {
-            gardenLifeQuery=GUI.TextField(new Rect(998,260,550,36),gardenLifeQuery);
-            string[] filters={"全員","現在の庭","Fixed","Preferred","Auto","Hidden"};if(Btn(998,309,550,40,"絞り込み："+LifeModeName(gardenLifeResidentFilter)))gardenLifeResidentFilter=filters[(Array.IndexOf(filters,gardenLifeResidentFilter)+1)%filters.Length];
-            var ids=save.growth.heroines.Select(h=>h.heroineId).Where(id=>combatDefinitions.Hero(id).name.Contains(gardenLifeQuery)).Where(id=>gardenLifeResidentFilter=="全員" || gardenLifeResidentFilter=="現在の庭" && (gardenLifeRuntime?.Agents.Any(a=>a.heroineId==id)??false) || (save.gardenLife.assignments.SingleOrDefault(a=>a.heroineId==id)?.mode??"Auto")==gardenLifeResidentFilter).ToArray();
+            string query=ImageUiSkin.TextField(new Rect(998,260,550,36),gardenLifeQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=20});if(query!=gardenLifeQuery){gardenLifeQuery=query;gardenLifeScroll=Vector2.zero;}
+            string[] filters={"全員","現在の庭","Fixed","Preferred","Auto","Hidden"};if(Btn(998,309,550,40,"絞り込み："+LifeModeName(gardenLifeResidentFilter))){gardenLifeResidentFilter=filters[(Array.IndexOf(filters,gardenLifeResidentFilter)+1)%filters.Length];gardenLifeScroll=Vector2.zero;}
+            var ids=HeroineIndex().Search(gardenLifeQuery,ownedOnly:true).Where(id=>gardenLifeResidentFilter=="全員" || gardenLifeResidentFilter=="現在の庭" && (gardenLifeRuntime?.Agents.Any(a=>a.heroineId==id)??false) || (save.gardenLife.assignments.SingleOrDefault(a=>a.heroineId==id)?.mode??"Auto")==gardenLifeResidentFilter).ToArray();
             gardenLifeScroll=GUI.BeginScrollView(new Rect(998,365,550,390),gardenLifeScroll,new Rect(0,0,525,Math.Max(390,ids.Length*55)));
-            for(int i=0;i<ids.Length;i++){string id=ids[i];string mode=save.gardenLife.assignments.SingleOrDefault(a=>a.heroineId==id)?.mode??"Auto";if(Btn(0,i*55,520,48,combatDefinitions.Hero(id).name+" ／ "+LifeModeName(mode))){selectedResident=id;gardenLifePanel="人物詳細";}}
+            if(ids.Length==0)Label(0,15,520,48,"該当する誓女がいません",text,Color.white);
+            int first=HeroineUiIndex.FirstVisible(gardenLifeScroll.y,55,ids.Length),last=HeroineUiIndex.VisibleEnd(first,55,390,ids.Length);
+            for(int i=first;i<last;i++){string id=ids[i];string mode=save.gardenLife.assignments.SingleOrDefault(a=>a.heroineId==id)?.mode??"Auto";if(Btn(0,i*55,520,48,combatDefinitions.Hero(id).name+" ／ "+LifeModeName(mode))){selectedResident=id;gardenLifePanel="人物詳細";}}
             GUI.EndScrollView();
         }
         private void DrawLifeResidentMenu(FormalCampaignSave save)

@@ -84,9 +84,10 @@ namespace NewAster.Presentation
         private void DrawEncounterBookPage()
         {
             GrowthStyles();PalaceBackdrop("crown");GrowthFill(55,115,920,676,new Color(.95f,.90f,.79f));GrowthFrame(1004,115,541,676);
+            if(book.Bookmark==BookBookmark.Stories && storyPickerOpen){GrowthFill(55,100,1490,695,ink);DrawStoryOwnerPicker();return;}
             DrawBookFooter();if(!book.HasSubject)return;
             bool stories=book.Bookmark==BookBookmark.Stories;
-            if(stories){DrawStoryBookContent();DrawBookSubjectArt();return;}
+            if(stories){DrawStoryBookContent();if(!storyPickerOpen)DrawBookSubjectArt();return;}
             SyncBookSelectedLevel();var c=NewAster.Data.WorldCatalog.Colossi.Single(x=>x.Id==book.SubjectId);bool unlocked=campaign.ColossusUnlocks.IsUnlocked(c.Id);
             Label(87,150,850,65,unlocked?c.DisplayName:"未解放",heading,new Color(.12f,.17f,.20f));
             if(!unlocked){Label(87,250,850,100,"前の巨神獣の初回討伐で解放されます。",text);return;}
@@ -109,8 +110,10 @@ namespace NewAster.Presentation
         }
         private void DrawStoryBookContent()
         {
+            if(storyPickerOpen){DrawStoryOwnerPicker();return;}
+            if(GrowthButton(1040,108,420,48,"人物・巨神獣から探す",BookInputAllowed)){storyPickerOpen=true;storyPickerPage=0;return;}
             var owner=CollectionData().owners.Single(o=>o.id==book.SubjectId);Label(87,150,845,60,CollectionOwnerName(owner),heading);
-            bool ownerOpen=owner.kind=="heroine" || campaign.ColossusUnlocks.IsUnlocked(owner.id);var world=formalCampaign.Snapshot.world;
+            bool ownerOpen=owner.kind=="heroine" || campaign.ColossusUnlocks.IsUnlocked(owner.id);var world=LifeSnapshot().world;
             if(!ownerOpen){Label(87,260,840,90,"巨神獣の解放後に記憶を読めます。",text);return;}
             for(int i=0;i<owner.chapterIds.Length;i++){
                 var c=CollectionData().chapters.Single(x=>x.id==owner.chapterIds[i]);bool open=world.unlockedStoryIds.Contains(c.id),read=world.readStoryIds.Contains(c.id);float y=250+i*165;

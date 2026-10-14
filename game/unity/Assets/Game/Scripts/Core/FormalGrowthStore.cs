@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NewAster.Core
 {
@@ -67,10 +68,10 @@ namespace NewAster.Core
     {
         internal static bool AnyMissingFrom(this GrowthReceipt[] previous,FormalGrowthSave next)
         {
+            var byId=new Dictionary<string,GrowthReceipt>(StringComparer.Ordinal);
+            foreach(var item in next.receipts)byId.Add(item.transactionId,item);
             foreach(var receipt in previous) {
-                bool found=false;
-                foreach(var item in next.receipts) if(item.transactionId==receipt.transactionId && item.signature==receipt.signature && SameOutcomes(receipt,item)) {found=true;break;}
-                if(!found) return true;
+                if(!byId.TryGetValue(receipt.transactionId,out var item) || item.signature!=receipt.signature || !SameOutcomes(receipt,item))return true;
             }
             return false;
         }

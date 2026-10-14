@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using NewAster.Core;
@@ -69,7 +69,7 @@ namespace NewAster.Presentation
 
         private void DrawSanctuaryWeaponTree(string hero)
         {
-            var catalog=HomeData();var nodes=catalog.weaponNodes.Where(n=>n.heroineId==hero).ToArray();var state=HomeState;var snapshot=formalCampaign.Snapshot;
+            var catalog=HomeData();var nodes=catalog.weaponNodes.Where(n=>n.heroineId==hero).ToArray();var state=HomeState;var snapshot=LifeSnapshot();
             if(selectedNode==null || !nodes.Any(n=>n.id==selectedNode))selectedNode=state.weaponEquipment.SingleOrDefault(e=>e.heroineId==hero)?.nodeId??nodes[0].id;
             var selected=nodes.Single(n=>n.id==selectedNode);bool owned=state.weaponNodeIds.Contains(selected.id);int level=state.WeaponLevel(selected.id);bool parents=selected.parentIds.All(p=>state.weaponNodeIds.Contains(p));
             var equipment=state.weaponEquipment.SingleOrDefault(e=>e.heroineId==hero);

@@ -54,6 +54,8 @@ namespace NewAster.Presentation
         private static void Create() => new GameObject("newASTER Playable").AddComponent<PrototypeBootstrap>();
         private void Awake()
         {
+            if(runtimeTimingConfigurationError!=null){enabled=false;Application.Quit(2);return;}
+            RuntimeTimingMark("awake");
             // Exit before opening any ordinary save store or initializing gameplay.
             if (TrialBaselineResources.RunDiagnostic(Environment.GetCommandLineArgs())) { enabled = false; return; }
             InitializeTrialTelemetry();
@@ -192,6 +194,8 @@ namespace NewAster.Presentation
             PreparePlan11Capture(args);
             PrepareQuality119ColdBook(args);
             PrepareArtSweep(args);
+            PrepareRuntimeImprovementsCapture(args);
+            PrepareScaleUiCapture(args);
         }
         private static Texture2D Texture(Color color) { var t=new Texture2D(1,1); t.SetPixel(0,0,color); t.Apply(); return t; }
         private void Styles()
@@ -207,6 +211,7 @@ namespace NewAster.Presentation
         }
         private void Update()
         {
+            UpdateRuntimeTiming();
             if(UpdateArtSweep())return;
             using var qualityCost=new Quality119CostScope(this,0);
             TryStartQuality119();
@@ -237,6 +242,8 @@ namespace NewAster.Presentation
                 if(plan10UiCapture && !measureArt)ready=Time.realtimeSinceStartup>=10;
                 if(ProductionAudioCapture)ready=captureFrame>=captureAt && productionAudioComplete;
                 if(Quality119Capture)ready=quality119Complete;
+                if(scaleUiActive)ready=scaleUiComplete;
+                if(mediaWarmCapture)ready=mediaWarmComplete;
                 if(Quality119EnvironmentAudioCapture)ready=quality119EnvironmentAudioComplete;
                 if(capturedAtFrame<0 && ready){capturedAtFrame=captureFrame;capturedAtTime=Time.realtimeSinceStartup;ReportPlan7ActiveCombat();ReportArtPerformance();ScreenCapture.CaptureScreenshot(capturePath,Environment.GetCommandLineArgs().Contains("-captureDoubleResolution")?2:1);}
                 if(capturedAtFrame>=0 && (plan10UiCapture && !measureArt ? Time.realtimeSinceStartup>=capturedAtTime+3 : captureFrame==capturedAtFrame+60)) Application.Quit();
@@ -278,7 +285,7 @@ namespace NewAster.Presentation
             if(watchModeActive){DrawWatchMode();return;}
             if(plan10UiCapture && (Event.current.isMouse || Event.current.isKey))return;
             double started=measureArt?MeasurementClock:0;
-            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();}finally{RecordMeasuredGui(started);}
+            try{bookSystemButtonDrawn=false;bookSystemButtonsThisGui=0;bool input=GUI.enabled;GUI.enabled=input && !(IsBookScreen && (help || bookSystemOpen || AffectionModalVisible || OopartModalVisible));DrawGameGui();GUI.enabled=input;if(IsBookScreen && !gardenViewing)DrawBookRibbon();GUI.enabled=input && !help;DrawAffectionOverlay();DrawOopartOverlay();GUI.enabled=input;if(IsBookScreen && help){drawingModal=true;DrawHelp();}DrawQuality119LoadPage();DrawGlobalBackButton();ValidateNavigationChrome();RecordQuality119ColdBook();RecordRuntimeTimingFrame();}finally{RecordMeasuredGui(started);}
         }
         private void DrawGameGui()
         {
@@ -473,6 +480,7 @@ namespace NewAster.Presentation
             activeRelicHunt=book.Bookmark==BookBookmark.RelicHunt;activeColossus=colossus; battleId=id.ToString("N"); encounter=new PlayableBattle(selectedLevel,campaign.Playable,diagnosticSeed??BitConverter.ToInt32(id.ToByteArray(),0),combatDefinitions:combatDefinitions.WithFormation(CurrentFormation()),formalGrowth:formalProgression.Snapshot,colossusDefinition:ActiveColossusDefinition(colossus),collectionGrowth:formalCampaign.Snapshot.collection,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),relicCatalog:CollectionData(),useJobRulesV2:true,protectedSlot:protectedFormationSlot,panzerLoadout:SavedPanzerLoadout(),deployment:HomeState.Deployment(CurrentFormation()));
             formalCampaign.LockOopartsForBattle();
             illustrationView?.Dispose();illustrationView=new BattleIllustrationView(ColossusCombatCatalog.IllustrationResource(colossus),ScheduleHeroineAssetCleanup);
+            StartCoroutine(illustrationView.WarmHeroes(CurrentFormation()));
             Debug.Log($"BATTLE_START id={battleId} seed={encounter.Seed} level={selectedLevel}");
             TrialObserve("battle","start","colossus="+colossus+";level="+selectedLevel);
             StartCollection();

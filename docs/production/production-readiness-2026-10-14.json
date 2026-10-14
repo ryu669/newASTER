@@ -1,0 +1,477 @@
+{
+  "date": "2026-10-14",
+  "coreAssertions": 12784,
+  "scaleRuns": [
+    {
+      "forms": 203,
+      "persons": 200,
+      "sharedFixtureArt": true,
+      "output": "D:\\AIGAME\\newASTER\\tmp\\heroine-scale-ui\\497fbf9bfec04f6b99ab6fe1d482e468",
+      "defaultResolution": "1920x1080",
+      "screens": 36,
+      "measurements": [
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 1226.606,
+          "view": "roster-last"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.468,
+          "view": "roster-search"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.648,
+          "view": "roster-empty"
+        },
+        {
+          "maxFrameMs": 250.236,
+          "p95FrameMs": 16.729,
+          "readyMs": 321.874,
+          "view": "formation-last"
+        },
+        {
+          "maxFrameMs": 16.696,
+          "p95FrameMs": 16.696,
+          "readyMs": 45.654,
+          "view": "formation-search"
+        },
+        {
+          "maxFrameMs": 16.713,
+          "p95FrameMs": 16.696,
+          "readyMs": 47.971,
+          "view": "formation-jobs"
+        },
+        {
+          "maxFrameMs": 16.713,
+          "p95FrameMs": 16.697,
+          "readyMs": 44.834,
+          "view": "formation-empty"
+        },
+        {
+          "maxFrameMs": 33.377,
+          "p95FrameMs": 16.697,
+          "readyMs": 62.586,
+          "view": "rates-last"
+        },
+        {
+          "maxFrameMs": 16.746,
+          "p95FrameMs": 16.746,
+          "readyMs": 45.416,
+          "view": "rates-search"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 45.058,
+          "view": "exchange"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 44.374,
+          "view": "tickets"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 45.338,
+          "view": "tickets-empty"
+        },
+        {
+          "maxFrameMs": 50.074,
+          "p95FrameMs": 50.042,
+          "readyMs": 88.832,
+          "view": "garden-last"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 35.668,
+          "view": "garden-search"
+        },
+        {
+          "maxFrameMs": 250.234,
+          "p95FrameMs": 16.697,
+          "readyMs": 305.845,
+          "view": "detail"
+        },
+        {
+          "maxFrameMs": 83.433,
+          "p95FrameMs": 16.697,
+          "readyMs": 136.2,
+          "view": "tree"
+        },
+        {
+          "maxFrameMs": 16.699,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.383,
+          "view": "level"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.263,
+          "view": "awakening"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.696,
+          "readyMs": 34.389,
+          "view": "duplicate"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.566,
+          "view": "skill"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.664,
+          "readyMs": 52.954,
+          "view": "affection"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 48.287,
+          "view": "stories"
+        },
+        {
+          "maxFrameMs": 33.394,
+          "p95FrameMs": 33.361,
+          "readyMs": 64.723,
+          "view": "stories-select"
+        },
+        {
+          "maxFrameMs": 33.377,
+          "p95FrameMs": 33.377,
+          "readyMs": 68.375,
+          "view": "stories-last"
+        },
+        {
+          "maxFrameMs": 33.377,
+          "p95FrameMs": 16.779,
+          "readyMs": 51.285,
+          "view": "stories-empty"
+        },
+        {
+          "maxFrameMs": 16.861,
+          "p95FrameMs": 16.73,
+          "readyMs": 76.666,
+          "view": "formation-overview"
+        },
+        {
+          "maxFrameMs": 18.332,
+          "p95FrameMs": 18.137,
+          "readyMs": 45.253,
+          "view": "formation-member"
+        },
+        {
+          "maxFrameMs": 18.539,
+          "p95FrameMs": 18.318,
+          "readyMs": 45.654,
+          "view": "targets"
+        },
+        {
+          "maxFrameMs": 17.409,
+          "p95FrameMs": 17.028,
+          "readyMs": 47.767,
+          "view": "items"
+        },
+        {
+          "maxFrameMs": 18.332,
+          "p95FrameMs": 18.302,
+          "readyMs": 53.893,
+          "view": "materials"
+        },
+        {
+          "maxFrameMs": 29.082,
+          "p95FrameMs": 18.014,
+          "readyMs": 59.604,
+          "view": "newworld"
+        },
+        {
+          "maxFrameMs": 16.7,
+          "p95FrameMs": 16.694,
+          "readyMs": 63.009,
+          "view": "worlds"
+        },
+        {
+          "maxFrameMs": 16.736,
+          "p95FrameMs": 16.712,
+          "readyMs": 46.473,
+          "view": "colossi"
+        },
+        {
+          "maxFrameMs": 16.693,
+          "p95FrameMs": 16.688,
+          "readyMs": 46.121,
+          "view": "hunt"
+        },
+        {
+          "maxFrameMs": 16.704,
+          "p95FrameMs": 16.703,
+          "readyMs": 410.946,
+          "view": "battle"
+        }
+      ],
+      "peakWorkingSetBytes": 653090816
+    },
+    {
+      "forms": 208,
+      "persons": 205,
+      "sharedFixtureArt": true,
+      "output": "D:\\AIGAME\\newASTER\\tmp\\heroine-scale-ui\\c28d13315b10483e84eef7e96a7c9575",
+      "defaultResolution": "1920x1080",
+      "screens": 36,
+      "measurements": [
+        {
+          "maxFrameMs": 633.878,
+          "p95FrameMs": 16.697,
+          "readyMs": 1235.046,
+          "view": "roster-last"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.57,
+          "view": "roster-search"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.696,
+          "readyMs": 34.691,
+          "view": "roster-empty"
+        },
+        {
+          "maxFrameMs": 283.594,
+          "p95FrameMs": 33.376,
+          "readyMs": 363.935,
+          "view": "formation-last"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 46.253,
+          "view": "formation-search"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 44.527,
+          "view": "formation-jobs"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 45.867,
+          "view": "formation-empty"
+        },
+        {
+          "maxFrameMs": 16.712,
+          "p95FrameMs": 16.697,
+          "readyMs": 63.356,
+          "view": "rates-last"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 48.073,
+          "view": "rates-search"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 48.108,
+          "view": "exchange"
+        },
+        {
+          "maxFrameMs": 16.696,
+          "p95FrameMs": 16.696,
+          "readyMs": 47.499,
+          "view": "tickets"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 45.651,
+          "view": "tickets-empty"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 61.333,
+          "view": "garden-last"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 36.443,
+          "view": "garden-search"
+        },
+        {
+          "maxFrameMs": 266.914,
+          "p95FrameMs": 16.697,
+          "readyMs": 330.297,
+          "view": "detail"
+        },
+        {
+          "maxFrameMs": 16.713,
+          "p95FrameMs": 16.697,
+          "readyMs": 53.382,
+          "view": "tree"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.467,
+          "view": "level"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.499,
+          "view": "awakening"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.697,
+          "readyMs": 34.525,
+          "view": "duplicate"
+        },
+        {
+          "maxFrameMs": 16.698,
+          "p95FrameMs": 16.698,
+          "readyMs": 34.67,
+          "view": "skill"
+        },
+        {
+          "maxFrameMs": 33.393,
+          "p95FrameMs": 16.664,
+          "readyMs": 63.093,
+          "view": "affection"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 46.807,
+          "view": "stories"
+        },
+        {
+          "maxFrameMs": 18.663,
+          "p95FrameMs": 16.696,
+          "readyMs": 53.113,
+          "view": "stories-select"
+        },
+        {
+          "maxFrameMs": 33.377,
+          "p95FrameMs": 33.376,
+          "readyMs": 66.824,
+          "view": "stories-last"
+        },
+        {
+          "maxFrameMs": 33.377,
+          "p95FrameMs": 33.361,
+          "readyMs": 56.338,
+          "view": "stories-empty"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 81.68,
+          "view": "formation-overview"
+        },
+        {
+          "maxFrameMs": 16.697,
+          "p95FrameMs": 16.664,
+          "readyMs": 53.07,
+          "view": "formation-member"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 46.238,
+          "view": "targets"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 45.215,
+          "view": "items"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 53.589,
+          "view": "materials"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 68.413,
+          "view": "newworld"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 64.011,
+          "view": "worlds"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 48.945,
+          "view": "colossi"
+        },
+        {
+          "maxFrameMs": 16.664,
+          "p95FrameMs": 16.664,
+          "readyMs": 45.455,
+          "view": "hunt"
+        },
+        {
+          "maxFrameMs": 283.594,
+          "p95FrameMs": 16.697,
+          "readyMs": 337.068,
+          "view": "battle"
+        }
+      ],
+      "peakWorkingSetBytes": 652828672
+    }
+  ],
+  "mediaPass": true,
+  "physicalInput": false,
+  "scope": "Generated scale rows share existing art; authored April CG and asynchronous reopen checked in isolated Player. Battle prefetch preserves 36-layer limit; no claim of eliminating all cold-load stalls.",
+  "evidence": [
+    {
+      "path": "tmp/heroine-scale-ui/497fbf9bfec04f6b99ab6fe1d482e468/results.json",
+      "sha256": "f0030b42263658a3523c3aaef4de6cc38d3cc332e0229e914da0116ebcc90ac7"
+    },
+    {
+      "path": "tmp/heroine-scale-ui/c28d13315b10483e84eef7e96a7c9575/results.json",
+      "sha256": "58eaeb3716692d079eb63da6b3b5335cd8064187303a135ae7dbb94b453e46a5"
+    },
+    {
+      "path": "tmp/production-ready-build.log",
+      "sha256": "fd57eac3600447dc2fb04e70a3261a91b0a7933108ab49de030734457ec253dd"
+    },
+    {
+      "path": "tmp/production-ready-core.log",
+      "sha256": "168339440330893bbf83f77e8dfe1440415ae39b1810ce5ff6d0f9e6d416caad"
+    },
+    {
+      "path": "tmp/runtime-improvements-player/35898d9932854248b96cb32675d93b9d/media/player.log",
+      "sha256": "add96d059e7b703259d4d493afe5d31c91c7eebeaa35155c309f36a0908b7a51"
+    },
+    {
+      "path": "tmp/runtime-improvements-player/35898d9932854248b96cb32675d93b9d/media/adv-async-cg.png",
+      "sha256": "d5df03c08b38d8a07a722361343df61d55fa8d419460e608c7b893ac4f2e60f8"
+    }
+  ]
+}

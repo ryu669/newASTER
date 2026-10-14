@@ -8,9 +8,11 @@ using NewAster.Data;
 
 public static class Plan1110BalanceMeasurements
 {
+    static string StoryPath="game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json";
     // A reproducible baseline, not a claim that this policy plays every job optimally.
     public static void Main(string[] args)
     {
+        if(args.Length>6)StoryPath=args[6];
         var combat=JsonSerializer.Deserialize<CombatDefinitionCatalog>(File.ReadAllText(args[0]),new JsonSerializerOptions{IncludeFields=true});
         combat.Validate();
         if(args.Length>4 && bool.Parse(args[4])){Progression(combat,args[1]);return;}
@@ -46,7 +48,7 @@ public static class Plan1110BalanceMeasurements
     }
     static void Equipment(CombatDefinitionCatalog combat,string output)
     {
-        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText("game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json"),new JsonSerializerOptions{IncludeFields=true});
+        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(StoryPath),new JsonSerializerOptions{IncludeFields=true});
         var catalog=ProductionStoryCatalog.Collection(combat,story);var rows=new List<object>();
         foreach(var variant in new[]{"none","attack","ramp-before","ramp-after"})
         {
@@ -73,7 +75,7 @@ public static class Plan1110BalanceMeasurements
     }
     static void Arsenal(CombatDefinitionCatalog combat,string output)
     {
-        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText("game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json"),new JsonSerializerOptions{IncludeFields=true});
+        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(StoryPath),new JsonSerializerOptions{IncludeFields=true});
         var catalog=ProductionStoryCatalog.Collection(combat,story);var home=ProductionStoryCatalog.Home(combat,story);
         var rows=new List<object>();var nodes=new List<object>();var effects=new List<object>();
         foreach(var candidate in combat.HeroineIds)
@@ -112,7 +114,7 @@ public static class Plan1110BalanceMeasurements
     }
     static void Progression(CombatDefinitionCatalog combat,string output)
     {
-        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText("game/unity/Assets/Game/Resources/Story/plan10-shangrila-story-content.json"),new JsonSerializerOptions{IncludeFields=true});
+        var story=JsonSerializer.Deserialize<ProductionStoryContent>(File.ReadAllText(StoryPath),new JsonSerializerOptions{IncludeFields=true});
         var collection=ProductionStoryCatalog.Collection(combat,story);var home=ProductionStoryCatalog.Home(combat,story);var banner=ProductionEconomyCatalog.Kinder(combat.HeroineIds);
         var duplicateSamples=Enumerable.Range(0,5).Select(_=>new List<int>()).ToArray();
         for(int seed=0;seed<2000;seed++){

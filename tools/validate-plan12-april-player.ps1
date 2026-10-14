@@ -1,14 +1,15 @@
-param([string[]]$Cases=@('art','gallery','recruitment','recruit','trait','skill','formation','command','attack0','attack1','attack2','garden','journey','tree0','tree2','tree4','battle-attack','battle-hit','battle-cutin'),[switch]$Force)
+param([string[]]$Cases=@('art','gallery','recruitment','recruit','trait','skill','formation','command','attack0','attack1','attack2','garden','journey','tree0','tree2','tree4','battle-attack','battle-hit','battle-cutin'),[switch]$Force,[string]$PlayerPath='game/Builds/plan12-april/newASTER.exe',[string]$OutputPath='tmp/plan12-april/player')
 $ErrorActionPreference='Stop'
 $repo=Split-Path $PSScriptRoot -Parent
-$player=Join-Path $repo 'game/Builds/plan12-april/newASTER.exe'
-$output=Join-Path $repo 'tmp/plan12-april/player'
+. (Join-Path $PSScriptRoot 'player-validation-cache.ps1')
+$player=Join-Path $repo $PlayerPath
+$buildFingerprint=Get-PlayerBuildFingerprint $player
+$output=Join-Path $repo $OutputPath
 New-Item -ItemType Directory -Force $output | Out-Null
 foreach($case in $Cases){
  $caseOutput=if($case -eq 'gallery'){Join-Path $output 'gallery-frames'}else{$output}
  New-Item -ItemType Directory -Force $caseOutput | Out-Null
  $base=Join-Path $caseOutput $case
- if((Test-Path "$base.complete") -and -not $Force){Write-Output "APRIL_PLAYER_CHECKPOINT $case";continue}
  $flags=@('-plan12AprilPreview')
  if($case -in @('art','gallery')){
   $flags+=@('-capturePlan10Ui','-uiView','detail','-heroineId','heroine.april','-plan12ArtSweep','-plan12ArtHero','april')
@@ -20,6 +21,7 @@ foreach($case in $Cases){
   elseif($case.StartsWith('battle-')){$flags+=@('-inspectPlan7Battle',$case.Substring(7),'-inspectPlan9Hero','heroine.april');$marker='PLAN12_FIRST_BATCH_PLAYER_PASS'}
   else{$marker="PLAN12_FIRST_BATCH_PLAYER_PASS hero=heroine.april view=$case "}
  }
+ if(-not $Force -and (Test-PlayerCheckpoint $base $buildFingerprint $PSCommandPath $flags)){Write-Output "APRIL_PLAYER_CHECKPOINT $case";continue}
  $proc=Start-Process -FilePath $player -ArgumentList (@('-logFile',"$base.log",'-presentationCapture',"$base.png")+$flags) -WindowStyle Normal -PassThru
  $timer=[Diagnostics.Stopwatch]::StartNew();$peak=0L
  while(-not $proc.WaitForExit(500)){$proc.Refresh();$peak=[Math]::Max($peak,$proc.PeakWorkingSet64);if($timer.Elapsed.TotalSeconds -gt 150){Stop-Process -Id $proc.Id;throw "April timeout $case"}}
@@ -31,6 +33,6 @@ foreach($case in $Cases){
   if($LASTEXITCODE -ne 0){throw "Wrong framebuffer $case"}
  }
  @{seconds=$timer.Elapsed.TotalSeconds;peakWorkingSetBytes=$peak;resolution='default 1920x1080';includesCaptureDelay=$true} | ConvertTo-Json | Set-Content "$base.metrics.json"
- Set-Content "$base.complete" 'automatic behavior passed; visual review is separate'
+ Save-PlayerCheckpoint $base $buildFingerprint $PSCommandPath $flags $caseOutput
  Write-Output "APRIL_PLAYER_PASS $case"
 }

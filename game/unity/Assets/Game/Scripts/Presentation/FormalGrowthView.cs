@@ -11,30 +11,32 @@ namespace NewAster.Presentation
     {
         public static string Encode(FormalCampaignSave value)
         {
-            if(value==null)throw new ArgumentNullException(nameof(value));string text=JsonUtility.ToJson(value,true);
-            if(value.home==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"home");
-            if(value.affection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"affection");
-            if(value.gardenLife==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"gardenLife");
-            if(value.collection==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"collection");
+            if(value==null)throw new ArgumentNullException(nameof(value));string text=JsonUtility.ToJson(value,false);
+            var absent=new System.Collections.Generic.List<string>();
+            if(value.home==null)absent.Add("home");
+            if(value.affection==null)absent.Add("affection");
+            if(value.gardenLife==null)absent.Add("gardenLife");
+            if(value.collection==null)absent.Add("collection");
+            if(value.engagement==null)absent.Add("engagement");
+            if(value.previousNarrative==null)absent.Add("previousNarrative");
+            if(absent.Count>0)text=FormalCampaignJsonShape.WithNullRootMembers(text,absent.ToArray());
             if(value.collection!=null && value.collection.ooparts==null){var collection=FormalCampaignJsonShape.RootMemberJson(text,"collection");text=FormalCampaignJsonShape.WithRootMemberJson(text,"collection",FormalCampaignJsonShape.WithNullRootMember(collection,"ooparts"));}
-            if(value.engagement==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"engagement");
-            if(value.previousNarrative==null)text=FormalCampaignJsonShape.WithNullRootMember(text,"previousNarrative");
             return text;
         }
         public static FormalCampaignSave Decode(string text)
         {
-            var value=new FormalCampaignSave{version=0,saveId=null};JsonUtility.FromJsonOverwrite(text,value);
-            if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"previousNarrative") || FormalCampaignJsonShape.RootMemberIsNull(text,"previousNarrative"))value.previousNarrative=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"gardenLife") || FormalCampaignJsonShape.RootMemberIsNull(text,"gardenLife"))value.gardenLife=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"affection") || FormalCampaignJsonShape.RootMemberIsNull(text,"affection"))value.affection=null;
+            var value=new FormalCampaignSave{version=0,saveId=null};JsonUtility.FromJsonOverwrite(text,value);var shape=FormalCampaignJsonShape.Inspect(text);
+            if(!shape.Contains("collection") || shape.IsNull("collection"))value.collection=null;
+            if(!shape.Contains("engagement") || shape.IsNull("engagement"))value.engagement=null;
+            if(!shape.Contains("previousNarrative") || shape.IsNull("previousNarrative"))value.previousNarrative=null;
+            if(!shape.Contains("home") || shape.IsNull("home"))value.home=null;
+            if(!shape.Contains("gardenLife") || shape.IsNull("gardenLife"))value.gardenLife=null;
+            if(!shape.Contains("affection") || shape.IsNull("affection"))value.affection=null;
             GardenLifeCatalog.NormalizeOptionalFields(value.gardenLife);
-            if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
+            if(!shape.Contains("world") || shape.IsNull("world"))value.world=null;
+            if(!shape.Contains("growth") || shape.IsNull("growth"))value.growth=null;
             NormalizeKinderOptionalFields(value.growth);
-            string collectionJson=FormalCampaignJsonShape.RootMemberJson(text,"collection");
+            string collectionJson=shape.Json("collection");
             if(value.collection!=null && (collectionJson==null || collectionJson=="null" || !FormalCampaignJsonShape.HasRootMember(collectionJson,"ooparts") || FormalCampaignJsonShape.RootMemberIsNull(collectionJson,"ooparts")))value.collection.ooparts=null;
             if(value.collection?.ooparts!=null){
                 var inventory=value.collection.ooparts;
@@ -56,12 +58,12 @@ namespace NewAster.Presentation
         }
         public static FormalCampaignHeader DecodeHeader(string text)
         {
-            var value=new FormalCampaignHeader();JsonUtility.FromJsonOverwrite(text,value);
-            if(!FormalCampaignJsonShape.HasRootMember(text,"world") || FormalCampaignJsonShape.RootMemberIsNull(text,"world"))value.world=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"growth") || FormalCampaignJsonShape.RootMemberIsNull(text,"growth"))value.growth=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"engagement") || FormalCampaignJsonShape.RootMemberIsNull(text,"engagement"))value.engagement=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"collection") || FormalCampaignJsonShape.RootMemberIsNull(text,"collection"))value.collection=null;
-            if(!FormalCampaignJsonShape.HasRootMember(text,"home") || FormalCampaignJsonShape.RootMemberIsNull(text,"home"))value.home=null;return value;
+            var value=new FormalCampaignHeader();JsonUtility.FromJsonOverwrite(text,value);var shape=FormalCampaignJsonShape.Inspect(text);
+            if(!shape.Contains("world") || shape.IsNull("world"))value.world=null;
+            if(!shape.Contains("growth") || shape.IsNull("growth"))value.growth=null;
+            if(!shape.Contains("engagement") || shape.IsNull("engagement"))value.engagement=null;
+            if(!shape.Contains("collection") || shape.IsNull("collection"))value.collection=null;
+            if(!shape.Contains("home") || shape.IsNull("home"))value.home=null;return value;
         }
     }
     public sealed partial class PrototypeBootstrap
@@ -107,7 +109,7 @@ namespace NewAster.Presentation
             lifeSnapshotCached=null;gardenLifeRuntime?.Stop();gardenLifeRuntime=null;StopLifeAudio();
             if(ProductionStoryActive)unified=PrepareProductionCampaign(unified);
             if(ProductionStoryActive){WeaponGrowthRules.EnsureRoots(unified,HomeData());OopartSaveAdapter.Migrate(unified.collection,CollectionData(),unified.home?.formationIds.Length==5?unified.home.formationIds:combatDefinitions.FormationIds);AffectionSaveAdapter.Migrate(unified,HomeData());AffectionEventResolver.Refresh(unified,HomeData());AffectionSaveAdapter.ValidateContent(unified,HomeData());}
-            unified.collection?.ValidateContent(SelectCollectionCatalog());
+            unified.collection?.ValidateContent(CollectionData());
             unified.home?.ValidateContent(HomeData(),unified);
             unified.gardenLife?.ValidateContent(unified,HomeData());
             formalCampaign=new FormalCampaignJournal(unified,UnityFormalCampaignJson.Encode,UnityFormalCampaignJson.Decode);
@@ -115,6 +117,7 @@ namespace NewAster.Presentation
             formalProgression=new FormalProgression(unified.growth,combatDefinitions.HeroineIds);
             book=CreateFormalBook();
             Debug.Log("FORMAL_CAMPAIGN_READY revision="+unified.revision+" growth="+unified.growth.revision);
+            RuntimeTimingMark("campaign-ready");
             TrialObserve("save","loaded","revision="+unified.revision);
             TrialObserve("economy","opening-balance",$"nectar={unified.growth.nectar};crystals={unified.growth.awakeningCrystals};stones={unified.growth.stones}");
         }

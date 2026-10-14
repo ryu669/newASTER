@@ -16,12 +16,19 @@ namespace NewAster.Presentation
         private HeroineRoster heroineRoster;
         private HeroineRosterEntry[] bookHeroineResults;
         private string bookHeroineResultKey;
+        private FormalProgression growthSnapshotSource;
+        private FormalGrowthSave growthSnapshotCached;
+        private FormalGrowthSave GrowthSnapshot()
+        {
+            if(growthSnapshotCached==null || !ReferenceEquals(growthSnapshotSource,formalProgression) || growthSnapshotCached.revision!=formalProgression.Revision){growthSnapshotCached=formalProgression.Snapshot;growthSnapshotSource=formalProgression;}
+            return growthSnapshotCached;
+        }
         private GUIStyle sanctuaryHeading,sanctuaryBody,sanctuarySmall;
         private BoundedCache<string,Texture2D> heroinePortraits;
         private bool heroineAssetCleanupPending;
         private void EnsureHeroineImageCaches()
         {
-            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
+            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,released:ReleasePortraitLater);
             if(sanctuaryTrees==null)sanctuaryTrees=new BoundedCache<string,Texture2D>(3,ScheduleHeroineAssetCleanup);
         }
         private void ScheduleHeroineAssetCleanup()
@@ -29,9 +36,38 @@ namespace NewAster.Presentation
             if(heroineAssetCleanupPending)return;
             heroineAssetCleanupPending=true;StartCoroutine(ReleaseUnusedHeroineImages());
         }
+        // Selection portraits are dedicated assets. Release only evicted portraits instead of
+        // collecting the entire managed heap and traversing every loaded asset on each page.
+        private readonly HashSet<Texture2D> retiredPortraits=new HashSet<Texture2D>();
+        private readonly Dictionary<Texture2D,string> portraitSourcePaths=new Dictionary<Texture2D,string>();
+        private bool portraitReleasePending;
+        private void ReleasePortraitLater(Texture2D texture)
+        {
+            if(texture==null)return;retiredPortraits.Add(texture);
+            if(!portraitReleasePending){portraitReleasePending=true;StartCoroutine(ReleaseRetiredPortraits());}
+        }
+        private System.Collections.IEnumerator ReleaseRetiredPortraits()
+        {
+            try{
+                while(retiredPortraits.Count>0){
+                    yield return new WaitForEndOfFrame();
+                    double started=MeasurementClock;
+                    for(int i=0;i<2 && retiredPortraits.Count>0;i++){
+                        var texture=retiredPortraits.FirstOrDefault(t=>t==null || !portraitSourcePaths.TryGetValue(t,out var path) || !heroinePortraitInFlight.Values.Any(v=>v.resourcePath==path));
+                        if(ReferenceEquals(texture,null))break;retiredPortraits.Remove(texture);
+                        // Multiple forms may share an asset; a re-request may also have recached it.
+                        if(!heroinePortraits.Values.Contains(texture)){portraitSourcePaths.Remove(texture);if(texture!=null)Resources.UnloadAsset(texture);}
+                        if((MeasurementClock-started)*1000>=2)break;
+                    }
+                }
+            }finally{portraitReleasePending=false;}
+        }
         private System.Collections.IEnumerator ReleaseUnusedHeroineImages()
         {
+            while(heroinePortraitLoads>0 || heroinePortraitRequests.Count>0)yield return null;
             yield return new WaitForEndOfFrame();
+            // Completed async requests retain native assets until their managed wrappers are collected.
+            GC.Collect();
             yield return Resources.UnloadUnusedAssets();
             heroineAssetCleanupPending=false;
         }
@@ -58,6 +94,7 @@ namespace NewAster.Presentation
                 string path=framing.resourcePath;
                 texture=quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)?quality119FixtureBundle.LoadAsset<Texture2D>(path):path==null?null:Resources.Load<Texture2D>(path);
                 {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
+                portraitSourcePaths[texture]=path;
                 heroinePortraits[key]=texture;
                 if(quality119Started)quality119MaxPortraitLoadCpuMs=Math.Max(quality119MaxPortraitLoadCpuMs,(MeasurementClock-started)*1000);
             }
@@ -65,11 +102,15 @@ namespace NewAster.Presentation
         }
         // Spread new visible portraits across frames; cap the queue and drop stale pages.
         private readonly Dictionary<string,int> heroinePortraitRequests=new Dictionary<string,int>();
+        private sealed class PortraitLoad { public int lastRequestedFrame;public string resourcePath; }
+        private readonly Dictionary<string,PortraitLoad> heroinePortraitInFlight=new Dictionary<string,PortraitLoad>();
+        private int heroinePortraitLoads=>heroinePortraitInFlight.Count;
         private bool heroinePortraitWorker;
         private Texture2D RequestHeroPortrait(string id)
         {
             EnsureHeroineImageCaches();
             if(heroinePortraits.TryGetValue(id,out var texture))return texture;
+            if(heroinePortraitInFlight.TryGetValue(id,out var loading)){loading.lastRequestedFrame=Time.frameCount;return null;}
             if(heroinePortraitRequests.ContainsKey(id))heroinePortraitRequests[id]=Time.frameCount;
             else if(heroinePortraitRequests.Count<HeroinePageSize)heroinePortraitRequests.Add(id,Time.frameCount);
             if(!heroinePortraitWorker && heroinePortraitRequests.Count>0){heroinePortraitWorker=true;StartCoroutine(LoadQueuedHeroPortraits());}
@@ -77,18 +118,51 @@ namespace NewAster.Presentation
         }
         private System.Collections.IEnumerator LoadQueuedHeroPortraits()
         {
+            var previousPriority=Application.backgroundLoadingPriority;
+            Application.backgroundLoadingPriority=ThreadPriority.Low;
             try{
-                while(heroinePortraitRequests.Count>0){
+                while(heroinePortraitRequests.Count>0 || heroinePortraitLoads>0){
                     yield return null;
                     double batchStarted=MeasurementClock;
-                    for(int i=0;i<2 && heroinePortraitRequests.Count>0;i++){
+                    for(int i=0;i<2 && heroinePortraitLoads<2 && heroinePortraitRequests.Count>0;i++){
                         var next=heroinePortraitRequests.First();heroinePortraitRequests.Remove(next.Key);
-                        if(Time.frameCount-next.Value<=2)HeroPortrait(next.Key);
-                        // A single resource load is indivisible; stop scheduling more work once over budget.
+                        if(Time.frameCount-next.Value<=2){
+                            var load=new PortraitLoad{lastRequestedFrame=next.Value};heroinePortraitInFlight.Add(next.Key,load);
+                            StartCoroutine(LoadHeroPortraitAsync(next.Key,load));
+                        }
                         if((MeasurementClock-batchStarted)*1000>=4)break;
                     }
                 }
-            }finally{heroinePortraitWorker=false;}
+            }finally{Application.backgroundLoadingPriority=previousPriority;heroinePortraitWorker=false;}
+        }
+        private System.Collections.IEnumerator LoadHeroPortraitAsync(string id,PortraitLoad load)
+        {
+            bool published=false;
+            ResourceRequest resourceRequest=null;AssetBundleRequest bundleRequest=null;Texture2D texture=null;
+            try{
+                double cpuStarted=MeasurementClock;var framing=HeroFraming(id);
+                load.resourcePath=framing.resourcePath;
+                if(quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)){
+                    bundleRequest=quality119FixtureBundle.LoadAssetAsync<Texture2D>(framing.resourcePath);RecordPortraitLoadCpu(cpuStarted);while(!bundleRequest.isDone)yield return null;cpuStarted=MeasurementClock;texture=bundleRequest.asset as Texture2D;bundleRequest=null;
+                }else{
+                    resourceRequest=Resources.LoadAsync<Texture2D>(framing.resourcePath);RecordPortraitLoadCpu(cpuStarted);while(!resourceRequest.isDone)yield return null;cpuStarted=MeasurementClock;texture=resourceRequest.asset as Texture2D;resourceRequest=null;
+                }
+                if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);
+                portraitSourcePaths[texture]=framing.resourcePath;
+                portraitFraming.ValidateSource(framing,texture.width,texture.height);
+                // Requests are refreshed only by the visible page. Do not restore a stale page's images.
+                if(Time.frameCount-load.lastRequestedFrame<=2){heroinePortraits[id]=texture;published=true;}
+                RecordPortraitLoadCpu(cpuStarted);
+            }finally{
+                // Iterator state can outlive its completion. Drop native request/result references
+                // before UnloadUnusedAssets examines the bounded cache's evictions.
+                resourceRequest=null;bundleRequest=null;
+                heroinePortraitInFlight.Remove(id);if(!published)ReleasePortraitLater(texture);texture=null;
+            }
+        }
+        private void RecordPortraitLoadCpu(double started)
+        {
+            if(quality119Started)quality119MaxPortraitLoadCpuMs=Math.Max(quality119MaxPortraitLoadCpuMs,(MeasurementClock-started)*1000);
         }
         // Face anchors are authored against the unmodified source PNG, using top-left coordinates.
         // Clip the bust to its panel; use one scale for both axes to preserve the original proportions.
@@ -142,11 +216,11 @@ namespace NewAster.Presentation
             heroineJobFilter=Mathf.Clamp(heroineJobFilter,0,jobs.Length);affectionRosterFilter=Mathf.Clamp(affectionRosterFilter,0,4);var snapshot=LifeSnapshot().growth;string resultKey=heroineQuery+"|"+heroineJobFilter+"|"+affectionRosterFilter+"|"+formalCampaign.Revision;if(bookHeroineResults==null || bookHeroineResultKey!=resultKey){bookHeroineResults=heroineRoster.Search(heroineQuery,heroineJobFilter==0?null:jobs[heroineJobFilter-1],snapshot.heroines.Select(h=>h.heroineId)).Where(e=>AffectionRosterMatch(e.id)).ToArray();bookHeroineResultKey=resultKey;}var entries=bookHeroineResults;
             var saved=book.PageState;var activeFilters=new[]{heroineJobFilter.ToString(),affectionRosterFilter.ToString()};if(saved.searchQuery!=heroineQuery || !(saved.filterIds??Array.Empty<string>()).SequenceEqual(activeFilters)){saved.searchQuery=heroineQuery;saved.filterIds=activeFilters;bookNavigationDirty=true;}book.SetResults(BookBookmark.Heroines,entries.Select(e=>e.id));
             int pages=Math.Max(1,(entries.Length+HeroinePageSize-1)/HeroinePageSize);heroinePage=Mathf.Clamp(heroinePage,0,pages-1);
-            int people=snapshot.heroines.Select(h=>combatDefinitions.PersonId(h.heroineId)).Distinct().Count();
+            int people=HeroineIndex().PersonCount;
             Label(60,177,900,35,people==snapshot.heroines.Length?$"所持 {people}人  ／  表示 {entries.Length}人":$"所持 {people}人・{snapshot.heroines.Length}形態  ／  表示 {entries.Length}形態",growthSmallStyle);
             var page=entries.Skip(heroinePage*HeroinePageSize).Take(HeroinePageSize).ToArray();
             for(int i=0;i<page.Length;i++){
-                var entry=page[i];var h=snapshot.heroines.Single(g=>g.heroineId==entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
+                var entry=page[i];var h=HeroineIndex().Growth(entry.id);float x=62+(i%4)*374,y=232+(i/4)*183;
                 var rect=new Rect(x,y,352,166);bool hover=rect.Contains(Event.current.mousePosition);
                 GrowthFrame(x,y,352,166);GrowthFill(x+3,y+3,117,160,hover?new Color(.18f,.28f,.31f):new Color(.10f,.18f,.23f));
                 DrawHeroPortrait(new Rect(x+5,y+6,111,154),entry.id);
@@ -160,6 +234,7 @@ namespace NewAster.Presentation
             if(page.Length==0){GrowthDiamond(800,454,50);Label(440,530,800,50,"該当なし",growthTextStyle);}
             if(GrowthButton(62,808,210,52,"‹ 前の12人",heroinePage>0 && BookInputAllowed))heroinePage--;
 
+            DrawPageEnds(300,814,990,ref heroinePage,pages,BookInputAllowed);
             Label(665,818,280,40,$"{heroinePage+1} / {pages} ページ",growthTextStyle);
             if(GrowthButton(1320,808,225,52,"次の12人 ›",heroinePage+1<pages && BookInputAllowed))heroinePage++;
             GUI.enabled=previousEnabled;if(rosterFilterOpen)DrawRosterFilter(jobs);DrawAnnihilatorRecruitmentDialog();
@@ -181,7 +256,27 @@ namespace NewAster.Presentation
             }
             if(GrowthButton(905,690,310,48,"キャンセル"))rosterFilterOpen=false;
         }
-        private PlayableBattle HeroinePreview(FormalGrowthSave growth=null,string heroId=null)=>new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(heroId)),formalGrowth:growth??formalProgression.Snapshot,homeProgress:formalCampaign.Snapshot.home,homeCatalog:HomeData(),collectionGrowth:formalCampaign.Snapshot.collection,relicCatalog:CollectionData());
+        private PlayableBattle HeroinePreview(FormalGrowthSave growth=null,string heroId=null)
+        {
+            var save=LifeSnapshot();
+            return new PlayableBattle(1,campaign.Playable,combatDefinitions:combatDefinitions.WithFormation(PreviewFormation(heroId)),formalGrowth:growth??GrowthSnapshot(),homeProgress:save.home,homeCatalog:HomeData(),collectionGrowth:save.collection,relicCatalog:CollectionData());
+        }
+        private FormalCampaignSave detailPreviewSnapshot;
+        private FormalProgression detailPreviewProgression;
+        private string detailPreviewHero;
+        private long detailPreviewGrowthRevision;
+        private BattleHero detailPreviewState;
+        private BattleHero HeroineDetailPreview(string id,FormalGrowthSave growth)
+        {
+            var save=LifeSnapshot();
+            if(detailPreviewState==null || !ReferenceEquals(detailPreviewSnapshot,save) || !ReferenceEquals(detailPreviewProgression,formalProgression) || detailPreviewHero!=id || detailPreviewGrowthRevision!=growth.revision){
+                int actor=Array.IndexOf(PreviewFormation(id),id);
+                detailPreviewState=HeroinePreview(growth,id).State.Heroes[actor];
+                detailPreviewSnapshot=save;detailPreviewProgression=formalProgression;detailPreviewHero=id;
+                detailPreviewGrowthRevision=growth.revision;
+            }
+            return detailPreviewState;
+        }
         private SkillCombatDef DisplayHeroineSkill(string id,int slot)
         {
             var skill=HeroineSkillRules.AtLevel(combatDefinitions.Skill(id,slot),1);if(slot!=combatDefinitions.WeaponSkillSlot(id) || skill.effectRuleId!="effect.damage")return skill;
@@ -190,8 +285,8 @@ namespace NewAster.Presentation
         }
         private void DrawHeroineDetail()
         {
-            string id=book.SubjectId;var definition=combatDefinitions.Hero(id);var growth=formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id);
-            int actor=Array.IndexOf(PreviewFormation(id),id);var state=HeroinePreview(heroId:id).State.Heroes[actor];var job=combatDefinitions.Job(definition.jobId);
+            string id=book.SubjectId;var definition=combatDefinitions.Hero(id);var growthSave=GrowthSnapshot();var growth=growthSave.heroines.Single(h=>h.heroineId==id);
+            var state=HeroineDetailPreview(id,growthSave);var job=combatDefinitions.Job(definition.jobId);
             SanctuaryHeader("誓女の記憶",HeroineIdentityCatalog.JobName(definition.jobId)+"  ／  ★ ★ ★ ★ ★ ★");
             if(GrowthButton(52,104,206,48,"‹ 誓女一覧",BookInputAllowed)){heroineRosterOpen=true;selectedTrait=-1;return;}
             GrowthFrame(52,176,646,643);GrowthDiamond(373,414,204);GrowthDiamond(373,414,222);
@@ -254,7 +349,7 @@ namespace NewAster.Presentation
         private const float sixty=60;
         private void DrawHeroineSkillUpgrade()
         {
-            string id=book.SubjectId;var g=formalProgression.Snapshot.heroines.Single(h=>h.heroineId==id);var skill=DisplayHeroineSkill(id,selectedSkillSlot);var job=combatDefinitions.Job(combatDefinitions.Hero(id).jobId);int level=g.SkillLevel(selectedSkillSlot);
+            string id=book.SubjectId;var growthSave=GrowthSnapshot();var g=growthSave.heroines.Single(h=>h.heroineId==id);var skill=DisplayHeroineSkill(id,selectedSkillSlot);var job=combatDefinitions.Job(combatDefinitions.Hero(id).jobId);int level=g.SkillLevel(selectedSkillSlot);
             SanctuaryHeader("スキルの研鑽",combatDefinitions.Hero(id).name+"  ／  "+skill.name);
             GrowthFrame(145,146,1310,650);
             if(GrowthButton(180,172,195,48,"‹ 能力へ戻る",!formalProgression.HasPending)){growthScreen=GrowthScreen.Overview;return;}
@@ -263,10 +358,10 @@ namespace NewAster.Presentation
             Label(208,285,528,46,"現在  Lv."+level,sanctuaryHeading);Label(208,350,528,194,HeroineSkillRules.Description(skill,level,job),sanctuaryBody);
             Label(814,285,570,46,level==7?"最大Lvに到達しました":"次の強化  Lv."+(level+1),sanctuaryHeading);
             Label(814,350,570,194,HeroineSkillRules.Description(skill,Math.Min(7,level+1),job),sanctuaryBody);
-            int cost=level==7?0:HeroineSkillRules.UpgradeCost(level);Label(187,582,1225,45,level==7?"このスキルは最大Lv7です。":$"ネクタル 必要 {cost} ／ 所持 {formalProgression.Snapshot.nectar}",growthTextStyle,gold);
+            int cost=level==7?0:HeroineSkillRules.UpgradeCost(level);Label(187,582,1225,45,level==7?"このスキルは最大Lv7です。":$"ネクタル 必要 {cost} ／ 所持 {growthSave.nectar}",growthTextStyle,gold);
             Label(187,639,1225,49,growthOutcome??"",growthSmallStyle);
-            if(GrowthButton(184,710,1228, sixty,formalProgression.HasPending?"同じ内容で保存を再試行":level==7?"MAX ／ すべてのスキルLv7で熟達特性が解放":"Lv."+(level+1)+"へ強化する",formalProgression.HasPending || level<7 && formalProgression.Snapshot.nectar>=cost,true)){
-                if(growthRequest==null)growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,formalProgression.Snapshot.revision,GrowthOperation.Skill,level+1,skillSlot:selectedSkillSlot);
+            if(GrowthButton(184,710,1228, sixty,formalProgression.HasPending?"同じ内容で保存を再試行":level==7?"MAX ／ すべてのスキルLv7で熟達特性が解放":"Lv."+(level+1)+"へ強化する",formalProgression.HasPending || level<7 && growthSave.nectar>=cost,true)){
+                if(growthRequest==null)growthRequest=new GrowthRequest(Guid.NewGuid().ToString("N"),id,growthSave.revision,GrowthOperation.Skill,level+1,skillSlot:selectedSkillSlot);
                 var result=formalProgression.Commit(growthRequest,SaveFormalGrowth);growthOutcome=result==GrowthCommitResult.SaveFailed?"保存できませんでした。費用とスキルLvは変更せず、同じ内容を再試行します。":"スキル強化を保存しました。";if(result!=GrowthCommitResult.SaveFailed){growthRequest=null;PlayProductionUnlock();}
             }
         }

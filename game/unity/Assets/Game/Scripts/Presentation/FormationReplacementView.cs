@@ -10,6 +10,8 @@ namespace NewAster.Presentation
         private string formationCandidateHero,formationCandidateOopart,formationPreviewKey;
         private BattleHero formationPreviewHero;
         private Vector2 formationDetailScroll;
+        private bool formationJobPicker;
+        private string formationJobId;
         private int formationHeroSort,formationItemSort; private bool formationSelectionPagePending;
         private void PickerSearch(ref string query,ref int page,ref int sort,bool interactive)
         {
@@ -38,9 +40,16 @@ namespace NewAster.Presentation
         }
         private void DrawFormationHeroPicker(bool interactive)
         {
-            PickerSearch(ref formationQuery,ref formationPage,ref formationHeroSort,interactive);
-            var candidates=formalProgression.Snapshot.heroines.Where(h=>combatDefinitions.HeroineIds.Contains(h.heroineId) && combatDefinitions.Hero(h.heroineId).name.Contains(formationQuery));
-            var all=(formationHeroSort==0?candidates.OrderBy(h=>combatDefinitions.Hero(h.heroineId).name):candidates.OrderByDescending(h=>h.level).ThenBy(h=>combatDefinitions.Hero(h.heroineId).name)).ToArray();int pages=Math.Max(1,(all.Length+7)/8);formationPage=Mathf.Clamp(formationPage,0,pages-1);
+            if(formationJobPicker){DrawFormationJobChoices(interactive);return;}
+            Label(350,114,175,38,"名前検索",growthSmallStyle);
+            string query=ImageUiSkin.TextField(new Rect(540,108,505,48),formationQuery,64,new GUIStyle(GUI.skin.textField){font=font,fontSize=22});
+            if(query!=formationQuery){formationQuery=query;formationPage=0;formationSelectionPagePending=false;}
+            if(GrowthButton(1060,108,255,48,formationJobId==null?"全ジョブ":HeroineIdentityCatalog.JobName(formationJobId),interactive))formationJobPicker=true;
+            if(GrowthButton(1330,108,200,48,formationHeroSort==0?"名前 ↑":"Lv ↓",interactive)){formationHeroSort=1-formationHeroSort;formationPage=0;}
+
+            var index=HeroineIndex();
+            var all=index.Search(formationQuery,job:formationJobId,ownedOnly:true,order:formationHeroSort).Select(index.Growth).ToArray();int pages=Math.Max(1,(all.Length+7)/8);formationPage=Mathf.Clamp(formationPage,0,pages-1);
+            if(formationCandidateHero!=null && !all.Any(h=>h.heroineId==formationCandidateHero))formationCandidateHero=null;
             if(formationCandidateHero==null && all.Length>0)formationCandidateHero=all[0].heroineId;
             if(formationSelectionPagePending){formationPage=Math.Max(0,Array.FindIndex(all,h=>h.heroineId==formationCandidateHero))/8;formationSelectionPagePending=false;}var visible=all.Skip(formationPage*8).Take(8).ToArray();
             for(int i=0;i<visible.Length;i++){
@@ -49,15 +58,24 @@ namespace NewAster.Presentation
             }
             GrowthFrame(65,190,450,576);
             if(formationCandidateHero!=null){
-                var h=formalProgression.Snapshot.heroines.Single(v=>v.heroineId==formationCandidateHero);var def=combatDefinitions.Hero(h.heroineId);DrawHeroPortrait(new Rect(80,205,135,183),h.heroineId);
+                var h=index.Growth(formationCandidateHero);var def=combatDefinitions.Hero(h.heroineId);DrawHeroPortrait(new Rect(80,205,135,183),h.heroineId);
                 Label(235,214,260,85,def.name,new GUIStyle(growthTitleStyle){fontSize=25});Label(235,305,260,70,"Lv."+h.level+"\n"+HeroineIdentityCatalog.JobName(def.jobId),growthSmallStyle);
                 var actor=FormationCandidateStats(h.heroineId);Label(90,400,390,105,"HP "+actor.MaxHitPoints+"　攻撃 "+actor.Attack+"\n物理防御 "+actor.PhysicalDefense+"　魔法防御 "+actor.MagicDefense+"\n速度 "+actor.Speed,growthSmallStyle);
                 string skills=string.Join("\n\n",Enumerable.Range(0,3).Select(i=>{var d=HeroineSkillRules.AtLevel(combatDefinitions.Skill(h.heroineId,i),h.SkillLevel(i));return d.name+" ／ Lv."+h.SkillLevel(i)+"\n"+(d.effectRuleId=="effect.damage"?"威力 "+(d.powerScale*100).ToString("0.#")+"%":d.effectRuleId=="effect.heal"?"回復 "+d.baseHealing:TimedSelfEffectDef.Label(d.selfEffects?.FirstOrDefault()?.kind??"attack"))+" ／ "+d.resourceCost+" "+combatDefinitions.Job(def.jobId).resourceName;}));
                 formationDetailScroll=GUI.BeginScrollView(new Rect(90,523,395,220),formationDetailScroll,new Rect(0,0,365,Math.Max(220,growthSmallStyle.CalcHeight(new GUIContent(skills),365))));Label(0,0,365,Math.Max(220,growthSmallStyle.CalcHeight(new GUIContent(skills),365)),skills,growthSmallStyle);GUI.EndScrollView();
             }
+            if(all.Length==0)Label(700,425,650,55,"該当する誓女がいません",growthTextStyle);
             PickerPage(ref formationPage,pages,interactive);
+            DrawPageEnds(965,810,205,ref formationPage,pages,interactive);
             if(GrowthButton(65,806,200,48,"外す",interactive && CurrentFormation()[formationSlot]!=null)){oopartSlot=formationSlot;ProposeOopart("clear-slot");CommitOopart();}
             if(GrowthButton(1220,806,312,48,"決定",interactive && formationCandidateHero!=null && formationCandidateHero!=CurrentFormation()[formationSlot],true)){ProposeHome(new HomeOperation("formation",formationCandidateHero,formationSlot.ToString()));ConfirmHome();}
+        }
+        private void DrawFormationJobChoices(bool interactive)
+        {
+            Label(540,112,900,50,"ジョブで絞り込む",growthTitleStyle);
+            var jobs=new[]{(string)null}.Concat(combatDefinitions.jobs.Select(j=>j.id)).ToArray();
+            for(int i=0;i<jobs.Length;i++){string id=jobs[i];if(GrowthButton(540+i%3*330,220+i/3*95,310,75,(formationJobId==id?"✓ ":"")+(id==null?"全ジョブ":HeroineIdentityCatalog.JobName(id)),interactive)){formationJobId=id;formationJobPicker=false;formationPage=0;formationSelectionPagePending=false;}}
+            if(GrowthButton(540,806,280,48,"キャンセル",interactive))formationJobPicker=false;
         }
         private void DrawFormationItemPicker(bool interactive)
         {

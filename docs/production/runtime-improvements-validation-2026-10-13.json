@@ -1,0 +1,449 @@
+{
+  "date": "2026-10-13",
+  "scope": "25 forms / 22 persons / default 1920x1080; isolated test saves; OS cache uncontrolled",
+  "normalStartup": {
+    "player": "D:\\AIGAME\\newASTER\\game\\Builds\\plan12-april\\newASTER.exe",
+    "pollMs": 50,
+    "buildFingerprint": "7A33C2DEAFD937500297C97A90A039F56E999394CF997C6354058BE9D64C79EC",
+    "runs": [
+      {
+        "profile": "new slot",
+        "capture": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-1.png",
+        "peakWorkingSetBytes": 594149376,
+        "phases": [
+          {
+            "phase": "before-scene",
+            "elapsedMs": 0.0
+          },
+          {
+            "phase": "awake",
+            "elapsedMs": 7.274
+          },
+          {
+            "phase": "save-inspect-start",
+            "elapsedMs": 119.014
+          },
+          {
+            "phase": "campaign-ready",
+            "elapsedMs": 822.464
+          },
+          {
+            "phase": "title-interactive",
+            "elapsedMs": 3805.925
+          },
+          {
+            "phase": "book-request",
+            "elapsedMs": 3806.488
+          },
+          {
+            "phase": "book-ready",
+            "elapsedMs": 4048.414
+          }
+        ],
+        "run": 1,
+        "processToTitleInteractiveMs": 6360.5,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-1.log"
+      },
+      {
+        "profile": "existing slot",
+        "capture": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-2.png",
+        "peakWorkingSetBytes": 614801408,
+        "phases": [
+          {
+            "phase": "before-scene",
+            "elapsedMs": 0.0
+          },
+          {
+            "phase": "awake",
+            "elapsedMs": 7.393
+          },
+          {
+            "phase": "save-inspect-start",
+            "elapsedMs": 123.241
+          },
+          {
+            "phase": "campaign-ready",
+            "elapsedMs": 808.12
+          },
+          {
+            "phase": "title-interactive",
+            "elapsedMs": 2057.611
+          },
+          {
+            "phase": "book-request",
+            "elapsedMs": 2057.965
+          },
+          {
+            "phase": "book-ready",
+            "elapsedMs": 2312.723
+          }
+        ],
+        "run": 2,
+        "processToTitleInteractiveMs": 4566.3,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-2.log"
+      },
+      {
+        "profile": "existing slot",
+        "capture": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-3.png",
+        "peakWorkingSetBytes": 592060416,
+        "phases": [
+          {
+            "phase": "before-scene",
+            "elapsedMs": 0.0
+          },
+          {
+            "phase": "awake",
+            "elapsedMs": 7.463
+          },
+          {
+            "phase": "save-inspect-start",
+            "elapsedMs": 117.358
+          },
+          {
+            "phase": "campaign-ready",
+            "elapsedMs": 780.628
+          },
+          {
+            "phase": "title-interactive",
+            "elapsedMs": 2023.594
+          },
+          {
+            "phase": "book-request",
+            "elapsedMs": 2023.963
+          },
+          {
+            "phase": "book-ready",
+            "elapsedMs": 2279.633
+          }
+        ],
+        "run": 3,
+        "processToTitleInteractiveMs": 4520.9,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing\\202eefda9de74ab19cddc781f195cf20\\run-3.log"
+      }
+    ],
+    "scope": "Normal startup including intro and isolated slot load; rendered frame-end readiness, not physical input or GPU fence; OS cache uncontrolled",
+    "resolution": "default",
+    "playerSha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873"
+  },
+  "coldPortraitCache": {
+    "resolution": "default, no size overrides",
+    "scope": "isolated current 25-form diagnostic; no ordinary save load; OS cache uncontrolled",
+    "runs": [
+      {
+        "peakWorkingSetBytes": 613523456,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\5514aeea6a884ec496202189962ad2d6\\book-1\\player.log",
+        "case": "book-1",
+        "markers": [
+          "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+          "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=363.078 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+        ],
+        "processToCampaignReadyMs": 3149.6
+      },
+      {
+        "peakWorkingSetBytes": 601051136,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\5514aeea6a884ec496202189962ad2d6\\book-2\\player.log",
+        "case": "book-2",
+        "markers": [
+          "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+          "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=346.466 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+        ],
+        "processToCampaignReadyMs": 3041.1
+      },
+      {
+        "peakWorkingSetBytes": 602996736,
+        "log": "D:\\AIGAME\\newASTER\\tmp\\runtime-timing-2026-10-13\\5514aeea6a884ec496202189962ad2d6\\book-3\\player.log",
+        "case": "book-3",
+        "markers": [
+          "COMBAT_DEFINITIONS_PASS version=3 status=newaster-original heroes=25 skills=75 chains=25\r",
+          "PLAN11_9_COLD_BOOK_MEASUREMENT firstRenderedFrameMs=329.003 scope=firstTitleOpenHandlerToPortraitsReadyFrameEnd portraitsPreloaded=0 osDiskCache=uncontrolled processStartup=excluded gpuFence=excluded\r"
+        ],
+        "processToCampaignReadyMs": 3049.6
+      }
+    ],
+    "player": "D:\\AIGAME\\newASTER\\game\\Builds\\plan12-april\\newASTER.exe",
+    "playerSha256": "96B492CB271111251FE42B8646E65370A1B7B566773A1E35B34C3F2D1AE70873",
+    "pollMs": 50
+  },
+  "streaming": {
+    "images": 320,
+    "persons": 256,
+    "width": 1536,
+    "height": 1024,
+    "cacheLimit": 24,
+    "maxResidentImages": 24,
+    "maxResidentBeforeCleanup": 36,
+    "finalResidentImages": 0,
+    "faceCacheLimit": 12,
+    "maxResidentFacePatches": 12,
+    "finalResidentFacePatches": 0,
+    "bundleBytes": 36838106,
+    "peakTextureStorageEstimateBytes": 56623104,
+    "maxPageFrameMs": 542.4153,
+    "p95PageFrameMs": 401.7921,
+    "meanPageFrameMs": 314.09569629629635,
+    "maxLoadingFrameMs": 650.5094170570374,
+    "bundleOpenMs": 695.9868,
+    "maxPortraitLoadCpuMs": 0.3984999999993022,
+    "maxPendingRequests": 12,
+    "portraitLoadsPerFrameLimit": 2,
+    "portraitBatchCpuBudgetMs": 4.0,
+    "pageFrameMs": [
+      542.4153,
+      401.2228,
+      334.6508,
+      283.0876,
+      401.5213,
+      301.9356,
+      318.42220000000003,
+      251.93880000000001,
+      351.8115,
+      334.7788,
+      351.3014,
+      301.5867,
+      318.0507,
+      284.5584,
+      401.7921,
+      235.3033,
+      317.85220000000004,
+      333.9793,
+      251.80280000000002,
+      284.6881,
+      251.5438,
+      301.2327,
+      251.7596,
+      269.0204,
+      285.119,
+      285.7089,
+      233.49970000000002
+    ],
+    "textureFormat": "DXT5",
+    "scope": "320 synthetic textures through production portrait cache / framing / drawing; person count belongs to paired Core stress fixture. LZ4 asset I/O, not product artwork or Resources packaging. Fixture container opening is measured separately before page readiness starts. Queued page readiness includes waiting for all portraits and one complete draw; not placeholder-only timing. DXT5 storage estimate excludes driver, allocator, bundle, and upload overhead; not measured VRAM. Process memory sampled externally."
+  },
+  "saveCoreOnly": {
+    "scope": "Current Core SaveSlotManager including durable writes, checksum, two backups and read verification; System.Text.Json codec, not Unity JsonUtility or Player timings; synthetic receipt counts",
+    "runs": [
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 1,
+        "saveMs": 15.1717,
+        "loadMs": 6.2004,
+        "copyMs": 0.586,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 2,
+        "saveMs": 22.965,
+        "loadMs": 6.2428,
+        "copyMs": 0.5981,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 3,
+        "saveMs": 22.1889,
+        "loadMs": 5.6289,
+        "copyMs": 0.5519,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 4,
+        "saveMs": 18.5313,
+        "loadMs": 5.0886,
+        "copyMs": 0.5144,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 0,
+        "run": 5,
+        "saveMs": 51.2967,
+        "loadMs": 6.2206,
+        "copyMs": 0.5609,
+        "payloadBytes": 31597
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 1,
+        "saveMs": 33.7527,
+        "loadMs": 14.6716,
+        "copyMs": 2.5389,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 2,
+        "saveMs": 38.9544,
+        "loadMs": 14.856,
+        "copyMs": 3.9736,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 3,
+        "saveMs": 57.3668,
+        "loadMs": 17.437,
+        "copyMs": 2.8403,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 4,
+        "saveMs": 45.8273,
+        "loadMs": 12.0965,
+        "copyMs": 1.8282,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 1000,
+        "run": 5,
+        "saveMs": 39.1841,
+        "loadMs": 12.3129,
+        "copyMs": 1.7095,
+        "payloadBytes": 162382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 1,
+        "saveMs": 171.0134,
+        "loadMs": 82.2462,
+        "copyMs": 16.551,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 2,
+        "saveMs": 235.6593,
+        "loadMs": 75.8085,
+        "copyMs": 13.8225,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 3,
+        "saveMs": 205.2139,
+        "loadMs": 56.1598,
+        "copyMs": 10.7316,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 4,
+        "saveMs": 195.4477,
+        "loadMs": 55.0363,
+        "copyMs": 17.6245,
+        "payloadBytes": 1359382
+      },
+      {
+        "additionalGrowthReceipts": 10000,
+        "run": 5,
+        "saveMs": 198.2473,
+        "loadMs": 61.481,
+        "copyMs": 10.3294,
+        "payloadBytes": 1359382
+      }
+    ]
+  },
+  "coreAssertions": 12561,
+  "compiledSources": 281,
+  "battleMatrix": {
+    "runs": 27200,
+    "failures": 0,
+    "criteria": "starter >=7/8; trained Lv50 skill7 with job-support policy >=3/4; max-slot and max-party all wins; underlevel <=2/8; diagnostic and support-stress profiles have no victory minimum; zero 4000-operation caps everywhere",
+    "scope": "Current25 forms, all15 enemies, three weapon routes, all42 ooparts. Max-slot crosses all42 with three routes and20/100% rolls. Max-party uses distinct slot equipment, all15 enemies, duplicate0/5, both command policies. Damage/heal-only Lv50 and skill1 are diagnostic: ignoring songs/volley is not a required winning strategy. Synthetic gear fixtures are separate from earned journey.",
+    "summary": [
+      {
+        "profile": "starter",
+        "runs": 400,
+        "wins": 400,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "underlevel",
+        "runs": 400,
+        "wins": 2,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "trained-diagnostic",
+        "runs": 1500,
+        "wins": 1480,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "support-stress",
+        "runs": 1200,
+        "wins": 807,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "unskilled-diagnostic",
+        "runs": 600,
+        "wins": 572,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "trained",
+        "runs": 1500,
+        "wins": 1500,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "max-slot",
+        "runs": 12600,
+        "wins": 12600,
+        "caps": 0,
+        "failures": 0
+      },
+      {
+        "profile": "max-party",
+        "runs": 9000,
+        "wins": 9000,
+        "caps": 0,
+        "failures": 0
+      }
+    ]
+  },
+  "buildBytes": {
+    "beforeArchive": 4337826138,
+    "after": 4211989722
+  },
+  "evidence": [
+    {
+      "path": "tmp/runtime-improvements-core-final.log",
+      "sha256": "ff0d502b1fc6f82a94e1b12c0ec219b458e7c823cea2583863f669181584ca62"
+    },
+    {
+      "path": "tmp/runtime-improvements-compile-complete.log",
+      "sha256": "f1d64692fbd0edef877a3cff7a7e4ce8b0326447d2906134c096fc16aada13d4"
+    },
+    {
+      "path": "tmp/runtime-improvements-build-coalesce.log",
+      "sha256": "f7173236d5006665d1010c73157d7432398cb711f9cadf3edb90d6ebcf89ba16"
+    },
+    {
+      "path": "tmp/runtime-improvements-invalid-root.log",
+      "sha256": "6c7d652f4ecca4c93d2dd42b711bcf367037f74cafa5d90d525b80526e895a99"
+    },
+    {
+      "path": "tmp/runtime-improvements-player/f9f194767b0d4335b3d8c9d993317e7a/streaming/player.log",
+      "sha256": "3e295f751e7bf706a5ae468f93e95e7d651070f5b74afaf98e1fddc9cea1ed42"
+    },
+    {
+      "path": "tmp/runtime-improvements-checkpoint/trait.complete",
+      "sha256": "bffe1cda2606a83030321f07d6eb28d26966a05c1b881b286cd68f3560348624"
+    }
+  ],
+  "limitations": [
+    "Core save codec is System.Text.Json; not Player save timing. Full save median at 10,000 extra receipts is about 198ms; asynchronous disk persistence remains future work.",
+    "Synthetic 320-texture stress max loading frame 650.5ms; cleanup and native upload can stall despite async I/O. Product first roster readiness passed 500ms in three runs.",
+    "OS cache uncontrolled. Before/after launch samples are observations, not a controlled cold disk experiment.",
+    "Unchanged per-character artwork approvals retained; only shared loading paths reviewed."
+  ]
+}
