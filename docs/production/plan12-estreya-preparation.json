@@ -1,0 +1,42 @@
+{
+  "status": "in-development",
+  "available": false,
+  "personId": "heroine.estreya",
+  "sourcePersonId": "aa.person.026",
+  "jobId": "job.berserker",
+  "date": "2026-10-14",
+  "baseline": "origin/main f1dc02c",
+  "performanceChanges": "Separate PR23; not reverted or duplicated in this branch",
+  "complete": [
+    "source-profile-skill-trait-weapon-observations",
+    "original-person-profile",
+    "combat-draft-three-skills",
+    "original-story-three-chapters-thirty-pages-eighteen-poems-five-events",
+    "HP-conditional-damage-copy-level-validation-preview-execution",
+    "standing-and-portrait-original-review"
+  ],
+  "validation": {
+    "coreAssertions": 12789,
+    "unitySources": 279,
+    "combatMethod": "Generic new skill rules tested with accepted Iconoclast actor; Estreya-specific identity and home integration remain pending",
+    "logs": [
+      {
+        "path": "tmp/plan12-estreya-core.log",
+        "sha256": "8714b79ae5634cbbec9329ce605f795cdd8eef133b86842b696486d275c6d7b3"
+      },
+      {
+        "path": "tmp/plan12-estreya-compile.log",
+        "sha256": "4e90e3d0aa1edad6ed7b6f31fc839a008ca6ae7b6773db26bfd029a5a3cd4801"
+      }
+    ]
+  },
+  "remaining": [
+    "18 dedicated original images and all actual Player art review",
+    "Heat Up trait and identity hookup",
+    "shared weapon tree names/color registration",
+    "portrait framing runtime measurement",
+    "old-save migration/join/summon tests",
+    "Unity Player default 1920x1080 review",
+    "normal-play promotion"
+  ]
+}

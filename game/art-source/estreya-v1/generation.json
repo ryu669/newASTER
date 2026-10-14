@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "available": false,
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "standing",
+      "path": "game/art-source/estreya-v1/standing.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-5ec4f9af-9298-4e73-88b8-2804c919f270.png",
+      "sha256": "8bf4b9fabf19d380dc002b2a7f07948d53bc609da48cf74624979a40d7848284",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "pending",
+      "reviewMethod": "Manual inspection of original and neutral-background alpha composite: same adult identity, face, outfit, silver gauntlet and wings; standing fully framed; portrait dedicated 1536x1024 bust.",
+      "reviewedAt": "2026-10-14"
+    },
+    {
+      "key": "portrait",
+      "path": "game/art-source/estreya-v1/portrait.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3344b087-9c73-49be-bc8b-1da06607f09a.png",
+      "sha256": "633345f6fd5b6a2be806284768178d5ef02d7a333534d753e40e7823bd45115b",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "pending",
+      "reviewMethod": "Manual inspection of original and neutral-background alpha composite: same adult identity, face, outfit, silver gauntlet and wings; standing fully framed; portrait dedicated 1536x1024 bust.",
+      "reviewedAt": "2026-10-14"
+    }
+  ],
+  "remainingAssets": [
+    "expression-joy",
+    "expression-puzzled",
+    "expression-determined",
+    "attack",
+    "hit",
+    "cutin",
+    "sd-idle",
+    "sd-walk",
+    "sd-talk",
+    "sd-react",
+    "sd-sit",
+    "sd-work",
+    "sd-look",
+    "event-0-cg",
+    "event-1-cg",
+    "event-2-cg",
+    "event-3-cg",
+    "event-4-cg"
+  ],
+  "promptFile": "game/art-source/estreya-v1/prompts.json",
+  "note": "Original PNGs copied unchanged. Character-specific ornaments are not required; shared equipment tree remains the production standard.",
+  "portraitFramingDraft": {
+    "faceCenterX": 0.54,
+    "faceCenterY": 0.32,
+    "faceHeight": 0.22
+  }
+}

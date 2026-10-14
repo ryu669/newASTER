@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "available": false,
+  "stage": "combat-and-story-draft",
+  "formIds": [
+    "heroine.estreya"
+  ],
+  "baselineForms": 25,
+  "targetForms": 26,
+  "requiredAssetsPerForm": 20,
+  "remaining": [
+    "identity-and-common-tree-connection",
+    "dedicated-art-20-review",
+    "old-save-and-home-tests",
+    "default-player-review",
+    "normal-play-promotion"
+  ]
+}

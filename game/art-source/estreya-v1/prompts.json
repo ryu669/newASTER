@@ -1,0 +1,23 @@
+{
+  "tool": "built-in image_gen",
+  "transparentBackground": true,
+  "prompts": [
+    {
+      "key": "standing-v1",
+      "prompt": "Generate one production full-body standing character asset for a Japanese fantasy RPG. Reference image is visual reference only; redraw original clean artwork, no copied UI or text. Estreya / Az Bornfree is an adult athletic female martial artist, short tousled auburn-red hair with upward cowlick, vivid green eyes, confident friendly grin, ivory feathered wings at waist/back, large silver segmented mechanical right gauntlet with charcoal joints and gold details, smaller left bracer, brown and ochre fur-trimmed gladiator clothing with patterned shoulder mantle, armored fur-trimmed boots. Present as clearly adult woman with mature face and athletic proportions. Use practical brown leather fitted sleeveless tunic covering torso, short layered armored skirt over opaque fitted shorts. Single full body standing relaxed fighter stance, large gauntlet lowered so face unobstructed. Hands, boots, wings and gauntlet fully inside canvas with generous margins. Polished detailed anime fantasy illustration with painterly material rendering, matching high-quality existing JRPG assets. Portrait canvas. Actual transparent background. No scenery, no typography, no frame, no other people, no alternate views. Preserve her recognizable hair, eyes, gauntlet and feathered-wing design.",
+      "reference": "tmp/plan12-estreya/reference/profile-0000.png",
+      "generatedSource": "exec-46df214f-a1b6-412f-a036-b7a289c2b96d.png",
+      "adopted": false
+    },
+    {
+      "key": "standing",
+      "prompt": "Edit this character illustration only to remove its entire colored, blurred background. Keep the same full-body adult female fighter, face, hair, costume, gauntlet, wings, boots and exact pose. TRUE transparent alpha everywhere outside the silhouette, with fully opaque character inside. No glow, no shadow, no brown gradient or colored environment. Preserve canvas dimensions and all character details; keep full tips and feet. Production transparent PNG cutout.",
+      "reference": "exec-46df214f-a1b6-412f-a036-b7a289c2b96d.png"
+    },
+    {
+      "key": "portrait",
+      "prompt": "Create a NEW dedicated wide upper-body portrait of the same adult female fighter in reference, for RPG selection UI. Native canvas 1536x1024, landscape 3:2. Identity lock: red auburn bob with cowlick, emerald green eyes, mature adult face, silver massive right gauntlet, brown gold fur-trimmed fitted tunic, white feathered wings. Face near horizontal center, head shoulders chest through waist visible, cheerful confident closed-mouth smile, relaxed direct gaze. Plenty of margin above hair. Do NOT simply crop or enlarge existing whole-body image; repaint as high-resolution bust with face at least 220 pixels high, fine eyes hair and garment details. Actual fully transparent background outside subject, no atmosphere or gradient, no text or UI.",
+      "reference": "game/art-source/estreya-v1/standing.png"
+    }
+  ]
+}
