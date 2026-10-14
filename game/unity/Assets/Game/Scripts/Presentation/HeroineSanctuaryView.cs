@@ -28,13 +28,39 @@ namespace NewAster.Presentation
         private bool heroineAssetCleanupPending;
         private void EnsureHeroineImageCaches()
         {
-            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,ScheduleHeroineAssetCleanup);
+            if(heroinePortraits==null)heroinePortraits=new BoundedCache<string,Texture2D>(24,released:ReleasePortraitLater);
             if(sanctuaryTrees==null)sanctuaryTrees=new BoundedCache<string,Texture2D>(3,ScheduleHeroineAssetCleanup);
         }
         private void ScheduleHeroineAssetCleanup()
         {
             if(heroineAssetCleanupPending)return;
             heroineAssetCleanupPending=true;StartCoroutine(ReleaseUnusedHeroineImages());
+        }
+        // Selection portraits are dedicated assets. Release only evicted portraits instead of
+        // collecting the entire managed heap and traversing every loaded asset on each page.
+        private readonly HashSet<Texture2D> retiredPortraits=new HashSet<Texture2D>();
+        private readonly Dictionary<Texture2D,string> portraitSourcePaths=new Dictionary<Texture2D,string>();
+        private bool portraitReleasePending;
+        private void ReleasePortraitLater(Texture2D texture)
+        {
+            if(texture==null)return;retiredPortraits.Add(texture);
+            if(!portraitReleasePending){portraitReleasePending=true;StartCoroutine(ReleaseRetiredPortraits());}
+        }
+        private System.Collections.IEnumerator ReleaseRetiredPortraits()
+        {
+            try{
+                while(retiredPortraits.Count>0){
+                    yield return new WaitForEndOfFrame();
+                    double started=MeasurementClock;
+                    for(int i=0;i<2 && retiredPortraits.Count>0;i++){
+                        var texture=retiredPortraits.FirstOrDefault(t=>t==null || !portraitSourcePaths.TryGetValue(t,out var path) || !heroinePortraitInFlight.Values.Any(v=>v.resourcePath==path));
+                        if(ReferenceEquals(texture,null))break;retiredPortraits.Remove(texture);
+                        // Multiple forms may share an asset; a re-request may also have recached it.
+                        if(!heroinePortraits.Values.Contains(texture)){portraitSourcePaths.Remove(texture);if(texture!=null)Resources.UnloadAsset(texture);}
+                        if((MeasurementClock-started)*1000>=2)break;
+                    }
+                }
+            }finally{portraitReleasePending=false;}
         }
         private System.Collections.IEnumerator ReleaseUnusedHeroineImages()
         {
@@ -68,6 +94,7 @@ namespace NewAster.Presentation
                 string path=framing.resourcePath;
                 texture=quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)?quality119FixtureBundle.LoadAsset<Texture2D>(path):path==null?null:Resources.Load<Texture2D>(path);
                 {if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);portraitFraming.ValidateSource(framing,texture.width,texture.height);}
+                portraitSourcePaths[texture]=path;
                 heroinePortraits[key]=texture;
                 if(quality119Started)quality119MaxPortraitLoadCpuMs=Math.Max(quality119MaxPortraitLoadCpuMs,(MeasurementClock-started)*1000);
             }
@@ -75,7 +102,7 @@ namespace NewAster.Presentation
         }
         // Spread new visible portraits across frames; cap the queue and drop stale pages.
         private readonly Dictionary<string,int> heroinePortraitRequests=new Dictionary<string,int>();
-        private sealed class PortraitLoad { public int lastRequestedFrame; }
+        private sealed class PortraitLoad { public int lastRequestedFrame;public string resourcePath; }
         private readonly Dictionary<string,PortraitLoad> heroinePortraitInFlight=new Dictionary<string,PortraitLoad>();
         private int heroinePortraitLoads=>heroinePortraitInFlight.Count;
         private bool heroinePortraitWorker;
@@ -91,6 +118,8 @@ namespace NewAster.Presentation
         }
         private System.Collections.IEnumerator LoadQueuedHeroPortraits()
         {
+            var previousPriority=Application.backgroundLoadingPriority;
+            Application.backgroundLoadingPriority=ThreadPriority.Low;
             try{
                 while(heroinePortraitRequests.Count>0 || heroinePortraitLoads>0){
                     yield return null;
@@ -104,7 +133,7 @@ namespace NewAster.Presentation
                         if((MeasurementClock-batchStarted)*1000>=4)break;
                     }
                 }
-            }finally{heroinePortraitWorker=false;}
+            }finally{Application.backgroundLoadingPriority=previousPriority;heroinePortraitWorker=false;}
         }
         private System.Collections.IEnumerator LoadHeroPortraitAsync(string id,PortraitLoad load)
         {
@@ -112,12 +141,14 @@ namespace NewAster.Presentation
             ResourceRequest resourceRequest=null;AssetBundleRequest bundleRequest=null;Texture2D texture=null;
             try{
                 double cpuStarted=MeasurementClock;var framing=HeroFraming(id);
+                load.resourcePath=framing.resourcePath;
                 if(quality119FixtureFraming!=null && quality119FixtureFraming.ContainsKey(id)){
                     bundleRequest=quality119FixtureBundle.LoadAssetAsync<Texture2D>(framing.resourcePath);RecordPortraitLoadCpu(cpuStarted);while(!bundleRequest.isDone)yield return null;cpuStarted=MeasurementClock;texture=bundleRequest.asset as Texture2D;bundleRequest=null;
                 }else{
                     resourceRequest=Resources.LoadAsync<Texture2D>(framing.resourcePath);RecordPortraitLoadCpu(cpuStarted);while(!resourceRequest.isDone)yield return null;cpuStarted=MeasurementClock;texture=resourceRequest.asset as Texture2D;resourceRequest=null;
                 }
                 if(texture==null)throw new InvalidOperationException("Missing selection portrait: "+id);
+                portraitSourcePaths[texture]=framing.resourcePath;
                 portraitFraming.ValidateSource(framing,texture.width,texture.height);
                 // Requests are refreshed only by the visible page. Do not restore a stale page's images.
                 if(Time.frameCount-load.lastRequestedFrame<=2){heroinePortraits[id]=texture;published=true;}
@@ -125,8 +156,8 @@ namespace NewAster.Presentation
             }finally{
                 // Iterator state can outlive its completion. Drop native request/result references
                 // before UnloadUnusedAssets examines the bounded cache's evictions.
-                resourceRequest=null;bundleRequest=null;texture=null;
-                heroinePortraitInFlight.Remove(id);if(!published)ScheduleHeroineAssetCleanup();
+                resourceRequest=null;bundleRequest=null;
+                heroinePortraitInFlight.Remove(id);if(!published)ReleasePortraitLater(texture);texture=null;
             }
         }
         private void RecordPortraitLoadCpu(double started)

@@ -21,5 +21,19 @@ public static class SaveHistoryPerformanceTests
             if(count==10000){var clock=Stopwatch.StartNew();for(int i=0;i<10;i++)before.AnyMissingFrom(good);clock.Stop();Console.WriteLine("SAVE_HISTORY_MEASUREMENT receipts=10000 linearMeanMs="+(clock.Elapsed.TotalMilliseconds/10).ToString("F3"));}
         }
         Console.WriteLine("SAVE_HISTORY_INTEGRITY_PASS reordered / missing / signature / all reward fields / duplicate IDs");
+        string nested="{\"growth\":{\"receipts\":["+string.Join(",",Enumerable.Repeat("{\"text\":\"brace } [ \\\" home\",\"home\":true}",10000))+"]},\"ho\\u006de\":null,\"tail\":7}";
+        // Missing root fields must not allocate one token for every nested receipt.
+        FormalCampaignJsonShape.HasRootMember(nested,"absent");
+        long allocated=GC.GetAllocatedBytesForCurrentThread();
+        bool absent=!FormalCampaignJsonShape.HasRootMember(nested,"absent");
+        allocated=GC.GetAllocatedBytesForCurrentThread()-allocated;
+        check(absent && allocated<16384,"Large nested history root scan has bounded temporary allocation");
+        check(FormalCampaignJsonShape.RootMemberIsNull(nested,"home") && FormalCampaignJsonShape.RootInt32Member(nested,"tail")==7,"Large history skips nested keys and escaped brackets but retains escaped root keys");
+        var shape=FormalCampaignJsonShape.Inspect(nested);
+        check(shape.Contains("growth") && shape.IsNull("home") && !shape.Contains("absent") && shape.Json("tail")=="7","Single-pass root index matches nested and escaped key semantics");
+        string nulled=FormalCampaignJsonShape.WithNullRootMembers(nested,"growth","tail","growth","absent");
+        check(nulled=="{\"growth\":null,\"ho\\u006de\":null,\"tail\":null}","Batch null normalization replaces disjoint members once and preserves escaped keys");
+        check(FormalCampaignJsonShape.WithRootMemberJson(nested,"home","{}").EndsWith("\"ho\\u006de\":{},\"tail\":7}"),"Large history root replacement preserves following fields");
+        Console.WriteLine("SAVE_SHAPE_HISTORY_PASS receipts=10000 temporaryBytes="+allocated);
     }
 }

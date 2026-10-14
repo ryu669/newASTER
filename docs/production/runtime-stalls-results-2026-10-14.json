@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-14",
+  "historyReceipts": 10000,
+  "saveMeasurements": [
+    {
+      "operation": "load",
+      "sample": 0,
+      "ms": 33.381
+    },
+    {
+      "operation": "save",
+      "sample": 0,
+      "ms": 288.361
+    },
+    {
+      "operation": "load",
+      "sample": 1,
+      "ms": 33.4
+    },
+    {
+      "operation": "save",
+      "sample": 1,
+      "ms": 303.77
+    },
+    {
+      "operation": "load",
+      "sample": 2,
+      "ms": 32.13
+    },
+    {
+      "operation": "save",
+      "sample": 2,
+      "ms": 245.306
+    }
+  ],
+  "textureReport": {
+    "images": 320,
+    "persons": 256,
+    "width": 1536,
+    "height": 1024,
+    "cacheLimit": 24,
+    "maxResidentImages": 24,
+    "maxResidentBeforeCleanup": 26,
+    "finalResidentImages": 0,
+    "faceCacheLimit": 12,
+    "maxResidentFacePatches": 12,
+    "finalResidentFacePatches": 0,
+    "bundleBytes": 36838106,
+    "peakTextureStorageEstimateBytes": 40894464,
+    "maxPageFrameMs": 335.5222,
+    "p95PageFrameMs": 234.8573,
+    "meanPageFrameMs": 234.18320370370367,
+    "maxLoadingFrameMs": 233.55638980865479,
+    "bundleOpenMs": 228.0858,
+    "maxPortraitLoadCpuMs": 0.4189999999999472,
+    "setupFrameMs": 16.66361279785633,
+    "maxPendingRequests": 12,
+    "portraitLoadsPerFrameLimit": 2,
+    "portraitBatchCpuBudgetMs": 4.0,
+    "pageFrameMs": [
+      335.5222,
+      231.936,
+      233.88680000000002,
+      232.11430000000001,
+      232.7988,
+      234.8573,
+      231.0832,
+      233.39270000000002,
+      232.7132,
+      232.8467,
+      233.0653,
+      233.2287,
+      232.61700000000002,
+      233.2589,
+      231.98620000000003,
+      233.2834,
+      232.50130000000001,
+      232.90030000000002,
+      232.2339,
+      232.87040000000002,
+      233.2131,
+      232.6104,
+      232.34750000000003,
+      233.83380000000002,
+      232.44500000000002,
+      233.0693,
+      166.3308
+    ],
+    "pageMaxFrameMs": [
+      233.55638980865479,
+      16.696790233254433,
+      16.697591170668602,
+      16.69778861105442,
+      16.696790233254433,
+      16.696790233254433,
+      16.696393489837646,
+      16.696995124220848,
+      16.697293147444725,
+      16.69628731906414,
+      16.69689640402794,
+      16.696691513061523,
+      16.697490587830544,
+      16.697796061635017,
+      16.696888953447342,
+      16.696492210030556,
+      16.69638603925705,
+      16.696590930223465,
+      16.696492210030556,
+      16.696492210030556,
+      16.696995124220848,
+      16.696995124220848,
+      16.696691513061523,
+      16.696590930223465,
+      16.696492210030556,
+      16.696492210030556,
+      16.696590930223465
+    ],
+    "textureFormat": "DXT5",
+    "scope": "320 synthetic textures through production portrait cache / framing / drawing; person count belongs to paired Core stress fixture. LZ4 asset I/O, not product artwork or Resources packaging. Fixture container opening is measured separately before page readiness starts. Queued page readiness includes waiting for all portraits and one complete draw; not placeholder-only timing. DXT5 storage estimate excludes driver, allocator, bundle, and upload overhead; not measured VRAM. Process memory sampled externally."
+  },
+  "coreAssertions": 12784,
+  "portraitDedicatedPaths": 25,
+  "otherManifestReferences": [],
+  "scaleUi": "200 persons / 203 forms / 35 screens / operations and reload passed; shared art fixture",
+  "evidence": [
+    {
+      "path": "tmp/runtime-improvements-player/e715475ea0d248a9bcc0119a0f12408d/history/player.log",
+      "sha256": "910df99b5cbcf218fe188e4564da8782f2ace241fb13fdd498248636d9ac0b35"
+    },
+    {
+      "path": "tmp/runtime-improvements-player/8cb3d64b25ef4f0ba16c6dbddd546715/streaming/texture-stress.json",
+      "sha256": "eaa5f78a4c78bf86ebd8ef5c468008be0040d5b945a9bbf46f8b53b5917d995b"
+    },
+    {
+      "path": "tmp/runtime-stalls-core-3.log",
+      "sha256": "a91459165670e4d45c4f12d4a6eaa1666e9c7efb94a96a9fa8fab070572c9146"
+    },
+    {
+      "path": "tmp/runtime-stalls-build-3.log",
+      "sha256": "67f26db99ea6839a957cee730c1684a9033b46cfcb126994bc9f08f0f1aeeaa8"
+    },
+    {
+      "path": "tmp/heroine-scale-ui/1eb18032875142edad3bf9429a9e0cea/player.log",
+      "sha256": "e12be5cda38b8f965c5689099b023ddd72c2fd7acc10e22e641fedf803beea19"
+    }
+  ]
+}

@@ -67,9 +67,11 @@ namespace NewAster.Presentation
             public int faceCacheLimit=12,maxResidentFacePatches,finalResidentFacePatches;
             public long bundleBytes,peakTextureStorageEstimateBytes;
             public double maxPageFrameMs,p95PageFrameMs,meanPageFrameMs,maxLoadingFrameMs,bundleOpenMs,maxPortraitLoadCpuMs;
+            public double setupFrameMs;
             public int maxPendingRequests;
             public int portraitLoadsPerFrameLimit=2;public double portraitBatchCpuBudgetMs=4;
             public double[] pageFrameMs;
+            public double[] pageMaxFrameMs;
             public string textureFormat,scope;
         }
         private IEnumerator ValidateQuality119Images()
@@ -89,8 +91,14 @@ namespace NewAster.Presentation
             quality119FixtureFraming=names.Select((name,i)=>new HeroinePortraitDef{heroineId="heroine.load."+i.ToString("D3"),resourcePath=name,faceCenterX=.5f,faceCenterY=.4f,faceHeight=.2f}).ToDictionary(f=>f.heroineId);
             var report=new Quality119ImageReport{images=320,persons=256,width=1536,height=1024,cacheLimit=24,bundleOpenMs=bundleClock.Elapsed.TotalMilliseconds,bundleBytes=new FileInfo(path).Length,scope="320 synthetic textures through production portrait cache / framing / drawing; person count belongs to paired Core stress fixture. LZ4 asset I/O, not product artwork or Resources packaging. Fixture container opening is measured separately before page readiness starts. Queued page readiness includes waiting for all portraits and one complete draw; not placeholder-only timing. DXT5 storage estimate excludes driver, allocator, bundle, and upload overhead; not measured VRAM. Process memory sampled externally."};
             var times=new List<double>();
+            var pageFrames=new List<double>();
+            // Flush the container-opening/setup frame before measuring page switching.
+            // Record it separately instead of attributing its deltaTime to the first portrait load.
+            yield return null;report.setupFrameMs=Time.unscaledDeltaTime*1000;
+            yield return new WaitForEndOfFrame();yield return null;
             try{
                 for(int first=0;first<names.Length;first+=12){
+                    double maxFrame=0;
                     var clock=System.Diagnostics.Stopwatch.StartNew();
                     quality119FixturePage=Enumerable.Range(first,Math.Min(12,names.Length-first)).Select(i=>"heroine.load."+i.ToString("D3")).ToArray();
                     int paints=quality119FixtureRepaints;
@@ -99,7 +107,7 @@ namespace NewAster.Presentation
                     while(!ready){ready=true;foreach(string id in quality119FixturePage)if(RequestHeroPortrait(id)==null)ready=false;
                         report.maxPendingRequests=Math.Max(report.maxPendingRequests,heroinePortraitRequests.Count);
                         AcceptanceCheck(heroinePortraitRequests.Count<=HeroinePageSize,"11-9E in-flight portrait requests are bounded");
-                        if(!ready){yield return null;report.maxLoadingFrameMs=Math.Max(report.maxLoadingFrameMs,Time.unscaledDeltaTime*1000);}
+                        if(!ready){yield return null;maxFrame=Math.Max(maxFrame,Time.unscaledDeltaTime*1000);report.maxLoadingFrameMs=Math.Max(report.maxLoadingFrameMs,maxFrame);}
                     }
                     paints=quality119FixtureRepaints;
                     report.maxResidentBeforeCleanup=Math.Max(report.maxResidentBeforeCleanup,Quality119ResidentImages());
@@ -107,8 +115,9 @@ namespace NewAster.Presentation
                     // Include real OnGUI drawing and frame submission, excluding page animation.
                     while(quality119FixtureRepaints==paints)yield return null;
                     yield return new WaitForEndOfFrame();clock.Stop();times.Add(clock.Elapsed.TotalMilliseconds);
-                    while(heroineAssetCleanupPending)yield return null;
-                    yield return Resources.UnloadUnusedAssets();
+                    // Observe production cleanup itself, without a test-only global collection.
+                    while(heroineAssetCleanupPending || portraitReleasePending){yield return null;maxFrame=Math.Max(maxFrame,Time.unscaledDeltaTime*1000);report.maxLoadingFrameMs=Math.Max(report.maxLoadingFrameMs,maxFrame);}
+                    pageFrames.Add(maxFrame);
                     int resident=Quality119ResidentImages();
                     report.maxResidentImages=Math.Max(report.maxResidentImages,resident);
                     report.maxResidentFacePatches=Math.Max(report.maxResidentFacePatches,Quality119ResidentFacePatches());
@@ -128,13 +137,14 @@ namespace NewAster.Presentation
                 plan9FacePatches.Clear();
                 quality119FixtureBundle.Unload(true);quality119FixtureBundle=null;
             }
-            while(heroineAssetCleanupPending)yield return null;
+            while(heroineAssetCleanupPending || portraitReleasePending)yield return null;
             yield return new WaitForEndOfFrame();
             yield return Resources.UnloadUnusedAssets();
             report.finalResidentImages=Quality119ResidentImages();
             report.finalResidentFacePatches=Quality119ResidentFacePatches();
             report.maxPortraitLoadCpuMs=quality119MaxPortraitLoadCpuMs;
             report.pageFrameMs=times.ToArray();report.maxPageFrameMs=times.Max();report.meanPageFrameMs=times.Average();report.p95PageFrameMs=times.OrderBy(t=>t).ElementAt((int)Math.Ceiling(times.Count*.95)-1);
+            report.pageMaxFrameMs=pageFrames.ToArray();
             AcceptanceCheck(report.finalResidentImages==0,"11-9E fixture textures are released after test");
             AcceptanceCheck(report.finalResidentFacePatches==0,"11-9E face render targets are released after test");
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(capturePath),"texture-stress.json"),JsonUtility.ToJson(report,true));
