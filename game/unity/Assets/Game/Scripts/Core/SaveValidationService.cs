@@ -62,10 +62,14 @@ namespace NewAster.Core
         }
         public string Encode(GameSave save)=>encodeDocument(save);
         public GameSave Read(string path)
+        {return Read(path,out _);}
+        public GameSave Read(string path,out FormalCampaignSave progress)
         {
             // A malformed document is rejected before any game state is published.
-            var doc=decodeDocument(File.ReadAllText(path,Encoding.UTF8));Validate(doc);return doc;
+            return ReadText(File.ReadAllText(path,Encoding.UTF8),out progress);
         }
+        internal GameSave ReadText(string text,out FormalCampaignSave progress)
+        {var doc=decodeDocument(text);progress=Validate(doc);return doc;}
         public FormalCampaignSave Validate(GameSave doc)
         {
             var h=doc?.header;

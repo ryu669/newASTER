@@ -8,7 +8,10 @@ foreach($case in $Cases){
     $folder=Join-Path $output $case;New-Item -ItemType Directory -Path $folder | Out-Null
     $log=Join-Path $folder 'player.log';$png=Join-Path $folder 'frame.png'
     $flags=@('-logFile',$log,'-presentationCapture',$png,'-plan12AprilPreview')
-    if($case -eq 'cache'){$flags+=@('-captureFirstBatch','-batchHero','april','-batchView','detail','-validateRuntimeImprovements');$marker='RUNTIME_IMPROVEMENTS_CACHE_PASS'}
+    if($case -in @('cache','history')){
+        $flags+=@('-captureFirstBatch','-batchHero','april','-batchView','detail','-validateRuntimeImprovements');$marker='RUNTIME_IMPROVEMENTS_CACHE_PASS'
+        if($case -eq 'history'){$flags+='-validateSaveHistory';$marker='SAVE_HISTORY_PLAYER_PASS'}
+    }
     elseif($case -eq 'paging'){$flags+=@('-capturePlan10Ui','-uiView','roster-second');$marker='PLAN10_UI_AUDIT_PLAYER_PASS'}
     elseif($case -in @('streaming','garden')){
         $flags+=@('-capturePlan10Ui','-uiView','garden-life','-plan15Manual','-validatePlan119');$marker='PLAN11_9_PLAYER_QUALITY_PASS'
