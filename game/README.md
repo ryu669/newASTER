@@ -1,8 +1,8 @@
 # Unityゲーム実装
 
-現行は25形態・22人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan12AprilBuild.ValidateAndBuild`、出力は `Builds/plan12-april/newASTER.exe`。
+現行は26形態・23人・13ジョブ。Unity **6000.6.3f1**で `unity/` を開き、`Assets/Game/Scenes/Bootstrap.unity` から起動する。Windowsビルドは `Plan12EstreyaBuild.ValidateAndBuild`、出力は `Builds/plan12-estreya/newASTER.exe`。
 
-通常入口は `ProductionContentPaths` で戦闘・物語を指定する。現行Resourcesは `Combat/battle-plan12-april` と `Story/plan12-april-story-content`。[5人の完了記録](../docs/production/plan12-first-batch-runtime-validation.json)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
+通常入口は `ProductionContentPaths` で戦闘・物語を指定する。現行Resourcesは `Combat/battle-plan12-estreya` と `Story/plan12-estreya-story-content`。[5人の完了記録](../docs/production/plan12-first-batch-runtime-validation.json)、[ヒロイン追加方法](../docs/production/heroine-addition-guide.md)、[仕様索引](../docs/README.md)を参照する。
 
 ## 実装の配置
 
@@ -27,4 +27,6 @@
 
 ウェポンマスターの[完了記録](../docs/production/plan12-weapon-master-form-record.json)、全24形態の[共通の木の確認記録](../docs/production/plan12-common-weapon-tree-review.json)。
 
-エイプリル通常版の専用20画像・3章・5交流・3技と旧24形態セーブ移行を確認。[完了記録](../docs/production/plan12-april-form-record.json)。通常プレイは25形態・22人物。
+エイプリル通常版の専用20画像・3章・5交流・3技と旧24形態セーブ移行を確認。[完了記録](../docs/production/plan12-april-form-record.json)。当時の通常プレイは25形態・22人物。
+
+2026-10-15：エストレヤ（アズ・ボーンフリー／バーサーカー）を追加。通常プレイは26形態・23人物。専用20画像、3章30ページ・18詩・5交流、共通13ノードの木、HP条件付き攻撃・反動・ヒートアップ、旧25形態セーブからの加入を確認。[完了記録](../docs/production/plan12-estreya-form-record.json)。

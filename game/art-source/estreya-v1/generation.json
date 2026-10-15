@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "available": false,
+  "available": true,
   "tool": "built-in image_gen",
   "assets": [
     {
@@ -11,9 +11,16 @@
       "width": 1024,
       "height": 1536,
       "purposeReview": "approved",
-      "runtimeReview": "pending",
-      "reviewMethod": "Manual inspection of original and neutral-background alpha composite: same adult identity, face, outfit, silver gauntlet and wings; standing fully framed; portrait dedicated 1536x1024 bust.",
-      "reviewedAt": "2026-10-14"
+      "runtimeReview": "approved",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "reviewedAt": "2026-10-15",
+      "resourcePath": "Illustrations/estreya-standing-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-expression.normal.png",
+          "sha256": "a9546bd32c5cb5d00e1e7e6b73260d57897e92f6d8b78ec97e918467e829d714"
+        }
+      ]
     },
     {
       "key": "portrait",
@@ -23,36 +30,429 @@
       "width": 1536,
       "height": 1024,
       "purposeReview": "approved",
-      "runtimeReview": "pending",
-      "reviewMethod": "Manual inspection of original and neutral-background alpha composite: same adult identity, face, outfit, silver gauntlet and wings; standing fully framed; portrait dedicated 1536x1024 bust.",
-      "reviewedAt": "2026-10-14"
+      "runtimeReview": "approved",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "reviewedAt": "2026-10-15",
+      "resourcePath": "Illustrations/heroine-portrait-estreya-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/recruit.png",
+          "sha256": "5f2c71b417fe15a8fc9949d51d33b86b803142192d3abf0eb73cf7e1f9998039"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/trait.png",
+          "sha256": "a97d8cbd668355bfa3a2c4d484f5c8cec12b68a7a6b982a0774d03538b302289"
+        }
+      ]
+    },
+    {
+      "key": "expression-joy",
+      "path": "game/art-source/estreya-v1/expression-joy.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8f658ea5-39d2-41d9-a45a-9295c3796958.png",
+      "sha256": "172b4b87b49288c625fe79118e0c848fe3c4dfe489b7bbcfe40b2aca739ed3cf",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-expression-joy-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-expression.joy.png",
+          "sha256": "b616f176ffeef9416e5e0296c20a0c25d62bdee72578be354ac463bbda02c6fa"
+        }
+      ]
+    },
+    {
+      "key": "expression-puzzled",
+      "path": "game/art-source/estreya-v1/expression-puzzled.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-d7d5d281-e74a-4929-b0a3-9a3f0f1f2a66.png",
+      "sha256": "3fbdede231ce17e624531f6e5e9d7913865ec5e484e47dfe96a0ce5fd31feeb7",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-expression-puzzled-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-expression.puzzled.png",
+          "sha256": "b467d884bd22d215ef0a407c367e6aba2a5a03d6faa77c10007ccc655bd7b068"
+        }
+      ]
+    },
+    {
+      "key": "expression-determined",
+      "path": "game/art-source/estreya-v1/expression-determined.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-62476e61-2c5d-4ad0-aa94-1cf07ffc8ee5.png",
+      "sha256": "1df53cfa37ba22bb8c549bd6c5dcdc70008c2436a7fb222c3f97149ead64664a",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-expression-determined-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-expression.determined.png",
+          "sha256": "54da9d2290bb731b43e72fe4c37ab52c0230189eff5b09c03d14c2aad8e03919"
+        }
+      ]
+    },
+    {
+      "key": "attack",
+      "path": "game/art-source/estreya-v1/attack.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-fb9fa420-1a5d-4fe7-80b8-821ff3ebc35a.png",
+      "sha256": "19c487290efc0a70083dc15c3b0b452aa8a64b6cba1031fb8c2ec57431cf22c9",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-attack-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/battle-attack.png",
+          "sha256": "dc76883ec73d574cbf19cc684702d193d0a47cb2e48a5e2e556a6fc2848aafa4"
+        }
+      ]
+    },
+    {
+      "key": "hit",
+      "path": "game/art-source/estreya-v1/hit.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-b18cf27b-2088-4511-a61b-3a7d08048044.png",
+      "sha256": "243ab6c3d89da1c864716ac4730cfe951f2528fe9252ddad263fd7632a6d4260",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-hit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/battle-hit.png",
+          "sha256": "5e3191591597a1f9f666f5ce42e7b16d0265373b5c6b6f6e1cf8892fb59b1832"
+        }
+      ]
+    },
+    {
+      "key": "cutin",
+      "path": "game/art-source/estreya-v1/cutin-v2.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1b9557e8-edce-4fd1-b1bf-f16a9963dff3.png",
+      "sha256": "f822886a7bc472e6955280752a843a06297f0788f5d559279a4ac9bf64b679cb",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-cutin-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/battle-cutin.png",
+          "sha256": "05b1e7494a2d95538eec36fe72b5e6fb015f2f763c830462716c482a6277a98d"
+        }
+      ]
+    },
+    {
+      "key": "sd-idle",
+      "path": "game/art-source/estreya-v1/sd-idle.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-86127982-ab66-483b-b7a2-c868ee54bec2.png",
+      "sha256": "ef99b4745664c5d45ec044682c286c1e023bdf70273ccd398f15ee6248e67875",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-idle-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.idle.png",
+          "sha256": "2748411a1129c9725faec8095b530e153472cdd5ba22bec1f468889d4b563e38"
+        }
+      ]
+    },
+    {
+      "key": "sd-walk",
+      "path": "game/art-source/estreya-v1/sd-walk.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-21f76b9e-7a99-4305-bdc3-18b42bf56fd9.png",
+      "sha256": "11a9b1bda5960692b3143f064bac6173ea0c6465007618c7dd6ba6c0b9d9d3eb",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-walk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.walk.png",
+          "sha256": "b05c1372f534545d25a4c4e4dc69187323e627f844de518452e8aeb884a9f2bf"
+        }
+      ]
+    },
+    {
+      "key": "sd-talk",
+      "path": "game/art-source/estreya-v1/sd-talk.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-07e5468e-2d96-4558-8509-2ebad7880d33.png",
+      "sha256": "06d2ca014063432c9bd4a540d117c1794680d4293080511058f1f1a5e1a3cec3",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-talk-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.talk.png",
+          "sha256": "595e36ea99c7b1ff46639fd07f6b72552a0105074ad48da1037c85450fc5a26f"
+        }
+      ]
+    },
+    {
+      "key": "sd-react",
+      "path": "game/art-source/estreya-v1/sd-react.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-2aeae284-3f57-4a4c-9a4f-33b730badfc3.png",
+      "sha256": "595d57ae1045b354b27bfbd24f6623af4e81f5ffae55f342acef348172855873",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-react-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.react.png",
+          "sha256": "3a6f453baadbc0a11a7b5a041b1c7f2af6dcdfc6d1144cd70caa780d252b3dc8"
+        }
+      ]
+    },
+    {
+      "key": "sd-sit",
+      "path": "game/art-source/estreya-v1/sd-sit.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-333865d5-3926-4272-883b-0aec45e8205b.png",
+      "sha256": "116dacc35f3755fac86bada272d87a4198f0516c26a4081d0b659e6b3cc789bc",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-sit-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.sit.png",
+          "sha256": "bb5ea6a444812ac7ca31fc91cf23b16e2bf51ab0d0a861d1f4c06570ad18fc75"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.furniture.png",
+          "sha256": "c076ddd6502e95865d88c97c9a7529c7ece199cff862b1faf78eeb19880323ca"
+        }
+      ]
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/estreya-v1/sd-work-v2.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-3f4b054e-93a7-48ea-98cf-f1a665603aa7.png",
+      "sha256": "06f891639b50a15b43c034bab1566ec419aca378d62e7254272fe24c911bd663",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-work-candidate-v2",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.work.png",
+          "sha256": "4e96ec0ea2501100f5437aad0cc0874e053fbfb0bcd5edbe9ceb87363a9e8d59"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.furniture.png",
+          "sha256": "c076ddd6502e95865d88c97c9a7529c7ece199cff862b1faf78eeb19880323ca"
+        }
+      ]
+    },
+    {
+      "key": "sd-look",
+      "path": "game/art-source/estreya-v1/sd-look.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-bbdc213b-215b-4ac2-8d1d-2a1f9efd4307.png",
+      "sha256": "48e4ee64c1f3583c6354af66a3c1aa3ae1d3d373982c3e8144d650008544b3f9",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-look-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.look.png",
+          "sha256": "09088d53e7e36e37e0c4061134eb36695e5084cd1063d53d273ad7e03eafdac1"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/estreya-sd.furniture.png",
+          "sha256": "c076ddd6502e95865d88c97c9a7529c7ece199cff862b1faf78eeb19880323ca"
+        }
+      ]
+    },
+    {
+      "key": "event-0-cg",
+      "path": "game/art-source/estreya-v1/event-0-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-090d4788-f770-4d59-a5b9-3a10e1cf5d9f.png",
+      "sha256": "f218bc64f4654d24f23b82b2bc845e20c4807a217d262d7f6e9f4c1761da2d42",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-event-0-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-cg.0.png",
+          "sha256": "f17b2575c7715682a971f6ce0f229d737b114b09ebd6f9aa6d7046fb36f8b697"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/gallery-frames/estreya-cg.0.png",
+          "sha256": "fd313a67f46293aa1aa6f4de2a58e7e32b04fa115e7baefe2517a451cb864681"
+        }
+      ]
+    },
+    {
+      "key": "event-1-cg",
+      "path": "game/art-source/estreya-v1/event-1-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-893417c7-a90a-4e93-9cdd-fc172eea07d0.png",
+      "sha256": "08988a876068d7910ea07aa0519d805e926220aad72f0cc74da83272cb9c4066",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-event-1-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-cg.1.png",
+          "sha256": "33660c97c3fbcf50be61f81692ea0a5bfa536c9e015e925a79e8c65e5d0ec3b0"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/gallery-frames/estreya-cg.1.png",
+          "sha256": "8973066cd6fdfa6f9b7bc1c871dad2a1460ccb22883bd36920118c78a43a48f5"
+        }
+      ]
+    },
+    {
+      "key": "event-2-cg",
+      "path": "game/art-source/estreya-v1/event-2-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7f77da5f-ad7b-44a1-af33-ededc72bade5.png",
+      "sha256": "51c6ab1a632a4b66549f26011ab483cf72be47538032d5ff1fe72e0a9b1a56f0",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-event-2-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-cg.2.png",
+          "sha256": "b85f97374507ef2b85ca9767e8f42777cca64f49ec540c7e0f5016d217bd3d30"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/gallery-frames/estreya-cg.2.png",
+          "sha256": "db1ee15c13a7345b9b2f5c5a1cb897b2d39b3ac1bb2aa3645d146de00fa8d527"
+        }
+      ]
+    },
+    {
+      "key": "event-3-cg",
+      "path": "game/art-source/estreya-v1/event-3-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-7cd066c8-b6a4-44be-ad9c-38bec0584214.png",
+      "sha256": "5c4332c6f07f04154da1cd956246a44925dbd7702df1f6a2aff817881281e3e6",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-event-3-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-cg.3.png",
+          "sha256": "cf6588b4a8346fdab59762ae9e7bbd5e4f77a77f947d84fa2a670d2a6b18a32d"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/gallery-frames/estreya-cg.3.png",
+          "sha256": "32ffa49eb50c729545f842769472d10346d68e01144d84601a7a63971647783e"
+        }
+      ]
+    },
+    {
+      "key": "event-4-cg",
+      "path": "game/art-source/estreya-v1/event-4-cg.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-8f73aa3e-91cc-4964-a689-39eab66723ca.png",
+      "sha256": "128de591e6c1ef57f464af459fea0c97436066525b9ab1c73615894f992631cb",
+      "width": 1536,
+      "height": 1024,
+      "purposeReview": "approved",
+      "runtimeReview": "approved",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-event-4-cg-candidate-v1",
+      "captureFiles": [
+        {
+          "path": "tmp/plan12-estreya/player/estreya-cg.4.png",
+          "sha256": "824bb1b86bb46b9cda9b511c14f3fa0ae19bd372fa5f003ded4e73bdb6cd9071"
+        },
+        {
+          "path": "tmp/plan12-estreya/player/gallery-frames/estreya-cg.4.png",
+          "sha256": "83442abe5b987c09e9f4830de26cd700d992dc84ef4897b6d74f53f3234d3e68"
+        }
+      ]
     }
   ],
-  "remainingAssets": [
-    "expression-joy",
-    "expression-puzzled",
-    "expression-determined",
-    "attack",
-    "hit",
-    "cutin",
-    "sd-idle",
-    "sd-walk",
-    "sd-talk",
-    "sd-react",
-    "sd-sit",
-    "sd-work",
-    "sd-look",
-    "event-0-cg",
-    "event-1-cg",
-    "event-2-cg",
-    "event-3-cg",
-    "event-4-cg"
-  ],
+  "remainingAssets": [],
   "promptFile": "game/art-source/estreya-v1/prompts.json",
   "note": "Original PNGs copied unchanged. Character-specific ornaments are not required; shared equipment tree remains the production standard.",
   "portraitFramingDraft": {
     "faceCenterX": 0.54,
     "faceCenterY": 0.32,
     "faceHeight": 0.22
-  }
+  },
+  "rejectedAssets": [
+    {
+      "key": "cutin",
+      "path": "game/art-source/estreya-v1/cutin.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-486206b6-4183-4c7c-b8b6-d267b9bb0a08.png",
+      "sha256": "696c18f241e08a930c26a8532da7b79f635f0e194cf95c7781a107a354541292",
+      "width": 1024,
+      "height": 1536,
+      "purposeReview": "pending",
+      "runtimeReview": "pending",
+      "reason": "Right ribbon touches canvas edge; replaced before adoption"
+    },
+    {
+      "key": "sd-work",
+      "path": "game/art-source/estreya-v1/sd-work.png",
+      "generatedSource": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-14c506ee-95b6-4a0a-89fc-44d7dd6f3931.png",
+      "sha256": "65e8915537a116f6510e825ab3df571d3aa002c67058cf8737088f54807ad39c",
+      "width": 1254,
+      "height": 1254,
+      "purposeReview": "approved",
+      "runtimeReview": "pending",
+      "reviewedAt": "2026-10-15",
+      "reviewMethod": "Manual original and neutral-background contact-sheet inspection: consistent identity, distinct expressions and actions, full-body framing except intentional portrait crop, no male event characters. Cut-in v1 rejected for edge clipping; v2 reviewed separately.",
+      "resourcePath": "Illustrations/estreya-sd-work-candidate-v1",
+      "reason": "Kneeling pose unsuitable for standing desk composition"
+    }
+  ]
 }

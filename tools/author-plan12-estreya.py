@@ -26,7 +26,7 @@ def main():
     baseline = json.loads(source.read_text(encoding='utf-8-sig'))
     combat = copy.deepcopy(baseline)
     heroine = remap(copy.deepcopy(next(h for h in baseline['heroines'] if h['id'] == 'heroine.iconoclast')))
-    heroine.update(name='エストレヤ', personId=HERO, variantId='normal',
+    heroine.update(name='エストレヤ', personId=HERO, variantId='normal', traitHpPercent=5, traitAttackPercent=0,
                    reactionStyleMain='active', reactionStyleSub='bold',
                    interactionTraitIds=['hair.red', 'body.muscular', 'taste.muscle'])
     combat['heroines'].append(heroine)

@@ -34,7 +34,7 @@ namespace NewAster.Presentation
             artSweep=new List<ArtSweepItem>();
             foreach(var hero in combatDefinitions.HeroineIds){
                 if(!artSweepGalleryOnly)foreach(var view in new[]{"detail","tree","expression.normal","expression.joy","expression.puzzled","expression.determined","sd.idle","sd.walk","sd.talk","sd.react","sd.sit","sd.work","sd.look","battle"})artSweep.Add(new ArtSweepItem{hero=hero,view=view});
-                if(!artSweepGalleryOnly && new[]{"heroine.aeon","heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master","heroine.april"}.Contains(hero))artSweep.Add(new ArtSweepItem{hero=hero,view="sd.furniture"});
+                if(!artSweepGalleryOnly && new[]{"heroine.aeon","heroine.iron-maiden","heroine.avalanche","heroine.anathema","heroine.shiva","heroine.invisible","heroine.viper","heroine.vindicator","heroine.weapon-master","heroine.april","heroine.estreya"}.Contains(hero))artSweep.Add(new ArtSweepItem{hero=hero,view="sd.furniture"});
                 foreach(var e in ProductionStoryData().events.Where(e=>e.ownerId==hero))artSweep.Add(new ArtSweepItem{hero=hero,view="cg."+e.id.Split('.').Last(),source=e.id});
             }
             if(args.Contains("-commonTreeSweep")){

@@ -24,6 +24,7 @@ namespace NewAster.Core
                 case "heroine.vindicator":key="magic-defense";break;
                 case "heroine.weapon-master":key="attack";break;
                 case "heroine.april":key="hp";break;
+                case "heroine.estreya":key="attack";break;
                 default:return 0;
             }
             return key==stat?(key=="critical"?500:5):0;

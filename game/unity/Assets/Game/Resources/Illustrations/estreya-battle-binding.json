@@ -1,0 +1,9 @@
+{
+  "heroineId": "heroine.estreya",
+  "placeholder": false,
+  "fullCanvas": true,
+  "resourcePath": "Illustrations/estreya-standing-candidate-v1",
+  "attackResourcePath": "Illustrations/estreya-attack-candidate-v1",
+  "hitResourcePath": "Illustrations/estreya-hit-candidate-v1",
+  "cutinResourcePath": "Illustrations/estreya-cutin-candidate-v1"
+}

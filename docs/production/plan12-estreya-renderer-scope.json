@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "scope": "estreya-only",
+  "baselineCommit": "c250125",
+  "proof": [
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
+      "currentSha256": "38a89629d959eab28d93e0b9f8bddd88f12130505e0541862c307be4e8dce57d",
+      "verification": "Removing only Estreya registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
+      "currentSha256": "23edaf6c5956f56daacc149b5c89164aae19727b532f53b5c18b1acbb48aa8c6",
+      "verification": "Removing only Estreya registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Presentation/Plan7ArtSample.cs",
+      "currentSha256": "6dc04297bd0d31d8494665c31c3fbfba861e346fbba27fd224b0c9d361b13c11",
+      "verification": "Removing only Estreya registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
+      "currentSha256": "67e83f1a3153693188414fa52a2a9ab34cbac64575030f68a3d4da79ef9452d4",
+      "verification": "Removing only Estreya registrations and its furniture alignment reproduces accepted HEAD renderer exactly."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
+      "currentSha256": "026db611b6c63781651f1ff4ef2bb7d4fb4eb2c3150104712ee1ef5176cc797f",
+      "verification": "Only Estreya entry appended; existing colors, layout and anchors unchanged."
+    },
+    {
+      "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
+      "currentSha256": "399a1facf0c1b7a9f23d8e2d93565815e4b5267bf2b610c5e7b0dedd4e251c12",
+      "verification": "Only Estreya entry appended; existing colors, layout and anchors unchanged."
+    }
+  ]
+}

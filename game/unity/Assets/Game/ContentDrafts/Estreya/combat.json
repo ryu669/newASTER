@@ -1819,8 +1819,8 @@
       "attackBp": 10000,
       "defenseBp": 10000,
       "speedBp": 10000,
-      "traitHpPercent": 0,
-      "traitAttackPercent": 8,
+      "traitHpPercent": 5,
+      "traitAttackPercent": 0,
       "poemChapters": [
         "heroine.estreya.poem-chapter.1",
         "heroine.estreya.poem-chapter.2",

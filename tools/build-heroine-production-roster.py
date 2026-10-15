@@ -13,11 +13,11 @@ AA_ROOT = Path('D:/M02_gamemovie/ANGELICAASTER/天使戦闘')
 KY_ROOT = Path('D:/M02_gamemovie/巨神と誓女/巨神と誓女_誓女データ')
 OUT = ROOT / 'docs/production'
 IMPLEMENTED = dict(zip(
-    [1, 5, 9, 10, 12, 13, 15, 23, 24, 32, 48, 50, 55, 56, 66, 2, 3, 6, 11, 45, 16, 17, 18, 20, 21],
+    [1, 5, 9, 10, 12, 13, 15, 23, 24, 32, 48, 50, 55, 56, 66, 2, 3, 6, 11, 45, 16, 17, 18, 20, 21, 26],
     ['r', 'iconoclast', 'annihilator', 'annihilator-holy', 'arcane',
      'arcane-academy', 'undermine', 'echidna', 'excalipan', 'oriflamme',
      'shell', 'shangrila', 'slayer', 'slayer-swim', 'nighthawk',
-     'iron-maiden', 'aeon', 'avalanche', 'anathema', 'shiva', 'invisible', 'viper', 'vindicator', 'weapon-master', 'april']))
+     'iron-maiden', 'aeon', 'avalanche', 'anathema', 'shiva', 'invisible', 'viper', 'vindicator', 'weapon-master', 'april', 'estreya']))
 VARIANTS = {
     4: ('アイオーン', '1周年'), 8: ('あざらし', '魔王'),
     10: ('アナイアレイター', '聖夜'), 13: ('アルケイン', '学園'),
@@ -100,7 +100,7 @@ def build():
     catalog = dict(schemaVersion=1, date='2026-10-11', status='候補台帳・量産順未指定',
         sourceRoots={'aa': str(AA_ROOT), 'kyoshin': str(KY_ROOT)}, totals=totals,
         countingPolicy='人物は作品別に管理。衣装は別形態。AA002の2本は同一形態の追加録画候補として暫定統合。巨神113/114はユーザー指定により別人物。巨神の衣装名は見た目の仮分類。',
-        coverage='AA107本のファイル名と現行25形態の実装を照合。巨神126本は30秒の画面内名前表示を目視確認。人物設定・全音声・スキルの調査完了を意味しない。',
+        coverage='AA107本のファイル名と現行26形態の実装を照合。巨神126本は30秒の画面内名前表示を目視確認。人物設定・全音声・スキルの調査完了を意味しない。',
         people=people, videoRecords=records)
     dump(OUT / 'heroine-production-roster.json', catalog)
     lines = ['# ヒロイン量産候補リスト', '', '更新：2026-10-11。指定された2フォルダを全件収録。量産順・追加ロットは未指定。', '',
@@ -110,7 +110,7 @@ def build():
         lines.append(f"| {label} | {t['people']} | {t['videos']} | {t['provisionalForms']} | {t['implementedForms']} |")
     lines += ['', '## 数え方・確認範囲', '',
         '- 人物と衣装違いを分離。同名・似た意匠でも作品間では統合しない。管理IDは候補台帳用であり、ゲーム実装IDを新規発行していない。',
-        '- AAはファイル名が名前・衣装の根拠。現行25形態は実装IDと照合。「まいこ」「チョコ」「ハロ」は資料の表記を残し、原典の正式衣装名として補完しない。ジャスミンは「まいこ」の録画のみで、通常版を水増ししない。',
+        '- AAはファイル名が名前・衣装の根拠。現行26形態は実装IDと照合。「まいこ」「チョコ」「ハロ」は資料の表記を残し、原典の正式衣装名として補完しない。ジャスミンは「まいこ」の録画のみで、通常版を水増ししない。',
         '- 巨神は126本すべての30秒時点で画面左上の名前を確認。別衣装の呼び名は外見による仮分類で、正式衣装名は追加調査する。職業・特性・性格・口調・年齢・全音声・物語は今回確定していない。',
         '- AA002「アイアンメイデン2」は同じ番号の追加録画候補。巨神113は「レディX(少女)」、114は「レディX(大人)」としてユーザー指定により別人物へ分離。したがって形態数は確定人数ではない。',
         '- WAV126本はMP4の付随音声として扱い、人数・動画数に加算しない。動画がないAA番号014・019・051は欠番として記録し、人物名を推測して追加しない。',

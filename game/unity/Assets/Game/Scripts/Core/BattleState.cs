@@ -37,7 +37,7 @@ namespace NewAster.Core
         public string TraitId { get; }
         private readonly string[] visibleTraitIds;
         public bool HasVisibleTrait(string id) => id!=null && visibleTraitIds.Contains(id);
-        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+TraitAttackPercent+GeneralAttackPercent+RelicAttackPercent+OopartStatPercent("attack")))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
+        public int Attack => (int)Math.Min(int.MaxValue,(long)BaseAttack*(Math.Max(1,100+EffectPercent("attack")-EffectPercent("attack-reduction")+JobAllStatsPercent+JobAttackPercent+TraitAttackPercent+PersonalKillAttackPercent+GeneralAttackPercent+RelicAttackPercent+OopartStatPercent("attack")))/100*(Status.Active("burn")?80:100)/100*(Status.Active("sickness")?80:100)/100);
         private readonly int baseSpeed;
         public int Speed => Math.Max(1,baseSpeed*(100+JobAllStatsPercent+JobSpeedPercent+TraitSpeedPercent+TimedSpeedPercent+GeneralSpeedPercent+RelicSpeedPercent+OopartStatPercent("speed"))/100*(Status.Active("frostbite")?80:100)/100);
         public int JobResource { get; private set; }

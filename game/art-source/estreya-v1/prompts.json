@@ -18,6 +18,126 @@
       "key": "portrait",
       "prompt": "Create a NEW dedicated wide upper-body portrait of the same adult female fighter in reference, for RPG selection UI. Native canvas 1536x1024, landscape 3:2. Identity lock: red auburn bob with cowlick, emerald green eyes, mature adult face, silver massive right gauntlet, brown gold fur-trimmed fitted tunic, white feathered wings. Face near horizontal center, head shoulders chest through waist visible, cheerful confident closed-mouth smile, relaxed direct gaze. Plenty of margin above hair. Do NOT simply crop or enlarge existing whole-body image; repaint as high-resolution bust with face at least 220 pixels high, fine eyes hair and garment details. Actual fully transparent background outside subject, no atmosphere or gradient, no text or UI.",
       "reference": "game/art-source/estreya-v1/standing.png"
+    },
+    {
+      "key": "expression-joy",
+      "prompt": "Edit reference full-body adult Estreya illustration. Keep EXACT same canvas, face position, head size, hair silhouette, body pose, wings, huge silver right gauntlet, brown gold fur-trimmed outfit and boots. Change ONLY facial expression. Actual transparent background, retain clean alpha, no scenery or text. All parts inside canvas. Delighted warm smile, softly closed happy eyes and open smiling mouth.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "expression-puzzled",
+      "prompt": "Edit reference full-body adult Estreya illustration. Keep EXACT same canvas, face position, head size, hair silhouette, body pose, wings, huge silver right gauntlet, brown gold fur-trimmed outfit and boots. Change ONLY facial expression. Actual transparent background, retain clean alpha, no scenery or text. All parts inside canvas. Mildly puzzled, worried raised inner eyebrows, green eyes open, small slightly parted mouth.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "expression-determined",
+      "prompt": "Edit reference full-body adult Estreya illustration. Keep EXACT same canvas, face position, head size, hair silhouette, body pose, wings, huge silver right gauntlet, brown gold fur-trimmed outfit and boots. Change ONLY facial expression. Actual transparent background, retain clean alpha, no scenery or text. All parts inside canvas. Determined brave focus, green eyes, brows slightly lowered, closed firm mouth.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "attack",
+      "prompt": "Create one full-body battle sprite of SAME clearly adult female Estreya from reference. Identity preserve auburn bob cowlick, green eyes, silver giant right gauntlet, smaller left bracer, brown gold fur-trimmed tunic and armored boots, white feathered wings. Polished detailed anime RPG style. Keep entire hair tips, gauntlet, wings and feet inside canvas with 10% margin. True transparent background. No UI, typography, other people, scenery. Dynamic forward punching pose, torso twisted, right gauntlet striking diagonally toward left, legs in a balanced martial lunge, fierce determined expression. Modest orange sparks at fist only.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "hit",
+      "prompt": "Create one full-body battle sprite of SAME clearly adult female Estreya from reference. Identity preserve auburn bob cowlick, green eyes, silver giant right gauntlet, smaller left bracer, brown gold fur-trimmed tunic and armored boots, white feathered wings. Polished detailed anime RPG style. Keep entire hair tips, gauntlet, wings and feet inside canvas with 10% margin. True transparent background. No UI, typography, other people, scenery. Braced defensive recoil, knees bent, giant right gauntlet shielding upper chest, eyes winced and brows tense, left hand balancing. Intact clothing, no injury or gore. Clearly different from attack.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "cutin",
+      "prompt": "Create one full-body battle sprite of SAME clearly adult female Estreya from reference. Identity preserve auburn bob cowlick, green eyes, silver giant right gauntlet, smaller left bracer, brown gold fur-trimmed tunic and armored boots, white feathered wings. Polished detailed anime RPG style. Keep entire hair tips, gauntlet, wings and feet inside canvas with 10% margin. True transparent background. No UI, typography, other people, scenery. Triumphant signature attack windup, standing broad stable stance with giant right gauntlet lifted diagonally overhead, open fierce confident smile, swirling orange-gold flame arcs around glove only. Full figure not portrait.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-idle",
+      "prompt": "Create one 3-head-tall chibi garden sprite of the SAME adult female fighter Estreya, stylized miniature adult character not child. Match reference auburn bob cowlick, bright green eyes, brown gold fur-trimmed tunic, armored boots, oversized silver right gauntlet and smaller left bracer, ivory wings. Cute polished hand-painted anime game sprite, entire body and wings and props within generous 12% blank margin, square 1024x1024 canvas. TRUE transparent background. No floor or shadow or scenery, no text, no other characters. Relaxed standing idle, arms down, gentle confident smile, feet planted.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-walk",
+      "prompt": "Create one 3-head-tall chibi garden sprite of the SAME adult female fighter Estreya, stylized miniature adult character not child. Match reference auburn bob cowlick, bright green eyes, brown gold fur-trimmed tunic, armored boots, oversized silver right gauntlet and smaller left bracer, ivory wings. Cute polished hand-painted anime game sprite, entire body and wings and props within generous 12% blank margin, square 1024x1024 canvas. TRUE transparent background. No floor or shadow or scenery, no text, no other characters. Walking to screen right in three-quarter view, one foot lifted mid-step, arms balanced, happy open eyes.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-talk",
+      "prompt": "Create one 3-head-tall chibi garden sprite of the SAME adult female fighter Estreya, stylized miniature adult character not child. Match reference auburn bob cowlick, bright green eyes, brown gold fur-trimmed tunic, armored boots, oversized silver right gauntlet and smaller left bracer, ivory wings. Cute polished hand-painted anime game sprite, entire body and wings and props within generous 12% blank margin, square 1024x1024 canvas. TRUE transparent background. No floor or shadow or scenery, no text, no other characters. Chatting pose facing front, small left hand gesturing outward, smiling open mouth, right gauntlet relaxed beside body.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-react",
+      "prompt": "Create one 3-head-tall chibi garden sprite of the SAME adult female fighter Estreya, stylized miniature adult character not child. Match reference auburn bob cowlick, bright green eyes, brown gold fur-trimmed tunic, armored boots, oversized silver right gauntlet and smaller left bracer, ivory wings. Cute polished hand-painted anime game sprite, entire body and wings and props within generous 12% blank margin, square 1024x1024 canvas. TRUE transparent background. No floor or shadow or scenery, no text, no other characters. Surprised delighted reaction, leaning back slightly, eyes wide, left hand by cheek, right gauntlet down.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-sit",
+      "prompt": "Create one polished hand-painted chibi garden sprite, miniature adult female fighter Estreya from reference (not child). Aubrun red bob cowlick green eyes, brown gold fur-trimmed tunic and armored boots, oversized silver right gauntlet and small left bracer, ivory wings. Entire character within canvas, scale to only 75% canvas height with wide fully transparent margins on every side. Square image, true transparent alpha background. No background or ground or text or other people. Sitting pose for a separately rendered bench: hips seated at middle height, knees bent 90 degrees, feet below hips. Left hand on lap, huge right gauntlet resting on thigh. Relaxed cheerful expression. DO NOT DRAW BENCH or furniture, character only, full body.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-work",
+      "prompt": "Create one polished hand-painted chibi garden sprite, miniature adult female fighter Estreya from reference (not child). Aubrun red bob cowlick green eyes, brown gold fur-trimmed tunic and armored boots, oversized silver right gauntlet and small left bracer, ivory wings. Entire character within canvas, scale to only 75% canvas height with wide fully transparent margins on every side. Square image, true transparent alpha background. No background or ground or text or other people. Kneeling on one knee, tending a small sprout using a little hand trowel in left hand, massive right gauntlet resting beside right knee. Concentrated kind smile, clearly working in garden. No soil mound or pot or furniture, only character and hand trowel.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "sd-look",
+      "prompt": "Create one polished hand-painted chibi garden sprite, miniature adult female fighter Estreya from reference (not child). Aubrun red bob cowlick green eyes, brown gold fur-trimmed tunic and armored boots, oversized silver right gauntlet and small left bracer, ivory wings. Entire character within canvas, scale to only 75% canvas height with wide fully transparent margins on every side. Square image, true transparent alpha background. No background or ground or text or other people. Standing still looking UP toward a tall tree above screen left, head and green eyes clearly tilted upward, left hand shading brow, oversized right gauntlet lowered. Curious expression, both feet planted, no tree drawn.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": true
+    },
+    {
+      "key": "event-0-cg",
+      "prompt": "Paint one full-scene 1536x1024 landscape anime fantasy RPG relationship event illustration. SAME clearly adult woman Estreya from reference: auburn bob cowlick, green eyes, brown and gold fur-trimmed tunic outfit, silver oversized right gauntlet, small left bracer, ivory wings. Mature athletic adult proportions, warm character-focused cinematic painting. ONLY this single woman visible; no men, other people, hands from viewer, silhouettes, reflections of others. No text, symbols, logos or UI. Training yard at golden afternoon, Estreya sitting on a wooden bench wrapping a clean white bandage around her right hand, giant gauntlet removed and resting beside her. Friendly smile up toward viewer. Tool box and neatly coiled bandages nearby, fully clothed, calm everyday care.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": false
+    },
+    {
+      "key": "event-1-cg",
+      "prompt": "Paint one full-scene 1536x1024 landscape anime fantasy RPG relationship event illustration. SAME clearly adult woman Estreya from reference: auburn bob cowlick, green eyes, brown and gold fur-trimmed tunic outfit, silver oversized right gauntlet, small left bracer, ivory wings. Mature athletic adult proportions, warm character-focused cinematic painting. ONLY this single woman visible; no men, other people, hands from viewer, silhouettes, reflections of others. No text, symbols, logos or UI. Garden table under dappled sunlight. Estreya sitting arranging fresh pomegranate seeds into TWO small ceramic plates, laughing gently at a stray seed. Giant gauntlet resting safely beside chair, bare hands handling fruit. Camera chest-height medium shot, foliage and little flowers behind.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": false
+    },
+    {
+      "key": "event-2-cg",
+      "prompt": "Paint one full-scene 1536x1024 landscape anime fantasy RPG relationship event illustration. SAME clearly adult woman Estreya from reference: auburn bob cowlick, green eyes, brown and gold fur-trimmed tunic outfit, silver oversized right gauntlet, small left bracer, ivory wings. Mature athletic adult proportions, warm character-focused cinematic painting. ONLY this single woman visible; no men, other people, hands from viewer, silhouettes, reflections of others. No text, symbols, logos or UI. Quiet terrace after sunset, warm lanterns and distant garden. Estreya standing with her gauntlet set on a nearby bench, hands clasped shyly at her chest, blush and sincere happy eyes looking directly toward viewer as she confesses affection. Soft intimate composition, one adult woman only, medium-wide view down to knees.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": false
+    },
+    {
+      "key": "event-3-cg",
+      "prompt": "Paint a full-scene 1536x1024 landscape anime fantasy RPG relationship event illustration. SAME clearly adult female Estreya from reference, mature athletic adult proportions, auburn bob cowlick, green eyes, brown gold fur-trimmed tunic with ivory wings and armored boots. Only this one woman visible. No men, other people, viewer hands, silhouettes or reflections of others. No typography or UI. Keep entire hair and cowlick inside frame with margin. Warm detailed cinematic painting. Giant gauntlet is left at home for this peaceful day, both hands natural with small gloves. A quiet sunny fantasy village street on a day off, a small colorful pinwheel turning in front of a closed little shop. Estreya standing beside the pinwheel, turning her smiling face back toward viewer, left hand extending slightly as an invitation to walk, no other hand. Medium-wide eye-level composition, relaxed romantic happiness, lush potted flowers.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": false
+    },
+    {
+      "key": "event-4-cg",
+      "prompt": "Paint a full-scene 1536x1024 landscape anime fantasy RPG relationship event illustration. SAME clearly adult female Estreya from reference, mature athletic adult proportions, auburn bob cowlick, green eyes, brown gold fur-trimmed tunic with ivory wings and armored boots. Only this one woman visible. No men, other people, viewer hands, silhouettes or reflections of others. No typography or UI. Keep entire hair and cowlick inside frame with margin. Warm detailed cinematic painting. Giant gauntlet is left at home for this peaceful day, both hands natural with small gloves. At sunrise in a quiet garden, Estreya seated on one side of a wooden bench, the seat beside her empty. Holding a steaming ceramic cup with both hands, looking gently toward viewer with contented affectionate smile. A second cup and thermos on small side table, soft gold light over distant trees, calm tender mood.",
+      "reference": "game/art-source/estreya-v1/standing.png",
+      "transparentBackground": false
+    },
+    {
+      "key": "cutin-v2",
+      "prompt": "Edit the reference cut-in sprite: zoom OUT and extend the true transparent canvas so the COMPLETE same adult woman, all trailing skirt ribbons, wings, boots, raised gauntlet and flame arcs fit with clear 8% transparent margin on ALL four sides. Currently rightmost ribbon and top flame approach frame edge; reconstruct those ends naturally. Preserve face, mature adult body, expression, exact costume and pose. No new background. No color or pose changes. This is a full body transparent PNG battle asset.",
+      "source": "C:\\Users\\nishi\\.codex\\generated_images\\01a122d9-2314-7463-b91b-94d1a4d927cb\\exec-1b9557e8-edce-4fd1-b1bf-f16a9963dff3.png",
+      "reference": "game/art-source/estreya-v1/cutin.png"
+    },
+    {
+      "key": "sd-work-v2",
+      "prompt": "Edit target: the attached Estreya SD game sprite. Preserve exactly her adult woman identity, red bob and long curled forelock, green eyes, white angel wings, brown fur gold armored outfit and giant silver RIGHT gauntlet. Change only the work pose: STANDING on BOTH boots, leaning slightly forward to work at a waist-height desk. Both forearms reach forward at waist height, normal left hand holds a small quill pen pointing downward, giant right gauntlet rests horizontally at the same height. Calm focused face looking downward toward her hands. No kneeling, no crouching, no bent legs. Entire full body with feet, wings, hair visible and generous transparent margin. Do NOT draw desk, chair, furniture, plant, soil, background, floor, shadow or text. Keep matching polished anime chibi 3-head proportions. True transparent background, square canvas.",
+      "reference": "game/art-source/estreya-v1/sd-work.png",
+      "transparentBackground": true
     }
   ]
 }
