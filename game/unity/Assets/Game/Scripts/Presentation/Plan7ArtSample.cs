@@ -40,7 +40,7 @@ namespace NewAster.Presentation
         private Texture2D SampleImage(string name,bool optional=false)
         {
             if(artTextures==null)artTextures=new NewAster.Core.BoundedCache<string,Texture2D>(48,ScheduleHeroineAssetCleanup);
-            if(!artTextures.TryGetValue(name,out var texture)){string version=name=="vindicator-sd-idle" || name=="april-sd-work" || name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null && !optional)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
+            if(!artTextures.TryGetValue(name,out var texture)){string version=name=="vindicator-sd-idle" || name=="april-sd-work" || name=="estreya-sd-work" || name=="green-crown"?"v2":name=="slayer-cutin" || name=="green-major"?"v3":"v1";texture=Resources.Load<Texture2D>("Illustrations/"+name+"-candidate-"+version);artTextures[name]=texture;if(texture==null && !optional)Debug.LogWarning("PLAN7_ASSET_MISSING "+name);}
             return texture;
         }
         private void SampleImage(Rect rect,string name,bool crop=false)

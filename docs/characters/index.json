@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-10-11",
-  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-april.json",
-  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-april-story-content.json",
+  "updatedAt": "2026-10-14",
+  "combatSource": "game/unity/Assets/Game/Resources/Combat/battle-plan12-estreya.json",
+  "storySource": "game/unity/Assets/Game/Resources/Story/plan12-estreya-story-content.json",
   "people": [
     {
       "personId": "heroine.slayer",
@@ -180,6 +180,14 @@
       "profile": "docs/characters/april.md",
       "formIds": [
         "heroine.april"
+      ]
+    },
+    {
+      "personId": "heroine.estreya",
+      "name": "エストレヤ",
+      "profile": "docs/characters/estreya.md",
+      "formIds": [
+        "heroine.estreya"
       ]
     }
   ],

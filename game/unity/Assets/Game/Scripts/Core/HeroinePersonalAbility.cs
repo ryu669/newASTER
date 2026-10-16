@@ -40,6 +40,7 @@ namespace NewAster.Core
                 case "heroine.vindicator":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.vindicator").Personal,"sword","反撃の与ダメージ＋20%。","counter",20);
                 case "heroine.weapon-master":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.weapon-master").Personal,"flame","火傷状態の対象への与ダメージ＋20%。","burned",20);
                 case "heroine.april":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.april").Personal,"leaf","自身の回復スキルによる回復量＋10%。","healing",10);
+                case "heroine.estreya":return new HeroinePersonalTrait(HeroineAuthoredNames.For("heroine.estreya").Personal,"flame","自身の攻撃で本体を倒すか部位を破壊するたび、戦闘中の攻撃＋5%（上限30%）。","heat-up",5);
                 default:return null;
             }
         }
@@ -58,6 +59,12 @@ namespace NewAster.Core
     public sealed partial class BattleHero
     {
         internal bool PersonalTraitsEnabled;
+        public int PersonalKillAttackPercent {get;private set;}
+        internal void PersonalEnemyDefeated()
+        {
+            if(PersonalTraitsEnabled && HeroinePersonalAbility.For(Id)?.Kind=="heat-up")
+                PersonalKillAttackPercent=Math.Min(30,PersonalKillAttackPercent+5);
+        }
     }
     public sealed partial class PlayableBattle
     {

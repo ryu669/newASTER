@@ -38,6 +38,7 @@ namespace NewAster.Core
                 case "heroine.vindicator":return new HeroineAuthoredIdentity("痛みを糧に","反撃の心得","無神論者","黒大剣リーパー","帰還を確かめる厳しい声。誘われる嬉しさを隠しても、隣にはもう一つ椅子を置いている。");
                 case "heroine.weapon-master":return new HeroineAuthoredIdentity("強装弾","火遊び","諸兵科連合","換装銃架ハルモニア","値札を直す手と、包帯を巻く手。明日も店を開けられるように、今日の助け方を一緒に考える。");
                 case "heroine.april":return new HeroineAuthoredIdentity("芽吹きの誇り","お人好し","木々の生命力","リクレイマー","枯れた庭にも、植え直す場所はある。土に触れた手で、今度は自分の願いも育てていく。");
+                case "heroine.estreya":return new HeroineAuthoredIdentity("激痛と苛立ちと打たれ強さと","ヒートアップ","レスラーの誇り","拳甲メテオラ","拳に残る教えを、明日の一歩へ。歓声が途切れた後にも、隣で笑える人がいる。");
                 default:throw new ArgumentException("Missing authored heroine names: "+id);
             }
         }

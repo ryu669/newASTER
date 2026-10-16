@@ -26,6 +26,7 @@ namespace NewAster.Core
         public int resourceGain,alliesHealingBaseAttackPercent;
         public bool cleanseAll;
         public int selfHealingBaseAttackPercent,selfDamageMaxHpPercent;
+        public int selfHpAtLeastPercent,selfHpDamageBonusPercent;
         public string targetStatusBonusKind;
         public int targetStatusBonusPercent;
         public int enemyAttackReductionPercent,enemyAttackReductionTurns;
@@ -107,6 +108,7 @@ namespace NewAster.Core
                 throw new ArgumentException("Attack follow-up percentages require a damage skill and valid ranges.");
             foreach(var skill in skills) {
                 if(skill.targetStatusBonusPercent<0 || skill.targetStatusBonusPercent>1000 || skill.targetStatusBonusPercent>0 && (skill.effectRuleId!="effect.damage" || !EnemyStatusState.Kinds.Contains(skill.targetStatusBonusKind)) || skill.targetStatusBonusPercent==0 && !string.IsNullOrEmpty(skill.targetStatusBonusKind))throw new ArgumentException("Invalid target status damage bonus.");
+                if(skill.selfHpAtLeastPercent<0 || skill.selfHpAtLeastPercent>100 || skill.selfHpDamageBonusPercent<0 || skill.selfHpDamageBonusPercent>1000 || (skill.selfHpAtLeastPercent==0)!=(skill.selfHpDamageBonusPercent==0) || skill.selfHpDamageBonusPercent>0 && skill.effectRuleId!="effect.damage")throw new ArgumentException("Invalid HP-based damage bonus.");
                 CombatAttributeRules.Validate(skill.attributes);
                 var statuses=skill.statusEffects??Array.Empty<EnemyStatusDef>();
                 if(statuses.Any(e=>e==null) || statuses.Select(e=>e.kind).Distinct().Count()!=statuses.Length) throw new ArgumentException("Invalid status effect list.");

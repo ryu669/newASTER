@@ -42,7 +42,7 @@
 
 - 共通回帰：`./tools/validate-automatic-chain.ps1`。消費・WT・対象・状態期限・拒否時不変・保存互換を変更に応じて追加する。
 - Unity向けC#：`./tools/compile-unity-scripts.ps1`。
-- 最新Player：Unity Editorの `Plan119BuildValidation.Build`、出力 `game/Builds/plan12-preparation/newASTER.exe`。同じ出力へのビルドと撮影は直列に実施する。
+- 最新Player：Unity Editorの `Plan12EstreyaBuild.ValidateAndBuild`、出力 `game/Builds/plan12-estreya/newASTER.exe`。同じ出力へのビルドと撮影は直列に実施する。
 - ジョブ単位：`./tools/validate-job-panels.ps1 -Views @('job-chaser','job-chaser-low')`。`-PlayerPath` で対象ビルドを指定可能。通常ビューは本番UI分岐の操作検証を実行する。派生ビューは状態別表示用であり、操作件数を二重計上しない。
 - 状態別ビュー：`job-artist-singing`、`job-panzer-broken`、`job-gunner-empty`、`job-healer-revive`、`job-alchemist-mix`、`job-gambler-result`、`job-blaster-low`、`job-chaser-low`、`job-general-low`、`job-healer-low`。
 - 共通画面変更時：`battle-menu-actions`、`battle-menu-playing`、`battle-menu-healing`、`battle-menu-help` を影響に応じて確認する。
@@ -50,3 +50,5 @@
 診断フィクスチャ・操作プローブは `Plan10UiAuditAcceptance.cs`。新ジョブは状態準備、成功・拒否条件、結果検証を追加し、`validate-job-panels.ps1` の対象にも登録する。既存プローブの通過だけでは新形態や新効果の受入れにならない。敵HP等を変更する診断は隔離保存のみで実行し、製品定義へ混ぜない。
 
 出力は `tmp/job-panel-validation/`。自動記録の `visualReview=pending` は実画像を見てから別途完了記録へ反映する。対象ジョブ・変更範囲・成功ログ・実画像とハッシュ・撮影時Playerハッシュ・解像度・未解決課題を残す。ツールは `latest-run.json` や同名画像を上書きするため、採用証跡は次の実行前に別名保存する。全13ジョブの再実行は共通変更が影響する場合に限る。
+
+2026-10-15：エストレヤで既存バーサーカーを再利用。3技Lv1〜7とHP49/50/51%の予測・実ダメージ、最大HP5%反動、部位破壊ごとの攻撃累積5%／上限30%／新戦闘でリセットを検証。個人特性をジョブマスタリーへ混在させない。HP閾値と補正値は対で定義し、回復技には設定しない。最新追加の実行版は `Plan12EstreyaBuild.ValidateAndBuild`、確認は `tools/validate-plan12-estreya-player.ps1`。

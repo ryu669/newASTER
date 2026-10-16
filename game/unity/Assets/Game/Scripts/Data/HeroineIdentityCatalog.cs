@@ -37,6 +37,7 @@ namespace NewAster.Data
                 case "heroine.vindicator":icon="moon";bonus="魔法防御＋5%";break;
                 case "heroine.weapon-master":icon="sword";bonus="攻撃＋5%";break;
                 case "heroine.april":icon="leaf";bonus="最大HP＋5%";break;
+                case "heroine.estreya":icon="flame";bonus="攻撃＋5%";break;
                 default:throw new ArgumentException("人物固有の特性定義がありません。");
             }
             var authored=HeroineAuthoredNames.For(h.id);name=authored.Innate;master=authored.Mastery;

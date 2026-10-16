@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "forms": 26,
+  "people": 23,
+  "added": "heroine.estreya",
+  "record": "docs/production/plan12-estreya-form-record.json",
+  "oldSave": "25-to-26; all fields and wallet preserved; physical save/reload",
+  "automatedPlayerCases": 19,
+  "physicalInput": "excluded",
+  "resolution": "default 1920x1080",
+  "unresolved": []
+}

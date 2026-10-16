@@ -142,6 +142,7 @@ namespace NewAster.Core
                 if(battle.ReferenceStatusRules && damage>0)battle.EnemyStatus(t).Remove("absent");
                 if(alive) foreach(var effect in skill.StatusEffects) {bool active=battle.EnemyStatus(t).Add(effect);if(active && battle.ReferenceStatusRules){if(effect.kind=="electrified")battle.EnemyWaitPenalty+=20;int dot=battle.EnemyStatus(t).ActivationDamage(effect.kind,t=="body"?battle.BossMaxHitPoints:partHp(battle,t));if(t=="body")total+=battle.ApplyBossDamage(dot);else {var p=battle.Parts.Single(p=>p.Id==t);total+=Math.Min(p.HitPoints,dot);broken=battle.BreakPart(t,dot)||broken;}}}
             }
+            foreach(var t in targets)if(t=="body"?battle.IsVictory:battle.Parts.Single(p=>p.Id==t).IsBroken)hero.PersonalEnemyDefeated();
             int appliedDamage=(int)Math.Min(int.MaxValue,total);
             // One accepted command: enemy damage, self healing, then self recoil.
             // Follow-ups are not a second command, consume no additional resource,

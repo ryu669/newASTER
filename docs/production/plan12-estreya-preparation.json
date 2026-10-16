@@ -1,0 +1,20 @@
+{
+  "status": "accepted-normal-play",
+  "available": true,
+  "personId": "heroine.estreya",
+  "sourcePersonId": "aa.person.026",
+  "realName": "アズ・ボーンフリー",
+  "jobId": "job.berserker",
+  "chapters": 3,
+  "pages": 30,
+  "poems": 18,
+  "events": 5,
+  "images": 20,
+  "weaponNameOrigin": "video-observed base name; three route suffixes newaster-original",
+  "completionRecord": "docs/production/plan12-estreya-form-record.json",
+  "validation": {
+    "assertions": 12802,
+    "unitySources": 280
+  },
+  "remaining": []
+}

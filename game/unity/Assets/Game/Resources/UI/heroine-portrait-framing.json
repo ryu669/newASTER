@@ -202,6 +202,14 @@
       "faceCenterY": 0.31,
       "faceHeight": 0.22,
       "legacyPortrait": false
+    },
+    {
+      "heroineId": "heroine.estreya",
+      "resourcePath": "Illustrations/heroine-portrait-estreya-v1",
+      "faceCenterX": 0.54,
+      "faceCenterY": 0.32,
+      "faceHeight": 0.22,
+      "legacyPortrait": false
     }
   ]
 }

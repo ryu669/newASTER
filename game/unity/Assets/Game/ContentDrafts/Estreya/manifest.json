@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "available": true,
+  "stage": "accepted-normal-play",
+  "formIds": [
+    "heroine.estreya"
+  ],
+  "baselineForms": 25,
+  "targetForms": 26,
+  "requiredAssetsPerForm": 20,
+  "remaining": []
+}

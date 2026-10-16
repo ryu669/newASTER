@@ -442,13 +442,13 @@
     },
     {
       "path": "game/unity/Assets/Game/Resources/UI/WeaponTrees/heroine-colors.json",
-      "sha256": "20369f133dc4d78519b011bbde153d5ddcf4829a6660abe84b9f6add63655b82",
+      "sha256": "026db611b6c63781651f1ff4ef2bb7d4fb4eb2c3150104712ee1ef5176cc797f",
       "status": "approved",
       "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
     },
     {
       "path": "game/unity/Assets/Game/Resources/UI/heroine-weapon-trees.json",
-      "sha256": "345900078fd060c5cecd5cefe70b043bd70aaf94ea2bcba5eabf515f926b9848",
+      "sha256": "399a1facf0c1b7a9f23d8e2d93565815e4b5267bf2b610c5e7b0dedd4e251c12",
       "status": "approved",
       "reviewRecord": "docs/production/plan12-common-weapon-tree-review.json"
     }
@@ -460,12 +460,12 @@
   "renderers": [
     {
       "path": "game/unity/Assets/Game/Scripts/Presentation/AdvExperience.cs",
-      "sha256": "031f97a7315039821bc2e560bfac2a303825f1e91f69be288c189ade2d27a122",
+      "sha256": "38a89629d959eab28d93e0b9f8bddd88f12130505e0541862c307be4e8dce57d",
       "status": "approved"
     },
     {
       "path": "game/unity/Assets/Game/Scripts/Presentation/GardenArtComposition.cs",
-      "sha256": "c08a3842dfee838f0aece5ce34648debb5409c7d7fd2f14bc86dc276cbce2908",
+      "sha256": "23edaf6c5956f56daacc149b5c89164aae19727b532f53b5c18b1acbb48aa8c6",
       "status": "approved"
     },
     {
@@ -477,7 +477,7 @@
     },
     {
       "path": "game/unity/Assets/Game/Scripts/Data/Plan12FirstBatchHomeArt.cs",
-      "sha256": "c3b55b05e1c53776160e28624f72186ed6bfa95be56ab7c73e77560e50d2aea6",
+      "sha256": "67e83f1a3153693188414fa52a2a9ab34cbac64575030f68a3d4da79ef9452d4",
       "status": "approved"
     }
   ],
@@ -523,5 +523,6 @@
   },
   "rendererScopeUpdate": "docs/production/plan12-weapon-master-renderer-scope.json",
   "commonTreeReview": "docs/production/plan12-common-weapon-tree-review.json",
-  "aprilRegistrationScopeProof": "docs/production/plan12-april-renderer-scope.json"
+  "aprilRegistrationScopeProof": "docs/production/plan12-april-renderer-scope.json",
+  "estreyaRegistrationScopeProof": "docs/production/plan12-estreya-renderer-scope.json"
 }
