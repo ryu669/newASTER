@@ -23,6 +23,55 @@ def unique(rows, key):
         raise ValueError('Duplicate ' + key)
 
 
+def validate_published_roster(roster, index):
+    """Check the published form IDs and person boundaries without the video drive."""
+    unique(index['people'], 'personId')
+    published = {}
+    for person in index['people']:
+        for form_id in person['formIds']:
+            if form_id in published:
+                raise ValueError(f'Duplicate published form: {form_id}')
+            published[form_id] = person['personId']
+
+    references = {}
+    for row in roster['videoRecords']:
+        if row['implementationId']:
+            key = (row['source'], row['formKey'])
+            form_id = row['implementationId']
+            if key in references and references[key] != form_id:
+                raise ValueError(f'{key}: video references disagree on the published form')
+            references[key] = form_id
+
+    claimed = {}
+    groups = {}
+    for person in roster['people']:
+        planning_id = person['planningId']
+        form_ids = person['implementedFormIds']
+        keys = [(person['source'], form_key) for form_key in person['formKeys']]
+        reference_ids = {references[key] for key in keys if key in references}
+        if set(form_ids) != reference_ids:
+            raise ValueError(f'{planning_id}: published forms disagree with video references')
+        for form_id in form_ids:
+            if form_id not in published:
+                raise ValueError(f'{planning_id}: unpublished form in roster: {form_id}')
+            if form_id in claimed:
+                raise ValueError(f'{planning_id}: duplicate roster form: {form_id}')
+            claimed[form_id] = planning_id
+            groups.setdefault(published[form_id], set()).add(planning_id)
+        if len({published[form_id] for form_id in form_ids}) > 1:
+            raise ValueError(f'{planning_id}: roster merges distinct published people')
+
+    unclaimed = sorted(set(references.values()) - set(claimed))
+    if unclaimed:
+        raise ValueError('Published video references missing from roster: ' + ', '.join(unclaimed))
+    missing = sorted(set(published) - set(claimed))
+    if missing:
+        raise ValueError('Published forms missing from roster: ' + ', '.join(missing))
+    for person_id, planning_ids in groups.items():
+        if len(planning_ids) > 1:
+            raise ValueError(f'{person_id}: published person split across roster entries')
+
+
 def compile_context(roster, aa, kyoshin, timeline):
     roster, aa, kyoshin, timeline = copy.deepcopy((roster, aa, kyoshin, timeline))
     people = copy.deepcopy(roster['people'])
@@ -77,7 +126,10 @@ def main():
     parser.add_argument('--person', help='Stable planning ID, e.g. aa.person.032')
     parser.add_argument('--check', action='store_true', help='Fail if the saved bundle is stale')
     args = parser.parse_args()
-    bundle = compile_context(read('heroine-production-roster'), read('heroine-relationships'),
+    roster = read('heroine-production-roster')
+    index = json.loads((ROOT / 'docs/characters/index.json').read_text(encoding='utf-8-sig'))
+    validate_published_roster(roster, index)
+    bundle = compile_context(roster, read('heroine-relationships'),
                              read('kyoshin-heroine-relationships'), read('aa-kyoshin-person-timeline'))
     if args.person:
         selected = next((p for p in bundle['people'] if p['planningId'] == args.person), None)
@@ -89,7 +141,8 @@ def main():
             raise SystemExit('Production context is stale; rebuild it.')
         print('Production context is current:', bundle['totals'])
     else:
-        OUTPUT.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        OUTPUT.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + '\n',
+                          encoding='utf-8', newline='\n')
         print('Built production context:', bundle['totals'])
 
 

@@ -1,6 +1,8 @@
 """Validate implemented-person authoring documentation against runtime catalogs."""
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -49,5 +51,7 @@ for person in index.get('developmentPeople', []):
         for kind in ['chapters', 'events']:
             records = [r for r in draft_story[kind] if r['ownerId'] == form]
             assert records and all('`' + r['id'] + '`' in text for r in records), f'Missing development story references: {form}'
+subprocess.run([sys.executable, str(ROOT / 'tools/build-heroine-production-context.py'),
+                '--check'], check=True)
 print(f'CHARACTER_DOCS_PASS people={len(actual)} forms={sum(map(len, actual.values()))}')
 print(f'DEVELOPMENT_CHARACTER_DOCS_PASS people={len(development_ids)}; not included in live counts')

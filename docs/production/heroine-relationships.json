@@ -8885,15 +8885,21 @@
     },
     {
       "name": "アルケイン",
-      "realName": "イェニー・プレスティン",
+      "realName": "イェニー・プレスタイン",
       "nameType": "本名",
       "personId": "aa.person.012",
       "profileEvidence": {
         "file": "012_アルケイン.mkv",
         "second": 0,
-        "note": "コードネーム直下の本名表示を目視確認。姓名間の表示空白は省略。"
+        "note": "2026-11-12に通常012と学園013の0秒の本名欄を再確認。旧転記「イェニー・プレスティン」を訂正。"
       },
-      "relationResearchStatus": "本名確認・関係本文は未完了"
+      "relationResearchStatus": "本名確認・関係本文は未完了",
+      "additionalProfileEvidence": [
+        {
+          "file": "013_アルケイン学園.mkv",
+          "second": 0
+        }
+      ]
     },
     {
       "name": "エクスカリパン",
@@ -19651,7 +19657,7 @@
       "personId": "aa.person.012",
       "name": "アルケイン",
       "status": "本名・関係の一次確認済み",
-      "realName": "イェニー・プレスティン",
+      "realName": "イェニー・プレスタイン",
       "relationIds": [
         "aa.relation.035",
         "aa.relation.036",

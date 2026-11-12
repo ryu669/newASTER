@@ -1,5 +1,6 @@
 """Regression checks for preserving identity boundaries in authoring input."""
 import importlib.util
+import json
 import unittest
 from pathlib import Path
 
@@ -20,6 +21,35 @@ class ProductionContextTests(unittest.TestCase):
         self.assertEqual(len(self.people), 197)
         for p in self.inputs[0]['people']:
             self.assertEqual(self.people[p['planningId']]['implementedFormIds'], p['implementedFormIds'])
+
+    def test_saved_context_matches_published_roster(self):
+        index = json.loads((module.ROOT / 'docs/characters/index.json').read_text(encoding='utf-8-sig'))
+        module.validate_published_roster(self.inputs[0], index)
+        self.assertEqual(module.read('heroine-production-context'), self.bundle)
+        self.assertIn('heroine.estreya', self.people['aa.person.026']['implementedFormIds'])
+
+    def test_published_form_missing_from_roster_is_rejected(self):
+        index = {'people': [{'personId': 'heroine.example', 'formIds': ['heroine.example']}]}
+        with self.assertRaisesRegex(ValueError, 'Published forms missing.*heroine.example'):
+            module.validate_published_roster({'people': [], 'videoRecords': []}, index)
+
+    def test_separating_published_costumes_into_two_people_is_rejected(self):
+        roster = {
+            'people': [
+                {'planningId': 'aa.person.001', 'source': 'aa', 'formKeys': ['normal'],
+                 'implementedFormIds': ['heroine.example']},
+                {'planningId': 'aa.person.002', 'source': 'aa', 'formKeys': ['swim'],
+                 'implementedFormIds': ['heroine.example-swim']},
+            ],
+            'videoRecords': [
+                {'source': 'aa', 'formKey': 'normal', 'implementationId': 'heroine.example'},
+                {'source': 'aa', 'formKey': 'swim', 'implementationId': 'heroine.example-swim'},
+            ],
+        }
+        index = {'people': [{'personId': 'heroine.example',
+                            'formIds': ['heroine.example', 'heroine.example-swim']}]}
+        with self.assertRaisesRegex(ValueError, 'published person split'):
+            module.validate_published_roster(roster, index)
 
     def test_lady_x_remains_two_people(self):
         self.assertEqual(self.people['kyoshin.person.113']['name'], 'レディX(少女)')
